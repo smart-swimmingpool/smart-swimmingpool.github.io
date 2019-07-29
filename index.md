@@ -1,5 +1,6 @@
 ---
 title: Smart Swimming Pool
+layout: default
 
 ---
 
