@@ -1,7 +1,11 @@
 ---
-title: Smart Swimming Pool
+title: 🏊 Smart Swimming Pool
 layout: default
-
+menus:
+  header:
+    title: Home
+    weight: 1
+    
 ---
 
 # 🏊 Smart Swimming Pool
