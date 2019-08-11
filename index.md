@@ -10,8 +10,13 @@ menus:
 
 # 🏊 Smart Swimming Pool
 
-- [Smart Swimming Pool](https://smart-swimmingpool.github.io/smart-swimmingpool/)
-  - [Controller](https://smart-swimmingpool.github.io/pool-controller/)
-    - [Software Guide](https://smart-swimmingpool.github.io/pool-controller/software-guide.html)
-    - [Hardware Guide](https://smart-swimmingpool.github.io/pool-controller/hardware-guide.html)
-    - [Users Guide](https://smart-swimmingpool.github.io/pool-controller/users-guide.html)
+Pool automation for smarter control of your swimming pool
+
+- [Overview](https://smart-swimmingpool.github.io/smart-swimmingpool/) of complete project
+- [Controller](https://smart-swimmingpool.github.io/pool-controller/) containing central logic to control your pool
+  - [Software Guide](https://smart-swimmingpool.github.io/pool-controller/software-guide.html)
+  - [Hardware Guide](https://smart-swimmingpool.github.io/pool-controller/hardware-guide.html)
+  - [Users Guide](https://smart-swimmingpool.github.io/pool-controller/users-guide.html)
+- [OpenHAB Configuration]() to add the Controller to yout OpenHAB smart home environment
+- [Monitoring Gadget]() to show curre emperature of the pool
+- [Wiki](https://github.com/smart-swimmingpool/smart-swimmingpool/wiki) to addinformation by the community 
