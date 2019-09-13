@@ -1,6 +1,6 @@
 ## Smart Swimming Pool
 
-Automate your swimming pool innsmart way.
+Automate your swimming pool in smart way.
 
 This project is splitted in several modules. 
 
