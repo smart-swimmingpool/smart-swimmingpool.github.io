@@ -2,7 +2,7 @@
 // this represents the minimal configuration
 module.exports = {
   theme: 'cool',
-  base: '/',
+  base: '/smart-swimmingpool/',
   markdown: {
     extendMarkdown: md => {
       md.set({ html: true })
