@@ -1,4 +1,6 @@
 {
+  "repository": "https://github.com/smart-swimmingpool/smart-swimmingpool",
+  "author": "Stephan Strittmatter",
   "license": "MIT",
   "scripts": {
     "docs:dev": "vuepress dev docs",
