@@ -1,13 +1,3 @@
----
-title: 🏊 Smart Swimming Pool
-layout: default
-menus:
-  header:
-    title: Home
-    weight: 1
-    
----
-
 # 🏊 Smart Swimming Pool
 
 Pool automation for smarter control of your swimming pool
