@@ -10,3 +10,5 @@ Pool automation for smarter control of your swimming pool
 - [OpenHAB Configuration](https://smart-swimmingpool.github.io/openhab-config/) to add the Controller to your OpenHAB smart home environment
 - [Monitoring Gadget]() to show current temperature of the pool
 - [Wiki](https://github.com/smart-swimmingpool/smart-swimmingpool/wiki) to add information by community 
+
+[![works with MQTT Homie](https://homieiot.github.io/img/works-with-homie.svg "[works with MQTT Homie")](https://homieiot.github.io/)
