@@ -539,6 +539,7 @@
 
       <nav id="TableOfContents">
   <ul>
+    <li><a href="#features">Features</a></li>
     <li><a href="#precondition">Precondition</a></li>
     <li><a href="#raspberry-pi">Raspberry Pi</a>
       <ul>
@@ -560,28 +561,51 @@
           <h1>OpenHAB Configuration</h1>
 
           <div class="article-style">
-            <p>Configuration example to use the Smart Swimming Pool system on openHAB.</p>
+            <span style="text-shadow: none;">
+<a class="github-button" href="https://github.com/smart-swimmingpool/openhab-config/subscription" data-size="large" data-show-count="true" aria-label="Watch smart-swimmingpool/openhab-config on GitHub">Watch</a>
+<a class="github-button" href="https://github.com/smart-swimmingpool/openhab-config" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star this on GitHub">Star</a><script async defer src="https://buttons.github.io/buttons.js"></script>
+<p>
+<a href="https://smart-swimmingpool.github.io/openhab-config/" target="_blank" rel="noopener">GitHub Project</a>
+</span></p>
+<p>Configuration example to use the Smart Swimming Pool system on openHAB.</p>
+<p>Configuration sources: <a href="https://github.com/smart-swimmingpool/openhab-config">https://github.com/smart-swimmingpool/openhab-config</a></p>
+<h2 id="features">Features</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Switch Modes: Auto, Manual, Boost, Timer</li>
+<li><input checked="" disabled="" type="checkbox"> Monitor current temparature of pool water and solar heating</li>
+<li><input checked="" disabled="" type="checkbox"> Configuration of
+<ul>
+<li>start and end time of cleaning circulation time</li>
+<li>max. temparature of pool water</li>
+<li>min temparature of solar heating buffer</li>
+<li>hystesis</li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> Compatible with Alexa openHAB Add-on</li>
+</ul>
 <h2 id="precondition">Precondition</h2>
-<p>The Smart Swimming Pool project uses Homie 3.0 based MQTT messaging. Therfor you have to install
-an MQTT broker in your environment.</p>
+<p>The Smart Swimming Pool project uses 
+<a href="https://homieiot.github.io/" target="_blank" rel="noopener">Homie 3.0</a> based MQTT messaging.
+Therfor you have to install a MQTT broker in your environment.</p>
 <h2 id="raspberry-pi">Raspberry Pi</h2>
-<p>I use an Raspberry Pi (Model 3) (
-<a href="https://amzn.to/2NnqwDQ" target="_blank" rel="noopener">Amazon</a>). The latest version of openHAB has an embedded MQTT broker. I us a seperate broker 
+<p>I use an Raspberry Pi (Model 3). openHAB (since 2.4) has an embedded MQTT broker. I use a seperate broker 
 <a href="https://mosquitto.org/" target="_blank" rel="noopener">Mosquitto</a> on Raspberry Pi.</p>
 <h3 id="install-mosquitto">Install Mosquitto</h3>
 <ul>
-<li>Install Mosquitto on Raspberry Pi:
-<pre><code>sudo apt-get update
+<li>
+<p>Install Mosquitto on Raspberry Pi:</p>
+<pre><code class="language-bash">sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get install mosquitto
 </code></pre>
 </li>
-<li>In Paper UI install add-on &lsquo;MQTT Binding&rsquo; from bindings.</li>
-<li>Check <code>services/mqtt.cfg</code> for your environment.</li>
+<li>
+<p>In Paper UI install add-on &lsquo;MQTT Binding&rsquo; from bindings.</p>
+</li>
+<li>
+<p>Check <code>services/mqtt.cfg</code> for your environment.</p>
+</li>
 </ul>
-<h1 id="documentation">Documentation</h1>
-<p>see at 
-<a href="https://smart-swimmingpool.github.io/openhab-config/" target="_blank" rel="noopener">https://smart-swimmingpool.github.io/openhab-config/</a></p>
 <p>
 <a href="https://homieiot.github.io/" target="_blank" rel="noopener"><img src="https://homieiot.github.io/img/works-with-homie.svg" alt="works with MQTT Homie" title="works with MQTT Homie"></a></p>
 
@@ -697,6 +721,10 @@ sudo apt-get install mosquitto
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/java.min.js"></script>
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/json.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/arduino.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/bash.min.js"></script>
         
       
 
