@@ -1,1 +1,153 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>tutorial | 🏊 Smart Swimming Pool</title><link>https://smart-swimmingpool.github.io/tag/tutorial/</link><atom:link href="https://smart-swimmingpool.github.io/tag/tutorial/index.xml" rel="self" type="application/rss+xml"/><description>tutorial</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 - 🏊 Smart Swimming Pool</copyright><lastBuildDate>Thu, 28 May 2020 00:00:00 +0000</lastBuildDate><image><url>https://smart-swimmingpool.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url><title>tutorial</title><link>https://smart-swimmingpool.github.io/tag/tutorial/</link></image></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>tutorial | 🏊 Smart Swimming Pool</title><link>https://smart-swimmingpool.github.io/tag/tutorial/</link><atom:link href="https://smart-swimmingpool.github.io/tag/tutorial/index.xml" rel="self" type="application/rss+xml"/><description>tutorial</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 - 🏊 Smart Swimming Pool</copyright><lastBuildDate>Thu, 28 May 2020 00:00:00 +0000</lastBuildDate><image><url>https://smart-swimmingpool.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url><title>tutorial</title><link>https://smart-swimmingpool.github.io/tag/tutorial/</link></image><item><title>Hardware Guide of Pool Controller | 🏊 Smart Swimmingpool</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/hardware-guide/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/hardware-guide/</guid><description>&lt;h2 id="parts-list-bom">Parts List (BOM)&lt;/h2>
+&lt;ul>
+&lt;li>1 * ESP8266 NodeMCU Controller (
+&lt;a href="https://amzn.to/2Ze9DSh" target="_blank" rel="noopener">Amazon&lt;/a>)&lt;/li>
+&lt;li>2 * DS18B20 Temperature Sensors (
+&lt;a href="https://amzn.to/2ZlfZ2c" target="_blank" rel="noopener">Amazon&lt;/a>)&lt;/li>
+&lt;li>1 * Relais-Module 5V (
+&lt;a href="https://amzn.to/31RBd5s" target="_blank" rel="noopener">Amazon&lt;/a>)&lt;/li>
+&lt;/ul>
+&lt;h2 id="circuit">Circuit&lt;/h2>
+&lt;figure id="figure-breadboard-circuit-of-pool-controller">
+&lt;a data-fancybox="" href="https://smart-swimmingpool.github.io/img/pool-controller_breadboard.png" data-caption="Breadboard Circuit of Pool Controller">
+&lt;img src="https://smart-swimmingpool.github.io/img/pool-controller_breadboard.png" alt="" >
+&lt;/a>
+&lt;figcaption>
+Breadboard Circuit of Pool Controller
+&lt;/figcaption>
+&lt;/figure>
+&lt;p>see:
+&lt;a href="../pool-controller.fzz">pool-controller.fzz&lt;/a>&lt;/p>
+&lt;h3 id="esp8266-pin-usage">ESP8266 PIN Usage&lt;/h3>
+&lt;ul>
+&lt;li>PIN_DS_SOLAR = D5 -&amp;gt; Pin of temperature sensor for solar&lt;/li>
+&lt;li>PIN_DS_POOL = D6 -&amp;gt; Pin of temperature sensor for pool water&lt;/li>
+&lt;li>PIN_RELAY_POOL = D1 -&amp;gt; pin to connect relais for pool pump&lt;/li>
+&lt;li>PIN_RELAY_SOLAR = D2 -&amp;gt; pin to connect relais for solar pump&lt;/li>
+&lt;/ul>
+&lt;p>| TODO: see &lt;a href="https://randomnerdtutorials.com/esp8266-pinout-reference-gpios/">https://randomnerdtutorials.com/esp8266-pinout-reference-gpios/&lt;/a>&lt;/p></description></item><item><title>Software Guide of Pool Controller | 🏊 Smart Swimmingpool</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/software-guide/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/software-guide/</guid><description>&lt;h2 id="development-environment">Development Environment&lt;/h2>
+&lt;h2 id="required-libraries">Required Libraries&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;a href="https://github.com/homieiot/homie-esp8266" target="_blank" rel="noopener">Homie-ESP8266 (develop-v3)&lt;/a>&lt;/li>
+&lt;li>
+&lt;a href="https://github.com/YuriiSalimov/RelayModule" target="_blank" rel="noopener">RelayModule&lt;/a>&lt;/li>
+&lt;li>
+&lt;a href="https://github.com/tomstewart89/Vector" target="_blank" rel="noopener">Vector&lt;/a>&lt;/li>
+&lt;li>DallasTemperature&lt;/li>
+&lt;li>Adafruit Unified Sensor&lt;/li>
+&lt;li>DHT sensor library&lt;/li>
+&lt;li>NTPClient&lt;/li>
+&lt;li>TimeZone&lt;/li>
+&lt;li>
+&lt;a href="https://github.com/xoseperez/Time" target="_blank" rel="noopener">Time&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="defines">Defines&lt;/h2>
+&lt;pre>&lt;code class="language-cpp">const uint8_t PIN_DS_SOLAR = D5; // Pin of Temp-Sensor Solar
+const uint8_t PIN_DS_POOL = D6; // Pin of Temp-Sensor Pool
+const uint8_t PIN_RELAY_POOL = D1;
+const uint8_t PIN_RELAY_SOLAR = D2;
+const uint8_t TEMP_READ_INTERVALL = 30;
+&lt;/code>&lt;/pre>
+&lt;h2 id="configuration">Configuration&lt;/h2>
+&lt;p>How to upload JSON-config see the
+&lt;a href="https://homieiot.github.io/homie-esp8266/docs/develop/configuration/json-configuration-file/" target="_blank" rel="noopener">Homie-esp8266 docu&lt;/a>&lt;/p>
+&lt;h3 id="example-configjson">Example &lt;code>config.json&lt;/code>&lt;/h3>
+&lt;pre>&lt;code class="language-json">{
+&amp;quot;name&amp;quot;: &amp;quot;Pool Controller&amp;quot;,
+&amp;quot;device_id&amp;quot;: &amp;quot;pool-controller&amp;quot;,
+&amp;quot;wifi&amp;quot;: {
+&amp;quot;ssid&amp;quot;: &amp;quot;&amp;lt;SSID&amp;gt;&amp;quot;,
+&amp;quot;password&amp;quot;: &amp;quot;&amp;lt;XXX&amp;gt;&amp;quot;
+},
+&amp;quot;mqtt&amp;quot;: {
+&amp;quot;host&amp;quot;: &amp;quot;&amp;lt;MQTT_HOST&amp;gt;&amp;quot;,
+&amp;quot;port&amp;quot;: 1883
+},
+&amp;quot;ota&amp;quot;: {
+&amp;quot;enabled&amp;quot;: true
+},
+&amp;quot;settings&amp;quot;: {
+&amp;quot;loop-interval&amp;quot;: 60,
+&amp;quot;temperature-max-pool&amp;quot;: 28,
+&amp;quot;temperature-min-solar&amp;quot;: 50,
+&amp;quot;temperature-hysteresis&amp;quot;: 0.5
+}
+}
+&lt;/code>&lt;/pre></description></item><item><title>Users Guide of Pool Controller | 🏊 Smart Swimmingpool</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/users-guide/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/users-guide/</guid><description>&lt;h2 id="settings">Settings&lt;/h2>
+&lt;p>There are some specific settings for the controller:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>Pool max. temperature:&lt;/strong> The maximum temperature of the water in the pool which should not be exceeded.&lt;/p>
+&lt;ul>
+&lt;li>Unit: &lt;code>°C&lt;/code>&lt;/li>
+&lt;li>Default value: &lt;code>29&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Solar min temperature:&lt;/strong> The minimum temerature of the heat storage tank which should not be fall below.&lt;/p>
+&lt;ul>
+&lt;li>Unit: &lt;code>°C&lt;/code>&lt;/li>
+&lt;li>Default value: &lt;code>50&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Hysteresis:&lt;/strong> Hysteresis which is used to verify if heating should be enabled or disabled to prevent fast toggeling.&lt;/p>
+&lt;ul>
+&lt;li>Unit: &lt;code>K&lt;/code>&lt;/li>
+&lt;li>Default value: &lt;code>1&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Pump Timer:&lt;/strong> time range when pool pump has to run.&lt;/p>
+&lt;ul>
+&lt;li>start h/min&lt;/li>
+&lt;li>end h/min&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Loop Interval:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Unit: &lt;code>sec&lt;/code>&lt;/li>
+&lt;li>Default value: &lt;code>30&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="rules">Rules&lt;/h2>
+&lt;p>The &lt;strong>Smart Swimmingpool Controller&lt;/strong> implements &lt;code>Rules&lt;/code> to handle different situations:&lt;/p>
+&lt;h3 id="rule-manual">Rule: Manual&lt;/h3>
+&lt;p>The pump for cleaning and solar heating are enabled/disabled completely manual and independent.&lt;/p>
+&lt;h3 id="rule-timer">Rule: Timer&lt;/h3>
+&lt;p>This rule enables the cleaning pump based on timer settings.
+Solar heating is disabled.&lt;/p>
+&lt;h3 id="rule-auto">Rule: Auto&lt;/h3>
+&lt;p>This rule enables the cleaning pump based on timer settings.
+Solar heating is enabled &lt;strong>smart&lt;/strong> if cleaning pump is enabled by timer and the heat storage tank has enough temperature.&lt;/p>
+&lt;p>If the maximum temperature of the pool water is reached, the solar heating is disabled.&lt;/p>
+&lt;h3 id="rule-boost">Rule: Boost&lt;/h3>
+&lt;p>Heating of pool water with all power.&lt;/p>
+&lt;h2 id="mqtt-interface">MQTT Interface&lt;/h2>
+&lt;p>The &lt;strong>Smart Swimmingpool Controller&lt;/strong> uses
+&lt;a href="http://mqtt.org/" target="_blank" rel="noopener">MQTT&lt;/a> to communicate with your smart home. For the transmission of data the IoT standard
+&lt;a href="https://homieiot.github.io" target="_blank" rel="noopener">Homie 3.0&lt;/a> is used.&lt;/p>
+&lt;p>Using Homie 3.0 it is possible to integrate &lt;strong>Smart Pool Controller&lt;/strong> directly in open source smarthome server
+&lt;a href="https://www.openhab.org/" target="_blank" rel="noopener">openHAB&lt;/a> or
+&lt;a href="https://www.home-assistant.io/" target="_blank" rel="noopener">Home Assistant&lt;/a>.&lt;/p>
+&lt;h3 id="clearing-retained-messages">Clearing retained messages&lt;/h3>
+&lt;p>In some cases some retained messages can be wanted and we don’t want to clear all the retained messages.&lt;/p>
+&lt;p>The messages will have to be cleared one by one using the topic&lt;/p>
+&lt;p>To clear a specific message:&lt;/p>
+&lt;pre>&lt;code class="language-bash">mosquitto_pub -h hostname -t homie -n -r -d
+&lt;/code>&lt;/pre>
+&lt;h2 id="openhab-integration">OpenHAB Integration&lt;/h2>
+&lt;p>The &lt;strong>Smart Swimmingpool Controller&lt;/strong> could be integrated in
+&lt;a href="https://www.openhab.org" target="_blank" rel="noopener">openHAB&lt;/a> since version 2.4.&lt;/p>
+&lt;p>It is possible to interact with the controller to enable/disable the pump or to swith the current rule.&lt;/p>
+&lt;p>Also it is possible to monitor the current values of temperatures or states.&lt;/p>
+&lt;p>At least the
+&lt;a href="#settings">settings&lt;/a> could be updated, too.&lt;/p>
+&lt;ul>
+&lt;li>TODO: add example of openhab config.&lt;/li>
+&lt;/ul>
+&lt;h3 id="device">Device&lt;/h3>
+&lt;h3 id="properties">Properties&lt;/h3></description></item></channel></rss>
