@@ -12,15 +12,15 @@
 &lt;h2 id="circuit">Circuit&lt;/h2>
 &lt;p>The circuit of the controller could be found on following image based on a breadboard wireing:&lt;/p>
 &lt;figure id="figure-breadboard-circuit-of-pool-controller">
-&lt;a data-fancybox="" href="https://smart-swimmingpool.github.io/img/pool-controller_breadboard.png" data-caption="Breadboard Circuit of Pool Controller">
-&lt;img src="https://smart-swimmingpool.github.io/img/pool-controller_breadboard.png" alt="" >
+&lt;a data-fancybox="" href="https://smart-swimmingpool.github.io/pool-controller_breadboard.png" data-caption="Breadboard Circuit of Pool Controller">
+&lt;img src="https://smart-swimmingpool.github.io/pool-controller_breadboard.png" alt="" >
 &lt;/a>
 &lt;figcaption>
 Breadboard Circuit of Pool Controller
 &lt;/figcaption>
 &lt;/figure>
 &lt;p>The source
-&lt;a href="https://fritzing.org/" target="_blank" rel="noopener">Fritzing&lt;/a> file could be fond in GitHub project:
+&lt;a href="https://fritzing.org/" target="_blank" rel="noopener">Fritzing&lt;/a> file could be found in GitHub project:
 &lt;a href="https://github.com/smart-swimmingpool/pool-controller/raw/master/docs/pool-controller.fzz" target="_blank" rel="noopener">pool-controller.fzz&lt;/a>&lt;/p>
 &lt;h3 id="esp8266-pin-usage">ESP8266 PIN Usage&lt;/h3>
 &lt;p>The ESP8266 is connected using following PINs. You can find the constant values within the sources
@@ -67,7 +67,7 @@ TODO: improve PIN usage (see &lt;a href="https://randomnerdtutorials.com/esp8266
 &lt;h2 id="required-libraries">Required Libraries&lt;/h2>
 &lt;ul>
 &lt;li>
-&lt;a href="https://github.com/homieiot/homie-esp8266" target="_blank" rel="noopener">Homie-ESP8266 (develop-v3)&lt;/a>&lt;/li>
+&lt;a href="https://github.com/homieiot/homie-esp8266" target="_blank" rel="noopener">Homie-ESP8266&lt;/a>&lt;/li>
 &lt;li>
 &lt;a href="https://github.com/YuriiSalimov/RelayModule" target="_blank" rel="noopener">RelayModule&lt;/a>&lt;/li>
 &lt;li>
@@ -80,7 +80,11 @@ TODO: improve PIN usage (see &lt;a href="https://randomnerdtutorials.com/esp8266
 &lt;li>
 &lt;a href="https://github.com/xoseperez/Time" target="_blank" rel="noopener">Time&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;p>Many thanks to maintainers of these libraries!&lt;/p>
 &lt;h2 id="defines">Defines&lt;/h2>
+&lt;p>Within the sources at &lt;code>main.cpp&lt;/code> there are someconstant defined settings. For the PIN assignment
+see also the
+&lt;a href="../hardware-guide/#esp8266-pin-usage">Hardware Guide&lt;/a>.&lt;/p>
 &lt;pre>&lt;code class="language-cpp">const uint8_t PIN_DS_SOLAR = D5; // Pin of Temp-Sensor Solar
 const uint8_t PIN_DS_POOL = D6; // Pin of Temp-Sensor Pool
 const uint8_t PIN_RELAY_POOL = D1;
@@ -88,8 +92,9 @@ const uint8_t PIN_RELAY_SOLAR = D2;
 const uint8_t TEMP_READ_INTERVALL = 30;
 &lt;/code>&lt;/pre>
 &lt;h2 id="configuration">Configuration&lt;/h2>
-&lt;p>How to upload JSON-config see the
-&lt;a href="https://homieiot.github.io/homie-esp8266/docs/develop/configuration/json-configuration-file/" target="_blank" rel="noopener">Homie-esp8266 docu&lt;/a>&lt;/p>
+&lt;p>Homie-ESP8266 supports configuration (e.g. WiFi credentials) using JSON-files.
+How to upload JSON config files see
+&lt;a href="https://homieiot.github.io/homie-esp8266/docs/develop/configuration/json-configuration-file/" target="_blank" rel="noopener">Homie-esp8266 docu&lt;/a>.&lt;/p>
 &lt;h3 id="example-configjson">Example &lt;code>config.json&lt;/code>&lt;/h3>
 &lt;pre>&lt;code class="language-json">{
 &amp;quot;name&amp;quot;: &amp;quot;Pool Controller&amp;quot;,
