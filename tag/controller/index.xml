@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>controller | 🏊 Smart Swimming Pool</title><link>https://smart-swimmingpool.github.io/tag/controller/</link><atom:link href="https://smart-swimmingpool.github.io/tag/controller/index.xml" rel="self" type="application/rss+xml"/><description>controller</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 - 🏊 Smart Swimming Pool</copyright><lastBuildDate>Thu, 28 May 2020 00:00:00 +0000</lastBuildDate><image><url>https://smart-swimmingpool.github.io/images/icon_huc1aac635c547f103b14921ae0ab7550f_20089_512x512_fill_lanczos_center_2.png</url><title>controller</title><link>https://smart-swimmingpool.github.io/tag/controller/</link></image><item><title>Hardware Guide of Pool Controller</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/hardware-guide/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/hardware-guide/</guid><description>&lt;h2 id="parts-list-bom">Parts List (BOM)&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>controller | 🏊 Smart Swimming Pool</title><link>https://smart-swimmingpool.github.io/tag/controller/</link><atom:link href="https://smart-swimmingpool.github.io/tag/controller/index.xml" rel="self" type="application/rss+xml"/><description>controller</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 - 🏊 Smart Swimming Pool</copyright><lastBuildDate>Thu, 28 May 2020 00:00:00 +0000</lastBuildDate><image><url>https://smart-swimmingpool.github.io/images/icon_huc1aac635c547f103b14921ae0ab7550f_20089_512x512_fill_lanczos_center_2.png</url><title>controller</title><link>https://smart-swimmingpool.github.io/tag/controller/</link></image><item><title>Hardware Guide of Pool Controller</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/hardware-guide/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/hardware-guide/</guid><description>&lt;p>This Hardware Guide will describe how to setup the hardware of the controller.&lt;/p>
+&lt;h2 id="parts-list-bom">Parts List (BOM)&lt;/h2>
 &lt;ul>
 &lt;li>1 * ESP8266 NodeMCU Controller (
 &lt;a href="https://amzn.to/2Ze9DSh" target="_blank" rel="noopener">Amazon&lt;/a>)&lt;/li>
@@ -6,8 +7,10 @@
 &lt;a href="https://amzn.to/2ZlfZ2c" target="_blank" rel="noopener">Amazon&lt;/a>)&lt;/li>
 &lt;li>1 * Relais-Module 5V (
 &lt;a href="https://amzn.to/31RBd5s" target="_blank" rel="noopener">Amazon&lt;/a>)&lt;/li>
+&lt;li>1 * Breadboard and wires to connect (alternativly soldering of the circuit)&lt;/li>
 &lt;/ul>
 &lt;h2 id="circuit">Circuit&lt;/h2>
+&lt;p>The circuit of the controller could be found on following image based on a breadboard wireing:&lt;/p>
 &lt;figure id="figure-breadboard-circuit-of-pool-controller">
 &lt;a data-fancybox="" href="https://smart-swimmingpool.github.io/img/pool-controller_breadboard.png" data-caption="Breadboard Circuit of Pool Controller">
 &lt;img src="https://smart-swimmingpool.github.io/img/pool-controller_breadboard.png" alt="" >
@@ -16,16 +19,51 @@
 Breadboard Circuit of Pool Controller
 &lt;/figcaption>
 &lt;/figure>
-&lt;p>see:
-&lt;a href="../pool-controller.fzz">pool-controller.fzz&lt;/a>&lt;/p>
+&lt;p>The source
+&lt;a href="https://fritzing.org/" target="_blank" rel="noopener">Fritzing&lt;/a> file could be fond in GitHub project:
+&lt;a href="https://github.com/smart-swimmingpool/pool-controller/raw/master/docs/pool-controller.fzz" target="_blank" rel="noopener">pool-controller.fzz&lt;/a>&lt;/p>
 &lt;h3 id="esp8266-pin-usage">ESP8266 PIN Usage&lt;/h3>
-&lt;ul>
-&lt;li>PIN_DS_SOLAR = D5 -&amp;gt; Pin of temperature sensor for solar&lt;/li>
-&lt;li>PIN_DS_POOL = D6 -&amp;gt; Pin of temperature sensor for pool water&lt;/li>
-&lt;li>PIN_RELAY_POOL = D1 -&amp;gt; pin to connect relais for pool pump&lt;/li>
-&lt;li>PIN_RELAY_SOLAR = D2 -&amp;gt; pin to connect relais for solar pump&lt;/li>
-&lt;/ul>
-&lt;p>| TODO: see &lt;a href="https://randomnerdtutorials.com/esp8266-pinout-reference-gpios/">https://randomnerdtutorials.com/esp8266-pinout-reference-gpios/&lt;/a>&lt;/p></description></item><item><title>Software Guide of Pool Controller</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/software-guide/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/software-guide/</guid><description>&lt;h2 id="development-environment">Development Environment&lt;/h2>
+&lt;p>The ESP8266 is connected using following PINs. You can find the constant values within the sources
+of &lt;code>main.cpp&lt;/code> (first column of table) which are associated to the pins.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Constant in Source&lt;/th>
+&lt;th align="center">PIN of ESP8266&lt;/th>
+&lt;th>Description&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>PIN_DS_SOLAR&lt;/td>
+&lt;td align="center">D5&lt;/td>
+&lt;td>Pin of temperature sensor (DS18B20) for solar storage&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>PIN_DS_POOL&lt;/td>
+&lt;td align="center">D6&lt;/td>
+&lt;td>Pin of temperature sensor (DS18B20) for pool water&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>PIN_RELAY_POOL&lt;/td>
+&lt;td align="center">D1&lt;/td>
+&lt;td>Pin to connect relais for pool pump&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>PIN_RELAY_SOLAR&lt;/td>
+&lt;td align="center">D2&lt;/td>
+&lt;td>Pin to connect relais for solar pump&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;div class="alert alert-note">
+&lt;div>
+TODO: improve PIN usage (see &lt;a href="https://randomnerdtutorials.com/esp8266-pinout-reference-gpios/">https://randomnerdtutorials.com/esp8266-pinout-reference-gpios/&lt;/a>)
+&lt;/div>
+&lt;/div>
+&lt;h2 id="power-supply">Power Supply&lt;/h2>
+&lt;p>In my environment I use the USB to power the ESP8266 via small USB-Power-Adapter andan additional
+230V power plug to be used as source for the power of the pumps which are switched via the relais.&lt;/p></description></item><item><title>Software Guide of Pool Controller</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/software-guide/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/software-guide/</guid><description>&lt;h2 id="development-environment">Development Environment&lt;/h2>
 &lt;h2 id="required-libraries">Required Libraries&lt;/h2>
 &lt;ul>
 &lt;li>
