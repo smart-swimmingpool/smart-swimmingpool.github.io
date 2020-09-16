@@ -29,29 +29,29 @@ of &lt;code>main.cpp&lt;/code> (first column of table) which are associated to t
 &lt;thead>
 &lt;tr>
 &lt;th>Constant in Source&lt;/th>
-&lt;th align="center">PIN of ESP8266&lt;/th>
+&lt;th style="text-align:center">PIN of ESP8266&lt;/th>
 &lt;th>Description&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
 &lt;td>PIN_DS_SOLAR&lt;/td>
-&lt;td align="center">D5&lt;/td>
+&lt;td style="text-align:center">D5&lt;/td>
 &lt;td>Pin of temperature sensor (DS18B20) for solar storage&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>PIN_DS_POOL&lt;/td>
-&lt;td align="center">D6&lt;/td>
+&lt;td style="text-align:center">D6&lt;/td>
 &lt;td>Pin of temperature sensor (DS18B20) for pool water&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>PIN_RELAY_POOL&lt;/td>
-&lt;td align="center">D1&lt;/td>
+&lt;td style="text-align:center">D1&lt;/td>
 &lt;td>Pin to connect relais for pool pump&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>PIN_RELAY_SOLAR&lt;/td>
-&lt;td align="center">D2&lt;/td>
+&lt;td style="text-align:center">D2&lt;/td>
 &lt;td>Pin to connect relais for solar pump&lt;/td>
 &lt;/tr>
 &lt;/tbody>
