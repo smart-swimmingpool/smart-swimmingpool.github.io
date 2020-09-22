@@ -90,8 +90,8 @@ TODO: improve PIN usage (see &lt;a href="https://randomnerdtutorials.com/esp8266
 &lt;p>Many thanks to maintainers of these libraries!&lt;/p>
 &lt;h2 id="defines">Defines&lt;/h2>
 &lt;p>Within the sources at &lt;code>main.cpp&lt;/code> there are someconstant defined settings. For the PIN assignment
-see also the
-&lt;a href="../hardware-guide/#esp8266-pin-usage">Hardware Guide&lt;/a>.&lt;/p>
+see also at
+&lt;a href="../hardware-guide/#esp8266-pin-usage">hardware guide&lt;/a>.&lt;/p>
 &lt;pre>&lt;code class="language-cpp">const uint8_t PIN_DS_SOLAR = D5; // Pin of Temp-Sensor Solar
 const uint8_t PIN_DS_POOL = D6; // Pin of Temp-Sensor Pool
 const uint8_t PIN_RELAY_POOL = D1;
@@ -124,7 +124,23 @@ How to upload JSON config files see
 &amp;quot;temperature-hysteresis&amp;quot;: 0.5
 }
 }
-&lt;/code>&lt;/pre></description></item><item><title>Users Guide of Pool Controller</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/users-guide/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/users-guide/</guid><description>&lt;h2 id="settings">Settings&lt;/h2>
+&lt;/code>&lt;/pre>
+&lt;h2 id="mqtt-communication">MQTT Communication&lt;/h2>
+&lt;h3 id="clearing-retained-messages">Clearing retained messages&lt;/h3>
+&lt;p>In some cases some retained messages can be wanted and we don’t want to clear all the retained messages.&lt;/p>
+&lt;p>The messages will have to be cleared one by one using the topic&lt;/p>
+&lt;p>To clear a specific message:&lt;/p>
+&lt;pre>&lt;code class="language-bash">mosquitto_pub -h hostname -t homie -n -r -d
+&lt;/code>&lt;/pre></description></item><item><title>Users Guide of Pool Controller</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/users-guide/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/users-guide/</guid><description>&lt;h2 id="setup">Setup&lt;/h2>
+&lt;h2 id="booting-controller">Booting Controller&lt;/h2>
+&lt;p>Booting the controller, it will give feedback on establishing WiFi connection andconnection to MQTT broker:&lt;/p>
+&lt;ul>
+&lt;li>&amp;ldquo;LED&amp;rdquo; &lt;img src="led_wifi.gif" alt="Slowly blinking LED">
+Slowly when connecting to the Wi-Fi&lt;/li>
+&lt;li>&amp;ldquo;LED&amp;rdquo; &lt;img src="led_mqtt.gif" alt="Fast blinking LED">
+Faster when connecting to the MQTT broker&lt;/li>
+&lt;/ul>
+&lt;h2 id="settings">Settings&lt;/h2>
 &lt;p>There are some specific settings for the controller:&lt;/p>
 &lt;ul>
 &lt;li>
@@ -142,7 +158,7 @@ How to upload JSON config files see
 &lt;/ul>
 &lt;/li>
 &lt;li>
-&lt;p>&lt;strong>Hysteresis:&lt;/strong> Hysteresis which is used to verify if heating should be enabled or disabled to prevent fast toggeling.&lt;/p>
+&lt;p>&lt;strong>Hysteresis:&lt;/strong> Hysteresis in Kelvin which is used to verify if heating should be enabled or disabled to prevent fast toggeling.&lt;/p>
 &lt;ul>
 &lt;li>Unit: &lt;code>K&lt;/code>&lt;/li>
 &lt;li>Default value: &lt;code>1&lt;/code>&lt;/li>
@@ -183,12 +199,6 @@ Solar heating is enabled &lt;strong>smart&lt;/strong> if cleaning pump is enable
 &lt;p>Using Homie 3.0 it is possible to integrate &lt;strong>Smart Pool Controller&lt;/strong> directly in open source smarthome server
 &lt;a href="https://www.openhab.org/" target="_blank" rel="noopener">openHAB&lt;/a> or
 &lt;a href="https://www.home-assistant.io/" target="_blank" rel="noopener">Home Assistant&lt;/a>.&lt;/p>
-&lt;h3 id="clearing-retained-messages">Clearing retained messages&lt;/h3>
-&lt;p>In some cases some retained messages can be wanted and we don’t want to clear all the retained messages.&lt;/p>
-&lt;p>The messages will have to be cleared one by one using the topic&lt;/p>
-&lt;p>To clear a specific message:&lt;/p>
-&lt;pre>&lt;code class="language-bash">mosquitto_pub -h hostname -t homie -n -r -d
-&lt;/code>&lt;/pre>
 &lt;h2 id="openhab-integration">OpenHAB Integration&lt;/h2>
 &lt;p>The &lt;strong>Smart Swimmingpool Controller&lt;/strong> could be integrated in
 &lt;a href="https://www.openhab.org" target="_blank" rel="noopener">openHAB&lt;/a> since version 2.4.&lt;/p>
