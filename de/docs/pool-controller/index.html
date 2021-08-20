@@ -1,19 +1,291 @@
-<!doctype html><html lang=de-de><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=generator content="Source Themes Academic 4.8.0"><meta name=description content="Steuer deinen Swimmingpool smart"><link rel=alternate hreflang=en href=https://smart-swimmingpool.github.io/docs/pool-controller/><link rel=alternate hreflang=de-de href=https://smart-swimmingpool.github.io/de/docs/pool-controller/><meta name=theme-color content="#2879d0"><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css integrity="sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU=" crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css crossorigin=anonymous title=hl-light><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css crossorigin=anonymous title=hl-dark disabled><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin=anonymous><script src=https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin=anonymous async></script><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap"><link rel=stylesheet href=/css/academic.css><script async src="https://www.googletagmanager.com/gtag/js?id=G-Z4Q2NR31ZD"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}function trackOutboundLink(a,b){gtag('event','click',{event_category:'outbound',event_label:a,transport_type:'beacon',event_callback:function(){b!=='_blank'&&(document.location=a)}}),console.debug("Outbound link clicked: "+a)}function onClickCallback(a){if(a.target.tagName!=='A'||a.target.host===window.location.host)return;trackOutboundLink(a.target,a.target.getAttribute('target'))}gtag('js',new Date),gtag('config','G-Z4Q2NR31ZD',{anonymize_ip:!0}),document.addEventListener('click',onClickCallback,!1)</script><link rel=alternate href=/de/docs/pool-controller/index.xml type=application/rss+xml title="Smart Swimming Pool"><link rel=manifest href=/de/index.webmanifest><link rel=icon type=image/png href=/images/icon_huc1aac635c547f103b14921ae0ab7550f_20089_32x32_fill_lanczos_center_2.png><link rel=apple-touch-icon type=image/png href=/images/icon_huc1aac635c547f103b14921ae0ab7550f_20089_192x192_fill_lanczos_center_2.png><link rel=canonical href=https://smart-swimmingpool.github.io/de/docs/pool-controller/><meta property="twitter:card" content="summary"><meta property="twitter:site" content="@_stritti_"><meta property="twitter:creator" content="@_stritti_"><meta property="og:site_name" content="Smart Swimming Pool"><meta property="og:url" content="https://smart-swimmingpool.github.io/de/docs/pool-controller/"><meta property="og:title" content="Pool Controller 2.0 | Smart Swimming Pool"><meta property="og:description" content="Steuer deinen Swimmingpool smart"><meta property="og:image" content="https://smart-swimmingpool.github.io/images/icon_huc1aac635c547f103b14921ae0ab7550f_20089_512x512_fill_lanczos_center_2.png"><meta property="twitter:image" content="https://smart-swimmingpool.github.io/images/icon_huc1aac635c547f103b14921ae0ab7550f_20089_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="de-de"><meta property="og:updated_time" content="2020-05-28T00:00:00+00:00"><script src=https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.js integrity="sha256-5VhCqFam2Cn+yjw61zbBNrbHVJ6SRydPeKopYlngbiQ=" crossorigin=anonymous></script><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.css integrity="sha256-zQ0LblD/Af8vOppw18+2anxsuaz3pWYyVWi+bTvTH8Q=" crossorigin=anonymous><script>window.addEventListener("load",function(){window.cookieconsent.initialise({palette:{popup:{background:"#2879d0",text:"#fff"},button:{background:"#fff",text:"#2879d0"}},theme:"classic",content:{message:"Um unsere Webseite für Sie optimal zu gestalten und fortlaufend verbessern zu können, verwenden wir Cookies.",dismiss:"Verstanden!",link:"Mehr erfahren",href:"https://www.cookiesandyou.com"}})})</script><title>Pool Controller 2.0 | Smart Swimming Pool</title></head><body id=top data-spy=scroll data-offset=70 data-target=#TableOfContents><aside class=search-results id=search><div class=container><section class=search-header><div class="row no-gutters justify-content-between mb-3"><div class=col-6><h1>Suche</h1></div><div class="col-6 col-search-close"><a class=js-search href=#><i class="fas fa-times-circle text-muted" aria-hidden=true></i></a></div></div><div id=search-box><input name=q id=search-query placeholder=Suche... autocapitalize=off autocomplete=off autocorrect=off spellcheck=false type=search></div></section><section class=section-search-results><div id=search-hits></div></section></div></aside><nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id=navbar-main><div class=container><div class="d-none d-lg-inline-flex"><a class=navbar-brand href=/de/>Smart Swimming Pool</a></div><button type=button class=navbar-toggler data-toggle=collapse data-target=#navbar-content aria-controls=navbar aria-expanded=false aria-label="Navigation einblenden">
-<span><i class="fas fa-bars"></i></span></button><div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none"><a class=navbar-brand href=/de/>Smart Swimming Pool</a></div><div class="navbar-collapse main-menu-item collapse justify-content-start" id=navbar-content><ul class="navbar-nav d-md-inline-flex"><li class=nav-item><a class="nav-link active" href=/de/docs><span>Dokumentation</span></a></li><li class=nav-item><a class=nav-link href=/de/code-of-conduct/><span>Verhaltenskodex</span></a></li></ul><ul class="navbar-nav ml-md-auto"><li class=nav-item><a class=nav-link href=https://github.com/smart-swimmingpool target=_blank rel=noopener><span><i class="fab fa-github-alt" style=font-size:18px;line-height:18px></i></span></a></li></ul></div><ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2"><li class=nav-item><a class="nav-link js-search" href=# aria-label=Suche><i class="fas fa-search" aria-hidden=true></i></a></li><li class="nav-item dropdown theme-dropdown"><a href=# class="nav-link js-theme-selector" data-toggle=dropdown aria-haspopup=true><i class="fas fa-palette" aria-hidden=true></i></a><div class=dropdown-menu><a href=# class="dropdown-item js-set-theme-light"><span>Light</span></a>
-<a href=# class="dropdown-item js-set-theme-dark"><span>Dark</span></a>
-<a href=# class="dropdown-item js-set-theme-auto"><span>Automatic</span></a></div></li><li class="nav-item dropdown i18n-dropdown"><a href=# class="nav-link dropdown-toggle" data-toggle=dropdown aria-haspopup=true><i class="fas fa-globe mr-1" aria-hidden=true></i><span class="d-none d-lg-inline">Deutsch</span></a><div class=dropdown-menu><div class="dropdown-item dropdown-item-active"><span>Deutsch</span></div><a class=dropdown-item href=https://smart-swimmingpool.github.io/docs/pool-controller/><span>English</span></a></div></li></ul></div></nav><div class="container-fluid docs"><div class="row flex-xl-nowrap"><div class="col-12 col-md-3 col-xl-2 docs-sidebar"><form class="docs-search d-flex align-items-center"><button class="btn docs-toggle d-md-none p-0 mr-3" type=button data-toggle=collapse data-target=#docs-nav aria-controls=docs-nav aria-expanded=false aria-label="Toggle section navigation">
-<span><i class="fas fa-bars"></i></span></button>
-<input name=q type=search class=form-control placeholder=Suche... autocomplete=off></form><nav class="collapse docs-links" id=docs-nav><div class=docs-toc-item><a class=docs-toc-link href=/de/docs/>Dokumente</a><ul class="nav docs-sidenav"><li><a href=/de/docs/getting-started/>Getting Started</a></li><li><a href=/de/docs/publications/>Publikationen</a></li></ul></div><div class=docs-toc-item><a class=docs-toc-link href=/de/docs/openhab-configuration/>OpenHAB</a><ul class="nav docs-sidenav"><li><a href=/de/docs/openhab-configuration/>Konfiguration</a></li></ul></div><div class=docs-toc-item><a class=docs-toc-link href=/de/docs/pool-controller/>Pool Controller</a><ul class="nav docs-sidenav"><li class=active><a href=/de/docs/pool-controller/>Überblick</a></li></ul></div></nav></div><div class="d-none d-xl-block col-xl-2 docs-toc"><ul class="nav toc-top"><li><a href=# id=back_to_top class=docs-toc-title>Auf dieser Seite</a></li></ul><nav id=TableOfContents><ul><li><a href=#haupteigenschaften>Haupteigenschaften</a></li><li><a href=#geplante-funktionen>Geplante Funktionen</a></li></ul></nav><div class=connect-widget><ul class="connect-links fa-ul"><li><i class="fa-li fas fa-question-circle"></i><a href=https://spectrum.chat/smart-swimming-pool target=_blank>Ask questions</a></li></ul></div></div><main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 docs-content" role=main><article class=article><div class=docs-article-container><h1>Pool Controller 2.0</h1><div class=article-style><p><strong>🏊 Der Homie 3.0 kompaible Smart Swimmingpool Controller 🎛️</strong></p><span style=text-shadow:none><a class=github-button href=https://github.com/smart-swimmingpool/pool-controller/subscription data-size=large data-show-count=true aria-label="Watch smart-swimmingpool/pool-controller on GitHub">Watch</a>
-<a class=github-button href=https://github.com/smart-swimmingpool/pool-controller data-icon=octicon-star data-size=large data-show-count=true aria-label="Star this on GitHub">Star</a><script async defer src=https://buttons.github.io/buttons.js></script><p><a href=https://github.com/smart-swimmingpool/pool-controller target=_blank rel=noopener>GitHub Quellcode</a></span></p><p>Steuer deinen Swimming-Pool auf smarte Art und Weise, um diesen bequem und günstig (weniger als 100€) zu genießen.</p><h2 id=haupteigenschaften>Haupteigenschaften</h2><ul><li><input checked disabled type=checkbox> Verwaltung der zeitgesteuerten Wasserzirkulation für die Reinigung</li><li><input checked disabled type=checkbox> Steuerung der Wassererwärmung durch eine zusätzliche Pumpe für den Sonnenkreislauf</li><li><input checked disabled type=checkbox>
-<a href=https://homieiot.github.io/ target=_blank rel=noopener>Homie 3.0</a> kompatibles MQTT Nachrichtenformat</li><li><input checked disabled type=checkbox> Unabhängig von einzelnen Smarthome-Servern<ul><li><input checked disabled type=checkbox>
-<a href=https://www.openhab.org target=_blank rel=noopener>openHAB</a> seit Version 2.4 unter Verwendung von MQTT Homie</li><li><input checked disabled type=checkbox>
-<a href=home-assistant.io>Home Assistant</a> unter Verwendung von MQTT Homie</li></ul></li><li><input checked disabled type=checkbox> Automatische Zeitsynchroisierung mit NTP (europe.pool.ntp.org)</li><li><input checked disabled type=checkbox> Logging-Informationen via Homie-Node</li></ul><h2 id=geplante-funktionen>Geplante Funktionen</h2><ul><li><input disabled type=checkbox> Konfigurierbarer NTP-Server (aktuell hardcoded: europe.pool.ntp.org)</li><li><input disabled type=checkbox> noch smarter: selbstanpassendes für eine verbesserte zeitgesteuerte Zirkulation der Poolpumpe zur
-Reinigung und Erwärmung</li><li><input disabled type=checkbox> Zwei getrennte Zirkulationszeiten</li><li><input disabled type=checkbox> Konfigurationsänderungen dauerhaft auf dem Controller speichern</li><li><input disabled type=checkbox> Temperaturabhängige Zirkulationszeiten (kühleres Wetter == kürzere Pumpenzeit, wäremer == längere Zeit)</li><li><input disabled type=checkbox> Verbesserte Schaltung die komplett ohne WiFi-Verbindung funktioniert</li><li><input disabled type=checkbox> Verbesserung der Schaltung mit Anzeige und Tasten zur Einrichtung der Konfiguration.</li><li><input disabled type=checkbox> Eine Stromversorgung für die ganze Schaltung (ESP8266 und Relais)</li><li>siehe auch:
-<a href=https://github.com/smart-swimmingpool/pool-controller/issues target=_blank rel=noopener>Issue-Liste</a></li></ul><p><a href=https://homieiot.github.io/ target=_blank rel=noopener><img src=https://homieiot.github.io/img/works-with-homie.svg alt="works with MQTT Homie" title="works with MQTT Homie"></a></p><figure id=figure-breadboard-circuid-of-pool-controller><a data-fancybox href=/de/docs/pool-controller/pool-controller_breadboard_hu2d25e12f7720aec7bee1457d3e19bfa2_442282_2000x2000_fit_lanczos_2.png data-caption="Breadboard Circuid of Pool Controller"><img data-src=/de/docs/pool-controller/pool-controller_breadboard_hu2d25e12f7720aec7bee1457d3e19bfa2_442282_2000x2000_fit_lanczos_2.png class=lazyload alt width=1761 height=1740></a><figcaption>Breadboard Circuid of Pool Controller</figcaption></figure></div><div class=article-tags><a class="badge badge-light" href=/de/tag/docs/>docs</a>
+<!doctype html><html lang=de-de>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=generator content="Source Themes Academic 4.8.0">
+<meta name=description content="Steuer deinen Swimmingpool smart">
+<link rel=alternate hreflang=en href=https://smart-swimmingpool.github.io/docs/pool-controller/>
+<link rel=alternate hreflang=de-de href=https://smart-swimmingpool.github.io/de/docs/pool-controller/>
+<meta name=theme-color content="#2879d0">
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin=anonymous>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css integrity="sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU=" crossorigin=anonymous>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin=anonymous>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css crossorigin=anonymous title=hl-light>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css crossorigin=anonymous title=hl-dark disabled>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin=anonymous>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin=anonymous async></script>
+<link rel=stylesheet href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+<link rel=stylesheet href=/css/academic.css>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z4Q2NR31ZD"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}function trackOutboundLink(a,b){gtag('event','click',{event_category:'outbound',event_label:a,transport_type:'beacon',event_callback:function(){b!=='_blank'&&(document.location=a)}}),console.debug("Outbound link clicked: "+a)}function onClickCallback(a){if(a.target.tagName!=='A'||a.target.host===window.location.host)return;trackOutboundLink(a.target,a.target.getAttribute('target'))}gtag('js',new Date),gtag('config','G-Z4Q2NR31ZD',{anonymize_ip:!0}),document.addEventListener('click',onClickCallback,!1)</script>
+<link rel=alternate href=/de/docs/pool-controller/index.xml type=application/rss+xml title="Smart Swimming Pool">
+<link rel=manifest href=/de/index.webmanifest>
+<link rel=icon type=image/png href=/images/icon_huc1aac635c547f103b14921ae0ab7550f_20089_32x32_fill_lanczos_center_3.png>
+<link rel=apple-touch-icon type=image/png href=/images/icon_huc1aac635c547f103b14921ae0ab7550f_20089_192x192_fill_lanczos_center_3.png>
+<link rel=canonical href=https://smart-swimmingpool.github.io/de/docs/pool-controller/>
+<meta property="twitter:card" content="summary">
+<meta property="twitter:site" content="@_stritti_">
+<meta property="twitter:creator" content="@_stritti_">
+<meta property="og:site_name" content="Smart Swimming Pool">
+<meta property="og:url" content="https://smart-swimmingpool.github.io/de/docs/pool-controller/">
+<meta property="og:title" content="Pool Controller 2.0 | Smart Swimming Pool">
+<meta property="og:description" content="Steuer deinen Swimmingpool smart"><meta property="og:image" content="https://smart-swimmingpool.github.io/images/icon_huc1aac635c547f103b14921ae0ab7550f_20089_512x512_fill_lanczos_center_3.png">
+<meta property="twitter:image" content="https://smart-swimmingpool.github.io/images/icon_huc1aac635c547f103b14921ae0ab7550f_20089_512x512_fill_lanczos_center_3.png"><meta property="og:locale" content="de-de">
+<meta property="og:updated_time" content="2020-05-28T00:00:00+00:00">
+<script src=https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.js integrity="sha256-5VhCqFam2Cn+yjw61zbBNrbHVJ6SRydPeKopYlngbiQ=" crossorigin=anonymous></script>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.css integrity="sha256-zQ0LblD/Af8vOppw18+2anxsuaz3pWYyVWi+bTvTH8Q=" crossorigin=anonymous>
+<script>window.addEventListener("load",function(){window.cookieconsent.initialise({palette:{popup:{background:"#2879d0",text:"#fff"},button:{background:"#fff",text:"#2879d0"}},theme:"classic",content:{message:"Um unsere Webseite für Sie optimal zu gestalten und fortlaufend verbessern zu können, verwenden wir Cookies.",dismiss:"Verstanden!",link:"Mehr erfahren",href:"https://www.cookiesandyou.com"}})})</script>
+<title>Pool Controller 2.0 | Smart Swimming Pool</title>
+</head>
+<body id=top data-spy=scroll data-offset=70 data-target=#TableOfContents>
+<aside class=search-results id=search>
+<div class=container>
+<section class=search-header>
+<div class="row no-gutters justify-content-between mb-3">
+<div class=col-6>
+<h1>Suche</h1>
+</div>
+<div class="col-6 col-search-close">
+<a class=js-search href=#><i class="fas fa-times-circle text-muted" aria-hidden=true></i></a>
+</div>
+</div>
+<div id=search-box>
+<input name=q id=search-query placeholder=Suche... autocapitalize=off autocomplete=off autocorrect=off spellcheck=false type=search>
+</div>
+</section>
+<section class=section-search-results>
+<div id=search-hits>
+</div>
+</section>
+</div>
+</aside>
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id=navbar-main>
+<div class=container>
+<div class="d-none d-lg-inline-flex">
+<a class=navbar-brand href=/de/>Smart Swimming Pool</a>
+</div>
+<button type=button class=navbar-toggler data-toggle=collapse data-target=#navbar-content aria-controls=navbar aria-expanded=false aria-label="Navigation einblenden">
+<span><i class="fas fa-bars"></i></span>
+</button>
+<div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+<a class=navbar-brand href=/de/>Smart Swimming Pool</a>
+</div>
+<div class="navbar-collapse main-menu-item collapse justify-content-start" id=navbar-content>
+<ul class="navbar-nav d-md-inline-flex">
+<li class=nav-item>
+<a class="nav-link active" href=/de/docs><span>Dokumentation</span></a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=/de/code-of-conduct/><span>Verhaltenskodex</span></a>
+</li>
+</ul>
+<ul class="navbar-nav ml-md-auto">
+<li class=nav-item>
+<a class=nav-link href=https://github.com/smart-swimmingpool target=_blank rel=noopener><span><i class="fab fa-github-alt" style=font-size:18px;line-height:18px></i></span></a>
+</li>
+</ul>
+</div>
+<ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+<li class=nav-item>
+<a class="nav-link js-search" href=# aria-label=Suche><i class="fas fa-search" aria-hidden=true></i></a>
+</li>
+<li class="nav-item dropdown theme-dropdown">
+<a href=# class="nav-link js-theme-selector" data-toggle=dropdown aria-haspopup=true>
+<i class="fas fa-palette" aria-hidden=true></i>
+</a>
+<div class=dropdown-menu>
+<a href=# class="dropdown-item js-set-theme-light">
+<span>Light</span>
+</a>
+<a href=# class="dropdown-item js-set-theme-dark">
+<span>Dark</span>
+</a>
+<a href=# class="dropdown-item js-set-theme-auto">
+<span>Automatic</span>
+</a>
+</div>
+</li>
+<li class="nav-item dropdown i18n-dropdown">
+<a href=# class="nav-link dropdown-toggle" data-toggle=dropdown aria-haspopup=true>
+<i class="fas fa-globe mr-1" aria-hidden=true></i><span class="d-none d-lg-inline">Deutsch</span>
+</a>
+<div class=dropdown-menu>
+<div class="dropdown-item dropdown-item-active">
+<span>Deutsch</span>
+</div>
+<a class=dropdown-item href=https://smart-swimmingpool.github.io/docs/pool-controller/>
+<span>English</span>
+</a>
+</div>
+</li>
+</ul>
+</div>
+</nav>
+<div class="container-fluid docs">
+<div class="row flex-xl-nowrap">
+<div class="col-12 col-md-3 col-xl-2 docs-sidebar">
+<form class="docs-search d-flex align-items-center">
+<button class="btn docs-toggle d-md-none p-0 mr-3" type=button data-toggle=collapse data-target=#docs-nav aria-controls=docs-nav aria-expanded=false aria-label="Toggle section navigation">
+<span><i class="fas fa-bars"></i></span>
+</button>
+<input name=q type=search class=form-control placeholder=Suche... autocomplete=off>
+</form>
+<nav class="collapse docs-links" id=docs-nav>
+<div class=docs-toc-item>
+<a class=docs-toc-link href=/de/docs/>Dokumente</a>
+<ul class="nav docs-sidenav">
+<li>
+<a href=/de/docs/getting-started/>Getting Started</a>
+</li>
+<li>
+<a href=/de/docs/publications/>Publikationen</a>
+</li>
+</ul>
+</div>
+<div class=docs-toc-item>
+<a class=docs-toc-link href=/de/docs/openhab-configuration/>OpenHAB</a>
+<ul class="nav docs-sidenav">
+<li>
+<a href=/de/docs/openhab-configuration/>Konfiguration</a>
+</li>
+</ul>
+</div>
+<div class=docs-toc-item>
+<a class=docs-toc-link href=/de/docs/pool-controller/>Pool Controller</a>
+<ul class="nav docs-sidenav">
+<li class=active>
+<a href=/de/docs/pool-controller/>Überblick</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+<div class="d-none d-xl-block col-xl-2 docs-toc">
+<ul class="nav toc-top">
+<li><a href=# id=back_to_top class=docs-toc-title>Auf dieser Seite</a></li>
+</ul>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#haupteigenschaften>Haupteigenschaften</a></li>
+<li><a href=#geplante-funktionen>Geplante Funktionen</a></li>
+</ul>
+</nav>
+<div class=connect-widget>
+<ul class="connect-links fa-ul">
+<li><i class="fa-li fas fa-question-circle"></i><a href=https://spectrum.chat/smart-swimming-pool target=_blank>Ask questions</a></li>
+</ul>
+</div>
+</div>
+<main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 docs-content" role=main>
+<article class=article>
+<div class=docs-article-container>
+<h1>Pool Controller 2.0</h1>
+<div class=article-style>
+<p><strong>🏊 Der Homie 3.0 kompaible Smart Swimmingpool Controller 🎛️</strong></p>
+<span style=text-shadow:none>
+<a class=github-button href=https://github.com/smart-swimmingpool/pool-controller/subscription data-size=large data-show-count=true aria-label="Watch smart-swimmingpool/pool-controller on GitHub">Watch</a>
+<a class=github-button href=https://github.com/smart-swimmingpool/pool-controller data-icon=octicon-star data-size=large data-show-count=true aria-label="Star this on GitHub">Star</a><script async defer src=https://buttons.github.io/buttons.js></script>
+<p>
+<a href=https://github.com/smart-swimmingpool/pool-controller target=_blank rel=noopener>GitHub Quellcode</a>
+</span></p>
+<p>Steuer deinen Swimming-Pool auf smarte Art und Weise, um diesen bequem und günstig (weniger als 100€) zu genießen.</p>
+<h2 id=haupteigenschaften>Haupteigenschaften</h2>
+<ul>
+<li><input checked disabled type=checkbox> Verwaltung der zeitgesteuerten Wasserzirkulation für die Reinigung</li>
+<li><input checked disabled type=checkbox> Steuerung der Wassererwärmung durch eine zusätzliche Pumpe für den Sonnenkreislauf</li>
+<li><input checked disabled type=checkbox>
+<a href=https://homieiot.github.io/ target=_blank rel=noopener>Homie 3.0</a> kompatibles MQTT Nachrichtenformat</li>
+<li><input checked disabled type=checkbox> Unabhängig von einzelnen Smarthome-Servern
+<ul>
+<li><input checked disabled type=checkbox>
+<a href=https://www.openhab.org target=_blank rel=noopener>openHAB</a> seit Version 2.4 unter Verwendung von MQTT Homie</li>
+<li><input checked disabled type=checkbox>
+<a href=home-assistant.io>Home Assistant</a> unter Verwendung von MQTT Homie</li>
+</ul>
+</li>
+<li><input checked disabled type=checkbox> Automatische Zeitsynchroisierung mit NTP (europe.pool.ntp.org)</li>
+<li><input checked disabled type=checkbox> Logging-Informationen via Homie-Node</li>
+</ul>
+<h2 id=geplante-funktionen>Geplante Funktionen</h2>
+<ul>
+<li><input disabled type=checkbox> Konfigurierbarer NTP-Server (aktuell hardcoded: europe.pool.ntp.org)</li>
+<li><input disabled type=checkbox> noch smarter: selbstanpassendes für eine verbesserte zeitgesteuerte Zirkulation der Poolpumpe zur
+Reinigung und Erwärmung</li>
+<li><input disabled type=checkbox> Zwei getrennte Zirkulationszeiten</li>
+<li><input disabled type=checkbox> Konfigurationsänderungen dauerhaft auf dem Controller speichern</li>
+<li><input disabled type=checkbox> Temperaturabhängige Zirkulationszeiten (kühleres Wetter == kürzere Pumpenzeit, wäremer == längere Zeit)</li>
+<li><input disabled type=checkbox> Verbesserte Schaltung die komplett ohne WiFi-Verbindung funktioniert</li>
+<li><input disabled type=checkbox> Verbesserung der Schaltung mit Anzeige und Tasten zur Einrichtung der Konfiguration.</li>
+<li><input disabled type=checkbox> Eine Stromversorgung für die ganze Schaltung (ESP8266 und Relais)</li>
+<li>siehe auch:
+<a href=https://github.com/smart-swimmingpool/pool-controller/issues target=_blank rel=noopener>Issue-Liste</a></li>
+</ul>
+<p>
+<a href=https://homieiot.github.io/ target=_blank rel=noopener><img src=https://homieiot.github.io/img/works-with-homie.svg alt="works with MQTT Homie" title="works with MQTT Homie"></a></p>
+<figure id=figure-breadboard-circuid-of-pool-controller>
+<a data-fancybox href=/de/docs/pool-controller/pool-controller_breadboard_hu2d25e12f7720aec7bee1457d3e19bfa2_442282_2000x2000_fit_lanczos_3.png data-caption="Breadboard Circuid of Pool Controller">
+<img data-src=/de/docs/pool-controller/pool-controller_breadboard_hu2d25e12f7720aec7bee1457d3e19bfa2_442282_2000x2000_fit_lanczos_3.png class=lazyload alt width=1761 height=1740>
+</a>
+<figcaption>
+Breadboard Circuid of Pool Controller
+</figcaption>
+</figure>
+</div>
+<div class=article-tags>
+<a class="badge badge-light" href=/de/tag/docs/>docs</a>
 <a class="badge badge-light" href=/de/tag/controller/>controller</a>
-<a class="badge badge-light" href=/de/tag/tutorial/>tutorial</a></div><div class=article-widget><div class=post-nav></div></div></div><div class=body-footer><p>Zuletzt aktualisiert am Jun 2, 2020</p><p class=edit-page><a href=https://github.com/smart-swimmingpool/edit/master/content/de/docs/pool-controller/_index.de.md><i class="fas fa-pen pr-2"></i>Seite editieren</a></p><div class="article-widget content-widget-hr"><h3>Ähnliches</h3><ul><li><a href=/de/docs/publications/>Publikationen</a></li></ul></div></div></article><footer class=site-footer><p class=powered-by>© 2021 - 🏊 Smart Swimming Pool</p><p class=powered-by>Powered by the
+<a class="badge badge-light" href=/de/tag/tutorial/>tutorial</a>
+</div>
+<div class=article-widget>
+<div class=post-nav>
+</div>
+</div>
+</div>
+<div class=body-footer>
+<p>Zuletzt aktualisiert am Jun 2, 2020</p>
+<p class=edit-page>
+<a href=https://github.com/smart-swimmingpool/edit/master/content/de/docs/pool-controller/_index.de.md>
+<i class="fas fa-pen pr-2"></i>Seite editieren
+</a>
+</p>
+<div class="article-widget content-widget-hr">
+<h3>Ähnliches</h3>
+<ul>
+<li><a href=/de/docs/publications/>Publikationen</a></li>
+</ul>
+</div>
+</div>
+</article>
+<footer class=site-footer>
+<p class=powered-by>
+© 2021 - 🏊 Smart Swimming Pool
+</p>
+<p class=powered-by>
+Powered by the
 <a href=https://sourcethemes.com/academic/ target=_blank rel=noopener>Academic theme</a> for
-<a href=https://gohugo.io target=_blank rel=noopener>Hugo</a>.</p></footer></main></div></div><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/cpp.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/json.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/arduino.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/bash.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin=anonymous></script><script>const code_highlighting=!0</script><script>const isSiteThemeDark=!1</script><script>const search_config={indexURI:"/de/index.json",minLength:1,threshold:.3},i18n={no_results:"Nichts gefunden",placeholder:"Suche...",results:"Suchergebnisse"},content_type={post:"Blog",project:"Projekte",publication:"Publikationen",talk:"Vorträge"}</script><script src=https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.1/anchor.min.js integrity="sha256-pB/deHc9CGfFpJRjC43imB29Rse8tak+5eXqntO94ck=" crossorigin=anonymous></script><script>anchors.add()</script><script id=search-hit-fuse-template type=text/x-template>
+<a href=https://gohugo.io target=_blank rel=noopener>Hugo</a>.
+</p>
+</footer>
+</main>
+</div>
+</div>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/cpp.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/json.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/arduino.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/bash.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin=anonymous></script>
+<script>const code_highlighting=!0</script>
+<script>const isSiteThemeDark=!1</script>
+<script>const search_config={indexURI:"/de/index.json",minLength:1,threshold:.3},i18n={no_results:"Nichts gefunden",placeholder:"Suche...",results:"Suchergebnisse"},content_type={post:"Blog",project:"Projekte",publication:"Publikationen",talk:"Vorträge"}</script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.1/anchor.min.js integrity="sha256-pB/deHc9CGfFpJRjC43imB29Rse8tak+5eXqntO94ck=" crossorigin=anonymous></script>
+<script>anchors.add()</script>
+<script id=search-hit-fuse-template type=text/x-template>
       <div class="search-hit" id="summary-{{key}}">
       <div class="search-hit-content">
         <div class="search-hit-name">
@@ -23,6 +295,33 @@ Reinigung und Erwärmung</li><li><input disabled type=checkbox> Zwei getrennte Z
         </div>
       </div>
       </div>
-    </script><script src=https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin=anonymous></script><script src=/js/academic.min.b2ed8054531fc8b77a9c500d5dfef876.js></script><div id=modal class="modal fade" role=dialog><div class=modal-dialog><div class=modal-content><div class=modal-header><h5 class=modal-title>Zitieren</h5><button type=button class=close data-dismiss=modal aria-label=Close>
-<span aria-hidden=true>&#215;</span></button></div><div class=modal-body><pre><code class="tex hljs"></code></pre></div><div class=modal-footer><a class="btn btn-outline-primary my-1 js-copy-cite" href=# target=_blank><i class="fas fa-copy"></i> Kopie</a>
-<a class="btn btn-outline-primary my-1 js-download-cite" href=# target=_blank><i class="fas fa-download"></i> Download</a><div id=modal-error></div></div></div></div></div></body></html>
+    </script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin=anonymous></script>
+<script src=/js/academic.min.4aaf2d64e50f8e54cf66dcc54147a22e.js></script>
+<div id=modal class="modal fade" role=dialog>
+<div class=modal-dialog>
+<div class=modal-content>
+<div class=modal-header>
+<h5 class=modal-title>Zitieren</h5>
+<button type=button class=close data-dismiss=modal aria-label=Close>
+<span aria-hidden=true>&#215;</span>
+</button>
+</div>
+<div class=modal-body>
+<pre><code class="tex hljs"></code></pre>
+</div>
+<div class=modal-footer>
+<a class="btn btn-outline-primary my-1 js-copy-cite" href=# target=_blank>
+<i class="fas fa-copy"></i> Kopie
+</a>
+<a class="btn btn-outline-primary my-1 js-download-cite" href=# target=_blank>
+<i class="fas fa-download"></i> Download
+</a>
+<div id=modal-error></div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

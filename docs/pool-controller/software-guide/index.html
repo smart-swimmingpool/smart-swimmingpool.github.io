@@ -1,20 +1,230 @@
-<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=generator content="Source Themes Academic 4.8.0"><meta name=author content="Stephan Strittmatter"><meta name=description content="Development Environment Required Libraries   Homie-ESP8266  RelayModule  Vector DallasTemperature Adafruit Unified Sensor DHT sensor library NTPClient TimeZone  Time  Many thanks to maintainers of these libraries!"><link rel=alternate hreflang=en-us href=https://smart-swimmingpool.github.io/docs/pool-controller/software-guide/><meta name=theme-color content="#2879d0"><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css integrity="sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU=" crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css crossorigin=anonymous title=hl-light><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css crossorigin=anonymous title=hl-dark disabled><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin=anonymous><script src=https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin=anonymous async></script><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap"><link rel=stylesheet href=/css/academic.css><script async src="https://www.googletagmanager.com/gtag/js?id=G-Z4Q2NR31ZD"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}function trackOutboundLink(a,b){gtag('event','click',{event_category:'outbound',event_label:a,transport_type:'beacon',event_callback:function(){b!=='_blank'&&(document.location=a)}}),console.debug("Outbound link clicked: "+a)}function onClickCallback(a){if(a.target.tagName!=='A'||a.target.host===window.location.host)return;trackOutboundLink(a.target,a.target.getAttribute('target'))}gtag('js',new Date),gtag('config','G-Z4Q2NR31ZD',{anonymize_ip:!0}),document.addEventListener('click',onClickCallback,!1)</script><link rel=manifest href=/index.webmanifest><link rel=icon type=image/png href=/images/icon_huc1aac635c547f103b14921ae0ab7550f_20089_32x32_fill_lanczos_center_2.png><link rel=apple-touch-icon type=image/png href=/images/icon_huc1aac635c547f103b14921ae0ab7550f_20089_192x192_fill_lanczos_center_2.png><link rel=canonical href=https://smart-swimmingpool.github.io/docs/pool-controller/software-guide/><meta property="twitter:card" content="summary"><meta property="twitter:site" content="@_stritti_"><meta property="twitter:creator" content="@_stritti_"><meta property="og:site_name" content="Smart Swimming Pool"><meta property="og:url" content="https://smart-swimmingpool.github.io/docs/pool-controller/software-guide/"><meta property="og:title" content="Software Guide of Pool Controller | Smart Swimming Pool"><meta property="og:description" content="Development Environment Required Libraries   Homie-ESP8266  RelayModule  Vector DallasTemperature Adafruit Unified Sensor DHT sensor library NTPClient TimeZone  Time  Many thanks to maintainers of these libraries!"><meta property="og:image" content="https://smart-swimmingpool.github.io/images/icon_huc1aac635c547f103b14921ae0ab7550f_20089_512x512_fill_lanczos_center_2.png"><meta property="twitter:image" content="https://smart-swimmingpool.github.io/images/icon_huc1aac635c547f103b14921ae0ab7550f_20089_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us"><meta property="article:published_time" content="2020-05-28T00:00:00+00:00"><meta property="article:modified_time" content="2020-06-02T00:00:00+00:00"><script src=https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.js integrity="sha256-5VhCqFam2Cn+yjw61zbBNrbHVJ6SRydPeKopYlngbiQ=" crossorigin=anonymous></script><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.css integrity="sha256-zQ0LblD/Af8vOppw18+2anxsuaz3pWYyVWi+bTvTH8Q=" crossorigin=anonymous><script>window.addEventListener("load",function(){window.cookieconsent.initialise({palette:{popup:{background:"#2879d0",text:"#fff"},button:{background:"#fff",text:"#2879d0"}},theme:"classic",content:{message:"This website uses cookies to ensure you get the best experience on our website.",dismiss:"Got it!",link:"Learn more",href:"https://www.cookiesandyou.com"}})})</script><title>Software Guide of Pool Controller | Smart Swimming Pool</title></head><body id=top data-spy=scroll data-offset=70 data-target=#TableOfContents><aside class=search-results id=search><div class=container><section class=search-header><div class="row no-gutters justify-content-between mb-3"><div class=col-6><h1>Search</h1></div><div class="col-6 col-search-close"><a class=js-search href=#><i class="fas fa-times-circle text-muted" aria-hidden=true></i></a></div></div><div id=search-box><input name=q id=search-query placeholder=Search... autocapitalize=off autocomplete=off autocorrect=off spellcheck=false type=search></div></section><section class=section-search-results><div id=search-hits></div></section></div></aside><nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id=navbar-main><div class=container><div class="d-none d-lg-inline-flex"><a class=navbar-brand href=/>Smart Swimming Pool</a></div><button type=button class=navbar-toggler data-toggle=collapse data-target=#navbar-content aria-controls=navbar aria-expanded=false aria-label="Toggle navigation">
-<span><i class="fas fa-bars"></i></span></button><div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none"><a class=navbar-brand href=/>Smart Swimming Pool</a></div><div class="navbar-collapse main-menu-item collapse justify-content-start" id=navbar-content><ul class="navbar-nav d-md-inline-flex"><li class=nav-item><a class="nav-link active" href=/docs><span>Documents</span></a></li><li class=nav-item><a class=nav-link href=/code-of-conduct/><span>Code of Conduct</span></a></li></ul><ul class="navbar-nav ml-md-auto"><li class=nav-item><a class=nav-link href=https://github.com/smart-swimmingpool target=_blank rel=noopener><span><i class="fab fa-github-alt" style=font-size:18px;line-height:18px></i></span></a></li></ul></div><ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2"><li class=nav-item><a class="nav-link js-search" href=# aria-label=Search><i class="fas fa-search" aria-hidden=true></i></a></li><li class="nav-item dropdown theme-dropdown"><a href=# class="nav-link js-theme-selector" data-toggle=dropdown aria-haspopup=true><i class="fas fa-palette" aria-hidden=true></i></a><div class=dropdown-menu><a href=# class="dropdown-item js-set-theme-light"><span>Light</span></a>
-<a href=# class="dropdown-item js-set-theme-dark"><span>Dark</span></a>
-<a href=# class="dropdown-item js-set-theme-auto"><span>Automatic</span></a></div></li></ul></div></nav><div class="container-fluid docs"><div class="row flex-xl-nowrap"><div class="col-12 col-md-3 col-xl-2 docs-sidebar"><form class="docs-search d-flex align-items-center"><button class="btn docs-toggle d-md-none p-0 mr-3" type=button data-toggle=collapse data-target=#docs-nav aria-controls=docs-nav aria-expanded=false aria-label="Toggle section navigation">
-<span><i class="fas fa-bars"></i></span></button>
-<input name=q type=search class=form-control placeholder=Search... autocomplete=off></form><nav class="collapse docs-links" id=docs-nav><div class=docs-toc-item><a class=docs-toc-link href=/docs/>Documents</a><ul class="nav docs-sidenav"><li><a href=/docs/getting-started/>Getting Started</a></li><li><a href=/docs/publications/>Publications</a></li></ul></div><div class=docs-toc-item><a class=docs-toc-link href=/docs/openhab-configuration/>OpenHAB</a><ul class="nav docs-sidenav"><li><a href=/docs/openhab-configuration/>Configuration</a></li></ul></div><div class=docs-toc-item><a class=docs-toc-link href=/docs/pool-controller/>Pool Controller</a><ul class="nav docs-sidenav"><li><a href=/docs/pool-controller/>Overview</a></li><li><a href=/docs/pool-controller/hardware-guide/>Hardware Guide</a></li><li class=active><a href=/docs/pool-controller/software-guide/>Software Guide</a></li><li><a href=/docs/pool-controller/users-guide/>Users Guide</a></li></ul></div></nav></div><div class="d-none d-xl-block col-xl-2 docs-toc"><ul class="nav toc-top"><li><a href=# id=back_to_top class=docs-toc-title>Contents</a></li></ul><nav id=TableOfContents><ul><li><a href=#development-environment>Development Environment</a></li><li><a href=#required-libraries>Required Libraries</a></li><li><a href=#defines>Defines</a></li><li><a href=#configuration>Configuration</a><ul><li><a href=#example-configjson>Example <code>config.json</code></a></li></ul></li><li><a href=#mqtt-communication>MQTT Communication</a><ul><li><a href=#clearing-retained-messages>Clearing retained messages</a></li></ul></li></ul></nav><div class=connect-widget><ul class="connect-links fa-ul"><li><i class="fa-li fas fa-question-circle"></i><a href=https://spectrum.chat/smart-swimming-pool target=_blank>Ask questions</a></li></ul></div></div><main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 docs-content" role=main><article class=article><div class=docs-article-container><h1>Software Guide of Pool Controller</h1><div class=article-style><h2 id=development-environment>Development Environment</h2><h2 id=required-libraries>Required Libraries</h2><ul><li><a href=https://github.com/homieiot/homie-esp8266 target=_blank rel=noopener>Homie-ESP8266</a></li><li><a href=https://github.com/YuriiSalimov/RelayModule target=_blank rel=noopener>RelayModule</a></li><li><a href=https://github.com/tomstewart89/Vector target=_blank rel=noopener>Vector</a></li><li>DallasTemperature</li><li>Adafruit Unified Sensor</li><li>DHT sensor library</li><li>NTPClient</li><li>TimeZone</li><li><a href=https://github.com/xoseperez/Time target=_blank rel=noopener>Time</a></li></ul><p>Many thanks to maintainers of these libraries!</p><h2 id=defines>Defines</h2><p>Within the sources at <code>main.cpp</code> there are someconstant defined settings. For the PIN assignment
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=generator content="Source Themes Academic 4.8.0">
+<meta name=author content="Stephan Strittmatter">
+<meta name=description content="Development Environment Required Libraries   Homie-ESP8266  RelayModule  Vector DallasTemperature Adafruit Unified Sensor DHT sensor library NTPClient TimeZone  Time  Many thanks to maintainers of these libraries!">
+<link rel=alternate hreflang=en-us href=https://smart-swimmingpool.github.io/docs/pool-controller/software-guide/>
+<meta name=theme-color content="#2879d0">
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin=anonymous>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css integrity="sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU=" crossorigin=anonymous>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin=anonymous>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css crossorigin=anonymous title=hl-light>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css crossorigin=anonymous title=hl-dark disabled>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin=anonymous>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin=anonymous async></script>
+<link rel=stylesheet href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+<link rel=stylesheet href=/css/academic.css>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z4Q2NR31ZD"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}function trackOutboundLink(a,b){gtag('event','click',{event_category:'outbound',event_label:a,transport_type:'beacon',event_callback:function(){b!=='_blank'&&(document.location=a)}}),console.debug("Outbound link clicked: "+a)}function onClickCallback(a){if(a.target.tagName!=='A'||a.target.host===window.location.host)return;trackOutboundLink(a.target,a.target.getAttribute('target'))}gtag('js',new Date),gtag('config','G-Z4Q2NR31ZD',{anonymize_ip:!0}),document.addEventListener('click',onClickCallback,!1)</script>
+<link rel=manifest href=/index.webmanifest>
+<link rel=icon type=image/png href=/images/icon_huc1aac635c547f103b14921ae0ab7550f_20089_32x32_fill_lanczos_center_3.png>
+<link rel=apple-touch-icon type=image/png href=/images/icon_huc1aac635c547f103b14921ae0ab7550f_20089_192x192_fill_lanczos_center_3.png>
+<link rel=canonical href=https://smart-swimmingpool.github.io/docs/pool-controller/software-guide/>
+<meta property="twitter:card" content="summary">
+<meta property="twitter:site" content="@_stritti_">
+<meta property="twitter:creator" content="@_stritti_">
+<meta property="og:site_name" content="Smart Swimming Pool">
+<meta property="og:url" content="https://smart-swimmingpool.github.io/docs/pool-controller/software-guide/">
+<meta property="og:title" content="Software Guide of Pool Controller | Smart Swimming Pool">
+<meta property="og:description" content="Development Environment Required Libraries   Homie-ESP8266  RelayModule  Vector DallasTemperature Adafruit Unified Sensor DHT sensor library NTPClient TimeZone  Time  Many thanks to maintainers of these libraries!"><meta property="og:image" content="https://smart-swimmingpool.github.io/images/icon_huc1aac635c547f103b14921ae0ab7550f_20089_512x512_fill_lanczos_center_3.png">
+<meta property="twitter:image" content="https://smart-swimmingpool.github.io/images/icon_huc1aac635c547f103b14921ae0ab7550f_20089_512x512_fill_lanczos_center_3.png"><meta property="og:locale" content="en-us">
+<meta property="article:published_time" content="2020-05-28T00:00:00+00:00">
+<meta property="article:modified_time" content="2020-06-02T00:00:00+00:00">
+<script src=https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.js integrity="sha256-5VhCqFam2Cn+yjw61zbBNrbHVJ6SRydPeKopYlngbiQ=" crossorigin=anonymous></script>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.css integrity="sha256-zQ0LblD/Af8vOppw18+2anxsuaz3pWYyVWi+bTvTH8Q=" crossorigin=anonymous>
+<script>window.addEventListener("load",function(){window.cookieconsent.initialise({palette:{popup:{background:"#2879d0",text:"#fff"},button:{background:"#fff",text:"#2879d0"}},theme:"classic",content:{message:"This website uses cookies to ensure you get the best experience on our website.",dismiss:"Got it!",link:"Learn more",href:"https://www.cookiesandyou.com"}})})</script>
+<title>Software Guide of Pool Controller | Smart Swimming Pool</title>
+</head>
+<body id=top data-spy=scroll data-offset=70 data-target=#TableOfContents>
+<aside class=search-results id=search>
+<div class=container>
+<section class=search-header>
+<div class="row no-gutters justify-content-between mb-3">
+<div class=col-6>
+<h1>Search</h1>
+</div>
+<div class="col-6 col-search-close">
+<a class=js-search href=#><i class="fas fa-times-circle text-muted" aria-hidden=true></i></a>
+</div>
+</div>
+<div id=search-box>
+<input name=q id=search-query placeholder=Search... autocapitalize=off autocomplete=off autocorrect=off spellcheck=false type=search>
+</div>
+</section>
+<section class=section-search-results>
+<div id=search-hits>
+</div>
+</section>
+</div>
+</aside>
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id=navbar-main>
+<div class=container>
+<div class="d-none d-lg-inline-flex">
+<a class=navbar-brand href=/>Smart Swimming Pool</a>
+</div>
+<button type=button class=navbar-toggler data-toggle=collapse data-target=#navbar-content aria-controls=navbar aria-expanded=false aria-label="Toggle navigation">
+<span><i class="fas fa-bars"></i></span>
+</button>
+<div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+<a class=navbar-brand href=/>Smart Swimming Pool</a>
+</div>
+<div class="navbar-collapse main-menu-item collapse justify-content-start" id=navbar-content>
+<ul class="navbar-nav d-md-inline-flex">
+<li class=nav-item>
+<a class="nav-link active" href=/docs><span>Documents</span></a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=/code-of-conduct/><span>Code of Conduct</span></a>
+</li>
+</ul>
+<ul class="navbar-nav ml-md-auto">
+<li class=nav-item>
+<a class=nav-link href=https://github.com/smart-swimmingpool target=_blank rel=noopener><span><i class="fab fa-github-alt" style=font-size:18px;line-height:18px></i></span></a>
+</li>
+</ul>
+</div>
+<ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+<li class=nav-item>
+<a class="nav-link js-search" href=# aria-label=Search><i class="fas fa-search" aria-hidden=true></i></a>
+</li>
+<li class="nav-item dropdown theme-dropdown">
+<a href=# class="nav-link js-theme-selector" data-toggle=dropdown aria-haspopup=true>
+<i class="fas fa-palette" aria-hidden=true></i>
+</a>
+<div class=dropdown-menu>
+<a href=# class="dropdown-item js-set-theme-light">
+<span>Light</span>
+</a>
+<a href=# class="dropdown-item js-set-theme-dark">
+<span>Dark</span>
+</a>
+<a href=# class="dropdown-item js-set-theme-auto">
+<span>Automatic</span>
+</a>
+</div>
+</li>
+</ul>
+</div>
+</nav>
+<div class="container-fluid docs">
+<div class="row flex-xl-nowrap">
+<div class="col-12 col-md-3 col-xl-2 docs-sidebar">
+<form class="docs-search d-flex align-items-center">
+<button class="btn docs-toggle d-md-none p-0 mr-3" type=button data-toggle=collapse data-target=#docs-nav aria-controls=docs-nav aria-expanded=false aria-label="Toggle section navigation">
+<span><i class="fas fa-bars"></i></span>
+</button>
+<input name=q type=search class=form-control placeholder=Search... autocomplete=off>
+</form>
+<nav class="collapse docs-links" id=docs-nav>
+<div class=docs-toc-item>
+<a class=docs-toc-link href=/docs/>Documents</a>
+<ul class="nav docs-sidenav">
+<li>
+<a href=/docs/getting-started/>Getting Started</a>
+</li>
+<li>
+<a href=/docs/publications/>Publications</a>
+</li>
+</ul>
+</div>
+<div class=docs-toc-item>
+<a class=docs-toc-link href=/docs/openhab-configuration/>OpenHAB</a>
+<ul class="nav docs-sidenav">
+<li>
+<a href=/docs/openhab-configuration/>Configuration</a>
+</li>
+</ul>
+</div>
+<div class=docs-toc-item>
+<a class=docs-toc-link href=/docs/pool-controller/>Pool Controller</a>
+<ul class="nav docs-sidenav">
+<li>
+<a href=/docs/pool-controller/>Overview</a>
+</li>
+<li>
+<a href=/docs/pool-controller/hardware-guide/>Hardware Guide</a>
+</li>
+<li class=active>
+<a href=/docs/pool-controller/software-guide/>Software Guide</a>
+</li>
+<li>
+<a href=/docs/pool-controller/users-guide/>Users Guide</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+<div class="d-none d-xl-block col-xl-2 docs-toc">
+<ul class="nav toc-top">
+<li><a href=# id=back_to_top class=docs-toc-title>Contents</a></li>
+</ul>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#development-environment>Development Environment</a></li>
+<li><a href=#required-libraries>Required Libraries</a></li>
+<li><a href=#defines>Defines</a></li>
+<li><a href=#configuration>Configuration</a>
+<ul>
+<li><a href=#example-configjson>Example <code>config.json</code></a></li>
+</ul>
+</li>
+<li><a href=#mqtt-communication>MQTT Communication</a>
+<ul>
+<li><a href=#clearing-retained-messages>Clearing retained messages</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+<div class=connect-widget>
+<ul class="connect-links fa-ul">
+<li><i class="fa-li fas fa-question-circle"></i><a href=https://spectrum.chat/smart-swimming-pool target=_blank>Ask questions</a></li>
+</ul>
+</div>
+</div>
+<main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 docs-content" role=main>
+<article class=article>
+<div class=docs-article-container>
+<h1>Software Guide of Pool Controller</h1>
+<div class=article-style>
+<h2 id=development-environment>Development Environment</h2>
+<h2 id=required-libraries>Required Libraries</h2>
+<ul>
+<li>
+<a href=https://github.com/homieiot/homie-esp8266 target=_blank rel=noopener>Homie-ESP8266</a></li>
+<li>
+<a href=https://github.com/YuriiSalimov/RelayModule target=_blank rel=noopener>RelayModule</a></li>
+<li>
+<a href=https://github.com/tomstewart89/Vector target=_blank rel=noopener>Vector</a></li>
+<li>DallasTemperature</li>
+<li>Adafruit Unified Sensor</li>
+<li>DHT sensor library</li>
+<li>NTPClient</li>
+<li>TimeZone</li>
+<li>
+<a href=https://github.com/xoseperez/Time target=_blank rel=noopener>Time</a></li>
+</ul>
+<p>Many thanks to maintainers of these libraries!</p>
+<h2 id=defines>Defines</h2>
+<p>Within the sources at <code>main.cpp</code> there are someconstant defined settings. For the PIN assignment
 see also at
-<a href=../hardware-guide/#esp8266-pin-usage>hardware guide</a>.</p><pre><code class=language-cpp>const uint8_t PIN_DS_SOLAR = D5;  // Pin of Temp-Sensor Solar
+<a href=../hardware-guide/#esp8266-pin-usage>hardware guide</a>.</p>
+<pre><code class=language-cpp>const uint8_t PIN_DS_SOLAR = D5;  // Pin of Temp-Sensor Solar
 const uint8_t PIN_DS_POOL  = D6;  // Pin of Temp-Sensor Pool
 
 const uint8_t PIN_RELAY_POOL  = D1;
 const uint8_t PIN_RELAY_SOLAR = D2;
 
 const uint8_t TEMP_READ_INTERVALL = 30;
-</code></pre><h2 id=configuration>Configuration</h2><p>Homie-ESP8266 supports configuration (e.g. WiFi credentials) using JSON-files.
+</code></pre>
+<h2 id=configuration>Configuration</h2>
+<p>Homie-ESP8266 supports configuration (e.g. WiFi credentials) using JSON-files.
 How to upload JSON config files see
-<a href=https://homieiot.github.io/homie-esp8266/docs/develop/configuration/json-configuration-file/ target=_blank rel=noopener>Homie-esp8266 docu</a>.</p><h3 id=example-configjson>Example <code>config.json</code></h3><pre><code class=language-json>{
+<a href=https://homieiot.github.io/homie-esp8266/docs/develop/configuration/json-configuration-file/ target=_blank rel=noopener>Homie-esp8266 docu</a>.</p>
+<h3 id=example-configjson>Example <code>config.json</code></h3>
+<pre><code class=language-json>{
   &quot;name&quot;: &quot;Pool Controller&quot;,
   &quot;device_id&quot;: &quot;pool-controller&quot;,
   &quot;wifi&quot;: {
@@ -35,12 +245,79 @@ How to upload JSON config files see
     &quot;temperature-hysteresis&quot;: 0.5
   }
 }
-</code></pre><h2 id=mqtt-communication>MQTT Communication</h2><h3 id=clearing-retained-messages>Clearing retained messages</h3><p>In some cases some retained messages can be wanted and we don’t want to clear all the retained messages.</p><p>The messages will have to be cleared one by one using the topic</p><p>To clear a specific message:</p><pre><code class=language-bash>mosquitto_pub -h hostname -t homie -n -r -d
-</code></pre></div><div class=article-tags><a class="badge badge-light" href=/tag/docs/>docs</a>
+</code></pre>
+<h2 id=mqtt-communication>MQTT Communication</h2>
+<h3 id=clearing-retained-messages>Clearing retained messages</h3>
+<p>In some cases some retained messages can be wanted and we don’t want to clear all the retained messages.</p>
+<p>The messages will have to be cleared one by one using the topic</p>
+<p>To clear a specific message:</p>
+<pre><code class=language-bash>mosquitto_pub -h hostname -t homie -n -r -d
+</code></pre>
+</div>
+<div class=article-tags>
+<a class="badge badge-light" href=/tag/docs/>docs</a>
 <a class="badge badge-light" href=/tag/controller/>controller</a>
-<a class="badge badge-light" href=/tag/tutorial/>tutorial</a></div><div class=article-widget><div class=post-nav><div class=post-nav-item><div class=meta-nav>Previous</div><a href=/docs/pool-controller/hardware-guide/ rel=next>Hardware Guide of Pool Controller</a></div><div class=post-nav-item><div class=meta-nav>Next</div><a href=/docs/pool-controller/users-guide/ rel=prev>Users Guide of Pool Controller</a></div></div></div></div><div class=body-footer><p>Last updated on Jun 2, 2020</p><p class=edit-page><a href=https://github.com/smart-swimmingpool/edit/master/content/docs/pool-controller/software-guide.md><i class="fas fa-pen pr-2"></i>Edit this page</a></p><div class="article-widget content-widget-hr"><h3>Related</h3><ul><li><a href=/docs/pool-controller/hardware-guide/>Hardware Guide of Pool Controller</a></li><li><a href=/docs/pool-controller/users-guide/>Users Guide of Pool Controller</a></li><li><a href=/docs/publications/>Publications</a></li></ul></div></div></article><footer class=site-footer><p class=powered-by>© 2021 - 🏊 Smart Swimming Pool</p><p class=powered-by>Powered by the
+<a class="badge badge-light" href=/tag/tutorial/>tutorial</a>
+</div>
+<div class=article-widget>
+<div class=post-nav>
+<div class=post-nav-item>
+<div class=meta-nav>Previous</div>
+<a href=/docs/pool-controller/hardware-guide/ rel=next>Hardware Guide of Pool Controller</a>
+</div>
+<div class=post-nav-item>
+<div class=meta-nav>Next</div>
+<a href=/docs/pool-controller/users-guide/ rel=prev>Users Guide of Pool Controller</a>
+</div>
+</div>
+</div>
+</div>
+<div class=body-footer>
+<p>Last updated on Jun 2, 2020</p>
+<p class=edit-page>
+<a href=https://github.com/smart-swimmingpool/edit/master/content/docs/pool-controller/software-guide.md>
+<i class="fas fa-pen pr-2"></i>Edit this page
+</a>
+</p>
+<div class="article-widget content-widget-hr">
+<h3>Related</h3>
+<ul>
+<li><a href=/docs/pool-controller/hardware-guide/>Hardware Guide of Pool Controller</a></li>
+<li><a href=/docs/pool-controller/users-guide/>Users Guide of Pool Controller</a></li>
+<li><a href=/docs/publications/>Publications</a></li>
+</ul>
+</div>
+</div>
+</article>
+<footer class=site-footer>
+<p class=powered-by>
+© 2021 - 🏊 Smart Swimming Pool
+</p>
+<p class=powered-by>
+Powered by the
 <a href=https://sourcethemes.com/academic/ target=_blank rel=noopener>Academic theme</a> for
-<a href=https://gohugo.io target=_blank rel=noopener>Hugo</a>.</p></footer></main></div></div><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/cpp.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/json.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/arduino.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/bash.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin=anonymous></script><script>const code_highlighting=!0</script><script>const isSiteThemeDark=!1</script><script>const search_config={indexURI:"/index.json",minLength:1,threshold:.3},i18n={no_results:"No results found",placeholder:"Search...",results:"results found"},content_type={post:"Posts",project:"Projects",publication:"Publications",talk:"Talks"}</script><script src=https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.1/anchor.min.js integrity="sha256-pB/deHc9CGfFpJRjC43imB29Rse8tak+5eXqntO94ck=" crossorigin=anonymous></script><script>anchors.add()</script><script id=search-hit-fuse-template type=text/x-template>
+<a href=https://gohugo.io target=_blank rel=noopener>Hugo</a>.
+</p>
+</footer>
+</main>
+</div>
+</div>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/cpp.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/json.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/arduino.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/bash.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin=anonymous></script>
+<script>const code_highlighting=!0</script>
+<script>const isSiteThemeDark=!1</script>
+<script>const search_config={indexURI:"/index.json",minLength:1,threshold:.3},i18n={no_results:"No results found",placeholder:"Search...",results:"results found"},content_type={post:"Posts",project:"Projects",publication:"Publications",talk:"Talks"}</script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.1/anchor.min.js integrity="sha256-pB/deHc9CGfFpJRjC43imB29Rse8tak+5eXqntO94ck=" crossorigin=anonymous></script>
+<script>anchors.add()</script>
+<script id=search-hit-fuse-template type=text/x-template>
       <div class="search-hit" id="summary-{{key}}">
       <div class="search-hit-content">
         <div class="search-hit-name">
@@ -50,6 +327,33 @@ How to upload JSON config files see
         </div>
       </div>
       </div>
-    </script><script src=https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin=anonymous></script><script src=/js/academic.min.b2ed8054531fc8b77a9c500d5dfef876.js></script><div id=modal class="modal fade" role=dialog><div class=modal-dialog><div class=modal-content><div class=modal-header><h5 class=modal-title>Cite</h5><button type=button class=close data-dismiss=modal aria-label=Close>
-<span aria-hidden=true>&#215;</span></button></div><div class=modal-body><pre><code class="tex hljs"></code></pre></div><div class=modal-footer><a class="btn btn-outline-primary my-1 js-copy-cite" href=# target=_blank><i class="fas fa-copy"></i> Copy</a>
-<a class="btn btn-outline-primary my-1 js-download-cite" href=# target=_blank><i class="fas fa-download"></i> Download</a><div id=modal-error></div></div></div></div></div></body></html>
+    </script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin=anonymous></script>
+<script src=/js/academic.min.4aaf2d64e50f8e54cf66dcc54147a22e.js></script>
+<div id=modal class="modal fade" role=dialog>
+<div class=modal-dialog>
+<div class=modal-content>
+<div class=modal-header>
+<h5 class=modal-title>Cite</h5>
+<button type=button class=close data-dismiss=modal aria-label=Close>
+<span aria-hidden=true>&#215;</span>
+</button>
+</div>
+<div class=modal-body>
+<pre><code class="tex hljs"></code></pre>
+</div>
+<div class=modal-footer>
+<a class="btn btn-outline-primary my-1 js-copy-cite" href=# target=_blank>
+<i class="fas fa-copy"></i> Copy
+</a>
+<a class="btn btn-outline-primary my-1 js-download-cite" href=# target=_blank>
+<i class="fas fa-download"></i> Download
+</a>
+<div id=modal-error></div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
