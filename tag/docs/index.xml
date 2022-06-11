@@ -1,11 +1,39 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>docs | Smart Swimming Pool</title><link>https://smart-swimmingpool.github.io/tag/docs/</link><atom:link href="https://smart-swimmingpool.github.io/tag/docs/index.xml" rel="self" type="application/rss+xml"/><description>docs</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022 - 🏊 Smart Swimming Pool</copyright><lastBuildDate>Thu, 28 May 2020 00:00:00 +0000</lastBuildDate><image><url>https://smart-swimmingpool.github.io/images/icon_huc1aac635c547f103b14921ae0ab7550f_20089_512x512_fill_lanczos_center_3.png</url><title>docs</title><link>https://smart-swimmingpool.github.io/tag/docs/</link></image><item><title>Publications</title><link>https://smart-swimmingpool.github.io/docs/publications/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/publications/</guid><description>&lt;ul>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>docs | Smart Swimming Pool</title><link>https://smart-swimmingpool.github.io/tag/docs/</link><atom:link href="https://smart-swimmingpool.github.io/tag/docs/index.xml" rel="self" type="application/rss+xml"/><description>docs</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022 - 🏊 Smart Swimming Pool</copyright><lastBuildDate>Sat, 11 Jun 2022 00:00:00 +0000</lastBuildDate><image><url>https://smart-swimmingpool.github.io/images/icon_huc1aac635c547f103b14921ae0ab7550f_20089_512x512_fill_lanczos_center_3.png</url><title>docs</title><link>https://smart-swimmingpool.github.io/tag/docs/</link></image><item><title>Publications</title><link>https://smart-swimmingpool.github.io/docs/publications/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/publications/</guid><description>&lt;ul>
 &lt;li>
 &lt;p>
 &lt;a href="https://medium.com/diy-my-smart-home/project-smart-swimmingpool-4c40eb6741f6" target="_blank" rel="noopener">Project Smart Swimming Pool&lt;/a>
 , &lt;em>December, 2018&lt;/em>&lt;/p>
 &lt;p>Blogpost of version 1 of Smart Swimming Pool&lt;/p>
 &lt;/li>
-&lt;/ul></description></item><item><title>Hardware Guide of Pool Controller</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/hardware-guide/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/hardware-guide/</guid><description>&lt;p>This Hardware Guide will describe how to setup the hardware of the controller.&lt;/p>
+&lt;/ul></description></item><item><title>Software Guide of Pool Monitor</title><link>https://smart-swimmingpool.github.io/docs/pool-monitor/software-guide/</link><pubDate>Sat, 11 Jun 2022 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-monitor/software-guide/</guid><description>&lt;h2 id="development-environment">Development Environment&lt;/h2>
+&lt;h2 id="required-libraries">Required Libraries&lt;/h2>
+&lt;ul>
+&lt;li>adafruit/Adafruit BusIO&lt;/li>
+&lt;li>adafruit/Adafruit GFX Library&lt;/li>
+&lt;li>zinggjm/GxEPD&lt;/li>
+&lt;li>juerd/ESP-WiFiSettings&lt;/li>
+&lt;li>olikraus/U8g2&lt;/li>
+&lt;li>olikraus/U8g2_for_Adafruit_GFX&lt;/li>
+&lt;li>knolleary/PubSubClient&lt;/li>
+&lt;li>arduino-libraries/NTPClient&lt;/li>
+&lt;li>madpilot/mDNSResolver&lt;/li>
+&lt;li>jchristensen/Timezone&lt;/li>
+&lt;/ul>
+&lt;p>Many thanks to maintainers of these libraries!&lt;/p>
+&lt;h2 id="defines">Defines&lt;/h2>
+&lt;h2 id="configuration">Configuration&lt;/h2></description></item><item><title>Users Guide of Pool Controller</title><link>https://smart-swimmingpool.github.io/docs/pool-monitor/users-guide/</link><pubDate>Sat, 11 Jun 2022 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-monitor/users-guide/</guid><description>&lt;h2 id="setup">Setup&lt;/h2>
+&lt;p>Connecting the device to power it createsinitial a hotspot called &amp;ldquo;pool-monitor&amp;rdquo;.
+Please connect this hotsppot by smartphone. Thenthe device will show captivate website to add
+WiFi credentials and connection parameters of MQTT broker.&lt;/p>
+&lt;p>Following data is required to connect the device:&lt;/p>
+&lt;ul>
+&lt;li>SSID of the WiFi network&lt;/li>
+&lt;li>Password of WiFi network&lt;/li>
+&lt;li>MQTT broker hostname or IP address&lt;/li>
+&lt;li>MQTT broker port number (default: 1883)&lt;/li>
+&lt;/ul>
+&lt;p>After pressing &amp;ldquo;Save&amp;rdquo; the device will reboot automatically and tries to connect to the MQTT broker.&lt;/p>
+&lt;p>After some seconds the device will show data if connection was successful.&lt;/p></description></item><item><title>Hardware Guide of Pool Controller</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/hardware-guide/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/hardware-guide/</guid><description>&lt;p>This Hardware Guide will describe how to setup the hardware of the controller.&lt;/p>
 &lt;h2 id="parts-list-bom">Parts List (BOM)&lt;/h2>
 &lt;ul>
 &lt;li>1 * ESP8266 NodeMCU Controller (
