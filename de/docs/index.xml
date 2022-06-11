@@ -4,4 +4,32 @@
 &lt;a href="https://www.az-delivery.de/blogs/azdelivery-blog-fur-arduino-und-raspberry-pi/projekt-smart-swimmingpool-einleitung" target="_blank" rel="noopener">AZ Delivery: Projekt Smart Swimmingpool&lt;/a>, &lt;em>Oktober 2018&lt;/em>&lt;/p>
 &lt;p>Vierteilige Blog-Reihe zur Version 1 des Smart Pool Controllers.&lt;/p>
 &lt;/li>
-&lt;/ul></description></item></channel></rss>
+&lt;/ul></description></item><item><title>Software Guide of Pool Monitor</title><link>https://smart-swimmingpool.github.io/de/docs/pool-monitor/software-guide/</link><pubDate>Sat, 11 Jun 2022 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-monitor/software-guide/</guid><description>&lt;h2 id="development-environment">Development Environment&lt;/h2>
+&lt;h2 id="required-libraries">Required Libraries&lt;/h2>
+&lt;ul>
+&lt;li>adafruit/Adafruit BusIO&lt;/li>
+&lt;li>adafruit/Adafruit GFX Library&lt;/li>
+&lt;li>zinggjm/GxEPD&lt;/li>
+&lt;li>juerd/ESP-WiFiSettings&lt;/li>
+&lt;li>olikraus/U8g2&lt;/li>
+&lt;li>olikraus/U8g2_for_Adafruit_GFX&lt;/li>
+&lt;li>knolleary/PubSubClient&lt;/li>
+&lt;li>arduino-libraries/NTPClient&lt;/li>
+&lt;li>madpilot/mDNSResolver&lt;/li>
+&lt;li>jchristensen/Timezone&lt;/li>
+&lt;/ul>
+&lt;p>Many thanks to maintainers of these libraries!&lt;/p>
+&lt;h2 id="defines">Defines&lt;/h2>
+&lt;h2 id="configuration">Configuration&lt;/h2></description></item><item><title>Users Guide of Pool Controller</title><link>https://smart-swimmingpool.github.io/de/docs/pool-monitor/users-guide/</link><pubDate>Sat, 11 Jun 2022 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-monitor/users-guide/</guid><description>&lt;h2 id="setup">Setup&lt;/h2>
+&lt;p>Connecting the device to power it createsinitial a hotspot called &amp;ldquo;pool-monitor&amp;rdquo;.
+Please connect this hotsppot by smartphone. Thenthe device will show captivate website to add
+WiFi credentials and connection parameters of MQTT broker.&lt;/p>
+&lt;p>Following data is required to connect the device:&lt;/p>
+&lt;ul>
+&lt;li>SSID of the WiFi network&lt;/li>
+&lt;li>Password of WiFi network&lt;/li>
+&lt;li>MQTT broker hostname or IP address&lt;/li>
+&lt;li>MQTT broker port number (default: 1883)&lt;/li>
+&lt;/ul>
+&lt;p>After pressing &amp;ldquo;Save&amp;rdquo; the device will reboot automatically and tries to connect to the MQTT broker.&lt;/p>
+&lt;p>After some seconds the device will show data if connection was successful.&lt;/p></description></item></channel></rss>
