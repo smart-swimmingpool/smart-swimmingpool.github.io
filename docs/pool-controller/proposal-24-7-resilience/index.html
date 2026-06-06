@@ -1,0 +1,243 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=generator content="Source Themes Academic 4.8.0"><meta name=author content="Stephan Strittmatter"><meta name=description content="24/7 Operation: Resilience Concept for the Pool Controller Status: Phase 1+2 implemented, Phase 3 in progress, ESP8266 removal complete
+Date: 2026-05-17
+Branch: proposal/24-7-resilience
+Base: Version 3.1.0 → 3.2.0
+1. Introduction The Pool Controller must run 24/7 autonomously without manual intervention, even under:"><link rel=alternate hreflang=en-us href=https://smart-swimmingpool.github.io/docs/pool-controller/proposal-24-7-resilience/><meta name=theme-color content="#2879d0"><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css integrity="sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU=" crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css crossorigin=anonymous title=hl-light><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css crossorigin=anonymous title=hl-dark disabled><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin=anonymous><script src=https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin=anonymous async></script>
+<link rel=stylesheet href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap"><link rel=stylesheet href=/css/academic.css><script async src="https://www.googletagmanager.com/gtag/js?id=G-Z4Q2NR31ZD"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}function trackOutboundLink(e,t){gtag("event","click",{event_category:"outbound",event_label:e,transport_type:"beacon",event_callback:function(){t!=="_blank"&&(document.location=e)}}),console.debug("Outbound link clicked: "+e)}function onClickCallback(e){if(e.target.tagName!=="A"||e.target.host===window.location.host)return;trackOutboundLink(e.target,e.target.getAttribute("target"))}gtag("js",new Date),gtag("config","G-Z4Q2NR31ZD",{anonymize_ip:!0}),document.addEventListener("click",onClickCallback,!1)</script><link rel=manifest href=/index.webmanifest><link rel=icon type=image/png href=/images/icon_huc1aac635c547f103b14921ae0ab7550f_20089_32x32_fill_lanczos_center_3.png><link rel=apple-touch-icon type=image/png href=/images/icon_huc1aac635c547f103b14921ae0ab7550f_20089_192x192_fill_lanczos_center_3.png><link rel=canonical href=https://smart-swimmingpool.github.io/docs/pool-controller/proposal-24-7-resilience/><meta property="twitter:card" content="summary"><meta property="twitter:site" content="@_stritti_"><meta property="twitter:creator" content="@_stritti_"><meta property="og:site_name" content="Smart Swimming Pool"><meta property="og:url" content="https://smart-swimmingpool.github.io/docs/pool-controller/proposal-24-7-resilience/"><meta property="og:title" content=" | Smart Swimming Pool"><meta property="og:description" content="24/7 Operation: Resilience Concept for the Pool Controller Status: Phase 1+2 implemented, Phase 3 in progress, ESP8266 removal complete
+Date: 2026-05-17
+Branch: proposal/24-7-resilience
+Base: Version 3.1.0 → 3.2.0
+1. Introduction The Pool Controller must run 24/7 autonomously without manual intervention, even under:"><meta property="og:image" content="https://smart-swimmingpool.github.io/images/icon_huc1aac635c547f103b14921ae0ab7550f_20089_512x512_fill_lanczos_center_3.png"><meta property="twitter:image" content="https://smart-swimmingpool.github.io/images/icon_huc1aac635c547f103b14921ae0ab7550f_20089_512x512_fill_lanczos_center_3.png"><meta property="og:locale" content="en-us"><script src=https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.js integrity="sha256-5VhCqFam2Cn+yjw61zbBNrbHVJ6SRydPeKopYlngbiQ=" crossorigin=anonymous></script>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.css integrity="sha256-zQ0LblD/Af8vOppw18+2anxsuaz3pWYyVWi+bTvTH8Q=" crossorigin=anonymous><script>window.addEventListener("load",function(){window.cookieconsent.initialise({palette:{popup:{background:"#2879d0",text:"#fff"},button:{background:"#fff",text:"#2879d0"}},theme:"classic",content:{message:"This website uses cookies to ensure you get the best experience on our website.",dismiss:"Got it!",link:"Learn more",href:"https://www.cookiesandyou.com"}})})</script><title>| Smart Swimming Pool</title></head><body id=top data-spy=scroll data-offset=70 data-target=#TableOfContents><aside class=search-results id=search><div class=container><section class=search-header><div class="row no-gutters justify-content-between mb-3"><div class=col-6><h1>Search</h1></div><div class="col-6 col-search-close"><a class=js-search href=#><i class="fas fa-times-circle text-muted" aria-hidden=true></i></a></div></div><div id=search-box><input name=q id=search-query placeholder=Search... autocapitalize=off autocomplete=off autocorrect=off spellcheck=false type=search></div></section><section class=section-search-results><div id=search-hits></div></section></div></aside><nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id=navbar-main><div class=container><div class="d-none d-lg-inline-flex"><a class=navbar-brand href=/>Smart Swimming Pool</a></div><button type=button class=navbar-toggler data-toggle=collapse data-target=#navbar-content aria-controls=navbar aria-expanded=false aria-label="Toggle navigation">
+<span><i class="fas fa-bars"></i></span></button><div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none"><a class=navbar-brand href=/>Smart Swimming Pool</a></div><div class="navbar-collapse main-menu-item collapse justify-content-start" id=navbar-content><ul class="navbar-nav d-md-inline-flex"><li class=nav-item><a class="nav-link active" href=/docs><span>Documents</span></a></li><li class=nav-item><a class=nav-link href=/code-of-conduct/><span>Code of Conduct</span></a></li></ul><ul class="navbar-nav ml-md-auto"><li class=nav-item><a class=nav-link href=https://github.com/smart-swimmingpool target=_blank rel=noopener><span><i class="fab fa-github-alt" style=font-size:18px;line-height:18px></i></span></a></li></ul></div><ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2"><li class=nav-item><a class="nav-link js-search" href=# aria-label=Search><i class="fas fa-search" aria-hidden=true></i></a></li><li class="nav-item dropdown theme-dropdown"><a href=# class="nav-link js-theme-selector" data-toggle=dropdown aria-haspopup=true><i class="fas fa-palette" aria-hidden=true></i></a><div class=dropdown-menu><a href=# class="dropdown-item js-set-theme-light"><span>Light</span></a>
+<a href=# class="dropdown-item js-set-theme-dark"><span>Dark</span></a>
+<a href=# class="dropdown-item js-set-theme-auto"><span>Automatic</span></a></div></li></ul></div></nav><div class="container-fluid docs"><div class="row flex-xl-nowrap"><div class="col-12 col-md-3 col-xl-2 docs-sidebar"><form class="docs-search d-flex align-items-center"><button class="btn docs-toggle d-md-none p-0 mr-3" type=button data-toggle=collapse data-target=#docs-nav aria-controls=docs-nav aria-expanded=false aria-label="Toggle section navigation">
+<span><i class="fas fa-bars"></i></span></button>
+<input name=q type=search class=form-control placeholder=Search... autocomplete=off></form><nav class="collapse docs-links" id=docs-nav><div class=docs-toc-item><a class=docs-toc-link href=/docs/pool-controller/hardware-guide/>Pool Controller</a><ul class="nav docs-sidenav"><li><a href=/docs/pool-controller/hardware-guide/>Hardware Guide</a></li><li><a href=/docs/pool-controller/esp32-schematic-optimization-de/>ESP32 Schaltplan-Optimierung</a></li><li><a href=/docs/pool-controller/esp32-complete-wiring-schematic-de/>ESP32 Komplett-Schaltplan</a></li><li><a href=/docs/pool-controller/software-guide/>Software Guide</a></li><li><a href=/docs/pool-controller/users-guide/>Users Guide</a></li><li><a href=/docs/pool-controller/>Home Assistant</a></li></ul></div></nav></div><main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 docs-content" role=main><article class=article><div class=docs-article-container><h1></h1><div class=article-style><h1 id=247-operation-resilience-concept-for-the-pool-controller>24/7 Operation: Resilience Concept for the Pool Controller</h1><blockquote><p><strong>Status</strong>: Phase 1+2 implemented, Phase 3 in progress, ESP8266 removal complete<br><strong>Date</strong>: 2026-05-17<br><strong>Branch</strong>: <code>proposal/24-7-resilience</code><br><strong>Base</strong>: Version 3.1.0 → 3.2.0</p></blockquote><hr><h2 id=1-introduction>1. Introduction</h2><p>The Pool Controller must run <strong>24/7 autonomously</strong> without manual intervention,
+even under:</p><ul><li><strong>Power failure</strong>: Controller reboots with sensible state when power returns</li><li><strong>WiFi outage</strong>: Continues controlling pumps autonomously (partially implemented)</li><li><strong>MQTT broker outage</strong>: Runs standalone, buffers state changes</li><li><strong>Temperature sensor failure</strong>: Degrades gracefully instead of crashing</li></ul><h3 id=current-maturity>Current Maturity</h3><p>Already implemented in v3.1.0:</p><table><thead><tr><th>Mechanism</th><th>Status</th></tr></thead><tbody><tr><td>State Persistence (ESP32 Preferences, <del>ESP8266 EEPROM</del>)</td><td>✅</td></tr><tr><td>Relay state restoration after reboot</td><td>✅</td></tr><tr><td><code>setRunLoopDisconnected(true)</code> for offline operation</td><td>✅</td></tr><tr><td>SystemMonitor with watchdog (ESP32 HW)</td><td>✅</td></tr><tr><td>Memory monitoring with auto-reboot on critical</td><td>✅</td></tr><tr><td>NTP time caching with millis() fallback</td><td>✅</td></tr><tr><td>NaN validation for sensor values in Rules</td><td>✅</td></tr><tr><td>Pin conflict detection at startup</td><td>✅</td></tr><tr><td>Timer midnight-crossing logic</td><td>✅</td></tr><tr><td><strong>State-Load independent of MQTT (P1)</strong></td><td><strong>✅ Since 840f3a8</strong></td></tr><tr><td><strong><del>ESP8266 EEPROM collision fix (P3)</del></strong></td><td><strong>✅ Since 840f3a8 (obsolete)</strong></td></tr><tr><td><strong>Watchdog feeding in long ops (P6)</strong></td><td><strong>✅ Since 840f3a8</strong></td></tr><tr><td><strong>DegradationManager (P5)</strong></td><td><strong>✅ Since 50be817</strong></td></tr><tr><td><strong>NTP three-stage degradation (P2)</strong></td><td><strong>✅ Since c969663</strong></td></tr><tr><td><strong>MQTT state refresh on reconnect (P4)</strong></td><td><strong>✅ Since 6eedebf</strong></td></tr><tr><td><strong>ESP8266 support removed</strong></td><td><strong>✅ 3.2.0</strong></td></tr></tbody></table><p>This proposal addresses the <strong>remaining gaps</strong> for truly resilient 24/7 operation.</p><hr><h2 id=2-remaining-weakness-analysis>2. Remaining Weakness Analysis</h2><h3 id=-critical-state-load-depends-on-mqtt-connection>🔴 Critical: State Load Depends on MQTT Connection</h3><p><strong>Problem</strong>: <code>operationModeNode.loadState()</code> runs inside <code>setupHandler()</code>,
+which only fires when Homie establishes an MQTT connection.</p><p>Affected code:</p><pre><code class=language-cpp>// PoolController.cpp:250
+auto PoolControllerContext::setupHandler() -&gt; void {
+  StateManager::begin();
+  SystemMonitor::begin();
+  operationModeNode.loadState();  // ← NOT called without MQTT!
+}
+
+// PoolController.cpp:343
+auto PoolControllerContext::setup() -&gt; void {
+  Homie.setup();
+  initializeController();  // Creates rules, but does NOT load states
+}
+</code></pre><p><strong>Scenario</strong>: Power failure + WiFi outage → Controller boots → Homie can&rsquo;t
+connect MQTT → <code>setupHandler()</code> never fires → Mode defaults to HomieSetting
+default (&ldquo;auto&rdquo;), not the previously saved mode. Temperature thresholds,
+timer settings also lost.</p><p><strong>Impact</strong>: Combined power+WiFi failure loses all user settings until WiFi
+and MQTT are restored.</p><h3 id=-high-pump-logic-during-extended-ntp-failure>🟡 High: Pump Logic During Extended NTP Failure</h3><p><strong>Problem</strong>: <code>checkPoolPumpTimer()</code> immediately disables the pump when
+<code>time.tm_year == -1</code> (no valid NTP). After 24h without sync, the time
+estimate becomes &ldquo;invalid&rdquo;.</p><pre><code class=language-cpp>// RuleAuto.cpp:89
+if (time.tm_year == -1) {
+  return false;  // Pump OFF
+}
+</code></pre><p><strong>Impact</strong>: Extended WiFi outage (>24h) with Timer mode stops the pump
+completely, even if the estimated time is still plausible. Auto mode
+only affects the solar pump in this case, but this is undocumented.</p><h3 id=-high-esp8266-eeprom-hash-collisions>🟡 High: ESP8266 EEPROM Hash Collisions</h3><p><strong>Problem</strong>: The DJB2 hash across only 15 slots of 32 bytes is
+collision-prone. With 8 stored keys, collision probability is ~85%.</p><pre><code class=language-cpp>// StateManager.cpp:28
+return EEPROM_DATA_START + (hash % EEPROM_SLOT_COUNT) * EEPROM_SLOT_SIZE;
+// 15 slots for 8+ keys → ~85% collision probability
+</code></pre><p><strong>Impact</strong>: Settings overwrite each other → unpredictable behavior after
+ESP8266 reboot.</p><h3 id=-high-startup-order-between-initializecontroller-and-homie-node-setup>🟡 High: Startup Order Between initializeController and Homie Node Setup</h3><p><strong>Problem</strong>: <code>PoolControllerContext::setup()</code> calls <code>Homie.setup()</code> followed
+by <code>initializeController()</code>. The <code>OperationModeNode::setup()</code> (Homie node
+setup) runs inside <code>Homie.setup()</code>. But <code>initializeController()</code> also reads
+HomieSettings and configures nodes.</p><p>The order is:</p><ol><li>Global constructors: all static nodes</li><li><code>PoolControllerContext::setup()</code> → <code>Homie.setup()</code> (node setups execute)</li><li><code>initializeController()</code> → creates Rules via <code>new</code>, sets intervals</li></ol><p><strong>Problem</strong>: Rules created with raw <code>new</code> in <code>initializeController()</code> are
+owned by the Vector in <code>OperationModeNode</code>. The destructor deletes them,
+which could cause use-after-free if Homie internally recreates nodes.</p><h3 id=-medium-silent-mqtt-publish-failures>🟠 Medium: Silent MQTT Publish Failures</h3><p><strong>Problem</strong>: Many <code>MqttInterface</code> methods check <code>Homie.isConnected()</code> but
+don&rsquo;t check publish return values. If the connection drops during publishing,
+the failure is silent.</p><pre><code class=language-cpp>// MqttInterface.hpp:68
+inline void publishSwitchState(...) {
+  if (isHomeAssistant()) {
+    HomeAssistant::DiscoveryPublisher::publishSwitchState(...);
+    // Return value ignored!
+  } else {
+    node.setProperty(homieProperty).send(state ? &quot;true&quot; : &quot;false&quot;);
+    // Result ignored!
+  }
+}
+</code></pre><p><strong>Impact</strong>: State updates are lost. No retransmission on reconnect →
+Home Assistant may show stale states.</p><h3 id=-medium-no-watchdog-feeding-in-long-operations>🟠 Medium: No Watchdog Feeding in Long Operations</h3><p><strong>Problem</strong>: The watchdog (30s on ESP32) is only fed in the main loop.
+Long operations could trigger it.</p><pre><code class=language-cpp>// PoolController.cpp:391
+auto PoolControllerContext::loop() -&gt; void {
+  SystemMonitor::feedWatchdog();
+  SystemMonitor::checkMemory();
+  Homie.loop();
+}
+</code></pre><p><strong>Recommendation</strong>: Feed watchdog inside potentially long operations.</p><h3 id=-medium-no-retrybackoff-for-sensor-recovery>🟠 Medium: No Retry/Backoff for Sensor Recovery</h3><p><strong>Problem</strong>: When a Dallas sensor disconnects, <code>_temperature</code> stays NaN
+without accelerated re-polling.</p><p><strong>Impact</strong>: After a sensor fault, it can take minutes to recover because
+no shortened polling interval is active.</p><h3 id=-low-millis-overflow-after-49-days>🔵 Low: millis() Overflow After ~49 Days</h3><p><strong>Problem</strong>: <code>millis()</code> overflows after ~49 days on ESP8266/ESP32.
+<code>Utils::shouldMeasure()</code> handles this correctly via unsigned arithmetic,
+but there&rsquo;s no monitoring or testing for this.</p><hr><h2 id=3-proposed-solutions>3. Proposed Solutions</h2><h3 id=p1-decouple-state-load-from-mqtt--critical>P1: Decouple State Load from MQTT 🔴 Critical</h3><p><strong>Goal</strong>: Persisted states always load, regardless of WiFi/MQTT status.</p><p><strong>Solution A (recommended) — Load in <code>initializeController()</code></strong>:</p><pre><code class=language-cpp>auto PoolControllerContext::setup() -&gt; void {
+  Homie.setup();
+
+  // StateManager and SystemMonitor always initialize,
+  // not only on MQTT connect
+  StateManager::begin();
+  SystemMonitor::begin();
+
+  initializeController();
+  operationModeNode.loadState();  // Always runs
+}
+</code></pre><p>HomieSettings then serve only as <strong>factory defaults</strong>, overridden by
+persisted values.</p><p><strong>Solution B — Fallback chain</strong>: <code>initializeController()</code> checks
+<code>Homie.isConnected()</code> and calls <code>loadState()</code>. On first MQTT connect,
+<code>loadState()</code> is called again (overwriting potentially newer values).</p><p><strong>Effort</strong>: 1–2 days<br><strong>Risk</strong>: Low</p><h3 id=p2-graceful-degradation-for-ntp-failure--high>P2: Graceful Degradation for NTP Failure 🟡 High</h3><p><strong>Goal</strong>: Don&rsquo;t shut everything down when time is uncertain; degrade
+intelligently.</p><p><strong>Approach — Three-Level Model</strong>:</p><table><thead><tr><th>Level</th><th>Condition</th><th>Behavior</th></tr></thead><tbody><tr><td><strong>Green</strong></td><td>last NTP sync &lt; 1h</td><td>Normal operation</td></tr><tr><td><strong>Yellow</strong></td><td>1h–24h since last sync</td><td>Timer runs with millis() estimate, warning via MQTT/Serial</td></tr><tr><td><strong>Red</strong></td><td>>24h since last sync <strong>or</strong> time jump</td><td>Timer mode falls back to Auto mode, pump runs on temperature logic</td></tr></tbody></table><pre><code class=language-cpp>// Proposed RuleAuto::checkPoolPumpTimer()
+bool RuleAuto::checkPoolPumpTimer() {
+  tm time = getCurrentDateTime();
+
+  if (time.tm_year == -1) {
+    auto degradation = getTimeDegradationLevel();
+
+    if (degradation == TimeDegradation::YELLOW) {
+      return checkPumpTimerWithEstimate();
+    }
+
+    // RED: fallback to temperature control or last known on/off time
+    return getFallbackPumpState();
+  }
+  return checkPumpTimerExact(time);
+}
+</code></pre><p><strong>Effort</strong>: 2–3 days<br><strong>Risk</strong>: Medium</p><h3 id=p3-fix-esp8266-eeprom-collisions--high>P3: Fix ESP8266 EEPROM Collisions 🟡 High</h3><p><strong>Solution A (recommended) — Structured slot layout</strong>:</p><pre><code class=language-cpp>enum EEPROMSlot : uint16_t {
+  SLOT_MAGIC      = 0,     // 4 bytes Magic Number
+  SLOT_OPMODE     = 4,     // 32 bytes: Mode String
+  SLOT_POOL_TEMP  = 36,    // 4 bytes: float
+  SLOT_SOLAR_TEMP = 40,    // 4 bytes: float
+  SLOT_HYSTERESIS = 44,    // 4 bytes: float
+  SLOT_TIMER_START_H = 48, // 4 bytes: int
+  SLOT_TIMER_START_M = 52, // 4 bytes: int
+  SLOT_TIMER_END_H   = 56, // 4 bytes: int
+  SLOT_TIMER_END_M   = 60, // 4 bytes: int
+  SLOT_RELAY_POOL    = 64, // 1 byte: bool
+  SLOT_RELAY_SOLAR   = 65, // 1 byte: bool
+  SLOT_CHECKSUM      = 66, // 2 bytes: CRC16 over slots 4-65
+  SLOT_END           = 68   // Fits in 512 bytes EEPROM
+};
+</code></pre><p><strong>Benefits</strong>:</p><ul><li>No collisions</li><li>CRC protects against corruption</li><li>Easily extensible</li><li>Faster than hashing</li></ul><p><strong>Effort</strong>: 1–2 days<br><strong>Risk</strong>: Medium (breaks compatibility with existing EEPROM content)</p><h3 id=p4-mqtt-publish-retry--reconnect-refresh--medium>P4: MQTT Publish Retry & Reconnect Refresh 🟠 Medium</h3><p><strong>Goal</strong>: No lost state updates during temporary MQTT outages.</p><p><strong>Approach — Dirty-Flag Queue</strong>:</p><pre><code class=language-cpp>class MqttPublishQueue {
+  // ...
+public:
+  bool publish(const char* topic, const char* payload, bool retained);
+  void onReconnect();  // Sends all queued messages
+};
+
+// In Homie onReadyToOperate callback:
+void PoolControllerContext::setupHandler() {
+  MqttPublishQueue::onReconnect();  // Re-send missed updates
+}
+</code></pre><p><strong>Effort</strong>: 2–3 days<br><strong>Risk</strong>: Low</p><h3 id=p5-explicit-degradation-strategy--medium>P5: Explicit Degradation Strategy 🟠 Medium</h3><p><strong>Goal</strong>: Clearly defined operational states with documented behavior.</p><pre><code class=language-cpp>enum class DegradationLevel {
+  NORMAL,        // Everything OK
+  NO_WIFI,       // WiFi down, running, no MQTT updates
+  NO_TIME,       // Time uncertain, timer fallback active
+  NO_SENSOR,     // Sensor faulty, pump with cautious values
+  CRITICAL,      // Multiple failures → Safe Mode
+};
+</code></pre><table><thead><tr><th>Level</th><th>Pool Pump</th><th>Solar Pump</th><th>Logging</th></tr></thead><tbody><tr><td>NORMAL</td><td>Rule-based</td><td>Rule-based</td><td>MQTT + Serial</td></tr><tr><td>NO_WIFI</td><td>Rule-based</td><td>Rule-based</td><td>Serial</td></tr><tr><td>NO_TIME</td><td>Auto mode</td><td>Rule-based</td><td>Serial + Warning</td></tr><tr><td>NO_SENSOR</td><td>Last good value (max 1h)</td><td>OFF</td><td>Serial + Alarm</td></tr><tr><td>CRITICAL</td><td>Manual (last state)</td><td>OFF</td><td>Serial + Persistent Warning</td></tr></tbody></table><p><strong>Effort</strong>: 2–3 days<br><strong>Risk</strong>: Medium</p><h3 id=p6-watchdog-feeding-in-long-operations--medium>P6: Watchdog Feeding in Long Operations 🟠 Medium</h3><pre><code class=language-cpp>// DallasTemperatureNode.cpp
+void DallasTemperatureNode::loop() {
+  SystemMonitor::feedWatchdog();
+
+  if (Utils::shouldMeasure(_lastMeasurement, _measurementInterval)) {
+    sensor.requestTemperatures();
+    SystemMonitor::feedWatchdog();
+    _temperature = sensor.getTempCByIndex(0);
+  }
+}
+</code></pre><p><strong>Effort</strong>: 0.5 days<br><strong>Risk</strong>: None</p><h3 id=p7-accelerated-sensor-recovery--medium>P7: Accelerated Sensor Recovery 🟠 Medium</h3><pre><code class=language-cpp>void DallasTemperatureNode::loop() {
+  uint32_t effectiveInterval = isnan(_temperature)
+    ? RECOVERY_INTERVAL  // e.g. 5 seconds instead of 60
+    : _measurementInterval;
+
+  if (Utils::shouldMeasure(_lastMeasurement, effectiveInterval)) {
+    // ... read sensor
+    if (isnan(_temperature)) {
+      _lastMeasurement = millis();  // Next try in RECOVERY_INTERVAL
+    }
+  }
+}
+</code></pre><p><strong>Effort</strong>: 1 day<br><strong>Risk</strong>: Low</p><h3 id=p8-boot-loop-detection-via-boot-counter--medium>P8: Boot-Loop Detection via Boot Counter 🟠 Medium</h3><p><strong>Goal</strong>: Detect repeated power failures or startup crashes.</p><pre><code class=language-cpp>void detectBootLoop() {
+  int bootCount = StateManager::loadInt(&quot;bootCount&quot;, 0);
+  uint32_t lastUptime = StateManager::loadInt(&quot;lastBootUptime&quot;, 0);
+
+  if (lastUptime &lt; 300 &amp;&amp; bootCount &gt; 2) {
+    enterSafeMode();  // All relays OFF, base functions only
+  }
+
+  StateManager::saveInt(&quot;bootCount&quot;, bootCount + 1);
+  StateManager::saveInt(&quot;lastBootUptime&quot;, SystemMonitor::getUptimeSeconds());
+}
+</code></pre><p><strong>Effort</strong>: 1 day<br><strong>Risk</strong>: Low</p><h3 id=p9-configurable-fallback-behavior--medium>P9: Configurable Fallback Behavior 🟠 Medium</h3><p><strong>Goal</strong>: User-configurable behavior during time loss.</p><pre><code class=language-cpp>HomieSetting&lt;const char*&gt; fallbackModeSetting_{&quot;fallback-mode&quot;,
+  &quot;Operation mode on time loss (auto/manu/off)&quot;};
+HomieSetting&lt;bool&gt; keepPumpOnTimeLossSetting_{&quot;keep-pump-on-time-loss&quot;,
+  &quot;Keep pump running on time loss (true/false)&quot;};
+HomieSetting&lt;long&gt; timeLossMaxHoursSetting_{&quot;time-loss-max-hours&quot;,
+  &quot;Max hours without time sync before fallback activates (1-72)&quot;};
+</code></pre><p><strong>Effort</strong>: 1 day<br><strong>Risk</strong>: Low</p><hr><h2 id=4-prioritized-roadmap>4. Prioritized Roadmap</h2><h3 id=phase-1-critical-stability-immediate>Phase 1: Critical Stability (Immediate)</h3><table><thead><tr><th>Priority</th><th>Proposal</th><th>Effort</th></tr></thead><tbody><tr><td>🔴 P1</td><td>Decouple State Load from MQTT</td><td>1–2 days</td></tr><tr><td>🟡 P3</td><td>Fix ESP8266 EEPROM collisions</td><td>1–2 days</td></tr><tr><td>🟠 P6</td><td>Watchdog feeding in long ops</td><td>0.5 days</td></tr></tbody></table><h3 id=phase-2-graceful-degradation-next-2-weeks>Phase 2: Graceful Degradation (Next 2 weeks)</h3><table><thead><tr><th>Priority</th><th>Proposal</th><th>Effort</th></tr></thead><tbody><tr><td>🟡 P2</td><td>Graceful degradation for NTP failure</td><td>2–3 days</td></tr><tr><td>🟠 P4</td><td>MQTT publish retry & reconnect refresh</td><td>2–3 days</td></tr><tr><td>🟠 P5</td><td>Explicit degradation strategy</td><td>2–3 days</td></tr></tbody></table><h3 id=phase-3-proactive-resilience--in-progress>Phase 3: Proactive Resilience 🔄 In Progress</h3><table><thead><tr><th>Priority</th><th>Proposal</th><th>Effort</th></tr></thead><tbody><tr><td>🟠 P7</td><td>Accelerated sensor recovery</td><td>1 day</td></tr><tr><td>🟠 P8</td><td>Boot-loop detection + Safe Mode</td><td>1 day</td></tr><tr><td>🟠 P9</td><td>Configurable fallback behavior</td><td>1 day</td></tr></tbody></table><hr><h2 id=5-testing--verification>5. Testing & Verification</h2><table><thead><tr><th>Proposal</th><th>Test Scenario</th></tr></thead><tbody><tr><td>P1</td><td>Boot without WiFi → states loaded ✓. Boot without WiFi after mode change → new mode active</td></tr><tr><td>P2</td><td>NTP blocked (1h, 6h, 24h, 48h) → correct degradation. Timer falls back to Auto</td></tr><tr><td>P3</td><td>All 9 keys write → read back → correct values. CRC corruption → defaults used</td></tr><tr><td>P4</td><td>MQTT outage 5 min → 10 state changes → after reconnect all 10 correctly published</td></tr><tr><td>P5</td><td>Simulated sensor failure → degradation to NO_SENSOR → correct pump behavior</td></tr><tr><td>P6</td><td>500ms blocking call → watchdog not triggered</td></tr><tr><td>P7</td><td>Sensor disconnect → recovery in &lt;10s instead of >30s</td></tr><tr><td>P8</td><td>5 short boots in sequence → Safe Mode active. One long boot → counter reset</td></tr><tr><td>P9</td><td>Fallback mode set via MQTT to &ldquo;manu&rdquo; → pump runs on last command during time loss</td></tr></tbody></table><hr><h2 id=6-architecture-impact>6. Architecture Impact</h2><h3 id=new-files>New Files</h3><pre><code class=language-text>src/
+├── DegradationManager.hpp   (P5)
+├── DegradationManager.cpp   (P5)
+├── MqttPublishQueue.hpp     (P4)
+├── MqttPublishQueue.cpp     (P4)
+└── BootGuard.hpp            (P8)
+</code></pre><h3 id=changed-files>Changed Files</h3><table><thead><tr><th>File</th><th>Changes</th></tr></thead><tbody><tr><td><code>PoolController.cpp</code></td><td>State load in <code>setup()</code>, DegradationManager loop</td></tr><tr><td><code>StateManager.cpp</code></td><td>ESP8266 EEPROM new layout (P3)</td></tr><tr><td><code>DallasTemperatureNode.cpp</code></td><td>Recovery interval on NaN (P7), watchdog feed (P6)</td></tr><tr><td><code>OperationModeNode.cpp</code></td><td>Fallback logic on time loss (P2)</td></tr><tr><td><code>RuleAuto.cpp</code></td><td>Three-level timer (P2)</td></tr><tr><td><code>RuleTimer.cpp</code></td><td>Three-level timer (P2)</td></tr><tr><td><code>SystemMonitor.hpp/cpp</code></td><td>Degradation integration (P5)</td></tr><tr><td><code>MqttInterface.hpp</code></td><td>Publish queue integration (P4)</td></tr><tr><td><code>HomeAssistantMQTT.hpp/cpp</code></td><td>Queue-capable publishes (P4)</td></tr><tr><td><code>Config.hpp</code></td><td>New HomieSettings for fallback (P9)</td></tr></tbody></table><h3 id=backward-compatibility>Backward Compatibility</h3><ul><li>P3 (EEPROM layout) breaks compatibility with existing ESP8266 installations.
+Migration: first boot after update reinitializes EEPROM.</li><li>All other proposals are additive changes with no breakage.</li></ul><hr><h2 id=7-summary>7. Summary</h2><p>The system is <strong>fundamentally well-positioned</strong> for 24/7 operation (see
+existing features), but has several critical gaps:</p><ol><li><strong>🔴 P1</strong> is the most urgent: without it, combined power+WiFi failure
+loses all settings.</li><li><strong>🟡 P2 + P3</strong> address the two most common extended-failure scenarios
+(WiFi outage >24h, ESP8266 storage corruption).</li><li><strong>🟠 P4–P9</strong> move the system from &ldquo;mostly works&rdquo; to &ldquo;runs reliably
+under all conditions&rdquo;.</li></ol><blockquote><p><strong>Recommendation</strong>: Implement P1, P3, and P6 in a first sprint, then
+P2+P5 as a second step, remaining proposals as needed.</p></blockquote><hr><h2 id=8-appendix-current-architecture-reference>8. Appendix: Current Architecture (Reference)</h2><pre><code class=language-text>ESP boot
+  → setup()
+    → Homie.setup()
+      → (internal) Node setups: RelayModuleNode, OperationModeNode
+      → [if MQTT connects] setupHandler()
+        → StateManager::begin()
+        → SystemMonitor::begin()
+        → operationModeNode.loadState()     ← CRITICAL: only here!
+    → initializeController()
+      → Create Rules
+      → Set intervals
+  → loop()
+    → SystemMonitor::feedWatchdog()
+    → SystemMonitor::checkMemory()
+    → Homie.loop()
+      → OperationModeNode::loop()
+        → Rule::loop() (temperature-based pump control)
+</code></pre><pre><code class=language-text>Data flow during WiFi outage:
+
+Sensor reads → Temperature updated → Rule evaluates →
+Relay setSwitch() → GPIO toggles → State persisted to NVS/EEPROM
+
+→ MQTT publish skipped (Homie.isConnected() == false)
+→ No retry on reconnect
+</code></pre><hr><p><em>End of proposal. For questions or change requests please open an issue.</em></p></div><div class=article-widget><div class=post-nav><div class=post-nav-item><div class=meta-nav>Previous</div><a href=/docs/pool-controller/proposal-24-7-resilience-de/ rel=next></a></div><div class=post-nav-item><div class=meta-nav>Next</div><a href=/docs/pool-controller/state-persistence/ rel=prev></a></div></div></div></div><div class=body-footer><p>Last updated on Jan 1, 0001</p><p class=edit-page><a href=https://github.com/smart-swimmingpool/edit/master/content/docs/pool-controller/proposal-24-7-resilience.md><i class="fas fa-pen pr-2"></i>Edit this page</a></p></div></article><footer class=site-footer><p class=powered-by>© 2026 - 🏊 Smart Swimming Pool</p><p class=powered-by>Powered by the
+<a href=https://sourcethemes.com/academic/ target=_blank rel=noopener>Academic theme</a> for
+<a href=https://gohugo.io target=_blank rel=noopener>Hugo</a>.</p></footer></main></div></div><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/cpp.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/json.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/arduino.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/bash.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin=anonymous></script>
+<script>const code_highlighting=!0</script><script>const isSiteThemeDark=!1</script><script>const search_config={indexURI:"/index.json",minLength:1,threshold:.3},i18n={no_results:"No results found",placeholder:"Search...",results:"results found"},content_type={post:"Posts",project:"Projects",publication:"Publications",talk:"Talks"}</script><script src=https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.1/anchor.min.js integrity="sha256-pB/deHc9CGfFpJRjC43imB29Rse8tak+5eXqntO94ck=" crossorigin=anonymous></script>
+<script>anchors.add()</script><script id=search-hit-fuse-template type=text/x-template>
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script><script src=https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin=anonymous></script>
+<script src=/js/academic.min.cd45a9c0bbdd3dfb1c126917c601c9f2.js></script><div id=modal class="modal fade" role=dialog><div class=modal-dialog><div class=modal-content><div class=modal-header><h5 class=modal-title>Cite</h5><button type=button class=close data-dismiss=modal aria-label=Close>
+<span aria-hidden=true>&#215;</span></button></div><div class=modal-body><pre><code class="tex hljs"></code></pre></div><div class=modal-footer><a class="btn btn-outline-primary my-1 js-copy-cite" href=# target=_blank><i class="fas fa-copy"></i> Copy</a>
+<a class="btn btn-outline-primary my-1 js-download-cite" href=# target=_blank><i class="fas fa-download"></i> Download</a><div id=modal-error></div></div></div></div></div></body></html>

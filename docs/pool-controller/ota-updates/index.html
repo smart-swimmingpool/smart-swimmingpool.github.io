@@ -1,0 +1,154 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=generator content="Source Themes Academic 4.8.0"><meta name=author content="Stephan Strittmatter"><meta name=description content="Over-The-Air (OTA) Updates Overview The Pool Controller supports Over-The-Air (OTA) firmware updates, allowing you to update the device remotely without physical access to the hardware. This feature is provided by the Homie library and is enabled by default."><link rel=alternate hreflang=en-us href=https://smart-swimmingpool.github.io/docs/pool-controller/ota-updates/><meta name=theme-color content="#2879d0"><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css integrity="sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU=" crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css crossorigin=anonymous title=hl-light><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css crossorigin=anonymous title=hl-dark disabled><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin=anonymous><script src=https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin=anonymous async></script>
+<link rel=stylesheet href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap"><link rel=stylesheet href=/css/academic.css><script async src="https://www.googletagmanager.com/gtag/js?id=G-Z4Q2NR31ZD"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}function trackOutboundLink(e,t){gtag("event","click",{event_category:"outbound",event_label:e,transport_type:"beacon",event_callback:function(){t!=="_blank"&&(document.location=e)}}),console.debug("Outbound link clicked: "+e)}function onClickCallback(e){if(e.target.tagName!=="A"||e.target.host===window.location.host)return;trackOutboundLink(e.target,e.target.getAttribute("target"))}gtag("js",new Date),gtag("config","G-Z4Q2NR31ZD",{anonymize_ip:!0}),document.addEventListener("click",onClickCallback,!1)</script><link rel=manifest href=/index.webmanifest><link rel=icon type=image/png href=/images/icon_huc1aac635c547f103b14921ae0ab7550f_20089_32x32_fill_lanczos_center_3.png><link rel=apple-touch-icon type=image/png href=/images/icon_huc1aac635c547f103b14921ae0ab7550f_20089_192x192_fill_lanczos_center_3.png><link rel=canonical href=https://smart-swimmingpool.github.io/docs/pool-controller/ota-updates/><meta property="twitter:card" content="summary"><meta property="twitter:site" content="@_stritti_"><meta property="twitter:creator" content="@_stritti_"><meta property="og:site_name" content="Smart Swimming Pool"><meta property="og:url" content="https://smart-swimmingpool.github.io/docs/pool-controller/ota-updates/"><meta property="og:title" content=" | Smart Swimming Pool"><meta property="og:description" content="Over-The-Air (OTA) Updates Overview The Pool Controller supports Over-The-Air (OTA) firmware updates, allowing you to update the device remotely without physical access to the hardware. This feature is provided by the Homie library and is enabled by default."><meta property="og:image" content="https://smart-swimmingpool.github.io/images/icon_huc1aac635c547f103b14921ae0ab7550f_20089_512x512_fill_lanczos_center_3.png"><meta property="twitter:image" content="https://smart-swimmingpool.github.io/images/icon_huc1aac635c547f103b14921ae0ab7550f_20089_512x512_fill_lanczos_center_3.png"><meta property="og:locale" content="en-us"><script src=https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.js integrity="sha256-5VhCqFam2Cn+yjw61zbBNrbHVJ6SRydPeKopYlngbiQ=" crossorigin=anonymous></script>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.css integrity="sha256-zQ0LblD/Af8vOppw18+2anxsuaz3pWYyVWi+bTvTH8Q=" crossorigin=anonymous><script>window.addEventListener("load",function(){window.cookieconsent.initialise({palette:{popup:{background:"#2879d0",text:"#fff"},button:{background:"#fff",text:"#2879d0"}},theme:"classic",content:{message:"This website uses cookies to ensure you get the best experience on our website.",dismiss:"Got it!",link:"Learn more",href:"https://www.cookiesandyou.com"}})})</script><title>| Smart Swimming Pool</title></head><body id=top data-spy=scroll data-offset=70 data-target=#TableOfContents><aside class=search-results id=search><div class=container><section class=search-header><div class="row no-gutters justify-content-between mb-3"><div class=col-6><h1>Search</h1></div><div class="col-6 col-search-close"><a class=js-search href=#><i class="fas fa-times-circle text-muted" aria-hidden=true></i></a></div></div><div id=search-box><input name=q id=search-query placeholder=Search... autocapitalize=off autocomplete=off autocorrect=off spellcheck=false type=search></div></section><section class=section-search-results><div id=search-hits></div></section></div></aside><nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id=navbar-main><div class=container><div class="d-none d-lg-inline-flex"><a class=navbar-brand href=/>Smart Swimming Pool</a></div><button type=button class=navbar-toggler data-toggle=collapse data-target=#navbar-content aria-controls=navbar aria-expanded=false aria-label="Toggle navigation">
+<span><i class="fas fa-bars"></i></span></button><div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none"><a class=navbar-brand href=/>Smart Swimming Pool</a></div><div class="navbar-collapse main-menu-item collapse justify-content-start" id=navbar-content><ul class="navbar-nav d-md-inline-flex"><li class=nav-item><a class="nav-link active" href=/docs><span>Documents</span></a></li><li class=nav-item><a class=nav-link href=/code-of-conduct/><span>Code of Conduct</span></a></li></ul><ul class="navbar-nav ml-md-auto"><li class=nav-item><a class=nav-link href=https://github.com/smart-swimmingpool target=_blank rel=noopener><span><i class="fab fa-github-alt" style=font-size:18px;line-height:18px></i></span></a></li></ul></div><ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2"><li class=nav-item><a class="nav-link js-search" href=# aria-label=Search><i class="fas fa-search" aria-hidden=true></i></a></li><li class="nav-item dropdown theme-dropdown"><a href=# class="nav-link js-theme-selector" data-toggle=dropdown aria-haspopup=true><i class="fas fa-palette" aria-hidden=true></i></a><div class=dropdown-menu><a href=# class="dropdown-item js-set-theme-light"><span>Light</span></a>
+<a href=# class="dropdown-item js-set-theme-dark"><span>Dark</span></a>
+<a href=# class="dropdown-item js-set-theme-auto"><span>Automatic</span></a></div></li></ul></div></nav><div class="container-fluid docs"><div class="row flex-xl-nowrap"><div class="col-12 col-md-3 col-xl-2 docs-sidebar"><form class="docs-search d-flex align-items-center"><button class="btn docs-toggle d-md-none p-0 mr-3" type=button data-toggle=collapse data-target=#docs-nav aria-controls=docs-nav aria-expanded=false aria-label="Toggle section navigation">
+<span><i class="fas fa-bars"></i></span></button>
+<input name=q type=search class=form-control placeholder=Search... autocomplete=off></form><nav class="collapse docs-links" id=docs-nav><div class=docs-toc-item><a class=docs-toc-link href=/docs/pool-controller/hardware-guide/>Pool Controller</a><ul class="nav docs-sidenav"><li><a href=/docs/pool-controller/hardware-guide/>Hardware Guide</a></li><li><a href=/docs/pool-controller/esp32-schematic-optimization-de/>ESP32 Schaltplan-Optimierung</a></li><li><a href=/docs/pool-controller/esp32-complete-wiring-schematic-de/>ESP32 Komplett-Schaltplan</a></li><li><a href=/docs/pool-controller/software-guide/>Software Guide</a></li><li><a href=/docs/pool-controller/users-guide/>Users Guide</a></li><li><a href=/docs/pool-controller/>Home Assistant</a></li></ul></div></nav></div><main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 docs-content" role=main><article class=article><div class=docs-article-container><h1></h1><div class=article-style><h1 id=over-the-air-ota-updates>Over-The-Air (OTA) Updates</h1><h2 id=overview>Overview</h2><p>The Pool Controller supports Over-The-Air (OTA) firmware updates, allowing
+you to update the device remotely without physical access to the hardware.
+This feature is provided by the Homie library and is enabled by default.</p><h2 id=features>Features</h2><ul><li><strong>Network-based updates</strong>: Upload firmware via Wi-Fi</li><li><strong>Password-protected</strong>: Secure updates with authentication</li><li><strong>Low memory footprint</strong>: Optimized for ESP32</li><li><strong>Automatic discovery</strong>: mDNS support for easy device location</li><li><strong>Status feedback</strong>: Progress indication via MQTT</li></ul><h2 id=prerequisites>Prerequisites</h2><ul><li>Pool Controller connected to Wi-Fi network</li><li>PlatformIO installed (for uploading firmware)</li><li>Device IP address or mDNS hostname</li><li>OTA password (configured in Homie config)</li></ul><h2 id=update-methods>Update Methods</h2><h3 id=method-1-platformio-ota-upload-recommended>Method 1: PlatformIO OTA Upload (Recommended)</h3><h4 id=1-configure-upload-settings>1. Configure Upload Settings</h4><p>Edit <code>platformio.ini</code> and uncomment/modify OTA settings:</p><pre><code class=language-ini>[env:nodemcuv2]
+; ... existing settings ...
+upload_protocol = espota
+upload_port = pool-controller.local  ; or IP address like 192.168.1.100
+upload_flags =
+  --timeout=30
+  --port=8266
+  --auth=YOUR_OTA_PASSWORD
+</code></pre><h4 id=2-upload-firmware>2. Upload Firmware</h4><pre><code class=language-bash># Build and upload via OTA
+pio run -e nodemcuv2 --target upload
+
+# Or using platform-specific environment
+pio run -e esp32dev --target upload
+</code></pre><h4 id=3-monitor-progress>3. Monitor Progress</h4><p>The upload progress will be shown in the terminal. After completion, the
+device will automatically reboot with the new firmware.</p><h3 id=method-2-arduino-ide-ota-upload>Method 2: Arduino IDE OTA Upload</h3><ol><li>Open Arduino IDE</li><li>Go to <strong>Tools → Port</strong></li><li>Select your device from the network ports list
+(e.g., <code>pool-controller at 192.168.1.100</code>)</li><li>Click Upload button</li><li>Enter OTA password when prompted</li></ol><h3 id=method-3-web-interface-homie-ui>Method 3: Web Interface (Homie UI)</h3><ol><li>Access Homie web interface at <code>http://pool-controller.local/</code>
+or <code>http://[DEVICE_IP]/</code></li><li>Navigate to <strong>Firmware Update</strong> section</li><li>Select compiled <code>.bin</code> file</li><li>Click <strong>Upload</strong></li><li>Wait for update completion and automatic reboot</li></ol><h2 id=ota-configuration>OTA Configuration</h2><h3 id=setting-ota-password>Setting OTA Password</h3><p>The OTA password is configured through the Homie configuration portal:</p><ol><li><strong>Reset device</strong> to enter configuration mode (hold button during boot)</li><li>Connect to Wi-Fi AP <code>Homie-XXXXXX</code></li><li>Open browser to <code>http://192.168.123.1</code></li><li>Set <strong>OTA Password</strong> in the configuration</li><li>Save and reboot</li></ol><h3 id=homie-configuration-file>Homie Configuration File</h3><p>OTA settings are stored in the Homie configuration:</p><pre><code class=language-json>{
+  &quot;name&quot;: &quot;Pool Controller&quot;,
+  &quot;wifi&quot;: {
+    &quot;ssid&quot;: &quot;YourWiFiSSID&quot;,
+    &quot;password&quot;: &quot;YourWiFiPassword&quot;
+  },
+  &quot;mqtt&quot;: {
+    &quot;host&quot;: &quot;192.168.1.10&quot;,
+    &quot;port&quot;: 1883
+  },
+  &quot;ota&quot;: {
+    &quot;enabled&quot;: true
+  },
+  &quot;device_id&quot;: &quot;pool-controller&quot;
+}
+</code></pre><h2 id=building-firmware-for-ota>Building Firmware for OTA</h2><h3 id=create-firmware-binary>Create Firmware Binary</h3><pre><code class=language-bash># Build firmware without uploading
+pio run -e nodemcuv2
+
+# Binary location
+.pio/build/nodemcuv2/firmware.bin
+</code></pre><h3 id=esp32-build>ESP32 Build</h3><pre><code class=language-bash># Build for ESP32
+pio run -e esp32dev
+
+# Binary location
+.pio/build/esp32dev/firmware.bin
+</code></pre><h2 id=security-best-practices>Security Best Practices</h2><h3 id=1-set-strong-ota-password>1. Set Strong OTA Password</h3><ul><li>Use minimum 8 characters</li><li>Include uppercase, lowercase, numbers, symbols</li><li>Example: <code>MyP00l#Update2026</code></li></ul><h3 id=2-network-security>2. Network Security</h3><ul><li>Use WPA2/WPA3 Wi-Fi encryption</li><li>Isolate IoT devices on separate VLAN if possible</li><li>Restrict OTA port (8266) at firewall level</li></ul><h3 id=3-firmware-verification>3. Firmware Verification</h3><ul><li>Always verify firmware builds before uploading</li><li>Test on development device first</li><li>Keep backup of working firmware version</li></ul><h2 id=troubleshooting>Troubleshooting</h2><h3 id=ota-upload-fails>OTA Upload Fails</h3><p><strong>Problem</strong>: Upload fails with timeout error</p><p><strong>Solutions</strong>:</p><ul><li>Verify device is online: <code>ping pool-controller.local</code></li><li>Check firewall allows port 8266</li><li>Ensure correct OTA password</li><li>Verify device has sufficient free memory (>50KB)</li><li>Try increasing timeout in <code>upload_flags</code></li></ul><h3 id=device-not-found>Device Not Found</h3><p><strong>Problem</strong>: Device not visible in network ports</p><p><strong>Solutions</strong>:</p><ul><li>Check mDNS is working: <code>avahi-browse -a</code> (Linux) or Bonjour (Windows)</li><li>Use IP address instead of mDNS hostname</li><li>Restart device and wait for Wi-Fi connection</li><li>Check device is on same network/subnet</li></ul><h3 id=upload-successful-but-device-not-responding>Upload Successful but Device Not Responding</h3><p><strong>Problem</strong>: Upload completes but device doesn&rsquo;t reboot or run new firmware</p><p><strong>Solutions</strong>:</p><ul><li>Check serial console for boot errors</li><li>Verify firmware was built for correct platform (ESP32)</li><li>Ensure firmware size fits in flash memory</li><li>Check for memory issues in serial log</li><li>Perform manual reboot</li></ul><h3 id=memory-issues-during-ota>Memory Issues During OTA</h3><p><strong>Problem</strong>: OTA fails due to insufficient memory</p><p><strong>Solutions</strong>:</p><ul><li>Free memory is critical for OTA</li><li>System monitor will prevent OTA if memory &lt; 8KB</li><li>Reboot device before OTA attempt</li><li>Reduce logging during update</li></ul><h2 id=ota-architecture>OTA Architecture</h2><h3 id=how-it-works>How It Works</h3><ol><li><strong>Homie OTA Server</strong>: Runs on port 3232 (ESP32)</li><li><strong>mDNS Advertisement</strong>: Device broadcasts <code>_arduino._tcp</code> service</li><li><strong>Authentication</strong>: Password challenge before accepting firmware</li><li><strong>Flash Writing</strong>: New firmware written to OTA partition</li><li><strong>Verification</strong>: Boot partition updated to new firmware</li><li><strong>Reboot</strong>: Automatic restart with new firmware</li></ol><h3 id=memory-requirements>Memory Requirements</h3><ul><li><strong>ESP32</strong>: Minimum 100KB free heap for OTA</li><li><strong>Flash</strong>: Sufficient space for dual boot partitions</li></ul><h3 id=lwip-configuration>LWIP Configuration</h3><p>The project uses <code>PIO_FRAMEWORK_ARDUINO_LWIP2_LOW_MEMORY</code> flag to optimize
+network stack memory usage, ensuring reliable OTA updates.</p><h2 id=monitoring-ota-status>Monitoring OTA Status</h2><h3 id=via-mqtt>Via MQTT</h3><p>OTA progress is published to MQTT topics:</p><pre><code class=language-text>homie/pool-controller/$state = &quot;ota&quot;       # During OTA update
+homie/pool-controller/$state = &quot;ready&quot;     # After successful update
+</code></pre><h3 id=via-serial-console>Via Serial Console</h3><p>Connect to serial port to monitor OTA progress:</p><pre><code class=language-bash># PlatformIO monitor
+pio device monitor -e nodemcuv2
+
+# Look for log messages
+[OTA] Start
+[OTA] Progress: 25%
+[OTA] Progress: 50%
+[OTA] Progress: 75%
+[OTA] Success
+</code></pre><h2 id=automation-examples>Automation Examples</h2><h3 id=automated-ota-updates-script>Automated OTA Updates Script</h3><pre><code class=language-bash>#!/bin/bash
+# ota-update.sh
+
+DEVICE_IP=&quot;192.168.1.100&quot;
+OTA_PASSWORD=&quot;MyP00l#Update2026&quot;
+FIRMWARE=&quot;.pio/build/nodemcuv2/firmware.bin&quot;
+
+# Build firmware
+echo &quot;Building firmware...&quot;
+pio run -e nodemcuv2
+
+# Upload via OTA
+echo &quot;Uploading to $DEVICE_IP...&quot;
+python ~/.platformio/packages/framework-arduinoespressif8266/tools/espota.py \
+  -i $DEVICE_IP \
+  -p 8266 \
+  -a $OTA_PASSWORD \
+  -f $FIRMWARE
+
+echo &quot;Update complete!&quot;
+</code></pre><h3 id=github-actions-cicd-example>GitHub Actions CI/CD (Example)</h3><pre><code class=language-yaml>name: Build and Deploy OTA
+
+on:
+  push:
+    tags:
+      - &quot;v*&quot;
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: &quot;3.11&quot;
+
+      - name: Install PlatformIO
+        run: pip install platformio
+
+      - name: Build Firmware
+        run: pio run -e nodemcuv2
+
+      - name: Upload via OTA
+        env:
+          DEVICE_IP: ${{ secrets.DEVICE_IP }}
+          OTA_PASSWORD: ${{ secrets.OTA_PASSWORD }}
+        run: |
+          python ~/.platformio/packages/framework-arduinoespressif8266/tools/espota.py \
+            -i $DEVICE_IP \
+            -p 8266 \
+            -a $OTA_PASSWORD \
+            -f .pio/build/nodemcuv2/firmware.bin
+</code></pre><h2 id=version-management>Version Management</h2><h3 id=firmware-versioning>Firmware Versioning</h3><p>Update version in <code>src/PoolController.cpp</code>:</p><pre><code class=language-cpp>const char* FIRMWARE_VERSION = &quot;3.1.0&quot;;
+</code></pre><h3 id=mqtt-version-publishing>MQTT Version Publishing</h3><p>Version is published automatically:</p><pre><code class=language-text>homie/pool-controller/$fw/version = &quot;3.1.0&quot;
+homie/pool-controller/$fw/name = &quot;pool-controller&quot;
+</code></pre><h2 id=best-practices>Best Practices</h2><h3 id=1-test-before-production>1. Test Before Production</h3><ul><li>Always test new firmware on development device</li><li>Verify all features work after OTA update</li><li>Check MQTT connectivity and state restoration</li></ul><h3 id=2-staged-rollout>2. Staged Rollout</h3><ul><li>Update one device first</li><li>Monitor for 24 hours</li><li>Roll out to remaining devices if stable</li></ul><h3 id=3-backup-current-firmware>3. Backup Current Firmware</h3><pre><code class=language-bash># Backup current firmware before update
+pio run -e nodemcuv2
+cp .pio/build/nodemcuv2/firmware.bin \
+  backups/firmware-v3.1.0-$(date +%Y%m%d).bin
+</code></pre><h3 id=4-schedule-updates>4. Schedule Updates</h3><ul><li>Perform OTA during low-activity periods</li><li>Avoid updates during critical pool operation</li><li>Consider scheduled maintenance windows</li></ul><h2 id=recovery-procedures>Recovery Procedures</h2><h3 id=ota-update-failure-recovery>OTA Update Failure Recovery</h3><p>If OTA update fails and device becomes unresponsive:</p><ol><li><p><strong>Physical Access Recovery</strong>:</p><ul><li>Connect via USB serial</li><li>Upload firmware via serial: <code>pio run -e esp32dev --target upload</code></li></ul></li><li><p><strong>Bootloader Recovery</strong>:</p><ul><li>ESP32 bootloader allows serial recovery</li><li>Hold BOOT button during power-on</li><li>Upload firmware via esptool</li></ul></li><li><p><strong>Factory Reset</strong>:</p><ul><li>Clear EEPROM/NVS</li><li>Reset Homie configuration</li><li>Reconfigure via Homie AP</li></ul></li></ol><h2 id=future-enhancements>Future Enhancements</h2><ul><li><input disabled type=checkbox> Web-based OTA update interface</li><li><input disabled type=checkbox> Automatic update checking from GitHub releases</li><li><input disabled type=checkbox> Rollback capability to previous firmware</li><li><input disabled type=checkbox> A/B partition updates for safer updates</li><li><input disabled type=checkbox> Update scheduling via MQTT commands</li></ul><h2 id=references>References</h2><ul><li><a href=https://homieiot.github.io/homie-esp8266/docs/develop/others/ota-configuration-updates/ target=_blank rel=noopener>Homie OTA Documentation</a></li><li><a href=https://docs.platformio.org/en/latest/platforms/espressif8266.html#over-the-air-ota-update target=_blank rel=noopener>PlatformIO OTA Guide</a></li><li><a href=https://arduino-esp8266.readthedocs.io/en/latest/ota_updates/readme.html target=_blank rel=noopener>Arduino OTA Documentation</a></li><li><a href=https://docs.espressif.com/projects/arduino-esp32/en/latest/api/ota.html target=_blank rel=noopener>ESP32 Arduino OTA</a></li></ul><h2 id=support>Support</h2><p>For OTA-related issues:</p><ul><li>Open issue:
+<a href=https://github.com/smart-swimmingpool/pool-controller/issues target=_blank rel=noopener>https://github.com/smart-swimmingpool/pool-controller/issues</a></li><li>Discussions:
+<a href=https://github.com/smart-swimmingpool/smart-swimmingpool.github.io/discussions target=_blank rel=noopener>https://github.com/smart-swimmingpool/smart-swimmingpool.github.io/discussions</a></li></ul><hr><p><strong>Note</strong>: OTA functionality is enabled by default through the Homie library.
+No code changes required in the application - just configure upload settings
+in <code>platformio.ini</code> and use PlatformIO OTA upload feature.</p></div><div class=article-widget><div class=post-nav><div class=post-nav-item><div class=meta-nav>Previous</div><a href=/docs/pool-controller/optimization-report/ rel=next></a></div><div class=post-nav-item><div class=meta-nav>Next</div><a href=/docs/pool-controller/proposal-24-7-resilience-de/ rel=prev></a></div></div></div></div><div class=body-footer><p>Last updated on Jan 1, 0001</p><p class=edit-page><a href=https://github.com/smart-swimmingpool/edit/master/content/docs/pool-controller/ota-updates.md><i class="fas fa-pen pr-2"></i>Edit this page</a></p></div></article><footer class=site-footer><p class=powered-by>© 2026 - 🏊 Smart Swimming Pool</p><p class=powered-by>Powered by the
+<a href=https://sourcethemes.com/academic/ target=_blank rel=noopener>Academic theme</a> for
+<a href=https://gohugo.io target=_blank rel=noopener>Hugo</a>.</p></footer></main></div></div><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/cpp.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/json.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/arduino.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/bash.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin=anonymous></script>
+<script>const code_highlighting=!0</script><script>const isSiteThemeDark=!1</script><script>const search_config={indexURI:"/index.json",minLength:1,threshold:.3},i18n={no_results:"No results found",placeholder:"Search...",results:"results found"},content_type={post:"Posts",project:"Projects",publication:"Publications",talk:"Talks"}</script><script src=https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.1/anchor.min.js integrity="sha256-pB/deHc9CGfFpJRjC43imB29Rse8tak+5eXqntO94ck=" crossorigin=anonymous></script>
+<script>anchors.add()</script><script id=search-hit-fuse-template type=text/x-template>
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script><script src=https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin=anonymous></script>
+<script src=/js/academic.min.cd45a9c0bbdd3dfb1c126917c601c9f2.js></script><div id=modal class="modal fade" role=dialog><div class=modal-dialog><div class=modal-content><div class=modal-header><h5 class=modal-title>Cite</h5><button type=button class=close data-dismiss=modal aria-label=Close>
+<span aria-hidden=true>&#215;</span></button></div><div class=modal-body><pre><code class="tex hljs"></code></pre></div><div class=modal-footer><a class="btn btn-outline-primary my-1 js-copy-cite" href=# target=_blank><i class="fas fa-copy"></i> Copy</a>
+<a class="btn btn-outline-primary my-1 js-download-cite" href=# target=_blank><i class="fas fa-download"></i> Download</a><div id=modal-error></div></div></div></div></div></body></html>

@@ -1,11 +1,311 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>docs | Smart Swimming Pool</title><link>https://smart-swimmingpool.github.io/tag/docs/</link><atom:link href="https://smart-swimmingpool.github.io/tag/docs/index.xml" rel="self" type="application/rss+xml"/><description>docs</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022 - 🏊 Smart Swimming Pool</copyright><lastBuildDate>Sat, 11 Jun 2022 00:00:00 +0000</lastBuildDate><image><url>https://smart-swimmingpool.github.io/images/icon_huc1aac635c547f103b14921ae0ab7550f_20089_512x512_fill_lanczos_center_3.png</url><title>docs</title><link>https://smart-swimmingpool.github.io/tag/docs/</link></image><item><title>Publications</title><link>https://smart-swimmingpool.github.io/docs/publications/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/publications/</guid><description>&lt;ul>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>docs | Smart Swimming Pool</title><link>https://smart-swimmingpool.github.io/tag/docs/</link><atom:link href="https://smart-swimmingpool.github.io/tag/docs/index.xml" rel="self" type="application/rss+xml"/><description>docs</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2026 - 🏊 Smart Swimming Pool</copyright><lastBuildDate>Fri, 15 May 2026 00:00:00 +0000</lastBuildDate><image><url>https://smart-swimmingpool.github.io/images/icon_huc1aac635c547f103b14921ae0ab7550f_20089_512x512_fill_lanczos_center_3.png</url><title>docs</title><link>https://smart-swimmingpool.github.io/tag/docs/</link></image><item><title>Publications</title><link>https://smart-swimmingpool.github.io/docs/publications/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/publications/</guid><description>&lt;ul>
 &lt;li>
 &lt;p>
 &lt;a href="https://medium.com/diy-my-smart-home/project-smart-swimmingpool-4c40eb6741f6" target="_blank" rel="noopener">Project Smart Swimming Pool&lt;/a>
 , &lt;em>December, 2018&lt;/em>&lt;/p>
 &lt;p>Blogpost of version 1 of Smart Swimming Pool&lt;/p>
 &lt;/li>
-&lt;/ul></description></item><item><title>Software Guide of Pool Monitor</title><link>https://smart-swimmingpool.github.io/docs/pool-monitor/software-guide/</link><pubDate>Sat, 11 Jun 2022 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-monitor/software-guide/</guid><description>&lt;h2 id="development-environment">Development Environment&lt;/h2>
+&lt;/ul></description></item><item><title>ESP32 Komplett-Schaltplan (Verdrahtung aller Bauteile)</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/esp32-complete-wiring-schematic-de/</link><pubDate>Fri, 15 May 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/esp32-complete-wiring-schematic-de/</guid><description>&lt;p>Dieses Dokument zeigt einen zusätzlichen, vollständigen Verdrahtungsplan für
+den ESP32-Aufbau mit Sensoren, Relais, Widerständen und Uhr-Modul (RTC).&lt;/p>
+&lt;p>Die verwendeten Standard-Pins in der Firmware sind:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>PIN_DS_SOLAR&lt;/code> = GPIO32&lt;/li>
+&lt;li>&lt;code>PIN_DS_POOL&lt;/code> = GPIO33&lt;/li>
+&lt;li>&lt;code>PIN_RELAY_POOL&lt;/code> = GPIO25&lt;/li>
+&lt;li>&lt;code>PIN_RELAY_SOLAR&lt;/code> = GPIO26&lt;/li>
+&lt;/ul>
+&lt;h2 id="1-komponenten-inkl-uhr-und-widerstände">1) Komponenten (inkl. Uhr und Widerstände)&lt;/h2>
+&lt;ul>
+&lt;li>1x ESP32 Dev Board&lt;/li>
+&lt;li>2x DS18B20 Temperatursensor (Solar, Pool)&lt;/li>
+&lt;li>2x Widerstand 4.7kΩ (Pull-up für OneWire-Datenleitungen)&lt;/li>
+&lt;li>1x 2-Kanal-Relaismodul 5V (bevorzugt mit Optokoppler)&lt;/li>
+&lt;li>1x RTC-Modul DS3231 (Uhr, optional)&lt;/li>
+&lt;li>1x Netzteil 5V DC (ausreichend dimensioniert)&lt;/li>
+&lt;li>Verdrahtungskabel, Klemmen, ggf. Sicherung/Schutzbeschaltung auf Lastseite&lt;/li>
+&lt;/ul>
+&lt;h2 id="2-komplett-schaltplan-textdarstellung">2) Komplett-Schaltplan (Textdarstellung)&lt;/h2>
+&lt;pre>&lt;code class="language-text">+----------------------------------+
+| ESP32 |
+| |
+| DS18B20 Solar DATA ---- GPIO32 |
+| DS18B20 Pool DATA ---- GPIO33 |
+| Relay IN1 (Pool) ----- GPIO25 |
+| Relay IN2 (Solar) ----- GPIO26 |
+| RTC SDA --------------- GPIO21 |
+| RTC SCL --------------- GPIO22 |
+| 3V3 ------------------- 3V3 |
+| GND ------------------- GND |
++----------------+-----------------+
+|
+| gemeinsame Masse (GND)
+v
++----------------------+ +------------------------------+
+| DS18B20 Solar | | DS18B20 Pool |
+| VDD -&amp;gt; 3V3 | | VDD -&amp;gt; 3V3 |
+| GND -&amp;gt; GND | | GND -&amp;gt; GND |
+| DATA -&amp;gt; GPIO32 | | DATA -&amp;gt; GPIO33 |
++----------+-----------+ +----------+-------------------+
+| |
++--[4.7kΩ]---&amp;gt; 3V3 +--[4.7kΩ]---&amp;gt; 3V3
++----------------------------------+
+| 2-Kanal Relaismodul (5V, opto) |
+| IN1 &amp;lt;- GPIO25 |
+| IN2 &amp;lt;- GPIO26 |
+| VCC &amp;lt;- 5V (oder Modul-Logik) |
+| JD-VCC &amp;lt;- 5V (falls getrennt) |
+| GND &amp;lt;- GND |
++----------------+-----------------+
+|
+| Schaltkontakte
+v
+Pool-Pumpe / Solar-Pumpe (AC)
++--------------------------------------+
+| RTC DS3231 (optional, Uhr) |
+| VCC &amp;lt;- 3V3 (oder 5V je Modultyp) |
+| GND &amp;lt;- GND |
+| SDA &amp;lt;- GPIO21 |
+| SCL &amp;lt;- GPIO22 |
++--------------------------------------+
+&lt;/code>&lt;/pre>
+&lt;h2 id="3-verdrahtungstabelle">3) Verdrahtungstabelle&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Bauteil&lt;/th>
+&lt;th>Signal&lt;/th>
+&lt;th>ESP32 Pin&lt;/th>
+&lt;th>Zusatzbauteil&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>DS18B20 Solar&lt;/td>
+&lt;td>DATA&lt;/td>
+&lt;td>GPIO32&lt;/td>
+&lt;td>4.7kΩ Pull-up nach 3V3&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>DS18B20 Pool&lt;/td>
+&lt;td>DATA&lt;/td>
+&lt;td>GPIO33&lt;/td>
+&lt;td>4.7kΩ Pull-up nach 3V3&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Relais Kanal 1&lt;/td>
+&lt;td>IN1&lt;/td>
+&lt;td>GPIO25&lt;/td>
+&lt;td>optional Pull-down (Fail-Safe)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Relais Kanal 2&lt;/td>
+&lt;td>IN2&lt;/td>
+&lt;td>GPIO26&lt;/td>
+&lt;td>optional Pull-down (Fail-Safe)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>RTC DS3231 (optional)&lt;/td>
+&lt;td>SDA&lt;/td>
+&lt;td>GPIO21&lt;/td>
+&lt;td>I2C-Bus&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>RTC DS3231 (optional)&lt;/td>
+&lt;td>SCL&lt;/td>
+&lt;td>GPIO22&lt;/td>
+&lt;td>I2C-Bus&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Alle Bauteile&lt;/td>
+&lt;td>GND&lt;/td>
+&lt;td>GND&lt;/td>
+&lt;td>gemeinsame Masseführung&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>DS18B20 / RTC&lt;/td>
+&lt;td>Versorgung&lt;/td>
+&lt;td>3V3&lt;/td>
+&lt;td>sauber entkoppeln&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Relaismodul&lt;/td>
+&lt;td>Versorgung&lt;/td>
+&lt;td>5V&lt;/td>
+&lt;td>getrennte Last/Logik empfohlen&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="4-wichtige-hinweise">4) Wichtige Hinweise&lt;/h2>
+&lt;ol>
+&lt;li>230V/Netzseite der Pumpen nur nach geltenden Sicherheitsregeln verdrahten.&lt;/li>
+&lt;li>Sensorleitungen getrennt von Netz- und Relaisleitungen führen.&lt;/li>
+&lt;li>Beim Relaismodul aktive Logik prüfen (active-low oder active-high).&lt;/li>
+&lt;li>Für störarmen Betrieb nahe ESP32 zusätzliche Entkopplung (z. B. 100nF)
+vorsehen.&lt;/li>
+&lt;li>Die Firmware nutzt standardmäßig NTP; das RTC-Modul ist als zusätzliche
+Hardware-Uhr für Erweiterungen/Offline-Szenarien vorgesehen.&lt;/li>
+&lt;/ol>
+&lt;h2 id="5-bezug-zu-bestehender-doku">5) Bezug zu bestehender Doku&lt;/h2>
+&lt;ul>
+&lt;li>Pin-Hintergrund und Optimierung:
+&lt;code>docs/esp32-schematic-optimization-de.md&lt;/code>&lt;/li>
+&lt;li>Allgemeiner Hardware-Guide:
+&lt;code>docs/hardware-guide.md&lt;/code>&lt;/li>
+&lt;/ul></description></item><item><title>ESP32 Schaltplananalyse und Optimierung (Sensoren &amp; Relais)</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/esp32-schematic-optimization-de/</link><pubDate>Thu, 14 May 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/esp32-schematic-optimization-de/</guid><description>&lt;p>Dieses Dokument analysiert den vorhandenen Aufbau (Fritzing-Quelle + bestehende
+Hardware-Dokumentation) und beschreibt einen optimierten ESP32-Vorschlag für
+Sensoren und Relais.&lt;/p>
+&lt;h2 id="1-ist-analyse-relevante-signale">1) Ist-Analyse (relevante Signale)&lt;/h2>
+&lt;p>Aktuelle Firmware-Pinbelegung für ESP32 (&lt;code>src/Config.hpp&lt;/code>):&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>PIN_DS_SOLAR&lt;/code> = GPIO32&lt;/li>
+&lt;li>&lt;code>PIN_DS_POOL&lt;/code> = GPIO33&lt;/li>
+&lt;li>&lt;code>PIN_RELAY_POOL&lt;/code> = GPIO25&lt;/li>
+&lt;li>&lt;code>PIN_RELAY_SOLAR&lt;/code> = GPIO26&lt;/li>
+&lt;/ul>
+&lt;p>Verwendete Hardware laut Doku:&lt;/p>
+&lt;ul>
+&lt;li>2x DS18B20 Temperaturfühler&lt;/li>
+&lt;li>2-Kanal Relaismodul (5V)&lt;/li>
+&lt;/ul>
+&lt;h2 id="2-hauptthemen-im-bisherigen-aufbau-vor-optimierung">2) Hauptthemen im bisherigen Aufbau (vor Optimierung)&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>DS18B20 war auf GPIO15 (Strapping-Pin)&lt;/strong>&lt;/p>
+&lt;p>GPIO15 ist beim ESP32 ein Boot-Strapping-Pin.
+Ein OneWire-Bus mit Pull-up auf diesem Pin kann das Boot-Verhalten negativ
+beeinflussen.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Relais-/Versorgungskopplung&lt;/strong>&lt;/p>
+&lt;p>5V-Relaismodule können Schaltstörungen verursachen (Spikes/Noise).
+Ohne saubere Trennung von Logik- und Lastversorgung steigt das Risiko von
+Resets und Messrauschen.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Fehlende explizite Fail-Safe-Definition im Schaltplan&lt;/strong>&lt;/p>
+&lt;p>Beim Start oder Reset darf keine Pumpe unbeabsichtigt einschalten.&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="3-optimierter-esp32-vorschlag">3) Optimierter ESP32-Vorschlag&lt;/h2>
+&lt;h3 id="31-empfohlene-pinbelegung">3.1 Empfohlene Pinbelegung&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Funktion&lt;/th>
+&lt;th>Vorher (ESP32)&lt;/th>
+&lt;th>Jetzt (ESP32)&lt;/th>
+&lt;th>Grund&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>DS18B20 Solar&lt;/td>
+&lt;td>GPIO15&lt;/td>
+&lt;td>GPIO32&lt;/td>
+&lt;td>Vermeidet Strapping-Pins&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>DS18B20 Pool&lt;/td>
+&lt;td>GPIO16&lt;/td>
+&lt;td>GPIO33&lt;/td>
+&lt;td>Klare Trennung der Sensorleitungen&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Relais Pool&lt;/td>
+&lt;td>GPIO18&lt;/td>
+&lt;td>GPIO25&lt;/td>
+&lt;td>Robuster Output, konfliktarm&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Relais Solar&lt;/td>
+&lt;td>GPIO19&lt;/td>
+&lt;td>GPIO26&lt;/td>
+&lt;td>Robuster Output, konfliktarm&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>Hinweis: Für bestehende Installationen mit alter Verdrahtung ist eine Anpassung
+der Firmware-Pins und ggf. Umverdrahtung erforderlich.&lt;/p>
+&lt;h3 id="311-entscheidungsdokumentation-klarer-entscheid">3.1.1 Entscheidungsdokumentation (klarer Entscheid)&lt;/h3>
+&lt;p>&lt;strong>Entscheidung:&lt;/strong> Für ESP32 werden die Signale dauerhaft auf
+&lt;code>GPIO32/33&lt;/code> (DS18B20) sowie &lt;code>GPIO25/26&lt;/code> (Relais) geführt.&lt;/p>
+&lt;p>&lt;strong>Warum genau diese Zuordnung:&lt;/strong>&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>Boot-Robustheit:&lt;/strong> Sensoren liegen nicht mehr auf Strapping-Pins
+(insbesondere kein OneWire auf GPIO15).&lt;/li>
+&lt;li>&lt;strong>Störarmut:&lt;/strong> Sensor-GPIOs sind von Relais-GPIOs logisch getrennt; dadurch
+weniger gegenseitige Beeinflussung bei Schaltvorgängen.&lt;/li>
+&lt;li>&lt;strong>Betriebssicherheit:&lt;/strong> Relais auf gut nutzbaren Output-Pins mit klarer
+Fail-Safe-Auslegung beim Start/Reset.&lt;/li>
+&lt;li>&lt;strong>Wartbarkeit:&lt;/strong> Einheitliche, dokumentierte Standardbelegung in Firmware und
+Hardware-Doku reduziert Fehlverdrahtung und Support-Aufwand.&lt;/li>
+&lt;/ol>
+&lt;p>&lt;strong>Nicht gewählt wurde:&lt;/strong> Die frühere ESP32-Belegung (&lt;code>15/16/18/19&lt;/code>), da sie
+höheres Boot-/Störrisiko mitbringt.&lt;/p>
+&lt;h3 id="32-sensor-optimierung-ds18b20">3.2 Sensor-Optimierung (DS18B20)&lt;/h3>
+&lt;ul>
+&lt;li>Pro Sensorleitung einen sauberen &lt;strong>4.7k Pull-up nach 3.3V&lt;/strong> vorsehen.&lt;/li>
+&lt;li>Sensorleitungen räumlich von Relais-/230V-Leitungen trennen.&lt;/li>
+&lt;li>Bei längeren Leitungen: verdrillte Leitung und gemeinsamer sauberer GND.&lt;/li>
+&lt;li>100nF nahe ESP32-Versorgung zur Entstörung vorsehen.&lt;/li>
+&lt;/ul>
+&lt;h3 id="33-relais-optimierung">3.3 Relais-Optimierung&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>Relaismodul mit Optokoppler&lt;/strong> und sauber dokumentierter Logikpegelrichtung
+(active-low/active-high) verwenden.&lt;/li>
+&lt;li>Wenn Modul es unterstützt: &lt;strong>JD-VCC (Relais-Spule) von VCC (Logik) trennen&lt;/strong>
+und gemeinsame Masseführung sternförmig auslegen.&lt;/li>
+&lt;li>Auf Pumpenseite geeignete Netzschutzmaßnahmen einplanen (z. B. passende
+Absicherung/Schutzbeschaltung entsprechend Installation).&lt;/li>
+&lt;li>Relais-Eingänge zusätzlich mit Pull-up/Pull-down fail-safe auslegen, damit
+beim Booten kein ungewolltes Schalten erfolgt.&lt;/li>
+&lt;/ul>
+&lt;h3 id="34-verdrahtung-visualisierung">3.4 Verdrahtung (Visualisierung)&lt;/h3>
+&lt;pre>&lt;code class="language-text"> +---------------------+
+| ESP32 |
+| |
+DS18B20 Solar DATA &amp;lt;----&amp;gt;| GPIO32 |
+DS18B20 Pool DATA &amp;lt;----&amp;gt;| GPIO33 |
+Relay IN1 (Pool) &amp;lt;----&amp;gt;| GPIO25 |
+Relay IN2 (Solar) &amp;lt;----&amp;gt;| GPIO26 |
+| |
+3V3 ---------------------&amp;gt;| 3V3 |
+GND ---------------------&amp;gt;| GND |
++----------+----------+
+|
+| gemeinsame Masse
+v
++----------------+----------------+
+| 2-Kanal Relaismodul (5V, opto) |
+| VCC (Logik) &amp;lt;- 3V3/5V* |
+| JD-VCC (Spule)&amp;lt;- 5V |
+| GND &amp;lt;- GND |
+| IN1 &amp;lt;- GPIO25 |
+| IN2 &amp;lt;- GPIO26 |
++----------------+----------------+
+DS18B20 Solar: VDD -&amp;gt; 3V3, GND -&amp;gt; GND, DATA -&amp;gt; GPIO32, Pull-up 4.7k nach 3V3
+DS18B20 Pool : VDD -&amp;gt; 3V3, GND -&amp;gt; GND, DATA -&amp;gt; GPIO33, Pull-up 4.7k nach 3V3
+* abhängig vom eingesetzten Relaismodul (Logikpegel beachten)
+&lt;/code>&lt;/pre>
+&lt;h2 id="4-firmware-bezug-bei-umverdrahtung">4) Firmware-Bezug bei Umverdrahtung&lt;/h2>
+&lt;p>Die empfohlenen Pins sind in &lt;code>src/Config.hpp&lt;/code> umgesetzt. Relevant sind:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>PIN_DS_SOLAR&lt;/code>&lt;/li>
+&lt;li>&lt;code>PIN_DS_POOL&lt;/code>&lt;/li>
+&lt;li>&lt;code>PIN_RELAY_POOL&lt;/code>&lt;/li>
+&lt;li>&lt;code>PIN_RELAY_SOLAR&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="5-verifikations-checkliste-nach-umbau">5) Verifikations-Checkliste nach Umbau&lt;/h2>
+&lt;ul>
+&lt;li>Bootet der ESP32 reproduzierbar (kalt/warm) ohne Fehlstart?&lt;/li>
+&lt;li>Schalten Relais beim Boot &lt;strong>nicht&lt;/strong> unbeabsichtigt?&lt;/li>
+&lt;li>Sind Temperaturmessungen stabil, auch bei Relais-Schaltvorgängen?&lt;/li>
+&lt;li>Keine Resets bei parallelem WLAN + Relaisbetrieb?&lt;/li>
+&lt;/ul>
+&lt;h2 id="6-betrieb-und-sicherheit">6) Betrieb und Sicherheit&lt;/h2>
+&lt;p>Für den produktiven 24/7-Betrieb und Sicherheitsaspekte bitte zusätzlich
+&lt;code>AGENTS.md&lt;/code> beachten (insbesondere Ressourcenmanagement, Security, OTA und
+Robustheit).&lt;/p></description></item><item><title>Software Guide of Pool Monitor</title><link>https://smart-swimmingpool.github.io/docs/pool-monitor/software-guide/</link><pubDate>Sat, 11 Jun 2022 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-monitor/software-guide/</guid><description>&lt;h2 id="development-environment">Development Environment&lt;/h2>
 &lt;h2 id="required-libraries">Required Libraries&lt;/h2>
 &lt;ul>
 &lt;li>adafruit/Adafruit BusIO&lt;/li>
@@ -33,19 +333,27 @@ WiFi credentials and connection parameters of MQTT broker.&lt;/p>
 &lt;li>MQTT broker port number (default: 1883)&lt;/li>
 &lt;/ul>
 &lt;p>After pressing &amp;ldquo;Save&amp;rdquo; the device will reboot automatically and tries to connect to the MQTT broker.&lt;/p>
-&lt;p>After some seconds the device will show data if connection was successful.&lt;/p></description></item><item><title>Hardware Guide of Pool Controller</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/hardware-guide/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/hardware-guide/</guid><description>&lt;p>This Hardware Guide will describe how to setup the hardware of the controller.&lt;/p>
+&lt;p>After some seconds the device will show data if connection was successful.&lt;/p></description></item><item><title>Hardware Guide of Pool Controller</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/hardware-guide/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/hardware-guide/</guid><description>&lt;p>This Hardware Guide describes how to set up the hardware of the controller.&lt;/p>
+&lt;div class="alert alert-note">
+&lt;div>
+&lt;p>For an ESP32-focused wiring analysis and optimization (sensors and relays), see
+&lt;code>docs/esp32-schematic-optimization-de.md&lt;/code> (German / DE).&lt;/p>
+&lt;p>For a complete ESP32 wiring schematic including resistors and optional RTC clock
+module, see &lt;code>docs/esp32-complete-wiring-schematic-de.md&lt;/code> (German / DE).&lt;/p>
+&lt;/div>
+&lt;/div>
 &lt;h2 id="parts-list-bom">Parts List (BOM)&lt;/h2>
 &lt;ul>
-&lt;li>1 * ESP8266 NodeMCU Controller (
+&lt;li>1 * ESP32 Development Board (e.g. ESP32 DevKit V1) (
 &lt;a href="https://amzn.to/2Ze9DSh" target="_blank" rel="noopener">Amazon&lt;/a>)&lt;/li>
 &lt;li>2 * DS18B20 Temperature Sensors (
 &lt;a href="https://amzn.to/2ZlfZ2c" target="_blank" rel="noopener">Amazon&lt;/a>)&lt;/li>
 &lt;li>1 * Relais-Module 5V (
 &lt;a href="https://amzn.to/31RBd5s" target="_blank" rel="noopener">Amazon&lt;/a>)&lt;/li>
-&lt;li>1 * Breadboard and wires to connect (alternativly soldering of the circuit)&lt;/li>
+&lt;li>1 * Breadboard and wires to connect (alternatively soldering of the circuit)&lt;/li>
 &lt;/ul>
 &lt;h2 id="circuit">Circuit&lt;/h2>
-&lt;p>The circuit of the controller could be found on following image based on a breadboard wireing:&lt;/p>
+&lt;p>The circuit of the controller can be found in the following image based on a breadboard wiring:&lt;/p>
 &lt;figure id="figure-breadboard-circuit-of-pool-controller">
 &lt;a data-fancybox="" href="https://smart-swimmingpool.github.io/pool-controller_breadboard.png" data-caption="Breadboard Circuit of Pool Controller">
 &lt;img src="https://smart-swimmingpool.github.io/pool-controller_breadboard.png" alt="" >
@@ -55,81 +363,267 @@ Breadboard Circuit of Pool Controller
 &lt;/figcaption>
 &lt;/figure>
 &lt;p>The source
-&lt;a href="https://fritzing.org/" target="_blank" rel="noopener">Fritzing&lt;/a> file could be found in GitHub project:
-&lt;a href="https://github.com/smart-swimmingpool/pool-controller/raw/master/docs/pool-controller.fzz" target="_blank" rel="noopener">pool-controller.fzz&lt;/a>&lt;/p>
-&lt;h3 id="esp8266-pin-usage">ESP8266 PIN Usage&lt;/h3>
-&lt;p>The ESP8266 is connected using following PINs. You can find the constant values within the sources
-of &lt;code>main.cpp&lt;/code> (first column of table) which are associated to the pins.&lt;/p>
+&lt;a href="https://fritzing.org/" target="_blank" rel="noopener">Fritzing&lt;/a> file can be found in the GitHub project:
+&lt;a href="https://github.com/smart-swimmingpool/pool-controller/raw/main/docs/pool-controller.fzz" target="_blank" rel="noopener">pool-controller.fzz&lt;/a>&lt;/p>
+&lt;h3 id="esp32-pin-usage">ESP32 Pin Usage&lt;/h3>
+&lt;p>The ESP32 is connected using the following pins. The constant values are defined in &lt;code>src/Config.hpp&lt;/code>.&lt;/p>
 &lt;table>
 &lt;thead>
 &lt;tr>
-&lt;th>Constant in Source&lt;/th>
-&lt;th style="text-align:center">PIN of ESP8266&lt;/th>
+&lt;th>Constant&lt;/th>
+&lt;th style="text-align:center">GPIO Pin&lt;/th>
 &lt;th>Description&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
 &lt;td>PIN_DS_SOLAR&lt;/td>
-&lt;td style="text-align:center">D5&lt;/td>
+&lt;td style="text-align:center">GPIO15&lt;/td>
 &lt;td>Pin of temperature sensor (DS18B20) for solar storage&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>PIN_DS_POOL&lt;/td>
-&lt;td style="text-align:center">D6&lt;/td>
+&lt;td style="text-align:center">GPIO16&lt;/td>
 &lt;td>Pin of temperature sensor (DS18B20) for pool water&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>PIN_RELAY_POOL&lt;/td>
-&lt;td style="text-align:center">D1&lt;/td>
-&lt;td>Pin to connect relais for pool pump&lt;/td>
+&lt;td style="text-align:center">GPIO18&lt;/td>
+&lt;td>Pin to connect relay for pool pump&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>PIN_RELAY_SOLAR&lt;/td>
-&lt;td style="text-align:center">D2&lt;/td>
-&lt;td>Pin to connect relais for solar pump&lt;/td>
+&lt;td style="text-align:center">GPIO19&lt;/td>
+&lt;td>Pin to connect relay for solar pump&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
-&lt;div class="alert alert-note">
-&lt;div>
-TODO: improve PIN usage (see &lt;a href="https://randomnerdtutorials.com/esp8266-pinout-reference-gpios/">https://randomnerdtutorials.com/esp8266-pinout-reference-gpios/&lt;/a>)
-&lt;/div>
-&lt;/div>
 &lt;h2 id="power-supply">Power Supply&lt;/h2>
-&lt;p>In my environment I use the USB to power the ESP8266 via small USB-Power-Adapter andan additional
-230V power plug to be used as source for the power of the pumps which are switched via the relais.&lt;/p></description></item><item><title>Software Guide of Pool Controller</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/software-guide/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/software-guide/</guid><description>&lt;h2 id="development-environment">Development Environment&lt;/h2>
+&lt;p>In my environment, I use USB to power the ESP32 via a small USB power adapter
+and an additional 230V power plug as the source for the power of the pumps,
+which are switched via the relays.&lt;/p></description></item><item><title>Software Guide of Pool Controller</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/software-guide/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/software-guide/</guid><description>&lt;h2 id="development-environment">Development Environment&lt;/h2>
 &lt;h2 id="required-libraries">Required Libraries&lt;/h2>
 &lt;ul>
-&lt;li>
-&lt;a href="https://github.com/homieiot/homie-esp8266" target="_blank" rel="noopener">Homie-ESP8266&lt;/a>&lt;/li>
 &lt;li>
 &lt;a href="https://github.com/YuriiSalimov/RelayModule" target="_blank" rel="noopener">RelayModule&lt;/a>&lt;/li>
 &lt;li>
 &lt;a href="https://github.com/tomstewart89/Vector" target="_blank" rel="noopener">Vector&lt;/a>&lt;/li>
 &lt;li>DallasTemperature&lt;/li>
+&lt;li>OneWire&lt;/li>
 &lt;li>Adafruit Unified Sensor&lt;/li>
 &lt;li>DHT sensor library&lt;/li>
-&lt;li>NTPClient&lt;/li>
-&lt;li>TimeZone&lt;/li>
-&lt;li>
-&lt;a href="https://github.com/xoseperez/Time" target="_blank" rel="noopener">Time&lt;/a>&lt;/li>
+&lt;li>NTPClient @ 3.2.1&lt;/li>
+&lt;li>TimeZone @ 1.2.4&lt;/li>
+&lt;li>ArduinoJson @ 7.3.0&lt;/li>
+&lt;li>Bounce2&lt;/li>
+&lt;li>PubSubClient @ 2.8&lt;/li>
+&lt;li>Wire&lt;/li>
 &lt;/ul>
 &lt;p>Many thanks to maintainers of these libraries!&lt;/p>
-&lt;h2 id="defines">Defines&lt;/h2>
-&lt;p>Within the sources at &lt;code>main.cpp&lt;/code> there are someconstant defined settings. For the PIN assignment
+&lt;h2 id="pin-configuration">Pin Configuration&lt;/h2>
+&lt;p>Within the sources at &lt;code>Config.hpp&lt;/code>, the GPIO pin assignments are defined. For details,
 see also at
-&lt;a href="../hardware-guide/#esp8266-pin-usage">hardware guide&lt;/a>.&lt;/p>
-&lt;pre>&lt;code class="language-cpp">const uint8_t PIN_DS_SOLAR = D5; // Pin of Temp-Sensor Solar
-const uint8_t PIN_DS_POOL = D6; // Pin of Temp-Sensor Pool
-const uint8_t PIN_RELAY_POOL = D1;
-const uint8_t PIN_RELAY_SOLAR = D2;
-const uint8_t TEMP_READ_INTERVALL = 30;
+&lt;a href="../hardware-guide/#esp32-pin-usage">hardware guide&lt;/a>.&lt;/p>
+&lt;pre>&lt;code class="language-cpp">constexpr uint8_t PIN_DS_SOLAR = 15; // Pin of Temp-Sensor Solar (GPIO15)
+constexpr uint8_t PIN_DS_POOL = 16; // Pin of Temp-Sensor Pool (GPIO16)
+constexpr uint8_t PIN_RELAY_POOL = 18; // Pin to control pool pump relay
+constexpr uint8_t PIN_RELAY_SOLAR = 19; // Pin to control solar pump relay
+constexpr uint8_t TEMP_READ_INTERVAL = 30;
+&lt;/code>&lt;/pre>
+&lt;h2 id="web-interface--direct-access">Web Interface &amp;amp; Direct Access&lt;/h2>
+&lt;p>The controller includes a &lt;strong>built-in web server on port 80&lt;/strong> that provides a full
+management dashboard. It runs in two modes:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Mode&lt;/th>
+&lt;th>When&lt;/th>
+&lt;th>Access&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;strong>AP Mode&lt;/strong> (Access Point)&lt;/td>
+&lt;td>No WiFi configured (factory state)&lt;/td>
+&lt;td>SSID &lt;code>Pool-Controller-Setup&lt;/code>, IP &lt;code>192.168.4.1&lt;/code>, no password&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>STA Mode&lt;/strong> (Station)&lt;/td>
+&lt;td>Normal WiFi connection&lt;/td>
+&lt;td>DHCP IP of the ESP32 in local network, password login required&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="api-endpoints">API Endpoints&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Route&lt;/th>
+&lt;th>Auth&lt;/th>
+&lt;th>Function&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>GET /&lt;/code>&lt;/td>
+&lt;td>Cookie&lt;/td>
+&lt;td>Dashboard SPA (Single Page Application)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>GET /login&lt;/code>&lt;/td>
+&lt;td>Cookie&lt;/td>
+&lt;td>Login page&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>POST /api/login&lt;/code>&lt;/td>
+&lt;td>-&lt;/td>
+&lt;td>Issue session cookie (SHA-256 password check)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>GET /api/status&lt;/code>&lt;/td>
+&lt;td>❌ No&lt;/td>
+&lt;td>Live telemetry (temperatures, pump states, heap, RSSI)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>GET /api/scan&lt;/code>&lt;/td>
+&lt;td>Yes&lt;/td>
+&lt;td>Scan nearby WiFi networks&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>GET /api/config&lt;/code>&lt;/td>
+&lt;td>Yes&lt;/td>
+&lt;td>Read current configuration&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>POST /api/config&lt;/code>&lt;/td>
+&lt;td>Yes&lt;/td>
+&lt;td>Save configuration (&lt;code>type=settings|wifi|mqtt|password&lt;/code>)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>GET /api/restart&lt;/code>&lt;/td>
+&lt;td>Yes&lt;/td>
+&lt;td>Reboot the ESP32&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>GET /api/factory_reset&lt;/code>&lt;/td>
+&lt;td>Yes&lt;/td>
+&lt;td>Wipe config file, reboot into AP setup mode&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>POST /api/update&lt;/code>&lt;/td>
+&lt;td>Yes&lt;/td>
+&lt;td>OTA firmware update (signed .bin upload)&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="using-the-rest-api-directly">Using the REST API Directly&lt;/h3>
+&lt;p>You can interact with the controller programmatically:&lt;/p>
+&lt;pre>&lt;code class="language-bash"># Get live telemetry (no authentication needed)
+curl http://&amp;lt;controller-ip&amp;gt;/api/status
+# Get session cookie
+SESSION=$(curl -s -c - -X POST -d &amp;quot;password=admin&amp;quot; \
+http://&amp;lt;controller-ip&amp;gt;/api/login | grep session | awk '{print $NF}')
+# Read configuration
+curl -b &amp;quot;session=$SESSION&amp;quot; http://&amp;lt;controller-ip&amp;gt;/api/config
+# Write settings (they persist across reboots and notify Home Assistant)
+curl -b &amp;quot;session=$SESSION&amp;quot; -X POST \
+-d &amp;quot;type=settings&amp;amp;mode=auto&amp;amp;max_pool=30.0&amp;amp;min_solar=55.0&amp;amp;hysteresis=1.0&amp;quot; \
+http://&amp;lt;controller-ip&amp;gt;/api/config
+&lt;/code>&lt;/pre>
+&lt;h3 id="authentication">Authentication&lt;/h3>
+&lt;ul>
+&lt;li>In &lt;strong>AP mode&lt;/strong> the web interface is unprotected (intentional for initial setup)&lt;/li>
+&lt;li>In &lt;strong>STA mode&lt;/strong>, a cookie-based session is required (15 minute timeout)&lt;/li>
+&lt;li>Default password is &lt;code>admin&lt;/code>&lt;/li>
+&lt;li>Password is stored as SHA-256 hash in &lt;code>/config.json&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="configuration-persistence">Configuration Persistence&lt;/h2>
+&lt;p>Configuration is persisted in two independent storage systems, ensuring all
+settings survive reboots and power failures:&lt;/p>
+&lt;h3 id="1-configmanager--device-configuration-littlefs">1. ConfigManager — Device Configuration (LittleFS)&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>File&lt;/th>
+&lt;th>&lt;code>/config.json&lt;/code>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Max Size&lt;/td>
+&lt;td>4 KB&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Contents&lt;/td>
+&lt;td>WiFi, MQTT, NTP, ControllerSettings, admin password hash&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Management&lt;/td>
+&lt;td>&lt;code>ConfigManager::load()&lt;/code> at boot, &lt;code>ConfigManager::save()&lt;/code> on changes&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Reset&lt;/td>
+&lt;td>&lt;code>ConfigManager::reset()&lt;/code> → factory defaults&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="2-statemanager--runtime-state-esp32-nvs--preferences">2. StateManager — Runtime State (ESP32 NVS / Preferences)&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Namespace&lt;/th>
+&lt;th>&lt;code>pool-controller&lt;/code>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Contents&lt;/td>
+&lt;td>opmode, poolMaxTemp, solarMinTemp, hysteresis, timerStart/End&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>API&lt;/td>
+&lt;td>&lt;code>StateManager::saveString/Float/Int/Bool&lt;/code> → type-safe key-value storage&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="data-flow-on-settings-changes">Data Flow on Settings Changes&lt;/h3>
+&lt;pre>&lt;code class="language-text">Web UI / REST API MQTT (Home Assistant)
+│ │
+▼ ▼
+────────┴────── ConfigManager ───────┴────
+save() → /config.json (LittleFS)
+↓
+OperationModeNode
+(runtime parameters)
+↓
+MqttPublisher::publishStates()
+→ MQTT topics → Home Assistant
+&lt;/code>&lt;/pre>
+&lt;blockquote>
+&lt;p>&lt;strong>Note:&lt;/strong> When settings are changed via the Web UI, Home Assistant is updated
+on the next measurement cycle (every &lt;code>loopInterval&lt;/code> seconds, default 10s).
+Changes made via MQTT are confirmed immediately.&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="mqtt-communication">MQTT Communication&lt;/h2>
+&lt;h3 id="protocol">Protocol&lt;/h3>
+&lt;p>The controller uses &lt;strong>Home Assistant MQTT Discovery&lt;/strong> (default) with topic
+structure:&lt;/p>
+&lt;pre>&lt;code class="language-text">homeassistant/&amp;lt;component&amp;gt;/pool-controller/&amp;lt;object-id&amp;gt;/config (discovery)
+homeassistant/&amp;lt;component&amp;gt;/pool-controller/&amp;lt;object-id&amp;gt;/state (state)
+homeassistant/&amp;lt;component&amp;gt;/pool-controller/&amp;lt;object-id&amp;gt;/set (command)
+&lt;/code>&lt;/pre>
+&lt;p>See &lt;code>docs/mqtt-configuration.md&lt;/code> for a complete entity mapping.&lt;/p>
+&lt;h3 id="clearing-retained-messages">Clearing retained messages&lt;/h3>
+&lt;p>If you need to clear retained MQTT messages:&lt;/p>
+&lt;pre>&lt;code class="language-bash"># Clear a specific Home Assistant topic
+mosquitto_pub -h hostname -t &amp;quot;homeassistant/sensor/pool-controller/pool-temp/state&amp;quot; -n -r
+# Clear a Homie topic
+mosquitto_pub -h hostname -t homie -n -r -d
 &lt;/code>&lt;/pre>
 &lt;h2 id="configuration">Configuration&lt;/h2>
-&lt;p>Homie-ESP8266 supports configuration (e.g. WiFi credentials) using JSON-files.
+&lt;p>Homie supports configuration (e.g. WiFi credentials) using JSON-files.
 How to upload JSON config files see
-&lt;a href="https://homieiot.github.io/homie-esp8266/docs/develop/configuration/json-configuration-file/" target="_blank" rel="noopener">Homie-esp8266 docu&lt;/a>.&lt;/p>
+&lt;a href="https://homieiot.github.io/homie-esp8266/docs/develop/configuration/json-configuration-file/" target="_blank" rel="noopener">Homie documentation&lt;/a>.&lt;/p>
 &lt;h3 id="example-configjson">Example &lt;code>config.json&lt;/code>&lt;/h3>
 &lt;pre>&lt;code class="language-json">{
 &amp;quot;name&amp;quot;: &amp;quot;Pool Controller&amp;quot;,
@@ -153,21 +647,94 @@ How to upload JSON config files see
 }
 }
 &lt;/code>&lt;/pre>
-&lt;h2 id="mqtt-communication">MQTT Communication&lt;/h2>
-&lt;h3 id="clearing-retained-messages">Clearing retained messages&lt;/h3>
-&lt;p>In some cases some retained messages can be wanted and we don’t want to clear all the retained messages.&lt;/p>
-&lt;p>The messages will have to be cleared one by one using the topic&lt;/p>
-&lt;p>To clear a specific message:&lt;/p>
-&lt;pre>&lt;code class="language-bash">mosquitto_pub -h hostname -t homie -n -r -d
-&lt;/code>&lt;/pre></description></item><item><title>Users Guide of Pool Controller</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/users-guide/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/users-guide/</guid><description>&lt;h2 id="setup">Setup&lt;/h2>
+&lt;!-- (duplicate MQTT Communication heading removed — content already covered above) --></description></item><item><title>Users Guide of Pool Controller</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/users-guide/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/users-guide/</guid><description>&lt;h2 id="setup">Setup&lt;/h2>
+&lt;h3 id="initial-wifi-setup-via-web-interface-ap-mode">Initial WiFi setup via Web Interface (AP Mode)&lt;/h3>
+&lt;p>When the controller has no WiFi configured, it starts in &lt;strong>Access Point mode&lt;/strong>:&lt;/p>
+&lt;ol>
+&lt;li>Power on the controller&lt;/li>
+&lt;li>Connect your phone/laptop to WiFi SSID &lt;strong>&lt;code>Pool-Controller-Setup&lt;/code>&lt;/strong> (open network)&lt;/li>
+&lt;li>Open a browser and go to &lt;strong>&lt;code>http://192.168.4.1&lt;/code>&lt;/strong> — the captive portal redirects automatically&lt;/li>
+&lt;li>Go to the &lt;strong>WiFi Setup&lt;/strong> tab, scan networks, select yours and enter the password&lt;/li>
+&lt;li>The controller saves the config and reboots into &lt;strong>STA mode&lt;/strong>&lt;/li>
+&lt;li>Find the controller&amp;rsquo;s IP in your router&amp;rsquo;s DHCP list and reconnect&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>&lt;strong>Note:&lt;/strong> In AP mode, the web interface has no password (intentional for initial setup).
+Once connected to your WiFi, a login is required (default password: &lt;code>admin&lt;/code>).&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="initial-wifi-setup-via-wps">Initial WiFi setup via WPS&lt;/h3>
+&lt;p>You can trigger WPS onboarding during boot to pair the controller with your router
+without typing WiFi credentials manually:&lt;/p>
+&lt;ol>
+&lt;li>Power on (or reset) the controller normally and wait until firmware startup begins.&lt;/li>
+&lt;li>Then press and hold the &lt;strong>BOOT&lt;/strong> button for at least 2 seconds.&lt;/li>
+&lt;li>Start &lt;strong>WPS Push Button Connect (PBC)&lt;/strong> on your router.&lt;/li>
+&lt;li>Wait until pairing completes.&lt;/li>
+&lt;/ol>
+&lt;p>When WPS succeeds, the controller updates the WiFi credentials and stores them
+persistently in &lt;code>/config.json&lt;/code> on LittleFS.&lt;/p>
+&lt;h3 id="finding-the-controller-on-your-network">Finding the Controller on Your Network&lt;/h3>
+&lt;p>Once connected, find the controller&amp;rsquo;s IP:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Check your router&amp;rsquo;s DHCP client list&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Or use a network scanner like &lt;code>nmap&lt;/code>:&lt;/p>
+&lt;pre>&lt;code class="language-bash">nmap -p 80 192.168.1.0/24 # scan your subnet for open port 80
+&lt;/code>&lt;/pre>
+&lt;/li>
+&lt;li>
+&lt;p>The web interface shows the assigned IP in the dashboard header&lt;/p>
+&lt;/li>
+&lt;/ul>
 &lt;h2 id="booting-controller">Booting Controller&lt;/h2>
-&lt;p>Booting the controller, it will give feedback on establishing WiFi connection andconnection to MQTT broker:&lt;/p>
+&lt;p>When booting the controller, it will provide feedback on establishing the WiFi connection and connection to the MQTT broker:&lt;/p>
 &lt;ul>
 &lt;li>&amp;ldquo;LED&amp;rdquo; &lt;img src="led_wifi.gif" alt="Slowly blinking LED">
 Slowly when connecting to the Wi-Fi&lt;/li>
 &lt;li>&amp;ldquo;LED&amp;rdquo; &lt;img src="led_mqtt.gif" alt="Fast blinking LED">
 Faster when connecting to the MQTT broker&lt;/li>
 &lt;/ul>
+&lt;h2 id="web-dashboard">Web Dashboard&lt;/h2>
+&lt;p>The controller provides a modern web dashboard at &lt;code>http://&amp;lt;controller-ip&amp;gt;/&lt;/code> with the following tabs:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Dashboard&lt;/strong> — Live telemetry: pool/solar/controller temperature, pump states, free heap, RSSI, operating mode&lt;/li>
+&lt;li>&lt;strong>WiFi Setup&lt;/strong> — Scan and configure WiFi credentials&lt;/li>
+&lt;li>&lt;strong>MQTT Settings&lt;/strong> — Broker host, port, username, password, TLS toggle&lt;/li>
+&lt;li>&lt;strong>Configuration&lt;/strong> — Operation mode, temperature limits, hysteresis, timer, timezone&lt;/li>
+&lt;li>&lt;strong>Security &amp;amp; Update&lt;/strong> — Change admin password, OTA firmware update, restart, factory reset&lt;/li>
+&lt;/ul>
+&lt;h3 id="changing-settings-via-web-ui">Changing Settings via Web UI&lt;/h3>
+&lt;ol>
+&lt;li>
+&lt;p>Login with your admin password (default: &lt;code>admin&lt;/code>)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Navigate to the &lt;strong>Configuration&lt;/strong> tab&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Adjust settings as needed:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Operation Mode&lt;/strong>: Automatic (Solar), Manual Control, Boost Pump, Timer Schedule&lt;/li>
+&lt;li>&lt;strong>Max Pool Temp&lt;/strong>: Target water temperature (°C)&lt;/li>
+&lt;li>&lt;strong>Min Solar Temp&lt;/strong>: Minimum solar collector temperature (°C)&lt;/li>
+&lt;li>&lt;strong>Temperature Hysteresis&lt;/strong>: Deadband to prevent rapid toggling (K)&lt;/li>
+&lt;li>&lt;strong>Loop Interval&lt;/strong>: How often the controller evaluates rules (seconds)&lt;/li>
+&lt;li>&lt;strong>Timezone&lt;/strong>: Select from 10 supported timezones with DST handling&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Click &lt;strong>Save parameters&lt;/strong> — changes are &lt;strong>immediately active&lt;/strong> and &lt;strong>persist across reboots&lt;/strong>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>If MQTT/Home Assistant is connected, the new values are automatically published&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>&lt;strong>Tip:&lt;/strong> You can also change settings programmatically via the REST API — see the
+&lt;a href="software-guide.md#web-interface--direct-access">Software Guide&lt;/a>.&lt;/p>
+&lt;/blockquote>
 &lt;h2 id="settings">Settings&lt;/h2>
 &lt;p>There are some specific settings for the controller:&lt;/p>
 &lt;ul>
@@ -179,14 +746,15 @@ Faster when connecting to the MQTT broker&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;li>
-&lt;p>&lt;strong>Solar min temperature:&lt;/strong> The minimum temerature of the heat storage tank which should not be fall below.&lt;/p>
+&lt;p>&lt;strong>Solar min temperature:&lt;/strong> The minimum temperature of the heat storage tank, which should not fall below.&lt;/p>
 &lt;ul>
 &lt;li>Unit: &lt;code>°C&lt;/code>&lt;/li>
 &lt;li>Default value: &lt;code>50&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;li>
-&lt;p>&lt;strong>Hysteresis:&lt;/strong> Hysteresis in Kelvin which is used to verify if heating should be enabled or disabled to prevent fast toggeling.&lt;/p>
+&lt;p>&lt;strong>Hysteresis:&lt;/strong> Hysteresis in Kelvin, which is used to verify if heating
+should be enabled or disabled to prevent fast toggling.&lt;/p>
 &lt;ul>
 &lt;li>Unit: &lt;code>K&lt;/code>&lt;/li>
 &lt;li>Default value: &lt;code>1&lt;/code>&lt;/li>
@@ -206,31 +774,57 @@ Faster when connecting to the MQTT broker&lt;/li>
 &lt;li>Default value: &lt;code>30&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Timezone:&lt;/strong> Select the timezone for the controller to properly handle local time and daylight saving time (DST) transitions.&lt;/p>
+&lt;ul>
+&lt;li>Available timezones:
+&lt;ul>
+&lt;li>&lt;code>0&lt;/code> - Central European Time (Berlin, Paris) with CEST/CET DST&lt;/li>
+&lt;li>&lt;code>1&lt;/code> - Eastern European Time (Helsinki, Athens) with EEST/EET DST&lt;/li>
+&lt;li>&lt;code>2&lt;/code> - Western European Time (London, Lisbon) with BST/GMT DST&lt;/li>
+&lt;li>&lt;code>3&lt;/code> - US Eastern Time (New York, Washington) with EDT/EST DST&lt;/li>
+&lt;li>&lt;code>4&lt;/code> - US Central Time (Chicago, Houston) with CDT/CST DST&lt;/li>
+&lt;li>&lt;code>5&lt;/code> - US Mountain Time (Denver) with MDT/MST DST&lt;/li>
+&lt;li>&lt;code>6&lt;/code> - US Pacific Time (Los Angeles, San Francisco) with PDT/PST DST&lt;/li>
+&lt;li>&lt;code>7&lt;/code> - Australian Eastern Time (Sydney, Melbourne) with AEDT/AEST DST&lt;/li>
+&lt;li>&lt;code>8&lt;/code> - Japan Time (Tokyo) - No DST&lt;/li>
+&lt;li>&lt;code>9&lt;/code> - China Time (Beijing) - No DST&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Default value: &lt;code>0&lt;/code> (Central European Time)&lt;/li>
+&lt;li>This setting can be configured during initial setup or changed at runtime via MQTT&lt;/li>
+&lt;li>&lt;strong>Note:&lt;/strong> Runtime changes via MQTT (operation-mode/timezone) are temporary.
+To persist the timezone setting across reboots, update the &lt;code>timezone&lt;/code>
+configuration in the Homie settings.&lt;/li>
+&lt;/ul>
+&lt;/li>
 &lt;/ul>
 &lt;h2 id="rules">Rules&lt;/h2>
 &lt;p>The &lt;strong>Smart Swimmingpool Controller&lt;/strong> implements &lt;code>Rules&lt;/code> to handle different situations:&lt;/p>
 &lt;h3 id="rule-manual">Rule: Manual&lt;/h3>
 &lt;p>The pump for cleaning and solar heating are enabled/disabled completely manual and independent.&lt;/p>
 &lt;h3 id="rule-timer">Rule: Timer&lt;/h3>
-&lt;p>This rule enables the cleaning pump based on timer settings.
-Solar heating is disabled.&lt;/p>
+&lt;p>This rule enables the cleaning pump based on timer settings. Solar heating is disabled.&lt;/p>
 &lt;h3 id="rule-auto">Rule: Auto&lt;/h3>
-&lt;p>This rule enables the cleaning pump based on timer settings.
-Solar heating is enabled &lt;strong>smart&lt;/strong> if cleaning pump is enabled by timer and the heat storage tank has enough temperature.&lt;/p>
+&lt;p>This rule enables the cleaning pump based on timer settings. Solar heating is
+enabled &lt;strong>smartly&lt;/strong> if the cleaning pump is enabled by timer and the heat
+storage tank has sufficient temperature.&lt;/p>
 &lt;p>If the maximum temperature of the pool water is reached, the solar heating is disabled.&lt;/p>
 &lt;h3 id="rule-boost">Rule: Boost&lt;/h3>
 &lt;p>Heating of pool water with all power.&lt;/p>
 &lt;h2 id="mqtt-interface">MQTT Interface&lt;/h2>
 &lt;p>The &lt;strong>Smart Swimmingpool Controller&lt;/strong> uses
-&lt;a href="http://mqtt.org/" target="_blank" rel="noopener">MQTT&lt;/a> to communicate with your smart home. For the transmission of data the IoT standard
+&lt;a href="http://mqtt.org/" target="_blank" rel="noopener">MQTT&lt;/a> to
+communicate with your smart home. For the transmission of data the IoT standard
 &lt;a href="https://homieiot.github.io" target="_blank" rel="noopener">Homie 3.0&lt;/a> is used.&lt;/p>
-&lt;p>Using Homie 3.0 it is possible to integrate &lt;strong>Smart Pool Controller&lt;/strong> directly in open source smarthome server
+&lt;p>Using Homie 3.0 it is possible to integrate &lt;strong>Smart Pool Controller&lt;/strong> directly
+in open source smarthome server
 &lt;a href="https://www.openhab.org/" target="_blank" rel="noopener">openHAB&lt;/a> or
 &lt;a href="https://www.home-assistant.io/" target="_blank" rel="noopener">Home Assistant&lt;/a>.&lt;/p>
 &lt;h2 id="openhab-integration">OpenHAB Integration&lt;/h2>
 &lt;p>The &lt;strong>Smart Swimmingpool Controller&lt;/strong> could be integrated in
 &lt;a href="https://www.openhab.org" target="_blank" rel="noopener">openHAB&lt;/a> since version 2.4.&lt;/p>
-&lt;p>It is possible to interact with the controller to enable/disable the pump or to swith the current rule.&lt;/p>
+&lt;p>It is possible to interact with the controller to enable/disable the pump or to switch the current rule.&lt;/p>
 &lt;p>Also it is possible to monitor the current values of temperatures or states.&lt;/p>
 &lt;p>At least the
 &lt;a href="#settings">settings&lt;/a> could be updated, too.&lt;/p>

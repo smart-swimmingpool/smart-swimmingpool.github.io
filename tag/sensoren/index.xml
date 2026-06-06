@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>sensoren | Smart Swimming Pool</title><link>https://smart-swimmingpool.github.io/tag/sensoren/</link><atom:link href="https://smart-swimmingpool.github.io/tag/sensoren/index.xml" rel="self" type="application/rss+xml"/><description>sensoren</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2026 - 🏊 Smart Swimming Pool</copyright><lastBuildDate>Thu, 14 May 2026 00:00:00 +0000</lastBuildDate><image><url>https://smart-swimmingpool.github.io/images/icon_huc1aac635c547f103b14921ae0ab7550f_20089_512x512_fill_lanczos_center_3.png</url><title>sensoren</title><link>https://smart-swimmingpool.github.io/tag/sensoren/</link></image><item><title>ESP32 Schaltplananalyse und Optimierung (Sensoren &amp; Relais)</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/esp32-schematic-optimization-de/</link><pubDate>Thu, 14 May 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/esp32-schematic-optimization-de/</guid><description>&lt;p>Dieses Dokument analysiert den vorhandenen Aufbau (Fritzing-Quelle + bestehende
+Hardware-Dokumentation) und beschreibt einen optimierten ESP32-Vorschlag für
+Sensoren und Relais.&lt;/p>
+&lt;h2 id="1-ist-analyse-relevante-signale">1) Ist-Analyse (relevante Signale)&lt;/h2>
+&lt;p>Aktuelle Firmware-Pinbelegung für ESP32 (&lt;code>src/Config.hpp&lt;/code>):&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>PIN_DS_SOLAR&lt;/code> = GPIO32&lt;/li>
+&lt;li>&lt;code>PIN_DS_POOL&lt;/code> = GPIO33&lt;/li>
+&lt;li>&lt;code>PIN_RELAY_POOL&lt;/code> = GPIO25&lt;/li>
+&lt;li>&lt;code>PIN_RELAY_SOLAR&lt;/code> = GPIO26&lt;/li>
+&lt;/ul>
+&lt;p>Verwendete Hardware laut Doku:&lt;/p>
+&lt;ul>
+&lt;li>2x DS18B20 Temperaturfühler&lt;/li>
+&lt;li>2-Kanal Relaismodul (5V)&lt;/li>
+&lt;/ul>
+&lt;h2 id="2-hauptthemen-im-bisherigen-aufbau-vor-optimierung">2) Hauptthemen im bisherigen Aufbau (vor Optimierung)&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>DS18B20 war auf GPIO15 (Strapping-Pin)&lt;/strong>&lt;/p>
+&lt;p>GPIO15 ist beim ESP32 ein Boot-Strapping-Pin.
+Ein OneWire-Bus mit Pull-up auf diesem Pin kann das Boot-Verhalten negativ
+beeinflussen.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Relais-/Versorgungskopplung&lt;/strong>&lt;/p>
+&lt;p>5V-Relaismodule können Schaltstörungen verursachen (Spikes/Noise).
+Ohne saubere Trennung von Logik- und Lastversorgung steigt das Risiko von
+Resets und Messrauschen.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Fehlende explizite Fail-Safe-Definition im Schaltplan&lt;/strong>&lt;/p>
+&lt;p>Beim Start oder Reset darf keine Pumpe unbeabsichtigt einschalten.&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="3-optimierter-esp32-vorschlag">3) Optimierter ESP32-Vorschlag&lt;/h2>
+&lt;h3 id="31-empfohlene-pinbelegung">3.1 Empfohlene Pinbelegung&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Funktion&lt;/th>
+&lt;th>Vorher (ESP32)&lt;/th>
+&lt;th>Jetzt (ESP32)&lt;/th>
+&lt;th>Grund&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>DS18B20 Solar&lt;/td>
+&lt;td>GPIO15&lt;/td>
+&lt;td>GPIO32&lt;/td>
+&lt;td>Vermeidet Strapping-Pins&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>DS18B20 Pool&lt;/td>
+&lt;td>GPIO16&lt;/td>
+&lt;td>GPIO33&lt;/td>
+&lt;td>Klare Trennung der Sensorleitungen&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Relais Pool&lt;/td>
+&lt;td>GPIO18&lt;/td>
+&lt;td>GPIO25&lt;/td>
+&lt;td>Robuster Output, konfliktarm&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Relais Solar&lt;/td>
+&lt;td>GPIO19&lt;/td>
+&lt;td>GPIO26&lt;/td>
+&lt;td>Robuster Output, konfliktarm&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>Hinweis: Für bestehende Installationen mit alter Verdrahtung ist eine Anpassung
+der Firmware-Pins und ggf. Umverdrahtung erforderlich.&lt;/p>
+&lt;h3 id="311-entscheidungsdokumentation-klarer-entscheid">3.1.1 Entscheidungsdokumentation (klarer Entscheid)&lt;/h3>
+&lt;p>&lt;strong>Entscheidung:&lt;/strong> Für ESP32 werden die Signale dauerhaft auf
+&lt;code>GPIO32/33&lt;/code> (DS18B20) sowie &lt;code>GPIO25/26&lt;/code> (Relais) geführt.&lt;/p>
+&lt;p>&lt;strong>Warum genau diese Zuordnung:&lt;/strong>&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>Boot-Robustheit:&lt;/strong> Sensoren liegen nicht mehr auf Strapping-Pins
+(insbesondere kein OneWire auf GPIO15).&lt;/li>
+&lt;li>&lt;strong>Störarmut:&lt;/strong> Sensor-GPIOs sind von Relais-GPIOs logisch getrennt; dadurch
+weniger gegenseitige Beeinflussung bei Schaltvorgängen.&lt;/li>
+&lt;li>&lt;strong>Betriebssicherheit:&lt;/strong> Relais auf gut nutzbaren Output-Pins mit klarer
+Fail-Safe-Auslegung beim Start/Reset.&lt;/li>
+&lt;li>&lt;strong>Wartbarkeit:&lt;/strong> Einheitliche, dokumentierte Standardbelegung in Firmware und
+Hardware-Doku reduziert Fehlverdrahtung und Support-Aufwand.&lt;/li>
+&lt;/ol>
+&lt;p>&lt;strong>Nicht gewählt wurde:&lt;/strong> Die frühere ESP32-Belegung (&lt;code>15/16/18/19&lt;/code>), da sie
+höheres Boot-/Störrisiko mitbringt.&lt;/p>
+&lt;h3 id="32-sensor-optimierung-ds18b20">3.2 Sensor-Optimierung (DS18B20)&lt;/h3>
+&lt;ul>
+&lt;li>Pro Sensorleitung einen sauberen &lt;strong>4.7k Pull-up nach 3.3V&lt;/strong> vorsehen.&lt;/li>
+&lt;li>Sensorleitungen räumlich von Relais-/230V-Leitungen trennen.&lt;/li>
+&lt;li>Bei längeren Leitungen: verdrillte Leitung und gemeinsamer sauberer GND.&lt;/li>
+&lt;li>100nF nahe ESP32-Versorgung zur Entstörung vorsehen.&lt;/li>
+&lt;/ul>
+&lt;h3 id="33-relais-optimierung">3.3 Relais-Optimierung&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>Relaismodul mit Optokoppler&lt;/strong> und sauber dokumentierter Logikpegelrichtung
+(active-low/active-high) verwenden.&lt;/li>
+&lt;li>Wenn Modul es unterstützt: &lt;strong>JD-VCC (Relais-Spule) von VCC (Logik) trennen&lt;/strong>
+und gemeinsame Masseführung sternförmig auslegen.&lt;/li>
+&lt;li>Auf Pumpenseite geeignete Netzschutzmaßnahmen einplanen (z. B. passende
+Absicherung/Schutzbeschaltung entsprechend Installation).&lt;/li>
+&lt;li>Relais-Eingänge zusätzlich mit Pull-up/Pull-down fail-safe auslegen, damit
+beim Booten kein ungewolltes Schalten erfolgt.&lt;/li>
+&lt;/ul>
+&lt;h3 id="34-verdrahtung-visualisierung">3.4 Verdrahtung (Visualisierung)&lt;/h3>
+&lt;pre>&lt;code class="language-text"> +---------------------+
+| ESP32 |
+| |
+DS18B20 Solar DATA &amp;lt;----&amp;gt;| GPIO32 |
+DS18B20 Pool DATA &amp;lt;----&amp;gt;| GPIO33 |
+Relay IN1 (Pool) &amp;lt;----&amp;gt;| GPIO25 |
+Relay IN2 (Solar) &amp;lt;----&amp;gt;| GPIO26 |
+| |
+3V3 ---------------------&amp;gt;| 3V3 |
+GND ---------------------&amp;gt;| GND |
++----------+----------+
+|
+| gemeinsame Masse
+v
++----------------+----------------+
+| 2-Kanal Relaismodul (5V, opto) |
+| VCC (Logik) &amp;lt;- 3V3/5V* |
+| JD-VCC (Spule)&amp;lt;- 5V |
+| GND &amp;lt;- GND |
+| IN1 &amp;lt;- GPIO25 |
+| IN2 &amp;lt;- GPIO26 |
++----------------+----------------+
+DS18B20 Solar: VDD -&amp;gt; 3V3, GND -&amp;gt; GND, DATA -&amp;gt; GPIO32, Pull-up 4.7k nach 3V3
+DS18B20 Pool : VDD -&amp;gt; 3V3, GND -&amp;gt; GND, DATA -&amp;gt; GPIO33, Pull-up 4.7k nach 3V3
+* abhängig vom eingesetzten Relaismodul (Logikpegel beachten)
+&lt;/code>&lt;/pre>
+&lt;h2 id="4-firmware-bezug-bei-umverdrahtung">4) Firmware-Bezug bei Umverdrahtung&lt;/h2>
+&lt;p>Die empfohlenen Pins sind in &lt;code>src/Config.hpp&lt;/code> umgesetzt. Relevant sind:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>PIN_DS_SOLAR&lt;/code>&lt;/li>
+&lt;li>&lt;code>PIN_DS_POOL&lt;/code>&lt;/li>
+&lt;li>&lt;code>PIN_RELAY_POOL&lt;/code>&lt;/li>
+&lt;li>&lt;code>PIN_RELAY_SOLAR&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="5-verifikations-checkliste-nach-umbau">5) Verifikations-Checkliste nach Umbau&lt;/h2>
+&lt;ul>
+&lt;li>Bootet der ESP32 reproduzierbar (kalt/warm) ohne Fehlstart?&lt;/li>
+&lt;li>Schalten Relais beim Boot &lt;strong>nicht&lt;/strong> unbeabsichtigt?&lt;/li>
+&lt;li>Sind Temperaturmessungen stabil, auch bei Relais-Schaltvorgängen?&lt;/li>
+&lt;li>Keine Resets bei parallelem WLAN + Relaisbetrieb?&lt;/li>
+&lt;/ul>
+&lt;h2 id="6-betrieb-und-sicherheit">6) Betrieb und Sicherheit&lt;/h2>
+&lt;p>Für den produktiven 24/7-Betrieb und Sicherheitsaspekte bitte zusätzlich
+&lt;code>AGENTS.md&lt;/code> beachten (insbesondere Ressourcenmanagement, Security, OTA und
+Robustheit).&lt;/p></description></item></channel></rss>
