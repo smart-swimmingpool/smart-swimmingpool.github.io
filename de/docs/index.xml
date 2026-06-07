@@ -5,21 +5,7 @@
 href="https://www.az-delivery.de/blogs/azdelivery-blog-fur-arduino-und-raspberry-pi/projekt-smart-swimmingpool-einleitung"target="_blank" rel="noopener"&gt;AZ Delivery: Projekt Smart Swimmingpool&lt;/a&gt;, &lt;em&gt;Oktober 2018&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Vierteilige Blog-Reihe zur Version 1 des Smart Pool Controllers.&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/hardware-guide/</link><pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/hardware-guide/</guid><description>
-&lt;hr&gt;
-&lt;p&gt;title: Hardware-Anleitung
-date: &amp;lsquo;2026-06-07&amp;rsquo;
-draft: false
-tags:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;docs&lt;/li&gt;
-&lt;li&gt;hardware&lt;/li&gt;
-&lt;li&gt;anleitung&lt;/li&gt;
-&lt;li&gt;schaltplan&lt;/li&gt;
-&lt;li&gt;aufbau&lt;/li&gt;
-&lt;li&gt;loeten&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
+&lt;/ul&gt;</description></item><item><title>Hardware-Anleitung</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/hardware-guide/</link><pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/hardware-guide/</guid><description>
 &lt;h2&gt;Übersicht&lt;span class="hx:absolute hx:-mt-20" id="übersicht"&gt;&lt;/span&gt;
 &lt;a href="#%c3%bcbersicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Diese Anleitung führt dich Schritt für Schritt durch den Hardware-Aufbau des
 Pool-Controllers — von der Teileauswahl bis zur fertigen Schaltung. Auch wenn
@@ -722,18 +708,7 @@ href="https://www.analog.com/media/en/technical-documentation/data-sheets/DS18B2
 href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/peripherals/gpio.html"target="_blank" rel="noopener"&gt;ESP32 Pin-Referenz&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a
 href="https://github.com/smart-swimmingpool/pool-controller/blob/main/src/Config.hpp"target="_blank" rel="noopener"&gt;Config.hpp Pin-Quelle&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/de/docs/pool-monitor/software-guide/</link><pubDate>Sat, 23 May 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-monitor/software-guide/</guid><description>
-&lt;hr&gt;
-&lt;p&gt;title: Software Guide of Pool Monitor
-date: &amp;lsquo;2022-06-11&amp;rsquo;
-draft: false
-tags:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;docs&lt;/li&gt;
-&lt;li&gt;monitor&lt;/li&gt;
-&lt;li&gt;tutorial&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
+&lt;/ul&gt;</description></item><item><title>Software Guide of Pool Monitor</title><link>https://smart-swimmingpool.github.io/de/docs/pool-monitor/software-guide/</link><pubDate>Sat, 11 Jun 2022 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-monitor/software-guide/</guid><description>
 &lt;h2&gt;Development Environment&lt;span class="hx:absolute hx:-mt-20" id="development-environment"&gt;&lt;/span&gt;
 &lt;a href="#development-environment" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Required Libraries&lt;span class="hx:absolute hx:-mt-20" id="required-libraries"&gt;&lt;/span&gt;
 &lt;a href="#required-libraries" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
@@ -751,18 +726,7 @@ tags:&lt;/p&gt;
 &lt;p&gt;Many thanks to maintainers of these libraries!&lt;/p&gt;
 &lt;h2&gt;Defines&lt;span class="hx:absolute hx:-mt-20" id="defines"&gt;&lt;/span&gt;
 &lt;a href="#defines" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Configuration&lt;span class="hx:absolute hx:-mt-20" id="configuration"&gt;&lt;/span&gt;
-&lt;a href="#configuration" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/de/docs/pool-monitor/users-guide/</link><pubDate>Sat, 23 May 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-monitor/users-guide/</guid><description>
-&lt;hr&gt;
-&lt;p&gt;title: Users Guide of Pool Controller
-date: &amp;lsquo;2022-06-11&amp;rsquo;
-draft: false
-tags:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;docs&lt;/li&gt;
-&lt;li&gt;monitor&lt;/li&gt;
-&lt;li&gt;tutorial&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
+&lt;a href="#configuration" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;</description></item><item><title>Users Guide of Pool Controller</title><link>https://smart-swimmingpool.github.io/de/docs/pool-monitor/users-guide/</link><pubDate>Sat, 11 Jun 2022 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-monitor/users-guide/</guid><description>
 &lt;h2&gt;Setup&lt;span class="hx:absolute hx:-mt-20" id="setup"&gt;&lt;/span&gt;
 &lt;a href="#setup" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Connecting the device to power it createsinitial a hotspot called &amp;ldquo;pool-monitor&amp;rdquo;.
 Please connect this hotsppot by smartphone. Thenthe device will show captivate website to add

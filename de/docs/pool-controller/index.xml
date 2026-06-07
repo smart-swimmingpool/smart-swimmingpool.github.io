@@ -1,18 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool –</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/</link><description>Recent content on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><lastBuildDate>Sun, 07 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/de/docs/pool-controller/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/hardware-guide/</link><pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/hardware-guide/</guid><description>
-&lt;hr&gt;
-&lt;p&gt;title: Hardware-Anleitung
-date: &amp;lsquo;2026-06-07&amp;rsquo;
-draft: false
-tags:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;docs&lt;/li&gt;
-&lt;li&gt;hardware&lt;/li&gt;
-&lt;li&gt;anleitung&lt;/li&gt;
-&lt;li&gt;schaltplan&lt;/li&gt;
-&lt;li&gt;aufbau&lt;/li&gt;
-&lt;li&gt;loeten&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Pool Controller 3.3</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/</link><description>Recent content in Pool Controller 3.3 on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><lastBuildDate>Thu, 28 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/de/docs/pool-controller/index.xml" rel="self" type="application/rss+xml"/><item><title>Hardware-Anleitung</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/hardware-guide/</link><pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/hardware-guide/</guid><description>
 &lt;h2&gt;Übersicht&lt;span class="hx:absolute hx:-mt-20" id="übersicht"&gt;&lt;/span&gt;
 &lt;a href="#%c3%bcbersicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Diese Anleitung führt dich Schritt für Schritt durch den Hardware-Aufbau des
 Pool-Controllers — von der Teileauswahl bis zur fertigen Schaltung. Auch wenn
@@ -715,12 +701,8 @@ href="https://www.analog.com/media/en/technical-documentation/data-sheets/DS18B2
 href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/peripherals/gpio.html"target="_blank" rel="noopener"&gt;ESP32 Pin-Referenz&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a
 href="https://github.com/smart-swimmingpool/pool-controller/blob/main/src/Config.hpp"target="_blank" rel="noopener"&gt;Config.hpp Pin-Quelle&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/home-assistant/</link><pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/home-assistant/</guid><description>
-&lt;hr&gt;
-&lt;h2&gt;title: Home Assistant Integration
-date: &amp;lsquo;2026-06-06&amp;rsquo;
-draft: false&lt;span class="hx:absolute hx:-mt-20" id="draft-false"&gt;&lt;/span&gt;
-&lt;a href="#draft-false" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der Pool Controller integriert sich nahtlos in &lt;a
+&lt;/ul&gt;</description></item><item><title>Home Assistant Integration</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/home-assistant/</link><pubDate>Sat, 06 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/home-assistant/</guid><description>
+&lt;p&gt;Der Pool Controller integriert sich nahtlos in &lt;a
 href="https://home-assistant.io"target="_blank" rel="noopener"&gt;Home Assistant&lt;/a&gt; über &lt;strong&gt;MQTT
 Discovery&lt;/strong&gt; (Standard-Protokoll). Alle Entitäten werden automatisch registriert, sobald der Controller mit
 dem MQTT-Broker verbunden ist.&lt;/p&gt;

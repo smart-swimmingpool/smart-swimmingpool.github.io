@@ -1,0 +1,50 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Controller</title><link>https://smart-swimmingpool.github.io/de/tags/controller/</link><description>Recent content in Controller on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><lastBuildDate>Thu, 28 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/de/tags/controller/index.xml" rel="self" type="application/rss+xml"/><item><title>Pool Controller 3.3</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/</guid><description>
+&lt;h2&gt;🏊 Der MQTT-fähige Smart Swimmingpool Controller 🎛️&lt;span class="hx:absolute hx:-mt-20" id="-der-mqtt-fähige-smart-swimmingpool-controller-"&gt;&lt;/span&gt;
+&lt;a href="#-der-mqtt-f%c3%a4hige-smart-swimmingpool-controller-" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;span style="text-shadow: none;"&gt;
+&lt;!-- markdownlint-disable MD013 --&gt;
+&lt;a class="github-button" href="https://github.com/smart-swimmingpool/pool-controller/subscription" data-size="large" data-show-count="true" aria-label="Watch smart-swimmingpool/pool-controller on GitHub"&gt;Watch&lt;/a&gt;
+&lt;a class="github-button" href="https://github.com/smart-swimmingpool/pool-controller" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star this on GitHub"&gt;Star&lt;/a&gt;&lt;script async defer src="https://buttons.github.io/buttons.js"&gt;&lt;/script&gt;
+&lt;!-- markdownlint-enable MD013 --&gt;
+&lt;p&gt;&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller"target="_blank" rel="noopener"&gt;GitHub Quellcode&lt;/a&gt;
+&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Steuer deinen Swimming-Pool auf smarte Art und Weise, um diesen bequem und günstig (weniger als 100€) zu genießen.&lt;/p&gt;
+&lt;h2&gt;Haupteigenschaften&lt;span class="hx:absolute hx:-mt-20" id="haupteigenschaften"&gt;&lt;/span&gt;
+&lt;a href="#haupteigenschaften" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; Verwaltung der zeitgesteuerten Wasserzirkulation für die Reinigung&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; Steuerung der Wassererwärmung durch eine zusätzliche Pumpe für den Sonnenkreislauf&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; &lt;a
+href="https://www.home-assistant.io/integrations/mqtt/#mqtt-discovery"target="_blank" rel="noopener"&gt;Home Assistant MQTT Discovery&lt;/a&gt; - Native HA-Integration&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; Unabhängig von einzelnen Smarthome-Servern
+&lt;ul&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; &lt;a
+href="https://home-assistant.io"target="_blank" rel="noopener"&gt;Home Assistant&lt;/a&gt; via nativer MQTT Discovery&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; &lt;a
+href="https://www.openhab.org"target="_blank" rel="noopener"&gt;openHAB&lt;/a&gt; via MQTT&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; Automatische Zeitsynchronisierung mit NTP (europe.pool.ntp.org)&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; System-Logging und Diagnose-Ereignisse&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Roadmap&lt;span class="hx:absolute hx:-mt-20" id="roadmap"&gt;&lt;/span&gt;
+&lt;a href="#roadmap" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;✔️ Zustandsspeicherung über Neustarts hinweg (v3.1.0+)
+✔️ Web-basierte OTA-Firmware-Updates (v3.2.0+)
+✔️ Home Assistant MQTT Discovery (v3.3.0)
+✔️ Automatische Update-Prüfung via GitHub Releases (v3.3.0)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Konfigurierbarer NTP-Server&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Selbstlernende Zirkulationsoptimierung&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Temperaturabhängige Zirkulationszeiten&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Zwei getrennte Zirkulationszyklen (Pool + Solar unabhängig)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Offline-Betriebsmodus (ohne WiFi)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Einheitliche Stromversorgung (ESP32 + Relais aus einer Quelle)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Rollback-Funktion für OTA-Updates&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; A/B-Partition-Updates für sicherere Firmware-Upgrades&lt;/li&gt;
+&lt;li&gt;siehe auch: &lt;a
+href="https://github.com/smart-swimmingpool/pool-controller/issues"target="_blank" rel="noopener"&gt;Issue-Liste&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- markdownlint-disable-next-line MD013 --&gt;
+&lt;figure&gt;&lt;img src="https://smart-swimmingpool.github.io/docs/pool-controller/pool-controller_breadboard.png"&gt;&lt;figcaption&gt;
+&lt;h4&gt;ESP32 Pool Controller Breadboard-Schaltung mit DS18B20-Temperatursensoren und Relaismodulen&lt;/h4&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;</description></item></channel></rss>

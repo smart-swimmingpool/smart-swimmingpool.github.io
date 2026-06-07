@@ -1,0 +1,700 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Esp32</title><link>https://smart-swimmingpool.github.io/tags/esp32/</link><description>Recent content in Esp32 on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Sun, 07 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/tags/esp32/index.xml" rel="self" type="application/rss+xml"/><item><title>OTA Updates</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/ota-updates/</link><pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/ota-updates/</guid><description>
+&lt;h1&gt;Over-The-Air (OTA) Updates&lt;/h1&gt;&lt;h2&gt;Overview&lt;span class="hx:absolute hx:-mt-20" id="overview"&gt;&lt;/span&gt;
+&lt;a href="#overview" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The Pool Controller supports Over-The-Air (OTA) firmware updates, allowing
+you to update the device remotely without physical access to the hardware.&lt;/p&gt;
+&lt;h2&gt;Features&lt;span class="hx:absolute hx:-mt-20" id="features"&gt;&lt;/span&gt;
+&lt;a href="#features" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;WebUI firmware upload&lt;/strong&gt;: Flash a signed &lt;code&gt;.bin&lt;/code&gt; via the dashboard&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GitHub Release updates&lt;/strong&gt;: Check for new versions and install automatically&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PlatformIO serial upload&lt;/strong&gt;: Flash via USB for development&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Status feedback&lt;/strong&gt;: Progress indication via WebUI + MQTT&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Update Methods&lt;span class="hx:absolute hx:-mt-20" id="update-methods"&gt;&lt;/span&gt;
+&lt;a href="#update-methods" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Method 1: WebUI (Recommended)&lt;span class="hx:absolute hx:-mt-20" id="method-1-webui-recommended"&gt;&lt;/span&gt;
+&lt;a href="#method-1-webui-recommended" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The simplest method — no tools needed beyond a web browser:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Open the Pool Controller dashboard in your browser&lt;/li&gt;
+&lt;li&gt;Go to &lt;strong&gt;System&lt;/strong&gt; tab&lt;/li&gt;
+&lt;li&gt;Choose one of:
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Manual Firmware Upload&lt;/strong&gt;: Select a &lt;code&gt;.bin&lt;/code&gt; file and flash&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Check for Updates&lt;/strong&gt;: Automatically fetches latest release from GitHub&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Follow the progress bar — device reboots when done&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Method 2: GitHub Release (Automated)&lt;span class="hx:absolute hx:-mt-20" id="method-2-github-release-automated"&gt;&lt;/span&gt;
+&lt;a href="#method-2-github-release-automated" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Firmware is built and published automatically on each GitHub release:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;In the &lt;strong&gt;System&lt;/strong&gt; tab, click &lt;strong&gt;Check for Updates&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;If a newer version is found, &lt;strong&gt;Install Update&lt;/strong&gt; appears&lt;/li&gt;
+&lt;li&gt;Click to download and flash the latest firmware directly from GitHub&lt;/li&gt;
+&lt;li&gt;Progress is shown in the UI; device reboots on completion&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Method 3: PlatformIO Serial Upload&lt;span class="hx:absolute hx:-mt-20" id="method-3-platformio-serial-upload"&gt;&lt;/span&gt;
+&lt;a href="#method-3-platformio-serial-upload" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;For development:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Build and upload via USB&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pio run -e esp32dev --target upload
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Or with project venv&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;./venv/bin/pio run -e esp32dev --target upload&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;Building Firmware for OTA&lt;span class="hx:absolute hx:-mt-20" id="building-firmware-for-ota"&gt;&lt;/span&gt;
+&lt;a href="#building-firmware-for-ota" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Create Firmware Binary&lt;span class="hx:absolute hx:-mt-20" id="create-firmware-binary"&gt;&lt;/span&gt;
+&lt;a href="#create-firmware-binary" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Build firmware without uploading&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pio run -e nodemcuv2
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Binary location&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;.pio/build/nodemcuv2/firmware.bin&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3&gt;ESP32 Build&lt;span class="hx:absolute hx:-mt-20" id="esp32-build"&gt;&lt;/span&gt;
+&lt;a href="#esp32-build" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Build for ESP32&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pio run -e esp32dev
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Binary location&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;.pio/build/esp32dev/firmware.bin&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;Security Best Practices&lt;span class="hx:absolute hx:-mt-20" id="security-best-practices"&gt;&lt;/span&gt;
+&lt;a href="#security-best-practices" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;1. Network Security&lt;span class="hx:absolute hx:-mt-20" id="1-network-security"&gt;&lt;/span&gt;
+&lt;a href="#1-network-security" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Use WPA2/WPA3 Wi-Fi encryption&lt;/li&gt;
+&lt;li&gt;Isolate IoT devices on separate VLAN if possible&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;2. Firmware Verification&lt;span class="hx:absolute hx:-mt-20" id="2-firmware-verification"&gt;&lt;/span&gt;
+&lt;a href="#2-firmware-verification" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Only flash firmware from trusted sources (official GitHub releases)&lt;/li&gt;
+&lt;li&gt;Verify firmware builds before uploading to production&lt;/li&gt;
+&lt;li&gt;Test on development device first&lt;/li&gt;
+&lt;li&gt;Keep backup of working firmware version&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Troubleshooting&lt;span class="hx:absolute hx:-mt-20" id="troubleshooting"&gt;&lt;/span&gt;
+&lt;a href="#troubleshooting" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;OTA Upload Fails&lt;span class="hx:absolute hx:-mt-20" id="ota-upload-fails"&gt;&lt;/span&gt;
+&lt;a href="#ota-upload-fails" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Problem&lt;/strong&gt;: Upload fails with timeout error&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Solutions&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Verify device is online: &lt;code&gt;ping pool-controller.local&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Check firewall allows port 8266&lt;/li&gt;
+&lt;li&gt;Ensure correct OTA password&lt;/li&gt;
+&lt;li&gt;Verify device has sufficient free memory (&amp;gt;50KB)&lt;/li&gt;
+&lt;li&gt;Try increasing timeout in &lt;code&gt;upload_flags&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Device Not Found&lt;span class="hx:absolute hx:-mt-20" id="device-not-found"&gt;&lt;/span&gt;
+&lt;a href="#device-not-found" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Problem&lt;/strong&gt;: Device not visible in network ports&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Solutions&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Check mDNS is working: &lt;code&gt;avahi-browse -a&lt;/code&gt; (Linux) or Bonjour (Windows)&lt;/li&gt;
+&lt;li&gt;Use IP address instead of mDNS hostname&lt;/li&gt;
+&lt;li&gt;Restart device and wait for Wi-Fi connection&lt;/li&gt;
+&lt;li&gt;Check device is on same network/subnet&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Upload Successful but Device Not Responding&lt;span class="hx:absolute hx:-mt-20" id="upload-successful-but-device-not-responding"&gt;&lt;/span&gt;
+&lt;a href="#upload-successful-but-device-not-responding" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Problem&lt;/strong&gt;: Upload completes but device doesn&amp;rsquo;t reboot or run new firmware&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Solutions&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Check serial console for boot errors&lt;/li&gt;
+&lt;li&gt;Verify firmware was built for correct platform (ESP32)&lt;/li&gt;
+&lt;li&gt;Ensure firmware size fits in flash memory&lt;/li&gt;
+&lt;li&gt;Check for memory issues in serial log&lt;/li&gt;
+&lt;li&gt;Perform manual reboot&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Memory Issues During OTA&lt;span class="hx:absolute hx:-mt-20" id="memory-issues-during-ota"&gt;&lt;/span&gt;
+&lt;a href="#memory-issues-during-ota" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Problem&lt;/strong&gt;: OTA fails due to insufficient memory&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Solutions&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Free memory is critical for OTA&lt;/li&gt;
+&lt;li&gt;System monitor will prevent OTA if memory &amp;lt; 8KB&lt;/li&gt;
+&lt;li&gt;Reboot device before OTA attempt&lt;/li&gt;
+&lt;li&gt;Reduce logging during update&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;OTA Architecture&lt;span class="hx:absolute hx:-mt-20" id="ota-architecture"&gt;&lt;/span&gt;
+&lt;a href="#ota-architecture" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;How It Works&lt;span class="hx:absolute hx:-mt-20" id="how-it-works"&gt;&lt;/span&gt;
+&lt;a href="#how-it-works" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;WebUI OR GitHub&lt;/strong&gt;: User triggers update via dashboard or automated check&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Firmware Download&lt;/strong&gt;: Binary fetched from local upload or GitHub release&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Flash Writing&lt;/strong&gt;: New firmware written to OTA partition (ESP32 Update library)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Verification&lt;/strong&gt;: Firmware signature and integrity checked&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Reboot&lt;/strong&gt;: Automatic restart with new firmware&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Memory Requirements&lt;span class="hx:absolute hx:-mt-20" id="memory-requirements"&gt;&lt;/span&gt;
+&lt;a href="#memory-requirements" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;ESP32&lt;/strong&gt;: Minimum 100KB free heap for OTA&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Flash&lt;/strong&gt;: Sufficient space for dual boot partitions&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;LWIP Configuration&lt;span class="hx:absolute hx:-mt-20" id="lwip-configuration"&gt;&lt;/span&gt;
+&lt;a href="#lwip-configuration" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The project uses &lt;code&gt;PIO_FRAMEWORK_ARDUINO_LWIP2_LOW_MEMORY&lt;/code&gt; flag to optimize
+network stack memory usage, ensuring reliable OTA updates.&lt;/p&gt;
+&lt;h2&gt;Monitoring OTA Status&lt;span class="hx:absolute hx:-mt-20" id="monitoring-ota-status"&gt;&lt;/span&gt;
+&lt;a href="#monitoring-ota-status" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Via MQTT&lt;span class="hx:absolute hx:-mt-20" id="via-mqtt"&gt;&lt;/span&gt;
+&lt;a href="#via-mqtt" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;OTA progress is visible in the WebUI progress bar and via serial console.&lt;/p&gt;
+&lt;h3&gt;Via Serial Console&lt;span class="hx:absolute hx:-mt-20" id="via-serial-console"&gt;&lt;/span&gt;
+&lt;a href="#via-serial-console" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Connect to serial port to monitor OTA progress:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# PlatformIO monitor&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pio device monitor -e nodemcuv2
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Look for log messages&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;[&lt;/span&gt;OTA&lt;span class="o"&gt;]&lt;/span&gt; Start
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;[&lt;/span&gt;OTA&lt;span class="o"&gt;]&lt;/span&gt; Progress: 25%
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;[&lt;/span&gt;OTA&lt;span class="o"&gt;]&lt;/span&gt; Progress: 50%
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;[&lt;/span&gt;OTA&lt;span class="o"&gt;]&lt;/span&gt; Progress: 75%
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;[&lt;/span&gt;OTA&lt;span class="o"&gt;]&lt;/span&gt; Success&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;Automation Examples&lt;span class="hx:absolute hx:-mt-20" id="automation-examples"&gt;&lt;/span&gt;
+&lt;a href="#automation-examples" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Automated OTA Updates Script&lt;span class="hx:absolute hx:-mt-20" id="automated-ota-updates-script"&gt;&lt;/span&gt;
+&lt;a href="#automated-ota-updates-script" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt;#!/bin/bash
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# ota-update.sh&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;DEVICE_IP&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;192.168.1.100&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;OTA_PASSWORD&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;MyP00l#Update2026&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;FIRMWARE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;.pio/build/nodemcuv2/firmware.bin&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Build firmware&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;Building firmware...&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pio run -e nodemcuv2
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Upload via OTA&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;Uploading to &lt;/span&gt;&lt;span class="nv"&gt;$DEVICE_IP&lt;/span&gt;&lt;span class="s2"&gt;...&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;python ~/.platformio/packages/framework-arduinoespressif8266/tools/espota.py &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; -i &lt;span class="nv"&gt;$DEVICE_IP&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; -p &lt;span class="m"&gt;8266&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; -a &lt;span class="nv"&gt;$OTA_PASSWORD&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; -f &lt;span class="nv"&gt;$FIRMWARE&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;Update complete!&amp;#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3&gt;GitHub Actions CI/CD (Example)&lt;span class="hx:absolute hx:-mt-20" id="github-actions-cicd-example"&gt;&lt;/span&gt;
+&lt;a href="#github-actions-cicd-example" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-yaml" data-lang="yaml"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;Build and Deploy OTA&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;on&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;push&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;tags&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="s2"&gt;&amp;#34;v*&amp;#34;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;jobs&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;build-and-deploy&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;runs-on&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;ubuntu-latest&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;steps&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="nt"&gt;uses&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;actions/checkout@v3&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="nt"&gt;uses&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;actions/setup-python@v4&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;with&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;python-version&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;3.11&amp;#34;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;Install PlatformIO&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;run&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;pip install platformio&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;Build Firmware&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;run&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;pio run -e nodemcuv2&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;Upload via OTA&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;env&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;DEVICE_IP&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;${{ secrets.DEVICE_IP }}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;OTA_PASSWORD&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;${{ secrets.OTA_PASSWORD }}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;run&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="sd"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="sd"&gt; python ~/.platformio/packages/framework-arduinoespressif8266/tools/espota.py \
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="sd"&gt; -i $DEVICE_IP \
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="sd"&gt; -p 8266 \
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="sd"&gt; -a $OTA_PASSWORD \
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="sd"&gt; -f .pio/build/nodemcuv2/firmware.bin&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;Version Management&lt;span class="hx:absolute hx:-mt-20" id="version-management"&gt;&lt;/span&gt;
+&lt;a href="#version-management" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Firmware Versioning&lt;span class="hx:absolute hx:-mt-20" id="firmware-versioning"&gt;&lt;/span&gt;
+&lt;a href="#firmware-versioning" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Version is managed by &lt;strong&gt;release-please&lt;/strong&gt; and stored in &lt;code&gt;platformio.ini&lt;/code&gt;
+as &lt;code&gt;FW_VERSION&lt;/code&gt;. The firmware version is published via Home Assistant
+Discovery and visible in the WebUI (System tab → Current Version).&lt;/p&gt;
+&lt;h2&gt;Best Practices&lt;span class="hx:absolute hx:-mt-20" id="best-practices"&gt;&lt;/span&gt;
+&lt;a href="#best-practices" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;1. Test Before Production&lt;span class="hx:absolute hx:-mt-20" id="1-test-before-production"&gt;&lt;/span&gt;
+&lt;a href="#1-test-before-production" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Always test new firmware on development device&lt;/li&gt;
+&lt;li&gt;Verify all features work after OTA update&lt;/li&gt;
+&lt;li&gt;Check MQTT connectivity and state restoration&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;2. Staged Rollout&lt;span class="hx:absolute hx:-mt-20" id="2-staged-rollout"&gt;&lt;/span&gt;
+&lt;a href="#2-staged-rollout" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Update one device first&lt;/li&gt;
+&lt;li&gt;Monitor for 24 hours&lt;/li&gt;
+&lt;li&gt;Roll out to remaining devices if stable&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;3. Backup Current Firmware&lt;span class="hx:absolute hx:-mt-20" id="3-backup-current-firmware"&gt;&lt;/span&gt;
+&lt;a href="#3-backup-current-firmware" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Backup current firmware before update&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pio run -e nodemcuv2
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;cp .pio/build/nodemcuv2/firmware.bin &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; backups/firmware-v3.1.0-&lt;span class="k"&gt;$(&lt;/span&gt;date +%Y%m%d&lt;span class="k"&gt;)&lt;/span&gt;.bin&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3&gt;4. Schedule Updates&lt;span class="hx:absolute hx:-mt-20" id="4-schedule-updates"&gt;&lt;/span&gt;
+&lt;a href="#4-schedule-updates" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Perform OTA during low-activity periods&lt;/li&gt;
+&lt;li&gt;Avoid updates during critical pool operation&lt;/li&gt;
+&lt;li&gt;Consider scheduled maintenance windows&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Recovery Procedures&lt;span class="hx:absolute hx:-mt-20" id="recovery-procedures"&gt;&lt;/span&gt;
+&lt;a href="#recovery-procedures" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;OTA Update Failure Recovery&lt;span class="hx:absolute hx:-mt-20" id="ota-update-failure-recovery"&gt;&lt;/span&gt;
+&lt;a href="#ota-update-failure-recovery" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;If OTA update fails and device becomes unresponsive:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Physical Access Recovery&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Connect via USB serial&lt;/li&gt;
+&lt;li&gt;Upload firmware via serial: &lt;code&gt;pio run -e esp32dev --target upload&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Bootloader Recovery&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ESP32 bootloader allows serial recovery&lt;/li&gt;
+&lt;li&gt;Hold BOOT button during power-on&lt;/li&gt;
+&lt;li&gt;Upload firmware via esptool&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Factory Reset&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;In WebUI: System tab → &lt;strong&gt;Factory Reset&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Or serial command: clear NVS + LittleFS&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Future Enhancements&lt;span class="hx:absolute hx:-mt-20" id="future-enhancements"&gt;&lt;/span&gt;
+&lt;a href="#future-enhancements" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; Web-based OTA update interface (System tab)&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; Automatic update checking from GitHub releases&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Rollback capability to previous firmware&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; A/B partition updates for safer updates&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Update scheduling via MQTT commands&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;References&lt;span class="hx:absolute hx:-mt-20" id="references"&gt;&lt;/span&gt;
+&lt;a href="#references" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a
+href="https://docs.platformio.org/en/latest/platforms/espressif32.html#over-the-air-ota-update"target="_blank" rel="noopener"&gt;PlatformIO OTA Guide&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://docs.espressif.com/projects/arduino-esp32/en/latest/api/ota.html"target="_blank" rel="noopener"&gt;ESP32 Arduino OTA&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller/releases"target="_blank" rel="noopener"&gt;GitHub Releases&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Support&lt;span class="hx:absolute hx:-mt-20" id="support"&gt;&lt;/span&gt;
+&lt;a href="#support" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;For OTA-related issues:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Open issue: &lt;a
+href="https://github.com/smart-swimmingpool/pool-controller/issues"target="_blank" rel="noopener"&gt;https://github.com/smart-swimmingpool/pool-controller/issues&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Discussions: &lt;a
+href="https://github.com/smart-swimmingpool/smart-swimmingpool.github.io/discussions"target="_blank" rel="noopener"&gt;https://github.com/smart-swimmingpool/smart-swimmingpool.github.io/discussions&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: OTA is implemented using the ESP32 Arduino Update library integrated
+into the WebPortal. GitHub release builds are handled by the CI pipeline
+(&lt;code&gt;release.yml&lt;/code&gt;).&lt;/p&gt;</description></item><item><title>ESP32 Komplett-Schaltplan</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/esp32-complete-wiring-schematic-de/</link><pubDate>Fri, 15 May 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/esp32-complete-wiring-schematic-de/</guid><description>
+&lt;p&gt;Dieses Dokument zeigt einen zusätzlichen, vollständigen Verdrahtungsplan für
+den ESP32-Aufbau mit Sensoren, Relais, Widerständen und Uhr-Modul (RTC).&lt;/p&gt;
+&lt;p&gt;Die verwendeten Standard-Pins in der Firmware sind:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;PIN_DS_SOLAR&lt;/code&gt; = GPIO32&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PIN_DS_POOL&lt;/code&gt; = GPIO33&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PIN_RELAY_POOL&lt;/code&gt; = GPIO25&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PIN_RELAY_SOLAR&lt;/code&gt; = GPIO26&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;1) Komponenten (inkl. Uhr und Widerstände)&lt;span class="hx:absolute hx:-mt-20" id="1-komponenten-inkl-uhr-und-widerstände"&gt;&lt;/span&gt;
+&lt;a href="#1-komponenten-inkl-uhr-und-widerst%c3%a4nde" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;1x ESP32 Dev Board&lt;/li&gt;
+&lt;li&gt;2x DS18B20 Temperatursensor (Solar, Pool)&lt;/li&gt;
+&lt;li&gt;2x Widerstand 4.7kΩ (Pull-up für OneWire-Datenleitungen)&lt;/li&gt;
+&lt;li&gt;1x 2-Kanal-Relaismodul 5V (bevorzugt mit Optokoppler)&lt;/li&gt;
+&lt;li&gt;1x RTC-Modul DS3231 (Uhr, optional)&lt;/li&gt;
+&lt;li&gt;1x Netzteil 5V DC (ausreichend dimensioniert)&lt;/li&gt;
+&lt;li&gt;Verdrahtungskabel, Klemmen, ggf. Sicherung/Schutzbeschaltung auf Lastseite&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2) Komplett-Schaltplan (Textdarstellung)&lt;span class="hx:absolute hx:-mt-20" id="2-komplett-schaltplan-textdarstellung"&gt;&lt;/span&gt;
+&lt;a href="#2-komplett-schaltplan-textdarstellung" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;+----------------------------------+
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| ESP32 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| DS18B20 Solar DATA ---- GPIO32 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| DS18B20 Pool DATA ---- GPIO33 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| Relay IN1 (Pool) ----- GPIO25 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| Relay IN2 (Solar) ----- GPIO26 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| RTC SDA --------------- GPIO21 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| RTC SCL --------------- GPIO22 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| 3V3 ------------------- 3V3 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| GND ------------------- GND |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;+----------------+-----------------+
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;|
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| gemeinsame Masse (GND)
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;v
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;+----------------------+ +------------------------------+
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| DS18B20 Solar | | DS18B20 Pool |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| VDD -&amp;gt; 3V3 | | VDD -&amp;gt; 3V3 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| GND -&amp;gt; GND | | GND -&amp;gt; GND |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| DATA -&amp;gt; GPIO32 | | DATA -&amp;gt; GPIO33 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;+----------+-----------+ +----------+-------------------+
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;+--[4.7kΩ]---&amp;gt; 3V3 +--[4.7kΩ]---&amp;gt; 3V3
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;+----------------------------------+
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| 2-Kanal Relaismodul (5V, opto) |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| IN1 &amp;lt;- GPIO25 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| IN2 &amp;lt;- GPIO26 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| VCC &amp;lt;- 5V (oder Modul-Logik) |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| JD-VCC &amp;lt;- 5V (falls getrennt) |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| GND &amp;lt;- GND |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;+----------------+-----------------+
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;|
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| Schaltkontakte
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;v
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; Pool-Pumpe / Solar-Pumpe (AC)
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;+--------------------------------------+
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| RTC DS3231 (optional, Uhr) |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| VCC &amp;lt;- 3V3 (oder 5V je Modultyp) |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| GND &amp;lt;- GND |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| SDA &amp;lt;- GPIO21 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| SCL &amp;lt;- GPIO22 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;+--------------------------------------+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;3) Verdrahtungstabelle&lt;span class="hx:absolute hx:-mt-20" id="3-verdrahtungstabelle"&gt;&lt;/span&gt;
+&lt;a href="#3-verdrahtungstabelle" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Bauteil&lt;/th&gt;
+&lt;th&gt;Signal&lt;/th&gt;
+&lt;th&gt;ESP32 Pin&lt;/th&gt;
+&lt;th&gt;Zusatzbauteil&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;DS18B20 Solar&lt;/td&gt;
+&lt;td&gt;DATA&lt;/td&gt;
+&lt;td&gt;GPIO32&lt;/td&gt;
+&lt;td&gt;4.7kΩ Pull-up nach 3V3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DS18B20 Pool&lt;/td&gt;
+&lt;td&gt;DATA&lt;/td&gt;
+&lt;td&gt;GPIO33&lt;/td&gt;
+&lt;td&gt;4.7kΩ Pull-up nach 3V3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relais Kanal 1&lt;/td&gt;
+&lt;td&gt;IN1&lt;/td&gt;
+&lt;td&gt;GPIO25&lt;/td&gt;
+&lt;td&gt;optional Pull-down (Fail-Safe)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relais Kanal 2&lt;/td&gt;
+&lt;td&gt;IN2&lt;/td&gt;
+&lt;td&gt;GPIO26&lt;/td&gt;
+&lt;td&gt;optional Pull-down (Fail-Safe)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;RTC DS3231 (optional)&lt;/td&gt;
+&lt;td&gt;SDA&lt;/td&gt;
+&lt;td&gt;GPIO21&lt;/td&gt;
+&lt;td&gt;I2C-Bus&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;RTC DS3231 (optional)&lt;/td&gt;
+&lt;td&gt;SCL&lt;/td&gt;
+&lt;td&gt;GPIO22&lt;/td&gt;
+&lt;td&gt;I2C-Bus&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Alle Bauteile&lt;/td&gt;
+&lt;td&gt;GND&lt;/td&gt;
+&lt;td&gt;GND&lt;/td&gt;
+&lt;td&gt;gemeinsame Masseführung&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DS18B20 / RTC&lt;/td&gt;
+&lt;td&gt;Versorgung&lt;/td&gt;
+&lt;td&gt;3V3&lt;/td&gt;
+&lt;td&gt;sauber entkoppeln&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relaismodul&lt;/td&gt;
+&lt;td&gt;Versorgung&lt;/td&gt;
+&lt;td&gt;5V&lt;/td&gt;
+&lt;td&gt;getrennte Last/Logik empfohlen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;4) Wichtige Hinweise&lt;span class="hx:absolute hx:-mt-20" id="4-wichtige-hinweise"&gt;&lt;/span&gt;
+&lt;a href="#4-wichtige-hinweise" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;230V/Netzseite der Pumpen nur nach geltenden Sicherheitsregeln verdrahten.&lt;/li&gt;
+&lt;li&gt;Sensorleitungen getrennt von Netz- und Relaisleitungen führen.&lt;/li&gt;
+&lt;li&gt;Beim Relaismodul aktive Logik prüfen (active-low oder active-high).&lt;/li&gt;
+&lt;li&gt;Für störarmen Betrieb nahe ESP32 zusätzliche Entkopplung (z. B. 100nF)
+vorsehen.&lt;/li&gt;
+&lt;li&gt;Die Firmware nutzt standardmäßig NTP; das RTC-Modul ist als zusätzliche
+Hardware-Uhr für Erweiterungen/Offline-Szenarien vorgesehen.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;5) Bezug zu bestehender Doku&lt;span class="hx:absolute hx:-mt-20" id="5-bezug-zu-bestehender-doku"&gt;&lt;/span&gt;
+&lt;a href="#5-bezug-zu-bestehender-doku" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Ausführliche Aufbauanleitung (auch für Einsteiger):
+&lt;a
+href="hardware-guide.de.md"&gt;Hardware-Anleitung&lt;/a&gt; — Schritt-für-Schritt,
+Fertigungstipps, Fehlersuche&lt;/li&gt;
+&lt;li&gt;Pin-Hintergrund und Optimierung:
+&lt;a
+href="https://smart-swimmingpool.github.io/docs/pool-controller/esp32-schematic-optimization-de/"&gt;ESP32 Schaltplananalyse und Optimierung&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>ESP32 Schaltplananalyse und Optimierung</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/esp32-schematic-optimization-de/</link><pubDate>Thu, 14 May 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/esp32-schematic-optimization-de/</guid><description>
+&lt;p&gt;Dieses Dokument analysiert den vorhandenen Aufbau (Fritzing-Quelle + bestehende
+Hardware-Dokumentation) und beschreibt einen optimierten ESP32-Vorschlag für
+Sensoren und Relais.&lt;/p&gt;
+&lt;h2&gt;1) Ist-Analyse (relevante Signale)&lt;span class="hx:absolute hx:-mt-20" id="1-ist-analyse-relevante-signale"&gt;&lt;/span&gt;
+&lt;a href="#1-ist-analyse-relevante-signale" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Aktuelle Firmware-Pinbelegung für ESP32 (&lt;code&gt;src/Config.hpp&lt;/code&gt;):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;PIN_DS_SOLAR&lt;/code&gt; = GPIO32&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PIN_DS_POOL&lt;/code&gt; = GPIO33&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PIN_RELAY_POOL&lt;/code&gt; = GPIO25&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PIN_RELAY_SOLAR&lt;/code&gt; = GPIO26&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Verwendete Hardware laut Doku:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;2x DS18B20 Temperaturfühler&lt;/li&gt;
+&lt;li&gt;2-Kanal Relaismodul (5V)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2) Hauptthemen im bisherigen Aufbau (vor Optimierung)&lt;span class="hx:absolute hx:-mt-20" id="2-hauptthemen-im-bisherigen-aufbau-vor-optimierung"&gt;&lt;/span&gt;
+&lt;a href="#2-hauptthemen-im-bisherigen-aufbau-vor-optimierung" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;DS18B20 war auf GPIO15 (Strapping-Pin)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;GPIO15 ist beim ESP32 ein Boot-Strapping-Pin.
+Ein OneWire-Bus mit Pull-up auf diesem Pin kann das Boot-Verhalten negativ
+beeinflussen.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Relais-/Versorgungskopplung&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;5V-Relaismodule können Schaltstörungen verursachen (Spikes/Noise).
+Ohne saubere Trennung von Logik- und Lastversorgung steigt das Risiko von
+Resets und Messrauschen.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Fehlende explizite Fail-Safe-Definition im Schaltplan&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Beim Start oder Reset darf keine Pumpe unbeabsichtigt einschalten.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;3) Optimierter ESP32-Vorschlag&lt;span class="hx:absolute hx:-mt-20" id="3-optimierter-esp32-vorschlag"&gt;&lt;/span&gt;
+&lt;a href="#3-optimierter-esp32-vorschlag" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;3.1 Empfohlene Pinbelegung&lt;span class="hx:absolute hx:-mt-20" id="31-empfohlene-pinbelegung"&gt;&lt;/span&gt;
+&lt;a href="#31-empfohlene-pinbelegung" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Funktion&lt;/th&gt;
+&lt;th&gt;Vorher (ESP32)&lt;/th&gt;
+&lt;th&gt;Jetzt (ESP32)&lt;/th&gt;
+&lt;th&gt;Grund&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;DS18B20 Solar&lt;/td&gt;
+&lt;td&gt;GPIO15&lt;/td&gt;
+&lt;td&gt;GPIO32&lt;/td&gt;
+&lt;td&gt;Vermeidet Strapping-Pins&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DS18B20 Pool&lt;/td&gt;
+&lt;td&gt;GPIO16&lt;/td&gt;
+&lt;td&gt;GPIO33&lt;/td&gt;
+&lt;td&gt;Klare Trennung der Sensorleitungen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relais Pool&lt;/td&gt;
+&lt;td&gt;GPIO18&lt;/td&gt;
+&lt;td&gt;GPIO25&lt;/td&gt;
+&lt;td&gt;Robuster Output, konfliktarm&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relais Solar&lt;/td&gt;
+&lt;td&gt;GPIO19&lt;/td&gt;
+&lt;td&gt;GPIO26&lt;/td&gt;
+&lt;td&gt;Robuster Output, konfliktarm&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Hinweis: Für bestehende Installationen mit alter Verdrahtung ist eine Anpassung
+der Firmware-Pins und ggf. Umverdrahtung erforderlich.&lt;/p&gt;
+&lt;h3&gt;3.1.1 Entscheidungsdokumentation (klarer Entscheid)&lt;span class="hx:absolute hx:-mt-20" id="311-entscheidungsdokumentation-klarer-entscheid"&gt;&lt;/span&gt;
+&lt;a href="#311-entscheidungsdokumentation-klarer-entscheid" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Entscheidung:&lt;/strong&gt; Für ESP32 werden die Signale dauerhaft auf
+&lt;code&gt;GPIO32/33&lt;/code&gt; (DS18B20) sowie &lt;code&gt;GPIO25/26&lt;/code&gt; (Relais) geführt.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Warum genau diese Zuordnung:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Boot-Robustheit:&lt;/strong&gt; Sensoren liegen nicht mehr auf Strapping-Pins
+(insbesondere kein OneWire auf GPIO15).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Störarmut:&lt;/strong&gt; Sensor-GPIOs sind von Relais-GPIOs logisch getrennt; dadurch
+weniger gegenseitige Beeinflussung bei Schaltvorgängen.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Betriebssicherheit:&lt;/strong&gt; Relais auf gut nutzbaren Output-Pins mit klarer
+Fail-Safe-Auslegung beim Start/Reset.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Wartbarkeit:&lt;/strong&gt; Einheitliche, dokumentierte Standardbelegung in Firmware und
+Hardware-Doku reduziert Fehlverdrahtung und Support-Aufwand.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Nicht gewählt wurde:&lt;/strong&gt; Die frühere ESP32-Belegung (&lt;code&gt;15/16/18/19&lt;/code&gt;), da sie
+höheres Boot-/Störrisiko mitbringt.&lt;/p&gt;
+&lt;h3&gt;3.2 Sensor-Optimierung (DS18B20)&lt;span class="hx:absolute hx:-mt-20" id="32-sensor-optimierung-ds18b20"&gt;&lt;/span&gt;
+&lt;a href="#32-sensor-optimierung-ds18b20" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Pro Sensorleitung einen sauberen &lt;strong&gt;4.7k Pull-up nach 3.3V&lt;/strong&gt; vorsehen.&lt;/li&gt;
+&lt;li&gt;Sensorleitungen räumlich von Relais-/230V-Leitungen trennen.&lt;/li&gt;
+&lt;li&gt;Bei längeren Leitungen: verdrillte Leitung und gemeinsamer sauberer GND.&lt;/li&gt;
+&lt;li&gt;100nF nahe ESP32-Versorgung zur Entstörung vorsehen.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;3.3 Relais-Optimierung&lt;span class="hx:absolute hx:-mt-20" id="33-relais-optimierung"&gt;&lt;/span&gt;
+&lt;a href="#33-relais-optimierung" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Relaismodul mit Optokoppler&lt;/strong&gt; und sauber dokumentierter Logikpegelrichtung
+(active-low/active-high) verwenden.&lt;/li&gt;
+&lt;li&gt;Wenn Modul es unterstützt: &lt;strong&gt;JD-VCC (Relais-Spule) von VCC (Logik) trennen&lt;/strong&gt;
+und gemeinsame Masseführung sternförmig auslegen.&lt;/li&gt;
+&lt;li&gt;Auf Pumpenseite geeignete Netzschutzmaßnahmen einplanen (z. B. passende
+Absicherung/Schutzbeschaltung entsprechend Installation).&lt;/li&gt;
+&lt;li&gt;Relais-Eingänge zusätzlich mit Pull-up/Pull-down fail-safe auslegen, damit
+beim Booten kein ungewolltes Schalten erfolgt.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;3.4 Verdrahtung (Visualisierung)&lt;span class="hx:absolute hx:-mt-20" id="34-verdrahtung-visualisierung"&gt;&lt;/span&gt;
+&lt;a href="#34-verdrahtung-visualisierung" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; +---------------------+
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; | ESP32 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; | |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;DS18B20 Solar DATA &amp;lt;----&amp;gt;| GPIO32 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;DS18B20 Pool DATA &amp;lt;----&amp;gt;| GPIO33 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Relay IN1 (Pool) &amp;lt;----&amp;gt;| GPIO25 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Relay IN2 (Solar) &amp;lt;----&amp;gt;| GPIO26 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; | |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;3V3 ---------------------&amp;gt;| 3V3 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;GND ---------------------&amp;gt;| GND |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; +----------+----------+
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; | gemeinsame Masse
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; v
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; +----------------+----------------+
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; | 2-Kanal Relaismodul (5V, opto) |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; | VCC (Logik) &amp;lt;- 3V3/5V* |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; | JD-VCC (Spule)&amp;lt;- 5V |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; | GND &amp;lt;- GND |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; | IN1 &amp;lt;- GPIO25 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; | IN2 &amp;lt;- GPIO26 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; +----------------+----------------+
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;DS18B20 Solar: VDD -&amp;gt; 3V3, GND -&amp;gt; GND, DATA -&amp;gt; GPIO32, Pull-up 4.7k nach 3V3
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;DS18B20 Pool : VDD -&amp;gt; 3V3, GND -&amp;gt; GND, DATA -&amp;gt; GPIO33, Pull-up 4.7k nach 3V3
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;* abhängig vom eingesetzten Relaismodul (Logikpegel beachten)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;4) Firmware-Bezug bei Umverdrahtung&lt;span class="hx:absolute hx:-mt-20" id="4-firmware-bezug-bei-umverdrahtung"&gt;&lt;/span&gt;
+&lt;a href="#4-firmware-bezug-bei-umverdrahtung" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die empfohlenen Pins sind in &lt;code&gt;src/Config.hpp&lt;/code&gt; umgesetzt. Relevant sind:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;PIN_DS_SOLAR&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PIN_DS_POOL&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PIN_RELAY_POOL&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PIN_RELAY_SOLAR&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;5) Verifikations-Checkliste nach Umbau&lt;span class="hx:absolute hx:-mt-20" id="5-verifikations-checkliste-nach-umbau"&gt;&lt;/span&gt;
+&lt;a href="#5-verifikations-checkliste-nach-umbau" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Bootet der ESP32 reproduzierbar (kalt/warm) ohne Fehlstart?&lt;/li&gt;
+&lt;li&gt;Schalten Relais beim Boot &lt;strong&gt;nicht&lt;/strong&gt; unbeabsichtigt?&lt;/li&gt;
+&lt;li&gt;Sind Temperaturmessungen stabil, auch bei Relais-Schaltvorgängen?&lt;/li&gt;
+&lt;li&gt;Keine Resets bei parallelem WLAN + Relaisbetrieb?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;6) Betrieb und Sicherheit&lt;span class="hx:absolute hx:-mt-20" id="6-betrieb-und-sicherheit"&gt;&lt;/span&gt;
+&lt;a href="#6-betrieb-und-sicherheit" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Für den produktiven 24/7-Betrieb und Sicherheitsaspekte bitte zusätzlich
+&lt;code&gt;AGENTS.md&lt;/code&gt; beachten (insbesondere Ressourcenmanagement, Security, OTA und
+Robustheit).&lt;/p&gt;
+&lt;h2&gt;7) Siehe auch&lt;span class="hx:absolute hx:-mt-20" id="7-siehe-auch"&gt;&lt;/span&gt;
+&lt;a href="#7-siehe-auch" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Ausführliche Aufbauanleitung mit Schritt-für-Schritt-Anleitung und
+Fertigungstipps: &lt;a
+href="hardware-guide.de.md"&gt;Hardware-Anleitung&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Kompletter Verdrahtungsplan mit RTC-Modul:
+&lt;a
+href="https://smart-swimmingpool.github.io/docs/pool-controller/esp32-complete-wiring-schematic-de/"&gt;ESP32 Komplett-Schaltplan&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>

@@ -1,0 +1,685 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Assembly</title><link>https://smart-swimmingpool.github.io/tags/assembly/</link><description>Recent content in Assembly on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Sun, 07 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/tags/assembly/index.xml" rel="self" type="application/rss+xml"/><item><title>Hardware Guide</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/hardware-guide/</link><pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/hardware-guide/</guid><description>
+&lt;h2&gt;Overview&lt;span class="hx:absolute hx:-mt-20" id="overview"&gt;&lt;/span&gt;
+&lt;a href="#overview" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This guide walks you through building the Pool Controller hardware — from
+selecting parts to final assembly. Even if you&amp;rsquo;ve never soldered before, the
+step-by-step instructions will help you get it right.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Target audience&lt;/strong&gt;: DIY electronics enthusiasts with basic soldering experience.
+Total cost: &lt;strong&gt;under 100€&lt;/strong&gt; (excluding pumps and pool infrastructure).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Safety First ⚠️&lt;span class="hx:absolute hx:-mt-20" id="safety-first-"&gt;&lt;/span&gt;
+&lt;a href="#safety-first-" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;The controller switches &lt;strong&gt;230V AC mains voltage&lt;/strong&gt; to the pumps. Improper
+wiring poses risk of electric shock or fire.&lt;/li&gt;
+&lt;li&gt;Only work on the circuit when &lt;strong&gt;disconnected from power&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Use a &lt;strong&gt;residual-current device (RCD)&lt;/strong&gt; for the pump circuit.&lt;/li&gt;
+&lt;li&gt;Keep sensor wiring (low voltage) physically separate from mains wiring.&lt;/li&gt;
+&lt;li&gt;If in doubt, consult a qualified electrician for the mains connection.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Required Parts (BOM)&lt;span class="hx:absolute hx:-mt-20" id="required-parts-bom"&gt;&lt;/span&gt;
+&lt;a href="#required-parts-bom" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;#&lt;/th&gt;
+&lt;th&gt;Component&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Qty&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Approx. Cost&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;ESP32 Development Board (e.g. ESP32 DevKit V1, NodeMCU-32S)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;1&lt;/td&gt;
+&lt;td style="text-align: center"&gt;10–15€&lt;/td&gt;
+&lt;td&gt;Ensure it has at least 4MB flash&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;DS18B20 Temperature Sensor (waterproof, stainless steel probe, 1m cable)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;2&lt;/td&gt;
+&lt;td style="text-align: center"&gt;8–12€&lt;/td&gt;
+&lt;td&gt;One for pool water, one for solar collector&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;2-Channel 5V Relay Module (with optocoupler isolation)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;1&lt;/td&gt;
+&lt;td style="text-align: center"&gt;5–8€&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Must&lt;/strong&gt; be active-high (see notes below)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;Resistor 4.7kΩ (¼W or ⅛W, metal film or carbon film)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;2&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&amp;lt; 1€&lt;/td&gt;
+&lt;td&gt;Pull-up for the OneWire data lines&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;Breadboard + jumper wires (for prototyping) &lt;strong&gt;OR&lt;/strong&gt; Perfboard + pin headers/screw terminals (for permanent build)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;1&lt;/td&gt;
+&lt;td style="text-align: center"&gt;3–8€&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;6&lt;/td&gt;
+&lt;td&gt;USB power supply 5V/≥1A (e.g. phone charger)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;1&lt;/td&gt;
+&lt;td style="text-align: center"&gt;5–10€&lt;/td&gt;
+&lt;td&gt;For the ESP32 alone&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;7&lt;/td&gt;
+&lt;td&gt;Hookup wire, 0.14–0.5mm² (AWG 26–20), various colors&lt;/td&gt;
+&lt;td style="text-align: center"&gt;—&lt;/td&gt;
+&lt;td style="text-align: center"&gt;3–5€&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;8&lt;/td&gt;
+&lt;td&gt;Optional: enclosure (ABS/PVC project box, IP54 or better)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;1&lt;/td&gt;
+&lt;td style="text-align: center"&gt;5–10€&lt;/td&gt;
+&lt;td&gt;Protect from splashes/dust&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;9&lt;/td&gt;
+&lt;td&gt;Optional: screw terminals (2-pin, 5mm pitch)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;4–6&lt;/td&gt;
+&lt;td style="text-align: center"&gt;2–3€&lt;/td&gt;
+&lt;td&gt;For removable sensor/power connections&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;10&lt;/td&gt;
+&lt;td&gt;Optional: DS3231 RTC module&lt;/td&gt;
+&lt;td style="text-align: center"&gt;1&lt;/td&gt;
+&lt;td style="text-align: center"&gt;3–5€&lt;/td&gt;
+&lt;td&gt;Backup timekeeping (not required for normal NTP operation)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Total&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;~45–75€&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Without enclosure; well under 100€&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;Where to Buy&lt;span class="hx:absolute hx:-mt-20" id="where-to-buy"&gt;&lt;/span&gt;
+&lt;a href="#where-to-buy" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;All parts are widely available on Amazon, AliExpress, eBay, or at electronics
+distributors like Reichelt, Pollin, Conrad (DE/AT/CH).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;ESP32&lt;/strong&gt;: Search for &amp;ldquo;ESP32 DevKit V1&amp;rdquo; or &amp;ldquo;ESP32 NodeMCU-32S&amp;rdquo;. Avoid
+ESP32-S2/S3/C3 variants unless you adapt the firmware — the project targets
+standard ESP32 (Xtensa dual-core).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DS18B20&lt;/strong&gt;: Look for &lt;strong&gt;stainless steel, waterproof&lt;/strong&gt; probes with 1m cable.
+Cheaper plastic-encapsulated sensors work too but are less durable outdoors.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Relay Module&lt;/strong&gt;: &lt;strong&gt;Read the module specification carefully.&lt;/strong&gt; The firmware
+uses &lt;strong&gt;active-high logic&lt;/strong&gt; (GPIO HIGH → relay ON). Many cheap modules are
+active-low with a jumper to switch. Check the documentation or use a jumper
+wire to verify before wiring permanently.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Resistors&lt;/strong&gt;: Any 4.7kΩ ±5% resistor works. Buy a 100-pack for &amp;lt; 3€.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Pin Assignment (Firmware Defaults)&lt;span class="hx:absolute hx:-mt-20" id="pin-assignment-firmware-defaults"&gt;&lt;/span&gt;
+&lt;a href="#pin-assignment-firmware-defaults" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The firmware uses these GPIO pins (defined in &lt;code&gt;src/Config.hpp&lt;/code&gt;):&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Constant&lt;/th&gt;
+&lt;th style="text-align: center"&gt;GPIO&lt;/th&gt;
+&lt;th&gt;Purpose&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;PIN_DS_SOLAR&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;GPIO15&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;DS18B20 data — Solar collector temperature&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;PIN_DS_POOL&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;GPIO16&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;DS18B20 data — Pool water temperature&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;PIN_RELAY_POOL&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;GPIO18&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Relay control — Pool circulation pump&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;PIN_RELAY_SOLAR&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;GPIO19&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Relay control — Solar heating pump&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note on GPIO15&lt;/strong&gt;: This pin is a &lt;strong&gt;Strapping pin&lt;/strong&gt; on the ESP32 — it affects
+the boot process if pulled HIGH or LOW at startup. The firmware works reliably
+with it here, but if you experience boot issues, consider moving the DS18B20
+sensors to &lt;strong&gt;GPIO32/33&lt;/strong&gt; and updating &lt;code&gt;src/Config.hpp&lt;/code&gt; accordingly (see the
+&lt;a
+href="#optional-wiring-optimization"&gt;Wiring Optimization&lt;/a&gt; section).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2&gt;Wiring Diagram&lt;span class="hx:absolute hx:-mt-20" id="wiring-diagram"&gt;&lt;/span&gt;
+&lt;a href="#wiring-diagram" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt; &amp;#43;-------------------------&amp;#43;
+| ESP32 |
+| |
+DS18B20 SOLAR DATA ---&amp;gt;| GPIO15 (PIN_DS_SOLAR) |
+DS18B20 POOL DATA ---&amp;gt;| GPIO16 (PIN_DS_POOL) |
+Relay IN1 (Pool) ----&amp;gt;| GPIO18 (PIN_RELAY_POOL)|
+Relay IN2 (Solar) ----&amp;gt;| GPIO19 (PIN_RELAY_SOLAR)|
+| |
+3.3V ------------------&amp;gt;| 3V3 |
+GND -------------------&amp;gt;| GND |
+&amp;#43;-----------&amp;#43;-------------&amp;#43;
+|
+| common GND
+v
+&amp;#43;--------&amp;#43;--------&amp;#43;--------&amp;#43;--------&amp;#43;
+| | | | |
+&amp;#43;----&amp;#43;--&amp;#43; &amp;#43;--&amp;#43;----&amp;#43; | &amp;#43;----&amp;#43;--&amp;#43; &amp;#43;--&amp;#43;----&amp;#43;
+|Solar | | Pool | | | RLY1 | | RLY2 |
+|DS18B20| |DS18B20| | |(Pool) | |(Solar)|
+| | | | | | | | |
+| VDD --&amp;#43;--&amp;#43; VDD --&amp;#43;--&amp;#43;---&amp;gt; 3.3V | | |
+| GND --&amp;#43;--&amp;#43; GND --&amp;#43;-------&amp;gt; GND | | |
+|DATA ---&amp;gt;| GPIO15| | | | | |
+| | |DATA --&amp;gt;| | | VCC | | VCC |
+&amp;#43;-------&amp;#43; &amp;#43;-------&amp;#43; | | -- 5V | | -- 5V|
+| | GND | | GND |
+| | | | |
+4.7kΩ | | IN1 | | IN2 |
+| | | &amp;lt;-18 | | &amp;lt;-19 |
+v | &amp;#43;------&amp;#43; &amp;#43;------&amp;#43;
+3.3V ----&amp;#43;-&amp;#43;--- 3.3V&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3&gt;Wire Connections (Step by Step)&lt;span class="hx:absolute hx:-mt-20" id="wire-connections-step-by-step"&gt;&lt;/span&gt;
+&lt;a href="#wire-connections-step-by-step" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;1. Temperature Sensors (DS18B20)&lt;span class="hx:absolute hx:-mt-20" id="1-temperature-sensors-ds18b20"&gt;&lt;/span&gt;
+&lt;a href="#1-temperature-sensors-ds18b20" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;The DS18B20 has three wires (on waterproof probes: typically &lt;strong&gt;red = VDD&lt;/strong&gt;,
+&lt;strong&gt;yellow/white = DATA&lt;/strong&gt;, &lt;strong&gt;black = GND&lt;/strong&gt; — but &lt;strong&gt;verify with your sensor&amp;rsquo;s
+datasheet&lt;/strong&gt;):&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="text-align: center"&gt;DS18B20 Wire&lt;/th&gt;
+&lt;th&gt;Connect to&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;Red (VDD)&lt;/td&gt;
+&lt;td&gt;ESP32 &lt;strong&gt;3.3V&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;Black (GND)&lt;/td&gt;
+&lt;td&gt;ESP32 &lt;strong&gt;GND&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;Yellow/White (DATA)&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;GPIO15&lt;/strong&gt; (solar) or &lt;strong&gt;GPIO16&lt;/strong&gt; (pool)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Critical — add the pull-up resistor:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Connect a &lt;strong&gt;4.7kΩ resistor&lt;/strong&gt; between the DATA wire and the &lt;strong&gt;3.3V&lt;/strong&gt; line.
+One resistor per sensor, as close to the sensor wire connection as possible.&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt; ESP32 3.3V ──┬── 4.7kΩ ──── DS18B20 DATA
+│
+DS18B20 VDD&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Without this resistor, the sensor will not be detected — this is the #1
+cause of &amp;ldquo;no sensor found&amp;rdquo; errors.&lt;/p&gt;
+&lt;h4&gt;2. Relay Module&lt;span class="hx:absolute hx:-mt-20" id="2-relay-module"&gt;&lt;/span&gt;
+&lt;a href="#2-relay-module" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="text-align: center"&gt;Relay Module&lt;/th&gt;
+&lt;th&gt;Connect to&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;VCC (or VDD)&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;5V&lt;/strong&gt; (from the ESP32 board&amp;rsquo;s VIN/5V pin, or external 5V supply)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;GND&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;GND&lt;/strong&gt; (common with ESP32)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;IN1&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;GPIO18&lt;/strong&gt; (pool pump)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;IN2&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;GPIO19&lt;/strong&gt; (solar pump)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Relay Logic&lt;/strong&gt;: The firmware sets the GPIO pin HIGH (3.3V) to activate the
+relay. If your module switches with LOW (active-low), flip the jumper or adapt
+the firmware (see &lt;code&gt;src/RelayModuleNode.cpp&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Load wiring (230V side):&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt; L ──┤ RCD ├──┤ MCB ├──┬──┤ Relay-COM1 ├── Pool Pump ── N
+└──┤ Relay-COM2 ├── Solar Pump ── N&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;Connect the pump&amp;rsquo;s live wire to the relay&amp;rsquo;s &lt;strong&gt;COM&lt;/strong&gt; (common) terminal.&lt;/li&gt;
+&lt;li&gt;Connect the relay&amp;rsquo;s &lt;strong&gt;NO&lt;/strong&gt; (normally open) terminal to the pump.&lt;/li&gt;
+&lt;li&gt;The other pump wire goes to &lt;strong&gt;neutral (N)&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Always wire the 230V circuit through an &lt;strong&gt;RCD and appropriately rated MCB&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;3. Power Supply&lt;span class="hx:absolute hx:-mt-20" id="3-power-supply"&gt;&lt;/span&gt;
+&lt;a href="#3-power-supply" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Component&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Supply&lt;/th&gt;
+&lt;th&gt;Source&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ESP32 board&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;5V USB&lt;/strong&gt; (regulated)&lt;/td&gt;
+&lt;td&gt;Phone charger, USB port, or dedicated 5V PSU&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relay module (coils)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;5V&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;From ESP32 VIN pin OR external 5V supply&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DS18B20 sensors&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;3.3V&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;From ESP32 3.3V output pin&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;(Optional) RTC DS3231&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;3.3V&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;From ESP32 3.3V output pin&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Important&lt;/strong&gt;: The ESP32&amp;rsquo;s on-board 3.3V regulator can supply ~600mA. The
+DS18B20 sensors draw &amp;lt; 5mA total — well within limits. If you add many
+additional 3.3V components, consider an external 3.3V regulator.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2&gt;Step-by-Step Assembly&lt;span class="hx:absolute hx:-mt-20" id="step-by-step-assembly"&gt;&lt;/span&gt;
+&lt;a href="#step-by-step-assembly" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Prototyping on a Breadboard&lt;span class="hx:absolute hx:-mt-20" id="prototyping-on-a-breadboard"&gt;&lt;/span&gt;
+&lt;a href="#prototyping-on-a-breadboard" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Place the ESP32&lt;/strong&gt; on the breadboard straddling the center gap&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Connect power rails&lt;/strong&gt;: 3.3V and GND rails on both sides&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Insert the 4.7kΩ resistors&lt;/strong&gt;: Between the DATA row and 3.3V rail&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Connect DS18B20 sensors&lt;/strong&gt;: Use jumper wires for VDD (3.3V), GND, and DATA&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Connect the relay module&lt;/strong&gt;: Jumper wires for VCC (5V), GND, IN1, IN2&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Power via USB&lt;/strong&gt;: The ESP32&amp;rsquo;s VIN/USB pin provides 5V for the relay module&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Double-check all connections&lt;/strong&gt; before applying power&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Verify&lt;/strong&gt;: See &lt;a
+href="#first-power-on-and-testing"&gt;First Power-On&lt;/a&gt; below&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure&gt;&lt;img src="../pool-controller_breadboard.png"&gt;&lt;figcaption&gt;
+&lt;h4&gt;Pool Controller breadboard prototype with ESP32, two DS18B20 temperature sensors, 4.7kΩ pull-up resistors, and 2-channel relay module&lt;/h4&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;💡 &lt;strong&gt;Tip&lt;/strong&gt;: Use different colored jumper wires for clarity — e.g., red for
+power (3.3V/5V), black for GND, yellow for sensor data, blue for relay
+control.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Permanent Assembly on Perfboard&lt;span class="hx:absolute hx:-mt-20" id="permanent-assembly-on-perfboard"&gt;&lt;/span&gt;
+&lt;a href="#permanent-assembly-on-perfboard" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Once you&amp;rsquo;ve verified the circuit on a breadboard, build the permanent version:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Plan the layout&lt;/strong&gt;: Arrange components on the perfboard before soldering.
+Keep the 230V relay terminals at one edge, sensors at the opposite edge.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Solder in this order&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;Pin headers / screw terminals for the ESP32 (socket it, don&amp;rsquo;t solder directly)&lt;/li&gt;
+&lt;li&gt;Resistors (4.7kΩ)&lt;/li&gt;
+&lt;li&gt;Pin headers for the relay module (socket it too)&lt;/li&gt;
+&lt;li&gt;Screw terminals for sensor connections&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Wire routing&lt;/strong&gt;: Use solid core wire for connections. Keep data lines short.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Inspect for solder bridges&lt;/strong&gt;: Check each joint with a magnifier or
+multimeter (continuity test).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mount in enclosure&lt;/strong&gt;: Use standoffs or double-sided foam tape. Drill holes
+for sensor and relay cable entries. Use cable glands (PG7/PG9) for a
+water-resistant seal.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2&gt;Manufacturing Tips&lt;span class="hx:absolute hx:-mt-20" id="manufacturing-tips"&gt;&lt;/span&gt;
+&lt;a href="#manufacturing-tips" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Soldering&lt;span class="hx:absolute hx:-mt-20" id="soldering"&gt;&lt;/span&gt;
+&lt;a href="#soldering" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Use leaded solder&lt;/strong&gt; (Sn60Pb40 or Sn63Pb37) for easiest handling —
+it flows better than lead-free, especially for beginners.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Flux&lt;/strong&gt;: Use rosin-core solder; add liquid flux for stubborn joints.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Temperature&lt;/strong&gt;: Set iron to 320–350°C for leaded, 370–400°C for lead-free.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Iron tip&lt;/strong&gt;: Clean with a wet sponge or brass wool &lt;strong&gt;before every joint&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Good joint&lt;/strong&gt;: Shiny, concave fillet that flows around the component lead.
+A dull, cracked, or ball-shaped joint is &lt;strong&gt;bad&lt;/strong&gt; — reheat and add fresh solder.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Enclosure&lt;span class="hx:absolute hx:-mt-20" id="enclosure"&gt;&lt;/span&gt;
+&lt;a href="#enclosure" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Choose an &lt;strong&gt;ABS or PVC project box&lt;/strong&gt; with at least IP54 rating for outdoor
+installation (splash protection).&lt;/li&gt;
+&lt;li&gt;Drill ventilation holes if the relay module gets warm, but angle them
+downwards to reduce water ingress.&lt;/li&gt;
+&lt;li&gt;Mount the ESP32 on &lt;strong&gt;M2.5 or M3 nylon standoffs&lt;/strong&gt; to avoid short circuits.&lt;/li&gt;
+&lt;li&gt;Label external connectors (pool sensor, solar sensor, pump 1, pump 2, USB power).&lt;/li&gt;
+&lt;li&gt;Use &lt;strong&gt;cable glands&lt;/strong&gt; (PG7 for thin sensor cables, PG9 for thicker power cables)
+where wires enter the enclosure.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Cable Management&lt;span class="hx:absolute hx:-mt-20" id="cable-management"&gt;&lt;/span&gt;
+&lt;a href="#cable-management" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Label both ends&lt;/strong&gt; of each wire with heat-shrink wrap or small adhesive
+labels — future-you will thank past-you.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Keep sensor and relay wires separate&lt;/strong&gt; inside the enclosure to minimize
+electrical noise coupling.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Strain relief&lt;/strong&gt;: Tie internal wires to mounting posts or use cable ties so
+that pulling on external cables doesn&amp;rsquo;t stress solder joints.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Service loop&lt;/strong&gt;: Leave enough slack inside the enclosure so you can open it
+and work without disconnecting everything.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Outdoor Sensor Installation&lt;span class="hx:absolute hx:-mt-20" id="outdoor-sensor-installation"&gt;&lt;/span&gt;
+&lt;a href="#outdoor-sensor-installation" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;DS18B20 probes&lt;/strong&gt; are waterproof but the cable entry at the sensor end is
+not always fully sealed. Apply &lt;strong&gt;heat-shrink tubing&lt;/strong&gt; over the cable joint
+or use &lt;strong&gt;self-amalgamating silicone tape&lt;/strong&gt; for outdoor installations.&lt;/li&gt;
+&lt;li&gt;Route sensor cables in &lt;strong&gt;conduit&lt;/strong&gt; (PVC or flexible) where they are exposed
+to mechanical stress (lawn, pavement).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Max cable length&lt;/strong&gt;: DS18B20 works reliably up to ~30m with a 4.7kΩ pull-up
+and twisted-pair cable. For longer runs, reduce the pull-up to 2.2kΩ or use
+a dedicated OneWire driver.&lt;/li&gt;
+&lt;li&gt;Position the pool sensor in the &lt;strong&gt;pump circuit&lt;/strong&gt; (after the filter, before
+the pump return) for accurate average pool temperature.&lt;/li&gt;
+&lt;li&gt;Position the solar sensor at the &lt;strong&gt;hottest point of the solar collector&lt;/strong&gt;
+(usually the top outlet pipe).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Power Supply Options&lt;span class="hx:absolute hx:-mt-20" id="power-supply-options"&gt;&lt;/span&gt;
+&lt;a href="#power-supply-options" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Option&lt;/th&gt;
+&lt;th&gt;Pros&lt;/th&gt;
+&lt;th&gt;Cons&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;USB phone charger&lt;/strong&gt; (5V/1A+)&lt;/td&gt;
+&lt;td&gt;Cheap, readily available, safe&lt;/td&gt;
+&lt;td&gt;Limited current for additional peripherals&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;DIN-rail PSU&lt;/strong&gt; (Mean Well HDR-15-5 or similar)&lt;/td&gt;
+&lt;td&gt;Professional, reliable, fits in electrical cabinet&lt;/td&gt;
+&lt;td&gt;Slightly more expensive (~15€)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;ESP32 VIN from USB&lt;/strong&gt; + relay from same 5V&lt;/td&gt;
+&lt;td&gt;Simple wiring&lt;/td&gt;
+&lt;td&gt;Total current must stay under ESP32 board&amp;rsquo;s limit&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Recommendation&lt;/strong&gt;: If you&amp;rsquo;re installing in a permanent location near your pump
+control panel, use a &lt;strong&gt;DIN-rail 5V PSU&lt;/strong&gt; (e.g., Mean Well HDR-15-5). It&amp;rsquo;s
+clean, reliable, and can power both the ESP32 and the relay module without
+issue.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;First Power-On and Testing&lt;span class="hx:absolute hx:-mt-20" id="first-power-on-and-testing"&gt;&lt;/span&gt;
+&lt;a href="#first-power-on-and-testing" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;1. Visual Inspection&lt;span class="hx:absolute hx:-mt-20" id="1-visual-inspection"&gt;&lt;/span&gt;
+&lt;a href="#1-visual-inspection" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Before connecting power:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Check for &lt;strong&gt;solder bridges&lt;/strong&gt; between adjacent pins&lt;/li&gt;
+&lt;li&gt;Verify &lt;strong&gt;polarity&lt;/strong&gt; of all components (DS18B20 VDD/GND, relay VCC/GND)&lt;/li&gt;
+&lt;li&gt;Ensure &lt;strong&gt;no stray wire strands&lt;/strong&gt; are shorting neighboring pins&lt;/li&gt;
+&lt;li&gt;Measure resistance between &lt;strong&gt;3.3V and GND&lt;/strong&gt; — should be &amp;gt; 10kΩ (not shorted)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;2. Power On&lt;span class="hx:absolute hx:-mt-20" id="2-power-on"&gt;&lt;/span&gt;
+&lt;a href="#2-power-on" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Connect USB power (or 5V PSU)&lt;/li&gt;
+&lt;li&gt;The ESP32&amp;rsquo;s &lt;strong&gt;built-in LED&lt;/strong&gt; should flash quickly (boot sequence)&lt;/li&gt;
+&lt;li&gt;After ~3 seconds, the LED blinks &lt;strong&gt;slowly&lt;/strong&gt; — waiting for WiFi&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;3. Verify Sensors&lt;span class="hx:absolute hx:-mt-20" id="3-verify-sensors"&gt;&lt;/span&gt;
+&lt;a href="#3-verify-sensors" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Open the serial monitor (9600 baud):&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;Pool Controller v3.3.0
+Starting up...
+Initialized pins: GPIO15, GPIO16, GPIO18, GPIO19
+Solar Temp: GPIO15
+Pool Temp: GPIO16
+Pool Relay: GPIO18
+Solar Relay: GPIO19&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;If sensors are connected and working:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;Solar temperature: 25.3°C
+Pool temperature: 22.1°C&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;If you see &lt;code&gt;Sensor error&lt;/code&gt; or &lt;code&gt;-127°C&lt;/code&gt;, check:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; 4.7kΩ pull-up resistor present on each DATA line?&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; DS18B20 VDD connected to 3.3V (not 5V)?&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; DS18B20 GND connected to common ground?&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; DATA pin matches the firmware configuration?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;4. Test Relays&lt;span class="hx:absolute hx:-mt-20" id="4-test-relays"&gt;&lt;/span&gt;
+&lt;a href="#4-test-relays" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;From the Web UI (Configuration tab) or via serial command:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;Mode: manual
+Pool pump: ON → relay should click, pump starts
+Solar pump: ON → relay should click, pump starts&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;If relay doesn&amp;rsquo;t click:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Is the relay module powered (5V between VCC and GND)?&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Is the logic level correct (active-high vs active-low)?&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Does the LED on the relay module light up when GPIO goes HIGH?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Troubleshooting&lt;span class="hx:absolute hx:-mt-20" id="troubleshooting"&gt;&lt;/span&gt;
+&lt;a href="#troubleshooting" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Symptom&lt;/th&gt;
+&lt;th&gt;Likely Cause&lt;/th&gt;
+&lt;th&gt;Fix&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ldquo;Sensor error&amp;rdquo; or &lt;code&gt;-127°C&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Missing pull-up resistor&lt;/td&gt;
+&lt;td&gt;Add 4.7kΩ between DATA and 3.3V&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ldquo;Sensor error&amp;rdquo;&lt;/td&gt;
+&lt;td&gt;Wrong GPIO pin&lt;/td&gt;
+&lt;td&gt;Check &lt;code&gt;PIN_DS_SOLAR&lt;/code&gt;/&lt;code&gt;PIN_DS_POOL&lt;/code&gt; in &lt;code&gt;src/Config.hpp&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Intermittent sensor readings&lt;/td&gt;
+&lt;td&gt;Loose connection or noise&lt;/td&gt;
+&lt;td&gt;Check solder joints, separate data from relay wires&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relay doesn&amp;rsquo;t activate&lt;/td&gt;
+&lt;td&gt;Wrong logic level&lt;/td&gt;
+&lt;td&gt;Check active-high vs active-low; add jumper or change firmware&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relay clicks but pump doesn&amp;rsquo;t run&lt;/td&gt;
+&lt;td&gt;230V wiring issue&lt;/td&gt;
+&lt;td&gt;Check COM/NO terminals, verify pump connection&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ESP32 won&amp;rsquo;t boot (brownout)&lt;/td&gt;
+&lt;td&gt;Insufficient power&lt;/td&gt;
+&lt;td&gt;Use 5V/≥1A power supply; add 100µF capacitor near VIN&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ESP32 resets when relay switches&lt;/td&gt;
+&lt;td&gt;Voltage spike on relay coil&lt;/td&gt;
+&lt;td&gt;Add flyback diode across relay coil, or use module with built-in protection&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Sensor readings jump when relay switches&lt;/td&gt;
+&lt;td&gt;Electrical noise&lt;/td&gt;
+&lt;td&gt;Route sensor wires away from relay/power wires&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2&gt;Optional: Wiring Optimization&lt;span class="hx:absolute hx:-mt-20" id="optional-wiring-optimization"&gt;&lt;/span&gt;
+&lt;a href="#optional-wiring-optimization" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The default pins (GPIO15/16/18/19) work reliably for most users. If you
+experience boot instability or want the most robust configuration, use these
+&lt;strong&gt;optimized pins&lt;/strong&gt; instead:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Function&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Default Pin&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Optimized Pin&lt;/th&gt;
+&lt;th&gt;Reason&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;DS18B20 Solar&lt;/td&gt;
+&lt;td style="text-align: center"&gt;GPIO15&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;GPIO32&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;GPIO15 is a Strapping pin — removing OneWire from it eliminates any boot risk&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DS18B20 Pool&lt;/td&gt;
+&lt;td style="text-align: center"&gt;GPIO16&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;GPIO33&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Clean separation from remaining Strapping pin GPIO0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relay Pool&lt;/td&gt;
+&lt;td style="text-align: center"&gt;GPIO18&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;GPIO25&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;ADC2 pads (GPIO18/19) are avoided; GPIO25 is a clean digital output&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relay Solar&lt;/td&gt;
+&lt;td style="text-align: center"&gt;GPIO19&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;GPIO26&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Same as above&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;To use optimized pins, edit &lt;code&gt;src/Config.hpp&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cpp" data-lang="cpp"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;constexpr&lt;/span&gt; &lt;span class="kt"&gt;uint8_t&lt;/span&gt; &lt;span class="n"&gt;PIN_DS_SOLAR&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="mi"&gt;32&lt;/span&gt;&lt;span class="p"&gt;};&lt;/span&gt; &lt;span class="c1"&gt;// was 15
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;constexpr&lt;/span&gt; &lt;span class="kt"&gt;uint8_t&lt;/span&gt; &lt;span class="n"&gt;PIN_DS_POOL&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="mi"&gt;33&lt;/span&gt;&lt;span class="p"&gt;};&lt;/span&gt; &lt;span class="c1"&gt;// was 16
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;constexpr&lt;/span&gt; &lt;span class="kt"&gt;uint8_t&lt;/span&gt; &lt;span class="n"&gt;PIN_RELAY_POOL&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="mi"&gt;25&lt;/span&gt;&lt;span class="p"&gt;};&lt;/span&gt; &lt;span class="c1"&gt;// was 18
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;constexpr&lt;/span&gt; &lt;span class="kt"&gt;uint8_t&lt;/span&gt; &lt;span class="n"&gt;PIN_RELAY_SOLAR&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="mi"&gt;26&lt;/span&gt;&lt;span class="p"&gt;};&lt;/span&gt; &lt;span class="c1"&gt;// was 19
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;This pinout is already analyzed and recommended in the
+&lt;a
+href="https://smart-swimmingpool.github.io/docs/pool-controller/esp32-schematic-optimization-de/"&gt;ESP32 Schematic Optimization&lt;/a&gt; document
+(German).&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;References&lt;span class="hx:absolute hx:-mt-20" id="references"&gt;&lt;/span&gt;
+&lt;a href="#references" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Fritzing source file: &lt;a
+href="https://github.com/smart-swimmingpool/pool-controller/raw/main/docs/pool-controller.fzz"target="_blank" rel="noopener"&gt;pool-controller.fzz&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/pool-controller/esp32-schematic-optimization-de/"&gt;ESP32 Schematic Optimization (DE)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/pool-controller/esp32-complete-wiring-schematic-de/"&gt;ESP32 Complete Wiring Schematic (DE)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://www.analog.com/media/en/technical-documentation/data-sheets/DS18B20.pdf"target="_blank" rel="noopener"&gt;DS18B20 Datasheet&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/peripherals/gpio.html"target="_blank" rel="noopener"&gt;ESP32 Pin Reference&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller/blob/main/src/Config.hpp"target="_blank" rel="noopener"&gt;Config.hpp pin source&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>

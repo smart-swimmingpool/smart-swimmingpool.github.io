@@ -1,0 +1,210 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Configuration</title><link>https://smart-swimmingpool.github.io/tags/configuration/</link><description>Recent content in Configuration on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Sun, 07 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/tags/configuration/index.xml" rel="self" type="application/rss+xml"/><item><title>MQTT Configuration</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/mqtt-configuration/</link><pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/mqtt-configuration/</guid><description>
+&lt;h1&gt;MQTT Configuration (Home Assistant Discovery)&lt;/h1&gt;&lt;p&gt;The Pool Controller uses &lt;a
+href="https://www.home-assistant.io/integrations/mqtt/#mqtt-discovery"target="_blank" rel="noopener"&gt;Home Assistant MQTT Discovery&lt;/a&gt;
+for automatic device registration. All devices appear automatically in Home Assistant
+without any manual configuration.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: The former Homie protocol support was removed in v3.3.0. The controller
+exclusively uses Home Assistant MQTT Discovery.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Configuration&lt;span class="hx:absolute hx:-mt-20" id="configuration"&gt;&lt;/span&gt;
+&lt;a href="#configuration" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Configure your MQTT broker connection via the Web UI (Settings → MQTT tab):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;MQTT Hostname/IP&lt;/strong&gt;: Your MQTT broker address&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MQTT Port&lt;/strong&gt;: Default 1883 (or 8883 for TLS)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MQTT Username/Password&lt;/strong&gt;: Optional authentication credentials&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Enable TLS&lt;/strong&gt;: Toggle for encrypted MQTTS connection&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;After saving and rebooting, all entities appear automatically in Home Assistant.&lt;/p&gt;
+&lt;h3&gt;Via config.json&lt;span class="hx:absolute hx:-mt-20" id="via-configjson"&gt;&lt;/span&gt;
+&lt;a href="#via-configjson" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Add or modify the setting in your device&amp;rsquo;s &lt;code&gt;config.json&lt;/code&gt; on LittleFS:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-json" data-lang="json"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;#34;name&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;Pool Controller&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;#34;settings&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;#34;mqtt_host&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;192.168.1.100&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;#34;mqtt_port&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1883&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;Home Assistant Entities&lt;span class="hx:absolute hx:-mt-20" id="home-assistant-entities"&gt;&lt;/span&gt;
+&lt;a href="#home-assistant-entities" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The controller publishes the following entities via MQTT Discovery:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Function&lt;/th&gt;
+&lt;th&gt;HA component/object-id&lt;/th&gt;
+&lt;th&gt;State topic&lt;/th&gt;
+&lt;th&gt;Command topic&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Solar temperature&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;sensor/solar-temp&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/sensor/pool-controller/solar-temp/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Pool temperature&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;sensor/pool-temp&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/sensor/pool-controller/pool-temp/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Controller temperature (ESP32)&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;sensor/controller-temp&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/sensor/pool-controller/controller-temp/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Pool pump relay&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;switch/pool-pump&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/switch/pool-controller/pool-pump/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/switch/pool-controller/pool-pump/set&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Solar pump relay&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;switch/solar-pump&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/switch/pool-controller/solar-pump/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/switch/pool-controller/solar-pump/set&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Operation mode&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;select/mode&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/select/pool-controller/mode/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/select/pool-controller/mode/set&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Pool max temp&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number/pool-max-temp&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/number/pool-controller/pool-max-temp/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/number/pool-controller/pool-max-temp/set&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Solar min temp&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number/solar-min-temp&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/number/pool-controller/solar-min-temp/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/number/pool-controller/solar-min-temp/set&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Hysteresis&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number/hysteresis&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/number/pool-controller/hysteresis/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/number/pool-controller/hysteresis/set&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Timer start time&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;text/timer-start&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/text/pool-controller/timer-start/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/text/pool-controller/timer-start/set&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Timer end time&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;text/timer-end&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/text/pool-controller/timer-end/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/text/pool-controller/timer-end/set&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Timezone index&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number/timezone&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/number/pool-controller/timezone/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/number/pool-controller/timezone/set&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Timezone info&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;sensor/timezone-info&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/sensor/pool-controller/timezone-info/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Log output&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;sensor/log&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/sensor/pool-controller/log/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Log level&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;select/log-level&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/select/pool-controller/log-level/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/select/pool-controller/log-level/set&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Log to serial&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;switch/log-serial&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/switch/pool-controller/log-serial/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/switch/pool-controller/log-serial/set&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;OTA update trigger&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;button/ota-update&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/button/pool-controller/ota-update/set&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;OTA status&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;sensor/ota-status&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/sensor/pool-controller/ota-status/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;Features&lt;span class="hx:absolute hx:-mt-20" id="features"&gt;&lt;/span&gt;
+&lt;a href="#features" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;All entities support:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Temperature sensors (pool, solar, controller)&lt;/li&gt;
+&lt;li&gt;Relay switches (pool pump, solar pump)&lt;/li&gt;
+&lt;li&gt;Operation modes (auto, manual, boost, timer)&lt;/li&gt;
+&lt;li&gt;Configuration via MQTT&lt;/li&gt;
+&lt;li&gt;State monitoring&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Home Assistant Dashboard Example&lt;span class="hx:absolute hx:-mt-20" id="home-assistant-dashboard-example"&gt;&lt;/span&gt;
+&lt;a href="#home-assistant-dashboard-example" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;A ready-to-use Lovelace dashboard example with:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;quick mode switching (&lt;code&gt;auto&lt;/code&gt;, &lt;code&gt;timer&lt;/code&gt;, &lt;code&gt;boost&lt;/code&gt;, &lt;code&gt;manu&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;highlighted pool and solar/storage temperatures&lt;/li&gt;
+&lt;li&gt;a dedicated configuration view&lt;/li&gt;
+&lt;li&gt;a combined history chart for switching times and temperatures&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;is available in:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a
+href="home-assistant-dashboard-pool.yaml"&gt;&lt;code&gt;docs/home-assistant-dashboard-pool.yaml&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Migration from Homie (Pre-v3.3.0)&lt;span class="hx:absolute hx:-mt-20" id="migration-from-homie-pre-v330"&gt;&lt;/span&gt;
+&lt;a href="#migration-from-homie-pre-v330" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;If you&amp;rsquo;re upgrading from an older firmware that used the Homie protocol:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The &lt;strong&gt;Homie protocol has been removed&lt;/strong&gt; in v3.3.0 — the controller now uses
+&lt;strong&gt;Home Assistant MQTT Discovery exclusively&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;After flashing the new firmware, &lt;strong&gt;delete stale retained Homie messages&lt;/strong&gt;
+from your MQTT broker to avoid confusion:
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mosquitto_pub -h broker -t homie -n -r
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mosquitto_sub -t &lt;span class="s1"&gt;&amp;#39;homie/#&amp;#39;&lt;/span&gt; -v &lt;span class="p"&gt;|&lt;/span&gt; cut -d&lt;span class="s1"&gt;&amp;#39; &amp;#39;&lt;/span&gt; -f1 &lt;span class="p"&gt;|&lt;/span&gt; xargs -I&lt;span class="o"&gt;{}&lt;/span&gt; mosquitto_pub -h broker -t &lt;span class="o"&gt;{}&lt;/span&gt; -n -r&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;In Home Assistant, delete the old device entry (Settings → Devices &amp;amp; services →
+MQTT → Devices → pool-controller → Delete) — the new entities will appear
+automatically via MQTT Discovery&lt;/li&gt;
+&lt;li&gt;Reboot the device to trigger fresh discovery announcements&lt;/li&gt;
+&lt;/ol&gt;</description></item></channel></rss>
