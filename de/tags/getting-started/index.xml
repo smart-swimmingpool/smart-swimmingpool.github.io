@@ -1,11 +1,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Getting-Started</title><link>https://smart-swimmingpool.github.io/de/tags/getting-started/</link><description>Recent content in Getting-Started on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><atom:link href="https://smart-swimmingpool.github.io/de/tags/getting-started/index.xml" rel="self" type="application/rss+xml"/><item><title>Getting Started</title><link>https://smart-swimmingpool.github.io/de/docs/getting-started/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/getting-started/</guid><description>
 &lt;p&gt;&lt;strong&gt;🏊 Smart Swimming Pool: Heimautomatisierung für eine intelligentere Steuerung Ihres Schwimmbads&lt;/strong&gt;&lt;/p&gt;
 &lt;h2&gt;Beispiel einer Anlage&lt;span class="hx:absolute hx:-mt-20" id="beispiel-einer-anlage"&gt;&lt;/span&gt;
-&lt;a href="#beispiel-einer-anlage" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;In meiner Anlage habe ich ein thermisches Solarsystem zur Warmwasserbereitung
-und zur Unterstützung der Raumheizung im Haus. Das erwärmte Wasser wird in
-einem Puffer gesammelt, der eine dritte Zirkulation für meinen Pool hat.&lt;/p&gt;
-&lt;p&gt;An diese dritte Zirkulation ist eine Pumpe angeschlossen, die über einen
-Wärmetauscher das Wasser des Pools erwärmt:&lt;/p&gt;
+&lt;a href="#beispiel-einer-anlage" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;In einer typischen Anlage erwärmt ein thermisches Solarsystem das Wasser und unterstützt die Raumheizung im Haus. Das erwärmte Wasser wird in einem Pufferspeicher gesammelt, der eine dritte Zirkulation für den Pool bereitstellt. Eine Pumpe an diesem Kreislauf leitet das Poolwasser durch einen Wärmetauscher:&lt;/p&gt;
 &lt;p&gt;&lt;img src="https://smart-swimmingpool.github.io/docs/getting-started/schema-environment-smart-pool.png" alt="Beispielaufbau" data-zoomable loading="lazy" /&gt;&lt;/p&gt;
 &lt;h2&gt;Grundvoraussetzungen&lt;span class="hx:absolute hx:-mt-20" id="grundvoraussetzungen"&gt;&lt;/span&gt;
 &lt;a href="#grundvoraussetzungen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
@@ -14,31 +10,25 @@ Wärmetauscher das Wasser des Pools erwärmt:&lt;/p&gt;
 &lt;li&gt;Solarer Wärmespeicher mit zusätzlichem Heizkreislauf für den Pool&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;Vorbereitungen&lt;span class="hx:absolute hx:-mt-20" id="vorbereitungen"&gt;&lt;/span&gt;
-&lt;a href="#vorbereitungen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Sofern ein Heizkreislauf über einen Wärmetauscher vorbereitet ist, kann mit der Umsetzung der smarten Steuerung des Pools begonnen werden.&lt;/p&gt;
+&lt;a href="#vorbereitungen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Sofern ein Heizkreislauf mit Wärmetauscher vorbereitet ist, kann mit der Umsetzung der smarten Steuerung des Pools begonnen werden.&lt;/p&gt;
 &lt;p&gt;Herz des Systems ist der &lt;a
-href="https://github.com/smart-swimmingpool/pool-controller"target="_blank" rel="noopener"&gt;Pool Controller&lt;/a&gt;. Dieser übernimmt die zentrale Steuerung von:&lt;/p&gt;
+href="https://github.com/smart-swimmingpool/pool-controller"target="_blank" rel="noopener"&gt;Pool Controller&lt;/a&gt;. Dieser übernimmt:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Zirkulationszeitraum für die Reinigung mittels Sandfilteranlage&lt;/li&gt;
-&lt;li&gt;Zuschalten des Heizkreislaufs für Erwärmung des Poolwassers&lt;/li&gt;
-&lt;li&gt;Melden der Zustände und aktuellen Temperaturen für die Integration in Smart Home Server Lösungen&lt;/li&gt;
+&lt;li&gt;Steuerung der Zirkulationszeit für die Sandfilterreinigung&lt;/li&gt;
+&lt;li&gt;Zuschalten des Heizkreislaufs zur Erwärmung des Poolwassers&lt;/li&gt;
+&lt;li&gt;Melden von Status und Temperaturen für die Integration in Smart-Home-Server&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Der &lt;a
-href="https://github.com/smart-swimmingpool/pool-controller"target="_blank" rel="noopener"&gt;Pool Controller&lt;/a&gt; unterstützt zur Kommunikation mit anderen Smart Home Systemen das auf MQTT basierende Protokoll &lt;a
-href="https://homieiot.github.io/"target="_blank" rel="noopener"&gt;Homie&lt;/a&gt; und bietet somit eine einfache Integration beispielsweise in &lt;a
-href="https://github.com/smart-swimmingpool/openhab-config"target="_blank" rel="noopener"&gt;openHAB&lt;/a&gt;. Mittels der vorgestellten Konfiguration für den openHAB-Server kann so schnell und einfach die Steuerung und Konfiguration des Pool Controllers vorgenommen werden.&lt;/p&gt;
+href="https://github.com/smart-swimmingpool/pool-controller"target="_blank" rel="noopener"&gt;Pool Controller&lt;/a&gt; nutzt das MQTT-basierte &lt;a
+href="https://homieiot.github.io/"target="_blank" rel="noopener"&gt;Homie&lt;/a&gt;-Protokoll zur Kommunikation mit anderen Smart-Home-Systemen und bietet so eine einfache Integration in &lt;a
+href="https://github.com/smart-swimmingpool/openhab-config"target="_blank" rel="noopener"&gt;openHAB&lt;/a&gt;. Mit der hier vorgestellten Konfiguration kann der Pool-Controller schnell eingerichtet und von jeder openHAB-kompatiblen App gesteuert werden.&lt;/p&gt;
 &lt;h2&gt;Historie&lt;span class="hx:absolute hx:-mt-20" id="historie"&gt;&lt;/span&gt;
-&lt;a href="#historie" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;🏊 Smart Swimming Pools basiert auf dem
-&lt;a
-href="https://github.com/stritti/smart-swimming-pool"target="_blank" rel="noopener"&gt;ersten Projekt&lt;/a&gt; das noch
-nicht modular aufgebaut war und die Steuerlogik innerhalb von openHAB-Regeln
-implementiert hatte.&lt;/p&gt;
-&lt;p&gt;Diese Version war im &lt;strong&gt;Sommer 2018&lt;/strong&gt; im Einsatz und zeigte ein paar Schwächen:&lt;/p&gt;
+&lt;a href="#historie" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;🏊 Smart Swimming Pool basiert auf einem &lt;a
+href="https://github.com/stritti/smart-swimming-pool"target="_blank" rel="noopener"&gt;früheren Projekt&lt;/a&gt;, das noch nicht modular aufgebaut war und die gesamte Steuerlogik als openHAB-Regeln implementierte.&lt;/p&gt;
+&lt;p&gt;Die erste Version war im &lt;strong&gt;Sommer 2018&lt;/strong&gt; im Einsatz und zeigte einige Schwächen:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Die Steuerung der Pumpen über 433MHz-Steckdosenschalter war nicht zuverlässig, da es keine
-Schaltbestätigung gab und der Status so unbekannt war.&lt;/li&gt;
-&lt;li&gt;Die Schaltlogik war als Regeln auf dem openHAB-Server implementiert. Das führte zu Problemen,
-wenn das WLAN nicht zuverlässig funktioniert.&lt;/li&gt;
-&lt;li&gt;Die MQTT-Nachrichten hatten ein proprietäres Nachrichtenformat.&lt;/li&gt;
+&lt;li&gt;Die Steuerung der Pumpen über 433-MHz-Steckdosenschalter war unzuverlässig — ohne Rückmeldung war der tatsächliche Status unbekannt&lt;/li&gt;
+&lt;li&gt;Die Schaltlogik lebte in openHAB-Regeln, was bei unzuverlässigem WLAN zu Problemen führte&lt;/li&gt;
+&lt;li&gt;MQTT-Nachrichten verwendeten ein proprietäres Format&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Aus der Erfahrung des Sommers 2018 entstand dann diese überarbeitete Version
-des 🏊 Smart Swimming Pools: modular, widerstandsfähig, auf Standards setzend.&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;Aus diesen Erfahrungen entstand die überarbeitete Version des 🏊 Smart Swimming Pools: modular, widerstandsfähig und auf Standards basierend.&lt;/p&gt;</description></item></channel></rss>
