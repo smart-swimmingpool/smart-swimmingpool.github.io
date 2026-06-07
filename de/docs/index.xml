@@ -1,35 +1,778 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Documents | Smart Swimming Pool</title><link>https://smart-swimmingpool.github.io/de/docs/</link><atom:link href="https://smart-swimmingpool.github.io/de/docs/index.xml" rel="self" type="application/rss+xml"/><description>Documents</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>de-de</language><copyright>© 2026 - 🏊 Smart Swimming Pool</copyright><image><url>https://smart-swimmingpool.github.io/images/icon_huc1aac635c547f103b14921ae0ab7550f_20089_512x512_fill_lanczos_center_3.png</url><title>Documents</title><link>https://smart-swimmingpool.github.io/de/docs/</link></image><item><title>Publikationen</title><link>https://smart-swimmingpool.github.io/de/docs/publications/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/publications/</guid><description>&lt;ul>
-&lt;li>
-&lt;p>
-&lt;a href="https://www.az-delivery.de/blogs/azdelivery-blog-fur-arduino-und-raspberry-pi/projekt-smart-swimmingpool-einleitung" target="_blank" rel="noopener">AZ Delivery: Projekt Smart Swimmingpool&lt;/a>, &lt;em>Oktober 2018&lt;/em>&lt;/p>
-&lt;p>Vierteilige Blog-Reihe zur Version 1 des Smart Pool Controllers.&lt;/p>
-&lt;/li>
-&lt;/ul></description></item><item><title>Software Guide of Pool Monitor</title><link>https://smart-swimmingpool.github.io/de/docs/pool-monitor/software-guide/</link><pubDate>Sat, 11 Jun 2022 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-monitor/software-guide/</guid><description>&lt;h2 id="development-environment">Development Environment&lt;/h2>
-&lt;h2 id="required-libraries">Required Libraries&lt;/h2>
-&lt;ul>
-&lt;li>adafruit/Adafruit BusIO&lt;/li>
-&lt;li>adafruit/Adafruit GFX Library&lt;/li>
-&lt;li>zinggjm/GxEPD&lt;/li>
-&lt;li>juerd/ESP-WiFiSettings&lt;/li>
-&lt;li>olikraus/U8g2&lt;/li>
-&lt;li>olikraus/U8g2_for_Adafruit_GFX&lt;/li>
-&lt;li>knolleary/PubSubClient&lt;/li>
-&lt;li>arduino-libraries/NTPClient&lt;/li>
-&lt;li>madpilot/mDNSResolver&lt;/li>
-&lt;li>jchristensen/Timezone&lt;/li>
-&lt;/ul>
-&lt;p>Many thanks to maintainers of these libraries!&lt;/p>
-&lt;h2 id="defines">Defines&lt;/h2>
-&lt;h2 id="configuration">Configuration&lt;/h2></description></item><item><title>Users Guide of Pool Controller</title><link>https://smart-swimmingpool.github.io/de/docs/pool-monitor/users-guide/</link><pubDate>Sat, 11 Jun 2022 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-monitor/users-guide/</guid><description>&lt;h2 id="setup">Setup&lt;/h2>
-&lt;p>Connecting the device to power it createsinitial a hotspot called &amp;ldquo;pool-monitor&amp;rdquo;.
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Dokumente</title><link>https://smart-swimmingpool.github.io/de/docs/</link><description>Recent content in Dokumente on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><atom:link href="https://smart-swimmingpool.github.io/de/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Publikationen</title><link>https://smart-swimmingpool.github.io/de/docs/publications/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/publications/</guid><description>
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a
+href="https://www.az-delivery.de/blogs/azdelivery-blog-fur-arduino-und-raspberry-pi/projekt-smart-swimmingpool-einleitung"target="_blank" rel="noopener"&gt;AZ Delivery: Projekt Smart Swimmingpool&lt;/a&gt;, &lt;em&gt;Oktober 2018&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Vierteilige Blog-Reihe zur Version 1 des Smart Pool Controllers.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/hardware-guide/</link><pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/hardware-guide/</guid><description>
+&lt;hr&gt;
+&lt;p&gt;title: Hardware-Anleitung
+date: &amp;lsquo;2026-06-07&amp;rsquo;
+draft: false
+tags:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;docs&lt;/li&gt;
+&lt;li&gt;hardware&lt;/li&gt;
+&lt;li&gt;anleitung&lt;/li&gt;
+&lt;li&gt;schaltplan&lt;/li&gt;
+&lt;li&gt;aufbau&lt;/li&gt;
+&lt;li&gt;loeten&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Übersicht&lt;span class="hx:absolute hx:-mt-20" id="übersicht"&gt;&lt;/span&gt;
+&lt;a href="#%c3%bcbersicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Diese Anleitung führt dich Schritt für Schritt durch den Hardware-Aufbau des
+Pool-Controllers — von der Teileauswahl bis zur fertigen Schaltung. Auch wenn
+du noch nie gelötet hast, helfen dir die detaillierten Erklärungen, alles
+richtig zusammenzubauen.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Zielgruppe&lt;/strong&gt;: Elektronik-Bastler mit grundlegenden Lötkenntnissen.
+Gesamtkosten: &lt;strong&gt;unter 100€&lt;/strong&gt; (ohne Pumpen und Pool-Infrastruktur).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Sicherheitshinweise ⚠️&lt;span class="hx:absolute hx:-mt-20" id="sicherheitshinweise-"&gt;&lt;/span&gt;
+&lt;a href="#sicherheitshinweise-" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Der Controller schaltet &lt;strong&gt;230V Netzspannung&lt;/strong&gt; für die Pumpen. Fehlerhafte
+Verdrahtung kann zu Stromschlag oder Brand führen.&lt;/li&gt;
+&lt;li&gt;Arbeite nur &lt;strong&gt;spannungsfrei&lt;/strong&gt; an der Schaltung.&lt;/li&gt;
+&lt;li&gt;Verwende einen &lt;strong&gt;FI-Schutzschalter (RCD)&lt;/strong&gt; für den Pumpenstromkreis.&lt;/li&gt;
+&lt;li&gt;Sensorleitungen (Niederspannung) und Netzleitungen &lt;strong&gt;räumlich getrennt&lt;/strong&gt; führen.&lt;/li&gt;
+&lt;li&gt;Im Zweifel die Netzinstallation von einem &lt;strong&gt;Elektrofachbetrieb&lt;/strong&gt; prüfen lassen.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Benötigte Teile (BOM)&lt;span class="hx:absolute hx:-mt-20" id="benötigte-teile-bom"&gt;&lt;/span&gt;
+&lt;a href="#ben%c3%b6tigte-teile-bom" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;#&lt;/th&gt;
+&lt;th&gt;Bauteil&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Menge&lt;/th&gt;
+&lt;th style="text-align: center"&gt;ca. Preis&lt;/th&gt;
+&lt;th&gt;Hinweise&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;ESP32-Entwicklungsboard (z.B. ESP32 DevKit V1, NodeMCU-32S)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;1&lt;/td&gt;
+&lt;td style="text-align: center"&gt;10–15€&lt;/td&gt;
+&lt;td&gt;Mindestens 4MB Flash&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;DS18B20-Temperatursensor (wasserfest, Edelstahl, 1m Kabel)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;2&lt;/td&gt;
+&lt;td style="text-align: center"&gt;8–12€&lt;/td&gt;
+&lt;td&gt;Einer für Poolwasser, einer für Solarkollektor&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;2-Kanal-5V-Relaismodul (mit Optokoppler)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;1&lt;/td&gt;
+&lt;td style="text-align: center"&gt;5–8€&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Muss&lt;/strong&gt; active-high sein (siehe Hinweise)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;Widerstand 4,7kΩ (¼W oder ⅛W, Metall- oder Kohleschicht)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;2&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&amp;lt; 1€&lt;/td&gt;
+&lt;td&gt;Pull-up für die OneWire-Datenleitungen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;Breadboard + Jumper-Kabel (zum Testen) &lt;strong&gt;ODER&lt;/strong&gt; Lochrasterplatine + Stiftleisten/Schraubklemmen (für Daueraufbau)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;1&lt;/td&gt;
+&lt;td style="text-align: center"&gt;3–8€&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;6&lt;/td&gt;
+&lt;td&gt;USB-Netzteil 5V/≥1A (z.B. Handy-Ladegerät)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;1&lt;/td&gt;
+&lt;td style="text-align: center"&gt;5–10€&lt;/td&gt;
+&lt;td&gt;Für den ESP32 allein&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;7&lt;/td&gt;
+&lt;td&gt;Schaltdraht, 0,14–0,5mm², verschiedene Farben&lt;/td&gt;
+&lt;td style="text-align: center"&gt;—&lt;/td&gt;
+&lt;td style="text-align: center"&gt;3–5€&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;8&lt;/td&gt;
+&lt;td&gt;Optional: Gehäuse (ABS/PVC-Projektbox, IP54 oder besser)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;1&lt;/td&gt;
+&lt;td style="text-align: center"&gt;5–10€&lt;/td&gt;
+&lt;td&gt;Schutz vor Spritzwasser/Staub&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;9&lt;/td&gt;
+&lt;td&gt;Optional: Schraubklemmen (2-polig, 5mm Raster)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;4–6&lt;/td&gt;
+&lt;td style="text-align: center"&gt;2–3€&lt;/td&gt;
+&lt;td&gt;Für steckbare Sensor-/Stromanschlüsse&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;10&lt;/td&gt;
+&lt;td&gt;Optional: DS3231 RTC-Modul&lt;/td&gt;
+&lt;td style="text-align: center"&gt;1&lt;/td&gt;
+&lt;td style="text-align: center"&gt;3–5€&lt;/td&gt;
+&lt;td&gt;Backup-Uhr (nicht nötig bei NTP-Betrieb)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Gesamt&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;~45–75€&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Ohne Gehäuse; deutlich unter 100€&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;Bezugsquellen&lt;span class="hx:absolute hx:-mt-20" id="bezugsquellen"&gt;&lt;/span&gt;
+&lt;a href="#bezugsquellen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Alle Teile gibt es bei Amazon, AliExpress, eBay oder bei Elektronik-Distributoren
+wie:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Reichelt&lt;/strong&gt; (reichelt.de) — zuverlässig, schneller Versand in DE/AT&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Pollin&lt;/strong&gt; (pollin.de) — günstige Komponenten&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Conrad&lt;/strong&gt; (conrad.de) — großes Sortiment, etwas teurer&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Amazon&lt;/strong&gt; — bequem, aber oft Aufpreis&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Suchbegriffe:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;ESP32&lt;/strong&gt;: &amp;ldquo;ESP32 DevKit V1&amp;rdquo; oder &amp;ldquo;ESP32 NodeMCU-32S&amp;rdquo;. Kein ESP32-S2/S3/C3
+kaufen — die Firmware läuft auf dem Standard-ESP32 (Xtensa Dual-Core).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DS18B20&lt;/strong&gt;: &lt;strong&gt;Edelstahl, wasserdicht&lt;/strong&gt; mit 1m Kabel. Günstige
+Kunststoff-Varianten gehen auch, sind aber weniger haltbar im Außeneinsatz.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Relaismodul&lt;/strong&gt;: &lt;strong&gt;Achtung: Logikpegel prüfen!&lt;/strong&gt; Die Firmware schaltet per
+&lt;strong&gt;active-high&lt;/strong&gt; (GPIO HIGH → Relais EIN). Viele günstige Module sind
+active-low (mit Jumper zum Umschalten). Vor dem Festlöten prüfen.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Pin-Belegung (Firmware-Standard)&lt;span class="hx:absolute hx:-mt-20" id="pin-belegung-firmware-standard"&gt;&lt;/span&gt;
+&lt;a href="#pin-belegung-firmware-standard" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die Firmware verwendet diese GPIO-Pins (definiert in &lt;code&gt;src/Config.hpp&lt;/code&gt;):&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Konstante&lt;/th&gt;
+&lt;th style="text-align: center"&gt;GPIO&lt;/th&gt;
+&lt;th&gt;Zweck&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;PIN_DS_SOLAR&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;GPIO15&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;DS18B20 Daten — Solarkollektor-Temperatur&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;PIN_DS_POOL&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;GPIO16&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;DS18B20 Daten — Pool-Wassertemperatur&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;PIN_RELAY_POOL&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;GPIO18&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Relais-Ansteuerung — Pool-Umwälzpumpe&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;PIN_RELAY_SOLAR&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;GPIO19&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Relais-Ansteuerung — Solar-Heizungspumpe&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Hinweis zu GPIO15&lt;/strong&gt;: Dies ist ein &lt;strong&gt;Strapping-Pin&lt;/strong&gt; am ESP32 — er
+beeinflusst den Boot-Vorgang, wenn er beim Start HIGH oder LOW anliegt. Die
+Firmware funktioniert zuverlässig mit dieser Belegung. Falls du Boot-Probleme
+hast, kannst du die DS18B20-Sensoren auf &lt;strong&gt;GPIO32/33&lt;/strong&gt; legen (siehe
+&lt;a
+href="#optional-verdrahtungsoptimierung"&gt;Verdrahtungsoptimierung&lt;/a&gt;).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2&gt;Schaltplan&lt;span class="hx:absolute hx:-mt-20" id="schaltplan"&gt;&lt;/span&gt;
+&lt;a href="#schaltplan" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt; &amp;#43;-------------------------&amp;#43;
+| ESP32 |
+| |
+DS18B20 SOLAR DATA ---&amp;gt;| GPIO15 (PIN_DS_SOLAR) |
+DS18B20 POOL DATA ---&amp;gt;| GPIO16 (PIN_DS_POOL) |
+Relais IN1 (Pool) ----&amp;gt;| GPIO18 (PIN_RELAY_POOL)|
+Relais IN2 (Solar) ---&amp;gt;| GPIO19 (PIN_RELAY_SOLAR)|
+| |
+3,3V ------------------&amp;gt;| 3V3 |
+GND -------------------&amp;gt;| GND |
+&amp;#43;-----------&amp;#43;-------------&amp;#43;
+|
+| gemeinsame Masse
+v
+&amp;#43;--------&amp;#43;--------&amp;#43;--------&amp;#43;--------&amp;#43;
+| | | | |
+&amp;#43;----&amp;#43;--&amp;#43; &amp;#43;--&amp;#43;----&amp;#43; | &amp;#43;----&amp;#43;--&amp;#43; &amp;#43;--&amp;#43;----&amp;#43;
+|Solar | | Pool | | | RLY1 | | RLY2 |
+|DS18B20| |DS18B20| | |(Pool) | |(Solar)|
+| | | | | | | | |
+| VDD --&amp;#43;--&amp;#43; VDD --&amp;#43;--&amp;#43;---&amp;gt; 3,3V | | |
+| GND --&amp;#43;--&amp;#43; GND --&amp;#43;-------&amp;gt; GND | | |
+|DATA ---&amp;gt;| GPIO15| | | | | |
+| | |DATA --&amp;gt;| | | VCC | | VCC |
+&amp;#43;-------&amp;#43; &amp;#43;-------&amp;#43; | | -- 5V | | -- 5V|
+| | GND | | GND |
+4,7kΩ | | | | |
+| | | IN1 | | IN2 |
+v | | &amp;lt;-18 | | &amp;lt;-19 |
+3,3V ----&amp;#43;-&amp;#43;--- 3,3V&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;h2&gt;Schritt-für-Schritt-Verdrahtung&lt;span class="hx:absolute hx:-mt-20" id="schritt-für-schritt-verdrahtung"&gt;&lt;/span&gt;
+&lt;a href="#schritt-f%c3%bcr-schritt-verdrahtung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;1. Temperatursensoren (DS18B20)&lt;span class="hx:absolute hx:-mt-20" id="1-temperatursensoren-ds18b20"&gt;&lt;/span&gt;
+&lt;a href="#1-temperatursensoren-ds18b20" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Der DS18B20 hat drei Adern (bei wasserdichten Fühlern: &lt;strong&gt;rot = VDD&lt;/strong&gt;,
+&lt;strong&gt;gelb/weiß = DATA&lt;/strong&gt;, &lt;strong&gt;schwarz = GND&lt;/strong&gt; — &lt;strong&gt;immer mit Datenblatt deines
+Sensors vergleichen!&lt;/strong&gt;):&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="text-align: center"&gt;DS18B20-Ader&lt;/th&gt;
+&lt;th&gt;Anschluss&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;Rot (VDD)&lt;/td&gt;
+&lt;td&gt;ESP32 &lt;strong&gt;3,3V&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;Schwarz (GND)&lt;/td&gt;
+&lt;td&gt;ESP32 &lt;strong&gt;GND&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;Gelb/Weiß (DATA)&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;GPIO15&lt;/strong&gt; (Solar) oder &lt;strong&gt;GPIO16&lt;/strong&gt; (Pool)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Wichtig — den Pull-Up-Widerstand nicht vergessen:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Löte einen &lt;strong&gt;4,7kΩ-Widerstand&lt;/strong&gt; zwischen die DATA-Leitung und &lt;strong&gt;3,3V&lt;/strong&gt;.
+Einen Widerstand pro Sensor, möglichst nahe am Sensor-Anschluss.&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt; ESP32 3,3V ──┬── 4,7kΩ ──── DS18B20 DATA
+│
+DS18B20 VDD&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Ohne diesen Widerstand wird der Sensor nicht erkannt — das ist die &lt;strong&gt;häufigste
+Fehlerquelle&lt;/strong&gt; bei &amp;ldquo;Sensor nicht gefunden&amp;rdquo;-Meldungen.&lt;/p&gt;
+&lt;h3&gt;2. Relaismodul&lt;span class="hx:absolute hx:-mt-20" id="2-relaismodul"&gt;&lt;/span&gt;
+&lt;a href="#2-relaismodul" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="text-align: center"&gt;Relaismodul&lt;/th&gt;
+&lt;th&gt;Anschluss&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;VCC (oder VDD)&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;5V&lt;/strong&gt; (vom ESP32-VIN-Pin oder externem 5V-Netzteil)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;GND&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;GND&lt;/strong&gt; (gemeinsam mit ESP32)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;IN1&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;GPIO18&lt;/strong&gt; (Pool-Pumpe)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;IN2&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;GPIO19&lt;/strong&gt; (Solar-Pumpe)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Relais-Logik&lt;/strong&gt;: Die Firmware setzt den GPIO-Pin auf HIGH (3,3V) um das
+Relais zu aktivieren. Wenn dein Modul bei LOW schaltet (active-low), den
+Jumper umstecken oder die Firmware anpassen (siehe &lt;code&gt;src/RelayModuleNode.cpp&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lastseite (230V-Seite):&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt; L ──┤ FI ├──┤ LS ├──┬──┤ Relais-KOM1 ├── Pool-Pumpe ── N
+└──┤ Relais-KOM2 ├── Solar-Pumpe ── N&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;Den Außenleiter (L) der Pumpe an den &lt;strong&gt;COM&lt;/strong&gt;-Kontakt (Mitte) des Relais.&lt;/li&gt;
+&lt;li&gt;Den &lt;strong&gt;NO&lt;/strong&gt;-Kontakt (Schließer, &amp;ldquo;normally open&amp;rdquo;) mit der Pumpe verbinden.&lt;/li&gt;
+&lt;li&gt;Den anderen Pumpenanschluss an &lt;strong&gt;Neutralleiter (N)&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Den 230V-Stromkreis &lt;strong&gt;immer&lt;/strong&gt; über einen FI-Schutzschalter und einen
+passend abgesicherten Leitungsschutzschalter führen.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;3. Stromversorgung&lt;span class="hx:absolute hx:-mt-20" id="3-stromversorgung"&gt;&lt;/span&gt;
+&lt;a href="#3-stromversorgung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Komponente&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Spannung&lt;/th&gt;
+&lt;th&gt;Quelle&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ESP32-Board&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;5V USB&lt;/strong&gt; (stabilisiert)&lt;/td&gt;
+&lt;td&gt;Handy-Ladegerät, USB-Port oder 5V-Netzteil&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relaismodul (Spulen)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;5V&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Vom ESP32-VIN-Pin oder externem 5V-Netzteil&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DS18B20-Sensoren&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;3,3V&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Vom ESP32-3,3V-Ausgang&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;(Optional) RTC DS3231&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;3,3V&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Vom ESP32-3,3V-Ausgang&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Wichtig&lt;/strong&gt;: Der eingebaute 3,3V-Spannungsregler des ESP32 liefert ca. 600mA.
+Die DS18B20-Sensoren brauchen zusammen &amp;lt; 5mA — völlig unkritisch. Wenn du
+viele zusätzliche 3,3V-Komponenten anschließt, einen externen 3,3V-Regler
+verwenden.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2&gt;Aufbau-Schritte&lt;span class="hx:absolute hx:-mt-20" id="aufbau-schritte"&gt;&lt;/span&gt;
+&lt;a href="#aufbau-schritte" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Testaufbau auf dem Breadboard&lt;span class="hx:absolute hx:-mt-20" id="testaufbau-auf-dem-breadboard"&gt;&lt;/span&gt;
+&lt;a href="#testaufbau-auf-dem-breadboard" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;ESP32 aufstecken&lt;/strong&gt; — mittig auf dem Breadboard, über die Mittellücke&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Stromschienen verbinden&lt;/strong&gt; — 3,3V und GND auf beiden Seiten&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Pull-Up-Widerstände einstecken&lt;/strong&gt; — zwischen DATA-Reihe und 3,3V-Schiene&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DS18B20-Sensoren anschließen&lt;/strong&gt; — Jumper-Kabel für VDD (3,3V), GND und DATA&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Relaismodul anschließen&lt;/strong&gt; — Jumper für VCC (5V), GND, IN1, IN2&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Stromversorgung per USB&lt;/strong&gt; — Der VIN/USB-Pin des ESP32 liefert 5V fürs
+Relaismodul&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Alle Verbindungen prüfen&lt;/strong&gt; bevor du Spannung anlegst&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Test&lt;/strong&gt;: Siehe &lt;a
+href="#inbetriebnahme-und-test"&gt;Inbetriebnahme&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure&gt;&lt;img src="../pool-controller_breadboard.png"&gt;&lt;figcaption&gt;
+&lt;h4&gt;Pool-Controller Breadboard-Aufbau mit ESP32, zwei DS18B20-Temperatursensoren, 4,7kΩ-Pull-Up-Widerständen und 2-Kanal-Relaismodul&lt;/h4&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;💡 &lt;strong&gt;Tipp&lt;/strong&gt;: Unterschiedliche Jumper-Farben verwenden — z.B. rot für
+Spannung (3,3V/5V), schwarz für Masse (GND), gelb für Sensordaten, blau für
+Relais-Steuerung.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Dauerhafter Aufbau auf Lochrasterplatine&lt;span class="hx:absolute hx:-mt-20" id="dauerhafter-aufbau-auf-lochrasterplatine"&gt;&lt;/span&gt;
+&lt;a href="#dauerhafter-aufbau-auf-lochrasterplatine" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Wenn der Testaufbau auf dem Breadboard funktioniert, baust du die endgültige
+Version:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Layout planen&lt;/strong&gt;: Komponenten vor dem Löten auf der Platine anordnen.
+230V-Relais-Anschlüsse an einer Kante, Sensoranschlüsse an der gegenüber-
+liegenden Seite.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;In dieser Reihenfolge löten&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;Stiftleisten / Schraubklemmen für den ESP32 (fasse ihn in eine Sockelleiste,
+löte nicht direkt auf die Platine)&lt;/li&gt;
+&lt;li&gt;Widerstände (4,7kΩ)&lt;/li&gt;
+&lt;li&gt;Stiftleisten fürs Relaismodul (auch hier sockeln)&lt;/li&gt;
+&lt;li&gt;Schraubklemmen für Sensoranschlüsse&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Verbindungen führen&lt;/strong&gt;: Massivdraht für die Verbindungen. Datenleitungen
+kurz halten.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Auf Lötzinnbrücken prüfen&lt;/strong&gt;: Jede Lötstelle mit der Lupe oder Multimeter
+(Durchgangsprüfung) kontrollieren.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Ins Gehäuse einbauen&lt;/strong&gt;: Abstandsbolzen oder doppelseitiges Klebeband
+verwenden. Löcher für Sensor- und Relaiskabel bohren. &lt;strong&gt;Kabelverschraubungen&lt;/strong&gt;
+(PG7/PG9) für wasserdichte Kabeldurchführung nutzen.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2&gt;Fertigungstipps&lt;span class="hx:absolute hx:-mt-20" id="fertigungstipps"&gt;&lt;/span&gt;
+&lt;a href="#fertigungstipps" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Löten&lt;span class="hx:absolute hx:-mt-20" id="löten"&gt;&lt;/span&gt;
+&lt;a href="#l%c3%b6ten" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Blei-Lot verwenden&lt;/strong&gt; (Sn60Pb40 oder Sn63Pb37) — es fließt besser als
+bleifreies Lot, besonders für Anfänger. (In DE/AT für Hobbyzwecke weiterhin
+erlaubt und empfohlen.)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Flussmittel&lt;/strong&gt;: Flussmittelkern-Lot nehmen; bei widerspenstigen Lötstellen
+zusätzlich Flüssig-Flussmittel.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Temperatur&lt;/strong&gt;: Lötkolben auf 320–350°C (Bleilot) oder 370–400°C (bleifrei)
+einstellen.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Spitze sauber halten&lt;/strong&gt;: Vor &lt;strong&gt;jeder&lt;/strong&gt; Lötstelle an feuchtem Schwamm oder
+Messingwolle reinigen.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Gute Lötstelle&lt;/strong&gt;: Glänzend, konkave Verrundung, die um den Draht herum
+fließt. Eine matte, rissige oder kugelförmige Stelle ist &lt;strong&gt;schlecht&lt;/strong&gt; —
+nachwärmen und frisches Lot zugeben.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Gehäuse&lt;span class="hx:absolute hx:-mt-20" id="gehäuse"&gt;&lt;/span&gt;
+&lt;a href="#geh%c3%a4use" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;ABS- oder PVC-Projektbox&lt;/strong&gt; mit mindestens IP54-Schutzart für den
+Außeneinsatz (Spritzwasserschutz).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Lüftungsschlitze&lt;/strong&gt; bohren, wenn das Relaismodul warm wird — aber nach
+unten gerichtet, damit kein Wasser eindringt.&lt;/li&gt;
+&lt;li&gt;ESP32 auf &lt;strong&gt;M2,5- oder M3-Nylon-Abstandsbolzen&lt;/strong&gt; montieren, um
+Kurzschlüsse zu vermeiden.&lt;/li&gt;
+&lt;li&gt;Außenanschlüsse beschriften (Pool-Sensor, Solar-Sensor, Pumpe 1, Pumpe 2,
+USB-Strom).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Kabelverschraubungen&lt;/strong&gt; (PG7 für dünne Sensorkabel, PG9 für dickere
+Stromkabel) an den Kabeleinführungen verwenden.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Kabelmanagement&lt;span class="hx:absolute hx:-mt-20" id="kabelmanagement"&gt;&lt;/span&gt;
+&lt;a href="#kabelmanagement" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Beide Enden jedes Kabels beschriften&lt;/strong&gt; — mit Schrumpfschlauch-Etiketten
+oder kleinen Klebeetiketten. Zukünftiges Du wird es dir danken.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sensor- und Relaiskabel getrennt führen&lt;/strong&gt; im Gehäuse, um
+Einstreuungen zu minimieren.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Zugentlastung&lt;/strong&gt;: Kabel an Montagepunkten oder mit Kabelbindern fixieren,
+damit Zug an den Außenkabeln nicht die Lötstellen belastet.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Service-Schlaufe&lt;/strong&gt;: Genug Drahtreserve im Gehäuse lassen, damit du es
+öffnen und arbeiten kannst ohne alles zu trennen.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Sensoren im Außenbereich&lt;span class="hx:absolute hx:-mt-20" id="sensoren-im-außenbereich"&gt;&lt;/span&gt;
+&lt;a href="#sensoren-im-au%c3%9fenbereich" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;DS18B20-Fühler&lt;/strong&gt; sind wasserdicht, aber der Kabeleingang am Sensor ist
+nicht immer dicht. &lt;strong&gt;Schrumpfschlauch&lt;/strong&gt; über die Kabelverbindung ziehen
+oder &lt;strong&gt;selbstverschmelzendes Silikonband&lt;/strong&gt; für Außeninstallationen.&lt;/li&gt;
+&lt;li&gt;Sensorkabel in &lt;strong&gt;Leerrohr&lt;/strong&gt; (PVC oder flexibel) verlegen, wo sie
+mechanisch belastet werden (Rasen, Einfahrt).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Maximale Kabellänge&lt;/strong&gt;: DS18B20 funktioniert zuverlässig bis ca. 30m mit
+4,7kΩ-Pull-up und verdrilltem Kabel. Bei längeren Strecken den Pull-up auf
+2,2kΩ verringern oder einen OneWire-Treiber verwenden.&lt;/li&gt;
+&lt;li&gt;Pool-Sensor in den &lt;strong&gt;Pumpenkreislauf&lt;/strong&gt; einbauen (nach dem Filter, vor dem
+Rücklauf) für eine genaue Durchschnittstemperatur.&lt;/li&gt;
+&lt;li&gt;Solar-Sensor an der &lt;strong&gt;heißesten Stelle des Solarkollektors&lt;/strong&gt; (meist das
+obere Austrittsrohr) anlegen.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Stromversorgungs-Optionen&lt;span class="hx:absolute hx:-mt-20" id="stromversorgungs-optionen"&gt;&lt;/span&gt;
+&lt;a href="#stromversorgungs-optionen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Option&lt;/th&gt;
+&lt;th&gt;Vorteile&lt;/th&gt;
+&lt;th&gt;Nachteile&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;USB-Handy-Ladegerät&lt;/strong&gt; (5V/1A+)&lt;/td&gt;
+&lt;td&gt;Günstig, überall verfügbar, sicher&lt;/td&gt;
+&lt;td&gt;Begrenzter Strom für Zusatzgeräte&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Hutschienen-Netzteil&lt;/strong&gt; (Mean Well HDR-15-5 o.ä.)&lt;/td&gt;
+&lt;td&gt;Professionell, zuverlässig, passt in Verteiler&lt;/td&gt;
+&lt;td&gt;Etwas teurer (~15€)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;ESP32-VIN via USB&lt;/strong&gt; + Relais von derselben 5V&lt;/td&gt;
+&lt;td&gt;Einfache Verdrahtung&lt;/td&gt;
+&lt;td&gt;Gesamtstrom muss unter Grenze des ESP32-Boards bleiben&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Empfehlung&lt;/strong&gt;: Wenn du einen festen Installationsort in der Nähe deiner
+Pumpensteuerung hast, nimm ein &lt;strong&gt;Hutschienen-5V-Netzteil&lt;/strong&gt; (z.B. Mean Well
+HDR-15-5). Das ist sauber, zuverlässig und versorgt ESP32 und Relaismodul
+problemlos.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Inbetriebnahme und Test&lt;span class="hx:absolute hx:-mt-20" id="inbetriebnahme-und-test"&gt;&lt;/span&gt;
+&lt;a href="#inbetriebnahme-und-test" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;1. Sichtprüfung&lt;span class="hx:absolute hx:-mt-20" id="1-sichtprüfung"&gt;&lt;/span&gt;
+&lt;a href="#1-sichtpr%c3%bcfung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Vor dem Anlegen der Spannung:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Auf &lt;strong&gt;Lötbrücken&lt;/strong&gt; zwischen benachbarten Pins prüfen&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Polung&lt;/strong&gt; aller Komponenten kontrollieren (DS18B20 VDD/GND, Relais VCC/GND)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Keine losen Drahtenden&lt;/strong&gt;, die benachbarte Pins kurzschließen&lt;/li&gt;
+&lt;li&gt;Widerstand zwischen &lt;strong&gt;3,3V und GND&lt;/strong&gt; messen — sollte &amp;gt; 10kΩ sein (kein Kurzschluss)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;2. Einschalten&lt;span class="hx:absolute hx:-mt-20" id="2-einschalten"&gt;&lt;/span&gt;
+&lt;a href="#2-einschalten" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;USB-Strom (oder 5V-Netzteil) anschließen&lt;/li&gt;
+&lt;li&gt;Die &lt;strong&gt;eingebaute LED&lt;/strong&gt; des ESP32 blinkt schnell → Boot-Vorgang&lt;/li&gt;
+&lt;li&gt;Nach ca. 3 Sekunden blinkt die LED &lt;strong&gt;langsam&lt;/strong&gt; → wartet auf WiFi&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;3. Sensoren prüfen&lt;span class="hx:absolute hx:-mt-20" id="3-sensoren-prüfen"&gt;&lt;/span&gt;
+&lt;a href="#3-sensoren-pr%c3%bcfen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Serielles Monitor öffnen (9600 Baud):&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;Pool Controller v3.3.0
+Starting up...
+Initialized pins: GPIO15, GPIO16, GPIO18, GPIO19
+Solar Temp: GPIO15
+Pool Temp: GPIO16
+Pool Relay: GPIO18
+Solar Relay: GPIO19&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Wenn die Sensoren angeschlossen sind und funktionieren:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;Solar temperature: 25.3°C
+Pool temperature: 22.1°C&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Bei &lt;code&gt;Sensor error&lt;/code&gt; oder &lt;code&gt;-127°C&lt;/code&gt;, prüfe:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; 4,7kΩ-Pull-up-Widerstand auf jeder DATA-Leitung vorhanden?&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; DS18B20 VDD an 3,3V (nicht 5V)?&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; DS18B20 GND an gemeinsamer Masse?&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; DATA-Pin stimmt mit Firmware-Konfiguration überein?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;4. Relais testen&lt;span class="hx:absolute hx:-mt-20" id="4-relais-testen"&gt;&lt;/span&gt;
+&lt;a href="#4-relais-testen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Über das Web-UI (Reiter Konfiguration) oder per seriellem Befehl:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;Mode: manual
+Pool pump: ON → Relais klickt hörbar, Pumpe läuft an
+Solar pump: ON → Relais klickt hörbar, Pumpe läuft an&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Wenn das Relais nicht klickt:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Ist das Relaismodul mit Strom versorgt (5V zwischen VCC und GND)?&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Stimmt der Logikpegel (active-high vs. active-low)?&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Leuchtet die LED auf dem Relaismodul, wenn GPIO auf HIGH geht?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Fehlersuche&lt;span class="hx:absolute hx:-mt-20" id="fehlersuche"&gt;&lt;/span&gt;
+&lt;a href="#fehlersuche" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Symptom&lt;/th&gt;
+&lt;th&gt;Wahrscheinliche Ursache&lt;/th&gt;
+&lt;th&gt;Lösung&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ldquo;Sensor error&amp;rdquo; oder &lt;code&gt;-127°C&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Pull-up-Widerstand fehlt&lt;/td&gt;
+&lt;td&gt;4,7kΩ zwischen DATA und 3,3V einlöten&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ldquo;Sensor error&amp;rdquo;&lt;/td&gt;
+&lt;td&gt;Falscher GPIO-Pin&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;PIN_DS_SOLAR&lt;/code&gt;/&lt;code&gt;PIN_DS_POOL&lt;/code&gt; in &lt;code&gt;src/Config.hpp&lt;/code&gt; prüfen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Unbeständige Messwerte&lt;/td&gt;
+&lt;td&gt;Wackelkontakt oder Einstreuungen&lt;/td&gt;
+&lt;td&gt;Lötstellen prüfen, Daten- und Relaisleitungen trennen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relais schaltet nicht&lt;/td&gt;
+&lt;td&gt;Falscher Logikpegel&lt;/td&gt;
+&lt;td&gt;Active-high vs. active-low prüfen; Jumper umstecken&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relais klickt, Pumpe läuft nicht&lt;/td&gt;
+&lt;td&gt;230V-Verdrahtungsfehler&lt;/td&gt;
+&lt;td&gt;COM/NO-Kontakte prüfen, Pumpenanschluss kontrollieren&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ESP32 startet nicht (Brownout)&lt;/td&gt;
+&lt;td&gt;Zu schwache Stromversorgung&lt;/td&gt;
+&lt;td&gt;5V/≥1A-Netzteil verwenden; 100µF-Kondensator nahe VIN&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ESP32 resetet beim Relais-Schalten&lt;/td&gt;
+&lt;td&gt;Spannungsspitze an der Relais-Spule&lt;/td&gt;
+&lt;td&gt;Freilaufdiode parallel zur Spule, oder Modul mit eingebautem Schutz&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Messwerte springen beim Schalten&lt;/td&gt;
+&lt;td&gt;Elektrisches Rauschen&lt;/td&gt;
+&lt;td&gt;Sensorleitungen getrennt von Relais-/Stromkabeln führen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2&gt;Optional: Verdrahtungsoptimierung&lt;span class="hx:absolute hx:-mt-20" id="optional-verdrahtungsoptimierung"&gt;&lt;/span&gt;
+&lt;a href="#optional-verdrahtungsoptimierung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die Standard-Pins (GPIO15/16/18/19) funktionieren bei den meisten Anwendern
+zuverlässig. Falls du Boot-Probleme hast oder die robusteste Konfiguration
+möchtest, verwende diese &lt;strong&gt;optimierten Pins&lt;/strong&gt;:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Funktion&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Standard-Pin&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Optimierter Pin&lt;/th&gt;
+&lt;th&gt;Grund&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;DS18B20 Solar&lt;/td&gt;
+&lt;td style="text-align: center"&gt;GPIO15&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;GPIO32&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;GPIO15 ist ein Strapping-Pin — OneWire da wegnehmen eliminiert jedes Boot-Risiko&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DS18B20 Pool&lt;/td&gt;
+&lt;td style="text-align: center"&gt;GPIO16&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;GPIO33&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Saubere Trennung vom verbleibenden Strapping-Pin GPIO0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relais Pool&lt;/td&gt;
+&lt;td style="text-align: center"&gt;GPIO18&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;GPIO25&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;ADC2-Pins (GPIO18/19) werden vermieden; GPIO25 ist sauberer Digitalausgang&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relais Solar&lt;/td&gt;
+&lt;td style="text-align: center"&gt;GPIO19&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;GPIO26&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Gleicher Grund wie oben&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Für die optimierten Pins in &lt;code&gt;src/Config.hpp&lt;/code&gt; anpassen:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cpp" data-lang="cpp"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;constexpr&lt;/span&gt; &lt;span class="kt"&gt;uint8_t&lt;/span&gt; &lt;span class="n"&gt;PIN_DS_SOLAR&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="mi"&gt;32&lt;/span&gt;&lt;span class="p"&gt;};&lt;/span&gt; &lt;span class="c1"&gt;// war 15
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;constexpr&lt;/span&gt; &lt;span class="kt"&gt;uint8_t&lt;/span&gt; &lt;span class="n"&gt;PIN_DS_POOL&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="mi"&gt;33&lt;/span&gt;&lt;span class="p"&gt;};&lt;/span&gt; &lt;span class="c1"&gt;// war 16
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;constexpr&lt;/span&gt; &lt;span class="kt"&gt;uint8_t&lt;/span&gt; &lt;span class="n"&gt;PIN_RELAY_POOL&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="mi"&gt;25&lt;/span&gt;&lt;span class="p"&gt;};&lt;/span&gt; &lt;span class="c1"&gt;// war 18
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;constexpr&lt;/span&gt; &lt;span class="kt"&gt;uint8_t&lt;/span&gt; &lt;span class="n"&gt;PIN_RELAY_SOLAR&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="mi"&gt;26&lt;/span&gt;&lt;span class="p"&gt;};&lt;/span&gt; &lt;span class="c1"&gt;// war 19
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Diese optimierte Pinbelegung ist bereits im Dokument
+&lt;a
+href="esp32-schematic-optimization-de.md"&gt;ESP32 Schaltplananalyse und Optimierung&lt;/a&gt;
+ausführlich analysiert und begründet.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Referenzen&lt;span class="hx:absolute hx:-mt-20" id="referenzen"&gt;&lt;/span&gt;
+&lt;a href="#referenzen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Fritzing-Quelldatei: &lt;a
+href="https://github.com/smart-swimmingpool/pool-controller/raw/main/docs/pool-controller.fzz"target="_blank" rel="noopener"&gt;pool-controller.fzz&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="esp32-schematic-optimization-de.md"&gt;ESP32 Schaltplananalyse und Optimierung&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="esp32-complete-wiring-schematic-de.md"&gt;ESP32 Komplett-Schaltplan&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://www.analog.com/media/en/technical-documentation/data-sheets/DS18B20.pdf"target="_blank" rel="noopener"&gt;DS18B20 Datenblatt&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/peripherals/gpio.html"target="_blank" rel="noopener"&gt;ESP32 Pin-Referenz&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller/blob/main/src/Config.hpp"target="_blank" rel="noopener"&gt;Config.hpp Pin-Quelle&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/de/docs/pool-monitor/software-guide/</link><pubDate>Sat, 23 May 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-monitor/software-guide/</guid><description>
+&lt;hr&gt;
+&lt;p&gt;title: Software Guide of Pool Monitor
+date: &amp;lsquo;2022-06-11&amp;rsquo;
+draft: false
+tags:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;docs&lt;/li&gt;
+&lt;li&gt;monitor&lt;/li&gt;
+&lt;li&gt;tutorial&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Development Environment&lt;span class="hx:absolute hx:-mt-20" id="development-environment"&gt;&lt;/span&gt;
+&lt;a href="#development-environment" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Required Libraries&lt;span class="hx:absolute hx:-mt-20" id="required-libraries"&gt;&lt;/span&gt;
+&lt;a href="#required-libraries" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;adafruit/Adafruit BusIO&lt;/li&gt;
+&lt;li&gt;adafruit/Adafruit GFX Library&lt;/li&gt;
+&lt;li&gt;zinggjm/GxEPD&lt;/li&gt;
+&lt;li&gt;juerd/ESP-WiFiSettings&lt;/li&gt;
+&lt;li&gt;olikraus/U8g2&lt;/li&gt;
+&lt;li&gt;olikraus/U8g2_for_Adafruit_GFX&lt;/li&gt;
+&lt;li&gt;knolleary/PubSubClient&lt;/li&gt;
+&lt;li&gt;arduino-libraries/NTPClient&lt;/li&gt;
+&lt;li&gt;madpilot/mDNSResolver&lt;/li&gt;
+&lt;li&gt;jchristensen/Timezone&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Many thanks to maintainers of these libraries!&lt;/p&gt;
+&lt;h2&gt;Defines&lt;span class="hx:absolute hx:-mt-20" id="defines"&gt;&lt;/span&gt;
+&lt;a href="#defines" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Configuration&lt;span class="hx:absolute hx:-mt-20" id="configuration"&gt;&lt;/span&gt;
+&lt;a href="#configuration" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/de/docs/pool-monitor/users-guide/</link><pubDate>Sat, 23 May 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-monitor/users-guide/</guid><description>
+&lt;hr&gt;
+&lt;p&gt;title: Users Guide of Pool Controller
+date: &amp;lsquo;2022-06-11&amp;rsquo;
+draft: false
+tags:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;docs&lt;/li&gt;
+&lt;li&gt;monitor&lt;/li&gt;
+&lt;li&gt;tutorial&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Setup&lt;span class="hx:absolute hx:-mt-20" id="setup"&gt;&lt;/span&gt;
+&lt;a href="#setup" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Connecting the device to power it createsinitial a hotspot called &amp;ldquo;pool-monitor&amp;rdquo;.
 Please connect this hotsppot by smartphone. Thenthe device will show captivate website to add
-WiFi credentials and connection parameters of MQTT broker.&lt;/p>
-&lt;p>Following data is required to connect the device:&lt;/p>
-&lt;ul>
-&lt;li>SSID of the WiFi network&lt;/li>
-&lt;li>Password of WiFi network&lt;/li>
-&lt;li>MQTT broker hostname or IP address&lt;/li>
-&lt;li>MQTT broker port number (default: 1883)&lt;/li>
-&lt;/ul>
-&lt;p>After pressing &amp;ldquo;Save&amp;rdquo; the device will reboot automatically and tries to connect to the MQTT broker.&lt;/p>
-&lt;p>After some seconds the device will show data if connection was successful.&lt;/p></description></item></channel></rss>
+WiFi credentials and connection parameters of MQTT broker.&lt;/p&gt;
+&lt;p&gt;Following data is required to connect the device:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;SSID of the WiFi network&lt;/li&gt;
+&lt;li&gt;Password of WiFi network&lt;/li&gt;
+&lt;li&gt;MQTT broker hostname or IP address&lt;/li&gt;
+&lt;li&gt;MQTT broker port number (default: 1883)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;After pressing &amp;ldquo;Save&amp;rdquo; the device will reboot automatically and tries to connect to the MQTT broker.&lt;/p&gt;
+&lt;p&gt;After some seconds the device will show data if connection was successful.&lt;/p&gt;</description></item></channel></rss>

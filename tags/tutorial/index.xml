@@ -1,0 +1,44 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Tutorial</title><link>https://smart-swimmingpool.github.io/tags/tutorial/</link><description>Recent content in Tutorial on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><atom:link href="https://smart-swimmingpool.github.io/tags/tutorial/index.xml" rel="self" type="application/rss+xml"/><item><title>Getting Started</title><link>https://smart-swimmingpool.github.io/docs/getting-started/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/getting-started/</guid><description>
+&lt;p&gt;&lt;strong&gt;🏊 Smart Swimming Pool: Home automation for smarter Control of your Swimming Pool&lt;/strong&gt;&lt;/p&gt;
+&lt;h2&gt;Example Environment&lt;span class="hx:absolute hx:-mt-20" id="example-environment"&gt;&lt;/span&gt;
+&lt;a href="#example-environment" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;In my setting I have a thermal solar system for heating water and for
+support of heating environment within the house. the heated water is
+collected within a buffer which has a third circulation for my pool.
+Attached to this third circulation a pump is attached to heat via heat
+exchanger the water of the pool:&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://smart-swimmingpool.github.io/docs/getting-started/schema-environment-smart-pool.png" alt="Example Environment" data-zoomable loading="lazy" /&gt;&lt;/p&gt;
+&lt;h2&gt;Basic Requirements&lt;span class="hx:absolute hx:-mt-20" id="basic-requirements"&gt;&lt;/span&gt;
+&lt;a href="#basic-requirements" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Swimming pool with sand filter system&lt;/li&gt;
+&lt;li&gt;Heating circuit with heat exchanger that can be switched on via a pump&lt;/li&gt;
+&lt;li&gt;Solar heat storage tank with additional heating circuit for the pool&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Preparations&lt;span class="hx:absolute hx:-mt-20" id="preparations"&gt;&lt;/span&gt;
+&lt;a href="#preparations" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;If a heating circuit is prepared via a heat exchanger, the implementation of the smart control of the pool can be started.&lt;/p&gt;
+&lt;p&gt;The heart of the system is the &lt;a
+href="https://github.com/smart-swimmingpool/pool-controller"target="_blank" rel="noopener"&gt;Pool Controller&lt;/a&gt;. This is responsible for the central control of:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Circulation period for cleaning by means of a sand filter system&lt;/li&gt;
+&lt;li&gt;Switching on the heating circuit for warming up the pool water&lt;/li&gt;
+&lt;li&gt;Reporting of statuses and current temperatures for integration into Smart Home Server solutions&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The &lt;a
+href="https://github.com/smart-swimmingpool/pool-controller"target="_blank" rel="noopener"&gt;pool controller&lt;/a&gt; supports the MQTT based protocol &lt;a
+href="https://homieiot.github.io/"target="_blank" rel="noopener"&gt;Homie&lt;/a&gt; for communication with other smart home systems and thus offers easy integration into &lt;a
+href="https://github.com/smart-swimmingpool/openhab-config"target="_blank" rel="noopener"&gt;openHAB&lt;/a&gt;. Using the configuration for the openHAB-Server presented here, the pool controller can be quickly and easily controlled and configured.&lt;/p&gt;
+&lt;h2&gt;History&lt;span class="hx:absolute hx:-mt-20" id="history"&gt;&lt;/span&gt;
+&lt;a href="#history" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;🏊 Smart Swimming Pool is based on the
+&lt;a
+href="https://github.com/stritti/smart-swimming-pool"target="_blank" rel="noopener"&gt;first project&lt;/a&gt;
+which was not yet modular and had implemented the control logic
+within openHAB rules.&lt;/p&gt;
+&lt;p&gt;The first version was in use in &lt;strong&gt;Summer 2018&lt;/strong&gt; and showed some weaknesses:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Controlling the pumps via 433 MHz socket switches was not reliable,
+because there were no confirmation and the status was unknown.&lt;/li&gt;
+&lt;li&gt;The switching logic was implemented in rules on the openHAB server.
+This led to problems, if the WiFi does not work reliably.&lt;/li&gt;
+&lt;li&gt;The MQTT messages had a proprietary message format.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;From the experience of the summer of 2018 resulted this revised
+version of the 🏊 Smart Swimming Pool: modular, resiliant using standards.&lt;/p&gt;</description></item></channel></rss>
