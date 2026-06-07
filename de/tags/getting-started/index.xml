@@ -19,9 +19,8 @@ href="https://github.com/smart-swimmingpool/pool-controller"target="_blank" rel=
 &lt;li&gt;Melden von Status und Temperaturen für die Integration in Smart-Home-Server&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Der &lt;a
-href="https://github.com/smart-swimmingpool/pool-controller"target="_blank" rel="noopener"&gt;Pool Controller&lt;/a&gt; nutzt das MQTT-basierte &lt;a
-href="https://homieiot.github.io/"target="_blank" rel="noopener"&gt;Homie&lt;/a&gt;-Protokoll zur Kommunikation mit anderen Smart-Home-Systemen und bietet so eine einfache Integration in &lt;a
-href="https://github.com/smart-swimmingpool/openhab-config"target="_blank" rel="noopener"&gt;openHAB&lt;/a&gt;. Mit der hier vorgestellten Konfiguration kann der Pool-Controller schnell eingerichtet und von jeder openHAB-kompatiblen App gesteuert werden.&lt;/p&gt;
+href="https://github.com/smart-swimmingpool/pool-controller"target="_blank" rel="noopener"&gt;Pool Controller&lt;/a&gt; nutzt &lt;a
+href="https://www.home-assistant.io/integrations/mqtt/#mqtt-discovery"target="_blank" rel="noopener"&gt;Home Assistant MQTT Discovery&lt;/a&gt; für nahtlose Smarthome-Integration. Mit der hier vorgestellten Konfiguration kann der Pool-Controller schnell eingerichtet und von jeder Home Assistant-kompatiblen App gesteuert werden.&lt;/p&gt;
 &lt;h2&gt;Historie&lt;span class="hx:absolute hx:-mt-20" id="historie"&gt;&lt;/span&gt;
 &lt;a href="#historie" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;🏊 Smart Swimming Pool basiert auf einem &lt;a
 href="https://github.com/stritti/smart-swimming-pool"target="_blank" rel="noopener"&gt;früheren Projekt&lt;/a&gt;, das noch nicht modular aufgebaut war und die gesamte Steuerlogik als openHAB-Regeln implementierte.&lt;/p&gt;

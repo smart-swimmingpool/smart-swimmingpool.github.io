@@ -1,4 +1,352 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Pool Controller 3.3</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/</link><description>Recent content in Pool Controller 3.3 on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><lastBuildDate>Thu, 28 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/de/docs/pool-controller/index.xml" rel="self" type="application/rss+xml"/><item><title>Hardware-Anleitung</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/hardware-guide/</link><pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/hardware-guide/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Pool Controller 3.3</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/</link><description>Recent content in Pool Controller 3.3 on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><lastBuildDate>Thu, 28 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/de/docs/pool-controller/index.xml" rel="self" type="application/rss+xml"/><item><title>Temperaturabhängige Filterlaufzeit</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/temperature-based-circulation/</link><pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/temperature-based-circulation/</guid><description>
+&lt;h1&gt;Temperaturabhängige Filterlaufzeit&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;Optimierung der Pool-Umwälzung für bessere Wasserqualität bei minimalem Stromverbrauch.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2&gt;1. Motivation&lt;span class="hx:absolute hx:-mt-20" id="1-motivation"&gt;&lt;/span&gt;
+&lt;a href="#1-motivation" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die Poolpumpe ist der größte Stromverbraucher im Schwimmbad. Gleichzeitig bestimmt sie maßgeblich die Wasserqualität. Die aktuell nötige Umwälzmenge hängt stark von der Wassertemperatur ab:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Wassertemperatur&lt;/th&gt;
+&lt;th&gt;Risiko&lt;/th&gt;
+&lt;th&gt;Empfohlene Umwälzung&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&amp;gt; 26 °C&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Hohes Algenwachstum, Trübung&lt;/td&gt;
+&lt;td&gt;Maximal (8–12 h/Tag)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;20–26 °C&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Normalbetrieb&lt;/td&gt;
+&lt;td&gt;Standard (4–8 h/Tag)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&amp;lt; 20 °C&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Kaum Algenwachstum&lt;/td&gt;
+&lt;td&gt;Minimal (1–4 h/Tag)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Ein starrer Timer arbeitet entweder &lt;strong&gt;überdimensioniert&lt;/strong&gt; (Stromverschwendung bei kühlem Wasser) oder &lt;strong&gt;unterdimensioniert&lt;/strong&gt; (schlechte Wasserqualität bei Hitze).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ziel:&lt;/strong&gt; Die tägliche Filterlaufzeit automatisch an die gemessene Pooltemperatur anpassen.&lt;/p&gt;
+&lt;h2&gt;2. Konzept&lt;span class="hx:absolute hx:-mt-20" id="2-konzept"&gt;&lt;/span&gt;
+&lt;a href="#2-konzept" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die im Timer konfigurierte Laufzeit wird dynamisch verlängert, wenn die Wassertemperatur einen Schwellwert überschreitet. Die Verlängerung ist proportional zur Temperaturdifferenz.&lt;/p&gt;
+&lt;h3&gt;Berechnungsformel&lt;span class="hx:absolute hx:-mt-20" id="berechnungsformel"&gt;&lt;/span&gt;
+&lt;a href="#berechnungsformel" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;effektiveLaufzeit = basisLaufzeit &amp;#43; max(0, (poolTemp - tempCircThreshold) × tempCircFactor)
+effektiveLaufzeit = min(effektiveLaufzeit, tempCircMaxRuntime)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3&gt;Parameter&lt;span class="hx:absolute hx:-mt-20" id="parameter"&gt;&lt;/span&gt;
+&lt;a href="#parameter" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;Typ&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;th&gt;Bereich&lt;/th&gt;
+&lt;th&gt;Beschreibung&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;tempCircThreshold&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;double&lt;/td&gt;
+&lt;td&gt;24,0 °C&lt;/td&gt;
+&lt;td&gt;0–40 °C&lt;/td&gt;
+&lt;td&gt;Ab dieser Temperatur wird die Laufzeit verlängert&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;tempCircFactor&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;uint16_t&lt;/td&gt;
+&lt;td&gt;30 min/°C&lt;/td&gt;
+&lt;td&gt;0–120 min/°C&lt;/td&gt;
+&lt;td&gt;Verlängerung &lt;strong&gt;pro °C&lt;/strong&gt; über dem Schwellwert&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;tempCircMaxRuntime&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;uint16_t&lt;/td&gt;
+&lt;td&gt;720 min&lt;/td&gt;
+&lt;td&gt;60–1440 min&lt;/td&gt;
+&lt;td&gt;Absolute Obergrenze der Gesamtlaufzeit&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;Berechnete Felder (nicht konfigurierbar)&lt;span class="hx:absolute hx:-mt-20" id="berechnete-felder-nicht-konfigurierbar"&gt;&lt;/span&gt;
+&lt;a href="#berechnete-felder-nicht-konfigurierbar" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Feld&lt;/th&gt;
+&lt;th&gt;Beschreibung&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;effectiveRuntime&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Berechnete Laufzeit in Minuten (für Status/Logging)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;effectiveEndTime&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Resultierende Ausschaltzeit (Uhrzeit)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;3. Beispiele&lt;span class="hx:absolute hx:-mt-20" id="3-beispiele"&gt;&lt;/span&gt;
+&lt;a href="#3-beispiele" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Sommer (Pool 30 °C)&lt;span class="hx:absolute hx:-mt-20" id="sommer-pool-30-c"&gt;&lt;/span&gt;
+&lt;a href="#sommer-pool-30-c" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;Timer: 10:00 – 18:00 (Basis = 480 min)
+Schwellwert: 24 °C
+Differenz: 6 °C
+Verlängerung: 6 × 30 = 180 min
+Effektiv: 480 &amp;#43; 180 = 660 min
+Ausschaltzeit: 10:00 &amp;#43; 660 min = 21:00 Uhr&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;→ Die Pumpe läuft 3 Stunden länger. Bei Hitze wird mehr umgewälzt, Algen haben keine Chance.&lt;/p&gt;
+&lt;h3&gt;Übergang (Pool 22 °C)&lt;span class="hx:absolute hx:-mt-20" id="übergang-pool-22-c"&gt;&lt;/span&gt;
+&lt;a href="#%c3%bcbergang-pool-22-c" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;Timer: 10:00 – 18:00
+Schwellwert: 24 °C
+Differenz: 22 &amp;lt; 24 → Keine Verlängerung
+Effektiv: = Basis = 480 min
+Ausschaltzeit: 18:00 Uhr&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;→ Normale Laufzeit, kein Nachteil.&lt;/p&gt;
+&lt;h3&gt;Kühler Sommer (Pool 20 °C)&lt;span class="hx:absolute hx:-mt-20" id="kühler-sommer-pool-20-c"&gt;&lt;/span&gt;
+&lt;a href="#k%c3%bchler-sommer-pool-20-c" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;Timer: 10:00 – 18:00
+Schwellwert: 24 °C
+Differenz: 20 &amp;lt; 24 → Keine Verlängerung
+Effektiv: = Basis = 480 min&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;→ Auch hier normale Laufzeit. Eine optionale &lt;strong&gt;Kürzung&lt;/strong&gt; bei Kälte ist für Version 1 nicht vorgesehen, könnte aber später ergänzt werden.&lt;/p&gt;
+&lt;h3&gt;Heiß (Pool 34 °C, Max-Runtime greift)&lt;span class="hx:absolute hx:-mt-20" id="heiß-pool-34-c-max-runtime-greift"&gt;&lt;/span&gt;
+&lt;a href="#hei%c3%9f-pool-34-c-max-runtime-greift" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;Timer: 10:00 – 18:00
+Differenz: 10 °C
+Verlängerung: 10 × 30 = 300 min
+Zwischensumme: 480 &amp;#43; 300 = 780 min
+Max-Runtime: 720 min (12 h)
+Effektiv: min(780, 720) = 720 min
+Ausschaltzeit: 10:00 &amp;#43; 720 min = 22:00 Uhr&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;→ Die Obergrenze verhindert übermäßigen Pumpenverschleiß.&lt;/p&gt;
+&lt;h2&gt;4. Integration ins System&lt;span class="hx:absolute hx:-mt-20" id="4-integration-ins-system"&gt;&lt;/span&gt;
+&lt;a href="#4-integration-ins-system" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Betroffene Komponenten&lt;span class="hx:absolute hx:-mt-20" id="betroffene-komponenten"&gt;&lt;/span&gt;
+&lt;a href="#betroffene-komponenten" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;ConfigManager (ControllerSettings)
+&amp;#43; tempCircThreshold: double — Schwellwert in °C
+&amp;#43; tempCircFactor: uint16_t — Minuten Verlängerung pro °C
+&amp;#43; tempCircMaxRuntime: uint16_t — Obergrenze in Minuten
+RuleTimer / RuleAuto
+&amp;#43; calculateEffectiveRuntime() — gemeinsame Hilfsfunktion
+&amp;#43; Nutzung der berechneten Laufzeit statt fester Endzeit
+MqttPublisher
+&amp;#43; 3 neue Number-Entities per HA Discovery
+&amp;#43; Command-Handler für /temp-circ-*/set
+WebPortal (später)
+&amp;#43; Eingabefelder im Config-Tab&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3&gt;Timer-Berechnung (Kernlogik)&lt;span class="hx:absolute hx:-mt-20" id="timer-berechnung-kernlogik"&gt;&lt;/span&gt;
+&lt;a href="#timer-berechnung-kernlogik" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cpp" data-lang="cpp"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kt"&gt;uint16_t&lt;/span&gt; &lt;span class="nf"&gt;calculateEffectiveRuntime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;uint16_t&lt;/span&gt; &lt;span class="n"&gt;baseMinutes&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;float&lt;/span&gt; &lt;span class="n"&gt;poolTemp&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;auto&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ConfigManager&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;getSettings&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;// Bei NaN oder unter Schwellwert: Basis-Laufzeit
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;poolTemp&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="n"&gt;poolTemp&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="n"&gt;poolTemp&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tempCircThreshold&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;baseMinutes&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kt"&gt;float&lt;/span&gt; &lt;span class="n"&gt;diff&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;poolTemp&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tempCircThreshold&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kt"&gt;float&lt;/span&gt; &lt;span class="n"&gt;extraMinutes&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;diff&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tempCircFactor&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;// Auf ganze Minuten runden
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kt"&gt;uint16_t&lt;/span&gt; &lt;span class="n"&gt;extra&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;static_cast&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="kt"&gt;uint16_t&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;extraMinutes&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mf"&gt;0.5f&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kt"&gt;uint16_t&lt;/span&gt; &lt;span class="n"&gt;total&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;baseMinutes&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;extra&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;// Obergrenze anwenden
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;total&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tempCircMaxRuntime&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nl"&gt;tempCircMaxRuntime&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;total&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3&gt;Midnight-Crossing&lt;span class="hx:absolute hx:-mt-20" id="midnight-crossing"&gt;&lt;/span&gt;
+&lt;a href="#midnight-crossing" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Die Timer-Logik in &lt;code&gt;checkPoolPumpTimer()&lt;/code&gt; unterstützt bereits Endzeiten, die über Mitternacht hinausgehen (z. B. Start 22:00, Ende 02:00). Die temperatur-basierte Verlängerung kann denselben Mechanismus nutzen — die effektive Endzeit wird nicht auf 24:00 begrenzt.&lt;/p&gt;
+&lt;h3&gt;NVS-Persistenz&lt;span class="hx:absolute hx:-mt-20" id="nvs-persistenz"&gt;&lt;/span&gt;
+&lt;a href="#nvs-persistenz" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Die 3 Parameter werden im &lt;code&gt;ControllerSettings&lt;/code&gt;-Struct über NVS gespeichert. Sie werden selten geändert (Konfiguration), daher kein Wear-Problem.&lt;/p&gt;
+&lt;h2&gt;5. HA-Integration (MQTT Discovery)&lt;span class="hx:absolute hx:-mt-20" id="5-ha-integration-mqtt-discovery"&gt;&lt;/span&gt;
+&lt;a href="#5-ha-integration-mqtt-discovery" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Für jeden Parameter wird ein Number-Entity mit HA Discovery published:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Entity&lt;/th&gt;
+&lt;th&gt;Topic-Suffix&lt;/th&gt;
+&lt;th&gt;Min&lt;/th&gt;
+&lt;th&gt;Max&lt;/th&gt;
+&lt;th&gt;Step&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;temp-circ-threshold&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/number/pool-controller/temp-circ-threshold/…&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;40&lt;/td&gt;
+&lt;td&gt;0,5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;temp-circ-factor&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/number/pool-controller/temp-circ-factor/…&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;120&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;temp-circ-max-runtime&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/number/pool-controller/temp-circ-max-runtime/…&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;60&lt;/td&gt;
+&lt;td&gt;1440&lt;/td&gt;
+&lt;td&gt;15&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Zusätzlich ein Sensor für die berechnete effektive Laufzeit:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Entity&lt;/th&gt;
+&lt;th&gt;Topic-Suffix&lt;/th&gt;
+&lt;th&gt;Unit&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;effective-runtime&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/sensor/pool-controller/effective-runtime/…&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;min&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;6. Umsetzungsplan&lt;span class="hx:absolute hx:-mt-20" id="6-umsetzungsplan"&gt;&lt;/span&gt;
+&lt;a href="#6-umsetzungsplan" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Schritt&lt;/th&gt;
+&lt;th&gt;Datei(en)&lt;/th&gt;
+&lt;th&gt;Aufwand&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1. Config-Struct erweitern&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ConfigManager.hpp&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;~10 min&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2. Helper-Funktion + Defaults&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Timer.hpp&lt;/code&gt;, &lt;code&gt;Timer.cpp&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;~15 min&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3. RuleTimer::loop() anpassen&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;RuleTimer.cpp&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;~20 min&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4. RuleAuto::loop() anpassen&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;RuleAuto.cpp&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;~10 min&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;5. MQTT Discovery + Handler&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;MqttPublisher.cpp&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;~30 min&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;6. Build + Test&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td&gt;~10 min&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Gesamt&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;~1,5 h&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;7. Mögliche Erweiterungen (v2)&lt;span class="hx:absolute hx:-mt-20" id="7-mögliche-erweiterungen-v2"&gt;&lt;/span&gt;
+&lt;a href="#7-m%c3%b6gliche-erweiterungen-v2" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Kürzung bei Kälte&lt;/strong&gt;: Zusätzlicher Parameter &lt;code&gt;tempCircMinRuntime&lt;/code&gt;, der bei Unterschreitung eines Schwellwerts die Laufzeit reduziert&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Trend-basiert&lt;/strong&gt;: Berücksichtigung des Temperatur-Trends (steigend/falend), nicht nur des Absolutwerts&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Saisonaler Kalender&lt;/strong&gt;: Automatische Anpassung der Basis-Parameter an Sommer/Winter&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Hardware-Anleitung</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/hardware-guide/</link><pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/hardware-guide/</guid><description>
 &lt;h2&gt;Übersicht&lt;span class="hx:absolute hx:-mt-20" id="übersicht"&gt;&lt;/span&gt;
 &lt;a href="#%c3%bcbersicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Diese Anleitung führt dich Schritt für Schritt durch den Hardware-Aufbau des
 Pool-Controllers — von der Teileauswahl bis zur fertigen Schaltung. Auch wenn
