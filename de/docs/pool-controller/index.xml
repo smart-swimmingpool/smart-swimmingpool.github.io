@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Pool Controller 3.3</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/</link><description>Recent content in Pool Controller 3.3 on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><lastBuildDate>Thu, 28 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/de/docs/pool-controller/index.xml" rel="self" type="application/rss+xml"/><item><title>Temperaturabhängige Filterlaufzeit</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/temperature-based-circulation/</link><pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/temperature-based-circulation/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Pool Controller 3.3</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/</link><description>Recent content in Pool Controller 3.3 on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><lastBuildDate>Thu, 28 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/de/docs/pool-controller/index.xml" rel="self" type="application/rss+xml"/><item><title>Temperaturabhängige Filterlaufzeit</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/temperature-based-circulation/</link><pubDate>Mon, 08 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/temperature-based-circulation/</guid><description>
 &lt;h1&gt;Temperaturabhängige Filterlaufzeit&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;Optimierung der Pool-Umwälzung für bessere Wasserqualität bei minimalem Stromverbrauch.&lt;/strong&gt;&lt;/p&gt;
 &lt;h2&gt;1. Motivation&lt;span class="hx:absolute hx:-mt-20" id="1-motivation"&gt;&lt;/span&gt;
 &lt;a href="#1-motivation" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die Poolpumpe ist der größte Stromverbraucher im Schwimmbad. Gleichzeitig bestimmt sie maßgeblich die Wasserqualität. Die aktuell nötige Umwälzmenge hängt stark von der Wassertemperatur ab:&lt;/p&gt;
@@ -101,6 +101,44 @@ data-copied-label="Kopiert!"
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;h3&gt;Verhalten bei Temperaturänderungen während des Laufs&lt;span class="hx:absolute hx:-mt-20" id="verhalten-bei-temperaturänderungen-während-des-laufs"&gt;&lt;/span&gt;
+&lt;a href="#verhalten-bei-temperatur%c3%a4nderungen-w%c3%a4hrend-des-laufs" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Die Berechnung läuft &lt;strong&gt;kontinuierlich&lt;/strong&gt; (jede &lt;code&gt;loop()&lt;/code&gt;), aber die Endzeit darf sich &lt;strong&gt;nur nach hinten&lt;/strong&gt; verschieben. Sobald die Pumpe läuft, wird die höchste jemals berechnete Endzeit gemerkt.&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;Start (10:00, 24 °C): Ende = 10:00 &amp;#43; 480 min = 18:00
+14:00, 28 °C → &amp;#43;4×30: neueEnde = max(18:00, 20:00) = 20:00 ✓
+16:00, 26 °C → &amp;#43;2×30: neueEnde = max(20:00, 19:00) = 20:00 ⛔ bleibt&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Regel:&lt;/strong&gt; Die Pumpe schaltet &lt;strong&gt;frühestens&lt;/strong&gt; zur ursprünglichen Timer-Endzeit aus — auch wenn es später wieder abkühlt. Dadurch gibt es keine Überraschungen und die Pumpe springt nicht unerwartet aus.&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cpp" data-lang="cpp"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// Kernlogik in RuleTimer/RuleAuto::loop():
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kt"&gt;uint16_t&lt;/span&gt; &lt;span class="n"&gt;newEndMinutes&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;calculateEffectiveEndMinutes&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;baseStartMinutes&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;baseEndMinutes&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;poolTemp&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// Nur verlängern, nie verkürzen:
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;newEndMinutes&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;activeEndMinutes&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;activeEndMinutes&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;newEndMinutes&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 &lt;h2&gt;3. Beispiele&lt;span class="hx:absolute hx:-mt-20" id="3-beispiele"&gt;&lt;/span&gt;
 &lt;a href="#3-beispiele" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Sommer (Pool 30 °C)&lt;span class="hx:absolute hx:-mt-20" id="sommer-pool-30-c"&gt;&lt;/span&gt;
 &lt;a href="#sommer-pool-30-c" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
@@ -341,8 +379,200 @@ data-copied-label="Kopiert!"
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h2&gt;7. Mögliche Erweiterungen (v2)&lt;span class="hx:absolute hx:-mt-20" id="7-mögliche-erweiterungen-v2"&gt;&lt;/span&gt;
-&lt;a href="#7-m%c3%b6gliche-erweiterungen-v2" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;h2&gt;7. Benutzerhandbuch&lt;span class="hx:absolute hx:-mt-20" id="7-benutzerhandbuch"&gt;&lt;/span&gt;
+&lt;a href="#7-benutzerhandbuch" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;7.1 Schnellstart&lt;span class="hx:absolute hx:-mt-20" id="71-schnellstart"&gt;&lt;/span&gt;
+&lt;a href="#71-schnellstart" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Timer einstellen&lt;/strong&gt; — Die temperaturabhängige Filterlaufzeit funktioniert nur im &lt;strong&gt;Timer&lt;/strong&gt;- oder &lt;strong&gt;Auto&lt;/strong&gt;-Modus mit einem konfigurierten Zeitfenster. Stelle zuerst die Basis-Filterzeit ein (z. B. 10:00–18:00 Uhr).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Schwellwert setzen&lt;/strong&gt; — Starte mit &lt;code&gt;24 °C&lt;/code&gt;. Unterhalb dieser Temperatur läuft die Pumpe normal nach Timer.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Faktor einstellen&lt;/strong&gt; — Starte mit &lt;code&gt;30 min/°C&lt;/code&gt;. Jedes Grad über dem Schwellwert verlängert die Laufzeit um 30 Minuten.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Maximale Laufzeit festlegen&lt;/strong&gt; — Starte mit &lt;code&gt;720 min (12 h)&lt;/code&gt;. Verhindert übermäßige Laufzeiten an extrem heißen Tagen.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Fertig — die Pumpe läuft jetzt bei warmem Wasser automatisch länger.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Faustregel:&lt;/strong&gt; Einmal konfiguriert arbeitet das Feature vollautomatisch. Der &lt;strong&gt;Circ. Runtime&lt;/strong&gt;-Wert auf dem Dashboard zeigt jederzeit die berechnete Laufzeit an.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;7.2 Empfohlene Einstellungen nach Pool-Typ&lt;span class="hx:absolute hx:-mt-20" id="72-empfohlene-einstellungen-nach-pool-typ"&gt;&lt;/span&gt;
+&lt;a href="#72-empfohlene-einstellungen-nach-pool-typ" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Finde deine Pool-Situation und nutze diese Werte als Ausgangspunkt:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Pool-Typ&lt;/th&gt;
+&lt;th&gt;Schwelle&lt;/th&gt;
+&lt;th&gt;Faktor&lt;/th&gt;
+&lt;th&gt;Max-Laufzeit&lt;/th&gt;
+&lt;th&gt;Warum&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;☀️ &lt;strong&gt;Kleiner Aufstellpool&lt;/strong&gt; (≤15 m³)&lt;/td&gt;
+&lt;td&gt;22 °C&lt;/td&gt;
+&lt;td&gt;20 min/°C&lt;/td&gt;
+&lt;td&gt;480 min (8 h)&lt;/td&gt;
+&lt;td&gt;Weniger Volumen, weniger Reserve nötig&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;🏊 &lt;strong&gt;Mittlerer Familienpool&lt;/strong&gt; (25–50 m³)&lt;/td&gt;
+&lt;td&gt;24 °C&lt;/td&gt;
+&lt;td&gt;30 min/°C&lt;/td&gt;
+&lt;td&gt;720 min (12 h)&lt;/td&gt;
+&lt;td&gt;Gute Balance aus Wasserqualität und Kosten&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;🌴 &lt;strong&gt;Großer Pool / hohe Belastung&lt;/strong&gt; (50+ m³)&lt;/td&gt;
+&lt;td&gt;22 °C&lt;/td&gt;
+&lt;td&gt;40 min/°C&lt;/td&gt;
+&lt;td&gt;960 min (16 h)&lt;/td&gt;
+&lt;td&gt;Mehr Umwälzung für Hygiene nötig&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;🌡️ &lt;strong&gt;Beheizter Pool&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;26 °C&lt;/td&gt;
+&lt;td&gt;15 min/°C&lt;/td&gt;
+&lt;td&gt;600 min (10 h)&lt;/td&gt;
+&lt;td&gt;Wird ohnehin mehr gefiltert (Heizungspumpe)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Bei solarem Heizen sollte der Schwellwert &lt;strong&gt;mindestens&lt;/strong&gt; auf oder über der Solar-Minimumtemperatur liegen, um Überlappungen zu vermeiden.&lt;/p&gt;
+&lt;h3&gt;7.3 Konfiguration über das Web-Interface&lt;span class="hx:absolute hx:-mt-20" id="73-konfiguration-über-das-web-interface"&gt;&lt;/span&gt;
+&lt;a href="#73-konfiguration-%c3%bcber-das-web-interface" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;Pool-Tab&lt;span class="hx:absolute hx:-mt-20" id="pool-tab"&gt;&lt;/span&gt;
+&lt;a href="#pool-tab" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Öffne das Einstellungsmenü (Zahnrad) → &lt;strong&gt;Pool&lt;/strong&gt; → Abschnitt &lt;strong&gt;🌡️ Temperature-Based Circulation&lt;/strong&gt;.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Feld&lt;/th&gt;
+&lt;th&gt;Beschreibung&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Circ. Temp Threshold&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Pooltemperatur muss diesen Wert überschreiten, damit die Verlängerung greift.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Circ. Temp Factor&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Zusätzliche Minuten pro °C über dem Schwellwert. Höher = aggressivere Verlängerung.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Circ. Max Runtime&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Absolute Obergrenze der täglichen Pumpenlaufzeit (inkl. Verlängerung).&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Klicke unten &lt;strong&gt;Save Pool Settings&lt;/strong&gt;.&lt;/p&gt;
+&lt;h4&gt;Dashboard&lt;span class="hx:absolute hx:-mt-20" id="dashboard"&gt;&lt;/span&gt;
+&lt;a href="#dashboard" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Ganz unten auf dem Dashboard zeigt &lt;strong&gt;Circ. Runtime&lt;/strong&gt; die aktuell berechnete effektive Laufzeit in Minuten. Dieser Wert aktualisiert sich live — die &lt;code&gt;only-extend&lt;/code&gt;-Regel merkt sich den jeweils höchsten Wert.&lt;/p&gt;
+&lt;h3&gt;7.4 Konfiguration über Home Assistant&lt;span class="hx:absolute hx:-mt-20" id="74-konfiguration-über-home-assistant"&gt;&lt;/span&gt;
+&lt;a href="#74-konfiguration-%c3%bcber-home-assistant" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Nach MQTT-Verbindung erscheinen drei Number-Entities in Home Assistant:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Entity&lt;/th&gt;
+&lt;th&gt;Zweck&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;number.pool_controller_temp_circ_threshold&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Schwellwert einstellen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;number.pool_controller_temp_circ_factor&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Verlängerungsfaktor anpassen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;number.pool_controller_temp_circ_max_runtime&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Obergrenze setzen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;sensor.pool_controller_effective_runtime&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Nur-Lesen — zeigt berechnete Laufzeit&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Änderungen wirken sofort — kein Neustart nötig.&lt;/p&gt;
+&lt;h3&gt;7.5 Beispiel: Mit Home Assistant automatisieren&lt;span class="hx:absolute hx:-mt-20" id="75-beispiel-mit-home-assistant-automatisieren"&gt;&lt;/span&gt;
+&lt;a href="#75-beispiel-mit-home-assistant-automatisieren" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Szenario:&lt;/strong&gt; Faktor bei extremen Temperaturen automatisch erhöhen.&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-yaml" data-lang="yaml"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;automation&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="nt"&gt;alias&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;Faktor bei Hitzewelle erhöhen&amp;#34;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;trigger&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;platform&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;numeric_state&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;entity_id&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;weather.home&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;attribute&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;temperature&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;above&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;32&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;action&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;service&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;number.set_value&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;target&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;entity_id&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;number.pool_controller_temp_circ_factor&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;data&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;value&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;45&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Szenario:&lt;/strong&gt; Benachrichtigung bei hoher Filterlaufzeit.&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-yaml" data-lang="yaml"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;automation&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="nt"&gt;alias&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;Hohe Filterlaufzeit melden&amp;#34;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;trigger&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;platform&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;numeric_state&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;entity_id&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;sensor.pool_controller_effective_runtime&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;above&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;700&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;action&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;service&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;notify.mobile_app_phone&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;data&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;message&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;Pool-Filterlaufzeit nahe Maximum ({{ states(&amp;#39;sensor.pool_controller_effective_runtime&amp;#39;) }} min)&amp;#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3&gt;7.6 FAQ / Problemlösung&lt;span class="hx:absolute hx:-mt-20" id="76-faq--problemlösung"&gt;&lt;/span&gt;
+&lt;a href="#76-faq--probleml%c3%b6sung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;F: Die Pumpe läuft viel länger als erwartet — woran liegt das?&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Prüfe die Pooltemperatur. Liegt sie über dem Schwellwert und der Faktor ist hoch eingestellt, sind längere Laufzeiten normal. Der &lt;strong&gt;Circ. Runtime&lt;/strong&gt;-Wert zeigt die berechnete Verlängerung. Reduziere bei Bedarf den &lt;strong&gt;Faktor&lt;/strong&gt; oder erhöhe den &lt;strong&gt;Schwellwert&lt;/strong&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;F: Die Pumpe hat früher ausgeschaltet als erwartet — warum?&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Die Verlängerung gilt nur, während die Pumpe aktiv ist. War sie schon länger an, wurde die Endzeit vielleicht früher verlängert, aber das Wasser ist inzwischen abgekühlt — die &lt;code&gt;only-extend&lt;/code&gt;-Regel behält den höchsten Wert. Prüfe:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Liegt die Pooltemperatur tatsächlich über dem Schwellwert?&lt;/li&gt;
+&lt;li&gt;Ist das Timer-Fenster konfiguriert? (Die temperatur-basierte Verlängerung schaltet die Pumpe nicht selbst ein.)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;F: Kann die Pumpe früher starten als der Timer?&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Nein. Die Funktion verlängert nur die &lt;strong&gt;Endzeit&lt;/strong&gt;. Die Startzeit bleibt exakt wie im Timer eingestellt. (Siehe &lt;code&gt;only-extend&lt;/code&gt;-Regel in §2.)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;F: Setzt sich die Max-Laufzeit jeden Tag zurück?&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Ja. Zu Beginn jedes Timer-Zyklus wird die effektive Endzeit auf die Basis-Timer-Zeit zurückgesetzt. Die Verlängerung wird dann neu berechnet.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;F: Ich habe Werte im Web-UI geändert, aber nichts passiert — warum?&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Prüfe den &lt;strong&gt;Modus&lt;/strong&gt; auf dem Dashboard. Die temperaturabhängige Laufzeit funktioniert nur im &lt;strong&gt;Timer&lt;/strong&gt;- und &lt;strong&gt;Auto&lt;/strong&gt;-Modus. Im &lt;strong&gt;Manuell&lt;/strong&gt;- oder &lt;strong&gt;Boost&lt;/strong&gt;-Modus ist die Funktion deaktiviert.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;F: Verschleißt das meine Pumpe schneller?&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Der Parameter &lt;code&gt;tempCircMaxRuntime&lt;/code&gt; begrenzt die Laufzeit genau für diesen Zweck. 12 Stunden/Tag sind für die meisten Poolpumpen unbedenklich. Prüfe zur Sicherheit das Datenblatt deiner Pumpe (Einschaltdauer / duty cycle).&lt;/p&gt;
+&lt;h2&gt;8. Mögliche Erweiterungen (v2)&lt;span class="hx:absolute hx:-mt-20" id="8-mögliche-erweiterungen-v2"&gt;&lt;/span&gt;
+&lt;a href="#8-m%c3%b6gliche-erweiterungen-v2" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Kürzung bei Kälte&lt;/strong&gt;: Zusätzlicher Parameter &lt;code&gt;tempCircMinRuntime&lt;/code&gt;, der bei Unterschreitung eines Schwellwerts die Laufzeit reduziert&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Trend-basiert&lt;/strong&gt;: Berücksichtigung des Temperatur-Trends (steigend/falend), nicht nur des Absolutwerts&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Saisonaler Kalender&lt;/strong&gt;: Automatische Anpassung der Basis-Parameter an Sommer/Winter&lt;/li&gt;
@@ -1110,7 +1340,13 @@ erscheinen automatisch in Home Assistant.&lt;/p&gt;
 &lt;td&gt;&lt;code&gt;sensor&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;system_uptime&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;diagnostic&lt;/td&gt;
-&lt;td&gt;Betriebszeit in Sekunden&lt;/td&gt;
+&lt;td&gt;Betriebszeit (Dauer)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;sensor&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;effective_runtime&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;diagnostic&lt;/td&gt;
+&lt;td&gt;Effektive Filterlaufzeit (Dauer)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;sensor&lt;/code&gt;&lt;/td&gt;
@@ -1153,6 +1389,24 @@ erscheinen automatisch in Home Assistant.&lt;/p&gt;
 &lt;td&gt;&lt;code&gt;temperature_hysteresis&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;config&lt;/td&gt;
 &lt;td&gt;Temperaturhysterese&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;temp_circ_threshold&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td&gt;Schwellwert temp. Filterlaufzeit&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;temp_circ_factor&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td&gt;Faktor temp. Filterlaufzeit&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;temp_circ_max_runtime&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td&gt;Maximale Laufzeit temp. Filterlaufzeit&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;time&lt;/code&gt;&lt;/td&gt;

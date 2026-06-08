@@ -1,7 +1,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Reliability</title><link>https://smart-swimmingpool.github.io/tags/reliability/</link><description>Recent content in Reliability on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Sun, 07 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/tags/reliability/index.xml" rel="self" type="application/rss+xml"/><item><title>State Persistence and System Monitoring</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/state-persistence/</link><pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/state-persistence/</guid><description>
 &lt;h1&gt;State Persistence and System Monitoring&lt;/h1&gt;&lt;h2&gt;Overview&lt;span class="hx:absolute hx:-mt-20" id="overview"&gt;&lt;/span&gt;
-&lt;a href="#overview" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The Pool Controller now includes comprehensive state persistence and system
-health monitoring to ensure reliable 24/7 operation. ESP32-only since v3.2.0.&lt;/p&gt;
+&lt;a href="#overview" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The Pool Controller includes comprehensive state persistence and system
+health monitoring to ensure reliable 24/7 operation.&lt;/p&gt;
 &lt;h2&gt;State Persistence&lt;span class="hx:absolute hx:-mt-20" id="state-persistence"&gt;&lt;/span&gt;
 &lt;a href="#state-persistence" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;What Gets Persisted&lt;span class="hx:absolute hx:-mt-20" id="what-gets-persisted"&gt;&lt;/span&gt;
 &lt;a href="#what-gets-persisted" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;All controller states are automatically saved to non-volatile storage (NVS)
@@ -22,9 +22,8 @@ and restored after reboots or power failures:&lt;/p&gt;
 &lt;h3&gt;How It Works&lt;span class="hx:absolute hx:-mt-20" id="how-it-works"&gt;&lt;/span&gt;
 &lt;a href="#how-it-works" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Uses the Preferences library for persistent storage in NVS
 (Non-Volatile Storage). Each value is stored with a type-specific key.&lt;/p&gt;
-&lt;p&gt;Relay states are persisted individually per relay via their own Preferences
-namespace named after the relay node-id (e.g., &lt;code&gt;pool-pump&lt;/code&gt;, &lt;code&gt;solar-pump&lt;/code&gt;),
-storing key &lt;code&gt;&amp;quot;switch&amp;quot;&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Relay states are persisted individually per relay via their own namespace
+in NVS, storing the on/off state under the key &lt;code&gt;&amp;quot;switch&amp;quot;&lt;/code&gt;.&lt;/p&gt;
 &lt;h3&gt;Automatic Restoration&lt;span class="hx:absolute hx:-mt-20" id="automatic-restoration"&gt;&lt;/span&gt;
 &lt;a href="#automatic-restoration" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;When the controller reboots:&lt;/p&gt;
 &lt;ol&gt;
@@ -117,8 +116,7 @@ data-copied-label="Copied!"
 &lt;/div&gt;
 &lt;h2&gt;Configuration&lt;span class="hx:absolute hx:-mt-20" id="configuration"&gt;&lt;/span&gt;
 &lt;a href="#configuration" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Enabling Features&lt;span class="hx:absolute hx:-mt-20" id="enabling-features"&gt;&lt;/span&gt;
-&lt;a href="#enabling-features" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Both state persistence and system monitoring are &lt;strong&gt;automatically enabled&lt;/strong&gt; in
-version 3.1.0+. No configuration required.&lt;/p&gt;
+&lt;a href="#enabling-features" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Both state persistence and system monitoring are &lt;strong&gt;automatically enabled&lt;/strong&gt;. No configuration required.&lt;/p&gt;
 &lt;h3&gt;Customizing Thresholds&lt;span class="hx:absolute hx:-mt-20" id="customizing-thresholds"&gt;&lt;/span&gt;
 &lt;a href="#customizing-thresholds" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;To customize memory thresholds, modify &lt;code&gt;src/SystemMonitor.hpp&lt;/code&gt;:&lt;/p&gt;
 &lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
@@ -306,20 +304,11 @@ operations&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;Total impact&lt;/strong&gt;: Negligible (&amp;lt; 0.1% CPU usage)&lt;/p&gt;
 &lt;h2&gt;Future Enhancements&lt;span class="hx:absolute hx:-mt-20" id="future-enhancements"&gt;&lt;/span&gt;
-&lt;a href="#future-enhancements" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Completed in v3.2.0:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;✅ &lt;strong&gt;Degradation Manager&lt;/strong&gt;: Central health state (NORMAL → CRITICAL)&lt;/li&gt;
-&lt;li&gt;✅ &lt;strong&gt;MQTT Reconnect-Refresh&lt;/strong&gt;: Full state republish on reconnection&lt;/li&gt;
-&lt;li&gt;✅ &lt;strong&gt;NTP Graceful Degradation&lt;/strong&gt;: Three-stage time degradation (GREEN/YELLOW/RED)&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Planned:&lt;/p&gt;
-&lt;ol&gt;
+&lt;a href="#future-enhancements" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;🔜 &lt;strong&gt;Configurable thresholds&lt;/strong&gt;: MQTT-based threshold configuration&lt;/li&gt;
-&lt;li&gt;🔜 &lt;strong&gt;Memory stats&lt;/strong&gt;: Historical memory usage tracking&lt;/li&gt;
-&lt;li&gt;🔜 &lt;strong&gt;Remote reboot&lt;/strong&gt;: MQTT command to trigger reboot&lt;/li&gt;
 &lt;li&gt;🔜 &lt;strong&gt;Health dashboard&lt;/strong&gt;: Web UI for health monitoring&lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ul&gt;
 &lt;hr&gt;
-&lt;p&gt;&lt;strong&gt;Version&lt;/strong&gt;: 3.2.0
+&lt;p&gt;&lt;strong&gt;Version&lt;/strong&gt;: 3.3.0
 &lt;strong&gt;Status&lt;/strong&gt;: Production Ready
 &lt;strong&gt;Platform&lt;/strong&gt;: ESP32&lt;/p&gt;</description></item></channel></rss>

@@ -11,21 +11,16 @@ exclusively uses Home Assistant MQTT Discovery.&lt;/p&gt;
 &lt;a href="#configuration" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Configure your MQTT broker connection via the Web UI (Settings → MQTT tab):&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;MQTT Hostname/IP&lt;/strong&gt;: Your MQTT broker address&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;MQTT Port&lt;/strong&gt;: Default 1883 (or 8883 for TLS)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MQTT Port&lt;/strong&gt;: Default 1883&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;MQTT Username/Password&lt;/strong&gt;: Optional authentication credentials&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Enable TLS&lt;/strong&gt;: Toggle for encrypted MQTTS connection&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;After saving and rebooting, all entities appear automatically in Home Assistant.&lt;/p&gt;
-&lt;h3&gt;Via config.json&lt;span class="hx:absolute hx:-mt-20" id="via-configjson"&gt;&lt;/span&gt;
-&lt;a href="#via-configjson" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Add or modify the setting in your device&amp;rsquo;s &lt;code&gt;config.json&lt;/code&gt; on LittleFS:&lt;/p&gt;
+&lt;h3&gt;Via the REST API&lt;span class="hx:absolute hx:-mt-20" id="via-the-rest-api"&gt;&lt;/span&gt;
+&lt;a href="#via-the-rest-api" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The MQTT settings can also be configured programmatically:&lt;/p&gt;
 &lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
-&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-json" data-lang="json"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;#34;name&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;Pool Controller&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;#34;settings&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;#34;mqtt_host&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;192.168.1.100&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;#34;mqtt_port&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1883&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;curl -b &lt;span class="s2"&gt;&amp;#34;session=&amp;lt;session&amp;gt;&amp;#34;&lt;/span&gt; -X POST &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; -d &lt;span class="s2"&gt;&amp;#34;type=mqtt&amp;amp;host=192.168.1.100&amp;amp;port=1883&amp;amp;username=mqtt_user&amp;amp;password=secret&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; http://&amp;lt;controller-ip&amp;gt;/api/config&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
 &lt;button
 class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
 title="Copy code"
@@ -157,6 +152,30 @@ data-copied-label="Copied!"
 &lt;td&gt;&lt;code&gt;homeassistant/sensor/pool-controller/ota-status/state&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;-&lt;/td&gt;
 &lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Effective Runtime&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;sensor/effective-runtime&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/sensor/pool-controller/effective-runtime/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Circ. Temp Threshold&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number/temp-circ-threshold&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/number/pool-controller/temp-circ-threshold/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/number/pool-controller/temp-circ-threshold/set&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Circ. Temp Factor&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number/temp-circ-factor&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/number/pool-controller/temp-circ-factor/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/number/pool-controller/temp-circ-factor/set&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Circ. Max Runtime&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number/temp-circ-max-runtime&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/number/pool-controller/temp-circ-max-runtime/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/number/pool-controller/temp-circ-max-runtime/set&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h2&gt;Features&lt;span class="hx:absolute hx:-mt-20" id="features"&gt;&lt;/span&gt;
@@ -165,6 +184,7 @@ data-copied-label="Copied!"
 &lt;li&gt;Temperature sensors (pool, solar, controller)&lt;/li&gt;
 &lt;li&gt;Relay switches (pool pump, solar pump)&lt;/li&gt;
 &lt;li&gt;Operation modes (auto, manual, boost, timer)&lt;/li&gt;
+&lt;li&gt;Temperature-based circulation parameters (threshold, factor, max runtime)&lt;/li&gt;
 &lt;li&gt;Configuration via MQTT&lt;/li&gt;
 &lt;li&gt;State monitoring&lt;/li&gt;
 &lt;/ul&gt;

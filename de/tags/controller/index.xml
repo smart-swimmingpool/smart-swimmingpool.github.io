@@ -30,11 +30,10 @@ href="https://www.openhab.org"target="_blank" rel="noopener"&gt;openHAB&lt;/a&gt
 &lt;a href="#roadmap" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;✔️ Zustandsspeicherung über Neustarts hinweg (v3.1.0+)
 ✔️ Web-basierte OTA-Firmware-Updates (v3.2.0+)
 ✔️ Home Assistant MQTT Discovery (v3.3.0)
-✔️ Automatische Update-Prüfung via GitHub Releases (v3.3.0)&lt;/p&gt;
+✔️ Automatische Update-Prüfung via GitHub Releases (v3.3.0)
+✔️ Temperaturabhängige Filterlaufzeit (v3.4.0)&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Konfigurierbarer NTP-Server&lt;/li&gt;
-&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Selbstlernende Zirkulationsoptimierung&lt;/li&gt;
-&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Temperaturabhängige Zirkulationszeiten&lt;/li&gt;
 &lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Zwei getrennte Zirkulationszyklen (Pool + Solar unabhängig)&lt;/li&gt;
 &lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Offline-Betriebsmodus (ohne WiFi)&lt;/li&gt;
 &lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Einheitliche Stromversorgung (ESP32 + Relais aus einer Quelle)&lt;/li&gt;

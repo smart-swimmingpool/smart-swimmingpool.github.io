@@ -1,53 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Docs</title><link>https://smart-swimmingpool.github.io/tags/docs/</link><description>Recent content in Docs on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Sun, 07 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/tags/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Pool Controller 3.3</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/</guid><description>
-&lt;h2&gt;🏊 The MQTT-enabled Smart Swimmingpool Controller 🎛️&lt;span class="hx:absolute hx:-mt-20" id="-the-mqtt-enabled-smart-swimmingpool-controller-"&gt;&lt;/span&gt;
-&lt;a href="#-the-mqtt-enabled-smart-swimmingpool-controller-" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;span style="text-shadow: none;"&gt;
-&lt;!-- markdownlint-disable MD013 --&gt;
-&lt;a class="github-button" href="https://github.com/smart-swimmingpool/pool-controller/subscription" data-size="large" data-show-count="true" aria-label="Watch smart-swimmingpool/pool-controller on GitHub"&gt;Watch&lt;/a&gt;
-&lt;a class="github-button" href="https://github.com/smart-swimmingpool/pool-controller" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star this on GitHub"&gt;Star&lt;/a&gt;&lt;script async defer src="https://buttons.github.io/buttons.js"&gt;&lt;/script&gt;
-&lt;!-- markdownlint-enable MD013 --&gt;
-&lt;p&gt;&lt;a
-href="https://github.com/smart-swimmingpool/pool-controller"target="_blank" rel="noopener"&gt;GitHub Sources&lt;/a&gt;
-&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Manage your swimming pool in a smart way to enjoy it comfortably and affordably (for less than 100€).&lt;/p&gt;
-&lt;h2&gt;Main Features&lt;span class="hx:absolute hx:-mt-20" id="main-features"&gt;&lt;/span&gt;
-&lt;a href="#main-features" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; Manage water timed circulation for cleaning&lt;/li&gt;
-&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; Manage water heating by additional pump for solar circuit&lt;/li&gt;
-&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; &lt;a
-href="https://www.home-assistant.io/integrations/mqtt/#mqtt-discovery"target="_blank" rel="noopener"&gt;Home Assistant MQTT Discovery&lt;/a&gt; - Native HA integration&lt;/li&gt;
-&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; Independent of specific smarthome servers
-&lt;ul&gt;
-&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; &lt;a
-href="https://home-assistant.io"target="_blank" rel="noopener"&gt;Home Assistant&lt;/a&gt; via native MQTT Discovery&lt;/li&gt;
-&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; &lt;a
-href="https://www.openhab.org"target="_blank" rel="noopener"&gt;openHAB&lt;/a&gt; via MQTT&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; Timesync via NTP (europe.pool.ntp.org)&lt;/li&gt;
-&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; Logging of system events and diagnostics&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;Roadmap&lt;span class="hx:absolute hx:-mt-20" id="roadmap"&gt;&lt;/span&gt;
-&lt;a href="#roadmap" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;✔️ State persistence across reboots (v3.1.0+)
-✔️ Web-based OTA firmware updates (v3.2.0+)
-✔️ Home Assistant MQTT Discovery (v3.3.0)
-✔️ Automatic update checking from GitHub releases (v3.3.0)&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Configurable NTP server&lt;/li&gt;
-&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Self-learning circulation optimization&lt;/li&gt;
-&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Temperature-based circulation time adjustment&lt;/li&gt;
-&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Dual circulation cycles (pool + solar independent)&lt;/li&gt;
-&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Offline operation mode (no WiFi required)&lt;/li&gt;
-&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Unified power supply (ESP32 + relays from single source)&lt;/li&gt;
-&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Rollback capability for OTA firmware updates&lt;/li&gt;
-&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; A/B partition updates for safer firmware upgrades&lt;/li&gt;
-&lt;li&gt;see also the &lt;a
-href="https://github.com/smart-swimmingpool/pool-controller/issues"target="_blank" rel="noopener"&gt;issue list&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;!-- markdownlint-disable-next-line MD013 --&gt;
-&lt;figure&gt;&lt;img src="https://smart-swimmingpool.github.io/docs/pool-controller/pool-controller_breadboard.png"&gt;&lt;figcaption&gt;
-&lt;h4&gt;ESP32 Pool Controller breadboard circuit with DS18B20 temperature sensors and relay modules&lt;/h4&gt;
-&lt;/figcaption&gt;
-&lt;/figure&gt;</description></item><item><title>Getting Started</title><link>https://smart-swimmingpool.github.io/docs/getting-started/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/getting-started/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Docs</title><link>https://smart-swimmingpool.github.io/tags/docs/</link><description>Recent content in Docs on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Sun, 07 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/tags/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Getting Started</title><link>https://smart-swimmingpool.github.io/docs/getting-started/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/getting-started/</guid><description>
 &lt;p&gt;&lt;strong&gt;🏊 Smart Swimming Pool: Home automation for smarter control of your swimming pool&lt;/strong&gt;&lt;/p&gt;
 &lt;h2&gt;Example Environment&lt;span class="hx:absolute hx:-mt-20" id="example-environment"&gt;&lt;/span&gt;
 &lt;a href="#example-environment" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;In a typical setup, a thermal solar system heats water and supports the home heating system. The heated water is stored in a buffer tank, which has a third circulation loop for the pool. A pump attached to this loop circulates pool water through a heat exchanger:&lt;/p&gt;
@@ -784,21 +735,16 @@ exclusively uses Home Assistant MQTT Discovery.&lt;/p&gt;
 &lt;a href="#configuration" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Configure your MQTT broker connection via the Web UI (Settings → MQTT tab):&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;MQTT Hostname/IP&lt;/strong&gt;: Your MQTT broker address&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;MQTT Port&lt;/strong&gt;: Default 1883 (or 8883 for TLS)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MQTT Port&lt;/strong&gt;: Default 1883&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;MQTT Username/Password&lt;/strong&gt;: Optional authentication credentials&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Enable TLS&lt;/strong&gt;: Toggle for encrypted MQTTS connection&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;After saving and rebooting, all entities appear automatically in Home Assistant.&lt;/p&gt;
-&lt;h3&gt;Via config.json&lt;span class="hx:absolute hx:-mt-20" id="via-configjson"&gt;&lt;/span&gt;
-&lt;a href="#via-configjson" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Add or modify the setting in your device&amp;rsquo;s &lt;code&gt;config.json&lt;/code&gt; on LittleFS:&lt;/p&gt;
+&lt;h3&gt;Via the REST API&lt;span class="hx:absolute hx:-mt-20" id="via-the-rest-api"&gt;&lt;/span&gt;
+&lt;a href="#via-the-rest-api" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The MQTT settings can also be configured programmatically:&lt;/p&gt;
 &lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
-&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-json" data-lang="json"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;#34;name&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;Pool Controller&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;#34;settings&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;#34;mqtt_host&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;192.168.1.100&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;#34;mqtt_port&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1883&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;curl -b &lt;span class="s2"&gt;&amp;#34;session=&amp;lt;session&amp;gt;&amp;#34;&lt;/span&gt; -X POST &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; -d &lt;span class="s2"&gt;&amp;#34;type=mqtt&amp;amp;host=192.168.1.100&amp;amp;port=1883&amp;amp;username=mqtt_user&amp;amp;password=secret&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; http://&amp;lt;controller-ip&amp;gt;/api/config&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
 &lt;button
 class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
 title="Copy code"
@@ -930,6 +876,30 @@ data-copied-label="Copied!"
 &lt;td&gt;&lt;code&gt;homeassistant/sensor/pool-controller/ota-status/state&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;-&lt;/td&gt;
 &lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Effective Runtime&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;sensor/effective-runtime&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/sensor/pool-controller/effective-runtime/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Circ. Temp Threshold&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number/temp-circ-threshold&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/number/pool-controller/temp-circ-threshold/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/number/pool-controller/temp-circ-threshold/set&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Circ. Temp Factor&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number/temp-circ-factor&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/number/pool-controller/temp-circ-factor/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/number/pool-controller/temp-circ-factor/set&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Circ. Max Runtime&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number/temp-circ-max-runtime&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/number/pool-controller/temp-circ-max-runtime/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/number/pool-controller/temp-circ-max-runtime/set&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h2&gt;Features&lt;span class="hx:absolute hx:-mt-20" id="features"&gt;&lt;/span&gt;
@@ -938,6 +908,7 @@ data-copied-label="Copied!"
 &lt;li&gt;Temperature sensors (pool, solar, controller)&lt;/li&gt;
 &lt;li&gt;Relay switches (pool pump, solar pump)&lt;/li&gt;
 &lt;li&gt;Operation modes (auto, manual, boost, timer)&lt;/li&gt;
+&lt;li&gt;Temperature-based circulation parameters (threshold, factor, max runtime)&lt;/li&gt;
 &lt;li&gt;Configuration via MQTT&lt;/li&gt;
 &lt;li&gt;State monitoring&lt;/li&gt;
 &lt;/ul&gt;
@@ -1036,24 +1007,6 @@ data-copied-label="Copied!"
 &lt;a href="#building-firmware-for-ota" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Create Firmware Binary&lt;span class="hx:absolute hx:-mt-20" id="create-firmware-binary"&gt;&lt;/span&gt;
 &lt;a href="#create-firmware-binary" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
 &lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Build firmware without uploading&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pio run -e nodemcuv2
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Binary location&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;.pio/build/nodemcuv2/firmware.bin&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
-&lt;button
-class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
-title="Copy code"
-aria-label="Copy code"
-data-copied-label="Copied!"
-&gt;
-&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
-&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
-&lt;/button&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;h3&gt;ESP32 Build&lt;span class="hx:absolute hx:-mt-20" id="esp32-build"&gt;&lt;/span&gt;
-&lt;a href="#esp32-build" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
-&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Build for ESP32&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pio run -e esp32dev
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Binary location&lt;/span&gt;
@@ -1088,9 +1041,7 @@ data-copied-label="Copied!"
 &lt;p&gt;&lt;strong&gt;Solutions&lt;/strong&gt;:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Verify device is online: &lt;code&gt;ping pool-controller.local&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Check firewall allows port 8266&lt;/li&gt;
-&lt;li&gt;Ensure correct OTA password&lt;/li&gt;
-&lt;li&gt;Verify device has sufficient free memory (&amp;gt;50KB)&lt;/li&gt;
+&lt;li&gt;Ensure device has sufficient free memory (&amp;gt;50KB)&lt;/li&gt;
 &lt;li&gt;Try increasing timeout in &lt;code&gt;upload_flags&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Device Not Found&lt;span class="hx:absolute hx:-mt-20" id="device-not-found"&gt;&lt;/span&gt;
@@ -1139,13 +1090,10 @@ data-copied-label="Copied!"
 &lt;a href="#lwip-configuration" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The project uses &lt;code&gt;PIO_FRAMEWORK_ARDUINO_LWIP2_LOW_MEMORY&lt;/code&gt; flag to optimize
 network stack memory usage, ensuring reliable OTA updates.&lt;/p&gt;
 &lt;h2&gt;Monitoring OTA Status&lt;span class="hx:absolute hx:-mt-20" id="monitoring-ota-status"&gt;&lt;/span&gt;
-&lt;a href="#monitoring-ota-status" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Via MQTT&lt;span class="hx:absolute hx:-mt-20" id="via-mqtt"&gt;&lt;/span&gt;
-&lt;a href="#via-mqtt" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;OTA progress is visible in the WebUI progress bar and via serial console.&lt;/p&gt;
-&lt;h3&gt;Via Serial Console&lt;span class="hx:absolute hx:-mt-20" id="via-serial-console"&gt;&lt;/span&gt;
-&lt;a href="#via-serial-console" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Connect to serial port to monitor OTA progress:&lt;/p&gt;
+&lt;a href="#monitoring-ota-status" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;OTA progress is visible in the WebUI progress bar and via serial console.&lt;/p&gt;
 &lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
 &lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# PlatformIO monitor&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pio device monitor -e nodemcuv2
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pio device monitor
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Look for log messages&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;[&lt;/span&gt;OTA&lt;span class="o"&gt;]&lt;/span&gt; Start
@@ -1164,126 +1112,6 @@ data-copied-label="Copied!"
 &lt;/button&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;h2&gt;Automation Examples&lt;span class="hx:absolute hx:-mt-20" id="automation-examples"&gt;&lt;/span&gt;
-&lt;a href="#automation-examples" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Automated OTA Updates Script&lt;span class="hx:absolute hx:-mt-20" id="automated-ota-updates-script"&gt;&lt;/span&gt;
-&lt;a href="#automated-ota-updates-script" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
-&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt;#!/bin/bash
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# ota-update.sh&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;DEVICE_IP&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;192.168.1.100&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;OTA_PASSWORD&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;MyP00l#Update2026&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;FIRMWARE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;.pio/build/nodemcuv2/firmware.bin&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Build firmware&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;Building firmware...&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pio run -e nodemcuv2
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Upload via OTA&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;Uploading to &lt;/span&gt;&lt;span class="nv"&gt;$DEVICE_IP&lt;/span&gt;&lt;span class="s2"&gt;...&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;python ~/.platformio/packages/framework-arduinoespressif8266/tools/espota.py &lt;span class="se"&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; -i &lt;span class="nv"&gt;$DEVICE_IP&lt;/span&gt; &lt;span class="se"&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; -p &lt;span class="m"&gt;8266&lt;/span&gt; &lt;span class="se"&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; -a &lt;span class="nv"&gt;$OTA_PASSWORD&lt;/span&gt; &lt;span class="se"&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; -f &lt;span class="nv"&gt;$FIRMWARE&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;Update complete!&amp;#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
-&lt;button
-class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
-title="Copy code"
-aria-label="Copy code"
-data-copied-label="Copied!"
-&gt;
-&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
-&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
-&lt;/button&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;h3&gt;GitHub Actions CI/CD (Example)&lt;span class="hx:absolute hx:-mt-20" id="github-actions-cicd-example"&gt;&lt;/span&gt;
-&lt;a href="#github-actions-cicd-example" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
-&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-yaml" data-lang="yaml"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;Build and Deploy OTA&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;on&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;push&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;tags&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="s2"&gt;&amp;#34;v*&amp;#34;&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;jobs&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;build-and-deploy&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;runs-on&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;ubuntu-latest&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;steps&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="nt"&gt;uses&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;actions/checkout@v3&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="nt"&gt;uses&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;actions/setup-python@v4&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;with&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;python-version&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;3.11&amp;#34;&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;Install PlatformIO&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;run&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;pip install platformio&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;Build Firmware&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;run&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;pio run -e nodemcuv2&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;Upload via OTA&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;env&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;DEVICE_IP&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;${{ secrets.DEVICE_IP }}&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;OTA_PASSWORD&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;${{ secrets.OTA_PASSWORD }}&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;run&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="sd"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="sd"&gt; python ~/.platformio/packages/framework-arduinoespressif8266/tools/espota.py \
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="sd"&gt; -i $DEVICE_IP \
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="sd"&gt; -p 8266 \
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="sd"&gt; -a $OTA_PASSWORD \
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="sd"&gt; -f .pio/build/nodemcuv2/firmware.bin&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
-&lt;button
-class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
-title="Copy code"
-aria-label="Copy code"
-data-copied-label="Copied!"
-&gt;
-&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
-&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
-&lt;/button&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;h2&gt;Version Management&lt;span class="hx:absolute hx:-mt-20" id="version-management"&gt;&lt;/span&gt;
-&lt;a href="#version-management" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Firmware Versioning&lt;span class="hx:absolute hx:-mt-20" id="firmware-versioning"&gt;&lt;/span&gt;
-&lt;a href="#firmware-versioning" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Version is managed by &lt;strong&gt;release-please&lt;/strong&gt; and stored in &lt;code&gt;platformio.ini&lt;/code&gt;
-as &lt;code&gt;FW_VERSION&lt;/code&gt;. The firmware version is published via Home Assistant
-Discovery and visible in the WebUI (System tab → Current Version).&lt;/p&gt;
-&lt;h2&gt;Best Practices&lt;span class="hx:absolute hx:-mt-20" id="best-practices"&gt;&lt;/span&gt;
-&lt;a href="#best-practices" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;1. Test Before Production&lt;span class="hx:absolute hx:-mt-20" id="1-test-before-production"&gt;&lt;/span&gt;
-&lt;a href="#1-test-before-production" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;Always test new firmware on development device&lt;/li&gt;
-&lt;li&gt;Verify all features work after OTA update&lt;/li&gt;
-&lt;li&gt;Check MQTT connectivity and state restoration&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;2. Staged Rollout&lt;span class="hx:absolute hx:-mt-20" id="2-staged-rollout"&gt;&lt;/span&gt;
-&lt;a href="#2-staged-rollout" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;Update one device first&lt;/li&gt;
-&lt;li&gt;Monitor for 24 hours&lt;/li&gt;
-&lt;li&gt;Roll out to remaining devices if stable&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;3. Backup Current Firmware&lt;span class="hx:absolute hx:-mt-20" id="3-backup-current-firmware"&gt;&lt;/span&gt;
-&lt;a href="#3-backup-current-firmware" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
-&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Backup current firmware before update&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pio run -e nodemcuv2
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;cp .pio/build/nodemcuv2/firmware.bin &lt;span class="se"&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; backups/firmware-v3.1.0-&lt;span class="k"&gt;$(&lt;/span&gt;date +%Y%m%d&lt;span class="k"&gt;)&lt;/span&gt;.bin&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
-&lt;button
-class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
-title="Copy code"
-aria-label="Copy code"
-data-copied-label="Copied!"
-&gt;
-&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
-&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
-&lt;/button&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;h3&gt;4. Schedule Updates&lt;span class="hx:absolute hx:-mt-20" id="4-schedule-updates"&gt;&lt;/span&gt;
-&lt;a href="#4-schedule-updates" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;Perform OTA during low-activity periods&lt;/li&gt;
-&lt;li&gt;Avoid updates during critical pool operation&lt;/li&gt;
-&lt;li&gt;Consider scheduled maintenance windows&lt;/li&gt;
-&lt;/ul&gt;
 &lt;h2&gt;Recovery Procedures&lt;span class="hx:absolute hx:-mt-20" id="recovery-procedures"&gt;&lt;/span&gt;
 &lt;a href="#recovery-procedures" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;OTA Update Failure Recovery&lt;span class="hx:absolute hx:-mt-20" id="ota-update-failure-recovery"&gt;&lt;/span&gt;
 &lt;a href="#ota-update-failure-recovery" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;If OTA update fails and device becomes unresponsive:&lt;/p&gt;
@@ -1341,8 +1169,8 @@ href="https://github.com/smart-swimmingpool/smart-swimmingpool.github.io/discuss
 into the WebPortal. GitHub release builds are handled by the CI pipeline
 (&lt;code&gt;release.yml&lt;/code&gt;).&lt;/p&gt;</description></item><item><title>State Persistence and System Monitoring</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/state-persistence/</link><pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/state-persistence/</guid><description>
 &lt;h1&gt;State Persistence and System Monitoring&lt;/h1&gt;&lt;h2&gt;Overview&lt;span class="hx:absolute hx:-mt-20" id="overview"&gt;&lt;/span&gt;
-&lt;a href="#overview" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The Pool Controller now includes comprehensive state persistence and system
-health monitoring to ensure reliable 24/7 operation. ESP32-only since v3.2.0.&lt;/p&gt;
+&lt;a href="#overview" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The Pool Controller includes comprehensive state persistence and system
+health monitoring to ensure reliable 24/7 operation.&lt;/p&gt;
 &lt;h2&gt;State Persistence&lt;span class="hx:absolute hx:-mt-20" id="state-persistence"&gt;&lt;/span&gt;
 &lt;a href="#state-persistence" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;What Gets Persisted&lt;span class="hx:absolute hx:-mt-20" id="what-gets-persisted"&gt;&lt;/span&gt;
 &lt;a href="#what-gets-persisted" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;All controller states are automatically saved to non-volatile storage (NVS)
@@ -1363,9 +1191,8 @@ and restored after reboots or power failures:&lt;/p&gt;
 &lt;h3&gt;How It Works&lt;span class="hx:absolute hx:-mt-20" id="how-it-works"&gt;&lt;/span&gt;
 &lt;a href="#how-it-works" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Uses the Preferences library for persistent storage in NVS
 (Non-Volatile Storage). Each value is stored with a type-specific key.&lt;/p&gt;
-&lt;p&gt;Relay states are persisted individually per relay via their own Preferences
-namespace named after the relay node-id (e.g., &lt;code&gt;pool-pump&lt;/code&gt;, &lt;code&gt;solar-pump&lt;/code&gt;),
-storing key &lt;code&gt;&amp;quot;switch&amp;quot;&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Relay states are persisted individually per relay via their own namespace
+in NVS, storing the on/off state under the key &lt;code&gt;&amp;quot;switch&amp;quot;&lt;/code&gt;.&lt;/p&gt;
 &lt;h3&gt;Automatic Restoration&lt;span class="hx:absolute hx:-mt-20" id="automatic-restoration"&gt;&lt;/span&gt;
 &lt;a href="#automatic-restoration" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;When the controller reboots:&lt;/p&gt;
 &lt;ol&gt;
@@ -1458,8 +1285,7 @@ data-copied-label="Copied!"
 &lt;/div&gt;
 &lt;h2&gt;Configuration&lt;span class="hx:absolute hx:-mt-20" id="configuration"&gt;&lt;/span&gt;
 &lt;a href="#configuration" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Enabling Features&lt;span class="hx:absolute hx:-mt-20" id="enabling-features"&gt;&lt;/span&gt;
-&lt;a href="#enabling-features" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Both state persistence and system monitoring are &lt;strong&gt;automatically enabled&lt;/strong&gt; in
-version 3.1.0+. No configuration required.&lt;/p&gt;
+&lt;a href="#enabling-features" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Both state persistence and system monitoring are &lt;strong&gt;automatically enabled&lt;/strong&gt;. No configuration required.&lt;/p&gt;
 &lt;h3&gt;Customizing Thresholds&lt;span class="hx:absolute hx:-mt-20" id="customizing-thresholds"&gt;&lt;/span&gt;
 &lt;a href="#customizing-thresholds" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;To customize memory thresholds, modify &lt;code&gt;src/SystemMonitor.hpp&lt;/code&gt;:&lt;/p&gt;
 &lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
@@ -1647,21 +1473,12 @@ operations&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;Total impact&lt;/strong&gt;: Negligible (&amp;lt; 0.1% CPU usage)&lt;/p&gt;
 &lt;h2&gt;Future Enhancements&lt;span class="hx:absolute hx:-mt-20" id="future-enhancements"&gt;&lt;/span&gt;
-&lt;a href="#future-enhancements" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Completed in v3.2.0:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;✅ &lt;strong&gt;Degradation Manager&lt;/strong&gt;: Central health state (NORMAL → CRITICAL)&lt;/li&gt;
-&lt;li&gt;✅ &lt;strong&gt;MQTT Reconnect-Refresh&lt;/strong&gt;: Full state republish on reconnection&lt;/li&gt;
-&lt;li&gt;✅ &lt;strong&gt;NTP Graceful Degradation&lt;/strong&gt;: Three-stage time degradation (GREEN/YELLOW/RED)&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Planned:&lt;/p&gt;
-&lt;ol&gt;
+&lt;a href="#future-enhancements" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;🔜 &lt;strong&gt;Configurable thresholds&lt;/strong&gt;: MQTT-based threshold configuration&lt;/li&gt;
-&lt;li&gt;🔜 &lt;strong&gt;Memory stats&lt;/strong&gt;: Historical memory usage tracking&lt;/li&gt;
-&lt;li&gt;🔜 &lt;strong&gt;Remote reboot&lt;/strong&gt;: MQTT command to trigger reboot&lt;/li&gt;
 &lt;li&gt;🔜 &lt;strong&gt;Health dashboard&lt;/strong&gt;: Web UI for health monitoring&lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ul&gt;
 &lt;hr&gt;
-&lt;p&gt;&lt;strong&gt;Version&lt;/strong&gt;: 3.2.0
+&lt;p&gt;&lt;strong&gt;Version&lt;/strong&gt;: 3.3.0
 &lt;strong&gt;Status&lt;/strong&gt;: Production Ready
 &lt;strong&gt;Platform&lt;/strong&gt;: ESP32&lt;/p&gt;</description></item><item><title>ESP32 Komplett-Schaltplan</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/esp32-complete-wiring-schematic-de/</link><pubDate>Fri, 15 May 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/esp32-complete-wiring-schematic-de/</guid><description>
 &lt;p&gt;Dieses Dokument zeigt einen zusätzlichen, vollständigen Verdrahtungsplan für
@@ -2129,29 +1946,83 @@ data-copied-label="Copied!"
 &lt;/li&gt;
 &lt;li&gt;In Paper UI install add-on &amp;lsquo;MQTT Binding&amp;rsquo; from bindings.&lt;/li&gt;
 &lt;li&gt;Check &lt;code&gt;services/mqtt.cfg&lt;/code&gt; for your environment.&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>Software Guide of Pool Controller</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/software-guide/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/software-guide/</guid><description>
+&lt;/ul&gt;</description></item><item><title>Pool Controller 3.3</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/</guid><description>
+&lt;h2&gt;🏊 The MQTT-enabled Smart Swimmingpool Controller 🎛️&lt;span class="hx:absolute hx:-mt-20" id="-the-mqtt-enabled-smart-swimmingpool-controller-"&gt;&lt;/span&gt;
+&lt;a href="#-the-mqtt-enabled-smart-swimmingpool-controller-" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;span style="text-shadow: none;"&gt;
+&lt;!-- markdownlint-disable MD013 --&gt;
+&lt;a class="github-button" href="https://github.com/smart-swimmingpool/pool-controller/subscription" data-size="large" data-show-count="true" aria-label="Watch smart-swimmingpool/pool-controller on GitHub"&gt;Watch&lt;/a&gt;
+&lt;a class="github-button" href="https://github.com/smart-swimmingpool/pool-controller" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star this on GitHub"&gt;Star&lt;/a&gt;&lt;script async defer src="https://buttons.github.io/buttons.js"&gt;&lt;/script&gt;
+&lt;!-- markdownlint-enable MD013 --&gt;
+&lt;p&gt;&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller"target="_blank" rel="noopener"&gt;GitHub Sources&lt;/a&gt;
+&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Manage your swimming pool in a smart way to enjoy it comfortably and affordably (for less than 100€).&lt;/p&gt;
+&lt;h2&gt;Main Features&lt;span class="hx:absolute hx:-mt-20" id="main-features"&gt;&lt;/span&gt;
+&lt;a href="#main-features" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; Manage water timed circulation for cleaning&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; Manage water heating by additional pump for solar circuit&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; &lt;a
+href="https://www.home-assistant.io/integrations/mqtt/#mqtt-discovery"target="_blank" rel="noopener"&gt;Home Assistant MQTT Discovery&lt;/a&gt; - Native HA integration&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; Independent of specific smarthome servers
+&lt;ul&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; &lt;a
+href="https://home-assistant.io"target="_blank" rel="noopener"&gt;Home Assistant&lt;/a&gt; via native MQTT Discovery&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; &lt;a
+href="https://www.openhab.org"target="_blank" rel="noopener"&gt;openHAB&lt;/a&gt; via MQTT&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; Timesync via NTP (europe.pool.ntp.org)&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; Logging of system events and diagnostics&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Roadmap&lt;span class="hx:absolute hx:-mt-20" id="roadmap"&gt;&lt;/span&gt;
+&lt;a href="#roadmap" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;✔️ State persistence across reboots (v3.1.0+)
+✔️ Web-based OTA firmware updates (v3.2.0+)
+✔️ Home Assistant MQTT Discovery (v3.3.0)
+✔️ Automatic update checking from GitHub releases (v3.3.0)
+✔️ Temperature-based circulation time adjustment (v3.4.0)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Configurable NTP server&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Dual circulation cycles (pool + solar independent)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Offline operation mode (no WiFi required)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Unified power supply (ESP32 + relays from single source)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Rollback capability for OTA firmware updates&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; A/B partition updates for safer firmware upgrades&lt;/li&gt;
+&lt;li&gt;see also the &lt;a
+href="https://github.com/smart-swimmingpool/pool-controller/issues"target="_blank" rel="noopener"&gt;issue list&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- markdownlint-disable-next-line MD013 --&gt;
+&lt;figure&gt;&lt;img src="https://smart-swimmingpool.github.io/docs/pool-controller/pool-controller_breadboard.png"&gt;&lt;figcaption&gt;
+&lt;h4&gt;ESP32 Pool Controller breadboard circuit with DS18B20 temperature sensors and relay modules&lt;/h4&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;</description></item><item><title>Software Guide</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/software-guide/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/software-guide/</guid><description>
 &lt;h2&gt;Development Environment&lt;span class="hx:absolute hx:-mt-20" id="development-environment"&gt;&lt;/span&gt;
 &lt;a href="#development-environment" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Required Libraries&lt;span class="hx:absolute hx:-mt-20" id="required-libraries"&gt;&lt;/span&gt;
 &lt;a href="#required-libraries" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a
-href="https://github.com/YuriiSalimov/RelayModule"target="_blank" rel="noopener"&gt;RelayModule&lt;/a&gt;&lt;/li&gt;
+href="https://github.com/marvinroger/async-mqtt-client"target="_blank" rel="noopener"&gt;AsyncMqttClient&lt;/a&gt; @ 0.9.0&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="https://github.com/tomstewart89/Vector"target="_blank" rel="noopener"&gt;Vector&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;DallasTemperature&lt;/li&gt;
-&lt;li&gt;OneWire&lt;/li&gt;
-&lt;li&gt;Adafruit Unified Sensor&lt;/li&gt;
-&lt;li&gt;DHT sensor library&lt;/li&gt;
-&lt;li&gt;NTPClient @ 3.2.1&lt;/li&gt;
-&lt;li&gt;TimeZone @ 1.2.4&lt;/li&gt;
-&lt;li&gt;ArduinoJson @ 7.3.0&lt;/li&gt;
-&lt;li&gt;Bounce2&lt;/li&gt;
-&lt;li&gt;PubSubClient @ 2.8&lt;/li&gt;
-&lt;li&gt;Wire&lt;/li&gt;
+href="https://github.com/milesburton/Arduino-Temperature-Control-Library"target="_blank" rel="noopener"&gt;DallasTemperature&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/PaulStoffregen/OneWire"target="_blank" rel="noopener"&gt;OneWire&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/adafruit/Adafruit_Sensor"target="_blank" rel="noopener"&gt;Adafruit Unified Sensor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/adafruit/DHT-sensor-library"target="_blank" rel="noopener"&gt;DHT sensor library&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/arduino-libraries/NTPClient"target="_blank" rel="noopener"&gt;NTPClient&lt;/a&gt; @ 3.2.1&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/JChristensen/Timezone"target="_blank" rel="noopener"&gt;Timezone&lt;/a&gt; @ 1.2.6&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/bblanchon/ArduinoJson"target="_blank" rel="noopener"&gt;ArduinoJson&lt;/a&gt; @ 7.3.2&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/thomasfredericks/Bounce2"target="_blank" rel="noopener"&gt;Bounce2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/espressif/arduino-esp32/tree/master/libraries/Wire"target="_blank" rel="noopener"&gt;Wire&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Many thanks to maintainers of these libraries!&lt;/p&gt;
+&lt;p&gt;Many thanks to the maintainers of these libraries!&lt;/p&gt;
 &lt;h2&gt;Pin Configuration&lt;span class="hx:absolute hx:-mt-20" id="pin-configuration"&gt;&lt;/span&gt;
 &lt;a href="#pin-configuration" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Within the sources at &lt;code&gt;Config.hpp&lt;/code&gt;, the GPIO pin assignments are defined. For details,
-see also in the &lt;a
+see also the &lt;a
 href="../hardware-guide/#pin-assignment-firmware-defaults"&gt;hardware guide&lt;/a&gt;.&lt;/p&gt;
 &lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
 &lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cpp" data-lang="cpp"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;constexpr&lt;/span&gt; &lt;span class="kt"&gt;uint8_t&lt;/span&gt; &lt;span class="n"&gt;PIN_DS_SOLAR&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;// Pin of Temp-Sensor Solar (GPIO15)
@@ -2372,33 +2243,19 @@ on the next measurement cycle (every &lt;code&gt;loopInterval&lt;/code&gt; secon
 Changes made via MQTT are confirmed immediately.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2&gt;MQTT Communication&lt;span class="hx:absolute hx:-mt-20" id="mqtt-communication"&gt;&lt;/span&gt;
-&lt;a href="#mqtt-communication" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Protocol&lt;span class="hx:absolute hx:-mt-20" id="protocol"&gt;&lt;/span&gt;
-&lt;a href="#protocol" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The controller uses &lt;strong&gt;Home Assistant MQTT Discovery&lt;/strong&gt; (default) with topic
-structure:&lt;/p&gt;
-&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
-&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;homeassistant/&amp;lt;component&amp;gt;/pool-controller/&amp;lt;object-id&amp;gt;/config (discovery)
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;homeassistant/&amp;lt;component&amp;gt;/pool-controller/&amp;lt;object-id&amp;gt;/state (state)
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;homeassistant/&amp;lt;component&amp;gt;/pool-controller/&amp;lt;object-id&amp;gt;/set (command)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
-&lt;button
-class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
-title="Copy code"
-aria-label="Copy code"
-data-copied-label="Copied!"
-&gt;
-&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
-&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
-&lt;/button&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;See &lt;code&gt;docs/mqtt-configuration.md&lt;/code&gt; for a complete entity mapping.&lt;/p&gt;
+&lt;a href="#mqtt-communication" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The controller uses &lt;strong&gt;Home Assistant MQTT Discovery&lt;/strong&gt; exclusively since v3.3.0.
+See the dedicated documentation for details:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="../mqtt-configuration"&gt;MQTT Configuration&lt;/a&gt;&lt;/strong&gt; — Protocol, entity reference, Homie migration&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="../home-assistant"&gt;Home Assistant Integration&lt;/a&gt;&lt;/strong&gt; — Lovelace dashboard, HA entity IDs&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3&gt;Clearing retained messages&lt;span class="hx:absolute hx:-mt-20" id="clearing-retained-messages"&gt;&lt;/span&gt;
 &lt;a href="#clearing-retained-messages" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;If you need to clear retained MQTT messages:&lt;/p&gt;
 &lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
 &lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Clear a specific Home Assistant topic&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mosquitto_pub -h hostname -t &lt;span class="s2"&gt;&amp;#34;homeassistant/sensor/pool-controller/pool-temp/state&amp;#34;&lt;/span&gt; -n -r
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Clear a root Homie topic (legacy cleanup)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mosquitto_pub -h hostname -t homie -n -r -d&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mosquitto_pub -h hostname -t &lt;span class="s2"&gt;&amp;#34;homeassistant/sensor/pool-controller/pool-temp/state&amp;#34;&lt;/span&gt; -n -r&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
 &lt;button
 class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
 title="Copy code"
@@ -2410,32 +2267,29 @@ data-copied-label="Copied!"
 &lt;/button&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;h2&gt;Configuration&lt;span class="hx:absolute hx:-mt-20" id="configuration"&gt;&lt;/span&gt;
-&lt;a href="#configuration" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The controller uses a &lt;code&gt;config.json&lt;/code&gt; file on its LittleFS filesystem for
-base configuration (WiFi credentials, MQTT settings). Use &lt;code&gt;uploadfs&lt;/code&gt; to deploy it.&lt;/p&gt;
-&lt;h3&gt;Example &lt;code&gt;config.json&lt;/code&gt;&lt;span class="hx:absolute hx:-mt-20" id="example-configjson"&gt;&lt;/span&gt;
-&lt;a href="#example-configjson" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
-&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-json" data-lang="json"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;#34;name&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;Pool Controller&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;#34;device_id&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;pool-controller&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;#34;wifi&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;#34;ssid&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;&amp;lt;SSID&amp;gt;&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;#34;password&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;&amp;lt;XXX&amp;gt;&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;},&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;#34;mqtt&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;#34;host&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;&amp;lt;MQTT_HOST&amp;gt;&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;#34;port&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1883&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;},&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;#34;ota&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;#34;enabled&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;true&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;},&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;#34;settings&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;#34;loop-interval&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;60&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;#34;temperature-max-pool&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;28&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;#34;temperature-min-solar&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;#34;temperature-hysteresis&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;0.5&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;h2&gt;Configuration Persistence&lt;span class="hx:absolute hx:-mt-20" id="configuration-persistence-1"&gt;&lt;/span&gt;
+&lt;a href="#configuration-persistence-1" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Configuration is persisted in two independent storage systems, ensuring all
+settings survive reboots and power failures:&lt;/p&gt;
+&lt;h3&gt;1. ConfigManager — Device Settings (LittleFS)&lt;span class="hx:absolute hx:-mt-20" id="1-configmanager--device-settings-littlefs"&gt;&lt;/span&gt;
+&lt;a href="#1-configmanager--device-settings-littlefs" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The controller stores WiFi, MQTT, NTP, and device settings in a JSON file on
+LittleFS. See &lt;a
+href="../state-persistence"&gt;&lt;code&gt;ConfigManager&lt;/code&gt;&lt;/a&gt; for details.&lt;/p&gt;
+&lt;h3&gt;2. Runtime State (ESP32 NVS / Preferences)&lt;span class="hx:absolute hx:-mt-20" id="2-runtime-state-esp32-nvs--preferences"&gt;&lt;/span&gt;
+&lt;a href="#2-runtime-state-esp32-nvs--preferences" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Operation mode, relay states, and temperature parameters are persisted in NVS
+for immediate recovery after power loss.&lt;/p&gt;
+&lt;h3&gt;Data Flow on Settings Changes&lt;span class="hx:absolute hx:-mt-20" id="data-flow-on-settings-changes-1"&gt;&lt;/span&gt;
+&lt;a href="#data-flow-on-settings-changes-1" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Web UI / REST API MQTT (Home Assistant)
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; │ │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; ▼ ▼
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;────────┴────── ConfigManager ───────┴────
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; save() → /config.json (LittleFS)
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; ↓
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; OperationModeNode
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; (runtime parameters)
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; ↓
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; MqttPublisher::publishStates()
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; → MQTT topics → Home Assistant&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
 &lt;button
 class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
 title="Copy code"
@@ -2447,7 +2301,11 @@ data-copied-label="Copied!"
 &lt;/button&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;!-- (duplicate MQTT Communication heading removed — content already covered above) --&gt;</description></item><item><title>Users Guide of Pool Controller</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/users-guide/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/users-guide/</guid><description>
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; When settings are changed via the Web UI, Home Assistant is updated
+on the next measurement cycle (every &lt;code&gt;loopInterval&lt;/code&gt; seconds, default 10s).
+Changes made via MQTT are confirmed immediately.&lt;/p&gt;
+&lt;/blockquote&gt;</description></item><item><title>User Guide</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/users-guide/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/users-guide/</guid><description>
 &lt;h2&gt;Setup&lt;span class="hx:absolute hx:-mt-20" id="setup"&gt;&lt;/span&gt;
 &lt;a href="#setup" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Initial WiFi setup via Web Interface (AP Mode)&lt;span class="hx:absolute hx:-mt-20" id="initial-wifi-setup-via-web-interface-ap-mode"&gt;&lt;/span&gt;
 &lt;a href="#initial-wifi-setup-via-web-interface-ap-mode" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;When the controller has no WiFi configured, it starts in &lt;strong&gt;Access Point mode&lt;/strong&gt;:&lt;/p&gt;
@@ -2513,7 +2371,7 @@ Faster when connecting to the MQTT broker&lt;/li&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Dashboard&lt;/strong&gt; — Live telemetry: pool/solar/controller temperature, pump states, free heap, RSSI, operating mode&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;WiFi Setup&lt;/strong&gt; — Scan and configure WiFi credentials&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;MQTT Settings&lt;/strong&gt; — Broker host, port, username, password, TLS toggle&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MQTT Settings&lt;/strong&gt; — Broker host, port, username, password&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Configuration&lt;/strong&gt; — Operation mode, temperature limits, hysteresis, timer, timezone&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Security &amp;amp; Update&lt;/strong&gt; — Change admin password, OTA firmware update, restart, factory reset&lt;/li&gt;
 &lt;/ul&gt;
