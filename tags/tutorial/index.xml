@@ -568,14 +568,67 @@ data-copied-label="Copied!"
 &lt;p&gt;The web interface shows the assigned IP in the dashboard header&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Booting Controller&lt;span class="hx:absolute hx:-mt-20" id="booting-controller"&gt;&lt;/span&gt;
-&lt;a href="#booting-controller" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;When booting the controller, it will provide feedback on establishing the WiFi connection and connection to the MQTT broker:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&amp;ldquo;LED&amp;rdquo; &lt;img src="../led_wifi.gif" alt="Slowly blinking LED" data-zoomable loading="lazy" /&gt;
-Slowly when connecting to the Wi-Fi&lt;/li&gt;
-&lt;li&gt;&amp;ldquo;LED&amp;rdquo; &lt;img src="../led_mqtt.gif" alt="Fast blinking LED" data-zoomable loading="lazy" /&gt;
-Faster when connecting to the MQTT broker&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h2&gt;LED Status Codes (Homie Convention)&lt;span class="hx:absolute hx:-mt-20" id="led-status-codes-homie-convention"&gt;&lt;/span&gt;
+&lt;a href="#led-status-codes-homie-convention" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The controller uses its &lt;strong&gt;built-in LED&lt;/strong&gt; to signal the current system state,
+following the &lt;a
+href="https://homieiot.github.io/"target="_blank" rel="noopener"&gt;Homie Convention&lt;/a&gt; — an industry
+standard for IoT device status indication.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;LED Pattern&lt;/th&gt;
+&lt;th&gt;When?&lt;/th&gt;
+&lt;th&gt;What it means&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;img src="../led_wifi.gif" alt="WiFi connecting" data-zoomable loading="lazy" /&gt; &lt;strong&gt;Slow blink&lt;/strong&gt; (1x/sec)&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;WiFi connecting&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;The controller is trying to join your home WiFi network. This should take 5–20 seconds.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;img src="../led_mqtt.gif" alt="MQTT connecting" data-zoomable loading="lazy" /&gt; &lt;strong&gt;Mostly on, brief blip off every 2s&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;WiFi OK, MQTT connecting/disconnected&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Network is up, but the MQTT broker is not yet connected. Check broker address or network.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Rapid blink&lt;/strong&gt; (5x/sec)&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;AP Mode / Setup&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;No WiFi credentials stored. The controller is hosting its own &lt;code&gt;Pool-Controller-Setup&lt;/code&gt; WiFi network.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Solid on&lt;/strong&gt; (always on)&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Fully connected&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Everything is running normally — WiFi + MQTT connected.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Very fast blink&lt;/strong&gt; (10x/sec)&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;OTA Update in progress&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Firmware is being downloaded and flashed. Do not power off!&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Double blink&lt;/strong&gt; (two flashes, pause)&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Safe Mode / Error&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Boot-loop detected or critical system degradation. Relays are forced OFF.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;What to expect at first power-on&lt;span class="hx:absolute hx:-mt-20" id="what-to-expect-at-first-power-on"&gt;&lt;/span&gt;
+&lt;a href="#what-to-expect-at-first-power-on" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Power on&lt;/strong&gt; the controller&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Rapid blink&lt;/strong&gt; — AP mode (no WiFi configured yet)&lt;/li&gt;
+&lt;li&gt;Open the &lt;code&gt;Pool-Controller-Setup&lt;/code&gt; network and configure your WiFi&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Slow blink&lt;/strong&gt; — connecting to your home WiFi&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mostly on&lt;/strong&gt; — WiFi connected, MQTT connecting&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Solid on&lt;/strong&gt; — everything is running normally&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Troubleshooting&lt;/strong&gt;: If the LED &lt;strong&gt;never leaves rapid blink&lt;/strong&gt;, the controller
+has no WiFi credentials or cannot find your network. Connect to the
+&lt;code&gt;Pool-Controller-Setup&lt;/code&gt; access point to configure it. If it stays in
+&lt;strong&gt;double-blink&lt;/strong&gt;, a critical error has occurred — check the serial log.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2&gt;Web Dashboard&lt;span class="hx:absolute hx:-mt-20" id="web-dashboard"&gt;&lt;/span&gt;
 &lt;a href="#web-dashboard" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The controller provides a modern web dashboard at &lt;code&gt;http://&amp;lt;controller-ip&amp;gt;/&lt;/code&gt; with the following tabs:&lt;/p&gt;
 &lt;ul&gt;

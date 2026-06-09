@@ -6,7 +6,7 @@ href="https://medium.com/diy-my-smart-home/project-smart-swimmingpool-4c40eb6741
 , &lt;em&gt;December 2018&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Blogpost of version 1 of Smart Swimming Pool&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>Temperature-Based Circulation Time</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/temperature-based-circulation/</link><pubDate>Mon, 08 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/temperature-based-circulation/</guid><description>
+&lt;/ul&gt;</description></item><item><title>Temperature-Based Circulation Time</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/temperature-based-circulation/</link><pubDate>Tue, 09 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/temperature-based-circulation/</guid><description>
 &lt;h1&gt;Temperature-Based Circulation Time&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;Optimize pool circulation for better water quality with minimal power consumption.&lt;/strong&gt;&lt;/p&gt;
 &lt;h2&gt;1. Motivation&lt;span class="hx:absolute hx:-mt-20" id="1-motivation"&gt;&lt;/span&gt;
 &lt;a href="#1-motivation" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The pool pump is the largest power consumer in a swimming pool. At the same time, it determines water quality. The required circulation volume strongly depends on water temperature:&lt;/p&gt;
@@ -693,7 +693,10 @@ wire to verify before wiring permanently.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2&gt;Pin Assignment (Firmware Defaults)&lt;span class="hx:absolute hx:-mt-20" id="pin-assignment-firmware-defaults"&gt;&lt;/span&gt;
-&lt;a href="#pin-assignment-firmware-defaults" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The firmware uses these GPIO pins (defined in &lt;code&gt;src/Config.hpp&lt;/code&gt;):&lt;/p&gt;
+&lt;a href="#pin-assignment-firmware-defaults" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The firmware uses an &lt;strong&gt;optimized pin assignment&lt;/strong&gt; that avoids strapping pins and
+ADC2-related issues (see &lt;a
+href="#alternative-pin-assignment-original"&gt;Alternative Pin Assignment&lt;/a&gt;
+for details). Defined in &lt;code&gt;src/Config.hpp&lt;/code&gt;:&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -705,68 +708,76 @@ wire to verify before wiring permanently.&lt;/li&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;PIN_DS_SOLAR&lt;/code&gt;&lt;/td&gt;
-&lt;td style="text-align: center"&gt;&lt;strong&gt;GPIO15&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;GPIO32&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;DS18B20 data — Solar collector temperature&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;PIN_DS_POOL&lt;/code&gt;&lt;/td&gt;
-&lt;td style="text-align: center"&gt;&lt;strong&gt;GPIO16&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;GPIO33&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;DS18B20 data — Pool water temperature&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;PIN_RELAY_POOL&lt;/code&gt;&lt;/td&gt;
-&lt;td style="text-align: center"&gt;&lt;strong&gt;GPIO18&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;GPIO25&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;Relay control — Pool circulation pump&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;PIN_RELAY_SOLAR&lt;/code&gt;&lt;/td&gt;
-&lt;td style="text-align: center"&gt;&lt;strong&gt;GPIO19&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;GPIO26&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;Relay control — Solar heating pump&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;PIN_LED_STATUS&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;Built-in LED&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Status LED (Homie convention blink codes)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Note on GPIO15&lt;/strong&gt;: This pin is a &lt;strong&gt;Strapping pin&lt;/strong&gt; on the ESP32 — it affects
-the boot process if pulled HIGH or LOW at startup. The firmware works reliably
-with it here, but if you experience boot issues, consider moving the DS18B20
-sensors to &lt;strong&gt;GPIO32/33&lt;/strong&gt; and updating &lt;code&gt;src/Config.hpp&lt;/code&gt; accordingly (see the
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: These pins are chosen for maximum compatibility. GPIO15/16/18/19
+(the original assignment) work for most users, but the optimized pins
+eliminate any boot-strapping risk and avoid ADC2 pins entirely — see
 &lt;a
-href="#optional-wiring-optimization"&gt;Wiring Optimization&lt;/a&gt; section).&lt;/p&gt;
+href="#alternative-pin-assignment-original"&gt;Alternative Pin Assignment&lt;/a&gt; for the original layout.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;hr&gt;
 &lt;h2&gt;Wiring Diagram&lt;span class="hx:absolute hx:-mt-20" id="wiring-diagram"&gt;&lt;/span&gt;
 &lt;a href="#wiring-diagram" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
-&lt;div&gt;&lt;pre&gt;&lt;code&gt; &amp;#43;-------------------------&amp;#43;
-| ESP32 |
-| |
-DS18B20 SOLAR DATA ---&amp;gt;| GPIO15 (PIN_DS_SOLAR) |
-DS18B20 POOL DATA ---&amp;gt;| GPIO16 (PIN_DS_POOL) |
-Relay IN1 (Pool) ----&amp;gt;| GPIO18 (PIN_RELAY_POOL)|
-Relay IN2 (Solar) ----&amp;gt;| GPIO19 (PIN_RELAY_SOLAR)|
-| |
-3.3V ------------------&amp;gt;| 3V3 |
-GND -------------------&amp;gt;| GND |
-&amp;#43;-----------&amp;#43;-------------&amp;#43;
-|
-| common GND
-v
-&amp;#43;--------&amp;#43;--------&amp;#43;--------&amp;#43;--------&amp;#43;
-| | | | |
-&amp;#43;----&amp;#43;--&amp;#43; &amp;#43;--&amp;#43;----&amp;#43; | &amp;#43;----&amp;#43;--&amp;#43; &amp;#43;--&amp;#43;----&amp;#43;
-|Solar | | Pool | | | RLY1 | | RLY2 |
-|DS18B20| |DS18B20| | |(Pool) | |(Solar)|
-| | | | | | | | |
-| VDD --&amp;#43;--&amp;#43; VDD --&amp;#43;--&amp;#43;---&amp;gt; 3.3V | | |
-| GND --&amp;#43;--&amp;#43; GND --&amp;#43;-------&amp;gt; GND | | |
-|DATA ---&amp;gt;| GPIO15| | | | | |
-| | |DATA --&amp;gt;| | | VCC | | VCC |
-&amp;#43;-------&amp;#43; &amp;#43;-------&amp;#43; | | -- 5V | | -- 5V|
-| | GND | | GND |
-| | | | |
-4.7kΩ | | IN1 | | IN2 |
-| | | &amp;lt;-18 | | &amp;lt;-19 |
-v | &amp;#43;------&amp;#43; &amp;#43;------&amp;#43;
-3.3V ----&amp;#43;-&amp;#43;--- 3.3V&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt; ─── POWER SUPPLY ──────────────────────────────────────────────────
+[USB PSU 5V/1A&amp;#43;] [ESP32 Board] [Relay Module]
+┌──────────┐ ┌─────────────┐ ┌────────────┐
+│ 5V (&amp;#43;) ──┼──────────────┤ VIN │ │ VCC │
+│ │ │ (powers │ ┌───┤ (powers │
+│ │ │ board) │ │ │ coils) │
+│ │ │ │ │ │ │
+│ │ │ 3V3 ───┬────┘ │ │ GND ◄──────┼──┐
+│ │ │ │ │ └────────────┘ │
+│ GND ─────┼──────────────┤ GND ◄──┼───────────┼──────────────────┘
+└──────────┘ └────────┘ │
+─── SENSORS ──────────────────────────────────────────────────────
+[DS18B20 Solar] [DS18B20 Pool]
+┌───────────┐ ┌───────────┐
+│ VDD (red) ─┼── 3.3V ─────────────────────────┼── VDD (red)│
+│ │ │ │
+│ GND (blk) ─┼── GND ──────────────────────────┼── GND (blk)│
+│ │ │ │
+│DATA (yel) ─┼── GPIO32 (PIN_DS_SOLAR) │ │
+│ │ │ │ │
+│ │ └──[4.7kΩ]── 3.3V ← pull-up │ │
+│ │ resistor │ │
+│ │ │DATA (yel) ─┼── GPIO33 (PIN_DS_POOL)
+│ │ │ │ │
+│ │ │ │ └──[4.7kΩ]── 3.3V
+└───────────┘ └───────────┘
+─── RELAY CONTROL SIGNALS ────────────────────────────────────────
+ESP32 GPIO25 ────────────────────────────────── Relay IN1 (Pool)
+ESP32 GPIO26 ────────────────────────────────── Relay IN2 (Solar)
+─── STATUS INDICATION ────────────────────────────────────────────
+ESP32 Built-in LED (GPIO2) ── Status blink codes (Homie)
+─── RELAY LOAD SIDE (230V AC) ────────────────────────────────────
+L (mains) ─── RCD ─── MCB ──┬── Relay COM1 ── Pool Pump
+└── Relay COM2 ── Solar Pump
+N (neutral) ───────────────────────── Neutral bar ── Pump N&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
 &lt;button
 class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
 title="Copy code"
@@ -787,31 +798,34 @@ datasheet&lt;/strong&gt;):&lt;/p&gt;
 &lt;thead&gt;
 &lt;tr&gt;
 &lt;th style="text-align: center"&gt;DS18B20 Wire&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Color (typical)&lt;/th&gt;
 &lt;th&gt;Connect to&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td style="text-align: center"&gt;Red (VDD)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;VDD&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;Red&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;ESP32 &lt;strong&gt;3.3V&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style="text-align: center"&gt;Black (GND)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;GND&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;Black&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;ESP32 &lt;strong&gt;GND&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style="text-align: center"&gt;Yellow/White (DATA)&lt;/td&gt;
-&lt;td&gt;&lt;strong&gt;GPIO15&lt;/strong&gt; (solar) or &lt;strong&gt;GPIO16&lt;/strong&gt; (pool)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;DATA&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;Yellow / White&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;ESP32 &lt;strong&gt;GPIO32&lt;/strong&gt; (solar) or &lt;strong&gt;GPIO33&lt;/strong&gt; (pool)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;&lt;strong&gt;Critical — add the pull-up resistor:&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Connect a &lt;strong&gt;4.7kΩ resistor&lt;/strong&gt; between the DATA wire and the &lt;strong&gt;3.3V&lt;/strong&gt; line.
-One resistor per sensor, as close to the sensor wire connection as possible.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Critical — add the 4.7kΩ pull-up resistor:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Each sensor DATA line &lt;strong&gt;must&lt;/strong&gt; have a &lt;strong&gt;4.7kΩ resistor&lt;/strong&gt; connecting it to
+&lt;strong&gt;3.3V&lt;/strong&gt;. Without it, the sensor will not be detected.&lt;/p&gt;
 &lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
-&lt;div&gt;&lt;pre&gt;&lt;code&gt; ESP32 3.3V ──┬── 4.7kΩ ──── DS18B20 DATA
-│
-DS18B20 VDD&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt; Solar DATA ──── 4.7kΩ ──── 3.3V
+Pool DATA ──── 4.7kΩ ──── 3.3V&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
 &lt;button
 class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
 title="Copy code"
@@ -823,42 +837,58 @@ data-copied-label="Copied!"
 &lt;/button&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;Without this resistor, the sensor will not be detected — this is the #1
-cause of &amp;ldquo;no sensor found&amp;rdquo; errors.&lt;/p&gt;
+&lt;p&gt;Solder the resistor as close to the ESP32 pin header as possible, connecting
+between the DATA pin and the 3.3V rail. The resistor can be any 4.7kΩ ±5%
+(¼W or ⅛W, metal film or carbon film).&lt;/p&gt;
 &lt;h4&gt;2. Relay Module&lt;span class="hx:absolute hx:-mt-20" id="2-relay-module"&gt;&lt;/span&gt;
 &lt;a href="#2-relay-module" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th style="text-align: center"&gt;Relay Module&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Relay Terminal&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Typical Label&lt;/th&gt;
 &lt;th&gt;Connect to&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Wire Color&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td style="text-align: center"&gt;VCC (or VDD)&lt;/td&gt;
-&lt;td&gt;&lt;strong&gt;5V&lt;/strong&gt; (from the ESP32 board&amp;rsquo;s VIN/5V pin, or external 5V supply)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Module power&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;code&gt;VCC&lt;/code&gt; or &lt;code&gt;VDD&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;5V&lt;/strong&gt; (from ESP32 VIN or external 5V PSU)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;Red&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style="text-align: center"&gt;GND&lt;/td&gt;
-&lt;td&gt;&lt;strong&gt;GND&lt;/strong&gt; (common with ESP32)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Ground&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;code&gt;GND&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;GND&lt;/strong&gt; (common ground with ESP32)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;Black&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style="text-align: center"&gt;IN1&lt;/td&gt;
-&lt;td&gt;&lt;strong&gt;GPIO18&lt;/strong&gt; (pool pump)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Control input 1&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;code&gt;IN1&lt;/code&gt; or &lt;code&gt;D1&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;GPIO25&lt;/strong&gt; (Pool Pump)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;Yellow/Blue&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style="text-align: center"&gt;IN2&lt;/td&gt;
-&lt;td&gt;&lt;strong&gt;GPIO19&lt;/strong&gt; (solar pump)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Control input 2&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;code&gt;IN2&lt;/code&gt; or &lt;code&gt;D2&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;GPIO26&lt;/strong&gt; (Solar Pump)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;Green/Blue&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;&lt;strong&gt;Relay Logic&lt;/strong&gt;: The firmware sets the GPIO pin HIGH (3.3V) to activate the
-relay. If your module switches with LOW (active-low), flip the jumper or adapt
-the firmware (see &lt;code&gt;src/RelayModuleNode.cpp&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Important — Logic Level&lt;/strong&gt;: The firmware sets the GPIO pin &lt;strong&gt;HIGH (3.3V)&lt;/strong&gt;
+to activate (close) the relay. If your relay module switches with LOW instead
+(active-low), look for a &lt;strong&gt;jumper&lt;/strong&gt; on the module to change the mode, or choose
+a different module — active-high modules are easier to work with.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Load wiring (230V side):&lt;/strong&gt;&lt;/p&gt;
 &lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
-&lt;div&gt;&lt;pre&gt;&lt;code&gt; L ──┤ RCD ├──┤ MCB ├──┬──┤ Relay-COM1 ├── Pool Pump ── N
-└──┤ Relay-COM2 ├── Solar Pump ── N&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt; L (mains live) ─── RCD ─── MCB ──┬── Relay COM1 ── Pool Pump
+│ NO1 ─────┘
+│
+└── Relay COM2 ── Solar Pump
+NO2 ─────┘
+N (neutral) ───────────────────────── Neutral bar ── Pump N&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
 &lt;button
 class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
 title="Copy code"
@@ -881,30 +911,35 @@ data-copied-label="Copied!"
 &lt;thead&gt;
 &lt;tr&gt;
 &lt;th&gt;Component&lt;/th&gt;
-&lt;th style="text-align: center"&gt;Supply&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Voltage&lt;/th&gt;
 &lt;th&gt;Source&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;ESP32 board&lt;/td&gt;
-&lt;td style="text-align: center"&gt;&lt;strong&gt;5V USB&lt;/strong&gt; (regulated)&lt;/td&gt;
-&lt;td&gt;Phone charger, USB port, or dedicated 5V PSU&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;5V&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;USB charger port (on ESP32)&lt;/td&gt;
+&lt;td&gt;Powers the board + provides 5V on VIN pin&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;Relay module (coils)&lt;/td&gt;
+&lt;td&gt;Relay module coils&lt;/td&gt;
 &lt;td style="text-align: center"&gt;&lt;strong&gt;5V&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;From ESP32 VIN pin OR external 5V supply&lt;/td&gt;
+&lt;td&gt;ESP32 VIN pin (same as USB input)&lt;/td&gt;
+&lt;td&gt;The relay module draws power from the same 5V supply&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;DS18B20 sensors&lt;/td&gt;
 &lt;td style="text-align: center"&gt;&lt;strong&gt;3.3V&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;From ESP32 3.3V output pin&lt;/td&gt;
+&lt;td&gt;ESP32 3V3 output pin&lt;/td&gt;
+&lt;td&gt;Both sensors share the same 3.3V rail&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;(Optional) RTC DS3231&lt;/td&gt;
 &lt;td style="text-align: center"&gt;&lt;strong&gt;3.3V&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;From ESP32 3.3V output pin&lt;/td&gt;
+&lt;td&gt;ESP32 3V3 output pin&lt;/td&gt;
+&lt;td&gt;Same rail as sensors&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -1050,19 +1085,27 @@ issue.&lt;/p&gt;
 &lt;h3&gt;2. Power On&lt;span class="hx:absolute hx:-mt-20" id="2-power-on"&gt;&lt;/span&gt;
 &lt;a href="#2-power-on" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;Connect USB power (or 5V PSU)&lt;/li&gt;
-&lt;li&gt;The ESP32&amp;rsquo;s &lt;strong&gt;built-in LED&lt;/strong&gt; should flash quickly (boot sequence)&lt;/li&gt;
-&lt;li&gt;After ~3 seconds, the LED blinks &lt;strong&gt;slowly&lt;/strong&gt; — waiting for WiFi&lt;/li&gt;
+&lt;li&gt;The ESP32&amp;rsquo;s &lt;strong&gt;built-in LED&lt;/strong&gt; follows the &lt;a
+href="#led-status-codes-homie-convention"&gt;LED Status Codes&lt;/a&gt;:
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Fast blink (5 Hz)&lt;/strong&gt; — AP mode (no WiFi configured welcome page active)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Slow blink (1 Hz)&lt;/strong&gt; — WiFi connecting&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mostly on, brief blink every 2s&lt;/strong&gt; — WiFi connected, MQTT disconnected&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Solid on&lt;/strong&gt; — WiFi + MQTT fully connected&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3&gt;3. Verify Sensors&lt;span class="hx:absolute hx:-mt-20" id="3-verify-sensors"&gt;&lt;/span&gt;
-&lt;a href="#3-verify-sensors" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Open the serial monitor (9600 baud):&lt;/p&gt;
+&lt;a href="#3-verify-sensors" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Open the serial monitor (115200 baud):&lt;/p&gt;
 &lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
 &lt;div&gt;&lt;pre&gt;&lt;code&gt;Pool Controller v3.3.0
 Starting up...
-Initialized pins: GPIO15, GPIO16, GPIO18, GPIO19
-Solar Temp: GPIO15
-Pool Temp: GPIO16
-Pool Relay: GPIO18
-Solar Relay: GPIO19&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+✓ Pin configuration validated - no conflicts (optimierte Belegung)
+Solar Temp (DS18B20): GPIO32
+Pool Temp (DS18B20): GPIO33
+Pool Pump (Relay): GPIO25
+Solar Pump (Relay): GPIO26
+Status LED: GPIO2 (LED_BUILTIN)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
 &lt;button
 class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
 title="Copy code"
@@ -1173,52 +1216,17 @@ data-copied-label="Copied!"
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;hr&gt;
-&lt;h2&gt;Optional: Wiring Optimization&lt;span class="hx:absolute hx:-mt-20" id="optional-wiring-optimization"&gt;&lt;/span&gt;
-&lt;a href="#optional-wiring-optimization" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The default pins (GPIO15/16/18/19) work reliably for most users. If you
-experience boot instability or want the most robust configuration, use these
-&lt;strong&gt;optimized pins&lt;/strong&gt; instead:&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Function&lt;/th&gt;
-&lt;th style="text-align: center"&gt;Default Pin&lt;/th&gt;
-&lt;th style="text-align: center"&gt;Optimized Pin&lt;/th&gt;
-&lt;th&gt;Reason&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;DS18B20 Solar&lt;/td&gt;
-&lt;td style="text-align: center"&gt;GPIO15&lt;/td&gt;
-&lt;td style="text-align: center"&gt;&lt;strong&gt;GPIO32&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;GPIO15 is a Strapping pin — removing OneWire from it eliminates any boot risk&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;DS18B20 Pool&lt;/td&gt;
-&lt;td style="text-align: center"&gt;GPIO16&lt;/td&gt;
-&lt;td style="text-align: center"&gt;&lt;strong&gt;GPIO33&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;Clean separation from remaining Strapping pin GPIO0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Relay Pool&lt;/td&gt;
-&lt;td style="text-align: center"&gt;GPIO18&lt;/td&gt;
-&lt;td style="text-align: center"&gt;&lt;strong&gt;GPIO25&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;ADC2 pads (GPIO18/19) are avoided; GPIO25 is a clean digital output&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Relay Solar&lt;/td&gt;
-&lt;td style="text-align: center"&gt;GPIO19&lt;/td&gt;
-&lt;td style="text-align: center"&gt;&lt;strong&gt;GPIO26&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;Same as above&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;To use optimized pins, edit &lt;code&gt;src/Config.hpp&lt;/code&gt;:&lt;/p&gt;
+&lt;h2&gt;Alternative Pin Assignment (Original)&lt;span class="hx:absolute hx:-mt-20" id="alternative-pin-assignment-original"&gt;&lt;/span&gt;
+&lt;a href="#alternative-pin-assignment-original" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The firmware now uses the &lt;strong&gt;optimized pins (GPIO32/33/25/26)&lt;/strong&gt; by default,
+as shown in the &lt;a
+href="#pin-assignment-firmware-defaults"&gt;Pin Assignment&lt;/a&gt; table above.
+The original assignment (GPIO15/16/18/19) is available if you need to share pins
+with legacy shield boards or other hardware — simply edit &lt;code&gt;src/Config.hpp&lt;/code&gt;:&lt;/p&gt;
 &lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
-&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cpp" data-lang="cpp"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;constexpr&lt;/span&gt; &lt;span class="kt"&gt;uint8_t&lt;/span&gt; &lt;span class="n"&gt;PIN_DS_SOLAR&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="mi"&gt;32&lt;/span&gt;&lt;span class="p"&gt;};&lt;/span&gt; &lt;span class="c1"&gt;// was 15
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;constexpr&lt;/span&gt; &lt;span class="kt"&gt;uint8_t&lt;/span&gt; &lt;span class="n"&gt;PIN_DS_POOL&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="mi"&gt;33&lt;/span&gt;&lt;span class="p"&gt;};&lt;/span&gt; &lt;span class="c1"&gt;// was 16
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;constexpr&lt;/span&gt; &lt;span class="kt"&gt;uint8_t&lt;/span&gt; &lt;span class="n"&gt;PIN_RELAY_POOL&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="mi"&gt;25&lt;/span&gt;&lt;span class="p"&gt;};&lt;/span&gt; &lt;span class="c1"&gt;// was 18
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;constexpr&lt;/span&gt; &lt;span class="kt"&gt;uint8_t&lt;/span&gt; &lt;span class="n"&gt;PIN_RELAY_SOLAR&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="mi"&gt;26&lt;/span&gt;&lt;span class="p"&gt;};&lt;/span&gt; &lt;span class="c1"&gt;// was 19
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cpp" data-lang="cpp"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;constexpr&lt;/span&gt; &lt;span class="kt"&gt;uint8_t&lt;/span&gt; &lt;span class="n"&gt;PIN_DS_SOLAR&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="p"&gt;};&lt;/span&gt; &lt;span class="c1"&gt;// was 32
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;constexpr&lt;/span&gt; &lt;span class="kt"&gt;uint8_t&lt;/span&gt; &lt;span class="n"&gt;PIN_DS_POOL&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;};&lt;/span&gt; &lt;span class="c1"&gt;// was 33
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;constexpr&lt;/span&gt; &lt;span class="kt"&gt;uint8_t&lt;/span&gt; &lt;span class="n"&gt;PIN_RELAY_POOL&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="mi"&gt;18&lt;/span&gt;&lt;span class="p"&gt;};&lt;/span&gt; &lt;span class="c1"&gt;// was 25
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;constexpr&lt;/span&gt; &lt;span class="kt"&gt;uint8_t&lt;/span&gt; &lt;span class="n"&gt;PIN_RELAY_SOLAR&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="mi"&gt;19&lt;/span&gt;&lt;span class="p"&gt;};&lt;/span&gt; &lt;span class="c1"&gt;// was 26
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
 &lt;button
 class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
@@ -1231,10 +1239,104 @@ data-copied-label="Copied!"
 &lt;/button&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;This pinout is already analyzed and recommended in the
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Function&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Optimized (Default)&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Original Pin&lt;/th&gt;
+&lt;th&gt;Why the change?&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;DS18B20 Solar&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;GPIO32&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;GPIO15&lt;/td&gt;
+&lt;td&gt;GPIO15 is a Strapping pin — removing OneWire eliminates any boot risk&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DS18B20 Pool&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;GPIO33&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;GPIO16&lt;/td&gt;
+&lt;td&gt;Clean separation from remaining Strapping pin GPIO0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relay Pool&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;GPIO25&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;GPIO18&lt;/td&gt;
+&lt;td&gt;Avoid ADC2 pins (18/19) — GPIO25 is a clean digital output&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relay Solar&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;GPIO26&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;GPIO19&lt;/td&gt;
+&lt;td&gt;Same as above&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;The optimization is analyzed in detail in the
 &lt;a
 href="https://smart-swimmingpool.github.io/docs/pool-controller/esp32-schematic-optimization-de/"&gt;ESP32 Schematic Optimization&lt;/a&gt; document
 (German).&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;LED Status Codes (Homie Convention)&lt;span class="hx:absolute hx:-mt-20" id="led-status-codes-homie-convention"&gt;&lt;/span&gt;
+&lt;a href="#led-status-codes-homie-convention" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The controller uses its &lt;strong&gt;built-in LED&lt;/strong&gt; to signal the current system state,
+following the &lt;a
+href="https://homieiot.github.io/"target="_blank" rel="noopener"&gt;Homie Convention&lt;/a&gt; standard for
+IoT device status indication. The LED is updated once per control loop cycle.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;LED Pattern&lt;/th&gt;
+&lt;th&gt;System State&lt;/th&gt;
+&lt;th&gt;Visual&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Rapid blink&lt;/strong&gt; (100ms on/off = 5 Hz)&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;AP Mode&lt;/strong&gt; — no WiFi configured, setup captive portal active&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Slow blink&lt;/strong&gt; (500ms on/off = 1 Hz)&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Connecting&lt;/strong&gt; — WiFi connection in progress&lt;/td&gt;
+&lt;td&gt;&lt;img src="../led_wifi.gif" alt="WiFi connecting" data-zoomable loading="lazy" /&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Mostly on, brief blink every 2s&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;WiFi OK, MQTT disconnected&lt;/strong&gt; — network up, broker not reachable&lt;/td&gt;
+&lt;td&gt;&lt;img src="../led_mqtt.gif" alt="MQTT disconnected" data-zoomable loading="lazy" /&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Solid on&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Fully connected&lt;/strong&gt; — WiFi + MQTT operational&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Very fast blink&lt;/strong&gt; (50ms on/off = 10 Hz)&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;OTA Update&lt;/strong&gt; — firmware download/install in progress&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Double blink&lt;/strong&gt; (200/200/200/600ms)&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Safe Mode&lt;/strong&gt; — boot-loop detected or critical degradation&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;What to expect at first power-on:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Fast blink&lt;/strong&gt; — AP mode (no WiFi configured yet)&lt;/li&gt;
+&lt;li&gt;After configuring WiFi via the web portal → &lt;strong&gt;slow blink&lt;/strong&gt; while connecting&lt;/li&gt;
+&lt;li&gt;Once connected → &lt;strong&gt;mostly on&lt;/strong&gt; while MQTT connects&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Solid on&lt;/strong&gt; — everything is running normally&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Tip&lt;/strong&gt;: If the LED stays in &lt;strong&gt;fast blink&lt;/strong&gt; after power-on, open the
+&lt;code&gt;Pool-Controller-Setup&lt;/code&gt; WiFi network to configure your home WiFi.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;hr&gt;
 &lt;h2&gt;References&lt;span class="hx:absolute hx:-mt-20" id="references"&gt;&lt;/span&gt;
 &lt;a href="#references" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
@@ -2743,14 +2845,67 @@ data-copied-label="Copied!"
 &lt;p&gt;The web interface shows the assigned IP in the dashboard header&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Booting Controller&lt;span class="hx:absolute hx:-mt-20" id="booting-controller"&gt;&lt;/span&gt;
-&lt;a href="#booting-controller" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;When booting the controller, it will provide feedback on establishing the WiFi connection and connection to the MQTT broker:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&amp;ldquo;LED&amp;rdquo; &lt;img src="../led_wifi.gif" alt="Slowly blinking LED" data-zoomable loading="lazy" /&gt;
-Slowly when connecting to the Wi-Fi&lt;/li&gt;
-&lt;li&gt;&amp;ldquo;LED&amp;rdquo; &lt;img src="../led_mqtt.gif" alt="Fast blinking LED" data-zoomable loading="lazy" /&gt;
-Faster when connecting to the MQTT broker&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h2&gt;LED Status Codes (Homie Convention)&lt;span class="hx:absolute hx:-mt-20" id="led-status-codes-homie-convention"&gt;&lt;/span&gt;
+&lt;a href="#led-status-codes-homie-convention" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The controller uses its &lt;strong&gt;built-in LED&lt;/strong&gt; to signal the current system state,
+following the &lt;a
+href="https://homieiot.github.io/"target="_blank" rel="noopener"&gt;Homie Convention&lt;/a&gt; — an industry
+standard for IoT device status indication.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;LED Pattern&lt;/th&gt;
+&lt;th&gt;When?&lt;/th&gt;
+&lt;th&gt;What it means&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;img src="../led_wifi.gif" alt="WiFi connecting" data-zoomable loading="lazy" /&gt; &lt;strong&gt;Slow blink&lt;/strong&gt; (1x/sec)&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;WiFi connecting&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;The controller is trying to join your home WiFi network. This should take 5–20 seconds.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;img src="../led_mqtt.gif" alt="MQTT connecting" data-zoomable loading="lazy" /&gt; &lt;strong&gt;Mostly on, brief blip off every 2s&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;WiFi OK, MQTT connecting/disconnected&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Network is up, but the MQTT broker is not yet connected. Check broker address or network.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Rapid blink&lt;/strong&gt; (5x/sec)&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;AP Mode / Setup&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;No WiFi credentials stored. The controller is hosting its own &lt;code&gt;Pool-Controller-Setup&lt;/code&gt; WiFi network.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Solid on&lt;/strong&gt; (always on)&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Fully connected&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Everything is running normally — WiFi + MQTT connected.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Very fast blink&lt;/strong&gt; (10x/sec)&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;OTA Update in progress&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Firmware is being downloaded and flashed. Do not power off!&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Double blink&lt;/strong&gt; (two flashes, pause)&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Safe Mode / Error&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Boot-loop detected or critical system degradation. Relays are forced OFF.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;What to expect at first power-on&lt;span class="hx:absolute hx:-mt-20" id="what-to-expect-at-first-power-on"&gt;&lt;/span&gt;
+&lt;a href="#what-to-expect-at-first-power-on" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Power on&lt;/strong&gt; the controller&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Rapid blink&lt;/strong&gt; — AP mode (no WiFi configured yet)&lt;/li&gt;
+&lt;li&gt;Open the &lt;code&gt;Pool-Controller-Setup&lt;/code&gt; network and configure your WiFi&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Slow blink&lt;/strong&gt; — connecting to your home WiFi&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mostly on&lt;/strong&gt; — WiFi connected, MQTT connecting&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Solid on&lt;/strong&gt; — everything is running normally&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Troubleshooting&lt;/strong&gt;: If the LED &lt;strong&gt;never leaves rapid blink&lt;/strong&gt;, the controller
+has no WiFi credentials or cannot find your network. Connect to the
+&lt;code&gt;Pool-Controller-Setup&lt;/code&gt; access point to configure it. If it stays in
+&lt;strong&gt;double-blink&lt;/strong&gt;, a critical error has occurred — check the serial log.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2&gt;Web Dashboard&lt;span class="hx:absolute hx:-mt-20" id="web-dashboard"&gt;&lt;/span&gt;
 &lt;a href="#web-dashboard" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The controller provides a modern web dashboard at &lt;code&gt;http://&amp;lt;controller-ip&amp;gt;/&lt;/code&gt; with the following tabs:&lt;/p&gt;
 &lt;ul&gt;
