@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Monitor</title><link>https://smart-swimmingpool.github.io/tags/monitor/</link><description>Recent content in Monitor on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Tue, 09 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/tags/monitor/index.xml" rel="self" type="application/rss+xml"/><item><title>Home Assistant Migration Notes for Pool Monitor</title><link>https://smart-swimmingpool.github.io/docs/pool-monitor/home-assistant-migration/</link><pubDate>Tue, 09 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-monitor/home-assistant-migration/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Migration</title><link>https://smart-swimmingpool.github.io/tags/migration/</link><description>Recent content in Migration on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Tue, 09 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/tags/migration/index.xml" rel="self" type="application/rss+xml"/><item><title>Home Assistant Migration Notes for Pool Monitor</title><link>https://smart-swimmingpool.github.io/docs/pool-monitor/home-assistant-migration/</link><pubDate>Tue, 09 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-monitor/home-assistant-migration/</guid><description>
 &lt;h2&gt;Home Assistant Migration Notes&lt;span class="hx:absolute hx:-mt-20" id="home-assistant-migration-notes"&gt;&lt;/span&gt;
 &lt;a href="#home-assistant-migration-notes" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Context&lt;span class="hx:absolute hx:-mt-20" id="context"&gt;&lt;/span&gt;
 &lt;a href="#context" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The &lt;code&gt;pool-controller&lt;/code&gt; project has already been moved to Home Assistant MQTT Discovery.
@@ -151,34 +151,4 @@ Below is the state of the current checkout.&lt;/p&gt;
 &lt;a href="#practical-takeaway" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The monitor is now decoupled from Homie. It subscribes directly to the pool-controller&amp;rsquo;s
 Home Assistant state topics and no longer performs Homie discovery.
 The pool-controller side remains on Home Assistant Discovery, and the monitor now consumes
-the HA state topics directly.&lt;/p&gt;</description></item><item><title>Software Guide of Pool Monitor</title><link>https://smart-swimmingpool.github.io/docs/pool-monitor/software-guide/</link><pubDate>Sat, 11 Jun 2022 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-monitor/software-guide/</guid><description>
-&lt;h2&gt;Development Environment&lt;span class="hx:absolute hx:-mt-20" id="development-environment"&gt;&lt;/span&gt;
-&lt;a href="#development-environment" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Required Libraries&lt;span class="hx:absolute hx:-mt-20" id="required-libraries"&gt;&lt;/span&gt;
-&lt;a href="#required-libraries" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;adafruit/Adafruit BusIO&lt;/li&gt;
-&lt;li&gt;adafruit/Adafruit GFX Library&lt;/li&gt;
-&lt;li&gt;zinggjm/GxEPD&lt;/li&gt;
-&lt;li&gt;juerd/ESP-WiFiSettings&lt;/li&gt;
-&lt;li&gt;olikraus/U8g2&lt;/li&gt;
-&lt;li&gt;olikraus/U8g2_for_Adafruit_GFX&lt;/li&gt;
-&lt;li&gt;hmueller01/PubSubClient3&lt;/li&gt;
-&lt;li&gt;arduino-libraries/NTPClient&lt;/li&gt;
-&lt;li&gt;jchristensen/Timezone&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Many thanks to maintainers of these libraries!&lt;/p&gt;
-&lt;h2&gt;Defines&lt;span class="hx:absolute hx:-mt-20" id="defines"&gt;&lt;/span&gt;
-&lt;a href="#defines" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Configuration&lt;span class="hx:absolute hx:-mt-20" id="configuration"&gt;&lt;/span&gt;
-&lt;a href="#configuration" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;</description></item><item><title>Users Guide of Pool Controller</title><link>https://smart-swimmingpool.github.io/docs/pool-monitor/users-guide/</link><pubDate>Sat, 11 Jun 2022 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-monitor/users-guide/</guid><description>
-&lt;h2&gt;Setup&lt;span class="hx:absolute hx:-mt-20" id="setup"&gt;&lt;/span&gt;
-&lt;a href="#setup" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Connecting the device to power it createsinitial a hotspot called &amp;ldquo;pool-monitor&amp;rdquo;.
-Please connect this hotsppot by smartphone. Thenthe device will show captivate website to add
-WiFi credentials and connection parameters of MQTT broker.&lt;/p&gt;
-&lt;p&gt;Following data is required to connect the device:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;SSID of the WiFi network&lt;/li&gt;
-&lt;li&gt;Password of WiFi network&lt;/li&gt;
-&lt;li&gt;MQTT broker hostname or IP address&lt;/li&gt;
-&lt;li&gt;MQTT broker port number (default: 1883)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;After pressing &amp;ldquo;Save&amp;rdquo; the device will reboot automatically and tries to connect to the MQTT broker.&lt;/p&gt;
-&lt;p&gt;After some seconds the device will show data if connection was successful.&lt;/p&gt;</description></item></channel></rss>
+the HA state topics directly.&lt;/p&gt;</description></item></channel></rss>
