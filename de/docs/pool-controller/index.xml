@@ -576,6 +576,1508 @@ data-copied-label="Kopiert!"
 &lt;li&gt;&lt;strong&gt;Kürzung bei Kälte&lt;/strong&gt;: Zusätzlicher Parameter &lt;code&gt;tempCircMinRuntime&lt;/code&gt;, der bei Unterschreitung eines Schwellwerts die Laufzeit reduziert&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Trend-basiert&lt;/strong&gt;: Berücksichtigung des Temperatur-Trends (steigend/falend), nicht nur des Absolutwerts&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Saisonaler Kalender&lt;/strong&gt;: Automatische Anpassung der Basis-Parameter an Sommer/Winter&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>MQTT-Konfiguration</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/mqtt-configuration/</link><pubDate>Thu, 11 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/mqtt-configuration/</guid><description>
+&lt;h1&gt;MQTT-Konfiguration (Home Assistant Discovery)&lt;/h1&gt;&lt;p&gt;Der Pool Controller verwendet &lt;a
+href="https://www.home-assistant.io/integrations/mqtt/#mqtt-discovery"target="_blank" rel="noopener"&gt;Home Assistant MQTT Discovery&lt;/a&gt;
+zur automatischen Geräteregistrierung. Alle Geräte erscheinen automatisch in Home Assistant
+ohne manuelle Konfiguration.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Hinweis&lt;/strong&gt;: Die bisherige Homie-Protokoll-Unterstützung wurde in v3.3.0 entfernt. Der Controller
+verwendet ausschließlich Home Assistant MQTT Discovery.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Konfiguration&lt;span class="hx:absolute hx:-mt-20" id="konfiguration"&gt;&lt;/span&gt;
+&lt;a href="#konfiguration" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Konfigurieren Sie Ihre MQTT-Broker-Verbindung über die Web-UI (Einstellungen → MQTT-Tab):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;MQTT-Hostname/IP&lt;/strong&gt;: Ihre MQTT-Broker-Adresse&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MQTT-Port&lt;/strong&gt;: Standard 1883&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MQTT-Benutzername/Passwort&lt;/strong&gt;: Optionale Authentifizierungsdaten&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Nach dem Speichern und Neustarten erscheinen alle Entitäten automatisch in Home Assistant.&lt;/p&gt;
+&lt;h3&gt;Über die REST-API&lt;span class="hx:absolute hx:-mt-20" id="über-die-rest-api"&gt;&lt;/span&gt;
+&lt;a href="#%c3%bcber-die-rest-api" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Die MQTT-Einstellungen können auch programmatisch konfiguriert werden:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;curl -b &lt;span class="s2"&gt;&amp;#34;session=&amp;lt;session&amp;gt;&amp;#34;&lt;/span&gt; -X POST &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; -d &lt;span class="s2"&gt;&amp;#34;type=mqtt&amp;amp;host=192.168.1.100&amp;amp;port=1883&amp;amp;username=mqtt_user&amp;amp;password=secret&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; http://&amp;lt;controller-ip&amp;gt;/api/config&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;Home Assistant Entitäten&lt;span class="hx:absolute hx:-mt-20" id="home-assistant-entitäten"&gt;&lt;/span&gt;
+&lt;a href="#home-assistant-entit%c3%a4ten" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der Controller veröffentlicht die folgenden Entitäten über MQTT Discovery:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Funktion&lt;/th&gt;
+&lt;th&gt;HA-Komponente/Objekt-ID&lt;/th&gt;
+&lt;th&gt;State-Topic&lt;/th&gt;
+&lt;th&gt;Command-Topic&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Solar-Temperatur&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;sensor/solar-temp&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/sensor/pool-controller/solar-temp/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Pool-Temperatur&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;sensor/pool-temp&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/sensor/pool-controller/pool-temp/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Controller-Temperatur (ESP32)&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;sensor/controller-temp&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/sensor/pool-controller/controller-temp/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Pool-Pumpen-Relais&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;switch/pool-pump&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/switch/pool-controller/pool-pump/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/switch/pool-controller/pool-pump/set&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Solar-Pumpen-Relais&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;switch/solar-pump&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/switch/pool-controller/solar-pump/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/switch/pool-controller/solar-pump/set&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Betriebsmodus&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;select/mode&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/select/pool-controller/mode/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/select/pool-controller/mode/set&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Pool max. Temp.&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number/pool-max-temp&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/number/pool-controller/pool-max-temp/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/number/pool-controller/pool-max-temp/set&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Solar min. Temp.&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number/solar-min-temp&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/number/pool-controller/solar-min-temp/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/number/pool-controller/solar-min-temp/set&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Hysterese&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number/hysteresis&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/number/pool-controller/hysteresis/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/number/pool-controller/hysteresis/set&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Timer-Startzeit&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;text/timer-start&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/text/pool-controller/timer-start/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/text/pool-controller/timer-start/set&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Timer-Endzeit&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;text/timer-end&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/text/pool-controller/timer-end/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/text/pool-controller/timer-end/set&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Zeitzonen-Index&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number/timezone&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/number/pool-controller/timezone/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/number/pool-controller/timezone/set&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Zeitzonen-Info&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;sensor/timezone-info&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/sensor/pool-controller/timezone-info/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Log-Ausgabe&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;sensor/log&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/sensor/pool-controller/log/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Log-Level&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;select/log-level&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/select/pool-controller/log-level/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/select/pool-controller/log-level/set&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Log auf Seriell&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;switch/log-serial&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/switch/pool-controller/log-serial/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/switch/pool-controller/log-serial/set&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;OTA-Update-Trigger&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;button/ota-update&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/button/pool-controller/ota-update/set&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;OTA-Status&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;sensor/ota-status&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/sensor/pool-controller/ota-status/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Effektive Laufzeit&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;sensor/effective-runtime&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/sensor/pool-controller/effective-runtime/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Circ. Temp.-Schwellwert&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number/temp-circ-threshold&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/number/pool-controller/temp-circ-threshold/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/number/pool-controller/temp-circ-threshold/set&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Circ. Temp.-Faktor&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number/temp-circ-factor&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/number/pool-controller/temp-circ-factor/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/number/pool-controller/temp-circ-factor/set&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Circ. max. Laufzeit&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;number/temp-circ-max-runtime&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/number/pool-controller/temp-circ-max-runtime/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/number/pool-controller/temp-circ-max-runtime/set&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;Funktionen&lt;span class="hx:absolute hx:-mt-20" id="funktionen"&gt;&lt;/span&gt;
+&lt;a href="#funktionen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Alle Entitäten unterstützen:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Temperatursensoren (Pool, Solar, Controller)&lt;/li&gt;
+&lt;li&gt;Relais-Schalter (Pool-Pumpe, Solar-Pumpe)&lt;/li&gt;
+&lt;li&gt;Betriebsmodi (auto, manual, boost, timer)&lt;/li&gt;
+&lt;li&gt;Parameter der temperaturabhängigen Filterlaufzeit (Schwellwert, Faktor, max. Laufzeit)&lt;/li&gt;
+&lt;li&gt;Konfiguration über MQTT&lt;/li&gt;
+&lt;li&gt;Zustandsüberwachung&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Home Assistant Dashboard Beispiel&lt;span class="hx:absolute hx:-mt-20" id="home-assistant-dashboard-beispiel"&gt;&lt;/span&gt;
+&lt;a href="#home-assistant-dashboard-beispiel" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Ein gebrauchsfertiges Lovelace-Dashboard-Beispiel mit:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Schnellem Modus-Wechsel (&lt;code&gt;auto&lt;/code&gt;, &lt;code&gt;timer&lt;/code&gt;, &lt;code&gt;boost&lt;/code&gt;, &lt;code&gt;manu&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;hervorgehobenen Pool- und Solar-/Speichertemperaturen&lt;/li&gt;
+&lt;li&gt;einer dedizierten Konfigurationsansicht&lt;/li&gt;
+&lt;li&gt;einem kombinierten Verlaufsdiagramm für Schaltzeiten und Temperaturen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ist verfügbar in:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a
+href="home-assistant-dashboard-pool.yaml"&gt;&lt;code&gt;docs/home-assistant-dashboard-pool.yaml&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Migration von Homie (Vor v3.3.0)&lt;span class="hx:absolute hx:-mt-20" id="migration-von-homie-vor-v330"&gt;&lt;/span&gt;
+&lt;a href="#migration-von-homie-vor-v330" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Wenn Sie von einer älteren Firmware aktualisieren, die das Homie-Protokoll verwendet hat:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Das &lt;strong&gt;Homie-Protokoll wurde in v3.3.0 entfernt&lt;/strong&gt; — der Controller verwendet jetzt
+ausschließlich &lt;strong&gt;Home Assistant MQTT Discovery&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Nach dem Flashen der neuen Firmware &lt;strong&gt;alte zurückbehaltene Homie-Nachrichten&lt;/strong&gt;
+aus Ihrem MQTT-Broker löschen, um Verwirrung zu vermeiden:
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mosquitto_pub -h broker -t homie -n -r
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mosquitto_sub -t &lt;span class="s1"&gt;&amp;#39;homie/#&amp;#39;&lt;/span&gt; -v &lt;span class="p"&gt;|&lt;/span&gt; cut -d&lt;span class="s1"&gt;&amp;#39; &amp;#39;&lt;/span&gt; -f1 &lt;span class="p"&gt;|&lt;/span&gt; xargs -I&lt;span class="o"&gt;{}&lt;/span&gt; mosquitto_pub -h broker -t &lt;span class="o"&gt;{}&lt;/span&gt; -n -r&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;In Home Assistant den alten Geräteeintrag löschen (Einstellungen → Geräte &amp;amp; Dienste →
+MQTT → Geräte → pool-controller → Löschen) — die neuen Entitäten erscheinen
+automatisch über MQTT Discovery&lt;/li&gt;
+&lt;li&gt;Gerät neu starten, um frische Discovery-Ankündigungen auszulösen&lt;/li&gt;
+&lt;/ol&gt;</description></item><item><title>OTA-Updates</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/ota-updates/</link><pubDate>Thu, 11 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/ota-updates/</guid><description>
+&lt;h1&gt;Over-The-Air (OTA) Updates&lt;/h1&gt;&lt;h2&gt;Übersicht&lt;span class="hx:absolute hx:-mt-20" id="übersicht"&gt;&lt;/span&gt;
+&lt;a href="#%c3%bcbersicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der Pool Controller unterstützt Over-The-Air (OTA) Firmware-Updates, sodass
+Sie das Gerät remote ohne physischen Zugriff aktualisieren können.&lt;/p&gt;
+&lt;h2&gt;Funktionen&lt;span class="hx:absolute hx:-mt-20" id="funktionen"&gt;&lt;/span&gt;
+&lt;a href="#funktionen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;WebUI-Firmware-Upload&lt;/strong&gt;: Eine signierte &lt;code&gt;.bin&lt;/code&gt;-Datei über das Dashboard flashen&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GitHub-Release-Updates&lt;/strong&gt;: Nach neuen Versionen suchen und automatisch installieren&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PlatformIO-Seriell-Upload&lt;/strong&gt;: Per USB flashen für die Entwicklung&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Status-Rückmeldung&lt;/strong&gt;: Fortschrittsanzeige über WebUI + MQTT&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Update-Methoden&lt;span class="hx:absolute hx:-mt-20" id="update-methoden"&gt;&lt;/span&gt;
+&lt;a href="#update-methoden" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Methode 1: WebUI (Empfohlen)&lt;span class="hx:absolute hx:-mt-20" id="methode-1-webui-empfohlen"&gt;&lt;/span&gt;
+&lt;a href="#methode-1-webui-empfohlen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Die einfachste Methode — keine Tools außer einem Browser nötig:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Pool Controller Dashboard im Browser öffnen&lt;/li&gt;
+&lt;li&gt;Zum Tab &lt;strong&gt;System&lt;/strong&gt; gehen&lt;/li&gt;
+&lt;li&gt;Eine der Optionen wählen:
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Manueller Firmware-Upload&lt;/strong&gt;: Eine &lt;code&gt;.bin&lt;/code&gt;-Datei auswählen und flashen&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Nach Updates suchen&lt;/strong&gt;: Lädt automatisch die neueste Version von GitHub&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Dem Fortschrittsbalken folgen — das Gerät startet nach Abschluss neu&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Methode 2: GitHub Release (Automatisch)&lt;span class="hx:absolute hx:-mt-20" id="methode-2-github-release-automatisch"&gt;&lt;/span&gt;
+&lt;a href="#methode-2-github-release-automatisch" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Die Firmware wird bei jedem GitHub-Release automatisch gebaut und veröffentlicht:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Im Tab &lt;strong&gt;System&lt;/strong&gt; auf &lt;strong&gt;Nach Updates suchen&lt;/strong&gt; klicken&lt;/li&gt;
+&lt;li&gt;Wenn eine neuere Version gefunden wird, erscheint &lt;strong&gt;Update installieren&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Klicken, um die neueste Firmware direkt von GitHub herunterzuladen und zu flashen&lt;/li&gt;
+&lt;li&gt;Der Fortschritt wird in der UI angezeigt; das Gerät startet nach Abschluss neu&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Methode 3: PlatformIO Seriell-Upload&lt;span class="hx:absolute hx:-mt-20" id="methode-3-platformio-seriell-upload"&gt;&lt;/span&gt;
+&lt;a href="#methode-3-platformio-seriell-upload" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Für die Entwicklung:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Bauen und per USB flashen&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pio run -e esp32dev --target upload
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Oder mit Projekt-Venv&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;./venv/bin/pio run -e esp32dev --target upload&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;Firmware für OTA bauen&lt;span class="hx:absolute hx:-mt-20" id="firmware-für-ota-bauen"&gt;&lt;/span&gt;
+&lt;a href="#firmware-f%c3%bcr-ota-bauen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Firmware-Binärdatei erstellen&lt;span class="hx:absolute hx:-mt-20" id="firmware-binärdatei-erstellen"&gt;&lt;/span&gt;
+&lt;a href="#firmware-bin%c3%a4rdatei-erstellen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Firmware bauen ohne hochzuladen&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pio run -e esp32dev
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Speicherort der Binärdatei&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;.pio/build/esp32dev/firmware.bin&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;Sicherheitshinweise&lt;span class="hx:absolute hx:-mt-20" id="sicherheitshinweise"&gt;&lt;/span&gt;
+&lt;a href="#sicherheitshinweise" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;1. Netzwerksicherheit&lt;span class="hx:absolute hx:-mt-20" id="1-netzwerksicherheit"&gt;&lt;/span&gt;
+&lt;a href="#1-netzwerksicherheit" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;WPA2/WPA3 WLAN-Verschlüsselung verwenden&lt;/li&gt;
+&lt;li&gt;IoT-Geräte nach Möglichkeit in einem separaten VLAN isolieren&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;2. Firmware-Überprüfung&lt;span class="hx:absolute hx:-mt-20" id="2-firmware-überprüfung"&gt;&lt;/span&gt;
+&lt;a href="#2-firmware-%c3%bcberpr%c3%bcfung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Nur Firmware aus vertrauenswürdigen Quellen flashen (offizielle GitHub-Releases)&lt;/li&gt;
+&lt;li&gt;Firmware-Builds vor dem Upload in die Produktion testen&lt;/li&gt;
+&lt;li&gt;Zuerst auf einem Entwicklungsgerät testen&lt;/li&gt;
+&lt;li&gt;Backup der funktionierenden Firmware-Version behalten&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Fehlerbehebung&lt;span class="hx:absolute hx:-mt-20" id="fehlerbehebung"&gt;&lt;/span&gt;
+&lt;a href="#fehlerbehebung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;OTA-Upload fehlschlägt&lt;span class="hx:absolute hx:-mt-20" id="ota-upload-fehlschlägt"&gt;&lt;/span&gt;
+&lt;a href="#ota-upload-fehlschl%c3%a4gt" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Problem&lt;/strong&gt;: Upload bricht mit Timeout-Fehler ab&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lösungen&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Prüfen, ob das Gerät online ist: &lt;code&gt;ping pool-controller.local&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Sicherstellen, dass das Gerät ausreichend freien Speicher hat (&amp;gt;50 KB)&lt;/li&gt;
+&lt;li&gt;Timeout in &lt;code&gt;upload_flags&lt;/code&gt; erhöhen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Gerät nicht gefunden&lt;span class="hx:absolute hx:-mt-20" id="gerät-nicht-gefunden"&gt;&lt;/span&gt;
+&lt;a href="#ger%c3%a4t-nicht-gefunden" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Problem&lt;/strong&gt;: Gerät in Netzwerkports nicht sichtbar&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lösungen&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;mDNS-Funktion prüfen: &lt;code&gt;avahi-browse -a&lt;/code&gt; (Linux) oder Bonjour (Windows)&lt;/li&gt;
+&lt;li&gt;IP-Adresse statt mDNS-Hostname verwenden&lt;/li&gt;
+&lt;li&gt;Gerät neu starten und auf WLAN-Verbindung warten&lt;/li&gt;
+&lt;li&gt;Prüfen, ob das Gerät im selben Netzwerk/Subnetz ist&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Upload erfolgreich, aber Gerät antwortet nicht&lt;span class="hx:absolute hx:-mt-20" id="upload-erfolgreich-aber-gerät-antwortet-nicht"&gt;&lt;/span&gt;
+&lt;a href="#upload-erfolgreich-aber-ger%c3%a4t-antwortet-nicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Problem&lt;/strong&gt;: Upload abgeschlossen, aber das Gerät startet nicht neu oder läuft nicht mit neuer Firmware&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lösungen&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Serielle Konsole auf Boot-Fehler prüfen&lt;/li&gt;
+&lt;li&gt;Sicherstellen, dass die Firmware für die richtige Plattform gebaut wurde (ESP32)&lt;/li&gt;
+&lt;li&gt;Prüfen, ob die Firmware in den Flash-Speicher passt&lt;/li&gt;
+&lt;li&gt;Auf Speicherprobleme im seriellen Log prüfen&lt;/li&gt;
+&lt;li&gt;Manuellen Neustart durchführen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Speicherprobleme während OTA&lt;span class="hx:absolute hx:-mt-20" id="speicherprobleme-während-ota"&gt;&lt;/span&gt;
+&lt;a href="#speicherprobleme-w%c3%a4hrend-ota" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Problem&lt;/strong&gt;: OTA fehlschlägt wegen unzureichendem Speicher&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lösungen&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Freier Speicher ist kritisch für OTA&lt;/li&gt;
+&lt;li&gt;Systemmonitor verhindert OTA bei Speicher &amp;lt; 8 KB&lt;/li&gt;
+&lt;li&gt;Gerät vor dem OTA-Versuch neu starten&lt;/li&gt;
+&lt;li&gt;Logging während des Updates reduzieren&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;OTA-Architektur&lt;span class="hx:absolute hx:-mt-20" id="ota-architektur"&gt;&lt;/span&gt;
+&lt;a href="#ota-architektur" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Funktionsweise&lt;span class="hx:absolute hx:-mt-20" id="funktionsweise"&gt;&lt;/span&gt;
+&lt;a href="#funktionsweise" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;WebUI ODER GitHub&lt;/strong&gt;: Benutzer löst Update über Dashboard oder automatisierte Prüfung aus&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Firmware-Download&lt;/strong&gt;: Binärdatei wird von lokalem Upload oder GitHub-Release geholt&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Flash-Schreiben&lt;/strong&gt;: Neue Firmware wird auf die OTA-Partition geschrieben (ESP32 Update-Bibliothek)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Verifizierung&lt;/strong&gt;: Firmware-Signatur und Integrität werden geprüft&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Neustart&lt;/strong&gt;: Automatischer Neustart mit neuer Firmware&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Speicheranforderungen&lt;span class="hx:absolute hx:-mt-20" id="speicheranforderungen"&gt;&lt;/span&gt;
+&lt;a href="#speicheranforderungen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;ESP32&lt;/strong&gt;: Mindestens 100 KB freier Heap für OTA&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Flash&lt;/strong&gt;: Ausreichend Platz für Dual-Boot-Partitionen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;LWIP-Konfiguration&lt;span class="hx:absolute hx:-mt-20" id="lwip-konfiguration"&gt;&lt;/span&gt;
+&lt;a href="#lwip-konfiguration" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Das Projekt verwendet das Flag &lt;code&gt;PIO_FRAMEWORK_ARDUINO_LWIP2_LOW_MEMORY&lt;/code&gt;, um den
+Netzwerk-Stack-Speicherverbrauch zu optimieren und zuverlässige OTA-Updates zu gewährleisten.&lt;/p&gt;
+&lt;h2&gt;OTA-Status überwachen&lt;span class="hx:absolute hx:-mt-20" id="ota-status-überwachen"&gt;&lt;/span&gt;
+&lt;a href="#ota-status-%c3%bcberwachen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der OTA-Fortschritt ist in der WebUI-Fortschrittsanzeige und über die serielle Konsole sichtbar.&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# PlatformIO Monitor&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pio device monitor
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Auf Log-Meldungen achten&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;[&lt;/span&gt;OTA&lt;span class="o"&gt;]&lt;/span&gt; Start
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;[&lt;/span&gt;OTA&lt;span class="o"&gt;]&lt;/span&gt; Progress: 25%
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;[&lt;/span&gt;OTA&lt;span class="o"&gt;]&lt;/span&gt; Progress: 50%
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;[&lt;/span&gt;OTA&lt;span class="o"&gt;]&lt;/span&gt; Progress: 75%
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;[&lt;/span&gt;OTA&lt;span class="o"&gt;]&lt;/span&gt; Success&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;Wiederherstellungsverfahren&lt;span class="hx:absolute hx:-mt-20" id="wiederherstellungsverfahren"&gt;&lt;/span&gt;
+&lt;a href="#wiederherstellungsverfahren" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Wiederherstellung nach fehlgeschlagenem OTA-Update&lt;span class="hx:absolute hx:-mt-20" id="wiederherstellung-nach-fehlgeschlagenem-ota-update"&gt;&lt;/span&gt;
+&lt;a href="#wiederherstellung-nach-fehlgeschlagenem-ota-update" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Wenn ein OTA-Update fehlschlägt und das Gerät nicht mehr reagiert:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Wiederherstellung mit physischem Zugriff&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Per USB-Seriell verbinden&lt;/li&gt;
+&lt;li&gt;Firmware per Seriell flashen: &lt;code&gt;pio run -e esp32dev --target upload&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Bootloader-Wiederherstellung&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ESP32-Bootloader ermöglicht serielle Wiederherstellung&lt;/li&gt;
+&lt;li&gt;BOOT-Taste beim Einschalten gedrückt halten&lt;/li&gt;
+&lt;li&gt;Firmware per esptool flashen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Werksreset&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Im WebUI: System-Tab → &lt;strong&gt;Factory Reset&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Oder seriell: NVS + LittleFS löschen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Zukünftige Erweiterungen&lt;span class="hx:absolute hx:-mt-20" id="zukünftige-erweiterungen"&gt;&lt;/span&gt;
+&lt;a href="#zuk%c3%bcnftige-erweiterungen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; Webbasiertes OTA-Update-Interface (System-Tab)&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; Automatische Update-Prüfung von GitHub-Releases&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Rollback-Funktion auf vorherige Firmware&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; A/B-Partitions-Updates für sicherere Updates&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Update-Planung über MQTT-Befehle&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Referenzen&lt;span class="hx:absolute hx:-mt-20" id="referenzen"&gt;&lt;/span&gt;
+&lt;a href="#referenzen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a
+href="https://docs.platformio.org/en/latest/platforms/espressif32.html#over-the-air-ota-update"target="_blank" rel="noopener"&gt;PlatformIO OTA Guide&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://docs.espressif.com/projects/arduino-esp32/en/latest/api/ota.html"target="_blank" rel="noopener"&gt;ESP32 Arduino OTA&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller/releases"target="_blank" rel="noopener"&gt;GitHub Releases&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Support&lt;span class="hx:absolute hx:-mt-20" id="support"&gt;&lt;/span&gt;
+&lt;a href="#support" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Bei OTA-bezogenen Problemen:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Issue öffnen: &lt;a
+href="https://github.com/smart-swimmingpool/pool-controller/issues"target="_blank" rel="noopener"&gt;https://github.com/smart-swimmingpool/pool-controller/issues&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Diskussionen: &lt;a
+href="https://github.com/smart-swimmingpool/smart-swimmingpool.github.io/discussions"target="_blank" rel="noopener"&gt;https://github.com/smart-swimmingpool/smart-swimmingpool.github.io/discussions&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Hinweis&lt;/strong&gt;: OTA wird mit der ESP32 Arduino Update-Bibliothek implementiert, die
+in das WebPortal integriert ist. GitHub-Release-Builds werden von der CI-Pipeline
+(&lt;code&gt;release.yml&lt;/code&gt;) erstellt.&lt;/p&gt;</description></item><item><title>Zustandsspeicherung und Systemüberwachung</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/state-persistence/</link><pubDate>Thu, 11 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/state-persistence/</guid><description>
+&lt;h1&gt;Zustandsspeicherung und Systemüberwachung&lt;/h1&gt;&lt;h2&gt;Übersicht&lt;span class="hx:absolute hx:-mt-20" id="übersicht"&gt;&lt;/span&gt;
+&lt;a href="#%c3%bcbersicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der Pool Controller verfügt über eine umfassende Zustandsspeicherung und
+Systemzustandsüberwachung für zuverlässigen 24/7-Betrieb.&lt;/p&gt;
+&lt;h2&gt;Zustandsspeicherung&lt;span class="hx:absolute hx:-mt-20" id="zustandsspeicherung"&gt;&lt;/span&gt;
+&lt;a href="#zustandsspeicherung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Was gespeichert wird&lt;span class="hx:absolute hx:-mt-20" id="was-gespeichert-wird"&gt;&lt;/span&gt;
+&lt;a href="#was-gespeichert-wird" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Alle Controller-Zustände werden automatisch im nichtflüchtigen Speicher (NVS)
+gespeichert und nach Neustarts oder Stromausfällen wiederhergestellt:&lt;/p&gt;
+&lt;h4&gt;Betriebseinstellungen&lt;span class="hx:absolute hx:-mt-20" id="betriebseinstellungen"&gt;&lt;/span&gt;
+&lt;a href="#betriebseinstellungen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Betriebsmodus&lt;/strong&gt;: auto, manual, boost, timer&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Pool-Maximaltemperatur&lt;/strong&gt;: Ziel-Pooltemperatur&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Solar-Minimaltemperatur&lt;/strong&gt;: Minimale Solartemperatur für Aktivierung&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Temperatur-Hysterese&lt;/strong&gt;: Temperaturdifferenz für die Regelung&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Timer-Einstellungen&lt;/strong&gt;: Start- und Endzeiten für den Timer-Modus&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Relaiszustände&lt;span class="hx:absolute hx:-mt-20" id="relaiszustände"&gt;&lt;/span&gt;
+&lt;a href="#relaiszust%c3%a4nde" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Pool-Pumpe&lt;/strong&gt;: Ein/Aus-Zustand&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Solar-Pumpe&lt;/strong&gt;: Ein/Aus-Zustand&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Funktionsweise&lt;span class="hx:absolute hx:-mt-20" id="funktionsweise"&gt;&lt;/span&gt;
+&lt;a href="#funktionsweise" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Verwendet die Preferences-Bibliothek für dauerhaften Speicher in NVS
+(Non-Volatile Storage). Jeder Wert wird mit einem typspezifischen Schlüssel
+gespeichert.&lt;/p&gt;
+&lt;p&gt;Relaiszustände werden einzeln pro Relais über einen eigenen Namespace
+in NVS gespeichert und speichern den Ein/Aus-Zustand unter dem Schlüssel
+&lt;code&gt;&amp;quot;switch&amp;quot;&lt;/code&gt;.&lt;/p&gt;
+&lt;h3&gt;Automatische Wiederherstellung&lt;span class="hx:absolute hx:-mt-20" id="automatische-wiederherstellung"&gt;&lt;/span&gt;
+&lt;a href="#automatische-wiederherstellung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Beim Neustart des Controllers:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;State Manager&lt;/strong&gt; lädt alle gespeicherten Werte&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Konfigurationseinstellungen&lt;/strong&gt; aus der LittleFS config.json können den
+gespeicherten Zustand überschreiben&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Letzter bekannter Zustand&lt;/strong&gt; wird verwendet, wenn keine Konfigurationsüberschreibung existiert&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Dadurch wird sichergestellt:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Nach einem Stromausfall kehren die Pumpen in ihren vorherigen Zustand zurück&lt;/li&gt;
+&lt;li&gt;Benutzerkonfigurierte Temperaturen und Timer bleiben erhalten&lt;/li&gt;
+&lt;li&gt;Der Betriebsmodus bleibt über Neustarts hinweg erhalten&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Beispielszenario&lt;span class="hx:absolute hx:-mt-20" id="beispielszenario"&gt;&lt;/span&gt;
+&lt;a href="#beispielszenario" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Benutzer stellt ein:
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; - Betriebsmodus: auto
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; - Pool max. Temp.: 28,5°C
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; - Timer: 10:30 - 17:30
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Stromausfall um 14:00
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Controller startet neu:
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; - Lädt gespeicherten Zustand
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; - Stellt Betriebsmodus auto wieder her
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; - Stellt Temperaturen und Timer wieder her
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; - Setzt Betrieb nahtlos fort&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;Systemzustandsüberwachung&lt;span class="hx:absolute hx:-mt-20" id="systemzustandsüberwachung"&gt;&lt;/span&gt;
+&lt;a href="#systemzustands%c3%bcberwachung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Speicherüberwachung&lt;span class="hx:absolute hx:-mt-20" id="speicherüberwachung"&gt;&lt;/span&gt;
+&lt;a href="#speicher%c3%bcberwachung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Das System überwacht kontinuierlich den freien Heap-Speicher, um Abstürze
+durch Speichererschöpfung zu verhindern.&lt;/p&gt;
+&lt;h4&gt;Schwellwerte&lt;span class="hx:absolute hx:-mt-20" id="schwellwerte"&gt;&lt;/span&gt;
+&lt;a href="#schwellwerte" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;ESP32&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Speicherwarnung (niedrig)&lt;/strong&gt;: &amp;lt; 16 KB (16.384 Bytes)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Kritischer Speicher&lt;/strong&gt;: &amp;lt; 8 KB (8.192 Bytes) → Automatischer Neustart&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Verhalten&lt;span class="hx:absolute hx:-mt-20" id="verhalten"&gt;&lt;/span&gt;
+&lt;a href="#verhalten" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Alle 10 Sekunden&lt;/strong&gt;: Speicherprüfung wird durchgeführt&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Niedriger Speicher&lt;/strong&gt;: Warnung wird an Seriell und MQTT protokolliert&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Kritischer Speicher&lt;/strong&gt;: Controller startet automatisch neu&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Minimum-Tracking&lt;/strong&gt;: Zeichnet den niedrigsten Speicherstand seit Boot auf&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Watchdog-Timer&lt;span class="hx:absolute hx:-mt-20" id="watchdog-timer"&gt;&lt;/span&gt;
+&lt;a href="#watchdog-timer" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Verhindert Systemhänger und stellt die Wiederherstellung nach Softwarefehlern sicher.&lt;/p&gt;
+&lt;h4&gt;ESP32&lt;span class="hx:absolute hx:-mt-20" id="esp32"&gt;&lt;/span&gt;
+&lt;a href="#esp32" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Hardware-Watchdog&lt;/strong&gt;: 30-Sekunden-Timeout&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Automatischer Panic&lt;/strong&gt;: Neustart, wenn Watchdog nicht gefüttert wird&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Wird in der Hauptschleife gefüttert&lt;/strong&gt;: Jeder Zyklus&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Health-Status-API&lt;span class="hx:absolute hx:-mt-20" id="health-status-api"&gt;&lt;/span&gt;
+&lt;a href="#health-status-api" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;SystemMonitor bietet Methoden zur Überprüfung des Systemzustands:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cpp" data-lang="cpp"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// Aktuellen freien Heap abrufen
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kt"&gt;uint32_t&lt;/span&gt; &lt;span class="n"&gt;heap&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;SystemMonitor&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;getFreeHeap&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// Minimalen Heap seit Boot abrufen
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kt"&gt;uint32_t&lt;/span&gt; &lt;span class="n"&gt;minHeap&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;SystemMonitor&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;getMinFreeHeap&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// Prüfen, ob das System gesund ist
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kt"&gt;bool&lt;/span&gt; &lt;span class="n"&gt;healthy&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;SystemMonitor&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;isHealthy&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// Betriebszeit in Sekunden abrufen
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kt"&gt;uint32_t&lt;/span&gt; &lt;span class="n"&gt;uptime&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;SystemMonitor&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;getUptimeSeconds&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kt"&gt;uint8_t&lt;/span&gt; &lt;span class="n"&gt;fragmentation&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;SystemMonitor&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;getHeapFragmentation&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;Konfiguration&lt;span class="hx:absolute hx:-mt-20" id="konfiguration"&gt;&lt;/span&gt;
+&lt;a href="#konfiguration" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Funktionen aktivieren&lt;span class="hx:absolute hx:-mt-20" id="funktionen-aktivieren"&gt;&lt;/span&gt;
+&lt;a href="#funktionen-aktivieren" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Zustandsspeicherung und Systemüberwachung sind &lt;strong&gt;automatisch aktiviert&lt;/strong&gt;. Keine Konfiguration erforderlich.&lt;/p&gt;
+&lt;h3&gt;Schwellwerte anpassen&lt;span class="hx:absolute hx:-mt-20" id="schwellwerte-anpassen"&gt;&lt;/span&gt;
+&lt;a href="#schwellwerte-anpassen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Zum Anpassen der Speicherschwellwerte &lt;code&gt;src/SystemMonitor.hpp&lt;/code&gt; ändern:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cpp" data-lang="cpp"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// Speicherschwelle (niedrig) — nur Warnung
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;static&lt;/span&gt; &lt;span class="k"&gt;constexpr&lt;/span&gt; &lt;span class="kt"&gt;uint32_t&lt;/span&gt; &lt;span class="n"&gt;LOW_MEMORY_THRESHOLD&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;8192&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;// 8 KB
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// Kritische Speicherschwelle (automatischer Neustart)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;static&lt;/span&gt; &lt;span class="k"&gt;constexpr&lt;/span&gt; &lt;span class="kt"&gt;uint32_t&lt;/span&gt; &lt;span class="n"&gt;CRITICAL_MEMORY_THRESHOLD&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;4096&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;// 4 KB
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3&gt;Auto-Neustart deaktivieren&lt;span class="hx:absolute hx:-mt-20" id="auto-neustart-deaktivieren"&gt;&lt;/span&gt;
+&lt;a href="#auto-neustart-deaktivieren" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Wenn Sie niedrigen Speicher manuell behandeln möchten (nicht empfohlen für
+24/7-Betrieb):&lt;/p&gt;
+&lt;p&gt;Den Auto-Neustart-Abschnitt in &lt;code&gt;src/SystemMonitor.hpp&lt;/code&gt; auskommentieren:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cpp" data-lang="cpp"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// Kritischer Speicher - sofort neu starten
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;freeHeap&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;criticalThreshold&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;Serial&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;printf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;CRITICAL: Free heap %d bytes &amp;lt; %d bytes. Rebooting...&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;freeHeap&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;criticalThreshold&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;// Serial.flush();
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;// delay(1000);
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;// ESP.restart(); // Diese Zeile auskommentieren, um Auto-Neustart zu deaktivieren
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;Überwachung und Logs&lt;span class="hx:absolute hx:-mt-20" id="überwachung-und-logs"&gt;&lt;/span&gt;
+&lt;a href="#%c3%bcberwachung-und-logs" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Serielle Ausgabe&lt;span class="hx:absolute hx:-mt-20" id="serielle-ausgabe"&gt;&lt;/span&gt;
+&lt;a href="#serielle-ausgabe" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Normaler Betrieb&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;✓ State loaded from persistent storage
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;State persistence and system monitoring initialized
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Free heap: 28,456 bytes&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Speicherwarnung (niedrig)&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;WARNING: Low memory detected. Free heap: 7,892 bytes (min: 7,456)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Kritischer Speicher&lt;/strong&gt; (vor Neustart):&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;CRITICAL: Free heap 3,842 bytes &amp;lt; 4,096 bytes. Rebooting...&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3&gt;MQTT-Logs&lt;span class="hx:absolute hx:-mt-20" id="mqtt-logs"&gt;&lt;/span&gt;
+&lt;a href="#mqtt-logs" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Der Systemstatus wird über LoggerNode an das MQTT-Topic veröffentlicht:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pool-controller/log&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Beispielnachrichten:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&amp;quot;State persistence and system monitoring initialized&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;quot;WARNING: Low memory detected. Free heap: 7892 bytes (min: 7456)&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Vorteile für den 24/7-Betrieb&lt;span class="hx:absolute hx:-mt-20" id="vorteile-für-den-247-betrieb"&gt;&lt;/span&gt;
+&lt;a href="#vorteile-f%c3%bcr-den-247-betrieb" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Zuverlässigkeit&lt;span class="hx:absolute hx:-mt-20" id="zuverlässigkeit"&gt;&lt;/span&gt;
+&lt;a href="#zuverl%c3%a4ssigkeit" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;✅ Übersteht Stromausfälle&lt;/li&gt;
+&lt;li&gt;✅ Erholt sich automatisch von Speicherproblemen&lt;/li&gt;
+&lt;li&gt;✅ Erkennt und behebt Systemhänger&lt;/li&gt;
+&lt;li&gt;✅ Kein manueller Eingriff erforderlich&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Benutzererfahrung&lt;span class="hx:absolute hx:-mt-20" id="benutzererfahrung"&gt;&lt;/span&gt;
+&lt;a href="#benutzererfahrung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;✅ Einstellungen bleiben über Neustarts erhalten&lt;/li&gt;
+&lt;li&gt;✅ Keine Neukonfiguration nach Stromausfall&lt;/li&gt;
+&lt;li&gt;✅ Nahtlose Betriebskontinuität&lt;/li&gt;
+&lt;li&gt;✅ Vorhersagbares Verhalten&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Wartung&lt;span class="hx:absolute hx:-mt-20" id="wartung"&gt;&lt;/span&gt;
+&lt;a href="#wartung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;✅ Erkennung von Speicherlecks&lt;/li&gt;
+&lt;li&gt;✅ Automatische Problembehebung&lt;/li&gt;
+&lt;li&gt;✅ Health-Status-Überwachung&lt;/li&gt;
+&lt;li&gt;✅ Diagnoseinformationen verfügbar&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Fehlerbehebung&lt;span class="hx:absolute hx:-mt-20" id="fehlerbehebung"&gt;&lt;/span&gt;
+&lt;a href="#fehlerbehebung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Zustände werden nicht gespeichert&lt;span class="hx:absolute hx:-mt-20" id="zustände-werden-nicht-gespeichert"&gt;&lt;/span&gt;
+&lt;a href="#zust%c3%a4nde-werden-nicht-gespeichert" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Serielle Ausgabe auf &amp;ldquo;State loaded from persistent storage&amp;rdquo; prüfen&lt;/li&gt;
+&lt;li&gt;Prüfen, ob die NVS-Partition verfügbar ist&lt;/li&gt;
+&lt;li&gt;Auf Preferences-Fehler in den Logs prüfen&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Häufige Neustarts&lt;span class="hx:absolute hx:-mt-20" id="häufige-neustarts"&gt;&lt;/span&gt;
+&lt;a href="#h%c3%a4ufige-neustarts" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Wenn der Controller häufig neu startet:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Speichernutzung prüfen&lt;/strong&gt;: Logs auf Speicherwarnungen durchsuchen&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Speicherleck identifizieren&lt;/strong&gt;: Muster erkennen, wann Neustarts auftreten&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Speichernutzung reduzieren&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Messintervalle erhöhen&lt;/li&gt;
+&lt;li&gt;MQTT-Nachrichtenhäufigkeit reduzieren&lt;/li&gt;
+&lt;li&gt;Funktionen nach Möglichkeit deaktivieren&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Schwellwert senken&lt;/strong&gt;: Kritischen Schwellwert vorübergehend senken, um Neustarts zu verhindern&lt;/p&gt;
+&lt;p&gt;(der Controller startet dann trotzdem neu, aber die Betriebszeit kann während der Fehlersuche verlängert werden)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Watchdog-Timeouts&lt;span class="hx:absolute hx:-mt-20" id="watchdog-timeouts"&gt;&lt;/span&gt;
+&lt;a href="#watchdog-timeouts" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Wenn der Watchdog auslöst (ESP32):&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Lange blockierende Operationen&lt;/strong&gt;: Auf Verzögerungen oder lange Operationen im Code prüfen&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Timeout erhöhen&lt;/strong&gt;: Timeout in &lt;code&gt;SystemMonitor::begin()&lt;/code&gt; anpassen&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Häufiger füttern&lt;/strong&gt;: &lt;code&gt;SystemMonitor::feedWatchdog()&lt;/code&gt; in langen Operationen einfügen&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Technische Details&lt;span class="hx:absolute hx:-mt-20" id="technische-details"&gt;&lt;/span&gt;
+&lt;a href="#technische-details" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Speichernutzung&lt;span class="hx:absolute hx:-mt-20" id="speichernutzung"&gt;&lt;/span&gt;
+&lt;a href="#speichernutzung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;ESP32 NVS&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Betriebsmodus: ~10 Bytes&lt;/li&gt;
+&lt;li&gt;Gleitkommawerte (3): 12 Bytes&lt;/li&gt;
+&lt;li&gt;Integer-Werte (4): 16 Bytes&lt;/li&gt;
+&lt;li&gt;Gesamt: ~40 Bytes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Leistungsauswirkung&lt;span class="hx:absolute hx:-mt-20" id="leistungsauswirkung"&gt;&lt;/span&gt;
+&lt;a href="#leistungsauswirkung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Zustand speichern&lt;/strong&gt;: &amp;lt; 10ms (nur bei Änderungen)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Zustand laden&lt;/strong&gt;: &amp;lt; 20ms (einmal beim Boot)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Speicherprüfung&lt;/strong&gt;: &amp;lt; 1ms (alle 10 Sekunden)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Watchdog füttern&lt;/strong&gt;: &amp;lt; 0,1ms (jeder Schleifendurchlauf)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Gesamtauswirkung&lt;/strong&gt;: Vernachlässigbar (&amp;lt; 0,1 % CPU-Auslastung)&lt;/p&gt;
+&lt;h2&gt;Zukünftige Erweiterungen&lt;span class="hx:absolute hx:-mt-20" id="zukünftige-erweiterungen"&gt;&lt;/span&gt;
+&lt;a href="#zuk%c3%bcnftige-erweiterungen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;🔜 &lt;strong&gt;Konfigurierbare Schwellwerte&lt;/strong&gt;: MQTT-basierte Schwellwertkonfiguration&lt;/li&gt;
+&lt;li&gt;🔜 &lt;strong&gt;Health-Dashboard&lt;/strong&gt;: Web-UI für Zustandsüberwachung&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Version&lt;/strong&gt;: 3.3.0
+&lt;strong&gt;Status&lt;/strong&gt;: Produktionsbereit
+&lt;strong&gt;Plattform&lt;/strong&gt;: ESP32&lt;/p&gt;</description></item><item><title>NORVI AE01-R Konfiguration</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/norvi-ae01-r/</link><pubDate>Tue, 09 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/norvi-ae01-r/</guid><description>
+&lt;h2&gt;Übersicht&lt;span class="hx:absolute hx:-mt-20" id="übersicht"&gt;&lt;/span&gt;
+&lt;a href="#%c3%bcbersicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der &lt;a
+href="https://norvi.io/docs/norvi-iiot-ae01-r-datasheet/"target="_blank" rel="noopener"&gt;NORVI IIOT-AE01-R&lt;/a&gt; ist ein
+industrieller ESP32-WROOM32-Controller mit eingebauten Relais, Transistorausgängen,
+Digitaleingängen, OLED-Display, RS-485 und Drucktastern — alles in einem
+Hutschienengehäuse (IP20). Er ist CE-zertifiziert
+(EN 61131-2, EN 61010-1) und für den dauerhaften Einsatz in Schaltschränken
+ausgelegt.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Hauptunterschiede zu einem Standard-ESP32-Dev-Board:&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Merkmal&lt;/th&gt;
+&lt;th&gt;Standard ESP32 Dev Board&lt;/th&gt;
+&lt;th&gt;NORVI AE01-R&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Versorgungsspannung&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;5V&lt;/strong&gt; (USB)&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;24V DC&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relaismodul&lt;/td&gt;
+&lt;td&gt;Extern (benötigt 5V)&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;6 eingebaute Relais&lt;/strong&gt; (5A 250V AC)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relais-Stromversorgung&lt;/td&gt;
+&lt;td&gt;Separates 5V-Netzteil&lt;/td&gt;
+&lt;td&gt;Integriert — wird von 24V versorgt&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Statusanzeige&lt;/td&gt;
+&lt;td&gt;Nur eingebaute LED&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;0,96&amp;quot; OLED-Display&lt;/strong&gt; + externe LED&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Gehäuse&lt;/td&gt;
+&lt;td&gt;Offene Platine (Breadboard)&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Hutschienengehäuse&lt;/strong&gt; (IP20)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Zertifizierungen&lt;/td&gt;
+&lt;td&gt;Keine&lt;/td&gt;
+&lt;td&gt;CE (EN 61131-2, EN 61010-1)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Verdrahtung&lt;/td&gt;
+&lt;td&gt;Schraub-/Dupont-Klemmen&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Industrie-Schraubklemmen&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Digitaleingänge&lt;/td&gt;
+&lt;td&gt;Keine&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;8x Sink/Source (18–32V DC)&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Zusätzliche I/O&lt;/td&gt;
+&lt;td&gt;Keine&lt;/td&gt;
+&lt;td&gt;2x Transistorausgang, RS-485&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Benutzerschnittstelle&lt;/td&gt;
+&lt;td&gt;Keine&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;3 Drucktaster an der Front&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Wenn du bereits ein 230V AC → 24V DC Netzteil hast&lt;/strong&gt;, kann der NORVI AE01-R
+direkt daraus versorgt werden — kein separates 5V-Netzteil nötig.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2&gt;Pinbelegung&lt;span class="hx:absolute hx:-mt-20" id="pinbelegung"&gt;&lt;/span&gt;
+&lt;a href="#pinbelegung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class="hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-green-200 hx:bg-green-100 hx:text-green-900 hx:dark:border-green-200/30 hx:dark:bg-green-900/30 hx:dark:text-green-200"&gt;
+&lt;div class="hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2"&gt;&lt;svg height=1.2em class="hx:inline-block hx:align-middle" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"&gt;&lt;path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/&gt;&lt;/svg&gt;&lt;/div&gt;
+&lt;div class="hx:w-full hx:min-w-0 hx:leading-7"&gt;
+&lt;div class="hx:mt-6 hx:leading-7 hx:first:mt-0"&gt;&lt;strong&gt;Wichtige Hardware-Einschränkung:&lt;/strong&gt; Die 8 Digitaleingänge des NORVI
+(GPIO18/19/21/22/23/34/35/39) sind &lt;strong&gt;optokoppler-isoliert und reine Eingänge&lt;/strong&gt;
+— sie erwarten 18–32V DC Signale und können nicht für bidirektionale
+1-Wire-Kommunikation (DS18B20) verwendet werden.&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Der Firmware wird über das Präprozessor-Makro &lt;code&gt;NORVI_AE01_R&lt;/code&gt; eine alternative
+Pinbelegung ausgewählt, die die belegten und reinen-Eingang-Pins vermeidet:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Konstante&lt;/th&gt;
+&lt;th style="text-align: center"&gt;NORVI GPIO&lt;/th&gt;
+&lt;th&gt;Funktion&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Anschluss&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;PIN_DS_SOLAR&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;GPIO25&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;DS18B20 — Solar-Kollektortemperatur&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Erweiterungsport Pin 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;PIN_DS_POOL&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;GPIO25&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;DS18B20 — Pool-Wassertemperatur&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Shared Bus auf GPIO25 (Erweiterungsport)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;PIN_RELAY_POOL&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;GPIO14&lt;/strong&gt; (R0)&lt;/td&gt;
+&lt;td&gt;Relais — Pool-Umwälzpumpe&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Relaisausgang 0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;PIN_RELAY_SOLAR&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;GPIO12&lt;/strong&gt; (R1)&lt;/td&gt;
+&lt;td&gt;Relais — Solarheizungspumpe&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Relaisausgang 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;PIN_LED_STATUS&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;GPIO27&lt;/strong&gt; (T0.1)&lt;/td&gt;
+&lt;td&gt;Status-LED (extern, über Transistorausgang)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Transistorausgang 0.1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;PIN_OLED_SDA&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;GPIO16&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;I2C SDA — eingebautes 0,96&amp;quot; OLED (SSD1306)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Intern (I2C)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;PIN_OLED_SCL&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;GPIO17&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;I2C SCL — eingebautes 0,96&amp;quot; OLED (SSD1306)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Intern (I2C)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;PIN_BUTTON_ADC&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;GPIO32&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;3 Fronttaster (über Analog-ADC)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Intern (Widerstandsteiler)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;DS18B20-Sensoren anschließen — Shared OneWire Bus&lt;span class="hx:absolute hx:-mt-20" id="ds18b20-sensoren-anschließen--shared-onewire-bus"&gt;&lt;/span&gt;
+&lt;a href="#ds18b20-sensoren-anschlie%c3%9fen--shared-onewire-bus" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Beide Sensoren teilen sich einen &lt;strong&gt;gemeinsamen OneWire-Bus auf GPIO25&lt;/strong&gt; am
+&lt;strong&gt;Erweiterungsport&lt;/strong&gt; (10-polige Stiftleiste seitlich am NORVI-Gehäuse,
+2,54 mm Raster). DATA, 3,3V und GND sind alle auf diesem Stecker verfügbar
+— kein Löten nötig.&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt; NORVI AE01-R — Erweiterungsport (10-polige Stiftleiste, 2,54 mm)
+┌─────────────────────────────────────────────────────────────────┐
+│ │
+│ Pin 1 ◄─────── IO25 ──── DS18B20 DATA (gelb) │
+│ Pin 2 TXD0 │
+│ Pin 3 NC │
+│ Pin 4 RXD0 │
+│ Pin 5 IO0 (BOOT) │
+│ Pin 6 IO32 (Taster) │
+│ Pin 7 ◄─────── 3,3V ──── DS18B20 VCC (rot) │
+│ Pin 8 SCL (OLED) │
+│ Pin 9 ◄─────── GND ──── DS18B20 GND (schwarz) │
+│ Pin 10 SDA (OLED) │
+│ │
+└─────────────────────────────────────────────────────────────────┘
+↑
+3× Female-Female Dupont-Kabel&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Anschlusstabelle:&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Erweiterungsport&lt;/th&gt;
+&lt;th&gt;Dupont (Farbe)&lt;/th&gt;
+&lt;th&gt;DS18B20&lt;/th&gt;
+&lt;th&gt;Auch verbunden mit&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Pin 1 (IO25)&lt;/td&gt;
+&lt;td&gt;Gelb&lt;/td&gt;
+&lt;td&gt;DATA&lt;/td&gt;
+&lt;td&gt;4,7 kΩ → 3,3V&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Pin 7 (3,3V)&lt;/td&gt;
+&lt;td&gt;Rot&lt;/td&gt;
+&lt;td&gt;VCC&lt;/td&gt;
+&lt;td&gt;4,7 kΩ → DATA&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Pin 9 (GND)&lt;/td&gt;
+&lt;td&gt;Schwarz&lt;/td&gt;
+&lt;td&gt;GND&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Beide Sensoren teilen sich &lt;strong&gt;dieselben drei Pins&lt;/strong&gt; — beide DATA an Pin 1,
+beide VCC an Pin 7, beide GND an Pin 9. Ein einziger &lt;strong&gt;4,7-kΩ-Pull-up&lt;/strong&gt;
+zwischen Pin 1 und Pin 7 reicht für beide Sensoren.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Farbkodierung Pull-up Widerstand:&lt;/strong&gt; Gelb – Violett – Rot – Gold (±5%)&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt; Gelb Violett Rot Gold
+┌──┐ ┌──┐ ┌──┐ ┌──┐
+│ │ │ │ │ │ │ │
+└──┘ └──┘ └──┘ └──┘
+4 7 ×100 ±5%
+= 47 × 100 = 4700 Ω = 4,7 kΩ&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;div class="hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-green-200 hx:bg-green-100 hx:text-green-900 hx:dark:border-green-200/30 hx:dark:bg-green-900/30 hx:dark:text-green-200"&gt;
+&lt;div class="hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2"&gt;&lt;svg height=1.2em class="hx:inline-block hx:align-middle" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"&gt;&lt;path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/&gt;&lt;/svg&gt;&lt;/div&gt;
+&lt;div class="hx:w-full hx:min-w-0 hx:leading-7"&gt;
+&lt;div class="hx:mt-6 hx:leading-7 hx:first:mt-0"&gt;&lt;strong&gt;Shared-Bus-Details:&lt;/strong&gt; Die Firmware verwendet das Präprozessor-Makro
+&lt;code&gt;NORVI_AE01_R&lt;/code&gt;, um eine gemeinsame &lt;code&gt;DallasTemperature&lt;/code&gt;-Instanz zu erstellen,
+die von beiden Sensorknoten genutzt wird. Der Solarknoten (Geräteindex 0)
+steuert &lt;code&gt;requestTemperatures()&lt;/code&gt;; der Poolknoten (Geräteindex 1) liest aus
+derselben Messung. Beide Sensoren benötigen einen 4,7-kΩ-Pull-up-Widerstand
+zwischen DATA und 3,3V — ein Widerstand reicht, wenn sie denselben Bus teilen.&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="hx:overflow-x-auto hx:mt-6 hx:flex hx:rounded-lg hx:border hx:py-2 hx:ltr:pr-4 hx:rtl:pl-4 hx:contrast-more:border-current hx:contrast-more:dark:border-current hx:border-green-200 hx:bg-green-100 hx:text-green-900 hx:dark:border-green-200/30 hx:dark:bg-green-900/30 hx:dark:text-green-200"&gt;
+&lt;div class="hx:ltr:pl-3 hx:ltr:pr-2 hx:rtl:pr-3 hx:rtl:pl-2"&gt;&lt;svg height=1.2em class="hx:inline-block hx:align-middle" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"&gt;&lt;path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/&gt;&lt;/svg&gt;&lt;/div&gt;
+&lt;div class="hx:w-full hx:min-w-0 hx:leading-7"&gt;
+&lt;div class="hx:mt-6 hx:leading-7 hx:first:mt-0"&gt;&lt;strong&gt;Bereits auf GPIO5 gelötet?&lt;/strong&gt; Falls der Pool-Sensor bereits am ESP32-Modulpin
+angelötet ist, verwendet die Firmware den Einzelbus-Modus, wenn &lt;code&gt;NORVI_AE01_R&lt;/code&gt;
+&lt;strong&gt;nicht&lt;/strong&gt; definiert ist. Du kannst die bestehende Verkabelung behalten und
+einfach das Build-Flag weglassen — oder beide Sensoren auf den gemeinsamen
+GPIO25 umziehen.&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3&gt;Sensorzuordnung — Erster Start&lt;span class="hx:absolute hx:-mt-20" id="sensorzuordnung--erster-start"&gt;&lt;/span&gt;
+&lt;a href="#sensorzuordnung--erster-start" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Da beide Sensoren denselben Bus teilen, bestimmt die Scan-Reihenfolge, welcher
+Sensor Solar (Index 0) und welcher Pool (Index 1) zugeordnet wird. Mit dem
+&lt;strong&gt;OLED-Setup-Assistenten&lt;/strong&gt; weist du die Sensoren dauerhaft zu.&lt;/p&gt;
+&lt;h4&gt;OLED Setup-Assistent (empfohlen)&lt;span class="hx:absolute hx:-mt-20" id="oled-setup-assistent-empfohlen"&gt;&lt;/span&gt;
+&lt;a href="#oled-setup-assistent-empfohlen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Setup starten:&lt;/strong&gt; &lt;strong&gt;B1&lt;/strong&gt; (linker Taster) ca. 2 Sekunden gedrückt halten.&lt;/li&gt;
+&lt;li&gt;Das Display zeigt beide gefundenen DS18B20-Sensoren mit ROM-Adresse und
+aktueller Temperatur.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sensor identifizieren:&lt;/strong&gt; Einen Sensor mit dem Finger erwärmen — die
+Temperatur steigt. &lt;strong&gt;B2&lt;/strong&gt; drücken, um den markierten Sensor als &lt;strong&gt;Solar&lt;/strong&gt;
+zuzuweisen, oder &lt;strong&gt;B3&lt;/strong&gt; für &lt;strong&gt;Pool&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Beim zweiten Sensor wiederholen. Die Badges &lt;code&gt;SOLAR&lt;/code&gt; bzw. &lt;code&gt;POOL&lt;/code&gt; erscheinen.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Speichern &amp;amp; Neustart:&lt;/strong&gt; Sind beide zugewiesen, &lt;strong&gt;B2&lt;/strong&gt; lange drücken, um
+die Zuordnung im NVS zu speichern. Nach dem Neustart bleibt die Zuordnung
+dauerhaft erhalten.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Abbrechen:&lt;/strong&gt; &lt;strong&gt;B1&lt;/strong&gt; erneut lange drücken, um ohne Speichern zu beenden.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4&gt;Serielle Konsole&lt;span class="hx:absolute hx:-mt-20" id="serielle-konsole"&gt;&lt;/span&gt;
+&lt;a href="#serielle-konsole" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Beim ersten Start (ohne gespeicherte Zuordnung) erscheint:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;• Sensor mapping: no addresses configured — using default device indices
+ℹ To configure: long-press Button 1 → Sensor Setup page → assign sensors&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Die ROM-Adressen findest du im Boot-Log. Durch Erwärmen eines Sensors
+identifizierst du, welche Adresse zu Solar und welche zu Pool gehört.&lt;/p&gt;
+&lt;h4&gt;Funktionsweise&lt;span class="hx:absolute hx:-mt-20" id="funktionsweise"&gt;&lt;/span&gt;
+&lt;a href="#funktionsweise" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Die 8-Byte-ROM-Adresse jedes Sensors wird im NVS gespeichert (Preferences-Namespace
+&lt;code&gt;ds18b20&lt;/code&gt;, Keys &lt;code&gt;solar_adr&lt;/code&gt; und &lt;code&gt;pool_adr&lt;/code&gt;). Bei jedem folgenden Boot sucht die
+Firmware auf dem Bus nach einem Gerät mit der gespeicherten Adresse. Wird es
+gefunden, wird es unabhängig von der Scan-Reihenfolge verwendet. Wird es nicht
+gefunden (z. B. nach Austausch), erscheint eine Warnung und der Standard-Index
+kommt zum Einsatz.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Schaltplan&lt;span class="hx:absolute hx:-mt-20" id="schaltplan"&gt;&lt;/span&gt;
+&lt;a href="#schaltplan" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt; ─── STROMVERSORGUNG ──────────────────────────────────────────────────
+[230V AC → 24V DC Netzteil] [NORVI AE01-R]
+┌──────────────────┐ ┌──────────────────────────┐
+│ 24V (&amp;#43;) ─────────┼──────────┤ 24V DC (&amp;#43;) │
+│ │ │ │
+│ GND ────────────┼──────────┤ GND (0V) │
+└──────────────────┘ │ │
+│ Der NORVI versorgt sich │
+│ und die Relais aus 24V │
+└──────────────────────────┘
+─── SENSOREN (Shared OneWire Bus am Erweiterungsport) ─────────────
+┌── DS18B20 Solar ──┐ ┌── DS18B20 Pool ───┐ NORVI Erweiterungsport
+│ │ │ │ ┌──────────────────────┐
+│ VDD (rot) ────────┼────┼──── VDD (rot) ────┼────┤ Pin 7 (3,3V) │
+│ │ │ │ │ │
+│ GND (sw) ────────┼────┼──── GND (sw) ─────┼────┤ Pin 9 (GND) │
+│ │ │ │ │ │
+│DATA (gel) ────────┼────┼──── DATA (gel) ───┼────┤ Pin 1 (GPIO25) │
+│ │ │ │ │ └──────────────────────┘
+└───────────────────┘ │ │ │
+│ │ │
+│ └──[4,7kΩ]─────┼── 3,3V (ein Pull-up)
+│ │
+└──────────────────┘
+Ein 4,7kΩ-Widerstand zwischen DATA (Pin 1) und 3,3V (Pin 7) reicht.
+Dupont-Kabel: 3× Female-Female (rot/gelb/schwarz).
+─── RELAISAUSGÄNGE (eingebaut) ───────────────────────────────────────
+NORVI Relaisausgang 0 (GPIO14): Pool-Pumpe
+NORVI Relaisausgang 1 (GPIO12): Solar-Pumpe
+L (Außenleiter) ─── RCD ─── MCB ──┬── Relais COM0 ── Pool-Pumpe NO
+└── Relais COM1 ── Solar-Pumpe NO
+N (Neutral) ──────────────────────────── Neutralleiter ── Pumpen N
+Die NORVI-Relais sind Schließer (SPST) — schließe deine 230V AC
+Verbraucher zwischen COM und NO an. Die Relais sind für 5A/250V AC
+ausgelegt.
+─── STATUS-LED (extern) ──────────────────────────────────────────────
+NORVI Transistorausgang 0.1 (GPIO27):
+GPIO27 ─── 330Ω ─── LED (Anode) ─── LED (Kathode) ─── GND
+Der Transistorausgang ist Open-Collector (100mA max). Wenn der Pin
+auf HIGH geht, schaltet der interne Transistor auf GND und schließt
+den Stromkreis. Verwende eine Standard-5mm-LED mit 330Ω Vorwiderstand.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;h2&gt;Integriertes OLED-Display&lt;span class="hx:absolute hx:-mt-20" id="integriertes-oled-display"&gt;&lt;/span&gt;
+&lt;a href="#integriertes-oled-display" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der NORVI AE01-R hat ein &lt;strong&gt;0,96&amp;quot; SSD1306 OLED-Display&lt;/strong&gt; (128×64, I2C-Adresse
+0x3C). Die Firmware zeigt vier Informationsseiten:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="text-align: center"&gt;Seite&lt;/th&gt;
+&lt;th&gt;Inhalt&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;1&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Pool- &amp;amp; Solar-Temperatur, Pumpenstatus, Betriebsmodus und Tasterhinweise (▲ Seite ▼ Pumpe ■ Modus)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;2&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;WLAN-SSID, IP-Adresse, MQTT-Verbindungsstatus, AP-Modus-Hinweis&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;3&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;System-Betriebszeit, freier Heap, minimaler Heap (Low-Watermark), Firmware-Version&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;4&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;QR-Code mit Link zum Web-Dashboard unter &lt;code&gt;http://&amp;lt;geräte-ip&amp;gt;/&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Gemeinsame Fußzeile:&lt;/strong&gt; Alle Seiten zeigen unten eine Trennlinie mit dem
+aktuellen Betriebsmodus (nur Seite 1), der lokalen Uhrzeit (HH:MM), der
+Firmware-Version (&lt;code&gt;vX.Y.Z&lt;/code&gt;) und der Seitennummer. Die Uhrzeit wird bei jeder
+Aktualisierung neu gesetzt und verwendet die konfigurierte Zeitzone mit
+automatischer Sommer-/Winterzeit (DST).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Auto-WiFi-Seite:&lt;/strong&gt; Wenn kein WLAN konfiguriert ist (AP-Modus) oder die
+Verbindung unterbrochen wurde, schaltet das Display beim Start automatisch auf
+die &lt;strong&gt;Netzwerkstatus-Seite&lt;/strong&gt; (Seite 2). So sieht der Benutzer sofort den
+AP-Namen und die Setup-URL.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;QR-Code-Seite:&lt;/strong&gt; Die letzte Seite (Seite 4) generiert einen QR-Code für die
+Web-Dashboard-URL (&lt;code&gt;http://&amp;lt;ip&amp;gt;/&lt;/code&gt;). Scanne ihn mit der Smartphone-Kamera, um
+das Dashboard zu öffnen, ohne die IP-Adresse eingeben zu müssen. Der QR-Code
+wird direkt auf dem Gerät mit der Bibliothek &lt;code&gt;ricmoo/QRCode&lt;/code&gt; erzeugt.&lt;/p&gt;
+&lt;p&gt;Das Display aktualisiert sich alle 2 Sekunden und wird über die Fronttaster
+gesteuert (siehe unten).&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Fronttaster&lt;span class="hx:absolute hx:-mt-20" id="fronttaster"&gt;&lt;/span&gt;
+&lt;a href="#fronttaster" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die drei Drucktaster an der Front werden über den Analog-ADC auf GPIO32
+ausgelesen. Jeder Taster erzeugt durch einen integrierten Widerstandsteiler
+einen eigenen Spannungspegel:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="text-align: center"&gt;Taster&lt;/th&gt;
+&lt;th&gt;Aktion&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;1&lt;/strong&gt; (links)&lt;/td&gt;
+&lt;td&gt;OLED-Seite vorwärts blättern (1 → 2 → 3 → 4 → 1)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;2&lt;/strong&gt; (mitte)&lt;/td&gt;
+&lt;td&gt;Im &lt;strong&gt;manuellen&lt;/strong&gt; Modus: Pool-Pumpe EIN/AUS schalten&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;3&lt;/strong&gt; (rechts)&lt;/td&gt;
+&lt;td&gt;Betriebsmodus wechseln (auto → manu → boost → timer → auto)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Die ADC-Schwellwerte sind in &lt;code&gt;NorviButtonHandler.hpp&lt;/code&gt; konfiguriert. Die
+Rohwerte werden beim Start über die serielle Schnittstelle ausgegeben.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Stromversorgung&lt;span class="hx:absolute hx:-mt-20" id="stromversorgung"&gt;&lt;/span&gt;
+&lt;a href="#stromversorgung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der NORVI AE01-R arbeitet mit &lt;strong&gt;24V DC&lt;/strong&gt; (±10 %). Die eingebauten Relais und
+der ESP32 werden gemeinsam aus dieser Spannung versorgt.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;Wert&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Nennspannung&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;24V DC&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Stromaufnahme&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;400 mA&lt;/strong&gt; (alle Relais aus)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Empfohlenes Netzteil&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;1A 24V DC&lt;/strong&gt; (oder mehr)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Hinweis:&lt;/strong&gt; Im Gegensatz zum Standard-ESP32-Dev-Board-Setup benötigt der
+NORVI &lt;strong&gt;kein&lt;/strong&gt; separates 5V-USB-Netzteil oder 5V-Relaismodul-Netzteil. Alles
+wird aus der einzelnen 24V-DC-Einspeisung versorgt.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2&gt;Unterschiede zum Standard-Setup&lt;span class="hx:absolute hx:-mt-20" id="unterschiede-zum-standard-setup"&gt;&lt;/span&gt;
+&lt;a href="#unterschiede-zum-standard-setup" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Aspekt&lt;/th&gt;
+&lt;th&gt;Standard ESP32 Dev Board&lt;/th&gt;
+&lt;th&gt;NORVI AE01-R&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Strom&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;5V USB oder 5V Netzteil&lt;/td&gt;
+&lt;td&gt;24V DC (eine Versorgung)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Relais&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Externes 2-Kanal-Modul&lt;/td&gt;
+&lt;td&gt;6 eingebaut (wir nutzen 2)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Relais-Strom&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;5V an Relaismodul&lt;/td&gt;
+&lt;td&gt;Integriert (24V → Relaisspulen)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Sensor-Pins&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;GPIO32, GPIO33&lt;/td&gt;
+&lt;td&gt;GPIO25 (Exp Port), GPIO5 (löten)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Relais-Pins&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;GPIO25, GPIO26&lt;/td&gt;
+&lt;td&gt;GPIO14 (R0), GPIO12 (R1)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Status-LED&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Eingebaut (GPIO2)&lt;/td&gt;
+&lt;td&gt;Extern über GPIO27 (T0.1)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;OLED-Display&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Keines&lt;/td&gt;
+&lt;td&gt;Eingebaut 0,96&amp;quot; (SSD1306) — 4 Info-Seiten + QR-Code&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Drucktaster&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;BOOT-Taster (GPIO0)&lt;/td&gt;
+&lt;td&gt;3 Fronttaster — Seiten &amp;amp; Modi&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Montage&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Breadboard / Gehäuse&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Hutschiene&lt;/strong&gt; (Standard-Schaltschrank)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;Nicht mehr benötigt&lt;span class="hx:absolute hx:-mt-20" id="nicht-mehr-benötigt"&gt;&lt;/span&gt;
+&lt;a href="#nicht-mehr-ben%c3%b6tigt" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Externes Relaismodul&lt;/strong&gt; — entfallen (eingebaut)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Separates 5V-Netzteil für Relais&lt;/strong&gt; — entfallen (24V integriert)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;5V-USB-Netzteil&lt;/strong&gt; — entfallen (ein 24V-Netzteil)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Breadboard / Lochrasterplatine&lt;/strong&gt; — entfallen (Schraubklemmen)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Weiterhin gleich&lt;span class="hx:absolute hx:-mt-20" id="weiterhin-gleich"&gt;&lt;/span&gt;
+&lt;a href="#weiterhin-gleich" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;DS18B20-Sensoren mit 4,7kΩ-Pull-up-Widerständen&lt;/li&gt;
+&lt;li&gt;230V AC Verdrahtung (RCD/MCB-Schutz, Pumpenanschlüsse)&lt;/li&gt;
+&lt;li&gt;MQTT / Home Assistant / Homie Convention — gesamte Software identisch&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Firmware bauen&lt;span class="hx:absolute hx:-mt-20" id="firmware-bauen"&gt;&lt;/span&gt;
+&lt;a href="#firmware-bauen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die NORVI-Variante wird zur Compile-Zeit über das Präprozessor-Makro
+&lt;code&gt;NORVI_AE01_R&lt;/code&gt; ausgewählt. Nutze die dedizierte PlatformIO-Umgebung:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pio run -e norvi_ae01_r -t upload&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Diese Umgebung:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Definiert &lt;code&gt;-D NORVI_AE01_R&lt;/code&gt; für die alternative Pinbelegung (Shared OneWire Bus)&lt;/li&gt;
+&lt;li&gt;Bindet &lt;code&gt;Adafruit SSD1306&lt;/code&gt; und &lt;code&gt;Adafruit GFX Library&lt;/code&gt; für das OLED ein&lt;/li&gt;
+&lt;li&gt;Initialisiert I2C auf GPIO16/GPIO17 und den Taster-ADC auf GPIO32&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Zum Hochladen des LittleFS-Dateisystems (Web-Oberfläche):&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pio run -e norvi_ae01_r -t uploadfs&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Hinweis:&lt;/strong&gt; Der USB-Anschluss des NORVI dient der Programmierung, teilt
+sich aber die UART mit RS-485. &lt;code&gt;Serial.print()&lt;/code&gt; kann die RS-485-
+Kommunikation stören — nutze bei aktivem RS-485 das OLED-Display zur
+Debug-Ausgabe.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2&gt;NORVI AE01-R Pin-Referenz&lt;span class="hx:absolute hx:-mt-20" id="norvi-ae01-r-pin-referenz"&gt;&lt;/span&gt;
+&lt;a href="#norvi-ae01-r-pin-referenz" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="text-align: center"&gt;GPIO&lt;/th&gt;
+&lt;th&gt;NORVI-Funktion&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Vom Pool-Controller genutzt?&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;0&lt;/td&gt;
+&lt;td&gt;NRST (PWM beim Boot)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;❌&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;1&lt;/td&gt;
+&lt;td&gt;RS-485 TX (mit USB geteilt)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;❌&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;2&lt;/td&gt;
+&lt;td&gt;Relaisausgang 4 / Eingebaute LED&lt;/td&gt;
+&lt;td style="text-align: center"&gt;❌&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;3&lt;/td&gt;
+&lt;td&gt;RS-485 RX (mit USB geteilt)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;❌&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;4&lt;/td&gt;
+&lt;td&gt;RS-485 Flusskontrolle&lt;/td&gt;
+&lt;td style="text-align: center"&gt;❌&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;5&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;— (freier GPIO, kein NORVI-Peripherie)&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;✅ &lt;strong&gt;DS18B20 Pool (löten)&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;12&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Relaisausgang 1&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;✅ Solar-Pumpe&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;13&lt;/td&gt;
+&lt;td&gt;Relaisausgang 2&lt;/td&gt;
+&lt;td style="text-align: center"&gt;❌&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;14&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Relaisausgang 0&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;✅ Pool-Pumpe&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;15&lt;/td&gt;
+&lt;td&gt;Relaisausgang 3&lt;/td&gt;
+&lt;td style="text-align: center"&gt;❌&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;16&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;I2C SDA&lt;/strong&gt; (OLED-Display)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;✅ OLED-Display&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;17&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;I2C SCL&lt;/strong&gt; (OLED-Display)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;✅ OLED-Display&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;18&lt;/td&gt;
+&lt;td&gt;Digitaleingang 0 (nur Eingang)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;❌&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;19&lt;/td&gt;
+&lt;td&gt;Digitaleingang 4 (nur Eingang)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;❌&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;20&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td style="text-align: center"&gt;❌&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;21&lt;/td&gt;
+&lt;td&gt;Digitaleingang 5 (nur Eingang)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;❌&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;22&lt;/td&gt;
+&lt;td&gt;Digitaleingang 6 (nur Eingang)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;❌&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;23&lt;/td&gt;
+&lt;td&gt;Digitaleingang 7 (nur Eingang)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;❌&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;25&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Erweiterungsport Pin 1&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;✅ &lt;strong&gt;DS18B20 Solar&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;26&lt;/td&gt;
+&lt;td&gt;Transistorausgang 0.0&lt;/td&gt;
+&lt;td style="text-align: center"&gt;❌ (frei)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;27&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Transistorausgang 0.1&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;✅ Status-LED (extern)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;32&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Analogeingang / Taster&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;✅ 3 Fronttaster&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;33&lt;/td&gt;
+&lt;td&gt;Relaisausgang 5&lt;/td&gt;
+&lt;td style="text-align: center"&gt;❌&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;34&lt;/td&gt;
+&lt;td&gt;Digitaleingang 2 (nur Eingang)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;❌&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;35&lt;/td&gt;
+&lt;td&gt;Digitaleingang 3 (nur Eingang)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;❌&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;38&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td style="text-align: center"&gt;❌&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;39&lt;/td&gt;
+&lt;td&gt;Digitaleingang 1 (nur Eingang)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;❌&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Hinweis:&lt;/strong&gt; Als &amp;ldquo;nur Eingang&amp;rdquo; markierte GPIOs (GPIO34, 35, 39) haben keine
+internen Pull-ups und sind an Optokoppler-Schaltungen angeschlossen. Sie
+können nicht für 1-Wire oder andere bidirektionale Protokolle verwendet
+werden.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2&gt;Referenzen&lt;span class="hx:absolute hx:-mt-20" id="referenzen"&gt;&lt;/span&gt;
+&lt;a href="#referenzen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a
+href="https://norvi.io/docs/norvi-iiot-ae01-r-datasheet/"target="_blank" rel="noopener"&gt;NORVI IIOT-AE01-R Datenblatt&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://norvi.io/docs/norvi-iiot-ae01-r-user-guide/"target="_blank" rel="noopener"&gt;NORVI IIOT-AE01-R Benutzerhandbuch&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="hardware-guide.de.md"&gt;Haupt-Hardware-Guide&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller/blob/main/src/Config.hpp"target="_blank" rel="noopener"&gt;Config.hpp Pin-Quelle&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description></item><item><title>Hardware-Anleitung</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/hardware-guide/</link><pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/hardware-guide/</guid><description>
 &lt;h2&gt;Übersicht&lt;span class="hx:absolute hx:-mt-20" id="übersicht"&gt;&lt;/span&gt;
 &lt;a href="#%c3%bcbersicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Diese Anleitung führt dich Schritt für Schritt durch den Hardware-Aufbau des
@@ -1102,6 +2604,16 @@ obere Austrittsrohr) anlegen.&lt;/li&gt;
 Pumpensteuerung hast, nimm ein &lt;strong&gt;Hutschienen-5V-Netzteil&lt;/strong&gt; (z.B. Mean Well
 HDR-15-5). Das ist sauber, zuverlässig und versorgt ESP32 und Relaismodul
 problemlos.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Alternative — Industriesteuerung:&lt;/strong&gt; Der &lt;a
+href="norvi-ae01-r.de.md"&gt;NORVI IIOT-AE01-R&lt;/a&gt;
+ist ein ESP32-basierter Industriecontroller mit &lt;strong&gt;integrierten Relais,
+24V-DC-Versorgung, Hutschienenmontage und CE-Zertifizierung&lt;/strong&gt;. Wenn du bereits
+ein 230V AC → 24V DC Netzteil hast, wird kein zusätzliches 5V-Netzteil
+benötigt. Siehe &lt;a
+href="norvi-ae01-r.de.md"&gt;NORVI AE01-R Konfigurationsanleitung&lt;/a&gt; für
+Details.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;hr&gt;
 &lt;h2&gt;Inbetriebnahme und Test&lt;span class="hx:absolute hx:-mt-20" id="inbetriebnahme-und-test"&gt;&lt;/span&gt;
 &lt;a href="#inbetriebnahme-und-test" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;1. Sichtprüfung&lt;span class="hx:absolute hx:-mt-20" id="1-sichtprüfung"&gt;&lt;/span&gt;
@@ -1306,7 +2818,7 @@ data-copied-label="Kopiert!"
 &lt;/table&gt;
 &lt;p&gt;Die Optimierung ist im Dokument
 &lt;a
-href="esp32-schematic-optimization-de.md"&gt;ESP32 Schaltplananalyse und Optimierung&lt;/a&gt;
+href="esp32-schematic-optimization.de.md"&gt;ESP32 Schaltplananalyse und Optimierung&lt;/a&gt;
 ausführlich analysiert und begründet.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2&gt;LED-Status-Codes (Homie-Convention)&lt;span class="hx:absolute hx:-mt-20" id="led-status-codes-homie-convention"&gt;&lt;/span&gt;
@@ -1373,9 +2885,11 @@ konfigurieren.&lt;/p&gt;
 &lt;li&gt;Fritzing-Quelldatei: &lt;a
 href="https://github.com/smart-swimmingpool/pool-controller/raw/main/docs/pool-controller.fzz"target="_blank" rel="noopener"&gt;pool-controller.fzz&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="esp32-schematic-optimization-de.md"&gt;ESP32 Schaltplananalyse und Optimierung&lt;/a&gt;&lt;/li&gt;
+href="norvi-ae01-r.de.md"&gt;NORVI AE01-R Konfigurationsanleitung&lt;/a&gt; — Industrie-ESP32-Controller Pinbelegung &amp;amp; Verdrahtung&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="esp32-complete-wiring-schematic-de.md"&gt;ESP32 Komplett-Schaltplan&lt;/a&gt;&lt;/li&gt;
+href="esp32-schematic-optimization.de.md"&gt;ESP32 Schaltplananalyse und Optimierung&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="esp32-complete-wiring-schematic.de.md"&gt;ESP32 Komplett-Schaltplan&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a
 href="https://www.analog.com/media/en/technical-documentation/data-sheets/DS18B20.pdf"target="_blank" rel="noopener"&gt;DS18B20 Datenblatt&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a
@@ -1591,4 +3105,956 @@ als Prefix — falls deine IDs abweichen (z.B. MAC-basiert), ersetze alle Vorkom
 &lt;a href="#migration-von-fr%c3%bcheren-versionen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Bei einem Update von einer älteren Firmware können alte Discovery-Konfigurationen im MQTT-Broker verbleiben.
 Der Controller publiziert automatisch leere retained Configs für obsolete Entitäten
 (&lt;code&gt;number/timer-start-h/min&lt;/code&gt;, &lt;code&gt;number/timer-end-h/min&lt;/code&gt;, &lt;code&gt;number/timezone&lt;/code&gt;). Nach dem ersten MQTT-Reconnect
-entfernt Home Assistant die verwaisten Entitäten automatisch.&lt;/p&gt;</description></item></channel></rss>
+entfernt Home Assistant die verwaisten Entitäten automatisch.&lt;/p&gt;</description></item><item><title>ESP32 Komplett-Schaltplan</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/esp32-complete-wiring-schematic/</link><pubDate>Fri, 15 May 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/esp32-complete-wiring-schematic/</guid><description>
+&lt;p&gt;Dieses Dokument zeigt einen zusätzlichen, vollständigen Verdrahtungsplan für
+den ESP32-Aufbau mit Sensoren, Relais, Widerständen und Uhr-Modul (RTC).&lt;/p&gt;
+&lt;p&gt;Die verwendeten Standard-Pins in der Firmware sind:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;PIN_DS_SOLAR&lt;/code&gt; = GPIO32&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PIN_DS_POOL&lt;/code&gt; = GPIO33&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PIN_RELAY_POOL&lt;/code&gt; = GPIO25&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PIN_RELAY_SOLAR&lt;/code&gt; = GPIO26&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;1) Komponenten (inkl. Uhr und Widerstände)&lt;span class="hx:absolute hx:-mt-20" id="1-komponenten-inkl-uhr-und-widerstände"&gt;&lt;/span&gt;
+&lt;a href="#1-komponenten-inkl-uhr-und-widerst%c3%a4nde" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;1x ESP32 Dev Board&lt;/li&gt;
+&lt;li&gt;2x DS18B20 Temperatursensor (Solar, Pool)&lt;/li&gt;
+&lt;li&gt;2x Widerstand 4.7kΩ (Pull-up für OneWire-Datenleitungen)&lt;/li&gt;
+&lt;li&gt;1x 2-Kanal-Relaismodul 5V (bevorzugt mit Optokoppler)&lt;/li&gt;
+&lt;li&gt;1x RTC-Modul DS3231 (Uhr, optional)&lt;/li&gt;
+&lt;li&gt;1x Netzteil 5V DC (ausreichend dimensioniert)&lt;/li&gt;
+&lt;li&gt;Verdrahtungskabel, Klemmen, ggf. Sicherung/Schutzbeschaltung auf Lastseite&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2) Komplett-Schaltplan (Textdarstellung)&lt;span class="hx:absolute hx:-mt-20" id="2-komplett-schaltplan-textdarstellung"&gt;&lt;/span&gt;
+&lt;a href="#2-komplett-schaltplan-textdarstellung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;+----------------------------------+
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| ESP32 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| DS18B20 Solar DATA ---- GPIO32 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| DS18B20 Pool DATA ---- GPIO33 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| Relay IN1 (Pool) ----- GPIO25 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| Relay IN2 (Solar) ----- GPIO26 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| RTC SDA --------------- GPIO21 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| RTC SCL --------------- GPIO22 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| 3V3 ------------------- 3V3 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| GND ------------------- GND |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;+----------------+-----------------+
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;|
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| gemeinsame Masse (GND)
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;v
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;+----------------------+ +------------------------------+
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| DS18B20 Solar | | DS18B20 Pool |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| VDD -&amp;gt; 3V3 | | VDD -&amp;gt; 3V3 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| GND -&amp;gt; GND | | GND -&amp;gt; GND |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| DATA -&amp;gt; GPIO32 | | DATA -&amp;gt; GPIO33 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;+----------+-----------+ +----------+-------------------+
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;+--[4.7kΩ]---&amp;gt; 3V3 +--[4.7kΩ]---&amp;gt; 3V3
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;+----------------------------------+
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| 2-Kanal Relaismodul (5V, opto) |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| IN1 &amp;lt;- GPIO25 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| IN2 &amp;lt;- GPIO26 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| VCC &amp;lt;- 5V (oder Modul-Logik) |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| JD-VCC &amp;lt;- 5V (falls getrennt) |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| GND &amp;lt;- GND |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;+----------------+-----------------+
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;|
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| Schaltkontakte
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;v
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; Pool-Pumpe / Solar-Pumpe (AC)
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;+--------------------------------------+
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| RTC DS3231 (optional, Uhr) |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| VCC &amp;lt;- 3V3 (oder 5V je Modultyp) |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| GND &amp;lt;- GND |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| SDA &amp;lt;- GPIO21 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| SCL &amp;lt;- GPIO22 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;+--------------------------------------+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;3) Verdrahtungstabelle&lt;span class="hx:absolute hx:-mt-20" id="3-verdrahtungstabelle"&gt;&lt;/span&gt;
+&lt;a href="#3-verdrahtungstabelle" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Bauteil&lt;/th&gt;
+&lt;th&gt;Signal&lt;/th&gt;
+&lt;th&gt;ESP32 Pin&lt;/th&gt;
+&lt;th&gt;Zusatzbauteil&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;DS18B20 Solar&lt;/td&gt;
+&lt;td&gt;DATA&lt;/td&gt;
+&lt;td&gt;GPIO32&lt;/td&gt;
+&lt;td&gt;4.7kΩ Pull-up nach 3V3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DS18B20 Pool&lt;/td&gt;
+&lt;td&gt;DATA&lt;/td&gt;
+&lt;td&gt;GPIO33&lt;/td&gt;
+&lt;td&gt;4.7kΩ Pull-up nach 3V3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relais Kanal 1&lt;/td&gt;
+&lt;td&gt;IN1&lt;/td&gt;
+&lt;td&gt;GPIO25&lt;/td&gt;
+&lt;td&gt;optional Pull-down (Fail-Safe)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relais Kanal 2&lt;/td&gt;
+&lt;td&gt;IN2&lt;/td&gt;
+&lt;td&gt;GPIO26&lt;/td&gt;
+&lt;td&gt;optional Pull-down (Fail-Safe)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;RTC DS3231 (optional)&lt;/td&gt;
+&lt;td&gt;SDA&lt;/td&gt;
+&lt;td&gt;GPIO21&lt;/td&gt;
+&lt;td&gt;I2C-Bus&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;RTC DS3231 (optional)&lt;/td&gt;
+&lt;td&gt;SCL&lt;/td&gt;
+&lt;td&gt;GPIO22&lt;/td&gt;
+&lt;td&gt;I2C-Bus&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Alle Bauteile&lt;/td&gt;
+&lt;td&gt;GND&lt;/td&gt;
+&lt;td&gt;GND&lt;/td&gt;
+&lt;td&gt;gemeinsame Masseführung&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DS18B20 / RTC&lt;/td&gt;
+&lt;td&gt;Versorgung&lt;/td&gt;
+&lt;td&gt;3V3&lt;/td&gt;
+&lt;td&gt;sauber entkoppeln&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relaismodul&lt;/td&gt;
+&lt;td&gt;Versorgung&lt;/td&gt;
+&lt;td&gt;5V&lt;/td&gt;
+&lt;td&gt;getrennte Last/Logik empfohlen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;4) Wichtige Hinweise&lt;span class="hx:absolute hx:-mt-20" id="4-wichtige-hinweise"&gt;&lt;/span&gt;
+&lt;a href="#4-wichtige-hinweise" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;230V/Netzseite der Pumpen nur nach geltenden Sicherheitsregeln verdrahten.&lt;/li&gt;
+&lt;li&gt;Sensorleitungen getrennt von Netz- und Relaisleitungen führen.&lt;/li&gt;
+&lt;li&gt;Beim Relaismodul aktive Logik prüfen (active-low oder active-high).&lt;/li&gt;
+&lt;li&gt;Für störarmen Betrieb nahe ESP32 zusätzliche Entkopplung (z. B. 100nF)
+vorsehen.&lt;/li&gt;
+&lt;li&gt;Die Firmware nutzt standardmäßig NTP; das RTC-Modul ist als zusätzliche
+Hardware-Uhr für Erweiterungen/Offline-Szenarien vorgesehen.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;5) Bezug zu bestehender Doku&lt;span class="hx:absolute hx:-mt-20" id="5-bezug-zu-bestehender-doku"&gt;&lt;/span&gt;
+&lt;a href="#5-bezug-zu-bestehender-doku" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Ausführliche Aufbauanleitung (auch für Einsteiger):
+&lt;a
+href="hardware-guide.de.md"&gt;Hardware-Anleitung&lt;/a&gt; — Schritt-für-Schritt,
+Fertigungstipps, Fehlersuche&lt;/li&gt;
+&lt;li&gt;Pin-Hintergrund und Optimierung:
+&lt;a
+href="esp32-schematic-optimization.de.md"&gt;ESP32 Schaltplananalyse und Optimierung&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>ESP32 Schaltplananalyse und Optimierung</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/esp32-schematic-optimization/</link><pubDate>Thu, 14 May 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/esp32-schematic-optimization/</guid><description>
+&lt;p&gt;Dieses Dokument analysiert den vorhandenen Aufbau (Fritzing-Quelle + bestehende
+Hardware-Dokumentation) und beschreibt einen optimierten ESP32-Vorschlag für
+Sensoren und Relais.&lt;/p&gt;
+&lt;h2&gt;1) Ist-Analyse (relevante Signale)&lt;span class="hx:absolute hx:-mt-20" id="1-ist-analyse-relevante-signale"&gt;&lt;/span&gt;
+&lt;a href="#1-ist-analyse-relevante-signale" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Aktuelle Firmware-Pinbelegung für ESP32 (&lt;code&gt;src/Config.hpp&lt;/code&gt;):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;PIN_DS_SOLAR&lt;/code&gt; = GPIO32&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PIN_DS_POOL&lt;/code&gt; = GPIO33&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PIN_RELAY_POOL&lt;/code&gt; = GPIO25&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PIN_RELAY_SOLAR&lt;/code&gt; = GPIO26&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Verwendete Hardware laut Doku:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;2x DS18B20 Temperaturfühler&lt;/li&gt;
+&lt;li&gt;2-Kanal Relaismodul (5V)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2) Hauptthemen im bisherigen Aufbau (vor Optimierung)&lt;span class="hx:absolute hx:-mt-20" id="2-hauptthemen-im-bisherigen-aufbau-vor-optimierung"&gt;&lt;/span&gt;
+&lt;a href="#2-hauptthemen-im-bisherigen-aufbau-vor-optimierung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;DS18B20 war auf GPIO15 (Strapping-Pin)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;GPIO15 ist beim ESP32 ein Boot-Strapping-Pin.
+Ein OneWire-Bus mit Pull-up auf diesem Pin kann das Boot-Verhalten negativ
+beeinflussen.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Relais-/Versorgungskopplung&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;5V-Relaismodule können Schaltstörungen verursachen (Spikes/Noise).
+Ohne saubere Trennung von Logik- und Lastversorgung steigt das Risiko von
+Resets und Messrauschen.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Fehlende explizite Fail-Safe-Definition im Schaltplan&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Beim Start oder Reset darf keine Pumpe unbeabsichtigt einschalten.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;3) Optimierter ESP32-Vorschlag&lt;span class="hx:absolute hx:-mt-20" id="3-optimierter-esp32-vorschlag"&gt;&lt;/span&gt;
+&lt;a href="#3-optimierter-esp32-vorschlag" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;3.1 Empfohlene Pinbelegung&lt;span class="hx:absolute hx:-mt-20" id="31-empfohlene-pinbelegung"&gt;&lt;/span&gt;
+&lt;a href="#31-empfohlene-pinbelegung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Funktion&lt;/th&gt;
+&lt;th&gt;Vorher (ESP32)&lt;/th&gt;
+&lt;th&gt;Jetzt (ESP32)&lt;/th&gt;
+&lt;th&gt;Grund&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;DS18B20 Solar&lt;/td&gt;
+&lt;td&gt;GPIO15&lt;/td&gt;
+&lt;td&gt;GPIO32&lt;/td&gt;
+&lt;td&gt;Vermeidet Strapping-Pins&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DS18B20 Pool&lt;/td&gt;
+&lt;td&gt;GPIO16&lt;/td&gt;
+&lt;td&gt;GPIO33&lt;/td&gt;
+&lt;td&gt;Klare Trennung der Sensorleitungen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relais Pool&lt;/td&gt;
+&lt;td&gt;GPIO18&lt;/td&gt;
+&lt;td&gt;GPIO25&lt;/td&gt;
+&lt;td&gt;Robuster Output, konfliktarm&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relais Solar&lt;/td&gt;
+&lt;td&gt;GPIO19&lt;/td&gt;
+&lt;td&gt;GPIO26&lt;/td&gt;
+&lt;td&gt;Robuster Output, konfliktarm&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Hinweis: Für bestehende Installationen mit alter Verdrahtung ist eine Anpassung
+der Firmware-Pins und ggf. Umverdrahtung erforderlich.&lt;/p&gt;
+&lt;h3&gt;3.1.1 Entscheidungsdokumentation (klarer Entscheid)&lt;span class="hx:absolute hx:-mt-20" id="311-entscheidungsdokumentation-klarer-entscheid"&gt;&lt;/span&gt;
+&lt;a href="#311-entscheidungsdokumentation-klarer-entscheid" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Entscheidung:&lt;/strong&gt; Für ESP32 werden die Signale dauerhaft auf
+&lt;code&gt;GPIO32/33&lt;/code&gt; (DS18B20) sowie &lt;code&gt;GPIO25/26&lt;/code&gt; (Relais) geführt.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Warum genau diese Zuordnung:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Boot-Robustheit:&lt;/strong&gt; Sensoren liegen nicht mehr auf Strapping-Pins
+(insbesondere kein OneWire auf GPIO15).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Störarmut:&lt;/strong&gt; Sensor-GPIOs sind von Relais-GPIOs logisch getrennt; dadurch
+weniger gegenseitige Beeinflussung bei Schaltvorgängen.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Betriebssicherheit:&lt;/strong&gt; Relais auf gut nutzbaren Output-Pins mit klarer
+Fail-Safe-Auslegung beim Start/Reset.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Wartbarkeit:&lt;/strong&gt; Einheitliche, dokumentierte Standardbelegung in Firmware und
+Hardware-Doku reduziert Fehlverdrahtung und Support-Aufwand.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Nicht gewählt wurde:&lt;/strong&gt; Die frühere ESP32-Belegung (&lt;code&gt;15/16/18/19&lt;/code&gt;), da sie
+höheres Boot-/Störrisiko mitbringt.&lt;/p&gt;
+&lt;h3&gt;3.2 Sensor-Optimierung (DS18B20)&lt;span class="hx:absolute hx:-mt-20" id="32-sensor-optimierung-ds18b20"&gt;&lt;/span&gt;
+&lt;a href="#32-sensor-optimierung-ds18b20" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Pro Sensorleitung einen sauberen &lt;strong&gt;4.7k Pull-up nach 3.3V&lt;/strong&gt; vorsehen.&lt;/li&gt;
+&lt;li&gt;Sensorleitungen räumlich von Relais-/230V-Leitungen trennen.&lt;/li&gt;
+&lt;li&gt;Bei längeren Leitungen: verdrillte Leitung und gemeinsamer sauberer GND.&lt;/li&gt;
+&lt;li&gt;100nF nahe ESP32-Versorgung zur Entstörung vorsehen.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;3.3 Relais-Optimierung&lt;span class="hx:absolute hx:-mt-20" id="33-relais-optimierung"&gt;&lt;/span&gt;
+&lt;a href="#33-relais-optimierung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Relaismodul mit Optokoppler&lt;/strong&gt; und sauber dokumentierter Logikpegelrichtung
+(active-low/active-high) verwenden.&lt;/li&gt;
+&lt;li&gt;Wenn Modul es unterstützt: &lt;strong&gt;JD-VCC (Relais-Spule) von VCC (Logik) trennen&lt;/strong&gt;
+und gemeinsame Masseführung sternförmig auslegen.&lt;/li&gt;
+&lt;li&gt;Auf Pumpenseite geeignete Netzschutzmaßnahmen einplanen (z. B. passende
+Absicherung/Schutzbeschaltung entsprechend Installation).&lt;/li&gt;
+&lt;li&gt;Relais-Eingänge zusätzlich mit Pull-up/Pull-down fail-safe auslegen, damit
+beim Booten kein ungewolltes Schalten erfolgt.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;3.4 Verdrahtung (Visualisierung)&lt;span class="hx:absolute hx:-mt-20" id="34-verdrahtung-visualisierung"&gt;&lt;/span&gt;
+&lt;a href="#34-verdrahtung-visualisierung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; +---------------------+
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; | ESP32 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; | |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;DS18B20 Solar DATA &amp;lt;----&amp;gt;| GPIO32 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;DS18B20 Pool DATA &amp;lt;----&amp;gt;| GPIO33 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Relay IN1 (Pool) &amp;lt;----&amp;gt;| GPIO25 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Relay IN2 (Solar) &amp;lt;----&amp;gt;| GPIO26 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; | |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;3V3 ---------------------&amp;gt;| 3V3 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;GND ---------------------&amp;gt;| GND |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; +----------+----------+
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; | gemeinsame Masse
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; v
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; +----------------+----------------+
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; | 2-Kanal Relaismodul (5V, opto) |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; | VCC (Logik) &amp;lt;- 3V3/5V* |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; | JD-VCC (Spule)&amp;lt;- 5V |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; | GND &amp;lt;- GND |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; | IN1 &amp;lt;- GPIO25 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; | IN2 &amp;lt;- GPIO26 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; +----------------+----------------+
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;DS18B20 Solar: VDD -&amp;gt; 3V3, GND -&amp;gt; GND, DATA -&amp;gt; GPIO32, Pull-up 4.7k nach 3V3
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;DS18B20 Pool : VDD -&amp;gt; 3V3, GND -&amp;gt; GND, DATA -&amp;gt; GPIO33, Pull-up 4.7k nach 3V3
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;* abhängig vom eingesetzten Relaismodul (Logikpegel beachten)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;4) Firmware-Bezug bei Umverdrahtung&lt;span class="hx:absolute hx:-mt-20" id="4-firmware-bezug-bei-umverdrahtung"&gt;&lt;/span&gt;
+&lt;a href="#4-firmware-bezug-bei-umverdrahtung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die empfohlenen Pins sind in &lt;code&gt;src/Config.hpp&lt;/code&gt; umgesetzt. Relevant sind:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;PIN_DS_SOLAR&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PIN_DS_POOL&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PIN_RELAY_POOL&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PIN_RELAY_SOLAR&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;5) Verifikations-Checkliste nach Umbau&lt;span class="hx:absolute hx:-mt-20" id="5-verifikations-checkliste-nach-umbau"&gt;&lt;/span&gt;
+&lt;a href="#5-verifikations-checkliste-nach-umbau" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Bootet der ESP32 reproduzierbar (kalt/warm) ohne Fehlstart?&lt;/li&gt;
+&lt;li&gt;Schalten Relais beim Boot &lt;strong&gt;nicht&lt;/strong&gt; unbeabsichtigt?&lt;/li&gt;
+&lt;li&gt;Sind Temperaturmessungen stabil, auch bei Relais-Schaltvorgängen?&lt;/li&gt;
+&lt;li&gt;Keine Resets bei parallelem WLAN + Relaisbetrieb?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;6) Betrieb und Sicherheit&lt;span class="hx:absolute hx:-mt-20" id="6-betrieb-und-sicherheit"&gt;&lt;/span&gt;
+&lt;a href="#6-betrieb-und-sicherheit" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Für den produktiven 24/7-Betrieb und Sicherheitsaspekte bitte zusätzlich
+&lt;code&gt;AGENTS.md&lt;/code&gt; beachten (insbesondere Ressourcenmanagement, Security, OTA und
+Robustheit).&lt;/p&gt;
+&lt;h2&gt;7) Siehe auch&lt;span class="hx:absolute hx:-mt-20" id="7-siehe-auch"&gt;&lt;/span&gt;
+&lt;a href="#7-siehe-auch" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Ausführliche Aufbauanleitung mit Schritt-für-Schritt-Anleitung und
+Fertigungstipps: &lt;a
+href="hardware-guide.de.md"&gt;Hardware-Anleitung&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Kompletter Verdrahtungsplan mit RTC-Modul:
+&lt;a
+href="esp32-complete-wiring-schematic.de.md"&gt;ESP32 Komplett-Schaltplan&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Benutzerhandbuch</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/users-guide/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/users-guide/</guid><description>
+&lt;h2&gt;Einrichtung&lt;span class="hx:absolute hx:-mt-20" id="einrichtung"&gt;&lt;/span&gt;
+&lt;a href="#einrichtung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Erste WLAN-Einrichtung über die Weboberfläche (AP-Modus)&lt;span class="hx:absolute hx:-mt-20" id="erste-wlan-einrichtung-über-die-weboberfläche-ap-modus"&gt;&lt;/span&gt;
+&lt;a href="#erste-wlan-einrichtung-%c3%bcber-die-weboberfl%c3%a4che-ap-modus" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Wenn der Controller kein WLAN konfiguriert hat, startet er im &lt;strong&gt;Access-Point-Modus&lt;/strong&gt;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Controller einschalten&lt;/li&gt;
+&lt;li&gt;Telefon/Laptop mit dem WLAN &lt;strong&gt;&lt;code&gt;Pool-Controller-Setup&lt;/code&gt;&lt;/strong&gt; verbinden (offenes Netzwerk)&lt;/li&gt;
+&lt;li&gt;Browser öffnen und &lt;strong&gt;&lt;code&gt;http://192.168.4.1&lt;/code&gt;&lt;/strong&gt; aufrufen — der Captive Portal leitet automatisch weiter&lt;/li&gt;
+&lt;li&gt;Zum Tab &lt;strong&gt;WLAN-Einrichtung&lt;/strong&gt; gehen, Netzwerke scannen, das eigene auswählen und Passwort eingeben&lt;/li&gt;
+&lt;li&gt;Der Controller speichert die Konfiguration und startet im &lt;strong&gt;STA-Modus&lt;/strong&gt; neu&lt;/li&gt;
+&lt;li&gt;Die IP des Controllers in der DHCP-Liste des Routers finden und neu verbinden&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Hinweis:&lt;/strong&gt; Im AP-Modus hat die Weboberfläche kein Passwort (absichtlich für die Ersteinrichtung).
+Sobald der Controller mit Ihrem WLAN verbunden ist, ist ein Login erforderlich (Standardpasswort: &lt;code&gt;admin&lt;/code&gt;).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Erste WLAN-Einrichtung per WPS&lt;span class="hx:absolute hx:-mt-20" id="erste-wlan-einrichtung-per-wps"&gt;&lt;/span&gt;
+&lt;a href="#erste-wlan-einrichtung-per-wps" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Sie können WPS während des Bootvorgangs auslösen, um den Controller ohne manuelle
+Eingabe der WLAN-Zugangsdaten mit Ihrem Router zu koppeln:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Controller normal einschalten (oder zurücksetzen) und warten, bis das Firmware-Setup beginnt.&lt;/li&gt;
+&lt;li&gt;Dann die &lt;strong&gt;BOOT&lt;/strong&gt;-Taste mindestens 2 Sekunden lang gedrückt halten.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;WPS Push Button Connect (PBC)&lt;/strong&gt; auf Ihrem Router starten.&lt;/li&gt;
+&lt;li&gt;Warten, bis die Kopplung abgeschlossen ist.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Bei erfolgreichem WPS aktualisiert der Controller die WLAN-Zugangsdaten und speichert
+sie dauerhaft in &lt;code&gt;/config.json&lt;/code&gt; auf LittleFS.&lt;/p&gt;
+&lt;h3&gt;Controller im Netzwerk finden&lt;span class="hx:absolute hx:-mt-20" id="controller-im-netzwerk-finden"&gt;&lt;/span&gt;
+&lt;a href="#controller-im-netzwerk-finden" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Nach erfolgreicher Verbindung die IP des Controllers ermitteln:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;DHCP-Client-Liste des Routers prüfen&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Oder einen Netzwerkscanner wie &lt;code&gt;nmap&lt;/code&gt; verwenden:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;nmap -p &lt;span class="m"&gt;80&lt;/span&gt; 192.168.1.0/24 &lt;span class="c1"&gt;# Subnetz nach offenem Port 80 scannen&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Die Weboberfläche zeigt die zugewiesene IP in der Dashboard-Kopfzeile an&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;OLED-Display (NORVI AE01-R Variante)&lt;span class="hx:absolute hx:-mt-20" id="oled-display-norvi-ae01-r-variante"&gt;&lt;/span&gt;
+&lt;a href="#oled-display-norvi-ae01-r-variante" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der industrielle NORVI AE01-R Controller verfügt über ein &lt;strong&gt;0,96&amp;quot; OLED-Display&lt;/strong&gt;
+(128×64 Pixel) auf der Frontseite. Wenn Ihre Firmware mit dem Flag
+&lt;code&gt;NORVI_AE01_R&lt;/code&gt; gebaut wurde, zeigt das Display Systeminformationen auf vier
+umschaltbaren Seiten:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="text-align: center"&gt;Seite&lt;/th&gt;
+&lt;th&gt;Anzeige&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;1&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Hauptseite&lt;/strong&gt; — Pool- und Solar-Wassertemperaturen mit Pumpen-EIN/AUS-Anzeige (gefüllter/leerer Kreis), Betriebsmodus (auto/manu/boost/timer) und Abkürzungshinweise für die drei Fronttasten&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;2&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Netzwerk&lt;/strong&gt; — Verbundene WLAN-SSID, IP-Adresse, MQTT- Verbindungsstatus. Im AP-Modus werden Setup-Hotspot-Name und URL angezeigt&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;3&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;System&lt;/strong&gt; — Betriebszeit (z.B. 3d 12h 30m), aktueller und minimaler freier Heap-Speicher, Firmware-Version&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;4&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;QR-Code&lt;/strong&gt; — Erzeugt einen scannbaren QR-Code der Web-Dashboard-URL, zum Öffnen auf dem Smartphone ohne IP-Eingabe&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Fußzeile:&lt;/strong&gt; Jede Seite hat eine untere Leiste mit der Ortszeit (HH:MM, mit
+automatischer Sommerzeitumstellung), der Firmware-Version (&lt;code&gt;vX.Y.Z&lt;/code&gt;) und der
+aktuellen Seitenzahl. Auf Seite 1 wird auch der aktive Betriebsmodus in der
+Fußzeile angezeigt.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Auto-WLAN-Seite:&lt;/strong&gt; Wenn noch kein WLAN konfiguriert ist (AP-Modus), springt
+das Display beim Start direkt zu Seite 2, damit die Einrichtungshinweise sofort
+sichtbar sind.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;QR-Schnellzugriff:&lt;/strong&gt; Mit der Kamera-App des Smartphones den QR-Code auf Seite 4
+scannen — die meisten modernen Telefone erkennen die URL und bieten an, sie im
+Browser zu öffnen. Keine zusätzliche App erforderlich.&lt;/p&gt;
+&lt;p&gt;Das Display aktualisiert sich alle 2 Sekunden. Die Seiten werden mit den
+Fronttasten umgeschaltet (siehe &lt;a
+href="norvi-ae01-r.de.md"&gt;NORVI AE01-R Dokumentation&lt;/a&gt;
+für Details).&lt;/p&gt;
+&lt;h2&gt;LED-Statuscodes (Homie-Konvention)&lt;span class="hx:absolute hx:-mt-20" id="led-statuscodes-homie-konvention"&gt;&lt;/span&gt;
+&lt;a href="#led-statuscodes-homie-konvention" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der Controller verwendet die &lt;strong&gt;eingebaute LED&lt;/strong&gt; zur Signalisierung des aktuellen
+Systemzustands, nach der &lt;a
+href="https://homieiot.github.io/"target="_blank" rel="noopener"&gt;Homie Convention&lt;/a&gt; — einem
+Industriestandard für IoT-Statusanzeigen.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;LED-Muster&lt;/th&gt;
+&lt;th&gt;Wann?&lt;/th&gt;
+&lt;th&gt;Bedeutung&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Langsames Blinken&lt;/strong&gt; (1x/Sek.)&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;WLAN-Verbindung&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Der Controller versucht, sich mit Ihrem Heim-WLAN zu verbinden. Dauert 5–20 Sekunden.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Meist an, kurzes Ausblinken alle 2s&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;WLAN OK, MQTT verbindet/getrennt&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Netzwerk steht, aber der MQTT-Broker ist noch nicht verbunden. Broker-Adresse oder Netzwerk prüfen.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Schnelles Blinken&lt;/strong&gt; (5x/Sek.)&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;AP-Modus / Setup&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Keine WLAN-Zugangsdaten gespeichert. Der Controller hostet ein eigenes &lt;code&gt;Pool-Controller-Setup&lt;/code&gt;-WLAN.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Dauerhaft an&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Voll verbunden&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Alles läuft normal — WLAN + MQTT verbunden.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Sehr schnelles Blinken&lt;/strong&gt; (10x/Sek.)&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;OTA-Update läuft&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Firmware wird heruntergeladen und geflasht. Nicht ausschalten!&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Doppelblinken&lt;/strong&gt; (zwei Blitze, Pause)&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Safe Mode / Fehler&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Boot-Loop erkannt oder kritische Systemverschlechterung. Relais sind ausgeschaltet.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;Was beim ersten Einschalten zu erwarten ist&lt;span class="hx:absolute hx:-mt-20" id="was-beim-ersten-einschalten-zu-erwarten-ist"&gt;&lt;/span&gt;
+&lt;a href="#was-beim-ersten-einschalten-zu-erwarten-ist" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Einschalten&lt;/strong&gt; des Controllers&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Schnelles Blinken&lt;/strong&gt; — AP-Modus (noch kein WLAN konfiguriert)&lt;/li&gt;
+&lt;li&gt;Netzwerk &lt;code&gt;Pool-Controller-Setup&lt;/code&gt; öffnen und WLAN konfigurieren&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Langsames Blinken&lt;/strong&gt; — Verbindung zum Heim-WLAN&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Meist an&lt;/strong&gt; — WLAN verbunden, MQTT verbindet&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Dauerhaft an&lt;/strong&gt; — alles läuft normal&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Fehlersuche&lt;/strong&gt;: Wenn die LED &lt;strong&gt;niemals das schnelle Blinken verlässt&lt;/strong&gt;, hat der
+Controller keine WLAN-Zugangsdaten oder kann Ihr Netzwerk nicht finden. Mit dem
+&lt;code&gt;Pool-Controller-Setup&lt;/code&gt;-Zugangspunkt verbinden, um ihn zu konfigurieren. Bleibt
+es beim &lt;strong&gt;Doppelblinken&lt;/strong&gt;, ist ein kritischer Fehler aufgetreten — das
+serielle Log prüfen.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Web-Dashboard&lt;span class="hx:absolute hx:-mt-20" id="web-dashboard"&gt;&lt;/span&gt;
+&lt;a href="#web-dashboard" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der Controller bietet ein modernes Web-Dashboard unter &lt;code&gt;http://&amp;lt;controller-ip&amp;gt;/&lt;/code&gt;
+mit den folgenden Tabs:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Dashboard&lt;/strong&gt; — Live-Telemetrie: Pool-/Solar-/Controller-Temperatur, Pumpenzustände, freier Heap, RSSI, Betriebsmodus&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;WLAN-Einrichtung&lt;/strong&gt; — WLAN-Zugangsdaten scannen und konfigurieren&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MQTT-Einstellungen&lt;/strong&gt; — Broker-Host, Port, Benutzername, Passwort&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Konfiguration&lt;/strong&gt; — Betriebsmodus, Temperaturgrenzen, Hysterese, Timer, Zeitzone&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sicherheit &amp;amp; Update&lt;/strong&gt; — Admin-Passwort ändern, OTA-Firmware-Update, Neustart, Werksreset&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Einstellungen über die Weboberfläche ändern&lt;span class="hx:absolute hx:-mt-20" id="einstellungen-über-die-weboberfläche-ändern"&gt;&lt;/span&gt;
+&lt;a href="#einstellungen-%c3%bcber-die-weboberfl%c3%a4che-%c3%a4ndern" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Mit Ihrem Admin-Passwort anmelden (Standard: &lt;code&gt;admin&lt;/code&gt;)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Zum Tab &lt;strong&gt;Konfiguration&lt;/strong&gt; navigieren&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Einstellungen nach Bedarf anpassen:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Betriebsmodus&lt;/strong&gt;: Automatik (Solar), Manuelle Steuerung, Boost-Pumpe, Timer-Zeitplan&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Max. Pool-Temp.&lt;/strong&gt;: Zielwassertemperatur (°C)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Min. Solar-Temp.&lt;/strong&gt;: Minimale Solarkollektortemperatur (°C)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Temperatur-Hysterese&lt;/strong&gt;: Schaltdifferenz zur Vermeidung schnellen Toggeln (K)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Loop-Intervall&lt;/strong&gt;: Wie oft der Controller Regeln auswertet (Sekunden)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Zeitzone&lt;/strong&gt;: Auswahl aus 10 unterstützten Zeitzonen mit Sommerzeit&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Parameter speichern&lt;/strong&gt; klicken — Änderungen sind &lt;strong&gt;sofort aktiv&lt;/strong&gt; und &lt;strong&gt;überdauern Neustarts&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Wenn MQTT/Home Assistant verbunden ist, werden die neuen Werte automatisch veröffentlicht&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Tipp:&lt;/strong&gt; Sie können Einstellungen auch programmatisch über die REST-API ändern —
+siehe &lt;a
+href="software-guide.de.md#weboberfl%c3%a4che--direktzugriff"&gt;Software-Entwicklung&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Einstellungen&lt;span class="hx:absolute hx:-mt-20" id="einstellungen"&gt;&lt;/span&gt;
+&lt;a href="#einstellungen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Es gibt einige spezifische Einstellungen für den Controller:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Pool max. Temperatur:&lt;/strong&gt; Die maximale Wassertemperatur im Pool, die nicht überschritten werden soll.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Einheit: &lt;code&gt;°C&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Standardwert: &lt;code&gt;29&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Solar min. Temperatur:&lt;/strong&gt; Die minimale Temperatur des Wärmespeichers, die nicht unterschritten werden soll.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Einheit: &lt;code&gt;°C&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Standardwert: &lt;code&gt;50&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Hysterese:&lt;/strong&gt; Hysterese in Kelvin, die prüft, ob die Heizung ein- oder ausgeschaltet werden soll, um schnelles Umschalten zu verhindern.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Einheit: &lt;code&gt;K&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Standardwert: &lt;code&gt;1&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Pumpen-Timer:&lt;/strong&gt; Zeitbereich, in dem die Poolpumpe laufen soll.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Start h/min&lt;/li&gt;
+&lt;li&gt;Ende h/min&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Loop-Intervall:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Einheit: &lt;code&gt;sec&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Standardwert: &lt;code&gt;30&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Zeitzone:&lt;/strong&gt; Wählen Sie die Zeitzone für den Controller zur korrekten lokalen Zeit und Sommerzeitumstellung (DST).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Verfügbare Zeitzonen:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;0&lt;/code&gt; - Mitteleuropäische Zeit (Berlin, Paris) mit CEST/CET DST&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;1&lt;/code&gt; - Osteuropäische Zeit (Helsinki, Athen) mit EEST/EET DST&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;2&lt;/code&gt; - Westeuropäische Zeit (London, Lissabon) mit BST/GMT DST&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;3&lt;/code&gt; - US Eastern Time (New York, Washington) mit EDT/EST DST&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;4&lt;/code&gt; - US Central Time (Chicago, Houston) mit CDT/CST DST&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;5&lt;/code&gt; - US Mountain Time (Denver) mit MDT/MST DST&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;6&lt;/code&gt; - US Pacific Time (Los Angeles, San Francisco) mit PDT/PST DST&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;7&lt;/code&gt; - Australian Eastern Time (Sydney, Melbourne) mit AEDT/AEST DST&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;8&lt;/code&gt; - Japan Time (Tokio) - Keine DST&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;9&lt;/code&gt; - China Time (Peking) - Keine DST&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Standardwert: &lt;code&gt;0&lt;/code&gt; (Mitteleuropäische Zeit)&lt;/li&gt;
+&lt;li&gt;Diese Einstellung kann bei der Ersteinrichtung konfiguriert oder zur Laufzeit über MQTT geändert werden&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hinweis:&lt;/strong&gt; Laufzeitänderungen über MQTT (Betriebsmodus/Zeitzone) sind temporär.
+Um die Zeitzoneneinstellung über Neustarts hinweg zu speichern, die &lt;code&gt;timezone&lt;/code&gt;-
+Konfiguration in den Geräteeinstellungen aktualisieren.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Regeln&lt;span class="hx:absolute hx:-mt-20" id="regeln"&gt;&lt;/span&gt;
+&lt;a href="#regeln" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der &lt;strong&gt;Smart Swimmingpool Controller&lt;/strong&gt; implementiert &lt;code&gt;Regeln&lt;/code&gt; für verschiedene Situationen:&lt;/p&gt;
+&lt;h3&gt;Regel: Manuell&lt;span class="hx:absolute hx:-mt-20" id="regel-manuell"&gt;&lt;/span&gt;
+&lt;a href="#regel-manuell" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Die Pumpe für Reinigung und Solarheizung werden vollständig manuell und unabhängig ein- und ausgeschaltet.&lt;/p&gt;
+&lt;h3&gt;Regel: Timer&lt;span class="hx:absolute hx:-mt-20" id="regel-timer"&gt;&lt;/span&gt;
+&lt;a href="#regel-timer" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Diese Regel schaltet die Reinigungspumpe basierend auf den Timer-Einstellungen. Die Solarheizung ist deaktiviert.&lt;/p&gt;
+&lt;h3&gt;Regel: Auto&lt;span class="hx:absolute hx:-mt-20" id="regel-auto"&gt;&lt;/span&gt;
+&lt;a href="#regel-auto" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Diese Regel schaltet die Reinigungspumpe basierend auf den Timer-Einstellungen. Die Solarheizung wird
+&lt;strong&gt;intelligent&lt;/strong&gt; zugeschaltet, wenn die Reinigungspumpe durch den Timer eingeschaltet ist und der
+Wärmespeicher eine ausreichende Temperatur hat.&lt;/p&gt;
+&lt;p&gt;Wenn die maximale Temperatur des Poolwassers erreicht ist, wird die Solarheizung deaktiviert.&lt;/p&gt;
+&lt;h3&gt;Regel: Boost&lt;span class="hx:absolute hx:-mt-20" id="regel-boost"&gt;&lt;/span&gt;
+&lt;a href="#regel-boost" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Heizung des Poolwassers mit voller Leistung.&lt;/p&gt;
+&lt;h2&gt;MQTT-Schnittstelle&lt;span class="hx:absolute hx:-mt-20" id="mqtt-schnittstelle"&gt;&lt;/span&gt;
+&lt;a href="#mqtt-schnittstelle" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der &lt;strong&gt;Smart Swimmingpool Controller&lt;/strong&gt; verwendet &lt;a
+href="http://mqtt.org/"target="_blank" rel="noopener"&gt;MQTT&lt;/a&gt; zur
+Kommunikation mit Ihrem Smart Home. Er unterstützt
+&lt;a
+href="https://www.home-assistant.io/integrations/mqtt/#mqtt-discovery"target="_blank" rel="noopener"&gt;Home Assistant MQTT Discovery&lt;/a&gt;
+zur automatischen Geräteregistrierung — Geräte erscheinen automatisch in Home Assistant
+ohne manuelle Konfiguration.&lt;/p&gt;
+&lt;h2&gt;openHAB-Integration&lt;span class="hx:absolute hx:-mt-20" id="openhab-integration"&gt;&lt;/span&gt;
+&lt;a href="#openhab-integration" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der &lt;strong&gt;Smart Swimmingpool Controller&lt;/strong&gt; kann seit Version 2.4 in &lt;a
+href="https://www.openhab.org"target="_blank" rel="noopener"&gt;openHAB&lt;/a&gt; integriert werden.&lt;/p&gt;
+&lt;p&gt;Es ist möglich, mit dem Controller zu interagieren, um die Pumpe ein-/auszuschalten oder die aktuelle Regel zu wechseln.&lt;/p&gt;
+&lt;p&gt;Auch die aktuellen Temperatur- oder Zustandswerte können überwacht werden.&lt;/p&gt;
+&lt;p&gt;Schließlich können auch die &lt;a
+href="#einstellungen"&gt;Einstellungen&lt;/a&gt; aktualisiert werden.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;TODO: Beispiel für openHAB-Konfiguration hinzufügen.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Gerät&lt;span class="hx:absolute hx:-mt-20" id="gerät"&gt;&lt;/span&gt;
+&lt;a href="#ger%c3%a4t" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h3&gt;Eigenschaften&lt;span class="hx:absolute hx:-mt-20" id="eigenschaften"&gt;&lt;/span&gt;
+&lt;a href="#eigenschaften" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;</description></item><item><title>Software-Entwicklung</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/software-guide/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/software-guide/</guid><description>
+&lt;h2&gt;Entwicklungsumgebung&lt;span class="hx:absolute hx:-mt-20" id="entwicklungsumgebung"&gt;&lt;/span&gt;
+&lt;a href="#entwicklungsumgebung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Benötigte Bibliotheken&lt;span class="hx:absolute hx:-mt-20" id="benötigte-bibliotheken"&gt;&lt;/span&gt;
+&lt;a href="#ben%c3%b6tigte-bibliotheken" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/marvinroger/async-mqtt-client"target="_blank" rel="noopener"&gt;AsyncMqttClient&lt;/a&gt; @ 0.9.0&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/milesburton/Arduino-Temperature-Control-Library"target="_blank" rel="noopener"&gt;DallasTemperature&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/PaulStoffregen/OneWire"target="_blank" rel="noopener"&gt;OneWire&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/adafruit/Adafruit_Sensor"target="_blank" rel="noopener"&gt;Adafruit Unified Sensor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/adafruit/DHT-sensor-library"target="_blank" rel="noopener"&gt;DHT sensor library&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/arduino-libraries/NTPClient"target="_blank" rel="noopener"&gt;NTPClient&lt;/a&gt; @ 3.2.1&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/JChristensen/Timezone"target="_blank" rel="noopener"&gt;Timezone&lt;/a&gt; @ 1.2.6&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/bblanchon/ArduinoJson"target="_blank" rel="noopener"&gt;ArduinoJson&lt;/a&gt; @ 7.3.2&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/thomasfredericks/Bounce2"target="_blank" rel="noopener"&gt;Bounce2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/espressif/arduino-esp32/tree/master/libraries/Wire"target="_blank" rel="noopener"&gt;Wire&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Vielen Dank an die Entwickler dieser Bibliotheken!&lt;/p&gt;
+&lt;h2&gt;Pin-Konfiguration&lt;span class="hx:absolute hx:-mt-20" id="pin-konfiguration"&gt;&lt;/span&gt;
+&lt;a href="#pin-konfiguration" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;In den Quellen unter &lt;code&gt;Config.hpp&lt;/code&gt; sind die GPIO-Pin-Zuweisungen definiert.
+Details siehe auch &lt;a
+href="../hardware-guide/#pin-assignment-firmware-defaults"&gt;Hardware-Leitfaden&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cpp" data-lang="cpp"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;constexpr&lt;/span&gt; &lt;span class="kt"&gt;uint8_t&lt;/span&gt; &lt;span class="n"&gt;PIN_DS_SOLAR&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;// Pin des Solar-Temperatursensors (GPIO15)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;constexpr&lt;/span&gt; &lt;span class="kt"&gt;uint8_t&lt;/span&gt; &lt;span class="n"&gt;PIN_DS_POOL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;// Pin des Pool-Temperatursensors (GPIO16)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;constexpr&lt;/span&gt; &lt;span class="kt"&gt;uint8_t&lt;/span&gt; &lt;span class="n"&gt;PIN_RELAY_POOL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;18&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;// Pin zur Ansteuerung des Pool-Pumpenrelais
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;constexpr&lt;/span&gt; &lt;span class="kt"&gt;uint8_t&lt;/span&gt; &lt;span class="n"&gt;PIN_RELAY_SOLAR&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;19&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;// Pin zur Ansteuerung des Solar-Pumpenrelais
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;constexpr&lt;/span&gt; &lt;span class="kt"&gt;uint8_t&lt;/span&gt; &lt;span class="n"&gt;TEMP_READ_INTERVAL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;30&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;Weboberfläche &amp;amp; Direktzugriff&lt;span class="hx:absolute hx:-mt-20" id="weboberfläche--direktzugriff"&gt;&lt;/span&gt;
+&lt;a href="#weboberfl%c3%a4che--direktzugriff" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der Controller enthält einen &lt;strong&gt;integrierten Webserver auf Port 80&lt;/strong&gt;, der ein
+vollständiges Verwaltungs-Dashboard bereitstellt. Er läuft in zwei Modi:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Modus&lt;/th&gt;
+&lt;th&gt;Bedingungen&lt;/th&gt;
+&lt;th&gt;Zugriff&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;AP-Modus&lt;/strong&gt; (Access Point)&lt;/td&gt;
+&lt;td&gt;Kein WiFi konfiguriert (Werkszustand)&lt;/td&gt;
+&lt;td&gt;SSID &lt;code&gt;Pool-Controller-Setup&lt;/code&gt;, IP &lt;code&gt;192.168.4.1&lt;/code&gt;, kein Passwort&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;STA-Modus&lt;/strong&gt; (Station)&lt;/td&gt;
+&lt;td&gt;Normale WiFi-Verbindung&lt;/td&gt;
+&lt;td&gt;DHCP-IP des ESP32 im lokalen Netzwerk, Passwort-Login erforderlich&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;API-Endpunkte&lt;span class="hx:absolute hx:-mt-20" id="api-endpunkte"&gt;&lt;/span&gt;
+&lt;a href="#api-endpunkte" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Route&lt;/th&gt;
+&lt;th&gt;Auth&lt;/th&gt;
+&lt;th&gt;Funktion&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;GET /&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Cookie&lt;/td&gt;
+&lt;td&gt;Dashboard SPA (Single Page Application)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;GET /login&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Cookie&lt;/td&gt;
+&lt;td&gt;Login-Seite&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;POST /api/login&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;td&gt;Session-Cookie ausstellen (SHA-256 Passwortprüfung)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;GET /api/status&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;❌ Nein&lt;/td&gt;
+&lt;td&gt;Live-Telemetrie (Temperaturen, Pumpenstatus, Heap, RSSI, Temperaturschwellen)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;GET /api/scan&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Ja&lt;/td&gt;
+&lt;td&gt;Verfügbare WiFi-Netzwerke scannen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;GET /api/config&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Ja&lt;/td&gt;
+&lt;td&gt;Aktuelle Konfiguration auslesen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;POST /api/config&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Ja&lt;/td&gt;
+&lt;td&gt;Konfiguration speichern (&lt;code&gt;type=settings|wifi|mqtt|password&lt;/code&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;GET /api/restart&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Ja&lt;/td&gt;
+&lt;td&gt;ESP32 neu starten&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;GET /api/factory_reset&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Ja&lt;/td&gt;
+&lt;td&gt;Konfigurationsdatei löschen, Neustart im AP-Modus&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;POST /api/update&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Ja&lt;/td&gt;
+&lt;td&gt;OTA-Firmware-Update (signiertes .bin hochladen)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;REST-API direkt nutzen&lt;span class="hx:absolute hx:-mt-20" id="rest-api-direkt-nutzen"&gt;&lt;/span&gt;
+&lt;a href="#rest-api-direkt-nutzen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Sie können programmatisch auf den Controller zugreifen:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Live-Telemetrie abrufen (keine Authentifizierung nötig)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;curl http://&amp;lt;controller-ip&amp;gt;/api/status
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Session-Cookie holen&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;SESSION&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;curl -s -c - -X POST -d &lt;span class="s2"&gt;&amp;#34;password=admin&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; http://&amp;lt;controller-ip&amp;gt;/api/login &lt;span class="p"&gt;|&lt;/span&gt; grep session &lt;span class="p"&gt;|&lt;/span&gt; awk &lt;span class="s1"&gt;&amp;#39;{print $NF}&amp;#39;&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Konfiguration auslesen&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;curl -b &lt;span class="s2"&gt;&amp;#34;session=&lt;/span&gt;&lt;span class="nv"&gt;$SESSION&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;&lt;/span&gt; http://&amp;lt;controller-ip&amp;gt;/api/config
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Einstellungen schreiben (bleiben nach Neustart erhalten und benachrichtigen Home Assistant)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;curl -b &lt;span class="s2"&gt;&amp;#34;session=&lt;/span&gt;&lt;span class="nv"&gt;$SESSION&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;&lt;/span&gt; -X POST &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; -d &lt;span class="s2"&gt;&amp;#34;type=settings&amp;amp;mode=auto&amp;amp;max_pool=30.0&amp;amp;min_solar=55.0&amp;amp;hysteresis=1.0&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; http://&amp;lt;controller-ip&amp;gt;/api/config&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3&gt;Authentifizierung&lt;span class="hx:absolute hx:-mt-20" id="authentifizierung"&gt;&lt;/span&gt;
+&lt;a href="#authentifizierung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Im &lt;strong&gt;AP-Modus&lt;/strong&gt; ist die Weboberfläche ungeschützt (absichtlich für die Einrichtung)&lt;/li&gt;
+&lt;li&gt;Im &lt;strong&gt;STA-Modus&lt;/strong&gt; ist eine cookie-basierte Sitzung erforderlich (15 Minuten Timeout)&lt;/li&gt;
+&lt;li&gt;Standardpasswort ist &lt;code&gt;admin&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Das Passwort wird als SHA-256-Hash in &lt;code&gt;/config.json&lt;/code&gt; gespeichert&lt;/li&gt;
+&lt;li&gt;Das Dashboard zeigt Temperaturen und Schwellwerte auch nach Session-Timeout
+an, da &lt;code&gt;/api/status&lt;/code&gt; (ohne Authentifizierung) die Felder &lt;code&gt;temp_max_pool&lt;/code&gt; und
+&lt;code&gt;temp_min_solar&lt;/code&gt; enthält. Konfigurationen zu schreiben erfordert weiterhin
+eine gültige Session.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Konfigurationspersistenz&lt;span class="hx:absolute hx:-mt-20" id="konfigurationspersistenz"&gt;&lt;/span&gt;
+&lt;a href="#konfigurationspersistenz" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die Konfiguration wird in zwei unabhängigen Speichersystemen abgelegt, damit
+alle Einstellungen Neustarts und Stromausfälle überdauern:&lt;/p&gt;
+&lt;h3&gt;1. ConfigManager — Gerätekonfiguration (LittleFS)&lt;span class="hx:absolute hx:-mt-20" id="1-configmanager--gerätekonfiguration-littlefs"&gt;&lt;/span&gt;
+&lt;a href="#1-configmanager--ger%c3%a4tekonfiguration-littlefs" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Datei&lt;/th&gt;
+&lt;th&gt;&lt;code&gt;/config.json&lt;/code&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Max Größe&lt;/td&gt;
+&lt;td&gt;4 KB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Inhalt&lt;/td&gt;
+&lt;td&gt;WiFi, MQTT, NTP, ControllerSettings, Admin-Passwort-Hash&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Verwaltung&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ConfigManager::load()&lt;/code&gt; beim Start, &lt;code&gt;ConfigManager::save()&lt;/code&gt; bei Änderungen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Zurücksetzen&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ConfigManager::reset()&lt;/code&gt; → Werkseinstellungen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;2. StateManager — Laufzeitstatus (ESP32 NVS / Preferences)&lt;span class="hx:absolute hx:-mt-20" id="2-statemanager--laufzeitstatus-esp32-nvs--preferences"&gt;&lt;/span&gt;
+&lt;a href="#2-statemanager--laufzeitstatus-esp32-nvs--preferences" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Namespace&lt;/th&gt;
+&lt;th&gt;&lt;code&gt;pool-controller&lt;/code&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Inhalt&lt;/td&gt;
+&lt;td&gt;Betriebsmodus, poolMaxTemp, solarMinTemp, Hysterese, timerStart/End&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;API&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;StateManager::saveString/Float/Int/Bool&lt;/code&gt; → typsichere Key-Value-Speicherung&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;Datenfluss bei Konfigurationsänderungen&lt;span class="hx:absolute hx:-mt-20" id="datenfluss-bei-konfigurationsänderungen"&gt;&lt;/span&gt;
+&lt;a href="#datenfluss-bei-konfigurations%c3%a4nderungen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Web UI / REST API MQTT (Home Assistant)
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; │ │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; ▼ ▼
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;────────┴────── ConfigManager ───────┴────
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; save() → /config.json (LittleFS)
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; ↓
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; OperationModeNode
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; (Laufzeitparameter)
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; ↓
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; MqttPublisher::publishStates()
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; → MQTT Topics → Home Assistant&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Hinweis:&lt;/strong&gt; Werden Einstellungen über die Weboberfläche geändert, wird
+Home Assistant beim nächsten Messzyklus aktualisiert (alle &lt;code&gt;loopInterval&lt;/code&gt;
+Sekunden, standardmäßig 10s). Änderungen über MQTT werden sofort bestätigt.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;MQTT-Kommunikation&lt;span class="hx:absolute hx:-mt-20" id="mqtt-kommunikation"&gt;&lt;/span&gt;
+&lt;a href="#mqtt-kommunikation" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der Controller verwendet seit v3.3.0 ausschließlich &lt;strong&gt;Home Assistant MQTT Discovery&lt;/strong&gt;.
+Siehe die entsprechende Dokumentation für Details:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="../mqtt-configuration"&gt;MQTT-Konfiguration&lt;/a&gt;&lt;/strong&gt; — Protokoll, Entity-Referenz, Homie-Migration&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="../home-assistant"&gt;Home Assistant Integration&lt;/a&gt;&lt;/strong&gt; — Lovelace-Dashboard, HA-Entity-IDs&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Retained Messages löschen&lt;span class="hx:absolute hx:-mt-20" id="retained-messages-löschen"&gt;&lt;/span&gt;
+&lt;a href="#retained-messages-l%c3%b6schen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Wenn Sie zurückbehaltene MQTT-Nachrichten löschen müssen:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Einen bestimmten Home Assistant Topic löschen&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mosquitto_pub -h hostname -t &lt;span class="s2"&gt;&amp;#34;homeassistant/sensor/pool-controller/pool-temp/state&amp;#34;&lt;/span&gt; -n -r&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;Konfigurationspersistenz (Detail)&lt;span class="hx:absolute hx:-mt-20" id="konfigurationspersistenz-detail"&gt;&lt;/span&gt;
+&lt;a href="#konfigurationspersistenz-detail" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die Konfiguration wird in zwei unabhängigen Speichersystemen abgelegt, damit
+alle Einstellungen Neustarts und Stromausfälle überdauern:&lt;/p&gt;
+&lt;h3&gt;1. ConfigManager — Geräteeinstellungen (LittleFS)&lt;span class="hx:absolute hx:-mt-20" id="1-configmanager--geräteeinstellungen-littlefs"&gt;&lt;/span&gt;
+&lt;a href="#1-configmanager--ger%c3%a4teeinstellungen-littlefs" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Der Controller speichert WiFi-, MQTT-, NTP- und Geräteeinstellungen in einer
+JSON-Datei auf LittleFS. Siehe &lt;a
+href="../state-persistence"&gt;&lt;code&gt;ConfigManager&lt;/code&gt;&lt;/a&gt; für Details.&lt;/p&gt;
+&lt;h3&gt;2. Laufzeitstatus (ESP32 NVS / Preferences)&lt;span class="hx:absolute hx:-mt-20" id="2-laufzeitstatus-esp32-nvs--preferences"&gt;&lt;/span&gt;
+&lt;a href="#2-laufzeitstatus-esp32-nvs--preferences" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Betriebsmodus, Relaiszustände und Temperaturparameter werden in NVS
+gespeichert für sofortige Wiederherstellung nach Stromausfall.&lt;/p&gt;
+&lt;h3&gt;Datenfluss bei Konfigurationsänderungen&lt;span class="hx:absolute hx:-mt-20" id="datenfluss-bei-konfigurationsänderungen-1"&gt;&lt;/span&gt;
+&lt;a href="#datenfluss-bei-konfigurations%c3%a4nderungen-1" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Web UI / REST API MQTT (Home Assistant)
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; │ │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; ▼ ▼
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;────────┴────── ConfigManager ───────┴────
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; save() → /config.json (LittleFS)
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; ↓
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; OperationModeNode
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; (Laufzeitparameter)
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; ↓
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; MqttPublisher::publishStates()
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; → MQTT Topics → Home Assistant&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Hinweis:&lt;/strong&gt; Werden Einstellungen über die Weboberfläche geändert, wird
+Home Assistant beim nächsten Messzyklus aktualisiert (alle &lt;code&gt;loopInterval&lt;/code&gt;
+Sekunden, standardmäßig 10s). Änderungen über MQTT werden sofort bestätigt.&lt;/p&gt;
+&lt;/blockquote&gt;</description></item></channel></rss>

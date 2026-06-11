@@ -15,7 +15,17 @@
 &lt;p&gt;Many thanks to maintainers of these libraries!&lt;/p&gt;
 &lt;h2&gt;Defines&lt;span class="hx:absolute hx:-mt-20" id="defines"&gt;&lt;/span&gt;
 &lt;a href="#defines" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Configuration&lt;span class="hx:absolute hx:-mt-20" id="configuration"&gt;&lt;/span&gt;
-&lt;a href="#configuration" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;</description></item><item><title>Users Guide of Pool Controller</title><link>https://smart-swimmingpool.github.io/de/docs/pool-monitor/users-guide/</link><pubDate>Sat, 11 Jun 2022 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-monitor/users-guide/</guid><description>
+&lt;a href="#configuration" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Changelog&lt;span class="hx:absolute hx:-mt-20" id="changelog"&gt;&lt;/span&gt;
+&lt;a href="#changelog" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;2026-06-10 — DNS-Failover, mDNS, QR-Code-Portal und 5-Minuten-Timeout&lt;span class="hx:absolute hx:-mt-20" id="2026-06-10--dns-failover-mdns-qr-code-portal-und-5-minuten-timeout"&gt;&lt;/span&gt;
+&lt;a href="#2026-06-10--dns-failover-mdns-qr-code-portal-und-5-minuten-timeout" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;DNS-Failover:&lt;/strong&gt; MQTT-Verbindung wird immer versucht, auch wenn der Hostname nicht via DNS aufgelöst werden kann. PubSubClient löst DNS selbst auf.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;mDNS:&lt;/strong&gt; Gerät registriert sich als &lt;code&gt;pool-monitor.local&lt;/code&gt; im Netzwerk.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;WiFi-Disconnect entfernt:&lt;/strong&gt; Das explizite &lt;code&gt;WiFi.disconnect(true)&lt;/code&gt; vor dem Tiefschlaf wurde entfernt, damit der DHCP-Lease erhalten bleibt. Das Gerät bleibt in der Router-Tabelle sichtbar.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MQTT-Portal mit QR-Code:&lt;/strong&gt; Bei MQTT-Fehler startet ein Konfigurationsportal. Display zeigt SSID, AP-IP und QR-Code.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;5-Minuten-Timeout:&lt;/strong&gt; Das Portal bleibt maximal 5 Minuten aktiv. Ohne Benutzereingabe geht das Gerät in Tiefschlaf und wiederholt den Verbindungsversuch beim nächsten Wake.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;upload_speed:&lt;/strong&gt; Auf 115200 Baud reduziert für Kompatibilität mit älteren ESP32 rev1.0.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;QR-Code Bibliothek:&lt;/strong&gt; Verwendet ESP32-Builtin &lt;code&gt;esp_qrcode&lt;/code&gt; — keine zusätzliche Abhängigkeit.&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Users Guide of Pool Controller</title><link>https://smart-swimmingpool.github.io/de/docs/pool-monitor/users-guide/</link><pubDate>Sat, 11 Jun 2022 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-monitor/users-guide/</guid><description>
 &lt;h2&gt;Setup&lt;span class="hx:absolute hx:-mt-20" id="setup"&gt;&lt;/span&gt;
 &lt;a href="#setup" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Connecting the device to power it createsinitial a hotspot called &amp;ldquo;pool-monitor&amp;rdquo;.
 Please connect this hotsppot by smartphone. Thenthe device will show captivate website to add
@@ -28,4 +38,25 @@ WiFi credentials and connection parameters of MQTT broker.&lt;/p&gt;
 &lt;li&gt;MQTT broker port number (default: 1883)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;After pressing &amp;ldquo;Save&amp;rdquo; the device will reboot automatically and tries to connect to the MQTT broker.&lt;/p&gt;
-&lt;p&gt;After some seconds the device will show data if connection was successful.&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;After some seconds the device will show data if connection was successful.&lt;/p&gt;
+&lt;h2&gt;Netzwerkkonfiguration (mDNS)&lt;span class="hx:absolute hx:-mt-20" id="netzwerkkonfiguration-mdns"&gt;&lt;/span&gt;
+&lt;a href="#netzwerkkonfiguration-mdns" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Das Gerät ist im Netzwerk unter &lt;code&gt;pool-monitor.local&lt;/code&gt; per mDNS erreichbar. So kann es auch ohne bekannte IP-Adresse gefunden werden.&lt;/p&gt;
+&lt;p&gt;Der DHCP-Lease bleibt über Deep-Sleep-Zyklen hinweg erhalten — das Gerät gibt seine IP-Adresse nicht frei, wenn es in den Schlaf geht. Es bleibt in der Router-Tabelle sichtbar (wenn auch nicht erreichbar, solange es schläft).&lt;/p&gt;
+&lt;h2&gt;MQTT-Fehler und Konfigurationsportal&lt;span class="hx:absolute hx:-mt-20" id="mqtt-fehler-und-konfigurationsportal"&gt;&lt;/span&gt;
+&lt;a href="#mqtt-fehler-und-konfigurationsportal" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Kann der MQTT-Broker nicht erreicht werden (z.B. falscher Hostname, temporärer Ausfall), startet das Gerät automatisch einen WLAN-Hotspot mit Konfigurationsportal:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Auf dem Display erscheinen die WLAN-SSID (&lt;code&gt;pool-monitor&lt;/code&gt;), die IP-Adresse des Zugangspunkts (&lt;code&gt;192.168.4.1&lt;/code&gt;) sowie ein QR-Code.&lt;/li&gt;
+&lt;li&gt;Verbinde dich mit dem WLAN &lt;code&gt;pool-monitor&lt;/code&gt; (offenes Netz, kein Passwort).&lt;/li&gt;
+&lt;li&gt;Öffne die Konfigurationsseite — entweder über den QR-Code oder unter &lt;code&gt;http://192.168.4.1&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Korrigiere die MQTT-Einstellungen (Hostname, Port).&lt;/li&gt;
+&lt;li&gt;Klicke &amp;ldquo;Save&amp;rdquo; — das Gerät startet neu und verbindet sich erneut.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Wichtig bei DNS-Problemen:&lt;/strong&gt; Wenn der MQTT-Hostname (z.B. &lt;code&gt;smarthome-pi&lt;/code&gt;) nicht aufgelöst werden kann, verwende stattdessen die IP-Adresse des MQTT-Brokers. Der Hostname wird auch ohne DNS-Auflösung versucht (PubSubClient löst selbst auf), aber eine IP-Adresse ist zuverlässiger.&lt;/p&gt;
+&lt;p&gt;Das Portal bleibt &lt;strong&gt;5 Minuten&lt;/strong&gt; aktiv. Wenn in dieser Zeit keine Konfiguration gespeichert wird, wechselt das Gerät in den Tiefschlaf, um die Batterie zu schonen. Beim nächsten Aufwachen (alle 180 Sekunden) wird die MQTT-Verbindung erneut versucht.&lt;/p&gt;
+&lt;h2&gt;Display während des Konfigurationsportals&lt;span class="hx:absolute hx:-mt-20" id="display-während-des-konfigurationsportals"&gt;&lt;/span&gt;
+&lt;a href="#display-w%c3%a4hrend-des-konfigurationsportals" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Wenn der MQTT-Fehler auftritt, zeigt das Display:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;WLAN-Name (&lt;code&gt;pool-monitor&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;IP-Adresse des Zugangspunkts (&lt;code&gt;192.168.4.1&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;QR-Code zum direkten Verbinden per Smartphone-Kamera&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>

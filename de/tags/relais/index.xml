@@ -1,0 +1,178 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Relais</title><link>https://smart-swimmingpool.github.io/de/tags/relais/</link><description>Recent content in Relais on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><lastBuildDate>Thu, 14 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/de/tags/relais/index.xml" rel="self" type="application/rss+xml"/><item><title>ESP32 Schaltplananalyse und Optimierung</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/esp32-schematic-optimization/</link><pubDate>Thu, 14 May 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/esp32-schematic-optimization/</guid><description>
+&lt;p&gt;Dieses Dokument analysiert den vorhandenen Aufbau (Fritzing-Quelle + bestehende
+Hardware-Dokumentation) und beschreibt einen optimierten ESP32-Vorschlag für
+Sensoren und Relais.&lt;/p&gt;
+&lt;h2&gt;1) Ist-Analyse (relevante Signale)&lt;span class="hx:absolute hx:-mt-20" id="1-ist-analyse-relevante-signale"&gt;&lt;/span&gt;
+&lt;a href="#1-ist-analyse-relevante-signale" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Aktuelle Firmware-Pinbelegung für ESP32 (&lt;code&gt;src/Config.hpp&lt;/code&gt;):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;PIN_DS_SOLAR&lt;/code&gt; = GPIO32&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PIN_DS_POOL&lt;/code&gt; = GPIO33&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PIN_RELAY_POOL&lt;/code&gt; = GPIO25&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PIN_RELAY_SOLAR&lt;/code&gt; = GPIO26&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Verwendete Hardware laut Doku:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;2x DS18B20 Temperaturfühler&lt;/li&gt;
+&lt;li&gt;2-Kanal Relaismodul (5V)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2) Hauptthemen im bisherigen Aufbau (vor Optimierung)&lt;span class="hx:absolute hx:-mt-20" id="2-hauptthemen-im-bisherigen-aufbau-vor-optimierung"&gt;&lt;/span&gt;
+&lt;a href="#2-hauptthemen-im-bisherigen-aufbau-vor-optimierung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;DS18B20 war auf GPIO15 (Strapping-Pin)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;GPIO15 ist beim ESP32 ein Boot-Strapping-Pin.
+Ein OneWire-Bus mit Pull-up auf diesem Pin kann das Boot-Verhalten negativ
+beeinflussen.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Relais-/Versorgungskopplung&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;5V-Relaismodule können Schaltstörungen verursachen (Spikes/Noise).
+Ohne saubere Trennung von Logik- und Lastversorgung steigt das Risiko von
+Resets und Messrauschen.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Fehlende explizite Fail-Safe-Definition im Schaltplan&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Beim Start oder Reset darf keine Pumpe unbeabsichtigt einschalten.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;3) Optimierter ESP32-Vorschlag&lt;span class="hx:absolute hx:-mt-20" id="3-optimierter-esp32-vorschlag"&gt;&lt;/span&gt;
+&lt;a href="#3-optimierter-esp32-vorschlag" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;3.1 Empfohlene Pinbelegung&lt;span class="hx:absolute hx:-mt-20" id="31-empfohlene-pinbelegung"&gt;&lt;/span&gt;
+&lt;a href="#31-empfohlene-pinbelegung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Funktion&lt;/th&gt;
+&lt;th&gt;Vorher (ESP32)&lt;/th&gt;
+&lt;th&gt;Jetzt (ESP32)&lt;/th&gt;
+&lt;th&gt;Grund&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;DS18B20 Solar&lt;/td&gt;
+&lt;td&gt;GPIO15&lt;/td&gt;
+&lt;td&gt;GPIO32&lt;/td&gt;
+&lt;td&gt;Vermeidet Strapping-Pins&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DS18B20 Pool&lt;/td&gt;
+&lt;td&gt;GPIO16&lt;/td&gt;
+&lt;td&gt;GPIO33&lt;/td&gt;
+&lt;td&gt;Klare Trennung der Sensorleitungen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relais Pool&lt;/td&gt;
+&lt;td&gt;GPIO18&lt;/td&gt;
+&lt;td&gt;GPIO25&lt;/td&gt;
+&lt;td&gt;Robuster Output, konfliktarm&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relais Solar&lt;/td&gt;
+&lt;td&gt;GPIO19&lt;/td&gt;
+&lt;td&gt;GPIO26&lt;/td&gt;
+&lt;td&gt;Robuster Output, konfliktarm&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Hinweis: Für bestehende Installationen mit alter Verdrahtung ist eine Anpassung
+der Firmware-Pins und ggf. Umverdrahtung erforderlich.&lt;/p&gt;
+&lt;h3&gt;3.1.1 Entscheidungsdokumentation (klarer Entscheid)&lt;span class="hx:absolute hx:-mt-20" id="311-entscheidungsdokumentation-klarer-entscheid"&gt;&lt;/span&gt;
+&lt;a href="#311-entscheidungsdokumentation-klarer-entscheid" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Entscheidung:&lt;/strong&gt; Für ESP32 werden die Signale dauerhaft auf
+&lt;code&gt;GPIO32/33&lt;/code&gt; (DS18B20) sowie &lt;code&gt;GPIO25/26&lt;/code&gt; (Relais) geführt.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Warum genau diese Zuordnung:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Boot-Robustheit:&lt;/strong&gt; Sensoren liegen nicht mehr auf Strapping-Pins
+(insbesondere kein OneWire auf GPIO15).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Störarmut:&lt;/strong&gt; Sensor-GPIOs sind von Relais-GPIOs logisch getrennt; dadurch
+weniger gegenseitige Beeinflussung bei Schaltvorgängen.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Betriebssicherheit:&lt;/strong&gt; Relais auf gut nutzbaren Output-Pins mit klarer
+Fail-Safe-Auslegung beim Start/Reset.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Wartbarkeit:&lt;/strong&gt; Einheitliche, dokumentierte Standardbelegung in Firmware und
+Hardware-Doku reduziert Fehlverdrahtung und Support-Aufwand.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Nicht gewählt wurde:&lt;/strong&gt; Die frühere ESP32-Belegung (&lt;code&gt;15/16/18/19&lt;/code&gt;), da sie
+höheres Boot-/Störrisiko mitbringt.&lt;/p&gt;
+&lt;h3&gt;3.2 Sensor-Optimierung (DS18B20)&lt;span class="hx:absolute hx:-mt-20" id="32-sensor-optimierung-ds18b20"&gt;&lt;/span&gt;
+&lt;a href="#32-sensor-optimierung-ds18b20" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Pro Sensorleitung einen sauberen &lt;strong&gt;4.7k Pull-up nach 3.3V&lt;/strong&gt; vorsehen.&lt;/li&gt;
+&lt;li&gt;Sensorleitungen räumlich von Relais-/230V-Leitungen trennen.&lt;/li&gt;
+&lt;li&gt;Bei längeren Leitungen: verdrillte Leitung und gemeinsamer sauberer GND.&lt;/li&gt;
+&lt;li&gt;100nF nahe ESP32-Versorgung zur Entstörung vorsehen.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;3.3 Relais-Optimierung&lt;span class="hx:absolute hx:-mt-20" id="33-relais-optimierung"&gt;&lt;/span&gt;
+&lt;a href="#33-relais-optimierung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Relaismodul mit Optokoppler&lt;/strong&gt; und sauber dokumentierter Logikpegelrichtung
+(active-low/active-high) verwenden.&lt;/li&gt;
+&lt;li&gt;Wenn Modul es unterstützt: &lt;strong&gt;JD-VCC (Relais-Spule) von VCC (Logik) trennen&lt;/strong&gt;
+und gemeinsame Masseführung sternförmig auslegen.&lt;/li&gt;
+&lt;li&gt;Auf Pumpenseite geeignete Netzschutzmaßnahmen einplanen (z. B. passende
+Absicherung/Schutzbeschaltung entsprechend Installation).&lt;/li&gt;
+&lt;li&gt;Relais-Eingänge zusätzlich mit Pull-up/Pull-down fail-safe auslegen, damit
+beim Booten kein ungewolltes Schalten erfolgt.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;3.4 Verdrahtung (Visualisierung)&lt;span class="hx:absolute hx:-mt-20" id="34-verdrahtung-visualisierung"&gt;&lt;/span&gt;
+&lt;a href="#34-verdrahtung-visualisierung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; +---------------------+
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; | ESP32 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; | |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;DS18B20 Solar DATA &amp;lt;----&amp;gt;| GPIO32 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;DS18B20 Pool DATA &amp;lt;----&amp;gt;| GPIO33 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Relay IN1 (Pool) &amp;lt;----&amp;gt;| GPIO25 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Relay IN2 (Solar) &amp;lt;----&amp;gt;| GPIO26 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; | |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;3V3 ---------------------&amp;gt;| 3V3 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;GND ---------------------&amp;gt;| GND |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; +----------+----------+
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; | gemeinsame Masse
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; v
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; +----------------+----------------+
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; | 2-Kanal Relaismodul (5V, opto) |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; | VCC (Logik) &amp;lt;- 3V3/5V* |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; | JD-VCC (Spule)&amp;lt;- 5V |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; | GND &amp;lt;- GND |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; | IN1 &amp;lt;- GPIO25 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; | IN2 &amp;lt;- GPIO26 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; +----------------+----------------+
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;DS18B20 Solar: VDD -&amp;gt; 3V3, GND -&amp;gt; GND, DATA -&amp;gt; GPIO32, Pull-up 4.7k nach 3V3
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;DS18B20 Pool : VDD -&amp;gt; 3V3, GND -&amp;gt; GND, DATA -&amp;gt; GPIO33, Pull-up 4.7k nach 3V3
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;* abhängig vom eingesetzten Relaismodul (Logikpegel beachten)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;4) Firmware-Bezug bei Umverdrahtung&lt;span class="hx:absolute hx:-mt-20" id="4-firmware-bezug-bei-umverdrahtung"&gt;&lt;/span&gt;
+&lt;a href="#4-firmware-bezug-bei-umverdrahtung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die empfohlenen Pins sind in &lt;code&gt;src/Config.hpp&lt;/code&gt; umgesetzt. Relevant sind:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;PIN_DS_SOLAR&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PIN_DS_POOL&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PIN_RELAY_POOL&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PIN_RELAY_SOLAR&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;5) Verifikations-Checkliste nach Umbau&lt;span class="hx:absolute hx:-mt-20" id="5-verifikations-checkliste-nach-umbau"&gt;&lt;/span&gt;
+&lt;a href="#5-verifikations-checkliste-nach-umbau" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Bootet der ESP32 reproduzierbar (kalt/warm) ohne Fehlstart?&lt;/li&gt;
+&lt;li&gt;Schalten Relais beim Boot &lt;strong&gt;nicht&lt;/strong&gt; unbeabsichtigt?&lt;/li&gt;
+&lt;li&gt;Sind Temperaturmessungen stabil, auch bei Relais-Schaltvorgängen?&lt;/li&gt;
+&lt;li&gt;Keine Resets bei parallelem WLAN + Relaisbetrieb?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;6) Betrieb und Sicherheit&lt;span class="hx:absolute hx:-mt-20" id="6-betrieb-und-sicherheit"&gt;&lt;/span&gt;
+&lt;a href="#6-betrieb-und-sicherheit" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Für den produktiven 24/7-Betrieb und Sicherheitsaspekte bitte zusätzlich
+&lt;code&gt;AGENTS.md&lt;/code&gt; beachten (insbesondere Ressourcenmanagement, Security, OTA und
+Robustheit).&lt;/p&gt;
+&lt;h2&gt;7) Siehe auch&lt;span class="hx:absolute hx:-mt-20" id="7-siehe-auch"&gt;&lt;/span&gt;
+&lt;a href="#7-siehe-auch" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Ausführliche Aufbauanleitung mit Schritt-für-Schritt-Anleitung und
+Fertigungstipps: &lt;a
+href="hardware-guide.de.md"&gt;Hardware-Anleitung&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Kompletter Verdrahtungsplan mit RTC-Modul:
+&lt;a
+href="esp32-complete-wiring-schematic.de.md"&gt;ESP32 Komplett-Schaltplan&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>

@@ -147,7 +147,7 @@ management dashboard. It runs in two modes:&lt;/p&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;GET /api/status&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;❌ No&lt;/td&gt;
-&lt;td&gt;Live telemetry (temperatures, pump states, heap, RSSI)&lt;/td&gt;
+&lt;td&gt;Live telemetry (temperatures, pump states, heap, RSSI, temperature thresholds)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;GET /api/scan&lt;/code&gt;&lt;/td&gt;
@@ -215,6 +215,10 @@ data-copied-label="Copied!"
 &lt;li&gt;In &lt;strong&gt;STA mode&lt;/strong&gt;, a cookie-based session is required (15 minute timeout)&lt;/li&gt;
 &lt;li&gt;Default password is &lt;code&gt;admin&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Password is stored as SHA-256 hash in &lt;code&gt;/config.json&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;The dashboard always shows live temperatures and threshold values even after
+session expiry, because &lt;code&gt;/api/status&lt;/code&gt; (unauthenticated) now includes
+&lt;code&gt;temp_max_pool&lt;/code&gt; and &lt;code&gt;temp_min_solar&lt;/code&gt;. Configuration writes still require
+a valid session.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;Configuration Persistence&lt;span class="hx:absolute hx:-mt-20" id="configuration-persistence"&gt;&lt;/span&gt;
 &lt;a href="#configuration-persistence" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Configuration is persisted in two independent storage systems, ensuring all
@@ -410,6 +414,48 @@ data-copied-label="Copied!"
 &lt;p&gt;The web interface shows the assigned IP in the dashboard header&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;h2&gt;OLED Display (NORVI AE01-R Variant)&lt;span class="hx:absolute hx:-mt-20" id="oled-display-norvi-ae01-r-variant"&gt;&lt;/span&gt;
+&lt;a href="#oled-display-norvi-ae01-r-variant" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The industrial NORVI AE01-R controller includes a &lt;strong&gt;0.96&amp;quot; OLED display&lt;/strong&gt;
+(128×64 pixels) on the front panel. When your firmware is built with the
+&lt;code&gt;NORVI_AE01_R&lt;/code&gt; flag, the display shows system information across four
+switchable pages:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="text-align: center"&gt;Page&lt;/th&gt;
+&lt;th&gt;What You See&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;1&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Main&lt;/strong&gt; — Pool and solar water temperatures with pump ON/OFF indicators (filled/empty circle), operation mode (auto/manu/boost/timer), and shortcut hints for the three front buttons&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;2&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Network&lt;/strong&gt; — Connected WiFi SSID, IP address, MQTT connection status. In AP mode it shows the setup hotspot name and URL&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;3&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;System&lt;/strong&gt; — Uptime (e.g. 3d 12h 30m), current and minimum free heap memory, firmware version&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;4&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;QR Code&lt;/strong&gt; — Generates a scannable QR code of the web dashboard URL so you can open it on your phone without typing the IP address&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Footer:&lt;/strong&gt; Each page has a bottom bar showing the local time (HH:MM, with
+automatic DST handling), the firmware version (&lt;code&gt;vX.Y.Z&lt;/code&gt;), and the current page
+number. On page 1 the active operation mode is also shown in the footer.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Auto WiFi page:&lt;/strong&gt; If no WiFi is configured yet (AP mode), the display jumps
+directly to page 2 at startup so you can see the setup instructions immediately.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;QR Quick-Access:&lt;/strong&gt; Use your phone&amp;rsquo;s camera app to scan the QR code on page 4
+— most modern phones recognize the URL and offer to open it in a browser. No
+extra app needed.&lt;/p&gt;
+&lt;p&gt;The display updates every 2 seconds. Navigate pages using the front-panel
+buttons (see the &lt;a
+href="https://smart-swimmingpool.github.io/docs/pool-controller/norvi-ae01-r/"&gt;NORVI AE01-R documentation&lt;/a&gt; for details).&lt;/p&gt;
 &lt;h2&gt;LED Status Codes (Homie Convention)&lt;span class="hx:absolute hx:-mt-20" id="led-status-codes-homie-convention"&gt;&lt;/span&gt;
 &lt;a href="#led-status-codes-homie-convention" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The controller uses its &lt;strong&gt;built-in LED&lt;/strong&gt; to signal the current system state,
 following the &lt;a

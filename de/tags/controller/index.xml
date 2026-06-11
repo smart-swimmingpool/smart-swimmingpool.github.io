@@ -1,4 +1,301 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Controller</title><link>https://smart-swimmingpool.github.io/de/tags/controller/</link><description>Recent content in Controller on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><lastBuildDate>Thu, 28 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/de/tags/controller/index.xml" rel="self" type="application/rss+xml"/><item><title>Pool Controller 3.3</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Controller</title><link>https://smart-swimmingpool.github.io/de/tags/controller/</link><description>Recent content in Controller on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><lastBuildDate>Thu, 28 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/de/tags/controller/index.xml" rel="self" type="application/rss+xml"/><item><title>Benutzerhandbuch</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/users-guide/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/users-guide/</guid><description>
+&lt;h2&gt;Einrichtung&lt;span class="hx:absolute hx:-mt-20" id="einrichtung"&gt;&lt;/span&gt;
+&lt;a href="#einrichtung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Erste WLAN-Einrichtung über die Weboberfläche (AP-Modus)&lt;span class="hx:absolute hx:-mt-20" id="erste-wlan-einrichtung-über-die-weboberfläche-ap-modus"&gt;&lt;/span&gt;
+&lt;a href="#erste-wlan-einrichtung-%c3%bcber-die-weboberfl%c3%a4che-ap-modus" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Wenn der Controller kein WLAN konfiguriert hat, startet er im &lt;strong&gt;Access-Point-Modus&lt;/strong&gt;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Controller einschalten&lt;/li&gt;
+&lt;li&gt;Telefon/Laptop mit dem WLAN &lt;strong&gt;&lt;code&gt;Pool-Controller-Setup&lt;/code&gt;&lt;/strong&gt; verbinden (offenes Netzwerk)&lt;/li&gt;
+&lt;li&gt;Browser öffnen und &lt;strong&gt;&lt;code&gt;http://192.168.4.1&lt;/code&gt;&lt;/strong&gt; aufrufen — der Captive Portal leitet automatisch weiter&lt;/li&gt;
+&lt;li&gt;Zum Tab &lt;strong&gt;WLAN-Einrichtung&lt;/strong&gt; gehen, Netzwerke scannen, das eigene auswählen und Passwort eingeben&lt;/li&gt;
+&lt;li&gt;Der Controller speichert die Konfiguration und startet im &lt;strong&gt;STA-Modus&lt;/strong&gt; neu&lt;/li&gt;
+&lt;li&gt;Die IP des Controllers in der DHCP-Liste des Routers finden und neu verbinden&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Hinweis:&lt;/strong&gt; Im AP-Modus hat die Weboberfläche kein Passwort (absichtlich für die Ersteinrichtung).
+Sobald der Controller mit Ihrem WLAN verbunden ist, ist ein Login erforderlich (Standardpasswort: &lt;code&gt;admin&lt;/code&gt;).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Erste WLAN-Einrichtung per WPS&lt;span class="hx:absolute hx:-mt-20" id="erste-wlan-einrichtung-per-wps"&gt;&lt;/span&gt;
+&lt;a href="#erste-wlan-einrichtung-per-wps" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Sie können WPS während des Bootvorgangs auslösen, um den Controller ohne manuelle
+Eingabe der WLAN-Zugangsdaten mit Ihrem Router zu koppeln:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Controller normal einschalten (oder zurücksetzen) und warten, bis das Firmware-Setup beginnt.&lt;/li&gt;
+&lt;li&gt;Dann die &lt;strong&gt;BOOT&lt;/strong&gt;-Taste mindestens 2 Sekunden lang gedrückt halten.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;WPS Push Button Connect (PBC)&lt;/strong&gt; auf Ihrem Router starten.&lt;/li&gt;
+&lt;li&gt;Warten, bis die Kopplung abgeschlossen ist.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Bei erfolgreichem WPS aktualisiert der Controller die WLAN-Zugangsdaten und speichert
+sie dauerhaft in &lt;code&gt;/config.json&lt;/code&gt; auf LittleFS.&lt;/p&gt;
+&lt;h3&gt;Controller im Netzwerk finden&lt;span class="hx:absolute hx:-mt-20" id="controller-im-netzwerk-finden"&gt;&lt;/span&gt;
+&lt;a href="#controller-im-netzwerk-finden" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Nach erfolgreicher Verbindung die IP des Controllers ermitteln:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;DHCP-Client-Liste des Routers prüfen&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Oder einen Netzwerkscanner wie &lt;code&gt;nmap&lt;/code&gt; verwenden:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;nmap -p &lt;span class="m"&gt;80&lt;/span&gt; 192.168.1.0/24 &lt;span class="c1"&gt;# Subnetz nach offenem Port 80 scannen&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Die Weboberfläche zeigt die zugewiesene IP in der Dashboard-Kopfzeile an&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;OLED-Display (NORVI AE01-R Variante)&lt;span class="hx:absolute hx:-mt-20" id="oled-display-norvi-ae01-r-variante"&gt;&lt;/span&gt;
+&lt;a href="#oled-display-norvi-ae01-r-variante" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der industrielle NORVI AE01-R Controller verfügt über ein &lt;strong&gt;0,96&amp;quot; OLED-Display&lt;/strong&gt;
+(128×64 Pixel) auf der Frontseite. Wenn Ihre Firmware mit dem Flag
+&lt;code&gt;NORVI_AE01_R&lt;/code&gt; gebaut wurde, zeigt das Display Systeminformationen auf vier
+umschaltbaren Seiten:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="text-align: center"&gt;Seite&lt;/th&gt;
+&lt;th&gt;Anzeige&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;1&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Hauptseite&lt;/strong&gt; — Pool- und Solar-Wassertemperaturen mit Pumpen-EIN/AUS-Anzeige (gefüllter/leerer Kreis), Betriebsmodus (auto/manu/boost/timer) und Abkürzungshinweise für die drei Fronttasten&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;2&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Netzwerk&lt;/strong&gt; — Verbundene WLAN-SSID, IP-Adresse, MQTT- Verbindungsstatus. Im AP-Modus werden Setup-Hotspot-Name und URL angezeigt&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;3&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;System&lt;/strong&gt; — Betriebszeit (z.B. 3d 12h 30m), aktueller und minimaler freier Heap-Speicher, Firmware-Version&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;4&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;QR-Code&lt;/strong&gt; — Erzeugt einen scannbaren QR-Code der Web-Dashboard-URL, zum Öffnen auf dem Smartphone ohne IP-Eingabe&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Fußzeile:&lt;/strong&gt; Jede Seite hat eine untere Leiste mit der Ortszeit (HH:MM, mit
+automatischer Sommerzeitumstellung), der Firmware-Version (&lt;code&gt;vX.Y.Z&lt;/code&gt;) und der
+aktuellen Seitenzahl. Auf Seite 1 wird auch der aktive Betriebsmodus in der
+Fußzeile angezeigt.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Auto-WLAN-Seite:&lt;/strong&gt; Wenn noch kein WLAN konfiguriert ist (AP-Modus), springt
+das Display beim Start direkt zu Seite 2, damit die Einrichtungshinweise sofort
+sichtbar sind.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;QR-Schnellzugriff:&lt;/strong&gt; Mit der Kamera-App des Smartphones den QR-Code auf Seite 4
+scannen — die meisten modernen Telefone erkennen die URL und bieten an, sie im
+Browser zu öffnen. Keine zusätzliche App erforderlich.&lt;/p&gt;
+&lt;p&gt;Das Display aktualisiert sich alle 2 Sekunden. Die Seiten werden mit den
+Fronttasten umgeschaltet (siehe &lt;a
+href="norvi-ae01-r.de.md"&gt;NORVI AE01-R Dokumentation&lt;/a&gt;
+für Details).&lt;/p&gt;
+&lt;h2&gt;LED-Statuscodes (Homie-Konvention)&lt;span class="hx:absolute hx:-mt-20" id="led-statuscodes-homie-konvention"&gt;&lt;/span&gt;
+&lt;a href="#led-statuscodes-homie-konvention" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der Controller verwendet die &lt;strong&gt;eingebaute LED&lt;/strong&gt; zur Signalisierung des aktuellen
+Systemzustands, nach der &lt;a
+href="https://homieiot.github.io/"target="_blank" rel="noopener"&gt;Homie Convention&lt;/a&gt; — einem
+Industriestandard für IoT-Statusanzeigen.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;LED-Muster&lt;/th&gt;
+&lt;th&gt;Wann?&lt;/th&gt;
+&lt;th&gt;Bedeutung&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Langsames Blinken&lt;/strong&gt; (1x/Sek.)&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;WLAN-Verbindung&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Der Controller versucht, sich mit Ihrem Heim-WLAN zu verbinden. Dauert 5–20 Sekunden.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Meist an, kurzes Ausblinken alle 2s&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;WLAN OK, MQTT verbindet/getrennt&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Netzwerk steht, aber der MQTT-Broker ist noch nicht verbunden. Broker-Adresse oder Netzwerk prüfen.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Schnelles Blinken&lt;/strong&gt; (5x/Sek.)&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;AP-Modus / Setup&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Keine WLAN-Zugangsdaten gespeichert. Der Controller hostet ein eigenes &lt;code&gt;Pool-Controller-Setup&lt;/code&gt;-WLAN.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Dauerhaft an&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Voll verbunden&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Alles läuft normal — WLAN + MQTT verbunden.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Sehr schnelles Blinken&lt;/strong&gt; (10x/Sek.)&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;OTA-Update läuft&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Firmware wird heruntergeladen und geflasht. Nicht ausschalten!&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Doppelblinken&lt;/strong&gt; (zwei Blitze, Pause)&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Safe Mode / Fehler&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Boot-Loop erkannt oder kritische Systemverschlechterung. Relais sind ausgeschaltet.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;Was beim ersten Einschalten zu erwarten ist&lt;span class="hx:absolute hx:-mt-20" id="was-beim-ersten-einschalten-zu-erwarten-ist"&gt;&lt;/span&gt;
+&lt;a href="#was-beim-ersten-einschalten-zu-erwarten-ist" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Einschalten&lt;/strong&gt; des Controllers&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Schnelles Blinken&lt;/strong&gt; — AP-Modus (noch kein WLAN konfiguriert)&lt;/li&gt;
+&lt;li&gt;Netzwerk &lt;code&gt;Pool-Controller-Setup&lt;/code&gt; öffnen und WLAN konfigurieren&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Langsames Blinken&lt;/strong&gt; — Verbindung zum Heim-WLAN&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Meist an&lt;/strong&gt; — WLAN verbunden, MQTT verbindet&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Dauerhaft an&lt;/strong&gt; — alles läuft normal&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Fehlersuche&lt;/strong&gt;: Wenn die LED &lt;strong&gt;niemals das schnelle Blinken verlässt&lt;/strong&gt;, hat der
+Controller keine WLAN-Zugangsdaten oder kann Ihr Netzwerk nicht finden. Mit dem
+&lt;code&gt;Pool-Controller-Setup&lt;/code&gt;-Zugangspunkt verbinden, um ihn zu konfigurieren. Bleibt
+es beim &lt;strong&gt;Doppelblinken&lt;/strong&gt;, ist ein kritischer Fehler aufgetreten — das
+serielle Log prüfen.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Web-Dashboard&lt;span class="hx:absolute hx:-mt-20" id="web-dashboard"&gt;&lt;/span&gt;
+&lt;a href="#web-dashboard" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der Controller bietet ein modernes Web-Dashboard unter &lt;code&gt;http://&amp;lt;controller-ip&amp;gt;/&lt;/code&gt;
+mit den folgenden Tabs:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Dashboard&lt;/strong&gt; — Live-Telemetrie: Pool-/Solar-/Controller-Temperatur, Pumpenzustände, freier Heap, RSSI, Betriebsmodus&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;WLAN-Einrichtung&lt;/strong&gt; — WLAN-Zugangsdaten scannen und konfigurieren&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MQTT-Einstellungen&lt;/strong&gt; — Broker-Host, Port, Benutzername, Passwort&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Konfiguration&lt;/strong&gt; — Betriebsmodus, Temperaturgrenzen, Hysterese, Timer, Zeitzone&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sicherheit &amp;amp; Update&lt;/strong&gt; — Admin-Passwort ändern, OTA-Firmware-Update, Neustart, Werksreset&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Einstellungen über die Weboberfläche ändern&lt;span class="hx:absolute hx:-mt-20" id="einstellungen-über-die-weboberfläche-ändern"&gt;&lt;/span&gt;
+&lt;a href="#einstellungen-%c3%bcber-die-weboberfl%c3%a4che-%c3%a4ndern" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Mit Ihrem Admin-Passwort anmelden (Standard: &lt;code&gt;admin&lt;/code&gt;)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Zum Tab &lt;strong&gt;Konfiguration&lt;/strong&gt; navigieren&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Einstellungen nach Bedarf anpassen:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Betriebsmodus&lt;/strong&gt;: Automatik (Solar), Manuelle Steuerung, Boost-Pumpe, Timer-Zeitplan&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Max. Pool-Temp.&lt;/strong&gt;: Zielwassertemperatur (°C)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Min. Solar-Temp.&lt;/strong&gt;: Minimale Solarkollektortemperatur (°C)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Temperatur-Hysterese&lt;/strong&gt;: Schaltdifferenz zur Vermeidung schnellen Toggeln (K)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Loop-Intervall&lt;/strong&gt;: Wie oft der Controller Regeln auswertet (Sekunden)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Zeitzone&lt;/strong&gt;: Auswahl aus 10 unterstützten Zeitzonen mit Sommerzeit&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Parameter speichern&lt;/strong&gt; klicken — Änderungen sind &lt;strong&gt;sofort aktiv&lt;/strong&gt; und &lt;strong&gt;überdauern Neustarts&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Wenn MQTT/Home Assistant verbunden ist, werden die neuen Werte automatisch veröffentlicht&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Tipp:&lt;/strong&gt; Sie können Einstellungen auch programmatisch über die REST-API ändern —
+siehe &lt;a
+href="software-guide.de.md#weboberfl%c3%a4che--direktzugriff"&gt;Software-Entwicklung&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Einstellungen&lt;span class="hx:absolute hx:-mt-20" id="einstellungen"&gt;&lt;/span&gt;
+&lt;a href="#einstellungen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Es gibt einige spezifische Einstellungen für den Controller:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Pool max. Temperatur:&lt;/strong&gt; Die maximale Wassertemperatur im Pool, die nicht überschritten werden soll.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Einheit: &lt;code&gt;°C&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Standardwert: &lt;code&gt;29&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Solar min. Temperatur:&lt;/strong&gt; Die minimale Temperatur des Wärmespeichers, die nicht unterschritten werden soll.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Einheit: &lt;code&gt;°C&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Standardwert: &lt;code&gt;50&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Hysterese:&lt;/strong&gt; Hysterese in Kelvin, die prüft, ob die Heizung ein- oder ausgeschaltet werden soll, um schnelles Umschalten zu verhindern.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Einheit: &lt;code&gt;K&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Standardwert: &lt;code&gt;1&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Pumpen-Timer:&lt;/strong&gt; Zeitbereich, in dem die Poolpumpe laufen soll.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Start h/min&lt;/li&gt;
+&lt;li&gt;Ende h/min&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Loop-Intervall:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Einheit: &lt;code&gt;sec&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Standardwert: &lt;code&gt;30&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Zeitzone:&lt;/strong&gt; Wählen Sie die Zeitzone für den Controller zur korrekten lokalen Zeit und Sommerzeitumstellung (DST).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Verfügbare Zeitzonen:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;0&lt;/code&gt; - Mitteleuropäische Zeit (Berlin, Paris) mit CEST/CET DST&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;1&lt;/code&gt; - Osteuropäische Zeit (Helsinki, Athen) mit EEST/EET DST&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;2&lt;/code&gt; - Westeuropäische Zeit (London, Lissabon) mit BST/GMT DST&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;3&lt;/code&gt; - US Eastern Time (New York, Washington) mit EDT/EST DST&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;4&lt;/code&gt; - US Central Time (Chicago, Houston) mit CDT/CST DST&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;5&lt;/code&gt; - US Mountain Time (Denver) mit MDT/MST DST&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;6&lt;/code&gt; - US Pacific Time (Los Angeles, San Francisco) mit PDT/PST DST&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;7&lt;/code&gt; - Australian Eastern Time (Sydney, Melbourne) mit AEDT/AEST DST&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;8&lt;/code&gt; - Japan Time (Tokio) - Keine DST&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;9&lt;/code&gt; - China Time (Peking) - Keine DST&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Standardwert: &lt;code&gt;0&lt;/code&gt; (Mitteleuropäische Zeit)&lt;/li&gt;
+&lt;li&gt;Diese Einstellung kann bei der Ersteinrichtung konfiguriert oder zur Laufzeit über MQTT geändert werden&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hinweis:&lt;/strong&gt; Laufzeitänderungen über MQTT (Betriebsmodus/Zeitzone) sind temporär.
+Um die Zeitzoneneinstellung über Neustarts hinweg zu speichern, die &lt;code&gt;timezone&lt;/code&gt;-
+Konfiguration in den Geräteeinstellungen aktualisieren.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Regeln&lt;span class="hx:absolute hx:-mt-20" id="regeln"&gt;&lt;/span&gt;
+&lt;a href="#regeln" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der &lt;strong&gt;Smart Swimmingpool Controller&lt;/strong&gt; implementiert &lt;code&gt;Regeln&lt;/code&gt; für verschiedene Situationen:&lt;/p&gt;
+&lt;h3&gt;Regel: Manuell&lt;span class="hx:absolute hx:-mt-20" id="regel-manuell"&gt;&lt;/span&gt;
+&lt;a href="#regel-manuell" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Die Pumpe für Reinigung und Solarheizung werden vollständig manuell und unabhängig ein- und ausgeschaltet.&lt;/p&gt;
+&lt;h3&gt;Regel: Timer&lt;span class="hx:absolute hx:-mt-20" id="regel-timer"&gt;&lt;/span&gt;
+&lt;a href="#regel-timer" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Diese Regel schaltet die Reinigungspumpe basierend auf den Timer-Einstellungen. Die Solarheizung ist deaktiviert.&lt;/p&gt;
+&lt;h3&gt;Regel: Auto&lt;span class="hx:absolute hx:-mt-20" id="regel-auto"&gt;&lt;/span&gt;
+&lt;a href="#regel-auto" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Diese Regel schaltet die Reinigungspumpe basierend auf den Timer-Einstellungen. Die Solarheizung wird
+&lt;strong&gt;intelligent&lt;/strong&gt; zugeschaltet, wenn die Reinigungspumpe durch den Timer eingeschaltet ist und der
+Wärmespeicher eine ausreichende Temperatur hat.&lt;/p&gt;
+&lt;p&gt;Wenn die maximale Temperatur des Poolwassers erreicht ist, wird die Solarheizung deaktiviert.&lt;/p&gt;
+&lt;h3&gt;Regel: Boost&lt;span class="hx:absolute hx:-mt-20" id="regel-boost"&gt;&lt;/span&gt;
+&lt;a href="#regel-boost" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Heizung des Poolwassers mit voller Leistung.&lt;/p&gt;
+&lt;h2&gt;MQTT-Schnittstelle&lt;span class="hx:absolute hx:-mt-20" id="mqtt-schnittstelle"&gt;&lt;/span&gt;
+&lt;a href="#mqtt-schnittstelle" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der &lt;strong&gt;Smart Swimmingpool Controller&lt;/strong&gt; verwendet &lt;a
+href="http://mqtt.org/"target="_blank" rel="noopener"&gt;MQTT&lt;/a&gt; zur
+Kommunikation mit Ihrem Smart Home. Er unterstützt
+&lt;a
+href="https://www.home-assistant.io/integrations/mqtt/#mqtt-discovery"target="_blank" rel="noopener"&gt;Home Assistant MQTT Discovery&lt;/a&gt;
+zur automatischen Geräteregistrierung — Geräte erscheinen automatisch in Home Assistant
+ohne manuelle Konfiguration.&lt;/p&gt;
+&lt;h2&gt;openHAB-Integration&lt;span class="hx:absolute hx:-mt-20" id="openhab-integration"&gt;&lt;/span&gt;
+&lt;a href="#openhab-integration" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der &lt;strong&gt;Smart Swimmingpool Controller&lt;/strong&gt; kann seit Version 2.4 in &lt;a
+href="https://www.openhab.org"target="_blank" rel="noopener"&gt;openHAB&lt;/a&gt; integriert werden.&lt;/p&gt;
+&lt;p&gt;Es ist möglich, mit dem Controller zu interagieren, um die Pumpe ein-/auszuschalten oder die aktuelle Regel zu wechseln.&lt;/p&gt;
+&lt;p&gt;Auch die aktuellen Temperatur- oder Zustandswerte können überwacht werden.&lt;/p&gt;
+&lt;p&gt;Schließlich können auch die &lt;a
+href="#einstellungen"&gt;Einstellungen&lt;/a&gt; aktualisiert werden.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;TODO: Beispiel für openHAB-Konfiguration hinzufügen.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Gerät&lt;span class="hx:absolute hx:-mt-20" id="gerät"&gt;&lt;/span&gt;
+&lt;a href="#ger%c3%a4t" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h3&gt;Eigenschaften&lt;span class="hx:absolute hx:-mt-20" id="eigenschaften"&gt;&lt;/span&gt;
+&lt;a href="#eigenschaften" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;</description></item><item><title>Pool Controller 3.3</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/</guid><description>
 &lt;h2&gt;🏊 Der MQTT-fähige Smart Swimmingpool Controller 🎛️&lt;span class="hx:absolute hx:-mt-20" id="-der-mqtt-fähige-smart-swimmingpool-controller-"&gt;&lt;/span&gt;
 &lt;a href="#-der-mqtt-f%c3%a4hige-smart-swimmingpool-controller-" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;span style="text-shadow: none;"&gt;
 &lt;!-- markdownlint-disable MD013 --&gt;
@@ -46,4 +343,319 @@ href="https://github.com/smart-swimmingpool/pool-controller/issues"target="_blan
 &lt;figure&gt;&lt;img src="https://smart-swimmingpool.github.io/docs/pool-controller/pool-controller_breadboard.png"&gt;&lt;figcaption&gt;
 &lt;h4&gt;ESP32 Pool Controller Breadboard-Schaltung mit DS18B20-Temperatursensoren und Relaismodulen&lt;/h4&gt;
 &lt;/figcaption&gt;
-&lt;/figure&gt;</description></item></channel></rss>
+&lt;/figure&gt;</description></item><item><title>Software-Entwicklung</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/software-guide/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/software-guide/</guid><description>
+&lt;h2&gt;Entwicklungsumgebung&lt;span class="hx:absolute hx:-mt-20" id="entwicklungsumgebung"&gt;&lt;/span&gt;
+&lt;a href="#entwicklungsumgebung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Benötigte Bibliotheken&lt;span class="hx:absolute hx:-mt-20" id="benötigte-bibliotheken"&gt;&lt;/span&gt;
+&lt;a href="#ben%c3%b6tigte-bibliotheken" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/marvinroger/async-mqtt-client"target="_blank" rel="noopener"&gt;AsyncMqttClient&lt;/a&gt; @ 0.9.0&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/milesburton/Arduino-Temperature-Control-Library"target="_blank" rel="noopener"&gt;DallasTemperature&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/PaulStoffregen/OneWire"target="_blank" rel="noopener"&gt;OneWire&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/adafruit/Adafruit_Sensor"target="_blank" rel="noopener"&gt;Adafruit Unified Sensor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/adafruit/DHT-sensor-library"target="_blank" rel="noopener"&gt;DHT sensor library&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/arduino-libraries/NTPClient"target="_blank" rel="noopener"&gt;NTPClient&lt;/a&gt; @ 3.2.1&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/JChristensen/Timezone"target="_blank" rel="noopener"&gt;Timezone&lt;/a&gt; @ 1.2.6&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/bblanchon/ArduinoJson"target="_blank" rel="noopener"&gt;ArduinoJson&lt;/a&gt; @ 7.3.2&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/thomasfredericks/Bounce2"target="_blank" rel="noopener"&gt;Bounce2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/espressif/arduino-esp32/tree/master/libraries/Wire"target="_blank" rel="noopener"&gt;Wire&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Vielen Dank an die Entwickler dieser Bibliotheken!&lt;/p&gt;
+&lt;h2&gt;Pin-Konfiguration&lt;span class="hx:absolute hx:-mt-20" id="pin-konfiguration"&gt;&lt;/span&gt;
+&lt;a href="#pin-konfiguration" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;In den Quellen unter &lt;code&gt;Config.hpp&lt;/code&gt; sind die GPIO-Pin-Zuweisungen definiert.
+Details siehe auch &lt;a
+href="../hardware-guide/#pin-assignment-firmware-defaults"&gt;Hardware-Leitfaden&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cpp" data-lang="cpp"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;constexpr&lt;/span&gt; &lt;span class="kt"&gt;uint8_t&lt;/span&gt; &lt;span class="n"&gt;PIN_DS_SOLAR&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;// Pin des Solar-Temperatursensors (GPIO15)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;constexpr&lt;/span&gt; &lt;span class="kt"&gt;uint8_t&lt;/span&gt; &lt;span class="n"&gt;PIN_DS_POOL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;// Pin des Pool-Temperatursensors (GPIO16)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;constexpr&lt;/span&gt; &lt;span class="kt"&gt;uint8_t&lt;/span&gt; &lt;span class="n"&gt;PIN_RELAY_POOL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;18&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;// Pin zur Ansteuerung des Pool-Pumpenrelais
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;constexpr&lt;/span&gt; &lt;span class="kt"&gt;uint8_t&lt;/span&gt; &lt;span class="n"&gt;PIN_RELAY_SOLAR&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;19&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;// Pin zur Ansteuerung des Solar-Pumpenrelais
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;constexpr&lt;/span&gt; &lt;span class="kt"&gt;uint8_t&lt;/span&gt; &lt;span class="n"&gt;TEMP_READ_INTERVAL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;30&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;Weboberfläche &amp;amp; Direktzugriff&lt;span class="hx:absolute hx:-mt-20" id="weboberfläche--direktzugriff"&gt;&lt;/span&gt;
+&lt;a href="#weboberfl%c3%a4che--direktzugriff" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der Controller enthält einen &lt;strong&gt;integrierten Webserver auf Port 80&lt;/strong&gt;, der ein
+vollständiges Verwaltungs-Dashboard bereitstellt. Er läuft in zwei Modi:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Modus&lt;/th&gt;
+&lt;th&gt;Bedingungen&lt;/th&gt;
+&lt;th&gt;Zugriff&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;AP-Modus&lt;/strong&gt; (Access Point)&lt;/td&gt;
+&lt;td&gt;Kein WiFi konfiguriert (Werkszustand)&lt;/td&gt;
+&lt;td&gt;SSID &lt;code&gt;Pool-Controller-Setup&lt;/code&gt;, IP &lt;code&gt;192.168.4.1&lt;/code&gt;, kein Passwort&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;STA-Modus&lt;/strong&gt; (Station)&lt;/td&gt;
+&lt;td&gt;Normale WiFi-Verbindung&lt;/td&gt;
+&lt;td&gt;DHCP-IP des ESP32 im lokalen Netzwerk, Passwort-Login erforderlich&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;API-Endpunkte&lt;span class="hx:absolute hx:-mt-20" id="api-endpunkte"&gt;&lt;/span&gt;
+&lt;a href="#api-endpunkte" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Route&lt;/th&gt;
+&lt;th&gt;Auth&lt;/th&gt;
+&lt;th&gt;Funktion&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;GET /&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Cookie&lt;/td&gt;
+&lt;td&gt;Dashboard SPA (Single Page Application)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;GET /login&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Cookie&lt;/td&gt;
+&lt;td&gt;Login-Seite&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;POST /api/login&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;td&gt;Session-Cookie ausstellen (SHA-256 Passwortprüfung)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;GET /api/status&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;❌ Nein&lt;/td&gt;
+&lt;td&gt;Live-Telemetrie (Temperaturen, Pumpenstatus, Heap, RSSI, Temperaturschwellen)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;GET /api/scan&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Ja&lt;/td&gt;
+&lt;td&gt;Verfügbare WiFi-Netzwerke scannen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;GET /api/config&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Ja&lt;/td&gt;
+&lt;td&gt;Aktuelle Konfiguration auslesen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;POST /api/config&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Ja&lt;/td&gt;
+&lt;td&gt;Konfiguration speichern (&lt;code&gt;type=settings|wifi|mqtt|password&lt;/code&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;GET /api/restart&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Ja&lt;/td&gt;
+&lt;td&gt;ESP32 neu starten&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;GET /api/factory_reset&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Ja&lt;/td&gt;
+&lt;td&gt;Konfigurationsdatei löschen, Neustart im AP-Modus&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;POST /api/update&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Ja&lt;/td&gt;
+&lt;td&gt;OTA-Firmware-Update (signiertes .bin hochladen)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;REST-API direkt nutzen&lt;span class="hx:absolute hx:-mt-20" id="rest-api-direkt-nutzen"&gt;&lt;/span&gt;
+&lt;a href="#rest-api-direkt-nutzen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Sie können programmatisch auf den Controller zugreifen:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Live-Telemetrie abrufen (keine Authentifizierung nötig)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;curl http://&amp;lt;controller-ip&amp;gt;/api/status
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Session-Cookie holen&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;SESSION&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;curl -s -c - -X POST -d &lt;span class="s2"&gt;&amp;#34;password=admin&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; http://&amp;lt;controller-ip&amp;gt;/api/login &lt;span class="p"&gt;|&lt;/span&gt; grep session &lt;span class="p"&gt;|&lt;/span&gt; awk &lt;span class="s1"&gt;&amp;#39;{print $NF}&amp;#39;&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Konfiguration auslesen&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;curl -b &lt;span class="s2"&gt;&amp;#34;session=&lt;/span&gt;&lt;span class="nv"&gt;$SESSION&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;&lt;/span&gt; http://&amp;lt;controller-ip&amp;gt;/api/config
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Einstellungen schreiben (bleiben nach Neustart erhalten und benachrichtigen Home Assistant)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;curl -b &lt;span class="s2"&gt;&amp;#34;session=&lt;/span&gt;&lt;span class="nv"&gt;$SESSION&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;&lt;/span&gt; -X POST &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; -d &lt;span class="s2"&gt;&amp;#34;type=settings&amp;amp;mode=auto&amp;amp;max_pool=30.0&amp;amp;min_solar=55.0&amp;amp;hysteresis=1.0&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; http://&amp;lt;controller-ip&amp;gt;/api/config&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3&gt;Authentifizierung&lt;span class="hx:absolute hx:-mt-20" id="authentifizierung"&gt;&lt;/span&gt;
+&lt;a href="#authentifizierung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Im &lt;strong&gt;AP-Modus&lt;/strong&gt; ist die Weboberfläche ungeschützt (absichtlich für die Einrichtung)&lt;/li&gt;
+&lt;li&gt;Im &lt;strong&gt;STA-Modus&lt;/strong&gt; ist eine cookie-basierte Sitzung erforderlich (15 Minuten Timeout)&lt;/li&gt;
+&lt;li&gt;Standardpasswort ist &lt;code&gt;admin&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Das Passwort wird als SHA-256-Hash in &lt;code&gt;/config.json&lt;/code&gt; gespeichert&lt;/li&gt;
+&lt;li&gt;Das Dashboard zeigt Temperaturen und Schwellwerte auch nach Session-Timeout
+an, da &lt;code&gt;/api/status&lt;/code&gt; (ohne Authentifizierung) die Felder &lt;code&gt;temp_max_pool&lt;/code&gt; und
+&lt;code&gt;temp_min_solar&lt;/code&gt; enthält. Konfigurationen zu schreiben erfordert weiterhin
+eine gültige Session.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Konfigurationspersistenz&lt;span class="hx:absolute hx:-mt-20" id="konfigurationspersistenz"&gt;&lt;/span&gt;
+&lt;a href="#konfigurationspersistenz" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die Konfiguration wird in zwei unabhängigen Speichersystemen abgelegt, damit
+alle Einstellungen Neustarts und Stromausfälle überdauern:&lt;/p&gt;
+&lt;h3&gt;1. ConfigManager — Gerätekonfiguration (LittleFS)&lt;span class="hx:absolute hx:-mt-20" id="1-configmanager--gerätekonfiguration-littlefs"&gt;&lt;/span&gt;
+&lt;a href="#1-configmanager--ger%c3%a4tekonfiguration-littlefs" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Datei&lt;/th&gt;
+&lt;th&gt;&lt;code&gt;/config.json&lt;/code&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Max Größe&lt;/td&gt;
+&lt;td&gt;4 KB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Inhalt&lt;/td&gt;
+&lt;td&gt;WiFi, MQTT, NTP, ControllerSettings, Admin-Passwort-Hash&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Verwaltung&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ConfigManager::load()&lt;/code&gt; beim Start, &lt;code&gt;ConfigManager::save()&lt;/code&gt; bei Änderungen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Zurücksetzen&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ConfigManager::reset()&lt;/code&gt; → Werkseinstellungen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;2. StateManager — Laufzeitstatus (ESP32 NVS / Preferences)&lt;span class="hx:absolute hx:-mt-20" id="2-statemanager--laufzeitstatus-esp32-nvs--preferences"&gt;&lt;/span&gt;
+&lt;a href="#2-statemanager--laufzeitstatus-esp32-nvs--preferences" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Namespace&lt;/th&gt;
+&lt;th&gt;&lt;code&gt;pool-controller&lt;/code&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Inhalt&lt;/td&gt;
+&lt;td&gt;Betriebsmodus, poolMaxTemp, solarMinTemp, Hysterese, timerStart/End&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;API&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;StateManager::saveString/Float/Int/Bool&lt;/code&gt; → typsichere Key-Value-Speicherung&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;Datenfluss bei Konfigurationsänderungen&lt;span class="hx:absolute hx:-mt-20" id="datenfluss-bei-konfigurationsänderungen"&gt;&lt;/span&gt;
+&lt;a href="#datenfluss-bei-konfigurations%c3%a4nderungen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Web UI / REST API MQTT (Home Assistant)
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; │ │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; ▼ ▼
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;────────┴────── ConfigManager ───────┴────
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; save() → /config.json (LittleFS)
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; ↓
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; OperationModeNode
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; (Laufzeitparameter)
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; ↓
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; MqttPublisher::publishStates()
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; → MQTT Topics → Home Assistant&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Hinweis:&lt;/strong&gt; Werden Einstellungen über die Weboberfläche geändert, wird
+Home Assistant beim nächsten Messzyklus aktualisiert (alle &lt;code&gt;loopInterval&lt;/code&gt;
+Sekunden, standardmäßig 10s). Änderungen über MQTT werden sofort bestätigt.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;MQTT-Kommunikation&lt;span class="hx:absolute hx:-mt-20" id="mqtt-kommunikation"&gt;&lt;/span&gt;
+&lt;a href="#mqtt-kommunikation" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der Controller verwendet seit v3.3.0 ausschließlich &lt;strong&gt;Home Assistant MQTT Discovery&lt;/strong&gt;.
+Siehe die entsprechende Dokumentation für Details:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="../mqtt-configuration"&gt;MQTT-Konfiguration&lt;/a&gt;&lt;/strong&gt; — Protokoll, Entity-Referenz, Homie-Migration&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="../home-assistant"&gt;Home Assistant Integration&lt;/a&gt;&lt;/strong&gt; — Lovelace-Dashboard, HA-Entity-IDs&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Retained Messages löschen&lt;span class="hx:absolute hx:-mt-20" id="retained-messages-löschen"&gt;&lt;/span&gt;
+&lt;a href="#retained-messages-l%c3%b6schen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Wenn Sie zurückbehaltene MQTT-Nachrichten löschen müssen:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Einen bestimmten Home Assistant Topic löschen&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mosquitto_pub -h hostname -t &lt;span class="s2"&gt;&amp;#34;homeassistant/sensor/pool-controller/pool-temp/state&amp;#34;&lt;/span&gt; -n -r&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;Konfigurationspersistenz (Detail)&lt;span class="hx:absolute hx:-mt-20" id="konfigurationspersistenz-detail"&gt;&lt;/span&gt;
+&lt;a href="#konfigurationspersistenz-detail" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die Konfiguration wird in zwei unabhängigen Speichersystemen abgelegt, damit
+alle Einstellungen Neustarts und Stromausfälle überdauern:&lt;/p&gt;
+&lt;h3&gt;1. ConfigManager — Geräteeinstellungen (LittleFS)&lt;span class="hx:absolute hx:-mt-20" id="1-configmanager--geräteeinstellungen-littlefs"&gt;&lt;/span&gt;
+&lt;a href="#1-configmanager--ger%c3%a4teeinstellungen-littlefs" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Der Controller speichert WiFi-, MQTT-, NTP- und Geräteeinstellungen in einer
+JSON-Datei auf LittleFS. Siehe &lt;a
+href="../state-persistence"&gt;&lt;code&gt;ConfigManager&lt;/code&gt;&lt;/a&gt; für Details.&lt;/p&gt;
+&lt;h3&gt;2. Laufzeitstatus (ESP32 NVS / Preferences)&lt;span class="hx:absolute hx:-mt-20" id="2-laufzeitstatus-esp32-nvs--preferences"&gt;&lt;/span&gt;
+&lt;a href="#2-laufzeitstatus-esp32-nvs--preferences" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Betriebsmodus, Relaiszustände und Temperaturparameter werden in NVS
+gespeichert für sofortige Wiederherstellung nach Stromausfall.&lt;/p&gt;
+&lt;h3&gt;Datenfluss bei Konfigurationsänderungen&lt;span class="hx:absolute hx:-mt-20" id="datenfluss-bei-konfigurationsänderungen-1"&gt;&lt;/span&gt;
+&lt;a href="#datenfluss-bei-konfigurations%c3%a4nderungen-1" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Web UI / REST API MQTT (Home Assistant)
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; │ │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; ▼ ▼
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;────────┴────── ConfigManager ───────┴────
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; save() → /config.json (LittleFS)
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; ↓
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; OperationModeNode
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; (Laufzeitparameter)
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; ↓
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; MqttPublisher::publishStates()
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; → MQTT Topics → Home Assistant&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Hinweis:&lt;/strong&gt; Werden Einstellungen über die Weboberfläche geändert, wird
+Home Assistant beim nächsten Messzyklus aktualisiert (alle &lt;code&gt;loopInterval&lt;/code&gt;
+Sekunden, standardmäßig 10s). Änderungen über MQTT werden sofort bestätigt.&lt;/p&gt;
+&lt;/blockquote&gt;</description></item></channel></rss>

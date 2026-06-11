@@ -168,7 +168,17 @@ the HA state topics directly.&lt;/p&gt;</description></item><item><title>Softwar
 &lt;p&gt;Many thanks to maintainers of these libraries!&lt;/p&gt;
 &lt;h2&gt;Defines&lt;span class="hx:absolute hx:-mt-20" id="defines"&gt;&lt;/span&gt;
 &lt;a href="#defines" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Configuration&lt;span class="hx:absolute hx:-mt-20" id="configuration"&gt;&lt;/span&gt;
-&lt;a href="#configuration" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;</description></item><item><title>Users Guide of Pool Controller</title><link>https://smart-swimmingpool.github.io/docs/pool-monitor/users-guide/</link><pubDate>Sat, 11 Jun 2022 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-monitor/users-guide/</guid><description>
+&lt;a href="#configuration" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Changelog&lt;span class="hx:absolute hx:-mt-20" id="changelog"&gt;&lt;/span&gt;
+&lt;a href="#changelog" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;2026-06-10 — DNS failover, mDNS, QR code portal, and 5-minute timeout&lt;span class="hx:absolute hx:-mt-20" id="2026-06-10--dns-failover-mdns-qr-code-portal-and-5-minute-timeout"&gt;&lt;/span&gt;
+&lt;a href="#2026-06-10--dns-failover-mdns-qr-code-portal-and-5-minute-timeout" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;DNS failover:&lt;/strong&gt; MQTT connection is always attempted even when the hostname cannot be resolved via DNS. PubSubClient resolves DNS internally.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;mDNS:&lt;/strong&gt; Device registers as &lt;code&gt;pool-monitor.local&lt;/code&gt; on the local network.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;WiFi disconnect removed:&lt;/strong&gt; Explicit &lt;code&gt;WiFi.disconnect(true)&lt;/code&gt; before deep sleep was removed so the DHCP lease is preserved. The device stays visible in the router table.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MQTT portal with QR code:&lt;/strong&gt; On MQTT failure, a configuration portal starts. The display shows SSID, AP IP, and a QR code.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;5-minute timeout:&lt;/strong&gt; The portal stays active for a maximum of 5 minutes. Without user interaction, the device enters deep sleep and retries the connection on the next wake cycle.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;upload_speed:&lt;/strong&gt; Reduced to 115200 baud for compatibility with older ESP32 rev1.0 hardware.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;QR code library:&lt;/strong&gt; Uses ESP32 built-in &lt;code&gt;esp_qrcode&lt;/code&gt; — no additional dependency required.&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Users Guide of Pool Controller</title><link>https://smart-swimmingpool.github.io/docs/pool-monitor/users-guide/</link><pubDate>Sat, 11 Jun 2022 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-monitor/users-guide/</guid><description>
 &lt;h2&gt;Setup&lt;span class="hx:absolute hx:-mt-20" id="setup"&gt;&lt;/span&gt;
 &lt;a href="#setup" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Connecting the device to power it createsinitial a hotspot called &amp;ldquo;pool-monitor&amp;rdquo;.
 Please connect this hotsppot by smartphone. Thenthe device will show captivate website to add
@@ -181,4 +191,25 @@ WiFi credentials and connection parameters of MQTT broker.&lt;/p&gt;
 &lt;li&gt;MQTT broker port number (default: 1883)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;After pressing &amp;ldquo;Save&amp;rdquo; the device will reboot automatically and tries to connect to the MQTT broker.&lt;/p&gt;
-&lt;p&gt;After some seconds the device will show data if connection was successful.&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;After some seconds the device will show data if connection was successful.&lt;/p&gt;
+&lt;h2&gt;Network Configuration (mDNS)&lt;span class="hx:absolute hx:-mt-20" id="network-configuration-mdns"&gt;&lt;/span&gt;
+&lt;a href="#network-configuration-mdns" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The device is discoverable on the local network as &lt;code&gt;pool-monitor.local&lt;/code&gt; via mDNS. This allows finding it without knowing its IP address.&lt;/p&gt;
+&lt;p&gt;The DHCP lease is preserved across deep sleep cycles — the device does not release its IP address when going to sleep. It remains visible in the router&amp;rsquo;s client table (though unreachable while sleeping).&lt;/p&gt;
+&lt;h2&gt;MQTT Errors and Configuration Portal&lt;span class="hx:absolute hx:-mt-20" id="mqtt-errors-and-configuration-portal"&gt;&lt;/span&gt;
+&lt;a href="#mqtt-errors-and-configuration-portal" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;If the MQTT broker cannot be reached (e.g. wrong hostname, temporary outage), the device automatically starts a WiFi hotspot with a configuration portal:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The display shows the WiFi SSID (&lt;code&gt;pool-monitor&lt;/code&gt;), the access point IP (&lt;code&gt;192.168.4.1&lt;/code&gt;), and a QR code.&lt;/li&gt;
+&lt;li&gt;Connect to the &lt;code&gt;pool-monitor&lt;/code&gt; WiFi network (open network, no password required).&lt;/li&gt;
+&lt;li&gt;Open the configuration page — either by scanning the QR code or navigating to &lt;code&gt;http://192.168.4.1&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Correct the MQTT settings (hostname, port).&lt;/li&gt;
+&lt;li&gt;Click &amp;ldquo;Save&amp;rdquo; — the device reboots and retries the MQTT connection.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Important for DNS issues:&lt;/strong&gt; If the MQTT hostname (e.g. &lt;code&gt;smarthome-pi&lt;/code&gt;) cannot be resolved, use the IP address of the MQTT broker instead. The hostname is still attempted even without DNS resolution (PubSubClient resolves internally), but an IP address is more reliable.&lt;/p&gt;
+&lt;p&gt;The portal stays active for &lt;strong&gt;5 minutes&lt;/strong&gt;. If no configuration is saved within this time, the device enters deep sleep to conserve battery. On the next wake cycle (every 180 seconds), it retries the MQTT connection.&lt;/p&gt;
+&lt;h2&gt;Display During Configuration Portal&lt;span class="hx:absolute hx:-mt-20" id="display-during-configuration-portal"&gt;&lt;/span&gt;
+&lt;a href="#display-during-configuration-portal" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;When an MQTT error occurs, the display shows:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;WiFi network name (&lt;code&gt;pool-monitor&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;Access point IP address (&lt;code&gt;192.168.4.1&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;QR code for instant connection via smartphone camera&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>

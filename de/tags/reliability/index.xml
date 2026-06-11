@@ -1,0 +1,316 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Reliability</title><link>https://smart-swimmingpool.github.io/de/tags/reliability/</link><description>Recent content in Reliability on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><lastBuildDate>Thu, 11 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/de/tags/reliability/index.xml" rel="self" type="application/rss+xml"/><item><title>Zustandsspeicherung und Systemüberwachung</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/state-persistence/</link><pubDate>Thu, 11 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/state-persistence/</guid><description>
+&lt;h1&gt;Zustandsspeicherung und Systemüberwachung&lt;/h1&gt;&lt;h2&gt;Übersicht&lt;span class="hx:absolute hx:-mt-20" id="übersicht"&gt;&lt;/span&gt;
+&lt;a href="#%c3%bcbersicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der Pool Controller verfügt über eine umfassende Zustandsspeicherung und
+Systemzustandsüberwachung für zuverlässigen 24/7-Betrieb.&lt;/p&gt;
+&lt;h2&gt;Zustandsspeicherung&lt;span class="hx:absolute hx:-mt-20" id="zustandsspeicherung"&gt;&lt;/span&gt;
+&lt;a href="#zustandsspeicherung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Was gespeichert wird&lt;span class="hx:absolute hx:-mt-20" id="was-gespeichert-wird"&gt;&lt;/span&gt;
+&lt;a href="#was-gespeichert-wird" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Alle Controller-Zustände werden automatisch im nichtflüchtigen Speicher (NVS)
+gespeichert und nach Neustarts oder Stromausfällen wiederhergestellt:&lt;/p&gt;
+&lt;h4&gt;Betriebseinstellungen&lt;span class="hx:absolute hx:-mt-20" id="betriebseinstellungen"&gt;&lt;/span&gt;
+&lt;a href="#betriebseinstellungen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Betriebsmodus&lt;/strong&gt;: auto, manual, boost, timer&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Pool-Maximaltemperatur&lt;/strong&gt;: Ziel-Pooltemperatur&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Solar-Minimaltemperatur&lt;/strong&gt;: Minimale Solartemperatur für Aktivierung&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Temperatur-Hysterese&lt;/strong&gt;: Temperaturdifferenz für die Regelung&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Timer-Einstellungen&lt;/strong&gt;: Start- und Endzeiten für den Timer-Modus&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Relaiszustände&lt;span class="hx:absolute hx:-mt-20" id="relaiszustände"&gt;&lt;/span&gt;
+&lt;a href="#relaiszust%c3%a4nde" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Pool-Pumpe&lt;/strong&gt;: Ein/Aus-Zustand&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Solar-Pumpe&lt;/strong&gt;: Ein/Aus-Zustand&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Funktionsweise&lt;span class="hx:absolute hx:-mt-20" id="funktionsweise"&gt;&lt;/span&gt;
+&lt;a href="#funktionsweise" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Verwendet die Preferences-Bibliothek für dauerhaften Speicher in NVS
+(Non-Volatile Storage). Jeder Wert wird mit einem typspezifischen Schlüssel
+gespeichert.&lt;/p&gt;
+&lt;p&gt;Relaiszustände werden einzeln pro Relais über einen eigenen Namespace
+in NVS gespeichert und speichern den Ein/Aus-Zustand unter dem Schlüssel
+&lt;code&gt;&amp;quot;switch&amp;quot;&lt;/code&gt;.&lt;/p&gt;
+&lt;h3&gt;Automatische Wiederherstellung&lt;span class="hx:absolute hx:-mt-20" id="automatische-wiederherstellung"&gt;&lt;/span&gt;
+&lt;a href="#automatische-wiederherstellung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Beim Neustart des Controllers:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;State Manager&lt;/strong&gt; lädt alle gespeicherten Werte&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Konfigurationseinstellungen&lt;/strong&gt; aus der LittleFS config.json können den
+gespeicherten Zustand überschreiben&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Letzter bekannter Zustand&lt;/strong&gt; wird verwendet, wenn keine Konfigurationsüberschreibung existiert&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Dadurch wird sichergestellt:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Nach einem Stromausfall kehren die Pumpen in ihren vorherigen Zustand zurück&lt;/li&gt;
+&lt;li&gt;Benutzerkonfigurierte Temperaturen und Timer bleiben erhalten&lt;/li&gt;
+&lt;li&gt;Der Betriebsmodus bleibt über Neustarts hinweg erhalten&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Beispielszenario&lt;span class="hx:absolute hx:-mt-20" id="beispielszenario"&gt;&lt;/span&gt;
+&lt;a href="#beispielszenario" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Benutzer stellt ein:
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; - Betriebsmodus: auto
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; - Pool max. Temp.: 28,5°C
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; - Timer: 10:30 - 17:30
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Stromausfall um 14:00
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Controller startet neu:
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; - Lädt gespeicherten Zustand
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; - Stellt Betriebsmodus auto wieder her
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; - Stellt Temperaturen und Timer wieder her
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; - Setzt Betrieb nahtlos fort&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;Systemzustandsüberwachung&lt;span class="hx:absolute hx:-mt-20" id="systemzustandsüberwachung"&gt;&lt;/span&gt;
+&lt;a href="#systemzustands%c3%bcberwachung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Speicherüberwachung&lt;span class="hx:absolute hx:-mt-20" id="speicherüberwachung"&gt;&lt;/span&gt;
+&lt;a href="#speicher%c3%bcberwachung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Das System überwacht kontinuierlich den freien Heap-Speicher, um Abstürze
+durch Speichererschöpfung zu verhindern.&lt;/p&gt;
+&lt;h4&gt;Schwellwerte&lt;span class="hx:absolute hx:-mt-20" id="schwellwerte"&gt;&lt;/span&gt;
+&lt;a href="#schwellwerte" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;ESP32&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Speicherwarnung (niedrig)&lt;/strong&gt;: &amp;lt; 16 KB (16.384 Bytes)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Kritischer Speicher&lt;/strong&gt;: &amp;lt; 8 KB (8.192 Bytes) → Automatischer Neustart&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Verhalten&lt;span class="hx:absolute hx:-mt-20" id="verhalten"&gt;&lt;/span&gt;
+&lt;a href="#verhalten" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Alle 10 Sekunden&lt;/strong&gt;: Speicherprüfung wird durchgeführt&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Niedriger Speicher&lt;/strong&gt;: Warnung wird an Seriell und MQTT protokolliert&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Kritischer Speicher&lt;/strong&gt;: Controller startet automatisch neu&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Minimum-Tracking&lt;/strong&gt;: Zeichnet den niedrigsten Speicherstand seit Boot auf&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Watchdog-Timer&lt;span class="hx:absolute hx:-mt-20" id="watchdog-timer"&gt;&lt;/span&gt;
+&lt;a href="#watchdog-timer" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Verhindert Systemhänger und stellt die Wiederherstellung nach Softwarefehlern sicher.&lt;/p&gt;
+&lt;h4&gt;ESP32&lt;span class="hx:absolute hx:-mt-20" id="esp32"&gt;&lt;/span&gt;
+&lt;a href="#esp32" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Hardware-Watchdog&lt;/strong&gt;: 30-Sekunden-Timeout&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Automatischer Panic&lt;/strong&gt;: Neustart, wenn Watchdog nicht gefüttert wird&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Wird in der Hauptschleife gefüttert&lt;/strong&gt;: Jeder Zyklus&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Health-Status-API&lt;span class="hx:absolute hx:-mt-20" id="health-status-api"&gt;&lt;/span&gt;
+&lt;a href="#health-status-api" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;SystemMonitor bietet Methoden zur Überprüfung des Systemzustands:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cpp" data-lang="cpp"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// Aktuellen freien Heap abrufen
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kt"&gt;uint32_t&lt;/span&gt; &lt;span class="n"&gt;heap&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;SystemMonitor&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;getFreeHeap&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// Minimalen Heap seit Boot abrufen
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kt"&gt;uint32_t&lt;/span&gt; &lt;span class="n"&gt;minHeap&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;SystemMonitor&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;getMinFreeHeap&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// Prüfen, ob das System gesund ist
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kt"&gt;bool&lt;/span&gt; &lt;span class="n"&gt;healthy&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;SystemMonitor&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;isHealthy&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// Betriebszeit in Sekunden abrufen
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kt"&gt;uint32_t&lt;/span&gt; &lt;span class="n"&gt;uptime&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;SystemMonitor&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;getUptimeSeconds&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kt"&gt;uint8_t&lt;/span&gt; &lt;span class="n"&gt;fragmentation&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;SystemMonitor&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;getHeapFragmentation&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;Konfiguration&lt;span class="hx:absolute hx:-mt-20" id="konfiguration"&gt;&lt;/span&gt;
+&lt;a href="#konfiguration" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Funktionen aktivieren&lt;span class="hx:absolute hx:-mt-20" id="funktionen-aktivieren"&gt;&lt;/span&gt;
+&lt;a href="#funktionen-aktivieren" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Zustandsspeicherung und Systemüberwachung sind &lt;strong&gt;automatisch aktiviert&lt;/strong&gt;. Keine Konfiguration erforderlich.&lt;/p&gt;
+&lt;h3&gt;Schwellwerte anpassen&lt;span class="hx:absolute hx:-mt-20" id="schwellwerte-anpassen"&gt;&lt;/span&gt;
+&lt;a href="#schwellwerte-anpassen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Zum Anpassen der Speicherschwellwerte &lt;code&gt;src/SystemMonitor.hpp&lt;/code&gt; ändern:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cpp" data-lang="cpp"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// Speicherschwelle (niedrig) — nur Warnung
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;static&lt;/span&gt; &lt;span class="k"&gt;constexpr&lt;/span&gt; &lt;span class="kt"&gt;uint32_t&lt;/span&gt; &lt;span class="n"&gt;LOW_MEMORY_THRESHOLD&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;8192&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;// 8 KB
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// Kritische Speicherschwelle (automatischer Neustart)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;static&lt;/span&gt; &lt;span class="k"&gt;constexpr&lt;/span&gt; &lt;span class="kt"&gt;uint32_t&lt;/span&gt; &lt;span class="n"&gt;CRITICAL_MEMORY_THRESHOLD&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;4096&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;// 4 KB
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3&gt;Auto-Neustart deaktivieren&lt;span class="hx:absolute hx:-mt-20" id="auto-neustart-deaktivieren"&gt;&lt;/span&gt;
+&lt;a href="#auto-neustart-deaktivieren" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Wenn Sie niedrigen Speicher manuell behandeln möchten (nicht empfohlen für
+24/7-Betrieb):&lt;/p&gt;
+&lt;p&gt;Den Auto-Neustart-Abschnitt in &lt;code&gt;src/SystemMonitor.hpp&lt;/code&gt; auskommentieren:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cpp" data-lang="cpp"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// Kritischer Speicher - sofort neu starten
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;freeHeap&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;criticalThreshold&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;Serial&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;printf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;CRITICAL: Free heap %d bytes &amp;lt; %d bytes. Rebooting...&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;freeHeap&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;criticalThreshold&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;// Serial.flush();
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;// delay(1000);
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;// ESP.restart(); // Diese Zeile auskommentieren, um Auto-Neustart zu deaktivieren
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;Überwachung und Logs&lt;span class="hx:absolute hx:-mt-20" id="überwachung-und-logs"&gt;&lt;/span&gt;
+&lt;a href="#%c3%bcberwachung-und-logs" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Serielle Ausgabe&lt;span class="hx:absolute hx:-mt-20" id="serielle-ausgabe"&gt;&lt;/span&gt;
+&lt;a href="#serielle-ausgabe" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Normaler Betrieb&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;✓ State loaded from persistent storage
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;State persistence and system monitoring initialized
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Free heap: 28,456 bytes&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Speicherwarnung (niedrig)&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;WARNING: Low memory detected. Free heap: 7,892 bytes (min: 7,456)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Kritischer Speicher&lt;/strong&gt; (vor Neustart):&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;CRITICAL: Free heap 3,842 bytes &amp;lt; 4,096 bytes. Rebooting...&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3&gt;MQTT-Logs&lt;span class="hx:absolute hx:-mt-20" id="mqtt-logs"&gt;&lt;/span&gt;
+&lt;a href="#mqtt-logs" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Der Systemstatus wird über LoggerNode an das MQTT-Topic veröffentlicht:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pool-controller/log&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Beispielnachrichten:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&amp;quot;State persistence and system monitoring initialized&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;quot;WARNING: Low memory detected. Free heap: 7892 bytes (min: 7456)&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Vorteile für den 24/7-Betrieb&lt;span class="hx:absolute hx:-mt-20" id="vorteile-für-den-247-betrieb"&gt;&lt;/span&gt;
+&lt;a href="#vorteile-f%c3%bcr-den-247-betrieb" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Zuverlässigkeit&lt;span class="hx:absolute hx:-mt-20" id="zuverlässigkeit"&gt;&lt;/span&gt;
+&lt;a href="#zuverl%c3%a4ssigkeit" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;✅ Übersteht Stromausfälle&lt;/li&gt;
+&lt;li&gt;✅ Erholt sich automatisch von Speicherproblemen&lt;/li&gt;
+&lt;li&gt;✅ Erkennt und behebt Systemhänger&lt;/li&gt;
+&lt;li&gt;✅ Kein manueller Eingriff erforderlich&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Benutzererfahrung&lt;span class="hx:absolute hx:-mt-20" id="benutzererfahrung"&gt;&lt;/span&gt;
+&lt;a href="#benutzererfahrung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;✅ Einstellungen bleiben über Neustarts erhalten&lt;/li&gt;
+&lt;li&gt;✅ Keine Neukonfiguration nach Stromausfall&lt;/li&gt;
+&lt;li&gt;✅ Nahtlose Betriebskontinuität&lt;/li&gt;
+&lt;li&gt;✅ Vorhersagbares Verhalten&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Wartung&lt;span class="hx:absolute hx:-mt-20" id="wartung"&gt;&lt;/span&gt;
+&lt;a href="#wartung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;✅ Erkennung von Speicherlecks&lt;/li&gt;
+&lt;li&gt;✅ Automatische Problembehebung&lt;/li&gt;
+&lt;li&gt;✅ Health-Status-Überwachung&lt;/li&gt;
+&lt;li&gt;✅ Diagnoseinformationen verfügbar&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Fehlerbehebung&lt;span class="hx:absolute hx:-mt-20" id="fehlerbehebung"&gt;&lt;/span&gt;
+&lt;a href="#fehlerbehebung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Zustände werden nicht gespeichert&lt;span class="hx:absolute hx:-mt-20" id="zustände-werden-nicht-gespeichert"&gt;&lt;/span&gt;
+&lt;a href="#zust%c3%a4nde-werden-nicht-gespeichert" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Serielle Ausgabe auf &amp;ldquo;State loaded from persistent storage&amp;rdquo; prüfen&lt;/li&gt;
+&lt;li&gt;Prüfen, ob die NVS-Partition verfügbar ist&lt;/li&gt;
+&lt;li&gt;Auf Preferences-Fehler in den Logs prüfen&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Häufige Neustarts&lt;span class="hx:absolute hx:-mt-20" id="häufige-neustarts"&gt;&lt;/span&gt;
+&lt;a href="#h%c3%a4ufige-neustarts" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Wenn der Controller häufig neu startet:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Speichernutzung prüfen&lt;/strong&gt;: Logs auf Speicherwarnungen durchsuchen&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Speicherleck identifizieren&lt;/strong&gt;: Muster erkennen, wann Neustarts auftreten&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Speichernutzung reduzieren&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Messintervalle erhöhen&lt;/li&gt;
+&lt;li&gt;MQTT-Nachrichtenhäufigkeit reduzieren&lt;/li&gt;
+&lt;li&gt;Funktionen nach Möglichkeit deaktivieren&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Schwellwert senken&lt;/strong&gt;: Kritischen Schwellwert vorübergehend senken, um Neustarts zu verhindern&lt;/p&gt;
+&lt;p&gt;(der Controller startet dann trotzdem neu, aber die Betriebszeit kann während der Fehlersuche verlängert werden)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Watchdog-Timeouts&lt;span class="hx:absolute hx:-mt-20" id="watchdog-timeouts"&gt;&lt;/span&gt;
+&lt;a href="#watchdog-timeouts" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Wenn der Watchdog auslöst (ESP32):&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Lange blockierende Operationen&lt;/strong&gt;: Auf Verzögerungen oder lange Operationen im Code prüfen&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Timeout erhöhen&lt;/strong&gt;: Timeout in &lt;code&gt;SystemMonitor::begin()&lt;/code&gt; anpassen&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Häufiger füttern&lt;/strong&gt;: &lt;code&gt;SystemMonitor::feedWatchdog()&lt;/code&gt; in langen Operationen einfügen&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Technische Details&lt;span class="hx:absolute hx:-mt-20" id="technische-details"&gt;&lt;/span&gt;
+&lt;a href="#technische-details" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Speichernutzung&lt;span class="hx:absolute hx:-mt-20" id="speichernutzung"&gt;&lt;/span&gt;
+&lt;a href="#speichernutzung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;ESP32 NVS&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Betriebsmodus: ~10 Bytes&lt;/li&gt;
+&lt;li&gt;Gleitkommawerte (3): 12 Bytes&lt;/li&gt;
+&lt;li&gt;Integer-Werte (4): 16 Bytes&lt;/li&gt;
+&lt;li&gt;Gesamt: ~40 Bytes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Leistungsauswirkung&lt;span class="hx:absolute hx:-mt-20" id="leistungsauswirkung"&gt;&lt;/span&gt;
+&lt;a href="#leistungsauswirkung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Zustand speichern&lt;/strong&gt;: &amp;lt; 10ms (nur bei Änderungen)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Zustand laden&lt;/strong&gt;: &amp;lt; 20ms (einmal beim Boot)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Speicherprüfung&lt;/strong&gt;: &amp;lt; 1ms (alle 10 Sekunden)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Watchdog füttern&lt;/strong&gt;: &amp;lt; 0,1ms (jeder Schleifendurchlauf)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Gesamtauswirkung&lt;/strong&gt;: Vernachlässigbar (&amp;lt; 0,1 % CPU-Auslastung)&lt;/p&gt;
+&lt;h2&gt;Zukünftige Erweiterungen&lt;span class="hx:absolute hx:-mt-20" id="zukünftige-erweiterungen"&gt;&lt;/span&gt;
+&lt;a href="#zuk%c3%bcnftige-erweiterungen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;🔜 &lt;strong&gt;Konfigurierbare Schwellwerte&lt;/strong&gt;: MQTT-basierte Schwellwertkonfiguration&lt;/li&gt;
+&lt;li&gt;🔜 &lt;strong&gt;Health-Dashboard&lt;/strong&gt;: Web-UI für Zustandsüberwachung&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Version&lt;/strong&gt;: 3.3.0
+&lt;strong&gt;Status&lt;/strong&gt;: Produktionsbereit
+&lt;strong&gt;Plattform&lt;/strong&gt;: ESP32&lt;/p&gt;</description></item></channel></rss>
