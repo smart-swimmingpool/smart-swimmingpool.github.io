@@ -21,6 +21,14 @@ href="https://github.com/smart-swimmingpool/pool-controller"target="_blank" rel=
 &lt;p&gt;Der &lt;a
 href="https://github.com/smart-swimmingpool/pool-controller"target="_blank" rel="noopener"&gt;Pool Controller&lt;/a&gt; nutzt &lt;a
 href="https://www.home-assistant.io/integrations/mqtt/#mqtt-discovery"target="_blank" rel="noopener"&gt;Home Assistant MQTT Discovery&lt;/a&gt; für nahtlose Smarthome-Integration. Mit der hier vorgestellten Konfiguration kann der Pool-Controller schnell eingerichtet und von jeder Home Assistant-kompatiblen App gesteuert werden.&lt;/p&gt;
+&lt;h3&gt;Home Assistant Dashboard&lt;span class="hx:absolute hx:-mt-20" id="home-assistant-dashboard"&gt;&lt;/span&gt;
+&lt;a href="#home-assistant-dashboard" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Der Pool Controller registriert via MQTT Discovery automatisch alle Sensoren und Steuerelemente in Home Assistant. Nachfolgend ein Beispiel des Dashboards und der zugehörigen Konfigurationseinträge:&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://smart-swimmingpool.github.io/img/ha-pool-dashboard.jpeg" alt="Home Assistant Dashboard" data-zoomable loading="lazy" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Pool-Controller-Entitäten im Home Assistant Dashboard&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://smart-swimmingpool.github.io/img/ha-pool-device.jpeg" alt="Home Assistant Device Eintrag" data-zoomable loading="lazy" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;MQTT Discovery-Geräteeintrag mit allen Sensoren und Steuerungen&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://smart-swimmingpool.github.io/img/ha-pool-config.jpeg" alt="Home Assistant Konfiguration" data-zoomable loading="lazy" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Konfigurationseinträge für den Pool Controller in Home Assistant&lt;/em&gt;&lt;/p&gt;
 &lt;h2&gt;Historie&lt;span class="hx:absolute hx:-mt-20" id="historie"&gt;&lt;/span&gt;
 &lt;a href="#historie" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;🏊 Smart Swimming Pool basiert auf einem &lt;a
 href="https://github.com/stritti/smart-swimming-pool"target="_blank" rel="noopener"&gt;früheren Projekt&lt;/a&gt;, das noch nicht modular aufgebaut war und die gesamte Steuerlogik als openHAB-Regeln implementierte.&lt;/p&gt;
