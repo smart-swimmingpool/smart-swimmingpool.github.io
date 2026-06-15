@@ -583,6 +583,757 @@ data-copied-label="Kopiert!"
 &lt;li&gt;&lt;strong&gt;Kürzung bei Kälte&lt;/strong&gt;: Zusätzlicher Parameter &lt;code&gt;tempCircMinRuntime&lt;/code&gt;, der bei Unterschreitung eines Schwellwerts die Laufzeit reduziert&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Trend-basiert&lt;/strong&gt;: Berücksichtigung des Temperatur-Trends (steigend/falend), nicht nur des Absolutwerts&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Saisonaler Kalender&lt;/strong&gt;: Automatische Anpassung der Basis-Parameter an Sommer/Winter&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Hardware Guide des Pool Monitors</title><link>https://smart-swimmingpool.github.io/de/docs/pool-monitor/hardware-guide/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-monitor/hardware-guide/</guid><description>
+&lt;h2&gt;Übersicht&lt;span class="hx:absolute hx:-mt-20" id="übersicht"&gt;&lt;/span&gt;
+&lt;a href="#%c3%bcbersicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der Pool Monitor ist ein &lt;strong&gt;fertig aufgebautes Anzeigegerät&lt;/strong&gt; auf Basis der
+LILYGO TTGO T5 E-Paper-ESP32-Board-Familie. Anders als der
+&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller"target="_blank" rel="noopener"&gt;Pool Controller&lt;/a&gt;
+werden &lt;strong&gt;keine zusätzlichen Sensoren oder Relais benötigt&lt;/strong&gt; — nur das Board selbst.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Zielgruppe&lt;/strong&gt;: Jeder, der mit grundlegender Elektronik vertraut ist (USB-Kabel
+einstecken). Keine Lötkenntnisse erforderlich.&lt;/p&gt;
+&lt;p&gt;Gesamtkosten: &lt;strong&gt;~35–55€&lt;/strong&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Sicherheit ⚠️&lt;span class="hx:absolute hx:-mt-20" id="sicherheit-"&gt;&lt;/span&gt;
+&lt;a href="#sicherheit-" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Der Pool Monitor arbeitet ausschließlich mit &lt;strong&gt;Kleinspannung (5V USB)&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Allerdings&lt;/strong&gt; liest er Daten vom
+&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller"target="_blank" rel="noopener"&gt;Pool Controller&lt;/a&gt;,
+der &lt;strong&gt;230V Netzspannung&lt;/strong&gt; schaltet. Der Monitor empfängt nur MQTT-Daten — er
+kommt &lt;strong&gt;nicht&lt;/strong&gt; direkt mit Netzspannung in Berührung.&lt;/li&gt;
+&lt;li&gt;Bewahren Sie das Board und das USB-Kabel an einem trockenen Ort auf. Bei
+Außeneinsatz in einem wetterfesten Gehäuse (IP54 oder besser) montieren.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Benötigte Teile (BOM)&lt;span class="hx:absolute hx:-mt-20" id="benötigte-teile-bom"&gt;&lt;/span&gt;
+&lt;a href="#ben%c3%b6tigte-teile-bom" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;#&lt;/th&gt;
+&lt;th&gt;Komponente&lt;/th&gt;
+&lt;th&gt;Menge&lt;/th&gt;
+&lt;th&gt;ca. Preis&lt;/th&gt;
+&lt;th&gt;Hinweise&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;LILYGO TTGO T5 V2.3.1 (V231) E-Paper ESP32 Board&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;25–35€&lt;/td&gt;
+&lt;td&gt;2.13&amp;quot; E-Ink Display, integrierter ESP32&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;USB-C Kabel (Daten + Strom)&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;3–5€&lt;/td&gt;
+&lt;td&gt;Zum Flashen der Firmware und Stromversorgung&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;USB-Netzteil 5V/≥1A&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;5–10€&lt;/td&gt;
+&lt;td&gt;Handelsübliches Handy-Ladegerät&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;Optional: Gehäuse (ABS/PVC, IP54+)&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;5–10€&lt;/td&gt;
+&lt;td&gt;Für Außeneinsatz / Spritzwasserschutz&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Gesamt&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;~35–55€&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Komplettset, kein Löten erforderlich&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;Wo kaufen?&lt;span class="hx:absolute hx:-mt-20" id="wo-kaufen"&gt;&lt;/span&gt;
+&lt;a href="#wo-kaufen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Alle Teile sind bei Amazon, AliExpress, eBay oder bei Elektronik-Distributoren
+wie Reichelt, Pollin, Conrad (DE/AT/CH) erhältlich.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;TTGO T5&lt;/strong&gt;: Suche nach &amp;ldquo;TTGO T5 V2.3.1 e-paper ESP32&amp;rdquo; oder &amp;ldquo;LILYGO T5
+e-ink display&amp;rdquo;. Achte auf die &lt;strong&gt;Revision V2.3.1&lt;/strong&gt; für das neueste E-Ink-Panel.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;USB-C Kabel&lt;/strong&gt;: Jedes datenfähige Kabel funktioniert. Vermeide
+reine Ladekabel zum Flashen.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Netzteil&lt;/strong&gt;: Standard-USB-Handyladegerät (5V/≥1A). Ein qualitatives Netzteil
+verhindert Spannungseinbrüche während des WiFi-Betriebs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Kompatible Board-Varianten&lt;span class="hx:absolute hx:-mt-20" id="kompatible-board-varianten"&gt;&lt;/span&gt;
+&lt;a href="#kompatible-board-varianten" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die TTGO T5 Serie gibt es in mehreren Revisionen. Die Firmware unterstützt:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Board-Variante&lt;/th&gt;
+&lt;th&gt;Display-Panel&lt;/th&gt;
+&lt;th&gt;Status&lt;/th&gt;
+&lt;th&gt;Hinweise&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;T5 V2.3.1 (V231)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;2.13&amp;quot; GxDEPG0213BN (s/w)&lt;/td&gt;
+&lt;td&gt;✅ &lt;strong&gt;Standard&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Empfohlen&lt;/strong&gt; — aktuellste Revision, aktiv getestet&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;T5 V1.2 / V2.4&lt;/td&gt;
+&lt;td&gt;2.13&amp;quot; GxGDE0213B1 (s/w)&lt;/td&gt;
+&lt;td&gt;✅ Unterstützt&lt;/td&gt;
+&lt;td&gt;Älteres Panel, anderer Treiber&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;T5 V2.0 / V2.3&lt;/td&gt;
+&lt;td&gt;2.13&amp;quot; GxGDE0213B1 (s/w)&lt;/td&gt;
+&lt;td&gt;✅ Unterstützt&lt;/td&gt;
+&lt;td&gt;Ohne SD-Kartenslot&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;T5 V2.1&lt;/td&gt;
+&lt;td&gt;2.9&amp;quot; GxGDEH029A1 (s/w)&lt;/td&gt;
+&lt;td&gt;✅ Unterstützt&lt;/td&gt;
+&lt;td&gt;Größeres 2.9&amp;quot; Display&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;T5 V2.2&lt;/td&gt;
+&lt;td&gt;2.9&amp;quot; GxGDEH029A1 (s/w)&lt;/td&gt;
+&lt;td&gt;✅ Unterstützt&lt;/td&gt;
+&lt;td&gt;Andere Display-Pinbelegung&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;T5 V2.8&lt;/td&gt;
+&lt;td&gt;2.7&amp;quot; GxGDEW027W3 (s/w)&lt;/td&gt;
+&lt;td&gt;✅ Unterstützt&lt;/td&gt;
+&lt;td&gt;Mit Audio-DAC&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Um eine andere Variante auszuwählen, &lt;code&gt;src/board_def.h&lt;/code&gt; editieren und den
+entsprechenden Define setzen:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cpp" data-lang="cpp"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt;#define LILYGO_T5_V231 1 &lt;/span&gt;&lt;span class="c1"&gt;// Standard — für andere Varianten auskommentieren
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// #define TTGO_T5_2_1 1 // Beispiel: für 2.9&amp;#34;-Variante aktivieren
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Dann die Firmware neu bauen (siehe &lt;a
+href="software-guide.de.md"&gt;Software Guide&lt;/a&gt;).&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Pinbelegung&lt;span class="hx:absolute hx:-mt-20" id="pinbelegung"&gt;&lt;/span&gt;
+&lt;a href="#pinbelegung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die Pin-Konfiguration ist in &lt;code&gt;src/board_def.h&lt;/code&gt; definiert und variiert je nach
+Board-Variante. Für das Standard-Board &lt;strong&gt;V2.3.1 (V231)&lt;/strong&gt;:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Signal&lt;/th&gt;
+&lt;th&gt;GPIO&lt;/th&gt;
+&lt;th&gt;Hinweise&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;E-Ink BUSY&lt;/td&gt;
+&lt;td&gt;GPIO4&lt;/td&gt;
+&lt;td&gt;Display-Busy-Ausgang&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E-Ink RESET&lt;/td&gt;
+&lt;td&gt;GPIO16&lt;/td&gt;
+&lt;td&gt;Display-Reset-Leitung&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E-Ink DC&lt;/td&gt;
+&lt;td&gt;GPIO17&lt;/td&gt;
+&lt;td&gt;Data/Command-Steuerung&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E-Ink SS (CS)&lt;/td&gt;
+&lt;td&gt;GPIO5&lt;/td&gt;
+&lt;td&gt;SPI Chip-Select&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;SPI MOSI&lt;/td&gt;
+&lt;td&gt;GPIO23&lt;/td&gt;
+&lt;td&gt;Display-Datenleitung&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;SPI MISO&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td&gt;Nicht verbunden (E-Ink ist schreibgeschützt)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;SPI CLK&lt;/td&gt;
+&lt;td&gt;GPIO18&lt;/td&gt;
+&lt;td&gt;Display-Takt&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MODEM_POWER_ON&lt;/td&gt;
+&lt;td&gt;GPIO23&lt;/td&gt;
+&lt;td&gt;Modem-Stromversorgung (im Deep Sleep ausgeschaltet)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;LED_BUILTIN&lt;/td&gt;
+&lt;td&gt;GPIO2&lt;/td&gt;
+&lt;td&gt;Eingebaute Status-LED&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Die SPI-Pins werden mit dem Flash-Speicher geteilt — das ist normal und
+funktioniert, weil das E-Ink-Display nur bei idle CPU zugegriffen wird.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Hinweise zur Pinbelegung&lt;span class="hx:absolute hx:-mt-20" id="hinweise-zur-pinbelegung"&gt;&lt;/span&gt;
+&lt;a href="#hinweise-zur-pinbelegung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;SPI MISO&lt;/strong&gt; wird nicht genutzt, da das E-Ink-Display nur Daten empfängt
+(kein Rücklesen nötig).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GPIO23&lt;/strong&gt; hat eine Doppelfunktion (SPI MOSI + MODEM_POWER_ON). Im Deep Sleep
+wird es auf LOW geschaltet, um externe Modem-Stromversorgung abzuschalten.&lt;/li&gt;
+&lt;li&gt;Die Strapping-Pins (GPIO0, GPIO2, GPIO12, GPIO15) werden für die
+E-Ink-Ansteuerung vermieden, um Boot-Probleme zu verhindern.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Verdrahtung&lt;span class="hx:absolute hx:-mt-20" id="verdrahtung"&gt;&lt;/span&gt;
+&lt;a href="#verdrahtung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Es ist keine manuelle Verdrahtung erforderlich.&lt;/strong&gt; Das TTGO T5 Board integriert
+alle Komponenten:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ESP32 Mikrocontroller (Dual-Core Xtensa LX6)&lt;/li&gt;
+&lt;li&gt;2.13&amp;quot; E-Ink Display (SPI-verbunden, GxDEPG0213BN Panel)&lt;/li&gt;
+&lt;li&gt;USB-Seriell-Wandler (CP210x oder CH340)&lt;/li&gt;
+&lt;li&gt;3.3V Spannungsregler&lt;/li&gt;
+&lt;li&gt;Li-Po Ladeschaltung (optionaler Akku-Anschluss)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Das Board wird einfach per &lt;strong&gt;USB-C&lt;/strong&gt; angeschlossen:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Am &lt;strong&gt;Computer&lt;/strong&gt; zum Flashen der Firmware&lt;/li&gt;
+&lt;li&gt;An einem &lt;strong&gt;USB-Netzteil&lt;/strong&gt; für den Dauerbetrieb&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Taster (bei unterstützten Varianten)&lt;span class="hx:absolute hx:-mt-20" id="taster-bei-unterstützten-varianten"&gt;&lt;/span&gt;
+&lt;a href="#taster-bei-unterst%c3%bctzten-varianten" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Einige TTGO T5 Varianten haben Hardware-Taster. Die Firmware nutzt sie
+derzeit &lt;strong&gt;nicht&lt;/strong&gt; — die gesamte Konfiguration erfolgt über das Captive Portal
+(siehe &lt;a
+href="users-guide.de.md"&gt;Users Guide&lt;/a&gt;).&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Taster&lt;/th&gt;
+&lt;th&gt;GPIO&lt;/th&gt;
+&lt;th&gt;Hinweise&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;BUTTON_1&lt;/td&gt;
+&lt;td&gt;GPIO37&lt;/td&gt;
+&lt;td&gt;Bei T5 V2.4/2.8 Varianten vorhanden&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;BUTTON_2&lt;/td&gt;
+&lt;td&gt;GPIO38&lt;/td&gt;
+&lt;td&gt;Bei T5 V2.4/2.8 Varianten vorhanden&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;BUTTON_3&lt;/td&gt;
+&lt;td&gt;GPIO39&lt;/td&gt;
+&lt;td&gt;Bei den meisten Varianten vorhanden&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2&gt;Stromversorgung&lt;span class="hx:absolute hx:-mt-20" id="stromversorgung"&gt;&lt;/span&gt;
+&lt;a href="#stromversorgung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Quelle&lt;/th&gt;
+&lt;th&gt;Spannung&lt;/th&gt;
+&lt;th&gt;Strom&lt;/th&gt;
+&lt;th&gt;Hinweise&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;USB-C Netzteil&lt;/td&gt;
+&lt;td&gt;5V&lt;/td&gt;
+&lt;td&gt;≥1A&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Empfohlen&lt;/strong&gt; für den Dauerbetrieb&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Computer-USB-Port&lt;/td&gt;
+&lt;td&gt;5V&lt;/td&gt;
+&lt;td&gt;~500mA&lt;/td&gt;
+&lt;td&gt;Geeignet zum Flashen und Testen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;USB-Powerbank&lt;/td&gt;
+&lt;td&gt;5V&lt;/td&gt;
+&lt;td&gt;variiert&lt;/td&gt;
+&lt;td&gt;Möglich, aber Deep Sleep ist für Netzbetrieb ausgelegt&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;Stromverbrauch&lt;span class="hx:absolute hx:-mt-20" id="stromverbrauch"&gt;&lt;/span&gt;
+&lt;a href="#stromverbrauch" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Zustand&lt;/th&gt;
+&lt;th&gt;Strom&lt;/th&gt;
+&lt;th&gt;Dauer pro Zyklus&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Aktiv (WiFi + MQTT + Display-Update)&lt;/td&gt;
+&lt;td&gt;~80mA&lt;/td&gt;
+&lt;td&gt;~10–15 Sekunden&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Deep Sleep&lt;/td&gt;
+&lt;td&gt;~10µA&lt;/td&gt;
+&lt;td&gt;~165–170 Sekunden&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Durchschnitt&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;~5.5mA&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;über gesamten 180s-Zyklus&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Durch den 180-Sekunden-Deep-Sleep-Zyklus verbringt das Board &lt;strong&gt;&amp;gt;90% der Zeit
+im Tiefschlaf&lt;/strong&gt;, was es auch für Batteriebetrieb geeignet macht (das TTGO T5
+hat einen eingebauten Akku-Anschluss und Ladeschaltung).&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Erste Inbetriebnahme&lt;span class="hx:absolute hx:-mt-20" id="erste-inbetriebnahme"&gt;&lt;/span&gt;
+&lt;a href="#erste-inbetriebnahme" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;1. Sichtprüfung&lt;span class="hx:absolute hx:-mt-20" id="1-sichtprüfung"&gt;&lt;/span&gt;
+&lt;a href="#1-sichtpr%c3%bcfung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Vor dem Anschließen:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;USB-C-Anschluss auf Fremdkörper prüfen&lt;/li&gt;
+&lt;li&gt;Board nicht auf leitfähiger Oberfläche platzieren&lt;/li&gt;
+&lt;li&gt;Auf sichtbare Schäden (Aufblähungen, Korrosion) prüfen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;2. Einschalten&lt;span class="hx:absolute hx:-mt-20" id="2-einschalten"&gt;&lt;/span&gt;
+&lt;a href="#2-einschalten" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;TTGO T5 per USB-C an Stromquelle (Computer oder Netzteil) anschließen.&lt;/li&gt;
+&lt;li&gt;Das E-Ink Display aktualisiert sich nach wenigen Sekunden:
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Ohne Firmware&lt;/strong&gt;: Testmuster oder leerer Bildschirm.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mit Pool Monitor Firmware&lt;/strong&gt;: Der Startbildschirm — siehe
+&lt;a
+href="users-guide.de.md#einrichtung"&gt;Users Guide&lt;/a&gt; für die Ersteinrichtung.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;3. Ersteinrichtung&lt;span class="hx:absolute hx:-mt-20" id="3-ersteinrichtung"&gt;&lt;/span&gt;
+&lt;a href="#3-ersteinrichtung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Das Gerät startet im &lt;strong&gt;AP-Modus&lt;/strong&gt;, wenn kein WiFi konfiguriert ist:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Verbinde dich mit dem WLAN &lt;strong&gt;&lt;code&gt;pool-monitor&lt;/code&gt;&lt;/strong&gt; (offenes Netz, kein Passwort).&lt;/li&gt;
+&lt;li&gt;Ein Captive Portal öffnet sich automatisch — oder öffne
+&lt;strong&gt;&lt;code&gt;http://192.168.4.1&lt;/code&gt;&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Gib deine WLAN-Zugangsdaten und MQTT-Broker-Einstellungen ein.&lt;/li&gt;
+&lt;li&gt;Klicke &lt;strong&gt;Save&lt;/strong&gt; — das Gerät startet neu und verbindet sich mit deinem Netzwerk.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Details im &lt;a
+href="users-guide.de.md"&gt;Users Guide&lt;/a&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Fehlerbehebung&lt;span class="hx:absolute hx:-mt-20" id="fehlerbehebung"&gt;&lt;/span&gt;
+&lt;a href="#fehlerbehebung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Symptom&lt;/th&gt;
+&lt;th&gt;Wahrscheinliche Ursache&lt;/th&gt;
+&lt;th&gt;Lösung&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Display bleibt weiß&lt;/td&gt;
+&lt;td&gt;Keine oder korrupte Firmware&lt;/td&gt;
+&lt;td&gt;Firmware per PlatformIO flashen (siehe &lt;a
+href="software-guide.de.md"&gt;Software Guide&lt;/a&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ldquo;MQTT Error&amp;rdquo; auf Display, Portal startet&lt;/td&gt;
+&lt;td&gt;MQTT-Broker nicht erreichbar&lt;/td&gt;
+&lt;td&gt;Broker-Hostname/IP prüfen; MQTT-Server läuft?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ldquo;WiFi connection failed&amp;rdquo;&lt;/td&gt;
+&lt;td&gt;Falsche Zugangsdaten oder schwaches Signal&lt;/td&gt;
+&lt;td&gt;Über Captive Portal neu konfigurieren; WLAN-Reichweite prüfen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Display zeigt alte Daten (keine Aktualisierung)&lt;/td&gt;
+&lt;td&gt;MQTT-Problem oder Pool Controller offline&lt;/td&gt;
+&lt;td&gt;Prüfen, ob der Pool Controller auf HA-State-Topics veröffentlicht&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;QR-Portal erscheint alle 3 Minuten&lt;/td&gt;
+&lt;td&gt;MQTT-Einstellungen nicht gespeichert&lt;/td&gt;
+&lt;td&gt;MQTT-Hostname/IP erneut eingeben; IP statt Hostname versuchen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Brownout / Neustart-Schleife&lt;/td&gt;
+&lt;td&gt;Zu schwaches Netzteil&lt;/td&gt;
+&lt;td&gt;5V/≥1A Netzteil verwenden; anderes USB-Kabel probieren&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Display aktualisiert, zeigt aber &lt;code&gt;--:--&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;NTP-Zeitsynchronisation fehlgeschlagen&lt;/td&gt;
+&lt;td&gt;Internetverbindung prüfen; NTP wird stündlich versucht&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2&gt;Referenzen&lt;span class="hx:absolute hx:-mt-20" id="referenzen"&gt;&lt;/span&gt;
+&lt;a href="#referenzen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a
+href="http://www.lilygo.com/prod_view-66.html"target="_blank" rel="noopener"&gt;LILYGO TTGO T5 Produktseite&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/ZinggJM/GxEPD"target="_blank" rel="noopener"&gt;GxEPD Bibliothek&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://www.espressif.com/en/products/socs/esp32"target="_blank" rel="noopener"&gt;ESP32 Datenblatt&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller/blob/main/docs/hardware-guide.md"target="_blank" rel="noopener"&gt;Pool Controller Hardware Guide&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/smart-swimmingpool/monitor/blob/main/src/board_def.h"target="_blank" rel="noopener"&gt;Board-Definitionen (Quelle)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Software Guide des Pool Monitors</title><link>https://smart-swimmingpool.github.io/de/docs/pool-monitor/software-guide/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-monitor/software-guide/</guid><description>
+&lt;h2&gt;Entwicklungsumgebung&lt;span class="hx:absolute hx:-mt-20" id="entwicklungsumgebung"&gt;&lt;/span&gt;
+&lt;a href="#entwicklungsumgebung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die Pool Monitor Firmware wird mit &lt;strong&gt;PlatformIO&lt;/strong&gt; gebaut, einem
+plattformübergreifenden Build-System für Embedded-Entwicklung.&lt;/p&gt;
+&lt;h3&gt;Voraussetzungen&lt;span class="hx:absolute hx:-mt-20" id="voraussetzungen"&gt;&lt;/span&gt;
+&lt;a href="#voraussetzungen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a
+href="https://git-scm.com/"target="_blank" rel="noopener"&gt;Git&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a
+href="https://platformio.org/"target="_blank" rel="noopener"&gt;PlatformIO&lt;/a&gt; — Installation:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pip install platformio
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Oder die VS Code Extension verwenden&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Bauen &amp;amp; Flashen&lt;span class="hx:absolute hx:-mt-20" id="bauen--flashen"&gt;&lt;/span&gt;
+&lt;a href="#bauen--flashen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Repository klonen&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git clone https://github.com/smart-swimmingpool/monitor.git
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; monitor
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Firmware bauen&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pio run --environment LILYGO_T5_V231
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Auf das Gerät flashen (USB-Port wird automatisch erkannt)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pio run --environment LILYGO_T5_V231 --target upload
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Serielle Ausgabe überwachen&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pio run --environment LILYGO_T5_V231 --target monitor
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Statische Code-Analyse&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pio check --environment LILYGO_T5_V231 --skip-packages&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Hinweis&lt;/strong&gt;: Der erste Build lädt alle Bibliotheksabhängigkeiten automatisch
+herunter und kompiliert sie. Dies dauert je nach Internetverbindung 2–5
+Minuten.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Projektstruktur&lt;span class="hx:absolute hx:-mt-20" id="projektstruktur"&gt;&lt;/span&gt;
+&lt;a href="#projektstruktur" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;monitor/
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── platformio.ini # Build-Konfiguration
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── src/
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ ├── main.cpp # Hauptfirmware (setup, loop, MQTT, Display)
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ ├── board_def.h # Board-spezifische Pin-Definitionen
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ ├── u8g2_display.h # E-Ink Display-Hilfsfunktionen (Text, Icons)
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ └── ntp_localtime.h # NTP-Zeitsynchronisation &amp;amp; Zeitzone
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;└── docs/
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; ├── hardware-guide.md # Hardware-Anleitung
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; ├── software-guide.md # Dieses Dokument
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; ├── users-guide.md # Einrichtung &amp;amp; Konfiguration
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; └── home-assistant-migration.md # HA-Migrationsnotizen&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;h2&gt;Benötigte Bibliotheken&lt;span class="hx:absolute hx:-mt-20" id="benötigte-bibliotheken"&gt;&lt;/span&gt;
+&lt;a href="#ben%c3%b6tigte-bibliotheken" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;adafruit/Adafruit BusIO&lt;/li&gt;
+&lt;li&gt;adafruit/Adafruit GFX Library&lt;/li&gt;
+&lt;li&gt;zinggjm/GxEPD&lt;/li&gt;
+&lt;li&gt;juerd/ESP-WiFiSettings&lt;/li&gt;
+&lt;li&gt;olikraus/U8g2&lt;/li&gt;
+&lt;li&gt;olikraus/U8g2_for_Adafruit_GFX&lt;/li&gt;
+&lt;li&gt;hmueller01/PubSubClient3&lt;/li&gt;
+&lt;li&gt;arduino-libraries/NTPClient&lt;/li&gt;
+&lt;li&gt;jchristensen/Timezone&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Vielen Dank an die Maintainer dieser Bibliotheken!&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Build-Konfiguration&lt;span class="hx:absolute hx:-mt-20" id="build-konfiguration"&gt;&lt;/span&gt;
+&lt;a href="#build-konfiguration" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die Build-Konfiguration ist in &lt;code&gt;platformio.ini&lt;/code&gt; definiert.&lt;/p&gt;
+&lt;h3&gt;Build-Defines&lt;span class="hx:absolute hx:-mt-20" id="build-defines"&gt;&lt;/span&gt;
+&lt;a href="#build-defines" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Define&lt;/th&gt;
+&lt;th&gt;Wert&lt;/th&gt;
+&lt;th&gt;Beschreibung&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SERIAL_SPEED&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;115200&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Serielle Baudrate (Monitor)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;LILYGO_T5_V231&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;1&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Board-Variante (siehe &lt;a
+href="hardware-guide.de.md#kompatible-board-varianten"&gt;Hardware Guide&lt;/a&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;Laufzeit-Konstanten&lt;span class="hx:absolute hx:-mt-20" id="laufzeit-konstanten"&gt;&lt;/span&gt;
+&lt;a href="#laufzeit-konstanten" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Definiert in &lt;code&gt;src/main.cpp&lt;/code&gt;:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Konstante&lt;/th&gt;
+&lt;th&gt;Standard&lt;/th&gt;
+&lt;th&gt;Beschreibung&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;DEVICE_NAME&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;quot;pool-monitor&amp;quot;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;mDNS-Hostname und WiFi-AP-Name&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;TIME_TO_SLEEP_SECONDS&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;180&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Deep-Sleep-Dauer (Sekunden)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;NTP_SYNC_INTERVAL_SECONDS&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;3600&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Zeit zwischen NTP-Synchronisationen (1 Stunde)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;MQTT_PAYLOAD_BUFFER_SIZE&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;128&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Maximale MQTT-Nachrichtengröße (Bytes)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2&gt;Konfiguration&lt;span class="hx:absolute hx:-mt-20" id="konfiguration"&gt;&lt;/span&gt;
+&lt;a href="#konfiguration" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;WiFi &amp;amp; MQTT Einrichtung&lt;span class="hx:absolute hx:-mt-20" id="wifi--mqtt-einrichtung"&gt;&lt;/span&gt;
+&lt;a href="#wifi--mqtt-einrichtung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Die Firmware verwendet die Bibliothek &lt;strong&gt;ESP-WiFiSettings&lt;/strong&gt; für ein Captive
+Portal zur Ersteinrichtung:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Beim ersten Start (kein WiFi konfiguriert) startet das Gerät einen
+&lt;strong&gt;Access Point&lt;/strong&gt; namens &lt;code&gt;pool-monitor&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Mit diesem AP verbinden — ein Webportal öffnet sich unter
+&lt;code&gt;http://192.168.4.1&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Eingabe:
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;WLAN-SSID&lt;/strong&gt; und &lt;strong&gt;Passwort&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MQTT-Broker-Hostname&lt;/strong&gt; oder IP-Adresse&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MQTT-Port&lt;/strong&gt; (Standard: 1883)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Save&lt;/strong&gt; klicken — das Gerät startet neu und verbindet sich.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Siehe &lt;a
+href="users-guide.de.md"&gt;Users Guide&lt;/a&gt; für detaillierte Anweisungen.&lt;/p&gt;
+&lt;h3&gt;MQTT Topics&lt;span class="hx:absolute hx:-mt-20" id="mqtt-topics"&gt;&lt;/span&gt;
+&lt;a href="#mqtt-topics" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Der Pool Monitor abonniert &lt;strong&gt;Home Assistant State Topics&lt;/strong&gt;, die vom
+&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller"target="_blank" rel="noopener"&gt;Pool Controller&lt;/a&gt;
+veröffentlicht werden. Es werden feste Topics verwendet — keine dynamische
+Discovery.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Daten&lt;/th&gt;
+&lt;th&gt;Topic&lt;/th&gt;
+&lt;th&gt;Beispiel-Payload&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Pool-Wassertemperatur&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/sensor/pool-controller/pool-temp/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;25.3&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Solar-Kollektortemperatur&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/sensor/pool-controller/solar-temp/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;55.1&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Pool-Pumpen-Status&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/switch/pool-controller/pool-pump/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ON&lt;/code&gt; / &lt;code&gt;OFF&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Solar-Pumpen-Status&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/switch/pool-controller/solar-pump/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ON&lt;/code&gt; / &lt;code&gt;OFF&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Betriebsmodus&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/select/pool-controller/mode/state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;auto&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Der Monitor abonniert nur diese Topics — er veröffentlicht &lt;strong&gt;keine&lt;/strong&gt; eigenen
+Daten.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Preferences (NVS)&lt;span class="hx:absolute hx:-mt-20" id="preferences-nvs"&gt;&lt;/span&gt;
+&lt;a href="#preferences-nvs" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Die Firmware speichert Betriebszustände im ESP32 NVS (Non-Volatile Storage)
+über die Arduino &lt;code&gt;Preferences&lt;/code&gt;-Bibliothek im Namespace &lt;code&gt;pool-monitor&lt;/code&gt;:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Schlüssel&lt;/th&gt;
+&lt;th&gt;Typ&lt;/th&gt;
+&lt;th&gt;Zweck&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;boot_count&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;uint&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Anzahl der Boots (über Deep-Sleep-Zyklen hinweg)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;total_uptime&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ulong&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Kumulierte Betriebszeit (Sekunden)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;last_ntp_sync&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ulong&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Betriebszeit zum Zeitpunkt der letzten NTP-Synchronisation&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;last_epoch&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ulong&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Unix-Timestamp bei letztem NTP-Sync&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;last_update&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Formatierte Uhrzeit (HH:MM)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;pool_temp&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;float&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Letzte Pool-Wassertemperatur&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;solar_temp&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;float&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Letzte Solar-Kollektortemperatur&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;pump_pool&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;bool&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Pool-Pumpe läuft?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;pump_solar&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;bool&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Solar-Pumpe läuft?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;pool_mode&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Betriebsmodus des Pool Controllers&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;Zeitsynchronisation &amp;amp; Display&lt;span class="hx:absolute hx:-mt-20" id="zeitsynchronisation--display"&gt;&lt;/span&gt;
+&lt;a href="#zeitsynchronisation--display" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;NTP-Synchronisation&lt;/strong&gt; erfolgt alle &lt;strong&gt;3600 Sekunden&lt;/strong&gt; (1 Stunde). Der Server
+&lt;code&gt;europe.pool.ntp.org&lt;/code&gt; wird verwendet.&lt;/li&gt;
+&lt;li&gt;Zwischen den Synchronisationen wird die aktuelle Uhrzeit aus dem
+gespeicherten Epoch-Wert und der vergangenen Betriebszeit &lt;strong&gt;rekonstruiert&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Das Display zeigt die &lt;strong&gt;Ortszeit&lt;/strong&gt; mit automatischer
+Sommerzeitumstellung (CET/CEST, konfiguriert in &lt;code&gt;src/ntp_localtime.h&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;Das E-Ink Display aktualisiert sich &lt;strong&gt;nur bei Datenänderungen&lt;/strong&gt; (per MQTT).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Changelog&lt;span class="hx:absolute hx:-mt-20" id="changelog"&gt;&lt;/span&gt;
+&lt;a href="#changelog" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;2026-06-10 — DNS-Failover, mDNS, QR-Code-Portal und 5-Minuten-Timeout&lt;span class="hx:absolute hx:-mt-20" id="2026-06-10--dns-failover-mdns-qr-code-portal-und-5-minuten-timeout"&gt;&lt;/span&gt;
+&lt;a href="#2026-06-10--dns-failover-mdns-qr-code-portal-und-5-minuten-timeout" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;DNS-Failover:&lt;/strong&gt; MQTT-Verbindung wird immer versucht, auch wenn der
+Hostname nicht via DNS aufgelöst werden kann. PubSubClient löst DNS selbst
+auf.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;mDNS:&lt;/strong&gt; Gerät registriert sich als &lt;code&gt;pool-monitor.local&lt;/code&gt; im Netzwerk.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;WiFi-Disconnect entfernt:&lt;/strong&gt; Das explizite &lt;code&gt;WiFi.disconnect(true)&lt;/code&gt; vor dem
+Tiefschlaf wurde entfernt, damit der DHCP-Lease erhalten bleibt. Das Gerät
+bleibt in der Router-Tabelle sichtbar.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MQTT-Portal mit QR-Code:&lt;/strong&gt; Bei MQTT-Fehler startet ein
+Konfigurationsportal. Display zeigt SSID, AP-IP und QR-Code.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;5-Minuten-Timeout:&lt;/strong&gt; Das Portal bleibt maximal 5 Minuten aktiv. Ohne
+Benutzereingabe geht das Gerät in Tiefschlaf und wiederholt den
+Verbindungsversuch beim nächsten Wake.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;upload_speed:&lt;/strong&gt; Auf 115200 Baud reduziert für Kompatibilität mit älteren
+ESP32 rev1.0.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;QR-Code Bibliothek:&lt;/strong&gt; Verwendet ESP32-Builtin &lt;code&gt;esp_qrcode&lt;/code&gt; — keine
+zusätzliche Abhängigkeit.&lt;/li&gt;
 &lt;/ul&gt;</description></item><item><title>MQTT-Konfiguration</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/mqtt-configuration/</link><pubDate>Thu, 11 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/mqtt-configuration/</guid><description>
 &lt;h1&gt;MQTT-Konfiguration (Home Assistant Discovery)&lt;/h1&gt;&lt;p&gt;Der Pool Controller verwendet &lt;a
 href="https://www.home-assistant.io/integrations/mqtt/#mqtt-discovery"target="_blank" rel="noopener"&gt;Home Assistant MQTT Discovery&lt;/a&gt;
@@ -3408,47 +4159,20 @@ href="hardware-guide.de.md"&gt;Hardware-Anleitung&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Kompletter Verdrahtungsplan mit RTC-Modul:
 &lt;a
 href="esp32-complete-wiring-schematic.de.md"&gt;ESP32 Komplett-Schaltplan&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>Software Guide of Pool Monitor</title><link>https://smart-swimmingpool.github.io/de/docs/pool-monitor/software-guide/</link><pubDate>Sat, 11 Jun 2022 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-monitor/software-guide/</guid><description>
-&lt;h2&gt;Development Environment&lt;span class="hx:absolute hx:-mt-20" id="development-environment"&gt;&lt;/span&gt;
-&lt;a href="#development-environment" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Required Libraries&lt;span class="hx:absolute hx:-mt-20" id="required-libraries"&gt;&lt;/span&gt;
-&lt;a href="#required-libraries" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;adafruit/Adafruit BusIO&lt;/li&gt;
-&lt;li&gt;adafruit/Adafruit GFX Library&lt;/li&gt;
-&lt;li&gt;zinggjm/GxEPD&lt;/li&gt;
-&lt;li&gt;juerd/ESP-WiFiSettings&lt;/li&gt;
-&lt;li&gt;olikraus/U8g2&lt;/li&gt;
-&lt;li&gt;olikraus/U8g2_for_Adafruit_GFX&lt;/li&gt;
-&lt;li&gt;hmueller01/PubSubClient3&lt;/li&gt;
-&lt;li&gt;arduino-libraries/NTPClient&lt;/li&gt;
-&lt;li&gt;jchristensen/Timezone&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Many thanks to maintainers of these libraries!&lt;/p&gt;
-&lt;h2&gt;Defines&lt;span class="hx:absolute hx:-mt-20" id="defines"&gt;&lt;/span&gt;
-&lt;a href="#defines" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Configuration&lt;span class="hx:absolute hx:-mt-20" id="configuration"&gt;&lt;/span&gt;
-&lt;a href="#configuration" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Changelog&lt;span class="hx:absolute hx:-mt-20" id="changelog"&gt;&lt;/span&gt;
-&lt;a href="#changelog" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;2026-06-10 — DNS-Failover, mDNS, QR-Code-Portal und 5-Minuten-Timeout&lt;span class="hx:absolute hx:-mt-20" id="2026-06-10--dns-failover-mdns-qr-code-portal-und-5-minuten-timeout"&gt;&lt;/span&gt;
-&lt;a href="#2026-06-10--dns-failover-mdns-qr-code-portal-und-5-minuten-timeout" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;DNS-Failover:&lt;/strong&gt; MQTT-Verbindung wird immer versucht, auch wenn der Hostname nicht via DNS aufgelöst werden kann. PubSubClient löst DNS selbst auf.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;mDNS:&lt;/strong&gt; Gerät registriert sich als &lt;code&gt;pool-monitor.local&lt;/code&gt; im Netzwerk.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;WiFi-Disconnect entfernt:&lt;/strong&gt; Das explizite &lt;code&gt;WiFi.disconnect(true)&lt;/code&gt; vor dem Tiefschlaf wurde entfernt, damit der DHCP-Lease erhalten bleibt. Das Gerät bleibt in der Router-Tabelle sichtbar.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;MQTT-Portal mit QR-Code:&lt;/strong&gt; Bei MQTT-Fehler startet ein Konfigurationsportal. Display zeigt SSID, AP-IP und QR-Code.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;5-Minuten-Timeout:&lt;/strong&gt; Das Portal bleibt maximal 5 Minuten aktiv. Ohne Benutzereingabe geht das Gerät in Tiefschlaf und wiederholt den Verbindungsversuch beim nächsten Wake.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;upload_speed:&lt;/strong&gt; Auf 115200 Baud reduziert für Kompatibilität mit älteren ESP32 rev1.0.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;QR-Code Bibliothek:&lt;/strong&gt; Verwendet ESP32-Builtin &lt;code&gt;esp_qrcode&lt;/code&gt; — keine zusätzliche Abhängigkeit.&lt;/li&gt;
 &lt;/ul&gt;</description></item><item><title>Users Guide of Pool Controller</title><link>https://smart-swimmingpool.github.io/de/docs/pool-monitor/users-guide/</link><pubDate>Sat, 11 Jun 2022 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-monitor/users-guide/</guid><description>
-&lt;h2&gt;Setup&lt;span class="hx:absolute hx:-mt-20" id="setup"&gt;&lt;/span&gt;
-&lt;a href="#setup" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Connecting the device to power it createsinitial a hotspot called &amp;ldquo;pool-monitor&amp;rdquo;.
-Please connect this hotsppot by smartphone. Thenthe device will show captivate website to add
-WiFi credentials and connection parameters of MQTT broker.&lt;/p&gt;
-&lt;p&gt;Following data is required to connect the device:&lt;/p&gt;
+&lt;h2&gt;Einrichtung&lt;span class="hx:absolute hx:-mt-20" id="einrichtung"&gt;&lt;/span&gt;
+&lt;a href="#einrichtung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Wenn das Gerät mit Strom verbunden wird, erstellt es initial einen Hotspot namens &amp;ldquo;pool-monitor&amp;rdquo;.
+Bitte verbinde dich per Smartphone mit diesem Hotspot. Das Gerät zeigt dann eine Captive-Website an, um
+WLAN-Zugangsdaten und Verbindungsparameter des MQTT-Brokers einzugeben.&lt;/p&gt;
+&lt;p&gt;Folgende Daten werden für die Verbindung benötigt:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;SSID of the WiFi network&lt;/li&gt;
-&lt;li&gt;Password of WiFi network&lt;/li&gt;
-&lt;li&gt;MQTT broker hostname or IP address&lt;/li&gt;
-&lt;li&gt;MQTT broker port number (default: 1883)&lt;/li&gt;
+&lt;li&gt;SSID des WLAN-Netzwerks&lt;/li&gt;
+&lt;li&gt;Passwort des WLAN-Netzwerks&lt;/li&gt;
+&lt;li&gt;MQTT-Broker-Hostname oder IP-Adresse&lt;/li&gt;
+&lt;li&gt;MQTT-Broker-Portnummer (Standard: 1883)&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;After pressing &amp;ldquo;Save&amp;rdquo; the device will reboot automatically and tries to connect to the MQTT broker.&lt;/p&gt;
-&lt;p&gt;After some seconds the device will show data if connection was successful.&lt;/p&gt;
+&lt;p&gt;Nach dem Klick auf &amp;ldquo;Save&amp;rdquo; startet das Gerät automatisch neu und versucht, sich mit dem MQTT-Broker zu verbinden.&lt;/p&gt;
+&lt;p&gt;Nach einigen Sekunden zeigt das Gerät die Daten an, wenn die Verbindung erfolgreich war.&lt;/p&gt;
 &lt;h2&gt;Netzwerkkonfiguration (mDNS)&lt;span class="hx:absolute hx:-mt-20" id="netzwerkkonfiguration-mdns"&gt;&lt;/span&gt;
 &lt;a href="#netzwerkkonfiguration-mdns" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Das Gerät ist im Netzwerk unter &lt;code&gt;pool-monitor.local&lt;/code&gt; per mDNS erreichbar. So kann es auch ohne bekannte IP-Adresse gefunden werden.&lt;/p&gt;
 &lt;p&gt;Der DHCP-Lease bleibt über Deep-Sleep-Zyklen hinweg erhalten — das Gerät gibt seine IP-Adresse nicht frei, wenn es in den Schlaf geht. Es bleibt in der Router-Tabelle sichtbar (wenn auch nicht erreichbar, solange es schläft).&lt;/p&gt;

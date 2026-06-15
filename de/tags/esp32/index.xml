@@ -1,4 +1,434 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Esp32</title><link>https://smart-swimmingpool.github.io/de/tags/esp32/</link><description>Recent content in Esp32 on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><lastBuildDate>Thu, 11 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/de/tags/esp32/index.xml" rel="self" type="application/rss+xml"/><item><title>OTA-Updates</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/ota-updates/</link><pubDate>Thu, 11 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/ota-updates/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Esp32</title><link>https://smart-swimmingpool.github.io/de/tags/esp32/</link><description>Recent content in Esp32 on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><lastBuildDate>Sun, 14 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/de/tags/esp32/index.xml" rel="self" type="application/rss+xml"/><item><title>Hardware Guide des Pool Monitors</title><link>https://smart-swimmingpool.github.io/de/docs/pool-monitor/hardware-guide/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-monitor/hardware-guide/</guid><description>
+&lt;h2&gt;Übersicht&lt;span class="hx:absolute hx:-mt-20" id="übersicht"&gt;&lt;/span&gt;
+&lt;a href="#%c3%bcbersicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der Pool Monitor ist ein &lt;strong&gt;fertig aufgebautes Anzeigegerät&lt;/strong&gt; auf Basis der
+LILYGO TTGO T5 E-Paper-ESP32-Board-Familie. Anders als der
+&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller"target="_blank" rel="noopener"&gt;Pool Controller&lt;/a&gt;
+werden &lt;strong&gt;keine zusätzlichen Sensoren oder Relais benötigt&lt;/strong&gt; — nur das Board selbst.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Zielgruppe&lt;/strong&gt;: Jeder, der mit grundlegender Elektronik vertraut ist (USB-Kabel
+einstecken). Keine Lötkenntnisse erforderlich.&lt;/p&gt;
+&lt;p&gt;Gesamtkosten: &lt;strong&gt;~35–55€&lt;/strong&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Sicherheit ⚠️&lt;span class="hx:absolute hx:-mt-20" id="sicherheit-"&gt;&lt;/span&gt;
+&lt;a href="#sicherheit-" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Der Pool Monitor arbeitet ausschließlich mit &lt;strong&gt;Kleinspannung (5V USB)&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Allerdings&lt;/strong&gt; liest er Daten vom
+&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller"target="_blank" rel="noopener"&gt;Pool Controller&lt;/a&gt;,
+der &lt;strong&gt;230V Netzspannung&lt;/strong&gt; schaltet. Der Monitor empfängt nur MQTT-Daten — er
+kommt &lt;strong&gt;nicht&lt;/strong&gt; direkt mit Netzspannung in Berührung.&lt;/li&gt;
+&lt;li&gt;Bewahren Sie das Board und das USB-Kabel an einem trockenen Ort auf. Bei
+Außeneinsatz in einem wetterfesten Gehäuse (IP54 oder besser) montieren.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Benötigte Teile (BOM)&lt;span class="hx:absolute hx:-mt-20" id="benötigte-teile-bom"&gt;&lt;/span&gt;
+&lt;a href="#ben%c3%b6tigte-teile-bom" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;#&lt;/th&gt;
+&lt;th&gt;Komponente&lt;/th&gt;
+&lt;th&gt;Menge&lt;/th&gt;
+&lt;th&gt;ca. Preis&lt;/th&gt;
+&lt;th&gt;Hinweise&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;LILYGO TTGO T5 V2.3.1 (V231) E-Paper ESP32 Board&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;25–35€&lt;/td&gt;
+&lt;td&gt;2.13&amp;quot; E-Ink Display, integrierter ESP32&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;USB-C Kabel (Daten + Strom)&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;3–5€&lt;/td&gt;
+&lt;td&gt;Zum Flashen der Firmware und Stromversorgung&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;USB-Netzteil 5V/≥1A&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;5–10€&lt;/td&gt;
+&lt;td&gt;Handelsübliches Handy-Ladegerät&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;Optional: Gehäuse (ABS/PVC, IP54+)&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;5–10€&lt;/td&gt;
+&lt;td&gt;Für Außeneinsatz / Spritzwasserschutz&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Gesamt&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;~35–55€&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Komplettset, kein Löten erforderlich&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;Wo kaufen?&lt;span class="hx:absolute hx:-mt-20" id="wo-kaufen"&gt;&lt;/span&gt;
+&lt;a href="#wo-kaufen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Alle Teile sind bei Amazon, AliExpress, eBay oder bei Elektronik-Distributoren
+wie Reichelt, Pollin, Conrad (DE/AT/CH) erhältlich.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;TTGO T5&lt;/strong&gt;: Suche nach &amp;ldquo;TTGO T5 V2.3.1 e-paper ESP32&amp;rdquo; oder &amp;ldquo;LILYGO T5
+e-ink display&amp;rdquo;. Achte auf die &lt;strong&gt;Revision V2.3.1&lt;/strong&gt; für das neueste E-Ink-Panel.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;USB-C Kabel&lt;/strong&gt;: Jedes datenfähige Kabel funktioniert. Vermeide
+reine Ladekabel zum Flashen.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Netzteil&lt;/strong&gt;: Standard-USB-Handyladegerät (5V/≥1A). Ein qualitatives Netzteil
+verhindert Spannungseinbrüche während des WiFi-Betriebs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Kompatible Board-Varianten&lt;span class="hx:absolute hx:-mt-20" id="kompatible-board-varianten"&gt;&lt;/span&gt;
+&lt;a href="#kompatible-board-varianten" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die TTGO T5 Serie gibt es in mehreren Revisionen. Die Firmware unterstützt:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Board-Variante&lt;/th&gt;
+&lt;th&gt;Display-Panel&lt;/th&gt;
+&lt;th&gt;Status&lt;/th&gt;
+&lt;th&gt;Hinweise&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;T5 V2.3.1 (V231)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;2.13&amp;quot; GxDEPG0213BN (s/w)&lt;/td&gt;
+&lt;td&gt;✅ &lt;strong&gt;Standard&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Empfohlen&lt;/strong&gt; — aktuellste Revision, aktiv getestet&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;T5 V1.2 / V2.4&lt;/td&gt;
+&lt;td&gt;2.13&amp;quot; GxGDE0213B1 (s/w)&lt;/td&gt;
+&lt;td&gt;✅ Unterstützt&lt;/td&gt;
+&lt;td&gt;Älteres Panel, anderer Treiber&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;T5 V2.0 / V2.3&lt;/td&gt;
+&lt;td&gt;2.13&amp;quot; GxGDE0213B1 (s/w)&lt;/td&gt;
+&lt;td&gt;✅ Unterstützt&lt;/td&gt;
+&lt;td&gt;Ohne SD-Kartenslot&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;T5 V2.1&lt;/td&gt;
+&lt;td&gt;2.9&amp;quot; GxGDEH029A1 (s/w)&lt;/td&gt;
+&lt;td&gt;✅ Unterstützt&lt;/td&gt;
+&lt;td&gt;Größeres 2.9&amp;quot; Display&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;T5 V2.2&lt;/td&gt;
+&lt;td&gt;2.9&amp;quot; GxGDEH029A1 (s/w)&lt;/td&gt;
+&lt;td&gt;✅ Unterstützt&lt;/td&gt;
+&lt;td&gt;Andere Display-Pinbelegung&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;T5 V2.8&lt;/td&gt;
+&lt;td&gt;2.7&amp;quot; GxGDEW027W3 (s/w)&lt;/td&gt;
+&lt;td&gt;✅ Unterstützt&lt;/td&gt;
+&lt;td&gt;Mit Audio-DAC&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Um eine andere Variante auszuwählen, &lt;code&gt;src/board_def.h&lt;/code&gt; editieren und den
+entsprechenden Define setzen:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cpp" data-lang="cpp"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt;#define LILYGO_T5_V231 1 &lt;/span&gt;&lt;span class="c1"&gt;// Standard — für andere Varianten auskommentieren
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// #define TTGO_T5_2_1 1 // Beispiel: für 2.9&amp;#34;-Variante aktivieren
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Dann die Firmware neu bauen (siehe &lt;a
+href="software-guide.de.md"&gt;Software Guide&lt;/a&gt;).&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Pinbelegung&lt;span class="hx:absolute hx:-mt-20" id="pinbelegung"&gt;&lt;/span&gt;
+&lt;a href="#pinbelegung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die Pin-Konfiguration ist in &lt;code&gt;src/board_def.h&lt;/code&gt; definiert und variiert je nach
+Board-Variante. Für das Standard-Board &lt;strong&gt;V2.3.1 (V231)&lt;/strong&gt;:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Signal&lt;/th&gt;
+&lt;th&gt;GPIO&lt;/th&gt;
+&lt;th&gt;Hinweise&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;E-Ink BUSY&lt;/td&gt;
+&lt;td&gt;GPIO4&lt;/td&gt;
+&lt;td&gt;Display-Busy-Ausgang&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E-Ink RESET&lt;/td&gt;
+&lt;td&gt;GPIO16&lt;/td&gt;
+&lt;td&gt;Display-Reset-Leitung&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E-Ink DC&lt;/td&gt;
+&lt;td&gt;GPIO17&lt;/td&gt;
+&lt;td&gt;Data/Command-Steuerung&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E-Ink SS (CS)&lt;/td&gt;
+&lt;td&gt;GPIO5&lt;/td&gt;
+&lt;td&gt;SPI Chip-Select&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;SPI MOSI&lt;/td&gt;
+&lt;td&gt;GPIO23&lt;/td&gt;
+&lt;td&gt;Display-Datenleitung&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;SPI MISO&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td&gt;Nicht verbunden (E-Ink ist schreibgeschützt)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;SPI CLK&lt;/td&gt;
+&lt;td&gt;GPIO18&lt;/td&gt;
+&lt;td&gt;Display-Takt&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MODEM_POWER_ON&lt;/td&gt;
+&lt;td&gt;GPIO23&lt;/td&gt;
+&lt;td&gt;Modem-Stromversorgung (im Deep Sleep ausgeschaltet)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;LED_BUILTIN&lt;/td&gt;
+&lt;td&gt;GPIO2&lt;/td&gt;
+&lt;td&gt;Eingebaute Status-LED&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Die SPI-Pins werden mit dem Flash-Speicher geteilt — das ist normal und
+funktioniert, weil das E-Ink-Display nur bei idle CPU zugegriffen wird.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Hinweise zur Pinbelegung&lt;span class="hx:absolute hx:-mt-20" id="hinweise-zur-pinbelegung"&gt;&lt;/span&gt;
+&lt;a href="#hinweise-zur-pinbelegung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;SPI MISO&lt;/strong&gt; wird nicht genutzt, da das E-Ink-Display nur Daten empfängt
+(kein Rücklesen nötig).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GPIO23&lt;/strong&gt; hat eine Doppelfunktion (SPI MOSI + MODEM_POWER_ON). Im Deep Sleep
+wird es auf LOW geschaltet, um externe Modem-Stromversorgung abzuschalten.&lt;/li&gt;
+&lt;li&gt;Die Strapping-Pins (GPIO0, GPIO2, GPIO12, GPIO15) werden für die
+E-Ink-Ansteuerung vermieden, um Boot-Probleme zu verhindern.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Verdrahtung&lt;span class="hx:absolute hx:-mt-20" id="verdrahtung"&gt;&lt;/span&gt;
+&lt;a href="#verdrahtung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Es ist keine manuelle Verdrahtung erforderlich.&lt;/strong&gt; Das TTGO T5 Board integriert
+alle Komponenten:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ESP32 Mikrocontroller (Dual-Core Xtensa LX6)&lt;/li&gt;
+&lt;li&gt;2.13&amp;quot; E-Ink Display (SPI-verbunden, GxDEPG0213BN Panel)&lt;/li&gt;
+&lt;li&gt;USB-Seriell-Wandler (CP210x oder CH340)&lt;/li&gt;
+&lt;li&gt;3.3V Spannungsregler&lt;/li&gt;
+&lt;li&gt;Li-Po Ladeschaltung (optionaler Akku-Anschluss)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Das Board wird einfach per &lt;strong&gt;USB-C&lt;/strong&gt; angeschlossen:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Am &lt;strong&gt;Computer&lt;/strong&gt; zum Flashen der Firmware&lt;/li&gt;
+&lt;li&gt;An einem &lt;strong&gt;USB-Netzteil&lt;/strong&gt; für den Dauerbetrieb&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Taster (bei unterstützten Varianten)&lt;span class="hx:absolute hx:-mt-20" id="taster-bei-unterstützten-varianten"&gt;&lt;/span&gt;
+&lt;a href="#taster-bei-unterst%c3%bctzten-varianten" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Einige TTGO T5 Varianten haben Hardware-Taster. Die Firmware nutzt sie
+derzeit &lt;strong&gt;nicht&lt;/strong&gt; — die gesamte Konfiguration erfolgt über das Captive Portal
+(siehe &lt;a
+href="users-guide.de.md"&gt;Users Guide&lt;/a&gt;).&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Taster&lt;/th&gt;
+&lt;th&gt;GPIO&lt;/th&gt;
+&lt;th&gt;Hinweise&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;BUTTON_1&lt;/td&gt;
+&lt;td&gt;GPIO37&lt;/td&gt;
+&lt;td&gt;Bei T5 V2.4/2.8 Varianten vorhanden&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;BUTTON_2&lt;/td&gt;
+&lt;td&gt;GPIO38&lt;/td&gt;
+&lt;td&gt;Bei T5 V2.4/2.8 Varianten vorhanden&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;BUTTON_3&lt;/td&gt;
+&lt;td&gt;GPIO39&lt;/td&gt;
+&lt;td&gt;Bei den meisten Varianten vorhanden&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2&gt;Stromversorgung&lt;span class="hx:absolute hx:-mt-20" id="stromversorgung"&gt;&lt;/span&gt;
+&lt;a href="#stromversorgung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Quelle&lt;/th&gt;
+&lt;th&gt;Spannung&lt;/th&gt;
+&lt;th&gt;Strom&lt;/th&gt;
+&lt;th&gt;Hinweise&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;USB-C Netzteil&lt;/td&gt;
+&lt;td&gt;5V&lt;/td&gt;
+&lt;td&gt;≥1A&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Empfohlen&lt;/strong&gt; für den Dauerbetrieb&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Computer-USB-Port&lt;/td&gt;
+&lt;td&gt;5V&lt;/td&gt;
+&lt;td&gt;~500mA&lt;/td&gt;
+&lt;td&gt;Geeignet zum Flashen und Testen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;USB-Powerbank&lt;/td&gt;
+&lt;td&gt;5V&lt;/td&gt;
+&lt;td&gt;variiert&lt;/td&gt;
+&lt;td&gt;Möglich, aber Deep Sleep ist für Netzbetrieb ausgelegt&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;Stromverbrauch&lt;span class="hx:absolute hx:-mt-20" id="stromverbrauch"&gt;&lt;/span&gt;
+&lt;a href="#stromverbrauch" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Zustand&lt;/th&gt;
+&lt;th&gt;Strom&lt;/th&gt;
+&lt;th&gt;Dauer pro Zyklus&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Aktiv (WiFi + MQTT + Display-Update)&lt;/td&gt;
+&lt;td&gt;~80mA&lt;/td&gt;
+&lt;td&gt;~10–15 Sekunden&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Deep Sleep&lt;/td&gt;
+&lt;td&gt;~10µA&lt;/td&gt;
+&lt;td&gt;~165–170 Sekunden&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Durchschnitt&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;~5.5mA&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;über gesamten 180s-Zyklus&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Durch den 180-Sekunden-Deep-Sleep-Zyklus verbringt das Board &lt;strong&gt;&amp;gt;90% der Zeit
+im Tiefschlaf&lt;/strong&gt;, was es auch für Batteriebetrieb geeignet macht (das TTGO T5
+hat einen eingebauten Akku-Anschluss und Ladeschaltung).&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Erste Inbetriebnahme&lt;span class="hx:absolute hx:-mt-20" id="erste-inbetriebnahme"&gt;&lt;/span&gt;
+&lt;a href="#erste-inbetriebnahme" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;1. Sichtprüfung&lt;span class="hx:absolute hx:-mt-20" id="1-sichtprüfung"&gt;&lt;/span&gt;
+&lt;a href="#1-sichtpr%c3%bcfung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Vor dem Anschließen:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;USB-C-Anschluss auf Fremdkörper prüfen&lt;/li&gt;
+&lt;li&gt;Board nicht auf leitfähiger Oberfläche platzieren&lt;/li&gt;
+&lt;li&gt;Auf sichtbare Schäden (Aufblähungen, Korrosion) prüfen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;2. Einschalten&lt;span class="hx:absolute hx:-mt-20" id="2-einschalten"&gt;&lt;/span&gt;
+&lt;a href="#2-einschalten" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;TTGO T5 per USB-C an Stromquelle (Computer oder Netzteil) anschließen.&lt;/li&gt;
+&lt;li&gt;Das E-Ink Display aktualisiert sich nach wenigen Sekunden:
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Ohne Firmware&lt;/strong&gt;: Testmuster oder leerer Bildschirm.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mit Pool Monitor Firmware&lt;/strong&gt;: Der Startbildschirm — siehe
+&lt;a
+href="users-guide.de.md#einrichtung"&gt;Users Guide&lt;/a&gt; für die Ersteinrichtung.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;3. Ersteinrichtung&lt;span class="hx:absolute hx:-mt-20" id="3-ersteinrichtung"&gt;&lt;/span&gt;
+&lt;a href="#3-ersteinrichtung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Das Gerät startet im &lt;strong&gt;AP-Modus&lt;/strong&gt;, wenn kein WiFi konfiguriert ist:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Verbinde dich mit dem WLAN &lt;strong&gt;&lt;code&gt;pool-monitor&lt;/code&gt;&lt;/strong&gt; (offenes Netz, kein Passwort).&lt;/li&gt;
+&lt;li&gt;Ein Captive Portal öffnet sich automatisch — oder öffne
+&lt;strong&gt;&lt;code&gt;http://192.168.4.1&lt;/code&gt;&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Gib deine WLAN-Zugangsdaten und MQTT-Broker-Einstellungen ein.&lt;/li&gt;
+&lt;li&gt;Klicke &lt;strong&gt;Save&lt;/strong&gt; — das Gerät startet neu und verbindet sich mit deinem Netzwerk.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Details im &lt;a
+href="users-guide.de.md"&gt;Users Guide&lt;/a&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Fehlerbehebung&lt;span class="hx:absolute hx:-mt-20" id="fehlerbehebung"&gt;&lt;/span&gt;
+&lt;a href="#fehlerbehebung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Symptom&lt;/th&gt;
+&lt;th&gt;Wahrscheinliche Ursache&lt;/th&gt;
+&lt;th&gt;Lösung&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Display bleibt weiß&lt;/td&gt;
+&lt;td&gt;Keine oder korrupte Firmware&lt;/td&gt;
+&lt;td&gt;Firmware per PlatformIO flashen (siehe &lt;a
+href="software-guide.de.md"&gt;Software Guide&lt;/a&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ldquo;MQTT Error&amp;rdquo; auf Display, Portal startet&lt;/td&gt;
+&lt;td&gt;MQTT-Broker nicht erreichbar&lt;/td&gt;
+&lt;td&gt;Broker-Hostname/IP prüfen; MQTT-Server läuft?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ldquo;WiFi connection failed&amp;rdquo;&lt;/td&gt;
+&lt;td&gt;Falsche Zugangsdaten oder schwaches Signal&lt;/td&gt;
+&lt;td&gt;Über Captive Portal neu konfigurieren; WLAN-Reichweite prüfen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Display zeigt alte Daten (keine Aktualisierung)&lt;/td&gt;
+&lt;td&gt;MQTT-Problem oder Pool Controller offline&lt;/td&gt;
+&lt;td&gt;Prüfen, ob der Pool Controller auf HA-State-Topics veröffentlicht&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;QR-Portal erscheint alle 3 Minuten&lt;/td&gt;
+&lt;td&gt;MQTT-Einstellungen nicht gespeichert&lt;/td&gt;
+&lt;td&gt;MQTT-Hostname/IP erneut eingeben; IP statt Hostname versuchen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Brownout / Neustart-Schleife&lt;/td&gt;
+&lt;td&gt;Zu schwaches Netzteil&lt;/td&gt;
+&lt;td&gt;5V/≥1A Netzteil verwenden; anderes USB-Kabel probieren&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Display aktualisiert, zeigt aber &lt;code&gt;--:--&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;NTP-Zeitsynchronisation fehlgeschlagen&lt;/td&gt;
+&lt;td&gt;Internetverbindung prüfen; NTP wird stündlich versucht&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2&gt;Referenzen&lt;span class="hx:absolute hx:-mt-20" id="referenzen"&gt;&lt;/span&gt;
+&lt;a href="#referenzen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a
+href="http://www.lilygo.com/prod_view-66.html"target="_blank" rel="noopener"&gt;LILYGO TTGO T5 Produktseite&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/ZinggJM/GxEPD"target="_blank" rel="noopener"&gt;GxEPD Bibliothek&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://www.espressif.com/en/products/socs/esp32"target="_blank" rel="noopener"&gt;ESP32 Datenblatt&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller/blob/main/docs/hardware-guide.md"target="_blank" rel="noopener"&gt;Pool Controller Hardware Guide&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/smart-swimmingpool/monitor/blob/main/src/board_def.h"target="_blank" rel="noopener"&gt;Board-Definitionen (Quelle)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>OTA-Updates</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/ota-updates/</link><pubDate>Thu, 11 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/ota-updates/</guid><description>
 &lt;h1&gt;Over-The-Air (OTA) Updates&lt;/h1&gt;&lt;h2&gt;Übersicht&lt;span class="hx:absolute hx:-mt-20" id="übersicht"&gt;&lt;/span&gt;
 &lt;a href="#%c3%bcbersicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der Pool Controller unterstützt Over-The-Air (OTA) Firmware-Updates, sodass
 Sie das Gerät remote ohne physischen Zugriff aktualisieren können.&lt;/p&gt;
