@@ -5,7 +5,37 @@
 &lt;p&gt;&lt;a
 href="https://github.com/smart-swimmingpool/openhab-config"target="_blank" rel="noopener"&gt;GitHub Project&lt;/a&gt;
 &lt;/span&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;⚠️ &lt;strong&gt;Legacy notice&lt;/strong&gt;: &lt;a
+href="https://www.home-assistant.io/integrations/mqtt/#mqtt-discovery"target="_blank" rel="noopener"&gt;Home Assistant MQTT Discovery&lt;/a&gt;
+(via &lt;code&gt;mqtt-protocol = &amp;quot;homeassistant&amp;quot;&lt;/code&gt; on the controller) is now the &lt;strong&gt;primary&lt;/strong&gt; integration path.
+openHAB remains fully supported via MQTT but requires manual configuration.
+See the &lt;a
+href="#compatibility-matrix"&gt;compatibility matrix&lt;/a&gt; below.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;Configuration example to use the Smart Swimming Pool system on openHAB.&lt;/p&gt;
+&lt;h2&gt;Compatibility Matrix&lt;span class="hx:absolute hx:-mt-20" id="compatibility-matrix"&gt;&lt;/span&gt;
+&lt;a href="#compatibility-matrix" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Controller Version&lt;/th&gt;
+&lt;th&gt;Home Assistant&lt;/th&gt;
+&lt;th&gt;openHAB&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;2.x&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Limited support&lt;/td&gt;
+&lt;td&gt;Recommended&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;3.x&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Native MQTT Discovery&lt;/td&gt;
+&lt;td&gt;Manual MQTT configuration&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;h2&gt;Features&lt;span class="hx:absolute hx:-mt-20" id="features"&gt;&lt;/span&gt;
 &lt;a href="#features" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; Switch Modes: Auto, Manual, Boost, Timer&lt;/li&gt;

@@ -1,5 +1,15 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Getting-Started</title><link>https://smart-swimmingpool.github.io/de/tags/getting-started/</link><description>Recent content in Getting-Started on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><atom:link href="https://smart-swimmingpool.github.io/de/tags/getting-started/index.xml" rel="self" type="application/rss+xml"/><item><title>Getting Started</title><link>https://smart-swimmingpool.github.io/de/docs/getting-started/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/getting-started/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Getting-Started</title><link>https://smart-swimmingpool.github.io/de/tags/getting-started/</link><description>Recent content in Getting-Started on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><atom:link href="https://smart-swimmingpool.github.io/de/tags/getting-started/index.xml" rel="self" type="application/rss+xml"/><item><title>Erste Schritte</title><link>https://smart-swimmingpool.github.io/de/docs/getting-started/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/getting-started/</guid><description>
 &lt;p&gt;&lt;strong&gt;🏊 Smart Swimming Pool: Heimautomatisierung für eine intelligentere Steuerung Ihres Schwimmbads&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="hx:rounded-lg hx:border-2 hx:border-red-300 hx:bg-red-50 hx:dark:border-red-700 hx:dark:bg-red-900/20 hx:p-4 hx:my-6"&gt;
+&lt;div class="hx:flex hx:items-start hx:gap-3"&gt;
+&lt;span class="hx:text-2xl hx:flex-shrink-0"&gt;⚠️&lt;/span&gt;
+&lt;div&gt;
+&lt;p class="hx:font-bold hx:text-red-700 hx:dark:text-red-400 hx:text-sm hx:uppercase hx:tracking-wide hx:mb-1"&gt;WARNUNG: 230V Netzspannung&lt;/p&gt;
+&lt;p class="hx:text-sm hx:text-red-800 hx:dark:text-red-300 hx:mb-0"&gt;Dieses Projekt arbeitet mit &lt;strong&gt;230V Wechselstrom&lt;/strong&gt; und darf &lt;strong&gt;nur von Personen mit Elektronik-Grundkenntnissen&lt;/strong&gt; nachgebaut werden.
+Verwende immer einen &lt;strong&gt;RCD (FI-Schutzschalter)&lt;/strong&gt;. Das Projekt ist &lt;strong&gt;nicht CE/UL-zertifiziert&lt;/strong&gt; und nicht für den gewerblichen Einsatz bestimmt.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 &lt;h2&gt;Beispiel einer Anlage&lt;span class="hx:absolute hx:-mt-20" id="beispiel-einer-anlage"&gt;&lt;/span&gt;
 &lt;a href="#beispiel-einer-anlage" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;In einer typischen Anlage erwärmt ein thermisches Solarsystem das Wasser und unterstützt die Raumheizung im Haus. Das erwärmte Wasser wird in einem Pufferspeicher gesammelt, der eine dritte Zirkulation für den Pool bereitstellt. Eine Pumpe an diesem Kreislauf leitet das Poolwasser durch einen Wärmetauscher:&lt;/p&gt;
 &lt;p&gt;&lt;img src="https://smart-swimmingpool.github.io/docs/getting-started/schema-environment-smart-pool.png" alt="Beispielaufbau" data-zoomable loading="lazy" /&gt;&lt;/p&gt;
@@ -8,6 +18,330 @@
 &lt;li&gt;Swimmingpool mit Sandfilteranlage&lt;/li&gt;
 &lt;li&gt;Über eine Pumpe zuschaltbarer Heizkreislauf mit Wärmetauscher&lt;/li&gt;
 &lt;li&gt;Solarer Wärmespeicher mit zusätzlichem Heizkreislauf für den Pool&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Teileliste (Bill of Materials)&lt;span class="hx:absolute hx:-mt-20" id="teileliste-bill-of-materials"&gt;&lt;/span&gt;
+&lt;a href="#teileliste-bill-of-materials" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Komponente&lt;/th&gt;
+&lt;th&gt;Preis (ca.)&lt;/th&gt;
+&lt;th&gt;Hinweise&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ESP32 DevKit V1&lt;/td&gt;
+&lt;td&gt;10–15 €&lt;/td&gt;
+&lt;td&gt;Mind. 4MB Flash, USB-Kabel inklusive&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DS18B20 Temperatursensor (2x, wasserdicht)&lt;/td&gt;
+&lt;td&gt;8–12 €&lt;/td&gt;
+&lt;td&gt;Edelstahlsonde, 1m Kabel&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2-Kanal-Relais-Modul&lt;/td&gt;
+&lt;td&gt;5–8 €&lt;/td&gt;
+&lt;td&gt;Standard &lt;strong&gt;Aktiv-Low&lt;/strong&gt;-Modul — siehe Hinweise&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4,7kΩ Widerstände (2x)&lt;/td&gt;
+&lt;td&gt;&amp;lt; 1 €&lt;/td&gt;
+&lt;td&gt;Pull-Up-Widerstände für OneWire-Bus&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Breadboard + Jumper-Kabel&lt;/td&gt;
+&lt;td&gt;3–8 €&lt;/td&gt;
+&lt;td&gt;Für Prototyp; für Dauerbetrieb Lochrasterplatine&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;USB-Netzteil (5V / 1A+)&lt;/td&gt;
+&lt;td&gt;5–10 €&lt;/td&gt;
+&lt;td&gt;Für ESP32 + Relaismodul&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Gehäuse (IP54+)&lt;/td&gt;
+&lt;td&gt;5–10 €&lt;/td&gt;
+&lt;td&gt;Optional, aber empfohlen für Außeneinsatz&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Gesamt&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;~45–75 €&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Ohne Pumpen / Wärmetauscher-Infrastruktur&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;⚠️ Relais-Modul Hinweis:&lt;/strong&gt; Die Firmware steuert die Relais &lt;strong&gt;Aktiv-Low&lt;/strong&gt; (GPIO &lt;strong&gt;LOW&lt;/strong&gt; = Relais EIN, GPIO &lt;strong&gt;HIGH&lt;/strong&gt; = Relais AUS). Dies entspricht der überwiegenden Mehrheit günstiger 2-Kanal-5V-Relais-Module. Während des ESP32-Starts sind die GPIOs kurz im hochohmigen Zustand — die Firmware setzt sie sofort nach dem Start auf HIGH (Relais AUS). Falls Ihr Modul andersherum arbeitet (Aktiv-High), finden Sie Konfigurationsmöglichkeiten im &lt;a
+href="https://smart-swimmingpool.github.io/de/docs/troubleshooting/"&gt;FAQ&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Hardware-Aufbau&lt;span class="hx:absolute hx:-mt-20" id="hardware-aufbau"&gt;&lt;/span&gt;
+&lt;a href="#hardware-aufbau" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Breadboard-Layout&lt;span class="hx:absolute hx:-mt-20" id="breadboard-layout"&gt;&lt;/span&gt;
+&lt;a href="#breadboard-layout" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;img src="https://smart-swimmingpool.github.io/img/pool-controller_breadboard.png" alt="Pool Controller Breadboard" data-zoomable loading="lazy" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Der ESP32 und das Relais-Modul auf einem Breadboard — der einfachste Weg, um zu starten.&lt;/em&gt;&lt;/p&gt;
+&lt;h3&gt;Schritt 1: ESP32 vorbereiten&lt;span class="hx:absolute hx:-mt-20" id="schritt-1-esp32-vorbereiten"&gt;&lt;/span&gt;
+&lt;a href="#schritt-1-esp32-vorbereiten" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Schließen Sie den ESP32 per USB an Ihren Computer an.&lt;/li&gt;
+&lt;li&gt;Prüfen Sie, ob er als serielle Schnittstelle erkannt wird (&lt;code&gt;/dev/ttyUSB0&lt;/code&gt; unter Linux, &lt;code&gt;COM3&lt;/code&gt; unter Windows).&lt;/li&gt;
+&lt;li&gt;Installieren Sie ggf. &lt;strong&gt;CP210x&lt;/strong&gt;- oder &lt;strong&gt;CH340&lt;/strong&gt;-Treiber (&lt;a
+href="https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers"target="_blank" rel="noopener"&gt;CP210x Treiber&lt;/a&gt;, &lt;a
+href="https://www.wch.cn/download/CH341SER_EXE.html"target="_blank" rel="noopener"&gt;CH340 Treiber&lt;/a&gt;).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Schritt 2: Temperatursensoren anschließen&lt;span class="hx:absolute hx:-mt-20" id="schritt-2-temperatursensoren-anschließen"&gt;&lt;/span&gt;
+&lt;a href="#schritt-2-temperatursensoren-anschlie%c3%9fen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Die DS18B20-Sensoren verwenden das &lt;strong&gt;OneWire-Protokoll&lt;/strong&gt;. Verbinden Sie sie wie folgt:&lt;/p&gt;
+&lt;p&gt;Die Firmware (esp32dev-Umgebung) weist &lt;strong&gt;jedem Sensor einen eigenen GPIO-Pin&lt;/strong&gt; zu:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Sensor&lt;/th&gt;
+&lt;th&gt;ESP32 Pin&lt;/th&gt;
+&lt;th&gt;Kabel (typisch)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Solar-Kollektor (DS18B20 #1)&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;GPIO32&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;VDD=Rot, GND=Schwarz, DATA=Gelb/Weiß&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Poolwasser (DS18B20 #2)&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;GPIO33&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;VDD=Rot, GND=Schwarz, DATA=Gelb/Weiß&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Wichtig:&lt;/strong&gt; Schließen Sie einen &lt;strong&gt;4,7kΩ-Widerstand&lt;/strong&gt; zwischen &lt;strong&gt;jeder&lt;/strong&gt; DATA-Leitung und 3.3V an (Pull-Up). OneWire benötigt einen separaten Pull-Up pro GPIO-Pin. Für zwei Sensoren auf getrennten GPIOs benötigen Sie &lt;strong&gt;zwei 4,7kΩ-Widerstände&lt;/strong&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Schritt 3: Relais-Modul anschließen&lt;span class="hx:absolute hx:-mt-20" id="schritt-3-relais-modul-anschließen"&gt;&lt;/span&gt;
+&lt;a href="#schritt-3-relais-modul-anschlie%c3%9fen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ESP32 Pin&lt;/th&gt;
+&lt;th&gt;Relais-Modul&lt;/th&gt;
+&lt;th&gt;Hinweise&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;GPIO26&lt;/td&gt;
+&lt;td&gt;IN1&lt;/td&gt;
+&lt;td&gt;Heizkreispumpe&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;GPIO25&lt;/td&gt;
+&lt;td&gt;IN2&lt;/td&gt;
+&lt;td&gt;Umwälzpumpe / Filter&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;5V (VIN)&lt;/td&gt;
+&lt;td&gt;VCC&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;5V&lt;/strong&gt; nicht 3.3V!&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;GND&lt;/td&gt;
+&lt;td&gt;GND&lt;/td&gt;
+&lt;td&gt;Gemeinsame Masse mit ESP32&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;⚠️ Stromversorgung:&lt;/strong&gt; Das Relais-Modul benötigt &lt;strong&gt;5V&lt;/strong&gt; Spannung (nutzen Sie den VIN-Pin des ESP32 bei USB-Stromversorgung). Nicht vom 3.3V-Pin versorgen. Verbinden Sie ESP32 GND mit Relais GND (gemeinsame Masse).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Schritt 4: Abschließende Prüfung&lt;span class="hx:absolute hx:-mt-20" id="schritt-4-abschließende-prüfung"&gt;&lt;/span&gt;
+&lt;a href="#schritt-4-abschlie%c3%9fende-pr%c3%bcfung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Bevor Sie Pumpen oder Netzspannung anschließen:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Überprüfen Sie alle Verbindungen anhand des Schaltplans.&lt;/li&gt;
+&lt;li&gt;Vergewissern Sie sich, dass das Relais-Modul korrekt arbeitet: Bei eingeschaltetem ESP32 (noch ohne Pumpensteuerung) messen Sie die GPIO-Pins mit einem Multimeter — sie sollten HIGH sein (Relais AUS). Nach dem Schalten eines Relais über die Weboberfläche sollte der zugehörige GPIO auf LOW gehen (Relais EIN).&lt;/li&gt;
+&lt;li&gt;Spiele Sie zuerst die Firmware auf (siehe unten) und testen Sie mit dem Webinterface &lt;strong&gt;ohne&lt;/strong&gt; angeschlossene Pumpen.&lt;/li&gt;
+&lt;li&gt;Immer noch keine 230V? Erste erfolgreiche Firmware-Tests abwarten.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Firmware-Installation&lt;span class="hx:absolute hx:-mt-20" id="firmware-installation"&gt;&lt;/span&gt;
+&lt;a href="#firmware-installation" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;PlatformIO (Empfohlen)&lt;span class="hx:absolute hx:-mt-20" id="platformio-empfohlen"&gt;&lt;/span&gt;
+&lt;a href="#platformio-empfohlen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;⚠️ &lt;strong&gt;Wichtig:&lt;/strong&gt; Der Pool-Controller ist ein PlatformIO-Projekt. Es gibt &lt;strong&gt;keine&lt;/strong&gt; Arduino-IDE-kompatible &lt;code&gt;.ino&lt;/code&gt;-Datei. PlatformIO ist die einzige unterstützte Build-Methode.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;Installieren Sie &lt;a
+href="https://code.visualstudio.com/"target="_blank" rel="noopener"&gt;Visual Studio Code&lt;/a&gt; und die &lt;a
+href="https://platformio.org/install/ide?install=vscode"target="_blank" rel="noopener"&gt;PlatformIO-Erweiterung&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Repository klonen:
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git clone https://github.com/smart-swimmingpool/pool-controller.git
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; pool-controller&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;Öffnen Sie den Ordner in VS Code — PlatformIO erkennt das Projekt automatisch.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Die richtige Umgebung wählen:&lt;/strong&gt; Das Projekt hat als Voreinstellung die Umgebung für den NORVI AE01-R Industrie-Controller. Für ein Standard-ESP32-DevKit wechseln Sie zur &lt;code&gt;esp32dev&lt;/code&gt;-Umgebung:
+&lt;ul&gt;
+&lt;li&gt;Klicken Sie auf das &lt;strong&gt;PlatformIO-Logo&lt;/strong&gt; (⚡-Symbol) in der VS-Code-Fußzeile&lt;/li&gt;
+&lt;li&gt;Gehen Sie zu &lt;strong&gt;Project Tasks → esp32dev&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Oder nutzen Sie den Umgebungswechsler unten im VS-Code-Fenster&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Verbinden Sie den ESP32 per USB.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Schritt A — Firmware flashen:&lt;/strong&gt; Klicken Sie auf den &lt;strong&gt;→ (Upload and Monitor)&lt;/strong&gt;-Button neben &lt;code&gt;esp32dev&lt;/code&gt; in der PlatformIO-Fußzeile. Die Firmware wird kompiliert und geflasht.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Schritt B — Dateisystem hochladen (Weboberfläche):&lt;/strong&gt; Die Weboberfläche wird in einer separaten LittleFS-Partition gespeichert und muss nach der Firmware hochgeladen werden:
+&lt;ul&gt;
+&lt;li&gt;Öffnen Sie in VS Code den PlatformIO-Reiter → &lt;strong&gt;esp32dev → Platform → Upload Filesystem Image&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Oder per Terminal:
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pio run -e esp32dev -t uploadfs&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;Ohne diesen Schritt zeigt die Weboberfläche eine &lt;strong&gt;Fehlerseite&lt;/strong&gt; statt der Konfigurationsseite.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Nach dem Flashen prüfen&lt;span class="hx:absolute hx:-mt-20" id="nach-dem-flashen-prüfen"&gt;&lt;/span&gt;
+&lt;a href="#nach-dem-flashen-pr%c3%bcfen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Öffnen Sie den seriellen Monitor (115200 Baud). Sie sollten sehen:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;[INFO] Pool Controller v3.3.0 starting...
+[INFO] WiFi: Starting in AP mode
+[INFO] AP: &amp;#39;Pool-Controller-Setup&amp;#39;. IP: 192.168.4.1&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Der ESP32 startet standardmäßig im &lt;strong&gt;Access Point (AP) Modus&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2&gt;Erste Inbetriebnahme &amp;amp; Konfiguration&lt;span class="hx:absolute hx:-mt-20" id="erste-inbetriebnahme--konfiguration"&gt;&lt;/span&gt;
+&lt;a href="#erste-inbetriebnahme--konfiguration" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Schritt 1: Mit ESP32 verbinden&lt;span class="hx:absolute hx:-mt-20" id="schritt-1-mit-esp32-verbinden"&gt;&lt;/span&gt;
+&lt;a href="#schritt-1-mit-esp32-verbinden" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Suchen Sie nach WLAN-Netzwerken — Sie sehen &lt;strong&gt;&lt;code&gt;Pool-Controller-Setup&lt;/code&gt;&lt;/strong&gt; (offenes Netzwerk, kein Passwort).&lt;/li&gt;
+&lt;li&gt;Verbinden Sie sich von Ihrem Smartphone oder Laptop.&lt;/li&gt;
+&lt;li&gt;Öffnen Sie einen Browser und gehen Sie zu &lt;strong&gt;http://192.168.4.1&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Schritt 2: WLAN konfigurieren&lt;span class="hx:absolute hx:-mt-20" id="schritt-2-wlan-konfigurieren"&gt;&lt;/span&gt;
+&lt;a href="#schritt-2-wlan-konfigurieren" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Die Weboberfläche zeigt eine Konfigurationsseite.&lt;/li&gt;
+&lt;li&gt;Geben Sie Ihren WLAN-Namen (SSID) und Ihr Passwort ein.&lt;/li&gt;
+&lt;li&gt;Klicken Sie auf &lt;strong&gt;Speichern&lt;/strong&gt; — der ESP32 startet neu und verbindet sich mit Ihrem Netzwerk.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Schritt 3: MQTT einrichten&lt;span class="hx:absolute hx:-mt-20" id="schritt-3-mqtt-einrichten"&gt;&lt;/span&gt;
+&lt;a href="#schritt-3-mqtt-einrichten" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Finden Sie die IP-Adresse des ESP32 (Router oder serieller Monitor).&lt;/li&gt;
+&lt;li&gt;Öffnen Sie &lt;code&gt;http://&amp;lt;esp32-ip&amp;gt;/&lt;/code&gt; im Browser.&lt;/li&gt;
+&lt;li&gt;Gehen Sie zu &lt;strong&gt;Konfiguration → MQTT&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Geben Sie die Adresse Ihres MQTT-Brokers ein (z. B. &lt;code&gt;192.168.1.100&lt;/code&gt; oder &lt;code&gt;core-mosquitto&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;Bei Authentifizierung Benutzername/Passwort eingeben.&lt;/li&gt;
+&lt;li&gt;Klicken Sie auf &lt;strong&gt;Speichern&lt;/strong&gt; — der Controller verbindet sich neu mit MQTT.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Kein MQTT-Broker?&lt;/strong&gt; Installieren Sie &lt;a
+href="https://mosquitto.org/download/"target="_blank" rel="noopener"&gt;Mosquitto&lt;/a&gt; auf einem Rechner im Netzwerk oder nutzen Sie das Mosquitto-Add-On in Home Assistant.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Schritt 4: Home Assistant Integration&lt;span class="hx:absolute hx:-mt-20" id="schritt-4-home-assistant-integration"&gt;&lt;/span&gt;
+&lt;a href="#schritt-4-home-assistant-integration" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Wenn Sie Home Assistant mit MQTT verwenden:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Der Controller sendet automatisch MQTT Discovery-Nachrichten.&lt;/li&gt;
+&lt;li&gt;In Home Assistant gehen Sie zu &lt;strong&gt;Einstellungen → Geräte &amp;amp; Dienste&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Klicken Sie auf &lt;strong&gt;Integration hinzufügen → MQTT&lt;/strong&gt; (falls nicht schon konfiguriert).&lt;/li&gt;
+&lt;li&gt;Der Pool Controller sollte automatisch als neues Gerät erscheinen.&lt;/li&gt;
+&lt;li&gt;Sie sehen Entitäten für:
+&lt;ul&gt;
+&lt;li&gt;Temperaturen (Pool, Solar, Außen)&lt;/li&gt;
+&lt;li&gt;Umwälzpumpen-Schalter&lt;/li&gt;
+&lt;li&gt;Heizkreisschalter&lt;/li&gt;
+&lt;li&gt;Systemstatus-Sensoren&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Schritt 5: Pumpen anschließen&lt;span class="hx:absolute hx:-mt-20" id="schritt-5-pumpen-anschließen"&gt;&lt;/span&gt;
+&lt;a href="#schritt-5-pumpen-anschlie%c3%9fen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Erst jetzt — nach erfolgreichem Test — die Pumpen anschließen:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Trennen&lt;/strong&gt; Sie den ESP32 von der USB-Stromversorgung.&lt;/li&gt;
+&lt;li&gt;Verdrahten Sie die Relaisausgänge mit Ihren Pumpenschützen/Ventilen.&lt;/li&gt;
+&lt;li&gt;Verwenden Sie geeignete Kabelquerschnitte für 230V.&lt;/li&gt;
+&lt;li&gt;Schließen Sie die Netzspannung über einen &lt;strong&gt;RCD (FI-Schutzschalter)&lt;/strong&gt; an.&lt;/li&gt;
+&lt;li&gt;Versorgen Sie den ESP32 wieder über sein USB-Netzteil (elektrisch getrennt von 230V).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="hx:rounded-lg hx:border-2 hx:border-red-300 hx:bg-red-50 hx:dark:border-red-700 hx:dark:bg-red-900/20 hx:p-4 hx:my-6"&gt;
+&lt;div class="hx:flex hx:items-start hx:gap-3"&gt;
+&lt;span class="hx:text-2xl hx:flex-shrink-0"&gt;⚠️&lt;/span&gt;
+&lt;div&gt;
+&lt;p class="hx:font-bold hx:text-red-700 hx:dark:text-red-400 hx:text-sm hx:uppercase hx:tracking-wide hx:mb-1"&gt;WARNUNG: 230V Netzspannung&lt;/p&gt;
+&lt;p class="hx:text-sm hx:text-red-800 hx:dark:text-red-300 hx:mb-0"&gt;Dieses Projekt arbeitet mit &lt;strong&gt;230V Wechselstrom&lt;/strong&gt; und darf &lt;strong&gt;nur von Personen mit Elektronik-Grundkenntnissen&lt;/strong&gt; nachgebaut werden.
+Verwende immer einen &lt;strong&gt;RCD (FI-Schutzschalter)&lt;/strong&gt;. Das Projekt ist &lt;strong&gt;nicht CE/UL-zertifiziert&lt;/strong&gt; und nicht für den gewerblichen Einsatz bestimmt.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;Modulare Systemübersicht&lt;span class="hx:absolute hx:-mt-20" id="modulare-systemübersicht"&gt;&lt;/span&gt;
+&lt;a href="#modulare-system%c3%bcbersicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die Erste-Schritte-Anleitung konzentriert sich auf den &lt;strong&gt;Pool Controller&lt;/strong&gt; als zentrales Modul. Das System hat zusätzliche optionale Module:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Modul&lt;/th&gt;
+&lt;th&gt;Zweck&lt;/th&gt;
+&lt;th&gt;Wann hinzufügen&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Pool Controller&lt;/strong&gt; (diese Anleitung)&lt;/td&gt;
+&lt;td&gt;Hauptsteuerung: Pumpen, Heizung, Zirkulation&lt;/td&gt;
+&lt;td&gt;Erforderlich — hier starten&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Pool Monitor&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Solarbetriebene Temperaturanzeige&lt;/td&gt;
+&lt;td&gt;Nachdem der Controller läuft&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Grafana Dashboard&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Datenvisualisierung und -verlauf&lt;/td&gt;
+&lt;td&gt;Wenn Sie historische Diagramme möchten&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;openHAB Konfiguration&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Integration mit openHAB&lt;/td&gt;
+&lt;td&gt;Wenn Sie openHAB statt Home Assistant nutzen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Smart Analyzer&lt;/strong&gt; &lt;em&gt;(geplant)&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;Wasserqualitätsüberwachung&lt;/td&gt;
+&lt;td&gt;Noch nicht verfügbar&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;Wie geht es weiter?&lt;span class="hx:absolute hx:-mt-20" id="wie-geht-es-weiter"&gt;&lt;/span&gt;
+&lt;a href="#wie-geht-es-weiter" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Sobald Ihr Pool Controller läuft:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Richten Sie das &lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/grafana-dashboard/"&gt;Grafana Dashboard&lt;/a&gt;&lt;/strong&gt; für Temperaturverläufe ein&lt;/li&gt;
+&lt;li&gt;Fügen Sie den &lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/pool-monitor/"&gt;Pool Monitor&lt;/a&gt;&lt;/strong&gt; für ein eigenes Display hinzu&lt;/li&gt;
+&lt;li&gt;Besuchen Sie das &lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.github.io/de/docs/troubleshooting/"&gt;FAQ&lt;/a&gt;&lt;/strong&gt; bei Problemen&lt;/li&gt;
+&lt;li&gt;Erkunden Sie die &lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.github.io/de/docs/openhab-configuration/"&gt;openHAB Konfiguration&lt;/a&gt;&lt;/strong&gt;, falls Sie openHAB nutzen&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;Vorbereitungen&lt;span class="hx:absolute hx:-mt-20" id="vorbereitungen"&gt;&lt;/span&gt;
 &lt;a href="#vorbereitungen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Sofern ein Heizkreislauf mit Wärmetauscher vorbereitet ist, kann mit der Umsetzung der smarten Steuerung des Pools begonnen werden.&lt;/p&gt;
