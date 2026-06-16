@@ -1,0 +1,331 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Quickstart</title><link>https://smart-swimmingpool.github.io/de/tags/quickstart/</link><description>Recent content in Quickstart on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><atom:link href="https://smart-swimmingpool.github.io/de/tags/quickstart/index.xml" rel="self" type="application/rss+xml"/><item><title>Schnellstart</title><link>https://smart-swimmingpool.github.io/de/docs/quickstart/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/quickstart/</guid><description>
+&lt;p&gt;&lt;strong&gt;🏊 Smart Swimming Pool: Vom Karton bis zum laufenden Pool in 60 Minuten.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Dies ist der Express-Pfad — minimale Theorie, maximale Aktion. Führen Sie jeden Schritt genau aus, und Sie haben innerhalb einer Stunde einen funktionierenden Pool-Controller.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;📖 Ausführliche Erklärungen im &lt;a
+href="https://smart-swimmingpool.github.io/de/docs/getting-started/"&gt;Erste Schritte&lt;/a&gt;-Handbuch.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2&gt;Was Sie brauchen&lt;span class="hx:absolute hx:-mt-20" id="was-sie-brauchen"&gt;&lt;/span&gt;
+&lt;a href="#was-sie-brauchen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;ESP32 DevKit V1 + USB-Kabel (Datenkabel!)&lt;/li&gt;
+&lt;li&gt;2-Kanal 5V Relais-Modul (Aktiv-Low)&lt;/li&gt;
+&lt;li&gt;2× DS18B20 Temperatursensoren (wasserdicht)&lt;/li&gt;
+&lt;li&gt;2× 4,7kΩ Widerstände&lt;/li&gt;
+&lt;li&gt;Breadboard + Jumper-Kabel&lt;/li&gt;
+&lt;li&gt;5V USB-Netzteil (1A+)&lt;/li&gt;
+&lt;li&gt;Computer mit VS Code + PlatformIO&lt;/li&gt;
+&lt;li&gt;MQTT-Broker im Netzwerk (optional für ersten Test)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Alle Teile: ~45–75 €&lt;/strong&gt; — siehe &lt;a
+href="https://smart-swimmingpool.github.io/de/docs/bom/"&gt;Stückliste (BOM)&lt;/a&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Schritt 1: Verkabeln (5 Minuten)&lt;span class="hx:absolute hx:-mt-20" id="schritt-1-verkabeln-5-minuten"&gt;&lt;/span&gt;
+&lt;a href="#schritt-1-verkabeln-5-minuten" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Breadboard-Aufbau&lt;span class="hx:absolute hx:-mt-20" id="breadboard-aufbau"&gt;&lt;/span&gt;
+&lt;a href="#breadboard-aufbau" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;┌─────────────────────────────────────────┐
+│ ESP32 DevKit │
+│ ┌──────────────────────────────────────┤
+│ │ USB GND 5V GPIO32 GPIO33 ... │
+│ └──────────────────────────────────────┤
+│ │ │ │ │ │
+│ │ │ ├──4,7kΩ─┤ 3,3V │
+│ │ │ │ │ │
+│ ─────────┤ │ │ │ │
+│ DS18B20 #1 │ │ DS18B20 #2 │
+│ (Solar) │ │ (Pool) │
+└─────────────────────────────────────────┘&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Verbindungen:&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Von&lt;/th&gt;
+&lt;th&gt;Nach&lt;/th&gt;
+&lt;th&gt;Farbe&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ESP32 3,3V&lt;/td&gt;
+&lt;td&gt;DS18B20 #1 VDD (rot)&lt;/td&gt;
+&lt;td&gt;Rot&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ESP32 3,3V&lt;/td&gt;
+&lt;td&gt;DS18B20 #2 VDD (rot)&lt;/td&gt;
+&lt;td&gt;Rot&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ESP32 GND&lt;/td&gt;
+&lt;td&gt;DS18B20 #1 GND (schwarz)&lt;/td&gt;
+&lt;td&gt;Schwarz&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ESP32 GND&lt;/td&gt;
+&lt;td&gt;DS18B20 #2 GND (schwarz)&lt;/td&gt;
+&lt;td&gt;Schwarz&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ESP32 GPIO32&lt;/td&gt;
+&lt;td&gt;DS18B20 #1 DATA (gelb)&lt;/td&gt;
+&lt;td&gt;Gelb&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ESP32 GPIO33&lt;/td&gt;
+&lt;td&gt;DS18B20 #2 DATA (gelb)&lt;/td&gt;
+&lt;td&gt;Gelb&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;GPIO32 → 3,3V&lt;/td&gt;
+&lt;td&gt;4,7kΩ Pull-Up&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;GPIO33 → 3,3V&lt;/td&gt;
+&lt;td&gt;4,7kΩ Pull-Up&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ESP32 5V (VIN)&lt;/td&gt;
+&lt;td&gt;Relais-Modul VCC&lt;/td&gt;
+&lt;td&gt;Rot&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ESP32 GND&lt;/td&gt;
+&lt;td&gt;Relais-Modul GND&lt;/td&gt;
+&lt;td&gt;Schwarz&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ESP32 GPIO26&lt;/td&gt;
+&lt;td&gt;Relais IN1 (Heizpumpe)&lt;/td&gt;
+&lt;td&gt;Blau&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ESP32 GPIO25&lt;/td&gt;
+&lt;td&gt;Relais IN2 (Filterpumpe)&lt;/td&gt;
+&lt;td&gt;Grün&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;⚠️ &lt;strong&gt;Doppelprüfung:&lt;/strong&gt; Relais VCC geht an &lt;strong&gt;5V&lt;/strong&gt; (ESP32 VIN), NICHT an 3,3V.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2&gt;Schritt 2: Firmware flashen (10 Minuten)&lt;span class="hx:absolute hx:-mt-20" id="schritt-2-firmware-flashen-10-minuten"&gt;&lt;/span&gt;
+&lt;a href="#schritt-2-firmware-flashen-10-minuten" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;VS Code mit PlatformIO-Erweiterung öffnen&lt;/li&gt;
+&lt;li&gt;Pool-Controller klonen und öffnen:
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git clone https://github.com/smart-swimmingpool/pool-controller.git
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; pool-controller
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;code .&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;ESP32 per USB verbinden&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Firmware hochladen:&lt;/strong&gt; PlatformIO-Fußleiste → &lt;strong&gt;→ (Upload and Monitor)&lt;/strong&gt; neben &lt;code&gt;esp32dev&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Dateisystem hochladen:&lt;/strong&gt; PlatformIO-Tab → &lt;code&gt;esp32dev&lt;/code&gt; → &lt;strong&gt;Platform → Upload Filesystem Image&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Auf Abschluss beider Uploads warten&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Erwartete Ausgabe (115200 Baud):&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;[INFO] Pool Controller v3.x.x starting...
+[INFO] WiFi: Starting in AP mode
+[INFO] AP: &amp;#39;Pool-Controller-Setup&amp;#39;. IP: 192.168.4.1
+[INFO] OneWire: Found 2 DS18B20 sensor(s)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;h2&gt;Schritt 3: WLAN konfigurieren (3 Minuten)&lt;span class="hx:absolute hx:-mt-20" id="schritt-3-wlan-konfigurieren-3-minuten"&gt;&lt;/span&gt;
+&lt;a href="#schritt-3-wlan-konfigurieren-3-minuten" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;Mit WLAN &lt;strong&gt;&lt;code&gt;Pool-Controller-Setup&lt;/code&gt;&lt;/strong&gt; verbinden (offen, kein Passwort)&lt;/li&gt;
+&lt;li&gt;Browser öffnen → &lt;strong&gt;http://192.168.4.1&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;WLAN-Name und Passwort des Heimnetzes eingeben&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Save&lt;/strong&gt; klicken — ESP32 startet neu und verbindet sich mit dem Heimnetz&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2&gt;Schritt 4: MQTT verbinden (3 Minuten)&lt;span class="hx:absolute hx:-mt-20" id="schritt-4-mqtt-verbinden-3-minuten"&gt;&lt;/span&gt;
+&lt;a href="#schritt-4-mqtt-verbinden-3-minuten" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;IP-Adresse des ESP32 im Router ermitteln (oder serielle Monitor-Ausgabe)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;http://&lt;esp32-ip&gt;/&lt;/strong&gt; im Browser öffnen&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Configuration → MQTT&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;MQTT-Broker-Adresse eintragen (z.B. &lt;code&gt;192.168.1.100&lt;/code&gt; oder &lt;code&gt;core-mosquitto&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;Bei Authentifizierung: Benutzername/Passwort eintragen&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Test Connection&lt;/strong&gt; — sollte &amp;ldquo;Connected&amp;rdquo; anzeigen&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Save&lt;/strong&gt; klicken&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Kein Broker?&lt;/strong&gt; &lt;a
+href="https://mosquitto.org/download/"target="_blank" rel="noopener"&gt;Mosquitto&lt;/a&gt; installieren oder das Mosquitto-Add-on in Home Assistant nutzen.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Schritt 5: Sensoren prüfen (3 Minuten)&lt;span class="hx:absolute hx:-mt-20" id="schritt-5-sensoren-prüfen-3-minuten"&gt;&lt;/span&gt;
+&lt;a href="#schritt-5-sensoren-pr%c3%bcfen-3-minuten" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Weboberfläche &lt;strong&gt;Status&lt;/strong&gt;-Seite prüfen:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Sensor&lt;/th&gt;
+&lt;th&gt;Erwartet&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Pooltemperatur&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Plausible Raum-/Wassertemperatur (nicht -127°C)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Solartemperatur&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Plausible Raum-/Wassertemperatur (nicht -127°C)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Solar Sensor Found&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;✅ Ja&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Pool Sensor Found&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;✅ Ja&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Anzeige -127°C?&lt;/strong&gt; Pull-Up-Widerstand und Datenleitung prüfen.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Schritt 6: Relais testen (5 Minuten, OHNE 230V)&lt;span class="hx:absolute hx:-mt-20" id="schritt-6-relais-testen-5-minuten-ohne-230v"&gt;&lt;/span&gt;
+&lt;a href="#schritt-6-relais-testen-5-minuten-ohne-230v" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;Webinterface &lt;strong&gt;Control&lt;/strong&gt; → &lt;strong&gt;Operation Mode&lt;/strong&gt; auf &lt;strong&gt;&lt;code&gt;manu&lt;/code&gt;&lt;/strong&gt; (Manuell)&lt;/li&gt;
+&lt;li&gt;Multimeter auf Gleichspannung einstellen&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Heating Pump&lt;/strong&gt; EIN schalten:
+&lt;ul&gt;
+&lt;li&gt;GPIO26 (Relais IN1) sollte &lt;strong&gt;~0V (LOW)&lt;/strong&gt; anzeigen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;EIN → AUS:
+&lt;ul&gt;
+&lt;li&gt;GPIO26 sollte wieder &lt;strong&gt;~3,3V (HIGH)&lt;/strong&gt; anzeigen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Wiederholung für &lt;strong&gt;Filter Pump&lt;/strong&gt; an GPIO25&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Spannungen vertauscht?&lt;/strong&gt; Relais ist Aktiv-High → Jumper (HIGH/LOW) am Modul suchen oder Modul ersetzen.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Schritt 7: Pumpen anschließen (10 Minuten)&lt;span class="hx:absolute hx:-mt-20" id="schritt-7-pumpen-anschließen-10-minuten"&gt;&lt;/span&gt;
+&lt;a href="#schritt-7-pumpen-anschlie%c3%9fen-10-minuten" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;⚠️ &lt;strong&gt;230V Netzspannung — Lebensgefahr.&lt;/strong&gt; Alle Sicherheitsvorkehrungen beachten.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;ESP32 vom USB trennen&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Relaisausgänge mit Pumpen-Schützen oder direkt mit Pumpen verdrahten&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;FI-Schutzschalter&lt;/strong&gt; auf der 230V-Seite sicherstellen&lt;/li&gt;
+&lt;li&gt;ESP32 wieder an USB anschließen&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Operation Mode&lt;/strong&gt; auf &lt;strong&gt;&lt;code&gt;manu&lt;/code&gt;&lt;/strong&gt; (Manuell)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Heating Pump&lt;/strong&gt; EIN — Pumpe läuft&lt;/li&gt;
+&lt;li&gt;AUS — Pumpe stoppt&lt;/li&gt;
+&lt;li&gt;Wiederholung für &lt;strong&gt;Filter Pump&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2&gt;Schritt 8: Automatik aktivieren (2 Minuten)&lt;span class="hx:absolute hx:-mt-20" id="schritt-8-automatik-aktivieren-2-minuten"&gt;&lt;/span&gt;
+&lt;a href="#schritt-8-automatik-aktivieren-2-minuten" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Operation Mode&lt;/strong&gt; auf &lt;strong&gt;&lt;code&gt;auto&lt;/code&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Max. Pool Temp&lt;/strong&gt; auf Zieltemperatur (z.B. 28°C)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Min. Solar Temp&lt;/strong&gt; (z.B. 35°C)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hysterese&lt;/strong&gt; (z.B. 2 K)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Der Controller arbeitet jetzt vollautomatisch.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Schritt 9: Home Assistant verbinden (5 Minuten)&lt;span class="hx:absolute hx:-mt-20" id="schritt-9-home-assistant-verbinden-5-minuten"&gt;&lt;/span&gt;
+&lt;a href="#schritt-9-home-assistant-verbinden-5-minuten" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Falls Home Assistant genutzt wird:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Einstellungen → Geräte &amp;amp; Dienste → Integration hinzufügen → MQTT&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;discovery: true&lt;/code&gt; sicherstellen (Standard)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Pool Controller&lt;/strong&gt; erscheint automatisch als neues Gerät&lt;/li&gt;
+&lt;li&gt;Entities zum Lovelace-Dashboard hinzufügen&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Siehe &lt;a
+href="https://smart-swimmingpool.github.io/de/docs/home-assistant-integration/"&gt;Home Assistant Integration&lt;/a&gt; für Dashboard-Einrichtung und Automationsbeispiele.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Fertig! 🎉&lt;span class="hx:absolute hx:-mt-20" id="fertig-"&gt;&lt;/span&gt;
+&lt;a href="#fertig-" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Ihr Pool-Controller ist betriebsbereit. Nächste Schritte:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/grafana-dashboard/"&gt;Grafana Dashboard&lt;/a&gt;&lt;/strong&gt; für Temperaturverlauf einrichten&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/pool-monitor/"&gt;Pool Monitor&lt;/a&gt;&lt;/strong&gt; für kabelloses Display hinzufügen&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.github.io/de/docs/checklist/"&gt;Inbetriebnahme-Checkliste&lt;/a&gt;&lt;/strong&gt; für ausführlichere Prüfung durchgehen&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.github.io/de/docs/troubleshooting/"&gt;FAQ &amp;amp; Fehlerbehebung&lt;/a&gt;&lt;/strong&gt; bei Problemen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Kurzreferenz: Pin-Belegung&lt;span class="hx:absolute hx:-mt-20" id="kurzreferenz-pin-belegung"&gt;&lt;/span&gt;
+&lt;a href="#kurzreferenz-pin-belegung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Komponente&lt;/th&gt;
+&lt;th&gt;ESP32 Pin&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;DS18B20 Solar (DATA)&lt;/td&gt;
+&lt;td&gt;GPIO32&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DS18B20 Pool (DATA)&lt;/td&gt;
+&lt;td&gt;GPIO33&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4,7kΩ Pull-Up (pro Sensor)&lt;/td&gt;
+&lt;td&gt;DATA → 3,3V&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relais IN1 (Heizpumpe)&lt;/td&gt;
+&lt;td&gt;GPIO26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relais IN2 (Filterpumpe)&lt;/td&gt;
+&lt;td&gt;GPIO25&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relais VCC&lt;/td&gt;
+&lt;td&gt;5V (VIN)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relais GND&lt;/td&gt;
+&lt;td&gt;GND&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DS18B20 VDD&lt;/td&gt;
+&lt;td&gt;3,3V&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DS18B20 GND&lt;/td&gt;
+&lt;td&gt;GND&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</description></item></channel></rss>
