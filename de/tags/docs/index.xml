@@ -1,4 +1,245 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Docs</title><link>https://smart-swimmingpool.github.io/de/tags/docs/</link><description>Recent content in Docs on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><lastBuildDate>Sun, 14 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/de/tags/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Stückliste (BOM)</title><link>https://smart-swimmingpool.github.io/de/docs/bom/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/bom/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Docs</title><link>https://smart-swimmingpool.github.io/de/tags/docs/</link><description>Recent content in Docs on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><lastBuildDate>Sun, 14 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/de/tags/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Architektur</title><link>https://smart-swimmingpool.github.io/de/docs/architecture/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/architecture/</guid><description>
+&lt;p&gt;&lt;strong&gt;🏊 Smart Swimming Pool: Systemarchitektur und Datenfluss im Überblick.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Diese Seite beschreibt, wie die Hardware-Komponenten, Software-Module und Kommunikationsprotokolle in einer typischen Smart-Swimming-Pool-Installation zusammenwirken.&lt;/p&gt;
+&lt;h2&gt;Systemübersicht&lt;span class="hx:absolute hx:-mt-20" id="systemübersicht"&gt;&lt;/span&gt;
+&lt;a href="#system%c3%bcbersicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Das folgende Diagramm zeigt alle Hauptkomponenten und ihre Verbindungen:&lt;/p&gt;
+&lt;div role="img" aria-label="Diagramm"&gt;
+&lt;pre class="mermaid hx:mt-6"&gt;
+flowchart LR
+subgraph Sensors[&amp;#34;🌡️ Sensoren (Niederspannung)&amp;#34;]
+S1[DS18B20&amp;lt;br/&amp;gt;Solarkollektor] --&amp;gt;|GPIO32&amp;lt;br/&amp;gt;OneWire| ESP
+S2[DS18B20&amp;lt;br/&amp;gt;Poolwasser] --&amp;gt;|GPIO33&amp;lt;br/&amp;gt;OneWire| ESP
+end
+subgraph Controller[&amp;#34;🎛️ Pool Controller&amp;#34;]
+ESP[ESP32&amp;lt;br/&amp;gt;Pool Controller&amp;lt;br/&amp;gt;Firmware v3.x]
+WEB[Weboberfläche&amp;lt;br/&amp;gt;LittleFS&amp;lt;br/&amp;gt;Konfiguration]
+ESP --- WEB
+end
+subgraph Relay[&amp;#34;🔌 Relais-Modul (Niederspannung)&amp;#34;]
+R[2-Kanal&amp;lt;br/&amp;gt;Relais-Modul&amp;lt;br/&amp;gt;GPIO 25/26]
+end
+subgraph Mains[&amp;#34;⚡ Netzspannung (230V)&amp;#34;]
+P1[Heizkreis&amp;lt;br/&amp;gt;Pumpe]
+P2[Filter-/&amp;lt;br/&amp;gt;Umwälzpumpe]
+RCD[FI-Schutzschalter&amp;lt;br/&amp;gt;Leitungsschutz]
+end
+subgraph Network[&amp;#34;🌐 Netzwerk&amp;#34;]
+MQTT[MQTT Broker&amp;lt;br/&amp;gt;Mosquitto]
+end
+subgraph SmartHome[&amp;#34;🏠 Smart Home (optional)&amp;#34;]
+HA[Home Assistant&amp;lt;br/&amp;gt;MQTT Discovery]
+OH[openHAB&amp;lt;br/&amp;gt;MQTT Binding]
+GRAF[Grafana&amp;lt;br/&amp;gt;Dashboard]
+end
+subgraph Display[&amp;#34;🖥️ Optionale Module&amp;#34;]
+PM[Pool Monitor&amp;lt;br/&amp;gt;Kabelloses Display]
+end
+%% Verbindungen
+ESP --&amp;gt;|GPIO 25/26&amp;lt;br/&amp;gt;Aktiv-Low| R
+ESP --&amp;gt;|MQTT&amp;lt;br/&amp;gt;HA Discovery / Homie| MQTT
+R --&amp;gt;|230V via FI| Mains
+RCD --- P1
+RCD --- P2
+MQTT --&amp;gt; HA
+MQTT --&amp;gt; OH
+MQTT --&amp;gt; GRAF
+MQTT --&amp;gt; PM
+&lt;/pre&gt;
+&lt;/div&gt;&lt;h3&gt;Legende&lt;span class="hx:absolute hx:-mt-20" id="legende"&gt;&lt;/span&gt;
+&lt;a href="#legende" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Element&lt;/th&gt;
+&lt;th&gt;Bedeutung&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Durchgehender Pfeil&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Direkte elektrische Verbindung&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Netzwerk-Pfeil&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Netzwerk- / MQTT-Verbindung&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;230V (Netzspannung)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Hochspannungsseite — elektrische Sicherheit beachten&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Niederspannung&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;3,3V / 5V Seite — arbeitssicher bei Netztrennung&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2&gt;Komponentenbeschreibungen&lt;span class="hx:absolute hx:-mt-20" id="komponentenbeschreibungen"&gt;&lt;/span&gt;
+&lt;a href="#komponentenbeschreibungen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Sensoren (Niederspannung)&lt;span class="hx:absolute hx:-mt-20" id="sensoren-niederspannung"&gt;&lt;/span&gt;
+&lt;a href="#sensoren-niederspannung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Komponente&lt;/th&gt;
+&lt;th&gt;Typ&lt;/th&gt;
+&lt;th&gt;Anschluss&lt;/th&gt;
+&lt;th&gt;Zweck&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Solarkollektor-Sensor&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;DS18B20 (wasserdicht)&lt;/td&gt;
+&lt;td&gt;GPIO32 via OneWire&lt;/td&gt;
+&lt;td&gt;Misst Temperatur am Kollektoraustritt&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Poolwasser-Sensor&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;DS18B20 (wasserdicht)&lt;/td&gt;
+&lt;td&gt;GPIO33 via OneWire&lt;/td&gt;
+&lt;td&gt;Misst die Pool-Wassertemperatur&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Beide Sensoren teilen sich 3,3V und GND. Jede Datenleitung benötigt einen &lt;strong&gt;4,7kΩ Pull-Up-Widerstand&lt;/strong&gt; nach 3,3V.&lt;/p&gt;
+&lt;h3&gt;Pool Controller&lt;span class="hx:absolute hx:-mt-20" id="pool-controller"&gt;&lt;/span&gt;
+&lt;a href="#pool-controller" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Der &lt;strong&gt;ESP32&lt;/strong&gt; führt die Pool-Controller-Firmware aus, welche:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Beide DS18B20-Temperatursensoren via OneWire ausliest&lt;/li&gt;
+&lt;li&gt;Die Heizungslogik implementiert (Hysterese, Temperaturschwellen)&lt;/li&gt;
+&lt;li&gt;Die Zirkulationssteuerung übernimmt (Timer, temperaturbasiert)&lt;/li&gt;
+&lt;li&gt;Alle Daten via &lt;strong&gt;MQTT&lt;/strong&gt; im &lt;strong&gt;Home Assistant MQTT Discovery&lt;/strong&gt;-Format (v3.x) oder der &lt;strong&gt;Homie-Convention&lt;/strong&gt; (v2.x) veröffentlicht&lt;/li&gt;
+&lt;li&gt;Eine &lt;strong&gt;Weboberfläche&lt;/strong&gt; zur Konfiguration bereitstellt (LittleFS)&lt;/li&gt;
+&lt;li&gt;Befehle via MQTT und Web-UI entgegennimmt&lt;/li&gt;
+&lt;li&gt;Vollständig &lt;strong&gt;autark&lt;/strong&gt; arbeitet — kein Smart-Home-Server erforderlich&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Relais-Modul&lt;span class="hx:absolute hx:-mt-20" id="relais-modul"&gt;&lt;/span&gt;
+&lt;a href="#relais-modul" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Ein Standard &lt;strong&gt;2-Kanal-5V-Relais-Modul&lt;/strong&gt; (Aktiv-Low):&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Kanal&lt;/th&gt;
+&lt;th&gt;GPIO&lt;/th&gt;
+&lt;th&gt;Steuert&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Relais IN1 (Kanal 1)&lt;/td&gt;
+&lt;td&gt;GPIO26&lt;/td&gt;
+&lt;td&gt;Heizkreispumpe&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relais IN2 (Kanal 2)&lt;/td&gt;
+&lt;td&gt;GPIO25&lt;/td&gt;
+&lt;td&gt;Filter-/Umwälzpumpe&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Das Relais-Modul sorgt für &lt;strong&gt;galvanische Trennung&lt;/strong&gt; zwischen ESP32 (Niederspannung) und den Pumpen (230V). Pumpen immer über einen &lt;strong&gt;FI-Schutzschalter&lt;/strong&gt; anschließen.&lt;/p&gt;
+&lt;h3&gt;Netzspannungsseite (230V)&lt;span class="hx:absolute hx:-mt-20" id="netzspannungsseite-230v"&gt;&lt;/span&gt;
+&lt;a href="#netzspannungsseite-230v" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hx:rounded-lg hx:border-2 hx:border-red-300 hx:bg-red-50 hx:dark:border-red-700 hx:dark:bg-red-900/20 hx:p-4 hx:my-6"&gt;
+&lt;div class="hx:flex hx:items-start hx:gap-3"&gt;
+&lt;span class="hx:text-2xl hx:flex-shrink-0"&gt;⚠️&lt;/span&gt;
+&lt;div&gt;
+&lt;p class="hx:font-bold hx:text-red-700 hx:dark:text-red-400 hx:text-sm hx:uppercase hx:tracking-wide hx:mb-1"&gt;WARNUNG: 230V Netzspannung&lt;/p&gt;
+&lt;p class="hx:text-sm hx:text-red-800 hx:dark:text-red-300 hx:mb-0"&gt;Dieses Projekt arbeitet mit &lt;strong&gt;230V Wechselstrom&lt;/strong&gt; und darf &lt;strong&gt;nur von Personen mit Elektronik-Grundkenntnissen&lt;/strong&gt; nachgebaut werden.
+Verwende immer einen &lt;strong&gt;RCD (FI-Schutzschalter)&lt;/strong&gt;. Das Projekt ist &lt;strong&gt;nicht CE/UL-zertifiziert&lt;/strong&gt; und nicht für den gewerblichen Einsatz bestimmt.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Heizkreispumpe&lt;/strong&gt;: Zirkuliert Poolwasser durch den Wärmetauscher&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Filter-/Umwälzpumpe&lt;/strong&gt;: Betreibt die Sandfilteranlage nach Zeitplan&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;FI-Schutzschalter (RCD)&lt;/strong&gt;: Vorschriftsmäßige Schutzeinrichtung gegen Fehlerströme&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Leitungsschutzschalter&lt;/strong&gt;: Überstromschutz für jeden Pumpenstromkreis&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;⚠️ Alle 230V-Installationen müssen den örtlichen Elektrovorschriften entsprechen. Im Zweifel einen Elektriker hinzuziehen.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2&gt;Datenfluss&lt;span class="hx:absolute hx:-mt-20" id="datenfluss"&gt;&lt;/span&gt;
+&lt;a href="#datenfluss" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Sensor-Messung&lt;/strong&gt;: ESP32 liest Temperaturen von DS18B20-Sensoren via OneWire&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Steuerlogik&lt;/strong&gt;: Firmware wertet Heizungs- und Zirkulationsregeln aus (autark, kein Server nötig)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MQTT-Veröffentlichung&lt;/strong&gt;: Alle Sensorwerte, Schaltzustände und Diagnosedaten werden an den MQTT-Broker gesendet (Home Assistant MQTT Discovery-Format in v3.x)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Smart-Home-Integration&lt;/strong&gt;: Home Assistant, openHAB oder Grafana abonnieren MQTT-Themen zur Visualisierung und Automatisierung&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Aktorik&lt;/strong&gt;: ESP32 steuert das Relais-Modul zum Schalten der Pumpen&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Wichtige Design-Entscheidungen&lt;span class="hx:absolute hx:-mt-20" id="wichtige-design-entscheidungen"&gt;&lt;/span&gt;
+&lt;a href="#wichtige-design-entscheidungen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Entscheidung&lt;/th&gt;
+&lt;th&gt;Begründung&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Steuerlogik auf ESP32&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;System bleibt voll funktionsfähig, auch wenn WiFi oder Smart-Home-Server offline sind&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;MQTT Discovery (HA / Homie)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Standardisierte Auto-Discovery, lose Kopplung; v3.x nutzt Home Assistant MQTT Discovery, v2.x nutzte Homie-Convention&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Aktiv-Low Relais&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Kompatibel mit gängigen Relais-Modulen; beim ESP32-Start sind GPIOs HIGH = Relais AUS (sicher)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Getrennter GPIO pro Sensor&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Ermöglicht unabhängige Fehlererkennung; bei Ausfall eines Sensors arbeitet der andere weiter&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2&gt;Optionale Module&lt;span class="hx:absolute hx:-mt-20" id="optionale-module"&gt;&lt;/span&gt;
+&lt;a href="#optionale-module" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die Architektur unterstützt mehrere optionale Erweiterungen:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Modul&lt;/th&gt;
+&lt;th&gt;Zweck&lt;/th&gt;
+&lt;th&gt;Integration&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Home Assistant&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Vollständiges Dashboard, Automationen, Benachrichtigungen&lt;/td&gt;
+&lt;td&gt;MQTT Discovery (automatisch)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;openHAB&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Sitemap-basierte Steuerung&lt;/td&gt;
+&lt;td&gt;MQTT Binding&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Grafana Dashboard&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Historische Datenvisualisierung&lt;/td&gt;
+&lt;td&gt;MQTT → InfluxDB → Grafana&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Pool Monitor&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Solarbetriebenes, kabelloses Temperaturdisplay&lt;/td&gt;
+&lt;td&gt;MQTT-Abonnement&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Smart Analyzer&lt;/strong&gt; (geplant)&lt;/td&gt;
+&lt;td&gt;Wasserqualitätsüberwachung&lt;/td&gt;
+&lt;td&gt;MQTT (zukünftig)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2&gt;Verwandte Seiten&lt;span class="hx:absolute hx:-mt-20" id="verwandte-seiten"&gt;&lt;/span&gt;
+&lt;a href="#verwandte-seiten" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/de/docs/getting-started/"&gt;Erste Schritte&lt;/a&gt; — Eigenen Pool Controller bauen&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/de/docs/home-assistant-integration/"&gt;Home Assistant Integration&lt;/a&gt; — Dashboard- und Automations-Guide&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/de/docs/troubleshooting/"&gt;FAQ &amp;amp; Fehlerbehebung&lt;/a&gt; — Häufige Probleme und Lösungen&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Stückliste (BOM)</title><link>https://smart-swimmingpool.github.io/de/docs/bom/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/bom/</guid><description>
 &lt;p&gt;&lt;strong&gt;🏊 Smart Swimming Pool: Vollständige Einkaufsliste mit Teilenummern, Preisen und Bezugstipps.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Diese Stückliste (Bill of Materials / BOM) deckt alle Komponenten ab, die für den Bau des Pool-Controllers benötigt werden — inklusive Elektrik, Sensorik, Gehäuse und Werkzeug. Preisangaben sind Schätzwerte Stand 2026.&lt;/p&gt;
 &lt;hr&gt;
