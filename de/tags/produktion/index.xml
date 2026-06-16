@@ -1,0 +1,141 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Produktion</title><link>https://smart-swimmingpool.github.io/de/tags/produktion/</link><description>Recent content in Produktion on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><lastBuildDate>Sun, 14 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/de/tags/produktion/index.xml" rel="self" type="application/rss+xml"/><item><title>Produktions-Checkliste</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/production-checklist/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/production-checklist/</guid><description>
+&lt;blockquote&gt;
+&lt;p&gt;⚠️ &lt;strong&gt;WARNUNG: Diese Checkliste betrifft die Prüfung von 230V AC-Netzspannung.&lt;/strong&gt;
+Fehlerhafte Verdrahtung kann zu Stromschlag, Brand oder Geräteschäden führen.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Nur fortfahren, wenn du Erfahrung mit Netzspannungsinstallationen hast&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Vor Arbeiten an der Schaltung immer stromlos schalten&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Dies ist ein DIY-Projekt — nicht CE/UL-zertifiziert für den kommerziellen Einsatz&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Überblick&lt;span class="hx:absolute hx:-mt-20" id="überblick"&gt;&lt;/span&gt;
+&lt;a href="#%c3%bcberblick" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Diese Checkliste umfasst alle Prüfungen, die vor der Inbetriebnahme des
+Pool-Controllers durchgeführt werden sollten. Verwende sie bei der ersten
+Inbetriebnahme und als jährliche Wartungsreferenz.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Vorbereitungs-Checkliste&lt;span class="hx:absolute hx:-mt-20" id="vorbereitungs-checkliste"&gt;&lt;/span&gt;
+&lt;a href="#vorbereitungs-checkliste" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Hardware&lt;span class="hx:absolute hx:-mt-20" id="hardware"&gt;&lt;/span&gt;
+&lt;a href="#hardware" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; ESP32 sicher im Gehäuse montiert&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Relaismodul mit ausreichender Belüftung montiert&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Netzteil gesichert und für die Last ausgelegt&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Alle Kabelverschraubungen angezogen und abgedichtet&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Zugentlastung an allen externen Kabeln angebracht&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Netz- und Niederspannungsleitungen getrennt geführt&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Keine losen Drähte oder abstehenden Litzen&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Alle Schraubklemmen festgezogen&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Sicherung installiert (korrekte Nennstromstärke für Pumpenlast)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Gehäuse-IP-Schutzart entspricht den Standortanforderungen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Verdrahtung&lt;span class="hx:absolute hx:-mt-20" id="verdrahtung"&gt;&lt;/span&gt;
+&lt;a href="#verdrahtung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; DS18B20-Sensoren: VCC → 3,3V, GND → GND, DATA → GPIO (4,7 kΩ Pull-up)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Relaismodul: VCC → 5V, GND → GND, IN1 → GPIO18, IN2 → GPIO19&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Relais COM → Netz-Außenleiter&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Relais NO → Pumpen-Außenleiter&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Neutralleiter → Pumpen-Neutralleiter (direkt, nicht über Relais)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Schutzleiter an Pumpe und Gehäuse (falls Metall) angeschlossen&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Erdungsdurchgang mit Multimeter geprüft&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Sensoren&lt;span class="hx:absolute hx:-mt-20" id="sensoren"&gt;&lt;/span&gt;
+&lt;a href="#sensoren" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Pool-Temperatur zeigt plausiblen Wert (nicht -127 °C)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Solar-Temperatur zeigt plausiblen Wert (nicht -127 °C)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Temperaturwerte stabil (keine starken Schwankungen)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Sensorkabel unbeschädigt und korrekt verlegt&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Firmware&lt;span class="hx:absolute hx:-mt-20" id="firmware"&gt;&lt;/span&gt;
+&lt;a href="#firmware" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Aktuelle Firmware-Version geflasht&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; WLAN konfiguriert und Verbindung stabil&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; mDNS-Name wird aufgelöst (&lt;code&gt;pool-controller.local&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Web-UI unter Geräte-IP erreichbar&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Web-UI-Passwort geändert (nicht mehr Standard)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; MQTT-Broker konfiguriert und verbunden&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Home Assistant Discovery aktiv (Controller in HA sichtbar)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Alle HA-Entitäten funktionsfähig&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Relais-Test (ohne Last)&lt;span class="hx:absolute hx:-mt-20" id="relais-test-ohne-last"&gt;&lt;/span&gt;
+&lt;a href="#relais-test-ohne-last" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Poolpumpen-Relais schaltet beim Umschalten&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Solarpumpen-Relais schaltet beim Umschalten&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Relais-Verhalten korrekt (nicht invertiert)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Multimeter bestätigt COM–NO-Durchgang bei ON&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Multimeter bestätigt COM–NO-Unterbrechung bei OFF&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Relais-Test (mit Last)&lt;span class="hx:absolute hx:-mt-20" id="relais-test-mit-last"&gt;&lt;/span&gt;
+&lt;a href="#relais-test-mit-last" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Poolpumpe startet und läuft korrekt&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Poolpumpe stoppt beim Ausschalten&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Solarpumpe startet und läuft korrekt&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Solarpumpe stoppt beim Ausschalten&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Keine ungewöhnlichen Geräusche aus den Relais (Brummen, Überschläge)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Keine übermäßige Erwärmung an Relais-Klemmen nach 5 Min.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Konfiguration&lt;span class="hx:absolute hx:-mt-20" id="konfiguration"&gt;&lt;/span&gt;
+&lt;a href="#konfiguration" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Zeitzone korrekt eingestellt&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Timer-Einstellungen entsprechen dem gewünschten Zeitplan&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Temperatur-Schwellwerte konfiguriert&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Betriebsarten getestet (Auto, Manual, Boost, Timer)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; &lt;code&gt;relay-invert&lt;/code&gt; passend zum Relaismodul-Typ (active-low vs active-high)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Erste 24 Stunden Überwachung&lt;span class="hx:absolute hx:-mt-20" id="erste-24-stunden-überwachung"&gt;&lt;/span&gt;
+&lt;a href="#erste-24-stunden-%c3%bcberwachung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Controller bleibt online (keine unerwarteten Neustarts)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Temperaturen werden konsistent aktualisiert&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; MQTT-Verbindung bleibt aktiv&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Heap bleibt über 20 KB&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; WLAN-Signal stabil (RSSI &amp;gt; -70 dBm empfohlen)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Keine Safe-Mode-Aktivierung&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Relais arbeiten nach Zeitplan (Auto-Modus)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Jährliche Wartungs-Checkliste&lt;span class="hx:absolute hx:-mt-20" id="jährliche-wartungs-checkliste"&gt;&lt;/span&gt;
+&lt;a href="#j%c3%a4hrliche-wartungs-checkliste" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Alle Schraubklemmen auf festen Sitz prüfen&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Kabel auf Beschädigung, Abnutzung oder Korrosion prüfen&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Gehäusedichtung und Kabelverschraubungen prüfen&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; RCD/FI-Schutzschalter testen&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Gehäuse-Belüftungsöffnungen reinigen&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Erdungsdurchgang prüfen&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Firmware aktualisieren, falls neuere Version verfügbar&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Konfiguration auf notwendige Änderungen prüfen&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Batterie des RCD-Prüfgeräts prüfen (falls vorhanden)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Alle Sensorwerte auf Genauigkeit prüfen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Abnahme&lt;span class="hx:absolute hx:-mt-20" id="abnahme"&gt;&lt;/span&gt;
+&lt;a href="#abnahme" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Geräte-ID / MAC: ______________________________
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Installationsdatum: ___________________________
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Installiert von: ______________________________
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Firmware-Version: _____________________________
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Letzte Wartung: _______________________________
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Nächste Wartung fällig: _______________________&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;h2&gt;Verwandte Dokumente&lt;span class="hx:absolute hx:-mt-20" id="verwandte-dokumente"&gt;&lt;/span&gt;
+&lt;a href="#verwandte-dokumente" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/build-from-zero/"&gt;Von Null aufgebaut&lt;/a&gt; — Komplette Bauanleitung&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/electrical-safety/"&gt;Elektrische Sicherheit&lt;/a&gt; — Sicherheitsinformationen&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/safety-model/"&gt;Sicherheitsmodell&lt;/a&gt; — System-Sicherheitsarchitektur&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/security-checklist/"&gt;Sicherheits-Checkliste&lt;/a&gt; — Sicherheitshärtung&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/de/docs/troubleshooting/"&gt;Fehlerbehebung&lt;/a&gt; — Häufige Probleme und Lösungen&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>

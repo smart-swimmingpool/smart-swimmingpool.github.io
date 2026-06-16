@@ -1,0 +1,248 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Elektrik</title><link>https://smart-swimmingpool.github.io/de/tags/elektrik/</link><description>Recent content in Elektrik on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><lastBuildDate>Sun, 14 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/de/tags/elektrik/index.xml" rel="self" type="application/rss+xml"/><item><title>Elektrische Sicherheit</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/electrical-safety/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/electrical-safety/</guid><description>
+&lt;blockquote&gt;
+&lt;p&gt;⚠️ &lt;strong&gt;WARNUNG: Dieses Dokument beschreibt die Installation von 230V AC-Netzspannung.&lt;/strong&gt;
+Fehlerhafte Verdrahtung kann zu Stromschlag, Brand oder Geräteschäden führen.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Wenn du keine Erfahrung mit Netzspannungsinstallationen hast, beauftrage
+eine qualifizierte Elektrofachkraft&lt;/li&gt;
+&lt;li&gt;Diese Anleitung dient der Information — örtliche Elektrovorschriften können
+eine zertifizierte Installation vorschreiben&lt;/li&gt;
+&lt;li&gt;Dies ist ein DIY-Projekt — nicht CE/UL-zertifiziert für den kommerziellen Einsatz&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Überblick&lt;span class="hx:absolute hx:-mt-20" id="überblick"&gt;&lt;/span&gt;
+&lt;a href="#%c3%bcberblick" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der Pool-Controller schaltet &lt;strong&gt;230V AC-Netzspannung&lt;/strong&gt; für Pool- und
+Solarpumpen. Unsachgemäße Installation birgt Risiken von Stromschlag, Brand
+oder Geräteschäden. Bitte vor dem Anschließen der Netzspannung sorgfältig lesen.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Wenn du keine Erfahrung mit Netzspannungsinstallationen hast, beauftrage
+eine qualifizierte Elektrofachkraft.&lt;/strong&gt; Diese Anleitung dient der Information
+— örtliche Elektrovorschriften können eine zertifizierte Installation
+vorschreiben.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2&gt;Gefährdungsbeurteilung&lt;span class="hx:absolute hx:-mt-20" id="gefährdungsbeurteilung"&gt;&lt;/span&gt;
+&lt;a href="#gef%c3%a4hrdungsbeurteilung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Gefahr&lt;/th&gt;
+&lt;th&gt;Risikostufe&lt;/th&gt;
+&lt;th&gt;Beschreibung&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Stromschlag&lt;/td&gt;
+&lt;td&gt;Hoch&lt;/td&gt;
+&lt;td&gt;Direkter Kontakt mit 230V AC kann tödlich sein&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Brand&lt;/td&gt;
+&lt;td&gt;Mittel&lt;/td&gt;
+&lt;td&gt;Überlastete oder lose Verbindungen können sich entzünden&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Geräteschaden&lt;/td&gt;
+&lt;td&gt;Mittel&lt;/td&gt;
+&lt;td&gt;Falsche Verdrahtung kann Controller oder Pumpen zerstören&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Feuchtigkeit&lt;/td&gt;
+&lt;td&gt;Hoch&lt;/td&gt;
+&lt;td&gt;Pool-Umgebung hat hohe Luftfeuchte und Spritzwasser-Risiko&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2&gt;Allgemeine Sicherheitsregeln&lt;span class="hx:absolute hx:-mt-20" id="allgemeine-sicherheitsregeln"&gt;&lt;/span&gt;
+&lt;a href="#allgemeine-sicherheitsregeln" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Immer stromlos schalten&lt;/strong&gt; vor Arbeiten am Controller oder den Pumpen&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Fehlerstromschutzschalter (RCD/FI)&lt;/strong&gt; für den Controller-Stromkreis verwenden&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Nie nass arbeiten&lt;/strong&gt; — trockene Hände und trockene Umgebung sicherstellen&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Passende Absicherung&lt;/strong&gt; für den Pumpenstrom wählen&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Netz- und Niederspannungsleitungen getrennt führen&lt;/strong&gt; im Gehäuse&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Alle Verbindungen zugentlasten&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Alle Kabel eindeutig beschriften&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2&gt;Netzspannungs-Verdrahtung&lt;span class="hx:absolute hx:-mt-20" id="netzspannungs-verdrahtung"&gt;&lt;/span&gt;
+&lt;a href="#netzspannungs-verdrahtung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Relais-Ausgangsverdrahtung&lt;span class="hx:absolute hx:-mt-20" id="relais-ausgangsverdrahtung"&gt;&lt;/span&gt;
+&lt;a href="#relais-ausgangsverdrahtung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Das Relaismodul schaltet nur den &lt;strong&gt;Außenleiter (Phase)&lt;/strong&gt;. Der Neutralleiter
+und Schutzleiter werden direkt zur Pumpe geführt.&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;AC Netz Relaismodul Pumpe
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;┌────────┐ ┌──────────────┐ ┌─────┐
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ Phase ──────┤ COM NO ──────┤ L │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ (230V) │ │ │ │ │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ Neutr. ───────────────────────────┤ N │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ │ │ │ │ │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ Erde ───────────────────────────┤ PE │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;└────────┘ └──────────────┘ └─────┘&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3&gt;Leitungsquerschnitte&lt;span class="hx:absolute hx:-mt-20" id="leitungsquerschnitte"&gt;&lt;/span&gt;
+&lt;a href="#leitungsquerschnitte" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Pumpenleistung&lt;/th&gt;
+&lt;th&gt;Min. Leitungsquerschnitt&lt;/th&gt;
+&lt;th&gt;Absicherung&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;≤ 500 W&lt;/td&gt;
+&lt;td&gt;1,5 mm²&lt;/td&gt;
+&lt;td&gt;6 A&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;500–1000 W&lt;/td&gt;
+&lt;td&gt;1,5 mm²&lt;/td&gt;
+&lt;td&gt;10 A&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1000–2000 W&lt;/td&gt;
+&lt;td&gt;2,5 mm²&lt;/td&gt;
+&lt;td&gt;16 A&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;Absicherung&lt;span class="hx:absolute hx:-mt-20" id="absicherung"&gt;&lt;/span&gt;
+&lt;a href="#absicherung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Einen Leitungsschutzschalter entsprechend der Pumpenlast installieren&lt;/li&gt;
+&lt;li&gt;Die Sicherung muss auf dem &lt;strong&gt;Außenleiter&lt;/strong&gt; vor dem Controller sitzen&lt;/li&gt;
+&lt;li&gt;Hutschienen- oder Aufbaumontage-Sicherungshalter verwenden&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Niederspannungs-Verdrahtung&lt;span class="hx:absolute hx:-mt-20" id="niederspannungs-verdrahtung"&gt;&lt;/span&gt;
+&lt;a href="#niederspannungs-verdrahtung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;ESP32 und Sensor-Verdrahtung&lt;span class="hx:absolute hx:-mt-20" id="esp32-und-sensor-verdrahtung"&gt;&lt;/span&gt;
+&lt;a href="#esp32-und-sensor-verdrahtung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ESP32 arbeitet mit 3,3V / 5V (USB-Stromversorgung)&lt;/li&gt;
+&lt;li&gt;DS18B20-Sensoren verwenden 3,3V — max. Kabellänge: 10 m&lt;/li&gt;
+&lt;li&gt;Sensorkabel von Netzleitungen getrennt führen (min. 5 cm Abstand)&lt;/li&gt;
+&lt;li&gt;Geschirmte, verdrillte Zweidrahtleitung für lange Sensorstrecken&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Spannungsversorgung&lt;span class="hx:absolute hx:-mt-20" id="spannungsversorgung"&gt;&lt;/span&gt;
+&lt;a href="#spannungsversorgung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Geregeltes&lt;/strong&gt; 5V-Netzteil verwenden (kein rohes Steckernetzteil)&lt;/li&gt;
+&lt;li&gt;Mindestens 1A für ESP32 + Relaismodul&lt;/li&gt;
+&lt;li&gt;Für 12V-Pool-Systeme: 12V→5V DC-DC-Wandler verwenden&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Gehäuseanforderungen&lt;span class="hx:absolute hx:-mt-20" id="gehäuseanforderungen"&gt;&lt;/span&gt;
+&lt;a href="#geh%c3%a4useanforderungen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;IP-Schutzart&lt;span class="hx:absolute hx:-mt-20" id="ip-schutzart"&gt;&lt;/span&gt;
+&lt;a href="#ip-schutzart" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Standort&lt;/th&gt;
+&lt;th&gt;Min. IP-Schutzart&lt;/th&gt;
+&lt;th&gt;Anforderungen&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Innen (trocken)&lt;/td&gt;
+&lt;td&gt;IP54&lt;/td&gt;
+&lt;td&gt;Staubschutz, Spritzwasserschutz&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Außen (unter Dach)&lt;/td&gt;
+&lt;td&gt;IP65&lt;/td&gt;
+&lt;td&gt;Wasserstrahlschutz, staubdicht&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Außen (direkte Witterung)&lt;/td&gt;
+&lt;td&gt;IP66+&lt;/td&gt;
+&lt;td&gt;Starker Wasserstrahl, wetterfest&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;Gehäuse-Tipps&lt;span class="hx:absolute hx:-mt-20" id="gehäuse-tipps"&gt;&lt;/span&gt;
+&lt;a href="#geh%c3%a4use-tipps" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Kabelverschraubungen&lt;/strong&gt; (PG9 oder PG11) für alle Kabeleinführungen verwenden&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Tropfschlaufe&lt;/strong&gt; an externen Kabeln vor dem Gehäuseeintritt vorsehen&lt;/li&gt;
+&lt;li&gt;Netz- und Niederspannungskabel auf &lt;strong&gt;gegenüberliegenden Seiten&lt;/strong&gt; des
+Gehäuses führen&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Zugentlastung&lt;/strong&gt; an allen Kabeln anbringen&lt;/li&gt;
+&lt;li&gt;Gehäuse sollte &lt;strong&gt;verschließbar&lt;/strong&gt; sein&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Schutzleiter (Erdung)&lt;span class="hx:absolute hx:-mt-20" id="schutzleiter-erdung"&gt;&lt;/span&gt;
+&lt;a href="#schutzleiter-erdung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Schutzleiteranschluss&lt;span class="hx:absolute hx:-mt-20" id="schutzleiteranschluss"&gt;&lt;/span&gt;
+&lt;a href="#schutzleiteranschluss" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Metallgehäuse an Schutzleiter anschließen&lt;/li&gt;
+&lt;li&gt;Pumpenmotor-Schutzleiter anschließen&lt;/li&gt;
+&lt;li&gt;Grün-gelben Draht (min. 2,5 mm²) für Erdverbindungen verwenden&lt;/li&gt;
+&lt;li&gt;Durchgang vor Inbetriebnahme mit Multimeter prüfen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Masseschleifen vermeiden&lt;span class="hx:absolute hx:-mt-20" id="masseschleifen-vermeiden"&gt;&lt;/span&gt;
+&lt;a href="#masseschleifen-vermeiden" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Alle Erdleiter zu &lt;strong&gt;einem zentralen Erdungspunkt&lt;/strong&gt; führen (Stern-Topologie)&lt;/li&gt;
+&lt;li&gt;Erdverbindungen nicht in Reihe schalten&lt;/li&gt;
+&lt;li&gt;Isolierte Ringkabelschuhe für Erdanschlüsse verwenden&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Inbetriebnahme&lt;span class="hx:absolute hx:-mt-20" id="inbetriebnahme"&gt;&lt;/span&gt;
+&lt;a href="#inbetriebnahme" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Vor dem Anschließen der Netzspannung&lt;span class="hx:absolute hx:-mt-20" id="vor-dem-anschließen-der-netzspannung"&gt;&lt;/span&gt;
+&lt;a href="#vor-dem-anschlie%c3%9fen-der-netzspannung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/build-from-zero/"&gt;Von Null aufgebaut&lt;/a&gt; Steckbrett-Test abschließen&lt;/li&gt;
+&lt;li&gt;Sensoren geben plausible Werte aus&lt;/li&gt;
+&lt;li&gt;Relais-Funktion mit Multimeter geprüft (ohne Last)&lt;/li&gt;
+&lt;li&gt;Gehäuse ordnungsgemäß abgedichtet&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Erster Netz-Einschalt&lt;span class="hx:absolute hx:-mt-20" id="erster-netz-einschalt"&gt;&lt;/span&gt;
+&lt;a href="#erster-netz-einschalt" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Controller in den ersten 30 Minuten nicht unbeaufsichtigt lassen&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Auf ungewöhnliche Geräusche achten (Brummen, Überschläge)&lt;/li&gt;
+&lt;li&gt;Auf Erwärmung an Relais-Klemmen und Netzteil prüfen&lt;/li&gt;
+&lt;li&gt;Prüfen, ob die Pumpe korrekt startet und stoppt&lt;/li&gt;
+&lt;li&gt;Prüfen, ob das Relais beim Ausschalten zuverlässig trennt&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Jährliche Prüfung&lt;span class="hx:absolute hx:-mt-20" id="jährliche-prüfung"&gt;&lt;/span&gt;
+&lt;a href="#j%c3%a4hrliche-pr%c3%bcfung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Alle Schraubklemmen auf festen Sitz prüfen&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Kabel auf Beschädigung oder Abnutzung prüfen&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; RCD/FI-Schalter testen&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Gehäuse-Lüftungsöffnungen reinigen&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Erdungsdurchgang prüfen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Notfallmaßnahmen&lt;span class="hx:absolute hx:-mt-20" id="notfallmaßnahmen"&gt;&lt;/span&gt;
+&lt;a href="#notfallma%c3%9fnahmen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Bei Brandgeruch&lt;span class="hx:absolute hx:-mt-20" id="bei-brandgeruch"&gt;&lt;/span&gt;
+&lt;a href="#bei-brandgeruch" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Sofort Strom abschalten&lt;/strong&gt; am Sicherungsautomaten&lt;/li&gt;
+&lt;li&gt;Controller nicht berühren&lt;/li&gt;
+&lt;li&gt;CO₂- oder Pulverlöscher verwenden (KEIN Wasser)&lt;/li&gt;
+&lt;li&gt;Installation vor Wiederinbetnahme überprüfen lassen&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Bei Stromschlag&lt;span class="hx:absolute hx:-mt-20" id="bei-stromschlag"&gt;&lt;/span&gt;
+&lt;a href="#bei-stromschlag" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Person nicht berühren&lt;/strong&gt;, solange sie unter Spannung steht&lt;/li&gt;
+&lt;li&gt;Strom am Sicherungsautomaten abschalten&lt;/li&gt;
+&lt;li&gt;Sofort Rettungsdienst verständigen (112)&lt;/li&gt;
+&lt;li&gt;Erste Hilfe leisten (CPR, wenn ausgebildet), sobald stromlos&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2&gt;Verwandte Dokumente&lt;span class="hx:absolute hx:-mt-20" id="verwandte-dokumente"&gt;&lt;/span&gt;
+&lt;a href="#verwandte-dokumente" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/build-from-zero/"&gt;Von Null aufgebaut&lt;/a&gt; — Komplette Bauanleitung&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/hardware-guide/"&gt;Hardware-Anleitung&lt;/a&gt; — Hardware-Details&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/safety-model/"&gt;Sicherheitsmodell&lt;/a&gt; — System-Sicherheitsarchitektur&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/production-checklist/"&gt;Produktions-Checkliste&lt;/a&gt; — Prüfungen vor Inbetriebnahme&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/security-checklist/"&gt;Sicherheits-Checkliste&lt;/a&gt; — Sicherheitshärtung&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>

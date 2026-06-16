@@ -1,0 +1,301 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Härtung</title><link>https://smart-swimmingpool.github.io/de/tags/hartung/</link><description>Recent content in Härtung on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><lastBuildDate>Sun, 14 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/de/tags/hartung/index.xml" rel="self" type="application/rss+xml"/><item><title>Sicherheits-Checkliste</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/security-checklist/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/security-checklist/</guid><description>
+&lt;blockquote&gt;
+&lt;p&gt;⚠️ &lt;strong&gt;WARNUNG&lt;/strong&gt;: Einige Sicherheitsmaßnahmen beziehen sich auf &lt;strong&gt;230V AC-
+Netzspannung&lt;/strong&gt; (Relais-Test, Netzteilprüfung). &lt;strong&gt;Vor Arbeiten an der
+Schaltung immer stromlos schalten.&lt;/strong&gt; Im Zweifel eine qualifizierte
+Elektrofachkraft beauftragen.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Überblick&lt;span class="hx:absolute hx:-mt-20" id="überblick"&gt;&lt;/span&gt;
+&lt;a href="#%c3%bcberblick" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Diese Checkliste umfasst Sicherheitsmaßnahmen zur Härtung des Pool-Controllers.
+Obwohl der Controller im lokalen Netzwerk läuft und Pumpen (keine
+sicherheitskritischen Systeme) steuert, verhindern diese Empfehlungen
+unbefugten Zugriff und reduzieren die Angriffsfläche.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Kritisch (Muss umgesetzt werden)&lt;span class="hx:absolute hx:-mt-20" id="kritisch-muss-umgesetzt-werden"&gt;&lt;/span&gt;
+&lt;a href="#kritisch-muss-umgesetzt-werden" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;1. Standard-Passwort ändern&lt;span class="hx:absolute hx:-mt-20" id="1-standard-passwort-ändern"&gt;&lt;/span&gt;
+&lt;a href="#1-standard-passwort-%c3%a4ndern" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Das werksseitige Web-Interface-Passwort &lt;strong&gt;muss&lt;/strong&gt; vor dem Anschluss an ein
+Netzwerk geändert werden.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Standard&lt;/strong&gt;: &lt;code&gt;admin&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Aktion&lt;/strong&gt;: Web-UI → Security &amp;amp; Update → Passwort ändern&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Anforderungen&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;Mindestens 8 Zeichen&lt;/li&gt;
+&lt;li&gt;Mischung aus Groß-/Kleinbuchstaben, Ziffern und Sonderzeichen&lt;/li&gt;
+&lt;li&gt;Kein wiederverwendetes Passwort aus anderen Diensten&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hinweis&lt;/strong&gt;: Dieses Passwort schützt auch die OTA-Update-Endpunkte — es
+gibt kein separates OTA-Passwort.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;2. MQTT-Authentifizierung verwenden&lt;span class="hx:absolute hx:-mt-20" id="2-mqtt-authentifizierung-verwenden"&gt;&lt;/span&gt;
+&lt;a href="#2-mqtt-authentifizierung-verwenden" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Aktion&lt;/strong&gt;: MQTT-Benutzername und -Passwort in den Controller-Einstellungen
+konfigurieren&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Warum&lt;/strong&gt;: Unauthentifiziertes MQTT erlaubt jedem im Netzwerk, auf
+Controller-Topics zu publizieren&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Empfehlung&lt;/strong&gt;: Dedizierten MQTT-Benutzer für den Controller mit minimalen
+Berechtigungen anlegen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;3. MQTT-Broker nur intern erreichbar&lt;span class="hx:absolute hx:-mt-20" id="3-mqtt-broker-nur-intern-erreichbar"&gt;&lt;/span&gt;
+&lt;a href="#3-mqtt-broker-nur-intern-erreichbar" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Aktion&lt;/strong&gt;: MQTT-Broker nur an lokale Netzwerkschnittstelle binden&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Warum&lt;/strong&gt;: Ein öffentlich erreichbarer MQTT-Broker kann gefunden und
+missbraucht werden&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Mosquitto-Konfiguration&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-ini" data-lang="ini"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;listener 1883 192.168.1.10&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;allow_anonymous false&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;password_file /etc/mosquitto/passwd&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Port 1883 oder 8883 NIEMALS&lt;/strong&gt; für das Internet freigeben&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Hoch (Dringend empfohlen)&lt;span class="hx:absolute hx:-mt-20" id="hoch-dringend-empfohlen"&gt;&lt;/span&gt;
+&lt;a href="#hoch-dringend-empfohlen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;4. Web-Interface nur im LAN&lt;span class="hx:absolute hx:-mt-20" id="4-web-interface-nur-im-lan"&gt;&lt;/span&gt;
+&lt;a href="#4-web-interface-nur-im-lan" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Das Web-Interface hört standardmäßig auf allen Schnittstellen&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Aktion&lt;/strong&gt;: Sicherstellen, dass sich der Controller in einem vertrauenswürdigen
+lokalen Netzwerk befindet&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Port 80/443 des Controllers NIEMALS&lt;/strong&gt; für das Internet freigeben&lt;/li&gt;
+&lt;li&gt;Bei Bedarf nach Fernzugriff: VPN (WireGuard, Tailscale, OpenVPN) oder
+Home Assistant sicheren Fernzugriff verwenden&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;5. Nur offizielle Firmware verwenden&lt;span class="hx:absolute hx:-mt-20" id="5-nur-offizielle-firmware-verwenden"&gt;&lt;/span&gt;
+&lt;a href="#5-nur-offizielle-firmware-verwenden" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Aktion&lt;/strong&gt;: Ausschließlich Firmware aus offiziellen GitHub-Releases flashen&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Warum&lt;/strong&gt;: Inoffizielle Firmware könnte Hintertüren oder unsichere
+Modifikationen enthalten&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Prüfung&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;Von &lt;a
+href="https://github.com/smart-swimmingpool/pool-controller/releases"target="_blank" rel="noopener"&gt;offiziellen Releases&lt;/a&gt; herunterladen&lt;/li&gt;
+&lt;li&gt;Release-Tag mit der erwarteten Version vergleichen&lt;/li&gt;
+&lt;li&gt;Bei Bedarf selbst aus dem Quellcode bauen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;6. Backup vor OTA-Update&lt;span class="hx:absolute hx:-mt-20" id="6-backup-vor-ota-update"&gt;&lt;/span&gt;
+&lt;a href="#6-backup-vor-ota-update" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Aktion&lt;/strong&gt;: Screenshot oder Export der aktuellen Konfiguration vor dem
+Firmware-Update speichern&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Warum&lt;/strong&gt;: OTA-Fehler können das Dateisystem beschädigen und ein
+erneutes Flashen erforderlich machen&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hinweis&lt;/strong&gt;: Die Konfiguration des Controllers wird im NVS gespeichert und
+überlebt in den meisten Fällen ein erneutes Flashen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Mittel (Empfohlen)&lt;span class="hx:absolute hx:-mt-20" id="mittel-empfohlen"&gt;&lt;/span&gt;
+&lt;a href="#mittel-empfohlen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;7. Relais vor Lastanschluss testen&lt;span class="hx:absolute hx:-mt-20" id="7-relais-vor-lastanschluss-testen"&gt;&lt;/span&gt;
+&lt;a href="#7-relais-vor-lastanschluss-testen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Aktion&lt;/strong&gt;: Relais-Funktion mit Multimeter prüfen, bevor 230V AC-Pumpen
+angeschlossen werden&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Warum&lt;/strong&gt;: Ein defektes Relais könnte eine Pumpe permanent eingeschaltet
+lassen, was ein Sicherheitsrisiko darstellt&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Vorgehen&lt;/strong&gt;: Siehe &lt;a
+href="https://smart-swimmingpool.github.io/docs/hardware-guide/#relais-test"&gt;Hardware-Guide → Relais-Test&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;8. Dediziertes Netzwerk-VLAN verwenden&lt;span class="hx:absolute hx:-mt-20" id="8-dediziertes-netzwerk-vlan-verwenden"&gt;&lt;/span&gt;
+&lt;a href="#8-dediziertes-netzwerk-vlan-verwenden" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Für fortgeschrittene Aufbauten:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ESP32 in ein &lt;strong&gt;IoT-VLAN&lt;/strong&gt; mit eingeschränktem Internetzugriff legen&lt;/li&gt;
+&lt;li&gt;Nur erlauben: MQTT-Broker, NTP-Server, Home Assistant&lt;/li&gt;
+&lt;li&gt;Alle eingehenden Verbindungen aus dem Internet blockieren&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;9. Unbenutzte Funktionen deaktivieren&lt;span class="hx:absolute hx:-mt-20" id="9-unbenutzte-funktionen-deaktivieren"&gt;&lt;/span&gt;
+&lt;a href="#9-unbenutzte-funktionen-deaktivieren" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Aktion&lt;/strong&gt;: Wenn OTA nicht genutzt wird:
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Nur GitHub-OTA deaktivieren&lt;/strong&gt;: Ausgehenden HTTPS (Port 443) vom
+Controller in der Netzwerk-Firewall blockieren&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;OTA vollständig deaktivieren (inkl. manuellem Upload)&lt;/strong&gt;: Die
+OTA-Routenregistrierungen in &lt;code&gt;src/WebPortal.cpp&lt;/code&gt; (Zeilen 175–228)
+entfernen und die Firmware neu bauen; oder OTA sowohl ein- als auch
+ausgehend in der Firewall blockieren&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Aktion&lt;/strong&gt;: Wenn das Web-Interface nicht benötigt wird, Zugriff über
+Netzwerk-Firewall-Regeln einschränken&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Warum&lt;/strong&gt;: Weniger Angriffsfläche reduziert Risiken&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Netzwerksicherheit-Übersicht&lt;span class="hx:absolute hx:-mt-20" id="netzwerksicherheit-übersicht"&gt;&lt;/span&gt;
+&lt;a href="#netzwerksicherheit-%c3%bcbersicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Internet
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; │ (blockiert)
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; ▼
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;┌──────────────┐ ┌────────────┐ ┌──────────────────┐
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ Heimrouter │─────│ Lokales LAN│─────│ Pool Controller │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ (Firewall) │ │ 192.168.x.x│ │ ESP32 │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;└──────────────┘ └────────────┘ └──────────────────┘
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; │ │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; ▼ ▼
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; ┌──────────────┐ ┌──────────────┐
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; │ MQTT-Broker │ │ Home Assistant│
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; │ (nur lokal) │ │ (nur lokal) │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; └──────────────┘ └──────────────┘&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3&gt;Empfohlene Firewall-Regeln&lt;span class="hx:absolute hx:-mt-20" id="empfohlene-firewall-regeln"&gt;&lt;/span&gt;
+&lt;a href="#empfohlene-firewall-regeln" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Quelle&lt;/th&gt;
+&lt;th&gt;Ziel&lt;/th&gt;
+&lt;th&gt;Port&lt;/th&gt;
+&lt;th&gt;Protokoll&lt;/th&gt;
+&lt;th&gt;Aktion&lt;/th&gt;
+&lt;th&gt;Zweck&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Controller&lt;/td&gt;
+&lt;td&gt;DNS-Server&lt;/td&gt;
+&lt;td&gt;53&lt;/td&gt;
+&lt;td&gt;UDP/TCP&lt;/td&gt;
+&lt;td&gt;Erlauben&lt;/td&gt;
+&lt;td&gt;Namensauflösung&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Controller&lt;/td&gt;
+&lt;td&gt;MQTT-Broker&lt;/td&gt;
+&lt;td&gt;1883&lt;/td&gt;
+&lt;td&gt;TCP&lt;/td&gt;
+&lt;td&gt;Erlauben&lt;/td&gt;
+&lt;td&gt;MQTT-Kommunikation&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Controller&lt;/td&gt;
+&lt;td&gt;NTP-Server&lt;/td&gt;
+&lt;td&gt;123&lt;/td&gt;
+&lt;td&gt;UDP&lt;/td&gt;
+&lt;td&gt;Erlauben&lt;/td&gt;
+&lt;td&gt;Zeitsynchronisation&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Controller&lt;/td&gt;
+&lt;td&gt;Internet&lt;/td&gt;
+&lt;td&gt;80&lt;/td&gt;
+&lt;td&gt;TCP&lt;/td&gt;
+&lt;td&gt;Blockieren&lt;/td&gt;
+&lt;td&gt;Kein Webzugriff nötig&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Controller&lt;/td&gt;
+&lt;td&gt;Internet&lt;/td&gt;
+&lt;td&gt;443&lt;/td&gt;
+&lt;td&gt;TCP&lt;/td&gt;
+&lt;td&gt;Erlauben&lt;/td&gt;
+&lt;td&gt;OTA-Update (GitHub)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Internet&lt;/td&gt;
+&lt;td&gt;Controller&lt;/td&gt;
+&lt;td&gt;beliebig&lt;/td&gt;
+&lt;td&gt;beliebig&lt;/td&gt;
+&lt;td&gt;Blockieren&lt;/td&gt;
+&lt;td&gt;Kein eingehender Zugriff&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;HA-Server&lt;/td&gt;
+&lt;td&gt;Controller&lt;/td&gt;
+&lt;td&gt;80&lt;/td&gt;
+&lt;td&gt;TCP&lt;/td&gt;
+&lt;td&gt;Erlauben&lt;/td&gt;
+&lt;td&gt;Web-UI / API&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Hinweis&lt;/strong&gt;: Falls OTA-Updates &lt;strong&gt;nicht&lt;/strong&gt; genutzt werden, kann Port 443
+stattdessen blockiert werden. Der Controller verwendet ausgehenden HTTPS
+nur zum Prüfen und Herunterladen von Firmware-Releases von GitHub.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2&gt;Zugangsdaten-Verwaltung&lt;span class="hx:absolute hx:-mt-20" id="zugangsdaten-verwaltung"&gt;&lt;/span&gt;
+&lt;a href="#zugangsdaten-verwaltung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Speicherort der Zugangsdaten&lt;span class="hx:absolute hx:-mt-20" id="speicherort-der-zugangsdaten"&gt;&lt;/span&gt;
+&lt;a href="#speicherort-der-zugangsdaten" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Zugangsdaten&lt;/th&gt;
+&lt;th&gt;Speicher&lt;/th&gt;
+&lt;th&gt;Verschlüsselt?&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;WLAN-Passwort&lt;/td&gt;
+&lt;td&gt;NVS&lt;/td&gt;
+&lt;td&gt;Nein (NVS standardmäßig unverschlüsselt)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MQTT-Passwort&lt;/td&gt;
+&lt;td&gt;NVS&lt;/td&gt;
+&lt;td&gt;Nein&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Web-UI-Passwort&lt;/td&gt;
+&lt;td&gt;NVS&lt;/td&gt;
+&lt;td&gt;SHA-256-gehasht&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Hinweis&lt;/strong&gt;: NVS-Werte werden im Klartext auf dem Flash-Chip gespeichert.
+Physischer Zugriff auf das Gerät gefährdet alle Zugangsdaten.
+&lt;strong&gt;Flash-Verschlüsselung&lt;/strong&gt; für Produktionsumgebungen aktivieren.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Flash-Verschlüsselung (ESP32)&lt;span class="hx:absolute hx:-mt-20" id="flash-verschlüsselung-esp32"&gt;&lt;/span&gt;
+&lt;a href="#flash-verschl%c3%bcsselung-esp32" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Für erweiterte Sicherheit die ESP32-Flash-Verschlüsselung aktivieren:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;In menuconfig aktivieren: &lt;code&gt;Security features → Enable flash encryption&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Efuse brennen, um Verschlüsselung dauerhaft zu aktivieren&lt;/li&gt;
+&lt;li&gt;Firmware neu flashen&lt;/li&gt;
+&lt;li&gt;Alle NVS-Daten werden verschlüsselt gespeichert&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;⚠️ &lt;strong&gt;Warnung&lt;/strong&gt;: Flash-Verschlüsselung ist auf den meisten ESP32-Modulen
+nicht umkehrbar. Nach der Aktivierung kann der Flash ohne
+Verschlüsselungsschlüssel nicht mehr gelesen werden.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2&gt;Verwandte Dokumente&lt;span class="hx:absolute hx:-mt-20" id="verwandte-dokumente"&gt;&lt;/span&gt;
+&lt;a href="#verwandte-dokumente" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/hardware-guide/"&gt;Hardware-Guide&lt;/a&gt; — Bau- und Verdrahtungsanleitung&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/software-guide/"&gt;Software-Guide&lt;/a&gt; — Ersteinrichtung und Konfiguration&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/mqtt-configuration/"&gt;MQTT-Konfiguration&lt;/a&gt; — MQTT-Broker-Einrichtung&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/troubleshooting-matrix/"&gt;Fehlerbehebungs-Matrix&lt;/a&gt; — Häufige Probleme und Lösungen&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>
