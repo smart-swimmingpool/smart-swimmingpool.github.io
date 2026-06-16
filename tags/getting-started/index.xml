@@ -340,8 +340,10 @@ href="https://smart-swimmingpool.github.io/docs/grafana-dashboard/"&gt;Grafana D
 href="https://smart-swimmingpool.github.io/docs/pool-monitor/"&gt;Pool Monitor&lt;/a&gt;&lt;/strong&gt; for a dedicated display&lt;/li&gt;
 &lt;li&gt;Check the &lt;strong&gt;&lt;a
 href="https://smart-swimmingpool.github.io/docs/troubleshooting/"&gt;FAQ&lt;/a&gt;&lt;/strong&gt; if you run into issues&lt;/li&gt;
-&lt;li&gt;Explore the &lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/openhab-configuration/"&gt;openHAB Configuration&lt;/a&gt;&lt;/strong&gt; if you use openHAB&lt;/li&gt;
+&lt;li&gt;Follow the &lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/openhab-integration/"&gt;openHAB Integration Guide&lt;/a&gt;&lt;/strong&gt; to set up openHAB step by step&lt;/li&gt;
+&lt;li&gt;Reference the &lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/openhab-configuration/"&gt;openHAB Configuration&lt;/a&gt;&lt;/strong&gt; for the complete openHAB config files&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;Preparations&lt;span class="hx:absolute hx:-mt-20" id="preparations"&gt;&lt;/span&gt;
 &lt;a href="#preparations" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;If a heating circuit with a heat exchanger is in place, you can start implementing the smart pool control.&lt;/p&gt;
