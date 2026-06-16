@@ -1,4 +1,337 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Safety</title><link>https://smart-swimmingpool.github.io/tags/safety/</link><description>Recent content in Safety on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Sun, 14 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/tags/safety/index.xml" rel="self" type="application/rss+xml"/><item><title>⚠️ Sicherheitshinweise &amp; Warnungen</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/safety/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/safety/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Safety</title><link>https://smart-swimmingpool.github.io/tags/safety/</link><description>Recent content in Safety on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Sun, 14 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/tags/safety/index.xml" rel="self" type="application/rss+xml"/><item><title>Commissioning Checklist</title><link>https://smart-swimmingpool.github.io/docs/checklist/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/checklist/</guid><description>
+&lt;p&gt;&lt;strong&gt;🏊 Smart Swimming Pool: Step-by-step checklist for first-time setup and commissioning.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Use this checklist &lt;strong&gt;before&lt;/strong&gt; connecting pumps to mains voltage. Tick off each item to ensure a safe and successful first run.&lt;/p&gt;
+&lt;div class="hx:rounded-lg hx:border-2 hx:border-red-300 hx:bg-red-50 hx:dark:border-red-700 hx:dark:bg-red-900/20 hx:p-4 hx:my-6"&gt;
+&lt;div class="hx:flex hx:items-start hx:gap-3"&gt;
+&lt;span class="hx:text-2xl hx:flex-shrink-0"&gt;⚠️&lt;/span&gt;
+&lt;div&gt;
+&lt;p class="hx:font-bold hx:text-red-700 hx:dark:text-red-400 hx:text-sm hx:uppercase hx:tracking-wide hx:mb-1"&gt;WARNING: 230V Mains Voltage&lt;/p&gt;
+&lt;p class="hx:text-sm hx:text-red-800 hx:dark:text-red-300 hx:mb-0"&gt;This project operates with &lt;strong&gt;230V AC mains voltage&lt;/strong&gt; and should only be built by individuals with &lt;strong&gt;basic electronics knowledge&lt;/strong&gt;.
+Always use an &lt;strong&gt;RCD (residual-current device)&lt;/strong&gt;. This project is &lt;strong&gt;not CE/UL certified&lt;/strong&gt; and not intended for commercial use.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;h2&gt;1. Hardware Assembly&lt;span class="hx:absolute hx:-mt-20" id="1-hardware-assembly"&gt;&lt;/span&gt;
+&lt;a href="#1-hardware-assembly" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;1.1 Controller Electronics&lt;span class="hx:absolute hx:-mt-20" id="11-controller-electronics"&gt;&lt;/span&gt;
+&lt;a href="#11-controller-electronics" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; ESP32 firmly seated on breadboard or perfboard&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Relay module connected: &lt;strong&gt;VCC → 5V&lt;/strong&gt; (not 3.3V!), &lt;strong&gt;GND → GND&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Relay IN1 (GPIO26) prepared for &lt;strong&gt;heating circuit pump&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Relay IN2 (GPIO25) prepared for &lt;strong&gt;filter/circulation pump&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; DS18B20 solar sensor: &lt;strong&gt;DATA → GPIO32&lt;/strong&gt;, &lt;strong&gt;VDD → 3.3V&lt;/strong&gt;, &lt;strong&gt;GND → GND&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; DS18B20 pool sensor: &lt;strong&gt;DATA → GPIO33&lt;/strong&gt;, &lt;strong&gt;VDD → 3.3V&lt;/strong&gt;, &lt;strong&gt;GND → GND&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; &lt;strong&gt;4.7kΩ pull-up resistor&lt;/strong&gt; between each DATA pin and 3.3V (2 resistors total)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; No shorts between adjacent pins on the breadboard&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;1.2 Power Supply&lt;span class="hx:absolute hx:-mt-20" id="12-power-supply"&gt;&lt;/span&gt;
+&lt;a href="#12-power-supply" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; USB power supply: &lt;strong&gt;5V / 1A minimum&lt;/strong&gt; (quality brand, not a phone charger from a discount store)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; USB cable is a &lt;strong&gt;data cable&lt;/strong&gt; (not charge-only)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Power supply is in a &lt;strong&gt;dry location&lt;/strong&gt; or IP-rated enclosure&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;1.3 Enclosure (if used)&lt;span class="hx:absolute hx:-mt-20" id="13-enclosure-if-used"&gt;&lt;/span&gt;
+&lt;a href="#13-enclosure-if-used" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Enclosure is &lt;strong&gt;IP54 or better&lt;/strong&gt; for outdoor / pool house installation&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Cable glands (PG fittings) installed for all cable entries&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Ventilation openings if enclosure traps heat&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Strain relief on all cables entering the enclosure&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;2. 230V / Mains Side&lt;span class="hx:absolute hx:-mt-20" id="2-230v--mains-side"&gt;&lt;/span&gt;
+&lt;a href="#2-230v--mains-side" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;⚠️ &lt;strong&gt;Danger to life!&lt;/strong&gt; Work on 230V circuits must only be performed by qualified personnel. Observe all applicable electrical codes.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; &lt;strong&gt;RCD / FI circuit breaker&lt;/strong&gt; installed in the supply line (mandatory!)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; &lt;strong&gt;Circuit breaker&lt;/strong&gt; (MCB) with appropriate rating for each pump&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Cable cross-section adequate for pump current draw&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; All connections in a &lt;strong&gt;junction box&lt;/strong&gt; or distribution board&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; &lt;strong&gt;Pumps are NOT connected to the relay outputs yet&lt;/strong&gt; — test without 230V first&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; If available: use a mains tester to verify the 230V wiring before connecting pumps&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;3. Firmware &amp;amp; First Boot&lt;span class="hx:absolute hx:-mt-20" id="3-firmware--first-boot"&gt;&lt;/span&gt;
+&lt;a href="#3-firmware--first-boot" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; PlatformIO project opened, environment set to &lt;strong&gt;esp32dev&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Firmware uploaded successfully: &lt;code&gt;pio run -e esp32dev -t upload&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Filesystem image uploaded: &lt;code&gt;pio run -e esp32dev -t uploadfs&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Serial monitor shows boot log at &lt;strong&gt;115200 baud&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; ESP32 starts in AP mode:
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;[INFO] Pool Controller v3.x.x starting...
+[INFO] WiFi: Starting in AP mode
+[INFO] AP: &amp;#39;Pool-Controller-Setup&amp;#39;. IP: 192.168.4.1&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;3.1 If Boot Fails&lt;span class="hx:absolute hx:-mt-20" id="31-if-boot-fails"&gt;&lt;/span&gt;
+&lt;a href="#31-if-boot-fails" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Symptom&lt;/th&gt;
+&lt;th&gt;Likely Cause&lt;/th&gt;
+&lt;th&gt;Check&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;No output on serial monitor&lt;/td&gt;
+&lt;td&gt;Wrong baud rate or USB cable&lt;/td&gt;
+&lt;td&gt;Set monitor to 115200 baud; try a data USB cable&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Continuous reboot loop&lt;/td&gt;
+&lt;td&gt;Power supply too weak&lt;/td&gt;
+&lt;td&gt;Use 5V/1A+, quality brand&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ets&lt;/code&gt; boot message then restart&lt;/td&gt;
+&lt;td&gt;Flash settings wrong&lt;/td&gt;
+&lt;td&gt;Ensure DIO mode, 4MB flash size&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ldquo;Failed to connect to ESP32&amp;rdquo;&lt;/td&gt;
+&lt;td&gt;Wrong COM port or BOOT not held&lt;/td&gt;
+&lt;td&gt;Hold BOOT during flash start&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2&gt;4. Temperature Sensors&lt;span class="hx:absolute hx:-mt-20" id="4-temperature-sensors"&gt;&lt;/span&gt;
+&lt;a href="#4-temperature-sensors" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; After boot, serial monitor shows detected DS18B20 sensors:
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;[INFO] OneWire: Found 2 DS18B20 sensor(s)
+[INFO] DS18B20[0]: 28-xxxxxxxxxxxx (Solar sensor on GPIO32)
+[INFO] DS18B20[1]: 28-yyyyyyyyyyyy (Pool sensor on GPIO33)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Both sensors read plausible temperatures (not &lt;code&gt;-127°C&lt;/code&gt; or &lt;code&gt;85°C&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Warm one sensor by holding it — reading rises within seconds&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; If only 1 sensor found: check wiring, pull-up resistor, or try the sensor alone&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;4.1 Temperature Sensor Quick Check&lt;span class="hx:absolute hx:-mt-20" id="41-temperature-sensor-quick-check"&gt;&lt;/span&gt;
+&lt;a href="#41-temperature-sensor-quick-check" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Reading&lt;/th&gt;
+&lt;th&gt;Meaning&lt;/th&gt;
+&lt;th&gt;Action&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;-127°C&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Sensor not found on bus&lt;/td&gt;
+&lt;td&gt;Check DATA wire, pull-up resistor, GPIO pin&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;85°C&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Sensor stuck at power-on default&lt;/td&gt;
+&lt;td&gt;Check for parasite power; all 3 wires must be connected&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Erratic / jumping values&lt;/td&gt;
+&lt;td&gt;Electrical interference&lt;/td&gt;
+&lt;td&gt;Keep sensor cable &amp;gt;30cm away from 230V wiring&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Both sensors identical&lt;/td&gt;
+&lt;td&gt;Normal if in same water&lt;/td&gt;
+&lt;td&gt;Verify with hand warmth test (see above)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2&gt;5. WiFi &amp;amp; Network&lt;span class="hx:absolute hx:-mt-20" id="5-wifi--network"&gt;&lt;/span&gt;
+&lt;a href="#5-wifi--network" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Connected to &lt;code&gt;Pool-Controller-Setup&lt;/code&gt; WiFi network&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Web interface reachable at &lt;strong&gt;http://192.168.4.1&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Home WiFi configured in web interface → &lt;strong&gt;Connection&lt;/strong&gt; section&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; ESP32 rebooted and connected to home network&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; New IP address noted (from router DHCP or serial monitor)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Web interface reachable at &lt;strong&gt;http://&lt;new-ip&gt;/&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; ESP32 pingable from your computer: &lt;code&gt;ping &amp;lt;new-ip&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;6. MQTT Connection&lt;span class="hx:absolute hx:-mt-20" id="6-mqtt-connection"&gt;&lt;/span&gt;
+&lt;a href="#6-mqtt-connection" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Prerequisites&lt;span class="hx:absolute hx:-mt-20" id="prerequisites"&gt;&lt;/span&gt;
+&lt;a href="#prerequisites" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; MQTT broker (Mosquitto) is installed and running&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Broker is reachable from the ESP32&amp;rsquo;s network (same subnet or firewall rule for port 1883)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; If using authentication: username/password noted&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Configuration&lt;span class="hx:absolute hx:-mt-20" id="configuration"&gt;&lt;/span&gt;
+&lt;a href="#configuration" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Web interface → &lt;strong&gt;Configuration → MQTT&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Broker address entered&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Port correct (default: &lt;code&gt;1883&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Credentials entered (if required)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Click &lt;strong&gt;Test Connection&lt;/strong&gt; — result shows &lt;strong&gt;&amp;ldquo;Connected&amp;rdquo;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Click &lt;strong&gt;Save&lt;/strong&gt; — controller restarts MQTT connection&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Verification&lt;span class="hx:absolute hx:-mt-20" id="verification"&gt;&lt;/span&gt;
+&lt;a href="#verification" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Subscribe to all topics on the broker:
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mosquitto_sub -h &amp;lt;broker-ip&amp;gt; -t &lt;span class="s2"&gt;&amp;#34;#&amp;#34;&lt;/span&gt; -v&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Pool controller topics appear (prefixed with &lt;code&gt;homeassistant/&lt;/code&gt; or &lt;code&gt;homie/&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Sensor values update periodically&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; If topics are missing: check &lt;code&gt;homeassistant&lt;/code&gt; prefix in HA configuration&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;7. Functional Test (Without 230V)&lt;span class="hx:absolute hx:-mt-20" id="7-functional-test-without-230v"&gt;&lt;/span&gt;
+&lt;a href="#7-functional-test-without-230v" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Before connecting any pump, test that the controller can switch the relays.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; &lt;strong&gt;Multimeter ready&lt;/strong&gt;, set to DC voltage mode&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Measure between relay IN1 pin and GND:
+&lt;ul&gt;
+&lt;li&gt;Web interface shows relay &lt;strong&gt;OFF&lt;/strong&gt; → IN1 reads &lt;strong&gt;~3.3V (HIGH)&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Web interface shows relay &lt;strong&gt;ON&lt;/strong&gt; → IN1 reads &lt;strong&gt;~0V (LOW)&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Repeat for relay IN2 — same behavior&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; If voltages are reversed: your relay module is &lt;strong&gt;active-high&lt;/strong&gt; — check for a HIGH/LOW jumper or replace the module&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Relay Test by GPIO&lt;span class="hx:absolute hx:-mt-20" id="relay-test-by-gpio"&gt;&lt;/span&gt;
+&lt;a href="#relay-test-by-gpio" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;GPIO&lt;/th&gt;
+&lt;th&gt;Expected OFF&lt;/th&gt;
+&lt;th&gt;Expected ON&lt;/th&gt;
+&lt;th&gt;Controls&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;GPIO26 (IN1)&lt;/td&gt;
+&lt;td&gt;~3.3V (HIGH)&lt;/td&gt;
+&lt;td&gt;~0V (LOW)&lt;/td&gt;
+&lt;td&gt;Heating pump (not yet connected)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;GPIO25 (IN2)&lt;/td&gt;
+&lt;td&gt;~3.3V (HIGH)&lt;/td&gt;
+&lt;td&gt;~0V (LOW)&lt;/td&gt;
+&lt;td&gt;Filter pump (not yet connected)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2&gt;8. Home Assistant Integration (Optional)&lt;span class="hx:absolute hx:-mt-20" id="8-home-assistant-integration-optional"&gt;&lt;/span&gt;
+&lt;a href="#8-home-assistant-integration-optional" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; MQTT integration configured in Home Assistant (Settings → Devices &amp;amp; Services → MQTT)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Discovery enabled: &lt;code&gt;discovery: true&lt;/code&gt; in HA &lt;code&gt;configuration.yaml&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Pool Controller appears as a device in &lt;strong&gt;Settings → Devices &amp;amp; Services → Devices&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; All entities visible and reporting values:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;sensor.pool_controller_pool_temp&lt;/code&gt; — pool temperature&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sensor.pool_controller_solar_temp&lt;/code&gt; — solar temperature&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;select.pool_controller_mode&lt;/code&gt; — operation mode&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;switch.pool_controller_pool_pump&lt;/code&gt; — pump control&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;switch.pool_controller_solar_pump&lt;/code&gt; — solar pump control&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; &lt;strong&gt;Operation Mode&lt;/strong&gt; can be changed via HA (try switching to &lt;code&gt;manu&lt;/code&gt; and back to &lt;code&gt;auto&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;9. First Real Test (With Pumps)&lt;span class="hx:absolute hx:-mt-20" id="9-first-real-test-with-pumps"&gt;&lt;/span&gt;
+&lt;a href="#9-first-real-test-with-pumps" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Only proceed when all previous steps pass.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; &lt;strong&gt;Disconnect&lt;/strong&gt; ESP32 from USB power&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Wire relay outputs to pump contactors or directly to pumps (230V side)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Double-check: relay common (COM) and normally open (NO) wired correctly&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Reconnect ESP32 to USB power&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Set operation mode to &lt;strong&gt;Manual (&lt;code&gt;manu&lt;/code&gt;)&lt;/strong&gt; via web interface&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Toggle &lt;strong&gt;Heating Pump&lt;/strong&gt; ON via web interface — pump starts&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Toggle &lt;strong&gt;Heating Pump&lt;/strong&gt; OFF — pump stops&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Toggle &lt;strong&gt;Filter Pump&lt;/strong&gt; ON — pump starts&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Toggle &lt;strong&gt;Filter Pump&lt;/strong&gt; OFF — pump stops&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; If pump does not start: check 230V wiring, circuit breaker, RCD&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; If pump starts but does not stop: relay contacts may be welded — disconnect 230V immediately&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;10. Automation Test&lt;span class="hx:absolute hx:-mt-20" id="10-automation-test"&gt;&lt;/span&gt;
+&lt;a href="#10-automation-test" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Set operation mode to &lt;strong&gt;Auto&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Verify the controller switches pumps according to its heating logic&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Solar temperature &amp;gt; Pool temperature + hysteresis → heating pump should turn ON&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Pool temperature reaches max. set temperature → heating pump should turn OFF&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Filter/circulation pump runs according to its schedule (timer or temperature-based)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;11. Final Verification&lt;span class="hx:absolute hx:-mt-20" id="11-final-verification"&gt;&lt;/span&gt;
+&lt;a href="#11-final-verification" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Temperature difference between solar and pool sensor is plausible&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Controller remains stable for 24+ hours without unexpected reboots&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; WiFi connection stays stable (check RSSI in diagnostics)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; MQTT connection persists (check availability topic: should read &lt;code&gt;online&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Home Assistant (if used) shows correct and current values&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Quick Reference Card&lt;span class="hx:absolute hx:-mt-20" id="quick-reference-card"&gt;&lt;/span&gt;
+&lt;a href="#quick-reference-card" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Print this abbreviated checklist for quick on-site reference:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;☐ ESP32: 5V USB power, data cable
+☐ Relay VCC → 5V, GND → GND
+☐ Relay IN1 → GPIO26 (heating)
+☐ Relay IN2 → GPIO25 (filter)
+☐ DS18B20 #1: GPIO32 &amp;#43; 4.7kΩ pull-up
+☐ DS18B20 #2: GPIO33 &amp;#43; 4.7kΩ pull-up
+☐ RCD / FI installed on 230V side
+☐ Firmware &amp;#43; Filesystem uploaded
+☐ WiFi configured, web UI reachable
+☐ MQTT test connection successful
+☐ Relay voltages correct (3.3V OFF / 0V ON)
+☐ Manual pump test (without 230V automa&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>⚠️ Sicherheitshinweise &amp; Warnungen</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/safety/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/safety/</guid><description>
 &lt;h2&gt;⚠️ &lt;strong&gt;WICHTIGE SICHERHEITSHINWEISE&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-wichtige-sicherheitshinweise"&gt;&lt;/span&gt;
 &lt;a href="#-wichtige-sicherheitshinweise" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;⚠️ ACHTUNG: DIESES PROJEKT ARBEITET MIT 230V WECHSELSTROM!&lt;/strong&gt;

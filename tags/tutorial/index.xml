@@ -150,7 +150,9 @@ href="https://www.wch.cn/download/CH341SER_EXE.html"target="_blank" rel="noopene
 &lt;p&gt;&lt;strong&gt;⚠️ Power:&lt;/strong&gt; The relay module requires &lt;strong&gt;5V&lt;/strong&gt; power (use the ESP32&amp;rsquo;s VIN pin when powered via USB). Do not power it from the 3.3V pin. Connect the ESP32 GND to the relay module GND (common ground).&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3&gt;Step 4: Final Checks&lt;span class="hx:absolute hx:-mt-20" id="step-4-final-checks"&gt;&lt;/span&gt;
-&lt;a href="#step-4-final-checks" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Before connecting any pump or mains voltage:&lt;/p&gt;
+&lt;a href="#step-4-final-checks" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Before connecting any pump or mains voltage, follow the &lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/checklist/"&gt;Commissioning Checklist&lt;/a&gt;&lt;/strong&gt; — a complete step-by-step guide covering hardware check, firmware test, sensor verification, relay test, and automation check.&lt;/p&gt;
+&lt;p&gt;Key points before proceeding:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Double-check all connections against the schematic.&lt;/li&gt;
 &lt;li&gt;Verify the relay module: with the ESP32 powered and NOT yet controlling the relays, measure the GPIO pins with a multimeter — they should be HIGH (relay OFF). After toggling a relay in the web interface, the corresponding GPIO should go LOW (relay ON).&lt;/li&gt;

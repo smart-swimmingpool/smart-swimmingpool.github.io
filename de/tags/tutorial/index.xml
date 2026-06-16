@@ -150,7 +150,9 @@ href="https://www.wch.cn/download/CH341SER_EXE.html"target="_blank" rel="noopene
 &lt;p&gt;&lt;strong&gt;⚠️ Stromversorgung:&lt;/strong&gt; Das Relais-Modul benötigt &lt;strong&gt;5V&lt;/strong&gt; Spannung (nutzen Sie den VIN-Pin des ESP32 bei USB-Stromversorgung). Nicht vom 3.3V-Pin versorgen. Verbinden Sie ESP32 GND mit Relais GND (gemeinsame Masse).&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3&gt;Schritt 4: Abschließende Prüfung&lt;span class="hx:absolute hx:-mt-20" id="schritt-4-abschließende-prüfung"&gt;&lt;/span&gt;
-&lt;a href="#schritt-4-abschlie%c3%9fende-pr%c3%bcfung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Bevor Sie Pumpen oder Netzspannung anschließen:&lt;/p&gt;
+&lt;a href="#schritt-4-abschlie%c3%9fende-pr%c3%bcfung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Bevor Sie Pumpen oder Netzspannung anschließen, folgen Sie der &lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.github.io/de/docs/checklist/"&gt;Inbetriebnahme-Checkliste&lt;/a&gt;&lt;/strong&gt; — einer vollständigen Schritt-für-Schritt-Prüfliste mit Hardware-Kontrolle, Firmware-Test, Sensor-Überprüfung, Relais-Test und Automatik-Check.&lt;/p&gt;
+&lt;p&gt;Wichtige Punkte vorab:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Überprüfen Sie alle Verbindungen anhand des Schaltplans.&lt;/li&gt;
 &lt;li&gt;Vergewissern Sie sich, dass das Relais-Modul korrekt arbeitet: Bei eingeschaltetem ESP32 (noch ohne Pumpensteuerung) messen Sie die GPIO-Pins mit einem Multimeter — sie sollten HIGH sein (Relais AUS). Nach dem Schalten eines Relais über die Weboberfläche sollte der zugehörige GPIO auf LOW gehen (Relais EIN).&lt;/li&gt;
