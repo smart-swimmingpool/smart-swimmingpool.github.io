@@ -98,7 +98,7 @@ data-copied-label="Kopiert!"
 &lt;li&gt;Gehen Sie zu &lt;strong&gt;Einstellungen → Geräte &amp;amp; Dienste&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;Das Gerät &lt;strong&gt;Pool Controller&lt;/strong&gt; sollte automatisch erscheinen&lt;/li&gt;
 &lt;li&gt;Siehe &lt;a
-href="https://smart-swimmingpool.github.io/docs/home-assistant-integration/"&gt;Home Assistant Integrations-Guide&lt;/a&gt; für die vollständige Entity-Referenz&lt;/li&gt;
+href="https://smart-swimmingpool.github.io/de/docs/home-assistant-integration/"&gt;Home Assistant Integrations-Guide&lt;/a&gt; für die vollständige Entity-Referenz&lt;/li&gt;
 &lt;/ol&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Hinweis&lt;/strong&gt;: Wenn Sie manuell MQTT-Sensoren in Home Assistant für die Homie-Topics konfiguriert hatten, werden diese nach dem Upgrade als &lt;strong&gt;nicht verfügbar&lt;/strong&gt; angezeigt. Entfernen Sie sie manuell — die automatisch erkannten Entitäten ersetzen sie.&lt;/p&gt;

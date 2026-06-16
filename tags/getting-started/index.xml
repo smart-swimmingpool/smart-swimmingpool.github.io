@@ -265,15 +265,12 @@ href="https://mosquitto.org/download/"target="_blank" rel="noopener"&gt;Mosquitt
 &lt;li&gt;In Home Assistant, go to &lt;strong&gt;Settings → Devices &amp;amp; Services&lt;/strong&gt;.&lt;/li&gt;
 &lt;li&gt;Click &lt;strong&gt;Add Integration → MQTT&lt;/strong&gt; (if not already configured).&lt;/li&gt;
 &lt;li&gt;The pool controller should appear as a new device automatically.&lt;/li&gt;
-&lt;li&gt;You&amp;rsquo;ll see entities for:
-&lt;ul&gt;
-&lt;li&gt;Temperatures (pool, solar, outside)&lt;/li&gt;
-&lt;li&gt;Circulation pump switch&lt;/li&gt;
-&lt;li&gt;Heating circuit switch&lt;/li&gt;
-&lt;li&gt;System status sensors&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
+&lt;li&gt;All sensors, controls, and configuration parameters appear as entities — no manual setup needed.&lt;/li&gt;
 &lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;▶️ &lt;strong&gt;Detailed guide&lt;/strong&gt;: See the &lt;a
+href="https://smart-swimmingpool.github.io/docs/home-assistant-integration/"&gt;Home Assistant Integration Guide&lt;/a&gt; for the complete entity reference, dashboard setup, automation examples, and troubleshooting.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h3&gt;Step 5: Connect the Pumps&lt;span class="hx:absolute hx:-mt-20" id="step-5-connect-the-pumps"&gt;&lt;/span&gt;
 &lt;a href="#step-5-connect-the-pumps" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Only now — after verifying everything works:&lt;/p&gt;
 &lt;ol&gt;
@@ -310,6 +307,11 @@ Always use an &lt;strong&gt;RCD (residual-current device)&lt;/strong&gt;. This p
 &lt;td&gt;Required — start here&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Home Assistant&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Native MQTT Discovery integration&lt;/td&gt;
+&lt;td&gt;Automatic — no setup needed&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
 &lt;td&gt;&lt;strong&gt;Pool Monitor&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;Solar-powered wireless temperature display&lt;/td&gt;
 &lt;td&gt;After controller is running&lt;/td&gt;
@@ -334,6 +336,8 @@ Always use an &lt;strong&gt;RCD (residual-current device)&lt;/strong&gt;. This p
 &lt;h2&gt;What&amp;rsquo;s Next?&lt;span class="hx:absolute hx:-mt-20" id="whats-next"&gt;&lt;/span&gt;
 &lt;a href="#whats-next" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Once your Pool Controller is running:&lt;/p&gt;
 &lt;ul&gt;
+&lt;li&gt;Explore the &lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/home-assistant-integration/"&gt;Home Assistant Integration Guide&lt;/a&gt;&lt;/strong&gt; for the complete entity reference, dashboard setup, and automation examples&lt;/li&gt;
 &lt;li&gt;Set up the &lt;strong&gt;&lt;a
 href="https://smart-swimmingpool.github.io/docs/grafana-dashboard/"&gt;Grafana Dashboard&lt;/a&gt;&lt;/strong&gt; to visualize temperature trends&lt;/li&gt;
 &lt;li&gt;Add the &lt;strong&gt;&lt;a
