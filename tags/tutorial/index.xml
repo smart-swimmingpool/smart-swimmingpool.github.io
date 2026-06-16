@@ -1,4 +1,12 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Tutorial</title><link>https://smart-swimmingpool.github.io/tags/tutorial/</link><description>Recent content in Tutorial on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Sun, 14 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/tags/tutorial/index.xml" rel="self" type="application/rss+xml"/><item><title>Quick Start</title><link>https://smart-swimmingpool.github.io/docs/quickstart/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/quickstart/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Tutorial</title><link>https://smart-swimmingpool.github.io/tags/tutorial/</link><description>Recent content in Tutorial on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Sun, 14 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/tags/tutorial/index.xml" rel="self" type="application/rss+xml"/><item><title>Grafana Dashboard</title><link>https://smart-swimmingpool.github.io/docs/grafana-dashboard/</link><pubDate>Sat, 20 Jun 2020 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/grafana-dashboard/</guid><description>
+&lt;span style="text-shadow: none;"&gt;
+&lt;a class="github-button" href="https://github.com/smart-swimmingpool/grafana-dashboard/subscription" data-size="large" data-show-count="true" aria-label="Watch smart-swimmingpool/pool-controller on GitHub"&gt;Watch&lt;/a&gt;
+&lt;a class="github-button" href="https://github.com/smart-swimmingpool/grafana-dashboard" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star this on GitHub"&gt;Star&lt;/a&gt;&lt;script async defer src="https://buttons.github.io/buttons.js"&gt;&lt;/script&gt;
+&lt;p&gt;&lt;a
+href="https://github.com/smart-swimmingpool/grafana-dashboard"target="_blank" rel="noopener"&gt;GitHub Sources&lt;/a&gt;
+&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Analyse and monitor your Smart Swimming Pool using &lt;a
+href="https://grafana.com/"target="_blank" rel="noopener"&gt;Grafana&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>Quick Start</title><link>https://smart-swimmingpool.github.io/docs/quickstart/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/quickstart/</guid><description>
 &lt;p&gt;&lt;strong&gt;🏊 Smart Swimming Pool: From box to a working pool in 60 minutes.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;This is the express path — minimal theory, maximum action. Follow each step exactly, and you will have a working pool controller within an hour.&lt;/p&gt;
 &lt;blockquote&gt;
@@ -3626,7 +3634,22 @@ href="https://github.com/smart-swimmingpool/pool-controller/issues"target="_blan
 &lt;figure&gt;&lt;img src="https://smart-swimmingpool.github.io/docs/pool-controller/pool-controller_breadboard.png"&gt;&lt;figcaption&gt;
 &lt;h4&gt;ESP32 Pool Controller breadboard circuit with DS18B20 temperature sensors and relay modules&lt;/h4&gt;
 &lt;/figcaption&gt;
-&lt;/figure&gt;</description></item><item><title>Software Guide</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/software-guide/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/software-guide/</guid><description>
+&lt;/figure&gt;</description></item><item><title>Pool Monitor</title><link>https://smart-swimmingpool.github.io/docs/pool-monitor/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-monitor/</guid><description>
+&lt;span style="text-shadow: none;"&gt;
+&lt;a class="github-button" href="https://github.com/smart-swimmingpool/monitor/subscription" data-size="large" data-show-count="true" aria-label="Watch smart-swimmingpool/monitor on GitHub"&gt;Watch&lt;/a&gt;
+&lt;a class="github-button" href="https://github.com/smart-swimmingpool/monitor" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star this on GitHub"&gt;Star&lt;/a&gt;&lt;script async defer src="https://buttons.github.io/buttons.js"&gt;&lt;/script&gt;
+&lt;/span&gt;
+&lt;p&gt;&lt;a
+href="https://github.com/smart-swimmingpool/monitor"target="_blank" rel="noopener"&gt;Monitoring Device&lt;/a&gt; to show current temperature of the swimming pool.&lt;/p&gt;
+&lt;figure&gt;&lt;img src="pool-monitor-prototype.jpg"&gt;&lt;figcaption&gt;
+&lt;h4&gt;Prototype of Pool Monitor&lt;/h4&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;a
+href="https://www.home-assistant.io/"target="_blank" rel="noopener"&gt;&lt;figure&gt;
+&lt;img src="https://img.shields.io/badge/works%20with-Home%20Assistant-41BDF5.svg?logo=home-assistant&amp;amp;logoColor=white" title="works with Home Assistant" alt="works with Home Assistant" data-zoomable loading="lazy" /&gt;
+&lt;figcaption&gt;works with Home Assistant&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Software Guide</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/software-guide/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/software-guide/</guid><description>
 &lt;h2&gt;Development Environment&lt;span class="hx:absolute hx:-mt-20" id="development-environment"&gt;&lt;/span&gt;
 &lt;a href="#development-environment" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Required Libraries&lt;span class="hx:absolute hx:-mt-20" id="required-libraries"&gt;&lt;/span&gt;
 &lt;a href="#required-libraries" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;

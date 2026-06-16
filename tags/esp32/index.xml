@@ -1389,4 +1389,19 @@ href="https://github.com/smart-swimmingpool/smart-swimmingpool.github.io/discuss
 &lt;hr&gt;
 &lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: OTA is implemented using the ESP32 Arduino Update library integrated
 into the WebPortal. GitHub release builds are handled by the CI pipeline
-(&lt;code&gt;release.yml&lt;/code&gt;).&lt;/p&gt;</description></item></channel></rss>
+(&lt;code&gt;release.yml&lt;/code&gt;).&lt;/p&gt;</description></item><item><title>Pool Monitor</title><link>https://smart-swimmingpool.github.io/docs/pool-monitor/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-monitor/</guid><description>
+&lt;span style="text-shadow: none;"&gt;
+&lt;a class="github-button" href="https://github.com/smart-swimmingpool/monitor/subscription" data-size="large" data-show-count="true" aria-label="Watch smart-swimmingpool/monitor on GitHub"&gt;Watch&lt;/a&gt;
+&lt;a class="github-button" href="https://github.com/smart-swimmingpool/monitor" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star this on GitHub"&gt;Star&lt;/a&gt;&lt;script async defer src="https://buttons.github.io/buttons.js"&gt;&lt;/script&gt;
+&lt;/span&gt;
+&lt;p&gt;&lt;a
+href="https://github.com/smart-swimmingpool/monitor"target="_blank" rel="noopener"&gt;Monitoring Device&lt;/a&gt; to show current temperature of the swimming pool.&lt;/p&gt;
+&lt;figure&gt;&lt;img src="pool-monitor-prototype.jpg"&gt;&lt;figcaption&gt;
+&lt;h4&gt;Prototype of Pool Monitor&lt;/h4&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;a
+href="https://www.home-assistant.io/"target="_blank" rel="noopener"&gt;&lt;figure&gt;
+&lt;img src="https://img.shields.io/badge/works%20with-Home%20Assistant-41BDF5.svg?logo=home-assistant&amp;amp;logoColor=white" title="works with Home Assistant" alt="works with Home Assistant" data-zoomable loading="lazy" /&gt;
+&lt;figcaption&gt;works with Home Assistant&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;/a&gt;&lt;/p&gt;</description></item></channel></rss>
