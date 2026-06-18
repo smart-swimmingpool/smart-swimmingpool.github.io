@@ -5,7 +5,7 @@
 href="https://www.az-delivery.de/blogs/azdelivery-blog-fur-arduino-und-raspberry-pi/projekt-smart-swimmingpool-einleitung"target="_blank" rel="noopener"&gt;AZ Delivery: Projekt Smart Swimmingpool&lt;/a&gt;, &lt;em&gt;Oktober 2018&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Vierteilige Blog-Reihe zur Version 1 des Smart Pool Controllers.&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>Temperaturabhängige Filterlaufzeit</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/temperature-based-circulation/</link><pubDate>Tue, 16 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/temperature-based-circulation/</guid><description>
+&lt;/ul&gt;</description></item><item><title>Temperaturabhängige Filterlaufzeit</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/temperature-based-circulation/</link><pubDate>Wed, 17 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/temperature-based-circulation/</guid><description>
 &lt;h1&gt;Temperaturabhängige Filterlaufzeit&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;Optimierung der Pool-Umwälzung für bessere Wasserqualität bei minimalem Stromverbrauch.&lt;/strong&gt;&lt;/p&gt;
 &lt;h2&gt;1. Motivation&lt;span class="hx:absolute hx:-mt-20" id="1-motivation"&gt;&lt;/span&gt;
 &lt;a href="#1-motivation" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die Poolpumpe ist der größte Stromverbraucher im Schwimmbad. Gleichzeitig bestimmt sie maßgeblich die Wasserqualität. Die aktuell nötige Umwälzmenge hängt stark von der Wassertemperatur ab:&lt;/p&gt;
@@ -5649,6 +5649,8 @@ href="https://norvi.io/docs/norvi-iiot-ae01-r-datasheet/"target="_blank" rel="no
 &lt;li&gt;&lt;a
 href="https://norvi.io/docs/norvi-iiot-ae01-r-user-guide/"target="_blank" rel="noopener"&gt;NORVI IIOT-AE01-R Benutzerhandbuch&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a
+href="kicad/norvi-ae01-r/norvi-ae01-r-schematic.pdf"&gt;KiCad-Schaltplan: NORVI AE01-R&lt;/a&gt; — KiCad-9.0-Schaltplan als PDF-Export&lt;/li&gt;
+&lt;li&gt;&lt;a
 href="hardware-guide.de.md"&gt;Haupt-Hardware-Guide&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a
 href="https://github.com/smart-swimmingpool/pool-controller/blob/main/src/Config.hpp"target="_blank" rel="noopener"&gt;Config.hpp Pin-Quelle&lt;/a&gt;&lt;/li&gt;
@@ -6459,6 +6461,10 @@ konfigurieren.&lt;/p&gt;
 &lt;li&gt;Fritzing-Quelldatei: &lt;a
 href="https://github.com/smart-swimmingpool/pool-controller/raw/main/docs/pool-controller.fzz"target="_blank" rel="noopener"&gt;pool-controller.fzz&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a
+href="kicad/esp32-dev-board/esp32-dev-board-schematic.pdf"&gt;KiCad-Schaltplan: ESP32 Dev Board&lt;/a&gt; — KiCad-9.0-PDF-Export&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="kicad/norvi-ae01-r/norvi-ae01-r-schematic.pdf"&gt;KiCad-Schaltplan: NORVI AE01-R&lt;/a&gt; — KiCad-9.0-PDF-Export&lt;/li&gt;
+&lt;li&gt;&lt;a
 href="norvi-ae01-r.de.md"&gt;NORVI AE01-R Konfigurationsanleitung&lt;/a&gt; — Industrie-ESP32-Controller Pinbelegung &amp;amp; Verdrahtung&lt;/li&gt;
 &lt;li&gt;&lt;a
 href="esp32-schematic-optimization.de.md"&gt;ESP32 Schaltplananalyse und Optimierung&lt;/a&gt;&lt;/li&gt;
@@ -6633,6 +6639,8 @@ Fertigungstipps, Fehlersuche&lt;/li&gt;
 &lt;li&gt;Pin-Hintergrund und Optimierung:
 &lt;a
 href="esp32-schematic-optimization.de.md"&gt;ESP32 Schaltplananalyse und Optimierung&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="kicad/esp32-dev-board/esp32-dev-board-schematic.pdf"&gt;KiCad-Schaltplan: ESP32 Dev Board&lt;/a&gt; — KiCad-9.0-Schaltplan als PDF-Export&lt;/li&gt;
 &lt;/ul&gt;</description></item><item><title>ESP32 Schaltplananalyse und Optimierung</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/esp32-schematic-optimization/</link><pubDate>Thu, 14 May 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/esp32-schematic-optimization/</guid><description>
 &lt;p&gt;Dieses Dokument analysiert den vorhandenen Aufbau (Fritzing-Quelle + bestehende
 Hardware-Dokumentation) und beschreibt einen optimierten ESP32-Vorschlag für

@@ -1,4 +1,784 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Documents</title><link>https://smart-swimmingpool.github.io/docs/</link><description>Recent content in Documents on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><atom:link href="https://smart-swimmingpool.github.io/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Publications</title><link>https://smart-swimmingpool.github.io/docs/publications/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/publications/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Documents</title><link>https://smart-swimmingpool.github.io/docs/</link><description>Recent content in Documents on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><atom:link href="https://smart-swimmingpool.github.io/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Quick Start Guide</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/quick-start/</link><pubDate>Wed, 17 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/quick-start/</guid><description>
+&lt;p&gt;&lt;strong&gt;Target audience:&lt;/strong&gt; DIY enthusiasts with &lt;strong&gt;basic electronics knowledge&lt;/strong&gt; (soldering, GPIO, MQTT).
+&lt;strong&gt;Time required:&lt;/strong&gt; ~4–6 hours (including parts sourcing).
+&lt;strong&gt;Cost:&lt;/strong&gt; ~45–75€ (excluding pumps and pool infrastructure).&lt;/p&gt;
+&lt;p&gt;This guide walks you through &lt;strong&gt;every step&lt;/strong&gt; to get your Pool Controller up and running,
+from ordering parts to integrating with your smart home.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;⚠️ Safety First&lt;span class="hx:absolute hx:-mt-20" id="-safety-first"&gt;&lt;/span&gt;
+&lt;a href="#-safety-first" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;⚠️ WARNING: This project involves 230V AC mains voltage!&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Only proceed if you have basic electronics knowledge.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Always use a Residual Current Device (RCD/FI circuit breaker) for the pump circuit.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Disconnect power before working on the circuit.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Keep low-voltage (sensor) wiring separate from mains wiring.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;If in doubt, consult a qualified electrician.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;This project is NOT certified (no CE/UL mark). For personal use only!&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2&gt;📦 Step 1: Order Parts&lt;span class="hx:absolute hx:-mt-20" id="-step-1-order-parts"&gt;&lt;/span&gt;
+&lt;a href="#-step-1-order-parts" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;🛒 Shopping List (BOM)&lt;span class="hx:absolute hx:-mt-20" id="-shopping-list-bom"&gt;&lt;/span&gt;
+&lt;a href="#-shopping-list-bom" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Use the following table to order all required components.
+&lt;strong&gt;Recommended shops:&lt;/strong&gt; Amazon, AliExpress, Reichelt, Pollin, Conrad (DE/AT/CH).&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;#&lt;/th&gt;
+&lt;th&gt;Component&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Qty&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Approx. Cost&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;th&gt;Recommended Links&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;ESP32 Development Board (e.g., ESP32 DevKit V1, NodeMCU-32S)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;1&lt;/td&gt;
+&lt;td style="text-align: center"&gt;10–15€&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Must have 4MB+ flash&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a
+href="https://www.amazon.de/s?k=ESP32&amp;#43;DevKit&amp;#43;V1"target="_blank" rel="noopener"&gt;Amazon DE&lt;/a&gt;, &lt;a
+href="https://www.reichelt.de/"target="_blank" rel="noopener"&gt;Reichelt&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;DS18B20 Temperature Sensor (waterproof, stainless steel, 1m cable)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;2&lt;/td&gt;
+&lt;td style="text-align: center"&gt;8–12€&lt;/td&gt;
+&lt;td&gt;One for pool, one for solar collector&lt;/td&gt;
+&lt;td&gt;&lt;a
+href="https://www.amazon.de/s?k=DS18B20&amp;#43;wasserfest"target="_blank" rel="noopener"&gt;Amazon DE&lt;/a&gt;, &lt;a
+href="https://www.aliexpress.com/"target="_blank" rel="noopener"&gt;AliExpress&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;2-Channel 5V Relay Module (with optocoupler isolation)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;1&lt;/td&gt;
+&lt;td style="text-align: center"&gt;5–8€&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Must be active-low trigger!&lt;/strong&gt; (relay activates when GPIO signal is LOW)&lt;/td&gt;
+&lt;td&gt;&lt;a
+href="https://www.amazon.de/s?k=2&amp;#43;Channel&amp;#43;5V&amp;#43;Relay&amp;#43;Module"target="_blank" rel="noopener"&gt;Amazon DE&lt;/a&gt;, &lt;a
+href="https://www.reichelt.de/"target="_blank" rel="noopener"&gt;Reichelt&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;Resistor 4.7kΩ (¼W, metal film)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;2&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&amp;lt;1€&lt;/td&gt;
+&lt;td&gt;Pull-up for OneWire data lines&lt;/td&gt;
+&lt;td&gt;&lt;a
+href="https://www.reichelt.de/"target="_blank" rel="noopener"&gt;Reichelt&lt;/a&gt;, &lt;a
+href="https://www.conrad.de/"target="_blank" rel="noopener"&gt;Conrad&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;Breadboard + jumper wires (for prototyping) &lt;strong&gt;OR&lt;/strong&gt; Perfboard + pin headers (for permanent build)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;1&lt;/td&gt;
+&lt;td style="text-align: center"&gt;3–8€&lt;/td&gt;
+&lt;td&gt;Breadboard for testing, perfboard for final build&lt;/td&gt;
+&lt;td&gt;&lt;a
+href="https://www.amazon.de/s?k=breadboard"target="_blank" rel="noopener"&gt;Amazon DE&lt;/a&gt;, &lt;a
+href="https://www.reichelt.de/"target="_blank" rel="noopener"&gt;Reichelt&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;6&lt;/td&gt;
+&lt;td&gt;USB Power Supply 5V/≥1A (e.g., phone charger)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;1&lt;/td&gt;
+&lt;td style="text-align: center"&gt;5–10€&lt;/td&gt;
+&lt;td&gt;Powers ESP32 + relay module&lt;/td&gt;
+&lt;td&gt;Any USB charger&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;7&lt;/td&gt;
+&lt;td&gt;Hookup wire (0.14–0.5mm², various colors)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;—&lt;/td&gt;
+&lt;td style="text-align: center"&gt;3–5€&lt;/td&gt;
+&lt;td&gt;For permanent wiring&lt;/td&gt;
+&lt;td&gt;&lt;a
+href="https://www.reichelt.de/"target="_blank" rel="noopener"&gt;Reichelt&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;8&lt;/td&gt;
+&lt;td&gt;Enclosure (IP54+ for outdoor use)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;1&lt;/td&gt;
+&lt;td style="text-align: center"&gt;5–10€&lt;/td&gt;
+&lt;td&gt;Optional but recommended&lt;/td&gt;
+&lt;td&gt;&lt;a
+href="https://www.amazon.de/s?k=IP54&amp;#43;Geh%c3%a4use"target="_blank" rel="noopener"&gt;Amazon DE&lt;/a&gt;, &lt;a
+href="https://www.reichelt.de/"target="_blank" rel="noopener"&gt;Reichelt&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;9&lt;/td&gt;
+&lt;td&gt;Screw terminals (2-pin, 5mm pitch)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;4–6&lt;/td&gt;
+&lt;td style="text-align: center"&gt;2–3€&lt;/td&gt;
+&lt;td&gt;For removable connections&lt;/td&gt;
+&lt;td&gt;&lt;a
+href="https://www.reichelt.de/"target="_blank" rel="noopener"&gt;Reichelt&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Total&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;~45–75€&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Without pumps/pool infrastructure&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2&gt;🔌 Step 2: Assemble Hardware&lt;span class="hx:absolute hx:-mt-20" id="-step-2-assemble-hardware"&gt;&lt;/span&gt;
+&lt;a href="#-step-2-assemble-hardware" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;📌 Required Tools&lt;span class="hx:absolute hx:-mt-20" id="-required-tools"&gt;&lt;/span&gt;
+&lt;a href="#-required-tools" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Soldering iron (320–350°C for leaded solder)&lt;/li&gt;
+&lt;li&gt;Solder (leaded recommended for beginners)&lt;/li&gt;
+&lt;li&gt;Flux (rosin-core)&lt;/li&gt;
+&lt;li&gt;Wire cutters/strippers&lt;/li&gt;
+&lt;li&gt;Multimeter (for testing continuity)&lt;/li&gt;
+&lt;li&gt;Magnifying glass (for inspecting solder joints)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3&gt;🧩 Option A: Breadboard Prototyping (Recommended for Beginners)&lt;span class="hx:absolute hx:-mt-20" id="-option-a-breadboard-prototyping-recommended-for-beginners"&gt;&lt;/span&gt;
+&lt;a href="#-option-a-breadboard-prototyping-recommended-for-beginners" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;1️⃣ Place Components&lt;span class="hx:absolute hx:-mt-20" id="1-place-components"&gt;&lt;/span&gt;
+&lt;a href="#1-place-components" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Place the &lt;strong&gt;ESP32&lt;/strong&gt; on the breadboard, straddling the center gap.&lt;/li&gt;
+&lt;li&gt;Insert the &lt;strong&gt;4.7kΩ resistors&lt;/strong&gt; between the DATA row and 3.3V rail.&lt;/li&gt;
+&lt;li&gt;Connect the &lt;strong&gt;2-channel relay module&lt;/strong&gt; (VCC to 5V, GND to GND, IN1 to GPIO25, IN2 to GPIO26).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;2️⃣ Connect DS18B20 Sensors&lt;span class="hx:absolute hx:-mt-20" id="2-connect-ds18b20-sensors"&gt;&lt;/span&gt;
+&lt;a href="#2-connect-ds18b20-sensors" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Each DS18B20 has &lt;strong&gt;3 wires&lt;/strong&gt; (typical colors for waterproof probes):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Red&lt;/strong&gt; = VDD (3.3V)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Black&lt;/strong&gt; = GND&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Yellow/White&lt;/strong&gt; = DATA&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="text-align: center"&gt;Sensor&lt;/th&gt;
+&lt;th style="text-align: center"&gt;DATA wire&lt;/th&gt;
+&lt;th style="text-align: center"&gt;ESP32 pin&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;Solar sensor&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Yellow/White (DATA)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;GPIO32&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;Pool sensor&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Yellow/White (DATA)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;GPIO33&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;⚠️ CRITICAL:&lt;/strong&gt; Each DATA line &lt;strong&gt;must&lt;/strong&gt; have a &lt;strong&gt;4.7kΩ pull-up resistor&lt;/strong&gt; to 3.3V!
+Without it, the sensor &lt;strong&gt;will not work&lt;/strong&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ESP32 3.3V ——[4.7kΩ]—— DATA (GPIO32) —— DS18B20 Solar
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ESP32 3.3V ——[4.7kΩ]—— DATA (GPIO33) —— DS18B20 Pool&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h4&gt;3️⃣ Connect Relay Module&lt;span class="hx:absolute hx:-mt-20" id="3-connect-relay-module"&gt;&lt;/span&gt;
+&lt;a href="#3-connect-relay-module" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="text-align: center"&gt;Relay Terminal&lt;/th&gt;
+&lt;th&gt;Connect to&lt;/th&gt;
+&lt;th style="text-align: center"&gt;ESP32 Pin&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;VCC&lt;/td&gt;
+&lt;td&gt;5V&lt;/td&gt;
+&lt;td style="text-align: center"&gt;VIN&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;GND&lt;/td&gt;
+&lt;td&gt;GND&lt;/td&gt;
+&lt;td style="text-align: center"&gt;GND&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;IN1&lt;/td&gt;
+&lt;td&gt;Relay 1&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;GPIO25&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;IN2&lt;/td&gt;
+&lt;td&gt;Relay 2&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;GPIO26&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4&gt;4️⃣ Power Supply&lt;span class="hx:absolute hx:-mt-20" id="4-power-supply"&gt;&lt;/span&gt;
+&lt;a href="#4-power-supply" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Connect the &lt;strong&gt;USB power supply&lt;/strong&gt; to the ESP32&amp;rsquo;s USB port.&lt;/li&gt;
+&lt;li&gt;The ESP32&amp;rsquo;s &lt;strong&gt;VIN pin&lt;/strong&gt; provides 5V to power the relay module.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;5️⃣ Verify Wiring&lt;span class="hx:absolute hx:-mt-20" id="5-verify-wiring"&gt;&lt;/span&gt;
+&lt;a href="#5-verify-wiring" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Double-check all connections with a &lt;strong&gt;multimeter&lt;/strong&gt; (continuity test).&lt;/li&gt;
+&lt;li&gt;Ensure &lt;strong&gt;no short circuits&lt;/strong&gt; between 3.3V/GND or 5V/GND.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure&gt;&lt;img src="../pool-controller_breadboard.png"
+alt="Example breadboard setup with ESP32, DS18B20 sensors, and relay module."&gt;&lt;figcaption&gt;
+&lt;h4&gt;Pool Controller breadboard prototype&lt;/h4&gt;&lt;p&gt;Example breadboard setup with ESP32, DS18B20 sensors, and relay module.&lt;/p&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;hr&gt;
+&lt;h3&gt;🧩 Option B: Permanent Assembly (Perfboard)&lt;span class="hx:absolute hx:-mt-20" id="-option-b-permanent-assembly-perfboard"&gt;&lt;/span&gt;
+&lt;a href="#-option-b-permanent-assembly-perfboard" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;1️⃣ Plan Layout&lt;span class="hx:absolute hx:-mt-20" id="1-plan-layout"&gt;&lt;/span&gt;
+&lt;a href="#1-plan-layout" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Arrange components on the perfboard &lt;strong&gt;before soldering&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Keep &lt;strong&gt;230V relay terminals&lt;/strong&gt; at one edge, &lt;strong&gt;sensor connections&lt;/strong&gt; at the opposite edge.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;2️⃣ Solder Components&lt;span class="hx:absolute hx:-mt-20" id="2-solder-components"&gt;&lt;/span&gt;
+&lt;a href="#2-solder-components" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;Solder &lt;strong&gt;pin headers&lt;/strong&gt; for the ESP32 (use a socket, don&amp;rsquo;t solder the ESP32 directly).&lt;/li&gt;
+&lt;li&gt;Solder the &lt;strong&gt;4.7kΩ resistors&lt;/strong&gt; between DATA lines and 3.3V.&lt;/li&gt;
+&lt;li&gt;Solder &lt;strong&gt;pin headers&lt;/strong&gt; for the relay module (use a socket).&lt;/li&gt;
+&lt;li&gt;Solder &lt;strong&gt;screw terminals&lt;/strong&gt; for sensor/power connections.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;3️⃣ Wire Routing&lt;span class="hx:absolute hx:-mt-20" id="3-wire-routing"&gt;&lt;/span&gt;
+&lt;a href="#3-wire-routing" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Use &lt;strong&gt;solid core wire&lt;/strong&gt; for connections.&lt;/li&gt;
+&lt;li&gt;Keep &lt;strong&gt;data lines short&lt;/strong&gt; and separate from power lines.&lt;/li&gt;
+&lt;li&gt;Use &lt;strong&gt;different colors&lt;/strong&gt; for clarity (e.g., red = power, black = GND, yellow = data).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;4️⃣ Inspect Solder Joints&lt;span class="hx:absolute hx:-mt-20" id="4-inspect-solder-joints"&gt;&lt;/span&gt;
+&lt;a href="#4-inspect-solder-joints" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Check each joint with a &lt;strong&gt;magnifying glass&lt;/strong&gt; or multimeter.&lt;/li&gt;
+&lt;li&gt;A &lt;strong&gt;good joint&lt;/strong&gt; is shiny and concave. A &lt;strong&gt;bad joint&lt;/strong&gt; is dull or cracked.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;5️⃣ Mount in Enclosure&lt;span class="hx:absolute hx:-mt-20" id="5-mount-in-enclosure"&gt;&lt;/span&gt;
+&lt;a href="#5-mount-in-enclosure" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Use &lt;strong&gt;M2.5/M3 nylon standoffs&lt;/strong&gt; to mount the ESP32.&lt;/li&gt;
+&lt;li&gt;Drill holes for &lt;strong&gt;sensor cables&lt;/strong&gt; and &lt;strong&gt;relay wires&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Use &lt;strong&gt;cable glands&lt;/strong&gt; (PG7/PG9) for water-resistant sealing.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3&gt;🔌 Connect 230V Load (Pumps)&lt;span class="hx:absolute hx:-mt-20" id="-connect-230v-load-pumps"&gt;&lt;/span&gt;
+&lt;a href="#-connect-230v-load-pumps" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;⚠️ WARNING: 230V AC is dangerous! Proceed with caution.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Disconnect mains power&lt;/strong&gt; before wiring.&lt;/li&gt;
+&lt;li&gt;Connect the pump&amp;rsquo;s &lt;strong&gt;live (L) wire&lt;/strong&gt; to the relay&amp;rsquo;s &lt;strong&gt;COM&lt;/strong&gt; (common) terminal.&lt;/li&gt;
+&lt;li&gt;Connect the relay&amp;rsquo;s &lt;strong&gt;NO&lt;/strong&gt; (normally open) terminal to the pump.&lt;/li&gt;
+&lt;li&gt;Connect the pump&amp;rsquo;s &lt;strong&gt;neutral (N) wire&lt;/strong&gt; to the neutral bar.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Always use an RCD (FI circuit breaker)&lt;/strong&gt; for the pump circuit.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;L (mains) —— RCD —— MCB —— COM1 (Relay) —— NO1 —— Pool Pump
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; COM2 (Relay) —— NO2 —— Solar Pump
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;N (neutral) ─────────────────────────────── Neutral Bar —— Pump N&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;h2&gt;💻 Step 3: Flash Firmware&lt;span class="hx:absolute hx:-mt-20" id="-step-3-flash-firmware"&gt;&lt;/span&gt;
+&lt;a href="#-step-3-flash-firmware" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;📥 PlatformIO (Recommended)&lt;span class="hx:absolute hx:-mt-20" id="-platformio-recommended"&gt;&lt;/span&gt;
+&lt;a href="#-platformio-recommended" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;1️⃣ Install PlatformIO&lt;span class="hx:absolute hx:-mt-20" id="1-install-platformio"&gt;&lt;/span&gt;
+&lt;a href="#1-install-platformio" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Install &lt;strong&gt;VS Code&lt;/strong&gt; from &lt;a
+href="https://code.visualstudio.com/"target="_blank" rel="noopener"&gt;https://code.visualstudio.com/&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Install the &lt;strong&gt;PlatformIO extension&lt;/strong&gt; in VS Code.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;2️⃣ Download Firmware&lt;span class="hx:absolute hx:-mt-20" id="2-download-firmware"&gt;&lt;/span&gt;
+&lt;a href="#2-download-firmware" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Clone the repository:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git clone https://github.com/smart-swimmingpool/pool-controller.git
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; pool-controller&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Open the &lt;strong&gt;&lt;code&gt;pool-controller&lt;/code&gt;&lt;/strong&gt; folder in VS Code.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;3️⃣ Upload Firmware for ESP32 DevKit&lt;span class="hx:absolute hx:-mt-20" id="3-upload-firmware-for-esp32-devkit"&gt;&lt;/span&gt;
+&lt;a href="#3-upload-firmware-for-esp32-devkit" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Connect the ESP32 to your computer via &lt;strong&gt;USB&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In PlatformIO, select the &lt;strong&gt;&lt;code&gt;esp32dev&lt;/code&gt;&lt;/strong&gt; environment.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pio run -e esp32dev -t upload&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Wait for upload to complete.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;4️⃣ Upload Web Interface Files (LittleFS)&lt;span class="hx:absolute hx:-mt-20" id="4-upload-web-interface-files-littlefs"&gt;&lt;/span&gt;
+&lt;a href="#4-upload-web-interface-files-littlefs" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Before configuring WiFi for the first time, upload the web assets:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pio run -e esp32dev -t uploadfs&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Wait for LittleFS upload to complete.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2&gt;🌐 Step 4: Configure WiFi &amp;amp; MQTT&lt;span class="hx:absolute hx:-mt-20" id="-step-4-configure-wifi--mqtt"&gt;&lt;/span&gt;
+&lt;a href="#-step-4-configure-wifi--mqtt" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;📶 Initial WiFi Setup (AP Mode)&lt;span class="hx:absolute hx:-mt-20" id="-initial-wifi-setup-ap-mode"&gt;&lt;/span&gt;
+&lt;a href="#-initial-wifi-setup-ap-mode" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;When the controller boots for the first time (or has no WiFi configured), it starts in &lt;strong&gt;Access Point (AP) mode&lt;/strong&gt;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Power on&lt;/strong&gt; the controller.&lt;/li&gt;
+&lt;li&gt;On your phone/laptop, connect to the WiFi network:
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;SSID:&lt;/strong&gt; &lt;code&gt;Pool-Controller-Setup&lt;/code&gt; (open network, no password).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Open a browser and go to:
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;http://192.168.4.1&lt;/code&gt;&lt;/strong&gt; (the captive portal redirects automatically).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Go to the &lt;strong&gt;WiFi Setup&lt;/strong&gt; tab.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Scan networks&lt;/strong&gt;, select yours, and enter the password.&lt;/li&gt;
+&lt;li&gt;Click &lt;strong&gt;Save&lt;/strong&gt; – the controller will reboot and connect to your WiFi.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; In AP mode, the web interface has &lt;strong&gt;no password&lt;/strong&gt; (intentional for setup).
+Once connected to your WiFi, a login is required (default password: &lt;code&gt;admin&lt;/code&gt;).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h3&gt;🔗 MQTT Configuration&lt;span class="hx:absolute hx:-mt-20" id="-mqtt-configuration"&gt;&lt;/span&gt;
+&lt;a href="#-mqtt-configuration" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Find the controller&amp;rsquo;s &lt;strong&gt;IP address&lt;/strong&gt; on your network:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Check your router&amp;rsquo;s DHCP client list.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Or use &lt;code&gt;nmap&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;nmap -p &lt;span class="m"&gt;80&lt;/span&gt; 192.168.1.0/24 &lt;span class="c1"&gt;# Scan your subnet for open port 80&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Open a browser and go to &lt;code&gt;http://&amp;lt;controller-ip&amp;gt;/&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Log in with the default password: &lt;strong&gt;&lt;code&gt;admin&lt;/code&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Go to the &lt;strong&gt;MQTT Settings&lt;/strong&gt; tab.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Configure the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;MQTT Hostname/IP:&lt;/strong&gt; Your MQTT broker address (e.g., &lt;code&gt;192.168.1.100&lt;/code&gt; or &lt;code&gt;localhost&lt;/code&gt; if running on the same device).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MQTT Port:&lt;/strong&gt; &lt;code&gt;1883&lt;/code&gt; (default).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MQTT Username/Password:&lt;/strong&gt; Optional (if your broker requires authentication).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click &lt;strong&gt;Save&lt;/strong&gt; and &lt;strong&gt;reboot&lt;/strong&gt; the controller.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h3&gt;🏠 MQTT Broker Setup (Optional)&lt;span class="hx:absolute hx:-mt-20" id="-mqtt-broker-setup-optional"&gt;&lt;/span&gt;
+&lt;a href="#-mqtt-broker-setup-optional" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;If you don&amp;rsquo;t already have an MQTT broker, install &lt;strong&gt;Mosquitto&lt;/strong&gt; on a Raspberry Pi or local server:&lt;/p&gt;
+&lt;h4&gt;Install Mosquitto on Raspberry Pi&lt;span class="hx:absolute hx:-mt-20" id="install-mosquitto-on-raspberry-pi"&gt;&lt;/span&gt;
+&lt;a href="#install-mosquitto-on-raspberry-pi" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt-get update
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt-get upgrade
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt-get install mosquitto mosquitto-clients&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h4&gt;Start Mosquitto&lt;span class="hx:absolute hx:-mt-20" id="start-mosquitto"&gt;&lt;/span&gt;
+&lt;a href="#start-mosquitto" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo systemctl start mosquitto
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo systemctl &lt;span class="nb"&gt;enable&lt;/span&gt; mosquitto &lt;span class="c1"&gt;# Auto-start on boot&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h4&gt;Test MQTT Connection&lt;span class="hx:absolute hx:-mt-20" id="test-mqtt-connection"&gt;&lt;/span&gt;
+&lt;a href="#test-mqtt-connection" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Subscribe to all topics (in one terminal)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mosquitto_sub -h localhost -t &lt;span class="s2"&gt;&amp;#34;#&amp;#34;&lt;/span&gt; -v
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Publish a test message (in another terminal)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mosquitto_pub -h localhost -t &lt;span class="s2"&gt;&amp;#34;test&amp;#34;&lt;/span&gt; -m &lt;span class="s2"&gt;&amp;#34;Hello MQTT!&amp;#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;h2&gt;🏡 Step 5: Integrate with Smart Home&lt;span class="hx:absolute hx:-mt-20" id="-step-5-integrate-with-smart-home"&gt;&lt;/span&gt;
+&lt;a href="#-step-5-integrate-with-smart-home" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;📱 Option A: Home Assistant (Recommended)&lt;span class="hx:absolute hx:-mt-20" id="-option-a-home-assistant-recommended"&gt;&lt;/span&gt;
+&lt;a href="#-option-a-home-assistant-recommended" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The Pool Controller &lt;strong&gt;automatically integrates&lt;/strong&gt; with Home Assistant via &lt;strong&gt;MQTT Discovery&lt;/strong&gt; (v3.3.0+).&lt;/p&gt;
+&lt;h4&gt;1️⃣ Prerequisites&lt;span class="hx:absolute hx:-mt-20" id="1-prerequisites"&gt;&lt;/span&gt;
+&lt;a href="#1-prerequisites" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Home Assistant installed (see &lt;a
+href="https://www.home-assistant.io/"target="_blank" rel="noopener"&gt;https://www.home-assistant.io/&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;MQTT Broker configured in Home Assistant (see &lt;a
+href="https://www.home-assistant.io/integrations/mqtt/"target="_blank" rel="noopener"&gt;MQTT Integration&lt;/a&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;2️⃣ Add MQTT Integration to Home Assistant&lt;span class="hx:absolute hx:-mt-20" id="2-add-mqtt-integration-to-home-assistant"&gt;&lt;/span&gt;
+&lt;a href="#2-add-mqtt-integration-to-home-assistant" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;Open Home Assistant.&lt;/li&gt;
+&lt;li&gt;Go to &lt;strong&gt;Settings &amp;gt; Devices &amp;amp; Services &amp;gt; Add Integration&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Search for &lt;strong&gt;MQTT&lt;/strong&gt; and add it.&lt;/li&gt;
+&lt;li&gt;Configure the MQTT broker settings (same as in Step 4).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;3️⃣ Discover Devices&lt;span class="hx:absolute hx:-mt-20" id="3-discover-devices"&gt;&lt;/span&gt;
+&lt;a href="#3-discover-devices" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;After rebooting the Pool Controller, Home Assistant will &lt;strong&gt;automatically discover&lt;/strong&gt; the device.&lt;/li&gt;
+&lt;li&gt;Go to &lt;strong&gt;Settings &amp;gt; Devices &amp;amp; Services &amp;gt; MQTT&lt;/strong&gt; to see the new device.&lt;/li&gt;
+&lt;li&gt;All entities (sensors, switches, etc.) will appear under the &lt;strong&gt;Pool Controller&lt;/strong&gt; device.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;4️⃣ (Optional) Import Lovelace Dashboard&lt;span class="hx:absolute hx:-mt-20" id="4-optional-import-lovelace-dashboard"&gt;&lt;/span&gt;
+&lt;a href="#4-optional-import-lovelace-dashboard" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;A ready-to-use &lt;strong&gt;Lovelace dashboard&lt;/strong&gt; is available in the repository:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller/blob/main/docs/home-assistant-dashboard-pool.yaml"target="_blank" rel="noopener"&gt;Home Assistant Dashboard Example&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3&gt;📱 Option B: openHAB&lt;span class="hx:absolute hx:-mt-20" id="-option-b-openhab"&gt;&lt;/span&gt;
+&lt;a href="#-option-b-openhab" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;1️⃣ Prerequisites&lt;span class="hx:absolute hx:-mt-20" id="1-prerequisites-1"&gt;&lt;/span&gt;
+&lt;a href="#1-prerequisites-1" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;openHAB installed (see &lt;a
+href="https://www.openhab.org/"target="_blank" rel="noopener"&gt;https://www.openhab.org/&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;MQTT Binding installed (via &lt;strong&gt;Paper UI &amp;gt; Add-ons &amp;gt; Bindings &amp;gt; MQTT Binding&lt;/strong&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;2️⃣ Configure MQTT Broker&lt;span class="hx:absolute hx:-mt-20" id="2-configure-mqtt-broker"&gt;&lt;/span&gt;
+&lt;a href="#2-configure-mqtt-broker" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Edit the MQTT configuration file:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo nano /etc/openhab2/services/mqtt.cfg&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Add your broker settings:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-ini" data-lang="ini"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;mqtt:broker.url&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;tcp://localhost:1883&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;mqtt:broker.clientId&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;openhab&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;mqtt:broker.user&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;your_username&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;mqtt:broker.password&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;your_password&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Restart openHAB:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo systemctl restart openhab2&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;3️⃣ Manually Add Devices&lt;span class="hx:absolute hx:-mt-20" id="3-manually-add-devices"&gt;&lt;/span&gt;
+&lt;a href="#3-manually-add-devices" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Since &lt;strong&gt;Homie support was removed in v3.3.0&lt;/strong&gt;, you need to manually configure the MQTT topics in openHAB.
+See the &lt;a
+href="https://github.com/smart-swimmingpool/openhab-config"target="_blank" rel="noopener"&gt;openHAB Configuration Guide&lt;/a&gt; for examples.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;🔍 Step 6: Test &amp;amp; Troubleshoot&lt;span class="hx:absolute hx:-mt-20" id="-step-6-test--troubleshoot"&gt;&lt;/span&gt;
+&lt;a href="#-step-6-test--troubleshoot" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;✅ Verify Sensors&lt;span class="hx:absolute hx:-mt-20" id="-verify-sensors"&gt;&lt;/span&gt;
+&lt;a href="#-verify-sensors" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Open the &lt;strong&gt;Web Dashboard&lt;/strong&gt; (&lt;code&gt;http://&amp;lt;controller-ip&amp;gt;/&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;Go to the &lt;strong&gt;Dashboard&lt;/strong&gt; tab.&lt;/li&gt;
+&lt;li&gt;Check the &lt;strong&gt;Solar Temperature&lt;/strong&gt; and &lt;strong&gt;Pool Temperature&lt;/strong&gt; values.
+&lt;ul&gt;
+&lt;li&gt;If you see &lt;code&gt;-127°C&lt;/code&gt; or &lt;code&gt;Sensor error&lt;/code&gt;:
+&lt;ul&gt;
+&lt;li&gt;Verify the &lt;strong&gt;4.7kΩ pull-up resistor&lt;/strong&gt; is connected.&lt;/li&gt;
+&lt;li&gt;Check &lt;strong&gt;VDD (3.3V)&lt;/strong&gt; and &lt;strong&gt;GND&lt;/strong&gt; connections.&lt;/li&gt;
+&lt;li&gt;Ensure the &lt;strong&gt;DATA pin&lt;/strong&gt; matches the firmware configuration (GPIO32/33).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;✅ Test Relays&lt;span class="hx:absolute hx:-mt-20" id="-test-relays"&gt;&lt;/span&gt;
+&lt;a href="#-test-relays" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;In the &lt;strong&gt;Web Dashboard&lt;/strong&gt;, go to the &lt;strong&gt;Configuration&lt;/strong&gt; tab.&lt;/li&gt;
+&lt;li&gt;Set the &lt;strong&gt;Operation Mode&lt;/strong&gt; to &lt;strong&gt;Manual&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Turn on the &lt;strong&gt;Pool Pump&lt;/strong&gt; and &lt;strong&gt;Solar Pump&lt;/strong&gt; switches.
+&lt;ul&gt;
+&lt;li&gt;The relay should &lt;strong&gt;click&lt;/strong&gt;, and the pump should start.&lt;/li&gt;
+&lt;li&gt;If the relay doesn&amp;rsquo;t click:
+&lt;ul&gt;
+&lt;li&gt;Verify the &lt;strong&gt;relay module is powered (5V)&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Check the &lt;strong&gt;logic level&lt;/strong&gt; (active-low expected).&lt;/li&gt;
+&lt;li&gt;Ensure the &lt;strong&gt;relay switches&lt;/strong&gt; when GPIO goes LOW (LED behavior may vary by module design).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;✅ Check LED Status Codes&lt;span class="hx:absolute hx:-mt-20" id="-check-led-status-codes"&gt;&lt;/span&gt;
+&lt;a href="#-check-led-status-codes" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The &lt;strong&gt;built-in LED&lt;/strong&gt; on the ESP32 indicates the system state:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;LED Pattern&lt;/th&gt;
+&lt;th&gt;System State&lt;/th&gt;
+&lt;th&gt;What to Do&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Rapid blink (5 Hz)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;AP Mode (no WiFi configured)&lt;/td&gt;
+&lt;td&gt;Connect to &lt;code&gt;Pool-Controller-Setup&lt;/code&gt; and configure WiFi.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Slow blink (1 Hz)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;WiFi connecting&lt;/td&gt;
+&lt;td&gt;Wait for connection (5–20 seconds).&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Mostly on, brief blink every 2s&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;WiFi OK, MQTT disconnected&lt;/td&gt;
+&lt;td&gt;Check MQTT broker address/network.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Solid on&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Fully connected (WiFi + MQTT)&lt;/td&gt;
+&lt;td&gt;Everything is working!&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Very fast blink (10 Hz)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;OTA Update in progress&lt;/td&gt;
+&lt;td&gt;Do not power off!&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Double blink&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Safe Mode (boot-loop detected)&lt;/td&gt;
+&lt;td&gt;Check serial log for errors.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;🐞 Common Issues &amp;amp; Fixes&lt;span class="hx:absolute hx:-mt-20" id="-common-issues--fixes"&gt;&lt;/span&gt;
+&lt;a href="#-common-issues--fixes" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Problem&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Cause&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Solution&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Sensor error (-127°C)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Missing pull-up resistor&lt;/td&gt;
+&lt;td&gt;Add 4.7kΩ between DATA and 3.3V.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Sensor error&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Wrong GPIO pin&lt;/td&gt;
+&lt;td&gt;Check &lt;code&gt;PIN_DS_SOLAR&lt;/code&gt;/&lt;code&gt;PIN_DS_POOL&lt;/code&gt; in &lt;code&gt;src/Config.hpp&lt;/code&gt;.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Relay doesn&amp;rsquo;t click&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Wrong logic level&lt;/td&gt;
+&lt;td&gt;Use an active-low trigger relay module (firmware expects active-low signals).&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Relay clicks but pump doesn&amp;rsquo;t run&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;230V wiring issue&lt;/td&gt;
+&lt;td&gt;Check COM/NO terminals and pump connection.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;ESP32 won&amp;rsquo;t boot (brownout)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Insufficient power&lt;/td&gt;
+&lt;td&gt;Use 5V/≥1A power supply.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;ESP32 resets when relay switches&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Voltage spike&lt;/td&gt;
+&lt;td&gt;Add flyback diode or use module with built-in protection.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Sensor readings jump when relay switches&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Electrical noise&lt;/td&gt;
+&lt;td&gt;Route sensor wires away from relay/power wires.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;MQTT connection fails&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Wrong broker settings&lt;/td&gt;
+&lt;td&gt;Verify MQTT host/IP/port in Web UI.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Home Assistant doesn&amp;rsquo;t discover device&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;MQTT Discovery not working&lt;/td&gt;
+&lt;td&gt;Delete old retained messages and reboot controller.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2&gt;🎉 Step 7: Next Steps&lt;span class="hx:absolute hx:-mt-20" id="-step-7-next-steps"&gt;&lt;/span&gt;
+&lt;a href="#-step-7-next-steps" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;📌 Recommended Next Steps&lt;span class="hx:absolute hx:-mt-20" id="-recommended-next-steps"&gt;&lt;/span&gt;
+&lt;a href="#-recommended-next-steps" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Calibrate sensors&lt;/strong&gt; (compare with a reference thermometer).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Set up automation rules&lt;/strong&gt; in Home Assistant/openHAB (e.g., &amp;ldquo;Turn on pump if temperature &amp;gt; 25°C&amp;rdquo;).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Add Grafana dashboards&lt;/strong&gt; for long-term data visualization (see &lt;a
+href="https://github.com/smart-swimmingpool/grafana-dashboard"target="_blank" rel="noopener"&gt;Grafana Dashboard Guide&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Explore advanced features&lt;/strong&gt; (e.g., OTA updates, custom MQTT topics).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;🔗 Useful Links&lt;span class="hx:absolute hx:-mt-20" id="-useful-links"&gt;&lt;/span&gt;
+&lt;a href="#-useful-links" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/pool-controller/hardware-guide/"&gt;Hardware Guide&lt;/a&gt; (detailed wiring diagrams)&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/pool-controller/mqtt-configuration/"&gt;MQTT Configuration&lt;/a&gt; (advanced MQTT setup)&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller/tree/main/docs/home-assistant"target="_blank" rel="noopener"&gt;Home Assistant Integration&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/smart-swimmingpool/openhab-config"target="_blank" rel="noopener"&gt;openHAB Configuration&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/smart-swimmingpool/grafana-dashboard"target="_blank" rel="noopener"&gt;Grafana Dashboard&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;📝 Changelog&lt;span class="hx:absolute hx:-mt-20" id="-changelog"&gt;&lt;/span&gt;
+&lt;a href="#-changelog" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;2026-06-16:&lt;/strong&gt; Initial Quick Start Guide created (based on community feedback).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;🤝 Contributing&lt;span class="hx:absolute hx:-mt-20" id="-contributing"&gt;&lt;/span&gt;
+&lt;a href="#-contributing" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Found an issue or have a suggestion? Open an issue or PR on GitHub:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller"target="_blank" rel="noopener"&gt;Pool Controller Repository&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;📄 License&lt;span class="hx:absolute hx:-mt-20" id="-license"&gt;&lt;/span&gt;
+&lt;a href="#-license" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This guide is part of the &lt;strong&gt;Smart Swimming Pool&lt;/strong&gt; project, licensed under the
+&lt;strong&gt;MIT License&lt;/strong&gt;. See
+&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller/blob/main/LICENSE"target="_blank" rel="noopener"&gt;LICENSE&lt;/a&gt;
+for details.&lt;/p&gt;</description></item><item><title>Publications</title><link>https://smart-swimmingpool.github.io/docs/publications/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/publications/</guid><description>
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a
@@ -6,7 +786,279 @@ href="https://medium.com/diy-my-smart-home/project-smart-swimmingpool-4c40eb6741
 , &lt;em&gt;December 2018&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Blogpost of version 1 of Smart Swimming Pool&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>Temperature-Based Circulation Time</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/temperature-based-circulation/</link><pubDate>Tue, 16 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/temperature-based-circulation/</guid><description>
+&lt;/ul&gt;</description></item><item><title>Frequently Asked Questions (FAQ)</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/faq/</link><pubDate>Wed, 17 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/faq/</guid><description>
+&lt;p&gt;This FAQ covers &lt;strong&gt;common issues&lt;/strong&gt; and their solutions for the &lt;strong&gt;Smart Swimming Pool Controller&lt;/strong&gt;.
+If your problem isn&amp;rsquo;t listed here, check the
+&lt;a
+href="https://github.com/smart-swimmingpool/smart-swimmingpool.github.io/discussions"target="_blank" rel="noopener"&gt;Discussions&lt;/a&gt;
+or open a new issue on GitHub.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;🚨 Safety &amp;amp; Warnings&lt;span class="hx:absolute hx:-mt-20" id="-safety--warnings"&gt;&lt;/span&gt;
+&lt;a href="#-safety--warnings" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;⚠️ Is this project safe for beginners?&lt;span class="hx:absolute hx:-mt-20" id="-is-this-project-safe-for-beginners"&gt;&lt;/span&gt;
+&lt;a href="#-is-this-project-safe-for-beginners" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;No.&lt;/strong&gt; This project involves &lt;strong&gt;230V AC mains voltage&lt;/strong&gt;, which can be &lt;strong&gt;deadly&lt;/strong&gt; if mishandled.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Only proceed if you have basic electronics knowledge&lt;/strong&gt; (e.g., understanding of voltage, current, and safety precautions).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Always use a Residual Current Device (RCD/FI circuit breaker)&lt;/strong&gt; for the pump circuit.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Disconnect power before working on the circuit.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;If in doubt, consult a qualified electrician.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;This project is NOT certified (no CE/UL mark). For personal use only!&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;⚠️ What safety precautions should I take?&lt;span class="hx:absolute hx:-mt-20" id="-what-safety-precautions-should-i-take"&gt;&lt;/span&gt;
+&lt;a href="#-what-safety-precautions-should-i-take" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Use an RCD (FI circuit breaker)&lt;/strong&gt; for the pump circuit.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Keep low-voltage (sensor) wiring separate from mains wiring.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Use insulated tools and wear safety glasses.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Never work on live circuits.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Test connections with a multimeter before powering on.&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2&gt;🔌 Hardware Issues&lt;span class="hx:absolute hx:-mt-20" id="-hardware-issues"&gt;&lt;/span&gt;
+&lt;a href="#-hardware-issues" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;🔹 My DS18B20 sensor is not detected (shows -127°C or &amp;ldquo;Sensor error&amp;rdquo;)&lt;span class="hx:absolute hx:-mt-20" id="-my-ds18b20-sensor-is-not-detected-shows--127c-or-sensor-error"&gt;&lt;/span&gt;
+&lt;a href="#-my-ds18b20-sensor-is-not-detected-shows--127c-or-sensor-error" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;&lt;strong&gt;Possible Causes &amp;amp; Solutions&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="possible-causes--solutions"&gt;&lt;/span&gt;
+&lt;a href="#possible-causes--solutions" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Cause&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Solution&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;How to Test&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Missing 4.7kΩ pull-up resistor&lt;/td&gt;
+&lt;td&gt;Add a &lt;strong&gt;4.7kΩ resistor&lt;/strong&gt; between the DATA line and &lt;strong&gt;3.3V&lt;/strong&gt;.&lt;/td&gt;
+&lt;td&gt;Measure resistance between DATA and 3.3V (should be ~4.7kΩ).&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Wrong GPIO pin&lt;/td&gt;
+&lt;td&gt;Check &lt;code&gt;PIN_DS_SOLAR&lt;/code&gt; (GPIO32) and &lt;code&gt;PIN_DS_POOL&lt;/code&gt; (GPIO33) in &lt;code&gt;src/Config.hpp&lt;/code&gt;.&lt;/td&gt;
+&lt;td&gt;Verify wiring matches the firmware configuration.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Sensor not connected to 3.3V&lt;/td&gt;
+&lt;td&gt;Ensure &lt;strong&gt;VDD (red wire)&lt;/strong&gt; is connected to &lt;strong&gt;3.3V&lt;/strong&gt; (not 5V!).&lt;/td&gt;
+&lt;td&gt;Measure voltage between VDD and GND (should be ~3.3V).&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Sensor not connected to GND&lt;/td&gt;
+&lt;td&gt;Ensure &lt;strong&gt;GND (black wire)&lt;/strong&gt; is connected to &lt;strong&gt;GND&lt;/strong&gt;.&lt;/td&gt;
+&lt;td&gt;Measure continuity between sensor GND and ESP32 GND.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4&gt;&lt;strong&gt;Debugging Steps&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="debugging-steps"&gt;&lt;/span&gt;
+&lt;a href="#debugging-steps" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Check the serial monitor&lt;/strong&gt; (115200 baud) for sensor initialization messages.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Test with a single sensor&lt;/strong&gt; (disconnect one and test the other).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h3&gt;🔹 My relay module doesn&amp;rsquo;t work&lt;span class="hx:absolute hx:-mt-20" id="-my-relay-module-doesnt-work"&gt;&lt;/span&gt;
+&lt;a href="#-my-relay-module-doesnt-work" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;&lt;strong&gt;Possible Causes &amp;amp; Solutions&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="possible-causes--solutions-1"&gt;&lt;/span&gt;
+&lt;a href="#possible-causes--solutions-1" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Cause&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Solution&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;How to Test&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Relay module not powered&lt;/td&gt;
+&lt;td&gt;Ensure &lt;strong&gt;VCC&lt;/strong&gt; is connected to &lt;strong&gt;5V&lt;/strong&gt; and &lt;strong&gt;GND&lt;/strong&gt; to &lt;strong&gt;GND&lt;/strong&gt;.&lt;/td&gt;
+&lt;td&gt;Measure voltage between VCC and GND (should be ~5V).&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Wrong logic level (active-low)&lt;/td&gt;
+&lt;td&gt;Ensure the relay module is &lt;strong&gt;active-low trigger compatible&lt;/strong&gt; (firmware output is active-low).&lt;/td&gt;
+&lt;td&gt;Check whether the relay clicks/energizes when GPIO goes LOW (LED behavior can vary by module).&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Incorrect GPIO pin&lt;/td&gt;
+&lt;td&gt;Verify &lt;code&gt;PIN_RELAY_POOL&lt;/code&gt; (GPIO25) and &lt;code&gt;PIN_RELAY_SOLAR&lt;/code&gt; (GPIO26).&lt;/td&gt;
+&lt;td&gt;Check wiring matches firmware configuration.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2&gt;💻 Software &amp;amp; Firmware Issues&lt;span class="hx:absolute hx:-mt-20" id="-software--firmware-issues"&gt;&lt;/span&gt;
+&lt;a href="#-software--firmware-issues" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;🔹 How do I update the firmware?&lt;span class="hx:absolute hx:-mt-20" id="-how-do-i-update-the-firmware"&gt;&lt;/span&gt;
+&lt;a href="#-how-do-i-update-the-firmware" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;&lt;strong&gt;Option A: Web Interface (OTA)&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="option-a-web-interface-ota"&gt;&lt;/span&gt;
+&lt;a href="#option-a-web-interface-ota" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;Open &lt;strong&gt;Web Dashboard&lt;/strong&gt; (&lt;code&gt;http://&amp;lt;controller-ip&amp;gt;/&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;Go to &lt;strong&gt;Security &amp;amp; Update&lt;/strong&gt; &amp;gt; &lt;strong&gt;OTA Firmware Update&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Select the &lt;code&gt;.bin&lt;/code&gt; file and click &lt;strong&gt;Update&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;&lt;strong&gt;Option B: PlatformIO&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="option-b-platformio"&gt;&lt;/span&gt;
+&lt;a href="#option-b-platformio" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;Open the &lt;code&gt;pool-controller&lt;/code&gt; folder in VS Code with PlatformIO.&lt;/li&gt;
+&lt;li&gt;Select the &lt;code&gt;esp32dev&lt;/code&gt; environment.&lt;/li&gt;
+&lt;li&gt;Run &lt;code&gt;pio run -e esp32dev -t upload&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h3&gt;🔹 My controller doesn&amp;rsquo;t connect to WiFi&lt;span class="hx:absolute hx:-mt-20" id="-my-controller-doesnt-connect-to-wifi"&gt;&lt;/span&gt;
+&lt;a href="#-my-controller-doesnt-connect-to-wifi" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;&lt;strong&gt;Debugging Steps&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="debugging-steps-1"&gt;&lt;/span&gt;
+&lt;a href="#debugging-steps-1" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;LED Status Codes&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Rapid blink (5 Hz)&lt;/strong&gt;: AP mode (no WiFi configured).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Slow blink (1 Hz)&lt;/strong&gt;: WiFi connecting.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Solid on&lt;/strong&gt;: Fully connected.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Reconnect via AP Mode&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Connect to &lt;code&gt;Pool-Controller-Setup&lt;/code&gt; (open network).&lt;/li&gt;
+&lt;li&gt;Open &lt;code&gt;http://192.168.4.1&lt;/code&gt; and reconfigure WiFi.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h3&gt;🔹 My controller doesn&amp;rsquo;t connect to MQTT&lt;span class="hx:absolute hx:-mt-20" id="-my-controller-doesnt-connect-to-mqtt"&gt;&lt;/span&gt;
+&lt;a href="#-my-controller-doesnt-connect-to-mqtt" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;&lt;strong&gt;Debugging Steps&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="debugging-steps-2"&gt;&lt;/span&gt;
+&lt;a href="#debugging-steps-2" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Verify &lt;strong&gt;MQTT Host/IP&lt;/strong&gt; and &lt;strong&gt;Port&lt;/strong&gt; in Web Dashboard.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Test MQTT manually:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mosquitto_sub -h &amp;lt;broker-ip&amp;gt; -t &lt;span class="s2"&gt;&amp;#34;#&amp;#34;&lt;/span&gt; -v&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h3&gt;🔹 Home Assistant doesn&amp;rsquo;t discover my controller&lt;span class="hx:absolute hx:-mt-20" id="-home-assistant-doesnt-discover-my-controller"&gt;&lt;/span&gt;
+&lt;a href="#-home-assistant-doesnt-discover-my-controller" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;&lt;strong&gt;Solution&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="solution"&gt;&lt;/span&gt;
+&lt;a href="#solution" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Upgrade to v3.3.0+&lt;/strong&gt; (Homie support removed).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Clear retained MQTT messages&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mosquitto_pub -h &amp;lt;broker&amp;gt; -t &lt;span class="s2"&gt;&amp;#34;homeassistant&amp;#34;&lt;/span&gt; -n -r&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Enable MQTT Discovery&lt;/strong&gt; in Home Assistant.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2&gt;🌐 Integration Guides&lt;span class="hx:absolute hx:-mt-20" id="-integration-guides"&gt;&lt;/span&gt;
+&lt;a href="#-integration-guides" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;🔹 How do I set up Mosquitto on Raspberry Pi?&lt;span class="hx:absolute hx:-mt-20" id="-how-do-i-set-up-mosquitto-on-raspberry-pi"&gt;&lt;/span&gt;
+&lt;a href="#-how-do-i-set-up-mosquitto-on-raspberry-pi" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt-get update &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo apt-get upgrade
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt-get install mosquitto mosquitto-clients
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo systemctl start mosquitto
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo systemctl &lt;span class="nb"&gt;enable&lt;/span&gt; mosquitto&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;h3&gt;🔹 How do I integrate with Node-RED?&lt;span class="hx:absolute hx:-mt-20" id="-how-do-i-integrate-with-node-red"&gt;&lt;/span&gt;
+&lt;a href="#-how-do-i-integrate-with-node-red" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Install Node-RED:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;npm install -g node-red
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;node-red&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Install MQTT nodes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Menu &amp;gt; Manage palette &amp;gt; Install &amp;gt; node-red-node-mqtt&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2&gt;🔄 Operation &amp;amp; Usage&lt;span class="hx:absolute hx:-mt-20" id="-operation--usage"&gt;&lt;/span&gt;
+&lt;a href="#-operation--usage" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;🔹 How do I change the operation mode?&lt;span class="hx:absolute hx:-mt-20" id="-how-do-i-change-the-operation-mode"&gt;&lt;/span&gt;
+&lt;a href="#-how-do-i-change-the-operation-mode" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;&lt;strong&gt;Via Web Dashboard&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="via-web-dashboard"&gt;&lt;/span&gt;
+&lt;a href="#via-web-dashboard" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;Go to &lt;strong&gt;Configuration&lt;/strong&gt; tab.&lt;/li&gt;
+&lt;li&gt;Select &lt;strong&gt;Auto&lt;/strong&gt;, &lt;strong&gt;Manual&lt;/strong&gt;, &lt;strong&gt;Timer&lt;/strong&gt;, or &lt;strong&gt;Boost&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;&lt;strong&gt;Via MQTT&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="via-mqtt"&gt;&lt;/span&gt;
+&lt;a href="#via-mqtt" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mosquitto_pub -h &amp;lt;broker-ip&amp;gt; -t &lt;span class="s2"&gt;&amp;#34;homeassistant/select/pool-controller/mode/set&amp;#34;&lt;/span&gt; -m &lt;span class="s2"&gt;&amp;#34;auto&amp;#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;h2&gt;📚 Additional Resources&lt;span class="hx:absolute hx:-mt-20" id="-additional-resources"&gt;&lt;/span&gt;
+&lt;a href="#-additional-resources" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/pool-controller/hardware-guide/"&gt;Hardware Guide&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/pool-controller/mqtt-configuration/"&gt;MQTT Configuration&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller/tree/main/docs/home-assistant"target="_blank" rel="noopener"&gt;Home Assistant Integration&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/smart-swimmingpool/openhab-config"target="_blank" rel="noopener"&gt;openHAB Configuration&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/smart-swimmingpool/grafana-dashboard"target="_blank" rel="noopener"&gt;Grafana Dashboard&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;🤝 Still Need Help?&lt;span class="hx:absolute hx:-mt-20" id="-still-need-help"&gt;&lt;/span&gt;
+&lt;a href="#-still-need-help" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Search &lt;a
+href="https://github.com/smart-swimmingpool/smart-swimmingpool.github.io/discussions"target="_blank" rel="noopener"&gt;Discussions&lt;/a&gt;&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Open a &lt;a
+href="https://github.com/smart-swimmingpool/pool-controller/issues/new"target="_blank" rel="noopener"&gt;new issue&lt;/a&gt;&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2&gt;📄 License&lt;span class="hx:absolute hx:-mt-20" id="-license"&gt;&lt;/span&gt;
+&lt;a href="#-license" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This FAQ is part of the &lt;strong&gt;Smart Swimming Pool&lt;/strong&gt; project, licensed under the &lt;strong&gt;MIT License&lt;/strong&gt;.&lt;/p&gt;</description></item><item><title>Temperature-Based Circulation Time</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/temperature-based-circulation/</link><pubDate>Wed, 17 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/temperature-based-circulation/</guid><description>
 &lt;h1&gt;Temperature-Based Circulation Time&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;Optimize pool circulation for better water quality with minimal power consumption.&lt;/strong&gt;&lt;/p&gt;
 &lt;h2&gt;1. Motivation&lt;span class="hx:absolute hx:-mt-20" id="1-motivation"&gt;&lt;/span&gt;
 &lt;a href="#1-motivation" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The pool pump is the largest power consumer in a swimming pool. At the same time, it determines water quality. The required circulation volume strongly depends on water temperature:&lt;/p&gt;
@@ -1306,315 +2358,7 @@ href="https://www.drk.de/"target="_blank" rel="noopener"&gt;Erste Hilfe bei Stro
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;Viel Erfolg und bleiben Sie sicher!&lt;/strong&gt; 🛡️&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Falls Sie Fragen haben, zögern Sie nicht, in den &lt;a
-href="https://github.com/smart-swimmingpool/pool-controller/discussions"target="_blank" rel="noopener"&gt;GitHub Discussions&lt;/a&gt; nachzufragen.&lt;/em&gt;&lt;/p&gt;</description></item><item><title>❓ FAQ: Häufige Probleme &amp; Lösungen</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/faq/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/faq/</guid><description>
-&lt;h2&gt;🔍 Häufige Probleme &amp;amp; Lösungen&lt;span class="hx:absolute hx:-mt-20" id="-häufige-probleme--lösungen"&gt;&lt;/span&gt;
-&lt;a href="#-h%c3%a4ufige-probleme--l%c3%b6sungen" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Hier findest du &lt;strong&gt;Antworten auf häufig gestellte Fragen&lt;/strong&gt; und &lt;strong&gt;Lösungen
-für typische Probleme&lt;/strong&gt; mit dem &lt;strong&gt;Smart Swimmingpool Controller&lt;/strong&gt;.
-Falls dein Problem hier nicht aufgelistet ist, erstelle bitte ein
-&lt;a
-href="https://github.com/smart-swimmingpool/pool-controller/issues"target="_blank" rel="noopener"&gt;Issue auf GitHub&lt;/a&gt;
-oder frage in den &lt;a
-href="https://github.com/smart-swimmingpool/pool-controller/discussions"target="_blank" rel="noopener"&gt;Discussions&lt;/a&gt;.&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2&gt;📡 &lt;strong&gt;WiFi &amp;amp; Netzwerk&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-wifi--netzwerk"&gt;&lt;/span&gt;
-&lt;a href="#-wifi--netzwerk" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;❌ &lt;strong&gt;Controller verbindet sich nicht mit WiFi&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-controller-verbindet-sich-nicht-mit-wifi"&gt;&lt;/span&gt;
-&lt;a href="#-controller-verbindet-sich-nicht-mit-wifi" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;&lt;strong&gt;Symptome:&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="symptome"&gt;&lt;/span&gt;
-&lt;a href="#symptome" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;Status-LED blinkt &lt;strong&gt;langsam (1x pro Sekunde)&lt;/strong&gt; oder &lt;strong&gt;bleibt im AP-Modus (schnelles Blinken)&lt;/strong&gt;.&lt;/li&gt;
-&lt;li&gt;Web-Interface nicht über lokale IP erreichbar.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;&lt;strong&gt;Lösungen:&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="lösungen"&gt;&lt;/span&gt;
-&lt;a href="#l%c3%b6sungen" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Starte im AP-Modus neu:&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Der Controller startet automatisch im AP-Modus, wenn keine WiFi-Zugangsdaten
-gespeichert sind oder die Verbindung fehlschlägt.&lt;/li&gt;
-&lt;li&gt;Falls du ihn manuell in den AP-Modus zwingen möchtest, setze die
-WiFi-Konfiguration zurück: Web-UI → System → Factory Reset (sofern erreichbar)
-oder flashe die Firmware neu über USB.&lt;/li&gt;
-&lt;li&gt;Verbinde dich mit &lt;strong&gt;&lt;code&gt;Pool-Controller-Setup&lt;/code&gt;&lt;/strong&gt; (offenes Netzwerk).&lt;/li&gt;
-&lt;li&gt;Öffne &lt;code&gt;http://192.168.4.1&lt;/code&gt; und prüfe die &lt;strong&gt;WiFi-Einstellungen&lt;/strong&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Prüfe die WiFi-Signalstärke:&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Gehe zum &lt;strong&gt;Dashboard&lt;/strong&gt;-Tab im Web-Interface.&lt;/li&gt;
-&lt;li&gt;Prüfe den &lt;strong&gt;RSSI-Wert&lt;/strong&gt; (dB).
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;&amp;gt; -70 dB:&lt;/strong&gt; Gute Verbindung.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;-70 bis -80 dB:&lt;/strong&gt; Akzeptabel, aber möglicherweise instabil.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&amp;lt; -80 dB:&lt;/strong&gt; Schlechte Verbindung – Controller näher zum Router platzieren.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Manuelle IP-Adresse zuweisen (falls DHCP fehlschlägt):&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Gehe zu &lt;strong&gt;WiFi Setup&lt;/strong&gt; → &lt;strong&gt;Static IP&lt;/strong&gt;.&lt;/li&gt;
-&lt;li&gt;Trage eine &lt;strong&gt;freie IP-Adresse&lt;/strong&gt; in deinem Netzwerk ein (z. B. &lt;code&gt;192.168.1.200&lt;/code&gt;).&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;hr&gt;
-&lt;h3&gt;❌ &lt;strong&gt;Controller verliert WiFi-Verbindung&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-controller-verliert-wifi-verbindung"&gt;&lt;/span&gt;
-&lt;a href="#-controller-verliert-wifi-verbindung" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;&lt;strong&gt;Symptome:&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="symptome-1"&gt;&lt;/span&gt;
-&lt;a href="#symptome-1" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;Controller funktioniert einige Zeit und &lt;strong&gt;verliert dann die Verbindung&lt;/strong&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;&lt;strong&gt;Lösungen:&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="lösungen-1"&gt;&lt;/span&gt;
-&lt;a href="#l%c3%b6sungen-1" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Controller näher zum Router platzieren&lt;/strong&gt; oder &lt;strong&gt;WiFi-Repeater&lt;/strong&gt; verwenden.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Konfiguriere statische IP&lt;/strong&gt; für den Controller im Router.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Verwende ein stabileres Netzteil (5V/2A+)&lt;/strong&gt;.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;hr&gt;
-&lt;h2&gt;🌐 &lt;strong&gt;MQTT &amp;amp; Smart Home Integration&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-mqtt--smart-home-integration"&gt;&lt;/span&gt;
-&lt;a href="#-mqtt--smart-home-integration" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;❌ &lt;strong&gt;MQTT verbindet sich nicht mit dem Broker&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-mqtt-verbindet-sich-nicht-mit-dem-broker"&gt;&lt;/span&gt;
-&lt;a href="#-mqtt-verbindet-sich-nicht-mit-dem-broker" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;&lt;strong&gt;Symptome:&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="symptome-2"&gt;&lt;/span&gt;
-&lt;a href="#symptome-2" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;Status-LED leuchtet &lt;strong&gt;dauerhaft&lt;/strong&gt;, aber MQTT-Geräte werden &lt;strong&gt;nicht in Home Assistant/openHAB angezeigt&lt;/strong&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;&lt;strong&gt;Lösungen:&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="lösungen-2"&gt;&lt;/span&gt;
-&lt;a href="#l%c3%b6sungen-2" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Prüfe die MQTT-Einstellungen:&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;MQTT Host:&lt;/strong&gt; &lt;code&gt;IP deines MQTT-Brokers&lt;/code&gt; (z. B. &lt;code&gt;192.168.1.50&lt;/code&gt;).&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;MQTT Port:&lt;/strong&gt; &lt;code&gt;1883&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;MQTT Username/Password:&lt;/strong&gt; Falls aktiviert.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Teste MQTT manuell:&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
-&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mosquitto_pub -h 192.168.1.50 -t &lt;span class="s2"&gt;&amp;#34;test&amp;#34;&lt;/span&gt; -m &lt;span class="s2"&gt;&amp;#34;hello&amp;#34;&lt;/span&gt; -u mqtt_user -P secret&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
-&lt;button
-class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
-title="Copy code"
-aria-label="Copy code"
-data-copied-label="Copied!"
-&gt;
-&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
-&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
-&lt;/button&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Prüfe MQTT-Discovery in Home Assistant:&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Aktiviere &lt;strong&gt;MQTT Discovery&lt;/strong&gt; in Home Assistant.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Lösche alte Homie-Nachrichten vom Broker:&lt;/p&gt;
-&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
-&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mosquitto_pub -h 192.168.1.50 -t &lt;span class="s2"&gt;&amp;#34;homie&amp;#34;&lt;/span&gt; -n -r&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
-&lt;button
-class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
-title="Copy code"
-aria-label="Copy code"
-data-copied-label="Copied!"
-&gt;
-&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
-&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
-&lt;/button&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;hr&gt;
-&lt;h3&gt;❌ &lt;strong&gt;Home Assistant erkennt den Controller nicht&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-home-assistant-erkennt-den-controller-nicht"&gt;&lt;/span&gt;
-&lt;a href="#-home-assistant-erkennt-den-controller-nicht" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;&lt;strong&gt;Symptome:&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="symptome-3"&gt;&lt;/span&gt;
-&lt;a href="#symptome-3" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;Controller ist mit MQTT verbunden, aber &lt;strong&gt;keine Geräte werden in Home Assistant angezeigt&lt;/strong&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;&lt;strong&gt;Lösungen:&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="lösungen-3"&gt;&lt;/span&gt;
-&lt;a href="#l%c3%b6sungen-3" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Aktualisiere auf Firmware v3.3.0+&lt;/strong&gt; (Homie wird nicht mehr unterstützt).&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Lösche alte Homie-Nachrichten&lt;/strong&gt; vom Broker (siehe oben).&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Aktiviere Discovery in Home Assistant:&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;Gehe zu &lt;strong&gt;Einstellungen → Geräte &amp;amp; Dienste → MQTT&lt;/strong&gt;.&lt;/li&gt;
-&lt;li&gt;Aktiviere &lt;strong&gt;Discovery&lt;/strong&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;hr&gt;
-&lt;h2&gt;🌡️ &lt;strong&gt;Sensoren (DS18B20)&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-sensoren-ds18b20"&gt;&lt;/span&gt;
-&lt;a href="#-sensoren-ds18b20" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;❌ &lt;strong&gt;Sensor zeigt &lt;code&gt;-127°C&lt;/code&gt; an&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-sensor-zeigt"&gt;&lt;/span&gt;
-&lt;a href="#-sensor-zeigt" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;&lt;strong&gt;Symptome:&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="symptome-4"&gt;&lt;/span&gt;
-&lt;a href="#symptome-4" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;Sensor wird im &lt;strong&gt;Web-Interface&lt;/strong&gt; oder &lt;strong&gt;MQTT&lt;/strong&gt; mit &lt;code&gt;-127°C&lt;/code&gt; angezeigt.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;&lt;strong&gt;Lösungen:&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="lösungen-4"&gt;&lt;/span&gt;
-&lt;a href="#l%c3%b6sungen-4" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Füge einen 4.7kΩ-Widerstand zwischen DATA und 3.3V hinzu&lt;/strong&gt; (Pull-Up).&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Prüfe die GPIO-Pins&lt;/strong&gt; in &lt;code&gt;Config.hpp&lt;/code&gt; (Standard: GPIO32/33).&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Teste den Sensor mit einem einfachen Arduino-Sketch.&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;hr&gt;
-&lt;h3&gt;❌ &lt;strong&gt;Sensor zeigt &lt;code&gt;85°C&lt;/code&gt; oder andere unplausible Werte an&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-sensor-zeigt-1"&gt;&lt;/span&gt;
-&lt;a href="#-sensor-zeigt-1" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;&lt;strong&gt;Symptome:&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="symptome-5"&gt;&lt;/span&gt;
-&lt;a href="#symptome-5" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;Sensor zeigt &lt;strong&gt;konstant 85°C&lt;/strong&gt; oder &lt;strong&gt;sehr hohe Werte&lt;/strong&gt; an.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;&lt;strong&gt;Lösungen:&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="lösungen-5"&gt;&lt;/span&gt;
-&lt;a href="#l%c3%b6sungen-5" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Prüfe auf Kurzschlüsse&lt;/strong&gt; zwischen DATA und VDD.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Teste mit einem anderen Sensor.&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Verwende kürzere Kabel&lt;/strong&gt; (max. 30m mit Pull-Up).&lt;/li&gt;
-&lt;/ol&gt;
-&lt;hr&gt;
-&lt;h3&gt;❌ &lt;strong&gt;Sensor wird nicht erkannt&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-sensor-wird-nicht-erkannt"&gt;&lt;/span&gt;
-&lt;a href="#-sensor-wird-nicht-erkannt" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;&lt;strong&gt;Symptome:&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="symptome-6"&gt;&lt;/span&gt;
-&lt;a href="#symptome-6" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;Im &lt;strong&gt;Web-Interface&lt;/strong&gt; oder &lt;strong&gt;Seriellen Logs&lt;/strong&gt; wird &lt;strong&gt;&amp;ldquo;Sensor not found&amp;rdquo;&lt;/strong&gt; angezeigt.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;&lt;strong&gt;Lösungen:&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="lösungen-6"&gt;&lt;/span&gt;
-&lt;a href="#l%c3%b6sungen-6" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Prüfe die Serielle Ausgabe&lt;/strong&gt; (115200 Baud) auf Fehlermeldungen.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Prüfe die Verkabelung:&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;VDD (rot)&lt;/strong&gt; → &lt;strong&gt;3.3V&lt;/strong&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;GND (schwarz)&lt;/strong&gt; → &lt;strong&gt;GND&lt;/strong&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;DATA (gelb/weiß)&lt;/strong&gt; → &lt;strong&gt;GPIO32/33&lt;/strong&gt; + &lt;strong&gt;4.7kΩ zu 3.3V&lt;/strong&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;hr&gt;
-&lt;h2&gt;🔌 &lt;strong&gt;Relay-Modul &amp;amp; Pumpen&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-relay-modul--pumpen"&gt;&lt;/span&gt;
-&lt;a href="#-relay-modul--pumpen" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;❌ &lt;strong&gt;Relay klickt nicht&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-relay-klickt-nicht"&gt;&lt;/span&gt;
-&lt;a href="#-relay-klickt-nicht" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;&lt;strong&gt;Symptome:&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="symptome-7"&gt;&lt;/span&gt;
-&lt;a href="#symptome-7" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;Relay schaltet &lt;strong&gt;nicht&lt;/strong&gt; (kein Klick-Geräusch) beim Aktivieren über das Web-Interface.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;&lt;strong&gt;Lösungen:&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="lösungen-7"&gt;&lt;/span&gt;
-&lt;a href="#l%c3%b6sungen-7" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Prüfe die Logik des Relay-Moduls:&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Aktiv-High:&lt;/strong&gt; GPIO &lt;strong&gt;HIGH (3.3V)&lt;/strong&gt; → Relay &lt;strong&gt;EIN&lt;/strong&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Aktiv-Low:&lt;/strong&gt; GPIO &lt;strong&gt;LOW (0V)&lt;/strong&gt; → Relay &lt;strong&gt;EIN&lt;/strong&gt;.&lt;/li&gt;
-&lt;li&gt;Teste mit einem einfachen Arduino-Sketch.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Prüfe die Stromversorgung:&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;VCC&lt;/strong&gt; → &lt;strong&gt;5V&lt;/strong&gt; (vom ESP32 VIN oder externem Netzteil).&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;GND&lt;/strong&gt; → &lt;strong&gt;GND&lt;/strong&gt; (gemeinsam mit ESP32).&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;hr&gt;
-&lt;h3&gt;❌ &lt;strong&gt;Relay klickt, aber Pumpe läuft nicht&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-relay-klickt-aber-pumpe-läuft-nicht"&gt;&lt;/span&gt;
-&lt;a href="#-relay-klickt-aber-pumpe-l%c3%a4uft-nicht" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;&lt;strong&gt;Symptome:&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="symptome-8"&gt;&lt;/span&gt;
-&lt;a href="#symptome-8" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;Relay &lt;strong&gt;klickt&lt;/strong&gt;, aber die &lt;strong&gt;Pumpe startet nicht&lt;/strong&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;&lt;strong&gt;Lösungen:&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="lösungen-8"&gt;&lt;/span&gt;
-&lt;a href="#l%c3%b6sungen-8" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Prüfe die 230V-Verdrahtung:&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;ACHTUNG: Nur für Fachleute!&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;COM&lt;/strong&gt; → &lt;strong&gt;Phase (L)&lt;/strong&gt; der Pumpe.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;NO&lt;/strong&gt; → &lt;strong&gt;Pumpe&lt;/strong&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Nullleiter (N)&lt;/strong&gt; → &lt;strong&gt;Direkt zur Pumpe&lt;/strong&gt; (ohne Relay!).&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Teste die Pumpe direkt&lt;/strong&gt; (über eine Steckdose).&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;hr&gt;
-&lt;h3&gt;❌ &lt;strong&gt;ESP32 startet neu beim Relay-Schalten&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-esp32-startet-neu-beim-relay-schalten"&gt;&lt;/span&gt;
-&lt;a href="#-esp32-startet-neu-beim-relay-schalten" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;&lt;strong&gt;Symptome:&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="symptome-9"&gt;&lt;/span&gt;
-&lt;a href="#symptome-9" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;Der &lt;strong&gt;ESP32 startet neu&lt;/strong&gt;, wenn das Relay schaltet.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;&lt;strong&gt;Lösungen:&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="lösungen-9"&gt;&lt;/span&gt;
-&lt;a href="#l%c3%b6sungen-9" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Verwende ein stärkeres Netzteil (5V/2A+)&lt;/strong&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Füge einen 100µF-Kondensator&lt;/strong&gt; zwischen &lt;strong&gt;VIN und GND&lt;/strong&gt; hinzu.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;hr&gt;
-&lt;h2&gt;🔄 &lt;strong&gt;Firmware &amp;amp; Updates&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-firmware--updates"&gt;&lt;/span&gt;
-&lt;a href="#-firmware--updates" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;❌ &lt;strong&gt;Firmware-Update schlägt fehl (OTA)&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-firmware-update-schlägt-fehl-ota"&gt;&lt;/span&gt;
-&lt;a href="#-firmware-update-schl%c3%a4gt-fehl-ota" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;&lt;strong&gt;Symptome:&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="symptome-10"&gt;&lt;/span&gt;
-&lt;a href="#symptome-10" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;OTA-Update &lt;strong&gt;bricht ab&lt;/strong&gt; oder &lt;strong&gt;startet nicht&lt;/strong&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;&lt;strong&gt;Lösungen:&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="lösungen-10"&gt;&lt;/span&gt;
-&lt;a href="#l%c3%b6sungen-10" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Lade die richtige &lt;code&gt;.bin&lt;/code&gt;-Datei&lt;/strong&gt; aus den
-&lt;a
-href="https://github.com/smart-swimmingpool/pool-controller/releases"target="_blank" rel="noopener"&gt;Releases&lt;/a&gt; herunter.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Führe das Update manuell durch:&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
-&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;esptool.py --chip esp32 --port /dev/ttyUSB0 write_flash 0x10000 pool-controller-v3.3.0.bin&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
-&lt;button
-class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
-title="Copy code"
-aria-label="Copy code"
-data-copied-label="Copied!"
-&gt;
-&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
-&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
-&lt;/button&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Prüfe das OTA-Passwort&lt;/strong&gt; im Web-Interface (&lt;strong&gt;Security &amp;amp; Update&lt;/strong&gt;).&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;hr&gt;
-&lt;h2&gt;🔋 &lt;strong&gt;Stromversorgung&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-stromversorgung"&gt;&lt;/span&gt;
-&lt;a href="#-stromversorgung" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;❌ &lt;strong&gt;ESP32 startet nicht oder startet neu&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-esp32-startet-nicht-oder-startet-neu"&gt;&lt;/span&gt;
-&lt;a href="#-esp32-startet-nicht-oder-startet-neu" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;&lt;strong&gt;Symptome:&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="symptome-11"&gt;&lt;/span&gt;
-&lt;a href="#symptome-11" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;ESP32 &lt;strong&gt;startet nicht&lt;/strong&gt; oder &lt;strong&gt;startet neu&lt;/strong&gt; (Brownout).&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;&lt;strong&gt;Lösungen:&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="lösungen-11"&gt;&lt;/span&gt;
-&lt;a href="#l%c3%b6sungen-11" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Verwende ein stabileres Netzteil (5V/2A+)&lt;/strong&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Füge einen 100µF-Kondensator&lt;/strong&gt; zwischen &lt;strong&gt;VIN und GND&lt;/strong&gt; hinzu.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Prüfe die Spannung&lt;/strong&gt; (sollte stabil bei 5V liegen).&lt;/li&gt;
-&lt;/ol&gt;
-&lt;hr&gt;
-&lt;h2&gt;📞 &lt;strong&gt;Hilfe &amp;amp; Support&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-hilfe--support"&gt;&lt;/span&gt;
-&lt;a href="#-hilfe--support" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Falls dein Problem hier nicht aufgelistet ist:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;GitHub Discussions:&lt;/strong&gt; &lt;a
-href="https://github.com/smart-swimmingpool/pool-controller/discussions"target="_blank" rel="noopener"&gt;smart-swimmingpool/pool-controller/discussions&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Issue erstellen:&lt;/strong&gt; &lt;a
-href="https://github.com/smart-swimmingpool/pool-controller/issues"target="_blank" rel="noopener"&gt;smart-swimmingpool/pool-controller/issues&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Bitte gib folgende Informationen an:&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;Firmware-Version (z. B. v3.3.0).&lt;/li&gt;
-&lt;li&gt;Hardware (ESP32-Modell, Relay-Modul, Sensoren).&lt;/li&gt;
-&lt;li&gt;Fehlerbeschreibung (Was passiert? Was hast du bereits ausprobiert?).&lt;/li&gt;
-&lt;li&gt;Serielle Logs (falls verfügbar).&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;hr&gt;
-&lt;p&gt;&lt;strong&gt;Viel Erfolg bei der Fehlerbehebung!&lt;/strong&gt; 🛠️&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Falls du eine Lösung für ein Problem findest, das hier nicht aufgelistet
-ist, erstelle bitte einen &lt;strong&gt;Pull Request&lt;/strong&gt;, um diese FAQ zu erweitern!&lt;/em&gt;&lt;/p&gt;</description></item><item><title>🚀 Quick Start: Pool Controller in 5 Schritten</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/quickstart/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/quickstart/</guid><description>
+href="https://github.com/smart-swimmingpool/pool-controller/discussions"target="_blank" rel="noopener"&gt;GitHub Discussions&lt;/a&gt; nachzufragen.&lt;/em&gt;&lt;/p&gt;</description></item><item><title>🚀 Quick Start: Pool Controller in 5 Schritten</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/quickstart/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/quickstart/</guid><description>
 &lt;h2&gt;🎯 Ziel&lt;span class="hx:absolute hx:-mt-20" id="-ziel"&gt;&lt;/span&gt;
 &lt;a href="#-ziel" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Dieser Leitfaden führt dich &lt;strong&gt;Schritt für Schritt&lt;/strong&gt; durch den Aufbau
 und die Inbetriebnahme des &lt;strong&gt;Smart Swimmingpool Controllers&lt;/strong&gt; – &lt;strong&gt;ohne
@@ -5987,6 +6731,8 @@ manufacturing tips, troubleshooting&lt;/li&gt;
 &lt;li&gt;Pin background and optimization:
 &lt;a
 href="https://smart-swimmingpool.github.io/docs/pool-controller/esp32-schematic-optimization/"&gt;ESP32 Schematic Optimization&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="kicad/esp32-dev-board/esp32-dev-board-schematic.pdf"&gt;KiCad Schematic: ESP32 Dev Board&lt;/a&gt; — KiCad 9.0 schematic PDF export&lt;/li&gt;
 &lt;/ul&gt;</description></item><item><title>ESP32 Schematic Optimization</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/esp32-schematic-optimization/</link><pubDate>Thu, 11 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/esp32-schematic-optimization/</guid><description>
 &lt;p&gt;This document analyzes the existing setup (Fritzing source + existing hardware
 documentation) and describes an optimized ESP32 proposal for sensors and relays.&lt;/p&gt;
@@ -7051,6 +7797,8 @@ href="https://norvi.io/docs/norvi-iiot-ae01-r-datasheet/"target="_blank" rel="no
 &lt;li&gt;&lt;a
 href="https://norvi.io/docs/norvi-iiot-ae01-r-user-guide/"target="_blank" rel="noopener"&gt;NORVI IIOT-AE01-R User Guide&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a
+href="kicad/norvi-ae01-r/norvi-ae01-r-schematic.pdf"&gt;KiCad Schematic: NORVI AE01-R&lt;/a&gt; — KiCad 9.0 schematic PDF export&lt;/li&gt;
+&lt;li&gt;&lt;a
 href="https://smart-swimmingpool.github.io/docs/pool-controller/hardware-guide/"&gt;Main Hardware Guide&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a
 href="https://github.com/smart-swimmingpool/pool-controller/blob/main/src/Config.hpp"target="_blank" rel="noopener"&gt;Config.hpp pin source&lt;/a&gt;&lt;/li&gt;
@@ -7451,7 +8199,7 @@ additional 3.3V components, consider an external 3.3V regulator.&lt;/p&gt;
 href="#first-power-on-and-testing"&gt;First Power-On&lt;/a&gt; below&lt;/li&gt;
 &lt;/ol&gt;
 &lt;figure&gt;&lt;img src="../pool-controller_breadboard.png"&gt;&lt;figcaption&gt;
-&lt;h4&gt;Pool Controller breadboard prototype with ESP32, two DS18B20 temperature sensors, 4.7kΩ pull-up resistors, and 2-channel relay module&lt;/h4&gt;
+&lt;h4&gt;Breadboard prototype with ESP32, DS18B20 sensors, 4.7kΩ pull-up resistors, and 2-channel relay module&lt;/h4&gt;
 &lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;blockquote&gt;
@@ -7839,6 +8587,10 @@ IoT device status indication. The LED is updated once per control loop cycle.&lt
 &lt;a href="#references" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Fritzing source file: &lt;a
 href="https://github.com/smart-swimmingpool/pool-controller/raw/main/docs/pool-controller.fzz"target="_blank" rel="noopener"&gt;pool-controller.fzz&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="kicad/esp32-dev-board/esp32-dev-board-schematic.pdf"&gt;KiCad Schematic: ESP32 Dev Board&lt;/a&gt; — KiCad 9.0 PDF export&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="kicad/norvi-ae01-r/norvi-ae01-r-schematic.pdf"&gt;KiCad Schematic: NORVI AE01-R&lt;/a&gt; — KiCad 9.0 PDF export&lt;/li&gt;
 &lt;li&gt;&lt;a
 href="https://smart-swimmingpool.github.io/docs/pool-controller/norvi-ae01-r/"&gt;NORVI AE01-R Configuration Guide&lt;/a&gt; — industrial ESP32 controller pin mapping &amp;amp; wiring&lt;/li&gt;
 &lt;li&gt;&lt;a

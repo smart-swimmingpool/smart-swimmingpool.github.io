@@ -161,6 +161,8 @@ manufacturing tips, troubleshooting&lt;/li&gt;
 &lt;li&gt;Pin background and optimization:
 &lt;a
 href="https://smart-swimmingpool.github.io/docs/pool-controller/esp32-schematic-optimization/"&gt;ESP32 Schematic Optimization&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="kicad/esp32-dev-board/esp32-dev-board-schematic.pdf"&gt;KiCad Schematic: ESP32 Dev Board&lt;/a&gt; — KiCad 9.0 schematic PDF export&lt;/li&gt;
 &lt;/ul&gt;</description></item><item><title>Hardware Guide</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/hardware-guide/</link><pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/hardware-guide/</guid><description>
 &lt;h2&gt;Overview&lt;span class="hx:absolute hx:-mt-20" id="overview"&gt;&lt;/span&gt;
 &lt;a href="#overview" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This guide walks you through building the Pool Controller hardware — from
@@ -558,7 +560,7 @@ additional 3.3V components, consider an external 3.3V regulator.&lt;/p&gt;
 href="#first-power-on-and-testing"&gt;First Power-On&lt;/a&gt; below&lt;/li&gt;
 &lt;/ol&gt;
 &lt;figure&gt;&lt;img src="../pool-controller_breadboard.png"&gt;&lt;figcaption&gt;
-&lt;h4&gt;Pool Controller breadboard prototype with ESP32, two DS18B20 temperature sensors, 4.7kΩ pull-up resistors, and 2-channel relay module&lt;/h4&gt;
+&lt;h4&gt;Breadboard prototype with ESP32, DS18B20 sensors, 4.7kΩ pull-up resistors, and 2-channel relay module&lt;/h4&gt;
 &lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;blockquote&gt;
@@ -946,6 +948,10 @@ IoT device status indication. The LED is updated once per control loop cycle.&lt
 &lt;a href="#references" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Fritzing source file: &lt;a
 href="https://github.com/smart-swimmingpool/pool-controller/raw/main/docs/pool-controller.fzz"target="_blank" rel="noopener"&gt;pool-controller.fzz&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="kicad/esp32-dev-board/esp32-dev-board-schematic.pdf"&gt;KiCad Schematic: ESP32 Dev Board&lt;/a&gt; — KiCad 9.0 PDF export&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="kicad/norvi-ae01-r/norvi-ae01-r-schematic.pdf"&gt;KiCad Schematic: NORVI AE01-R&lt;/a&gt; — KiCad 9.0 PDF export&lt;/li&gt;
 &lt;li&gt;&lt;a
 href="https://smart-swimmingpool.github.io/docs/pool-controller/norvi-ae01-r/"&gt;NORVI AE01-R Configuration Guide&lt;/a&gt; — industrial ESP32 controller pin mapping &amp;amp; wiring&lt;/li&gt;
 &lt;li&gt;&lt;a
