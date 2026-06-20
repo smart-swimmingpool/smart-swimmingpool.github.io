@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Documents</title><link>https://smart-swimmingpool.github.io/docs/</link><description>Recent content in Documents on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><atom:link href="https://smart-swimmingpool.github.io/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Quick Start Guide</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/quick-start/</link><pubDate>Wed, 17 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/quick-start/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Documents</title><link>https://smart-swimmingpool.github.io/docs/</link><description>Recent content in Documents on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><atom:link href="https://smart-swimmingpool.github.io/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Quick Start Guide</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/quick-start/</link><pubDate>Fri, 19 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/quick-start/</guid><description>
 &lt;p&gt;&lt;strong&gt;Target audience:&lt;/strong&gt; DIY enthusiasts with &lt;strong&gt;basic electronics knowledge&lt;/strong&gt; (soldering, GPIO, MQTT).
 &lt;strong&gt;Time required:&lt;/strong&gt; ~4–6 hours (including parts sourcing).
 &lt;strong&gt;Cost:&lt;/strong&gt; ~45–75€ (excluding pumps and pool infrastructure).&lt;/p&gt;
@@ -786,7 +786,7 @@ href="https://medium.com/diy-my-smart-home/project-smart-swimmingpool-4c40eb6741
 , &lt;em&gt;December 2018&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Blogpost of version 1 of Smart Swimming Pool&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>Frequently Asked Questions (FAQ)</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/faq/</link><pubDate>Wed, 17 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/faq/</guid><description>
+&lt;/ul&gt;</description></item><item><title>Frequently Asked Questions (FAQ)</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/faq/</link><pubDate>Fri, 19 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/faq/</guid><description>
 &lt;p&gt;This FAQ covers &lt;strong&gt;common issues&lt;/strong&gt; and their solutions for the &lt;strong&gt;Smart Swimming Pool Controller&lt;/strong&gt;.
 If your problem isn&amp;rsquo;t listed here, check the
 &lt;a
@@ -1058,7 +1058,7 @@ href="https://github.com/smart-swimmingpool/pool-controller/issues/new"target="_
 &lt;/ol&gt;
 &lt;hr&gt;
 &lt;h2&gt;📄 License&lt;span class="hx:absolute hx:-mt-20" id="-license"&gt;&lt;/span&gt;
-&lt;a href="#-license" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This FAQ is part of the &lt;strong&gt;Smart Swimming Pool&lt;/strong&gt; project, licensed under the &lt;strong&gt;MIT License&lt;/strong&gt;.&lt;/p&gt;</description></item><item><title>Temperature-Based Circulation Time</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/temperature-based-circulation/</link><pubDate>Wed, 17 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/temperature-based-circulation/</guid><description>
+&lt;a href="#-license" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This FAQ is part of the &lt;strong&gt;Smart Swimming Pool&lt;/strong&gt; project, licensed under the &lt;strong&gt;MIT License&lt;/strong&gt;.&lt;/p&gt;</description></item><item><title>Temperature-Based Circulation Time</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/temperature-based-circulation/</link><pubDate>Fri, 19 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/temperature-based-circulation/</guid><description>
 &lt;h1&gt;Temperature-Based Circulation Time&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;Optimize pool circulation for better water quality with minimal power consumption.&lt;/strong&gt;&lt;/p&gt;
 &lt;h2&gt;1. Motivation&lt;span class="hx:absolute hx:-mt-20" id="1-motivation"&gt;&lt;/span&gt;
 &lt;a href="#1-motivation" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The pool pump is the largest power consumer in a swimming pool. At the same time, it determines water quality. The required circulation volume strongly depends on water temperature:&lt;/p&gt;
@@ -1618,7 +1618,388 @@ data-copied-label="Copied!"
 &lt;li&gt;&lt;strong&gt;Cold reduction&lt;/strong&gt;: Optional &lt;code&gt;tempCircMinRuntime&lt;/code&gt; below a lower threshold&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Trend-based&lt;/strong&gt;: Factor in whether temperature is rising or falling&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Seasonal calendar&lt;/strong&gt;: Automatically adjust base parameters for summer/winter&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>⚠️ Sicherheitshinweise &amp; Warnungen</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/safety/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/safety/</guid><description>
+&lt;/ul&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/security-references/</link><pubDate>Fri, 19 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/security-references/</guid><description>
+&lt;h1&gt;Security References &amp;amp; Best Practices&lt;/h1&gt;&lt;p&gt;This document contains security references, best practices, and implementation
+guidelines for the Pool Controller project. These references were compiled during the
+comprehensive IoT security analysis performed on 2025-01-15.&lt;/p&gt;
+&lt;h2&gt;📚 Security Standards &amp;amp; Guidelines&lt;span class="hx:absolute hx:-mt-20" id="-security-standards--guidelines"&gt;&lt;/span&gt;
+&lt;a href="#-security-standards--guidelines" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;General Security Frameworks&lt;span class="hx:absolute hx:-mt-20" id="general-security-frameworks"&gt;&lt;/span&gt;
+&lt;a href="#general-security-frameworks" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a
+href="https://owasp.org/www-project-internet-of-things/"target="_blank" rel="noopener"&gt;OWASP IoT Security Guidance&lt;/a&gt;&lt;/strong&gt;
+Comprehensive IoT security framework covering device security, network security, and data protection.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;**&lt;a
+href="https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/"target="_blank" rel="noopener"&gt;OWASP Secure Coding Practices Quick Reference Guide&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;**&lt;/p&gt;
+&lt;p&gt;General secure coding guidelines applicable to embedded systems and IoT
+devices.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://www.nist.gov/iot"target="_blank" rel="noopener"&gt;NIST IoT Device Cybersecurity Guidance&lt;/a&gt;&lt;/strong&gt;
+NIST recommendations for IoT device security, including risk management and security controls.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Web Application Security&lt;span class="hx:absolute hx:-mt-20" id="web-application-security"&gt;&lt;/span&gt;
+&lt;a href="#web-application-security" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;**&lt;a
+href="https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html"target="_blank" rel="noopener"&gt;OWASP CSRF Prevention Cheat Sheet&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;**&lt;/p&gt;
+&lt;p&gt;Comprehensive guide to CSRF protection strategies, including token-based
+approaches and SameSite cookie attributes.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;**&lt;a
+href="https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html"target="_blank" rel="noopener"&gt;OWASP Session Management Cheat Sheet&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;**&lt;/p&gt;
+&lt;p&gt;Best practices for secure session management, including timeout handling and
+cookie security.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html"target="_blank" rel="noopener"&gt;OWASP Authentication Cheat Sheet&lt;/a&gt;&lt;/strong&gt;
+Guidelines for secure authentication implementation, password storage, and credential management.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🔒 ESP32 Specific Security&lt;span class="hx:absolute hx:-mt-20" id="-esp32-specific-security"&gt;&lt;/span&gt;
+&lt;a href="#-esp32-specific-security" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Official Espressif Documentation&lt;span class="hx:absolute hx:-mt-20" id="official-espressif-documentation"&gt;&lt;/span&gt;
+&lt;a href="#official-espressif-documentation" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a
+href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/security/index.html"target="_blank" rel="noopener"&gt;ESP32 Security Features&lt;/a&gt;&lt;/strong&gt;
+Official Espressif security documentation covering all security aspects of the ESP32 platform.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a
+href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/security/secure-boot.html"target="_blank" rel="noopener"&gt;ESP32 Secure Boot&lt;/a&gt;&lt;/strong&gt;
+Complete guide to implementing Secure Boot on ESP32, including key generation and eFuse configuration.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;**&lt;a
+href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/security/flash-encryption.html"target="_blank" rel="noopener"&gt;ESP32 Flash Encryption&lt;/a&gt;
+**&lt;/p&gt;
+&lt;p&gt;Detailed documentation on flash encryption configuration and implementation.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;**&lt;a
+href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/system/efuse.html"target="_blank" rel="noopener"&gt;ESP32 eFuse Reference&lt;/a&gt;
+**&lt;/p&gt;
+&lt;p&gt;Reference documentation for eFuse burning and configuration options.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a
+href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/memory-types.html"target="_blank" rel="noopener"&gt;ESP32 Memory Types&lt;/a&gt;&lt;/strong&gt;
+Understanding ESP32 memory architecture and different memory types (DRAM, IRAM, etc.).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;**&lt;a
+href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/memory-management.html"target="_blank" rel="noopener"&gt;ESP32 Memory Management&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;**&lt;/p&gt;
+&lt;p&gt;Memory allocation strategies and best practices for ESP32 development.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;**&lt;a
+href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/heap-fragmentation.html"target="_blank" rel="noopener"&gt;ESP32 Heap Fragmentation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;**&lt;/p&gt;
+&lt;p&gt;Understanding and preventing heap fragmentation in ESP32 applications.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;**&lt;a
+href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/debugging/memory-leaks.html"target="_blank" rel="noopener"&gt;ESP-IDF Memory Debugging&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;**&lt;/p&gt;
+&lt;p&gt;Tools and techniques for detecting and debugging memory leaks in ESP32
+applications.&lt;/p&gt;
+&lt;h3&gt;Practical Implementation Examples&lt;span class="hx:absolute hx:-mt-20" id="practical-implementation-examples"&gt;&lt;/span&gt;
+&lt;a href="#practical-implementation-examples" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a
+href="https://github.com/espressif/esp-idf/tree/master/examples/protocols/https_server"target="_blank" rel="noopener"&gt;ESP32 HTTPS Server&lt;/a&gt;&lt;/strong&gt;
+Example implementation of HTTPS server on ESP32 with certificate configuration.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a
+href="https://github.com/espressif/esp-idf/tree/master/examples/protocols/https_request"target="_blank" rel="noopener"&gt;ESP32 TLS Client&lt;/a&gt;&lt;/strong&gt;
+Example of secure client connections using TLS on ESP32.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🌐 Network Security&lt;span class="hx:absolute hx:-mt-20" id="-network-security"&gt;&lt;/span&gt;
+&lt;a href="#-network-security" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a
+href="https://datatracker.ietf.org/doc/html/rfc8520"target="_blank" rel="noopener"&gt;IETF RFC 8520 - Manufacturer Usage Description (MUD)&lt;/a&gt;&lt;/strong&gt;
+Standard for manufacturer usage description to enable network devices to signal their intended network behavior.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a
+href="https://csrc.nist.gov/publications/detail/sp/800-213/final"target="_blank" rel="noopener"&gt;NIST SP 800-213: IoT Device Cybersecurity Guidance&lt;/a&gt;&lt;/strong&gt;
+NIST Special Publication providing guidance on cybersecurity for IoT devices.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🔧 Memory Optimization &amp;amp; Performance&lt;span class="hx:absolute hx:-mt-20" id="-memory-optimization--performance"&gt;&lt;/span&gt;
+&lt;a href="#-memory-optimization--performance" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;ESP32 Memory Management&lt;span class="hx:absolute hx:-mt-20" id="esp32-memory-management"&gt;&lt;/span&gt;
+&lt;a href="#esp32-memory-management" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;**&lt;a
+href="https://github.com/espressif/esp-idf/blob/master/docs/en/api-guides/memory-types.rst"target="_blank" rel="noopener"&gt;ESP32 Memory Optimization Guide&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;**&lt;/p&gt;
+&lt;p&gt;Official memory optimization strategies for ESP32 development.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;**&lt;a
+href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/system/heap_debug.html"target="_blank" rel="noopener"&gt;Heap Usage Monitoring&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;**&lt;/p&gt;
+&lt;p&gt;ESP32 heap debugging functions and usage examples.&lt;/p&gt;
+&lt;h3&gt;Arduino &amp;amp; C++ Optimization&lt;span class="hx:absolute hx:-mt-20" id="arduino--c-optimization"&gt;&lt;/span&gt;
+&lt;a href="#arduino--c-optimization" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a
+href="https://www.arduino.cc/en/Reference/String"target="_blank" rel="noopener"&gt;Arduino String vs char arrays&lt;/a&gt;&lt;/strong&gt;
+When to use String vs char arrays, with performance considerations.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a
+href="https://arduinojson.org/v6/how-to/reduce-memory-usage/"target="_blank" rel="noopener"&gt;ArduinoJson Memory Optimization&lt;/a&gt;&lt;/strong&gt;
+Techniques for reducing memory usage with ArduinoJson library.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a
+href="https://arduinojson.org/v6/assistant/"target="_blank" rel="noopener"&gt;ArduinoJson Assistant&lt;/a&gt;&lt;/strong&gt;
+Online tool to calculate required buffer sizes for JSON documents.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a
+href="https://hackingmajenkoblog.wordpress.com/2016/02/04/the-evils-of-arduino-strings/"target="_blank" rel="noopener"&gt;Avoiding String in Arduino&lt;/a&gt;&lt;/strong&gt;
+Why and how to avoid the String class in Arduino for better memory management.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a
+href="https://embeddedartistry.com/blog/2017/02/22/always-use-the-right-sized-integer/"target="_blank" rel="noopener"&gt;Static vs Dynamic Allocation&lt;/a&gt;&lt;/strong&gt;
+Choosing the right allocation strategy for embedded systems.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;**&lt;a
+href="https://google.github.io/styleguide/cppguide.html#Ownership_and_Smart_Pointers"target="_blank" rel="noopener"&gt;Google C++ Style Guide - Memory Management&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;**&lt;/p&gt;
+&lt;p&gt;Smart pointer usage guidelines and memory management best practices.&lt;/p&gt;
+&lt;h2&gt;🛡️ Security Tools &amp;amp; Scanners&lt;span class="hx:absolute hx:-mt-20" id="-security-tools--scanners"&gt;&lt;/span&gt;
+&lt;a href="#-security-tools--scanners" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Static Analysis &amp;amp; Linting&lt;span class="hx:absolute hx:-mt-20" id="static-analysis--linting"&gt;&lt;/span&gt;
+&lt;a href="#static-analysis--linting" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a
+href="https://github.com/gitleaks/gitleaks"target="_blank" rel="noopener"&gt;Gitleaks&lt;/a&gt;&lt;/strong&gt;
+Fast and efficient secret detection in git repositories. Used in this project
+for detecting hardcoded credentials and sensitive data.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a
+href="https://codeql.github.com/"target="_blank" rel="noopener"&gt;CodeQL&lt;/a&gt;&lt;/strong&gt;
+Semantic code analysis engine for finding security vulnerabilities. Integrated into GitHub Actions CI.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a
+href="https://github.com/github/super-linter"target="_blank" rel="noopener"&gt;Super-Linter&lt;/a&gt;&lt;/strong&gt;
+Multi-language linting framework that combines multiple linters. Used in this project&amp;rsquo;s CI pipeline.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a
+href="https://github.com/cpplint/cpplint"target="_blank" rel="noopener"&gt;cpplint&lt;/a&gt;&lt;/strong&gt;
+Google&amp;rsquo;s C++ linter for enforcing coding style and detecting potential issues.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a
+href="https://clang.llvm.org/extra/clang-tidy/"target="_blank" rel="noopener"&gt;clang-tidy&lt;/a&gt;&lt;/strong&gt;
+Clang-based static analysis tool for C++ code.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Formatting Tools&lt;span class="hx:absolute hx:-mt-20" id="formatting-tools"&gt;&lt;/span&gt;
+&lt;a href="#formatting-tools" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a
+href="https://clang.llvm.org/docs/ClangFormat.html"target="_blank" rel="noopener"&gt;clang-format&lt;/a&gt;&lt;/strong&gt;
+Code formatting tool with configurable styles. Used in this project with custom configuration.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a
+href="https://prettier.io/"target="_blank" rel="noopener"&gt;Prettier&lt;/a&gt;&lt;/strong&gt;
+Opinionated code formatter for YAML, JSON, and Markdown files.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a
+href="https://editorconfig.org/"target="_blank" rel="noopener"&gt;EditorConfig&lt;/a&gt;&lt;/strong&gt;
+Consistent coding styles across different editors and IDEs.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;📋 Code Quality &amp;amp; CI/CD&lt;span class="hx:absolute hx:-mt-20" id="-code-quality--cicd"&gt;&lt;/span&gt;
+&lt;a href="#-code-quality--cicd" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;CI/CD Best Practices&lt;span class="hx:absolute hx:-mt-20" id="cicd-best-practices"&gt;&lt;/span&gt;
+&lt;a href="#cicd-best-practices" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a
+href="https://docs.github.com/en/actions"target="_blank" rel="noopener"&gt;GitHub Actions Documentation&lt;/a&gt;&lt;/strong&gt;
+Official documentation for GitHub Actions workflow configuration and best practices.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a
+href="https://docs.platformio.org/en/latest/integration/ci/github-actions.html"target="_blank" rel="noopener"&gt;PlatformIO CI&lt;/a&gt;&lt;/strong&gt;
+PlatformIO integration with GitHub Actions for embedded project builds.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a
+href="https://martinfowler.com/articles/continuousIntegration.html#QualityGates"target="_blank" rel="noopener"&gt;Quality Gates Pattern&lt;/a&gt;&lt;/strong&gt;
+Strategies for implementing quality gates in CI/CD pipelines.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Linting &amp;amp; Formatting&lt;span class="hx:absolute hx:-mt-20" id="linting--formatting"&gt;&lt;/span&gt;
+&lt;a href="#linting--formatting" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a
+href="https://github.com/github/super-linter/blob/main/README.md"target="_blank" rel="noopener"&gt;Setting up Super-Linter&lt;/a&gt;&lt;/strong&gt;
+Configuration and customization guide for Super-Linter.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a
+href="https://clang.llvm.org/docs/ClangFormatStyleOptions.html"target="_blank" rel="noopener"&gt;clang-format Configuration&lt;/a&gt;&lt;/strong&gt;
+Complete reference for clang-format style options.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a
+href="https://editorconfig.org/#file-format-details"target="_blank" rel="noopener"&gt;EditorConfig Properties&lt;/a&gt;&lt;/strong&gt;
+Available configuration options for EditorConfig files.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🔐 Cryptography &amp;amp; TLS&lt;span class="hx:absolute hx:-mt-20" id="-cryptography--tls"&gt;&lt;/span&gt;
+&lt;a href="#-cryptography--tls" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a
+href="https://github.com/Mbed-TLS/mbedtls"target="_blank" rel="noopener"&gt;mbedTLS Documentation&lt;/a&gt;&lt;/strong&gt;
+TLS/SSL library used by ESP32 for secure communications.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a
+href="https://www.openssl.org/docs/"target="_blank" rel="noopener"&gt;OpenSSL Documentation&lt;/a&gt;&lt;/strong&gt;
+Comprehensive documentation for OpenSSL cryptographic library.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;📖 Implementation Guides in This Project&lt;span class="hx:absolute hx:-mt-20" id="-implementation-guides-in-this-project"&gt;&lt;/span&gt;
+&lt;a href="#-implementation-guides-in-this-project" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Security Improvements (PR #112)&lt;span class="hx:absolute hx:-mt-20" id="security-improvements-pr-112"&gt;&lt;/span&gt;
+&lt;a href="#security-improvements-pr-112" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The following security improvements were implemented in
+&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller/pull/112"target="_blank" rel="noopener"&gt;PR #112&lt;/a&gt;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;CSRF Protection&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Token generation and validation system&lt;/li&gt;
+&lt;li&gt;SameSite cookie attributes for XSS/CSRF protection&lt;/li&gt;
+&lt;li&gt;30-minute token expiration with automatic regeneration&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Secret Management&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Gitleaks configuration for handling false positives&lt;/li&gt;
+&lt;li&gt;Improved documentation for default password hash&lt;/li&gt;
+&lt;li&gt;Better code comments explaining intentional hardcoding&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Memory Safety&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Dangling pointer prevention in TimeClientHelper&lt;/li&gt;
+&lt;li&gt;Memory-efficient utility functions in Utils.hpp&lt;/li&gt;
+&lt;li&gt;String optimization utilities&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Code Quality&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Line length compliance (&amp;lt;130 characters)&lt;/li&gt;
+&lt;li&gt;Trailing whitespace removal&lt;/li&gt;
+&lt;li&gt;Proper control structure formatting&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Usage Examples&lt;span class="hx:absolute hx:-mt-20" id="usage-examples"&gt;&lt;/span&gt;
+&lt;a href="#usage-examples" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;CSRF Token Usage&lt;span class="hx:absolute hx:-mt-20" id="csrf-token-usage"&gt;&lt;/span&gt;
+&lt;a href="#csrf-token-usage" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cpp" data-lang="cpp"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// Generate and validate CSRF tokens
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;token&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;WebPortal&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;generateCsrfToken&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kt"&gt;bool&lt;/span&gt; &lt;span class="n"&gt;isValid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;WebPortal&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;validateCsrfToken&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;submittedToken&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;currentToken&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;WebPortal&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;getCurrentCsrfToken&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h4&gt;Memory-Efficient String Operations&lt;span class="hx:absolute hx:-mt-20" id="memory-efficient-string-operations"&gt;&lt;/span&gt;
+&lt;a href="#memory-efficient-string-operations" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cpp" data-lang="cpp"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// Use utility functions for memory-efficient string operations
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;Utils&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;safeStringConcat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;Hello &amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;32&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;Utils&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;safeStringConcat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;World!&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;32&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// Or create pre-reserved strings
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;reserved&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Utils&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;createReservedString&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;Initial&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;64&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;🎯 Related Skills&lt;span class="hx:absolute hx:-mt-20" id="-related-skills"&gt;&lt;/span&gt;
+&lt;a href="#-related-skills" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="../.opencode/skills/iot-security/SKILL.md"&gt;IoT Security Skill&lt;/a&gt;&lt;/strong&gt; - Comprehensive IoT security guidelines&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="../.opencode/skills/cpp-memory-opt/SKILL.md"&gt;C++ Memory Optimization Skill&lt;/a&gt;&lt;/strong&gt; - Memory optimization techniques&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="../.opencode/skills/cpp-code-quality/SKILL.md"&gt;C++ Code Quality Skill&lt;/a&gt;&lt;/strong&gt; - Code quality and linting standards&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;📝 Contribution Guidelines&lt;span class="hx:absolute hx:-mt-20" id="-contribution-guidelines"&gt;&lt;/span&gt;
+&lt;a href="#-contribution-guidelines" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;When contributing security improvements to this project:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Follow OWASP Guidelines&lt;/strong&gt;: Adhere to OWASP security best practices&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Use Established Libraries&lt;/strong&gt;: Prefer well-tested libraries over custom implementations&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Document Security Decisions&lt;/strong&gt;: Clearly document any security trade-offs&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Test Security Features&lt;/strong&gt;: Ensure security features are properly tested&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Update Documentation&lt;/strong&gt;: Keep security documentation up to date&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;🔍 Security Audit Checklist&lt;span class="hx:absolute hx:-mt-20" id="-security-audit-checklist"&gt;&lt;/span&gt;
+&lt;a href="#-security-audit-checklist" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Use this checklist when performing security audits:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; All credentials encrypted at rest (not in plaintext)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Secure communication protocols used (TLS/HTTPS)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Input validation implemented for all user inputs&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Output encoding to prevent injection attacks&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Session management with proper timeouts&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; CSRF protection for all state-changing operations&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Rate limiting on authentication endpoints&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Error messages don&amp;rsquo;t reveal sensitive information&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Logging doesn&amp;rsquo;t contain sensitive data&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Memory management prevents leaks and corruption&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;📅 Last Updated&lt;/strong&gt;: 2025-01-15&lt;br&gt;
+&lt;strong&gt;🔍 Analysis Performed By&lt;/strong&gt;: Vibe Code - IoT Security Expert Mode&lt;br&gt;
+&lt;strong&gt;📝 Related PR&lt;/strong&gt;:
+&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller/pull/112"target="_blank" rel="noopener"&gt;#112 - IoT Security &amp;amp; Memory Optimization Analysis&lt;/a&gt;&lt;/p&gt;</description></item><item><title>⚠️ Sicherheitshinweise &amp; Warnungen</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/safety/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/safety/</guid><description>
 &lt;h2&gt;⚠️ &lt;strong&gt;WICHTIGE SICHERHEITSHINWEISE&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-wichtige-sicherheitshinweise"&gt;&lt;/span&gt;
 &lt;a href="#-wichtige-sicherheitshinweise" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;⚠️ ACHTUNG: DIESES PROJEKT ARBEITET MIT 230V WECHSELSTROM!&lt;/strong&gt;
