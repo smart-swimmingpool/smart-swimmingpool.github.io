@@ -2743,15 +2743,7 @@ href="https://smart-swimmingpool.github.io/docs/firmware-migration/"&gt;Firmware
 &lt;li&gt;Test manually: &lt;code&gt;mosquitto_pub -h &amp;lt;broker-ip&amp;gt; -t &amp;quot;homeassistant/switch/pool-controller/pool_pump/set&amp;quot; -m &amp;quot;ON&amp;quot;&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Wrong MQTT Device ID&lt;span class="hx:absolute hx:-mt-20" id="wrong-mqtt-device-id"&gt;&lt;/span&gt;
-&lt;a href="#wrong-mqtt-device-id" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The default device ID is &lt;code&gt;pool-controller&lt;/code&gt;. If you changed it in the controller&amp;rsquo;s web interface (&lt;strong&gt;Configuration → MQTT → Device ID&lt;/strong&gt;), update all topic paths in your &lt;code&gt;.things&lt;/code&gt; file to match.&lt;/p&gt;</description></item><item><title>Publications</title><link>https://smart-swimmingpool.github.io/docs/publications/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/publications/</guid><description>
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a
-href="https://medium.com/diy-my-smart-home/project-smart-swimmingpool-4c40eb6741f6"target="_blank" rel="noopener"&gt;Project Smart Swimming Pool&lt;/a&gt;
-, &lt;em&gt;December 2018&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Blogpost of version 1 of Smart Swimming Pool&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>Upgrade &amp; Migration</title><link>https://smart-swimmingpool.github.io/docs/migration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/migration/</guid><description>
+&lt;a href="#wrong-mqtt-device-id" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The default device ID is &lt;code&gt;pool-controller&lt;/code&gt;. If you changed it in the controller&amp;rsquo;s web interface (&lt;strong&gt;Configuration → MQTT → Device ID&lt;/strong&gt;), update all topic paths in your &lt;code&gt;.things&lt;/code&gt; file to match.&lt;/p&gt;</description></item><item><title>Upgrade &amp; Migration</title><link>https://smart-swimmingpool.github.io/docs/migration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/migration/</guid><description>
 &lt;p&gt;&lt;strong&gt;🏊 Smart Swimming Pool: How to update the pool controller firmware between major versions.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;This page documents breaking changes, new parameters, and migration steps between releases. Always read the relevant section &lt;strong&gt;before&lt;/strong&gt; updating.&lt;/p&gt;
 &lt;hr&gt;
@@ -3878,7 +3870,33 @@ data-copied-label="Copied!"
 &lt;td&gt;Current — recommended for all users&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
-&lt;/table&gt;</description></item><item><title>⚠️ Sicherheitshinweise &amp; Warnungen</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/safety/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/safety/</guid><description>
+&lt;/table&gt;</description></item><item><title>Publications</title><link>https://smart-swimmingpool.github.io/docs/publications/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/publications/</guid><description>
+&lt;p&gt;Also available as &lt;a
+href="https://smart-swimmingpool.github.io/blog/"&gt;blog posts&lt;/a&gt; on this site.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a
+href="https://medium.com/diy-my-smart-home/project-smart-swimmingpool-4c40eb6741f6"target="_blank" rel="noopener"&gt;Project Smart Swimming Pool&lt;/a&gt;, &lt;em&gt;December 2018&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Blogpost of version 1 of Smart Swimming Pool&lt;/p&gt;
+&lt;p&gt;📄 &lt;a
+href="https://smart-swimmingpool.github.io/blog/smart-swimming-pool-project/"&gt;Read on this site&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a
+href="https://smart-swimmingpool.github.io/de/blog/projekt-smart-swimmingpool-einleitung/"&gt;Smart Swimming Pool: Introduction&lt;/a&gt;, &lt;em&gt;October 2018&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Four-part German blog series on AZ-Delivery Blog about version 1 of the Smart Pool Controller.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/de/blog/smarte-steuerung-1-4/"&gt;Smarte Steuerung für den Swimmingpool (1/4)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/de/blog/pool-controller-2-4/"&gt;Der Pool-Controller (2/4)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/de/blog/swimmingpool-openhab-3-4/"&gt;Swimmingpool und OpenHAB (3/4)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/de/blog/der-smarte-pool-4-4/"&gt;Der smarte Pool (4/4)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>⚠️ Sicherheitshinweise &amp; Warnungen</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/safety/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/safety/</guid><description>
 &lt;h2&gt;⚠️ &lt;strong&gt;WICHTIGE SICHERHEITSHINWEISE&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-wichtige-sicherheitshinweise"&gt;&lt;/span&gt;
 &lt;a href="#-wichtige-sicherheitshinweise" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;⚠️ ACHTUNG: DIESES PROJEKT ARBEITET MIT 230V WECHSELSTROM!&lt;/strong&gt;

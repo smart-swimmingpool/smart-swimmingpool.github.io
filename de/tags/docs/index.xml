@@ -2736,14 +2736,7 @@ href="https://smart-swimmingpool.github.io/de/docs/firmware-migration/"&gt;Firmw
 &lt;li&gt;Testen Sie manuell: &lt;code&gt;mosquitto_pub -h &amp;lt;broker-ip&amp;gt; -t &amp;quot;homeassistant/switch/pool-controller/pool_pump/set&amp;quot; -m &amp;quot;ON&amp;quot;&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Falsche MQTT-Geräte-ID&lt;span class="hx:absolute hx:-mt-20" id="falsche-mqtt-geräte-id"&gt;&lt;/span&gt;
-&lt;a href="#falsche-mqtt-ger%c3%a4te-id" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Die Standard-Geräte-ID ist &lt;code&gt;pool-controller&lt;/code&gt;. Wenn Sie sie in der Weboberfläche des Controllers geändert haben (&lt;strong&gt;Konfiguration → MQTT → Geräte-ID&lt;/strong&gt;), aktualisieren Sie alle Topic-Pfade in Ihrer &lt;code&gt;.things&lt;/code&gt;-Datei entsprechend.&lt;/p&gt;</description></item><item><title>Publikationen</title><link>https://smart-swimmingpool.github.io/de/docs/publications/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/publications/</guid><description>
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a
-href="https://www.az-delivery.de/blogs/azdelivery-blog-fur-arduino-und-raspberry-pi/projekt-smart-swimmingpool-einleitung"target="_blank" rel="noopener"&gt;AZ Delivery: Projekt Smart Swimmingpool&lt;/a&gt;, &lt;em&gt;Oktober 2018&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Vierteilige Blog-Reihe zur Version 1 des Smart Pool Controllers.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>Upgrade &amp; Migration</title><link>https://smart-swimmingpool.github.io/de/docs/migration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/migration/</guid><description>
+&lt;a href="#falsche-mqtt-ger%c3%a4te-id" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Die Standard-Geräte-ID ist &lt;code&gt;pool-controller&lt;/code&gt;. Wenn Sie sie in der Weboberfläche des Controllers geändert haben (&lt;strong&gt;Konfiguration → MQTT → Geräte-ID&lt;/strong&gt;), aktualisieren Sie alle Topic-Pfade in Ihrer &lt;code&gt;.things&lt;/code&gt;-Datei entsprechend.&lt;/p&gt;</description></item><item><title>Upgrade &amp; Migration</title><link>https://smart-swimmingpool.github.io/de/docs/migration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/migration/</guid><description>
 &lt;p&gt;&lt;strong&gt;🏊 Smart Swimming Pool: Wie Sie die Firmware des Pool-Controllers zwischen Hauptversionen aktualisieren.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Diese Seite dokumentiert Breaking Changes, neue Parameter und Migrationsschritte zwischen Releases. Lesen Sie den entsprechenden Abschnitt &lt;strong&gt;vor&lt;/strong&gt; dem Update.&lt;/p&gt;
 &lt;hr&gt;
@@ -3868,7 +3861,35 @@ data-copied-label="Kopiert!"
 &lt;td&gt;Aktuell — für alle Nutzer empfohlen&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
-&lt;/table&gt;</description></item><item><title>Elektrische Sicherheit</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/electrical-safety/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/electrical-safety/</guid><description>
+&lt;/table&gt;</description></item><item><title>Publikationen</title><link>https://smart-swimmingpool.github.io/de/docs/publications/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/publications/</guid><description>
+&lt;p&gt;Auch verfügbar als &lt;a
+href="https://smart-swimmingpool.github.io/de/blog/"&gt;Blog-Beiträge&lt;/a&gt; auf dieser Seite.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a
+href="https://www.az-delivery.de/blogs/azdelivery-blog-fur-arduino-und-raspberry-pi/projekt-smart-swimmingpool-einleitung"target="_blank" rel="noopener"&gt;Projekt Smart Swimmingpool&lt;/a&gt;, &lt;em&gt;Oktober 2018&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Vierteilige Blog-Reihe zur Version 1 des Smart Pool Controllers.&lt;/p&gt;
+&lt;p&gt;📄 &lt;a
+href="https://smart-swimmingpool.github.io/de/blog/projekt-smart-swimmingpool-einleitung/"&gt;Hier auf der Seite lesen&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/de/blog/smarte-steuerung-1-4/"&gt;Smarte Steuerung für den Swimmingpool (1/4)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/de/blog/pool-controller-2-4/"&gt;Der Pool-Controller (2/4)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/de/blog/swimmingpool-openhab-3-4/"&gt;Swimmingpool und OpenHAB (3/4)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/de/blog/der-smarte-pool-4-4/"&gt;Der smarte Pool (4/4)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a
+href="https://medium.com/diy-my-smart-home/project-smart-swimmingpool-4c40eb6741f6"target="_blank" rel="noopener"&gt;Project Smart Swimming Pool&lt;/a&gt;, &lt;em&gt;Dezember 2018&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Englischer Blogpost über Version 1 des Smart Swimming Pool.&lt;/p&gt;
+&lt;p&gt;📄 &lt;a
+href="https://smart-swimmingpool.github.io/blog/smart-swimming-pool-project/"&gt;Hier auf der Seite lesen&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Elektrische Sicherheit</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/electrical-safety/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/electrical-safety/</guid><description>
 &lt;blockquote&gt;
 &lt;p&gt;⚠️ &lt;strong&gt;WARNUNG: Dieses Dokument beschreibt die Installation von 230V AC-Netzspannung.&lt;/strong&gt;
 Fehlerhafte Verdrahtung kann zu Stromschlag, Brand oder Geräteschäden führen.&lt;/p&gt;

@@ -1387,4 +1387,86 @@ href="hardware-guide.de.md"&gt;Hardware-Anleitung&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Kompletter Verdrahtungsplan mit RTC-Modul:
 &lt;a
 href="esp32-complete-wiring-schematic.de.md"&gt;ESP32 Komplett-Schaltplan&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Der Pool-Controller (2/4)</title><link>https://smart-swimmingpool.github.io/de/blog/pool-controller-2-4/</link><pubDate>Mon, 22 Oct 2018 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/blog/pool-controller-2-4/</guid><description>
+&lt;p&gt;Im &lt;a
+href="https://smart-swimmingpool.github.io/de/blog/smarte-steuerung-1-4/"&gt;vorangegangenen Artikel&lt;/a&gt; haben wir einen Überblick über das Projekt des smart gesteuerten Pools gegeben. In diesem zweiten Teil werden wir auf das Herzstück, den Controller, eingehen. Dieser basiert auf einem ESP32, könnte aber mit wenigen Modifikationen auch mit einem ESP8266 umgesetzt werden.&lt;/p&gt;
+&lt;h2&gt;Aufgabe des Pool-Controllers&lt;span class="hx:absolute hx:-mt-20" id="aufgabe-des-pool-controllers"&gt;&lt;/span&gt;
+&lt;a href="#aufgabe-des-pool-controllers" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der Controller wird die zentrale Steuerung übernehmen. Er misst zyklisch die Temperaturen des Poolwassers und des Wärmespeichers der Solaranlage. Zudem wird er die Pumpen (Filter und Heizung) schalten. Der ESP ist also sowohl Sensor als auch Aktor. Der Datenaustausch erfolgt über WLAN mittels MQTT.&lt;/p&gt;
+&lt;h3&gt;Temperaturen messen&lt;span class="hx:absolute hx:-mt-20" id="temperaturen-messen"&gt;&lt;/span&gt;
+&lt;a href="#temperaturen-messen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Das Messen der Temperatur ist meist der Einstieg in die Programmierung von IoT-Sensoren. Es gibt diverse Projektbeispiele dazu. Dabei kommen oft die Temperatursensoren DHT11 oder der genauere DHT22 zum Einsatz. Da die Temperatursensoren im Projekt jedoch verteilt extern platziert werden müssen, verwenden wir den wasserdichten Sensor &lt;a
+href="https://www.az-delivery.de/collections/temperatursensoren/products/2xds18b20wasserdicht?ls=de"target="_blank" rel="noopener"&gt;DS18B20&lt;/a&gt;. Einen der beiden Sensoren zur Messung der Temperatur des Poolwassers, der andere zur Messung der Temperatur im Pufferspeicher.&lt;/p&gt;
+&lt;p&gt;Die gemessenen Temperaturen werden mittels Timer alle 60 Sekunden ausgelesen und per MQTT als Nachricht veröffentlicht. Der Intervall ist ein Kompromiss zwischen der Trägheit der Erwärmung des Wassers und dem Debugging des Programms. Vermutlich würden auch Werte alle 5 Minuten ausreichen, doch auch die Integration in OpenHAB macht der minütliche Takt später wesentlich einfacher.&lt;/p&gt;
+&lt;h3&gt;Funksteckdosen steuern&lt;span class="hx:absolute hx:-mt-20" id="funksteckdosen-steuern"&gt;&lt;/span&gt;
+&lt;a href="#funksteckdosen-steuern" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Da wir in dem Projekt nicht direkt mit 230 Volt Wechselspannung hantieren möchten, schalten wir die Pumpen über Funksteckdosen. Bei den Funksteckdosen gibt es einige, die man über ESPs mit einem &lt;a
+href="https://www.az-delivery.de/products/433-mhz-modul?ls=de"target="_blank" rel="noopener"&gt;433 MHz Funksender&lt;/a&gt; steuern kann. Eine Liste der kompatiblen Funksteckdosen findet sich im &lt;a
+href="https://github.com/sui77/rc-switch/wiki/List_KnownDevices"target="_blank" rel="noopener"&gt;Wiki&lt;/a&gt; der verwendeten Bibliothek.&lt;/p&gt;
+&lt;h2&gt;Aufbau der Schaltung&lt;span class="hx:absolute hx:-mt-20" id="aufbau-der-schaltung"&gt;&lt;/span&gt;
+&lt;a href="#aufbau-der-schaltung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die Datenpins am ESP32 sind wie folgt belegt:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cpp" data-lang="cpp"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt;#define PIN_DS_SOLAR 16 &lt;/span&gt;&lt;span class="c1"&gt;// Temp-Sensor Solar
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt;#define PIN_DS_POOL 17 &lt;/span&gt;&lt;span class="c1"&gt;// Temp-Sensor Pool
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt;#define PIN_RSSWITCH 18 &lt;/span&gt;&lt;span class="c1"&gt;// für 433MHz Sender
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;Quellcode des Projektes&lt;span class="hx:absolute hx:-mt-20" id="quellcode-des-projektes"&gt;&lt;/span&gt;
+&lt;a href="#quellcode-des-projektes" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Für das Projekt verwenden wir die Entwicklungsumgebung &lt;a
+href="https://platformio.org/platformio-ide"target="_blank" rel="noopener"&gt;Platform.io IDE&lt;/a&gt;. Damit legen wir ein Projekt für das Board &lt;code&gt;esp32dev&lt;/code&gt; an.&lt;/p&gt;
+&lt;p&gt;Der komplette Quellcode des Projektes ist im GitHub-Repository des Autors zu finden: &lt;a
+href="https://github.com/stritti/smart-swimming-pool"target="_blank" rel="noopener"&gt;https://github.com/stritti/smart-swimming-pool&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Verwendete Bibliotheken&lt;span class="hx:absolute hx:-mt-20" id="verwendete-bibliotheken"&gt;&lt;/span&gt;
+&lt;a href="#verwendete-bibliotheken" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;In diesem Projekt ist es uns wichtig, auf bewährte Softwarekomponenten zurückzugreifen und möglichst viel über vorhandene Bibliotheken zu lösen. Aus diesem Grund kommen folgende Libs zum Einsatz:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;rc-switch&lt;/strong&gt;: Steuerung der Funksteckdosen&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;OneWire&lt;/strong&gt;: Unterstützung für I2C-Sensoren&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DallasTemperature&lt;/strong&gt;: Auslesen der Temperatur der Sensoren&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PubSubClient&lt;/strong&gt;: MQTT-Nachrichten empfangen und versenden&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;RemoteDebug&lt;/strong&gt;: Debugging über Telnet&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ESPBASE&lt;/strong&gt;: Template für IoT-Projekte&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Diese Bibliotheken sind in der Konfiguration von Platform.io (&lt;code&gt;platformio.ini&lt;/code&gt;) hinterlegt und werden beim Kompilieren automatisch aus dem Internet geladen und eingebunden.&lt;/p&gt;
+&lt;p&gt;Das Programm für den Pool-Controller basiert auf ESPBASE, das wie im vorangegangenen Artikel geschrieben einige Setup-Funktionen bereitstellt. Am Anfang des Codes werden dazu einige Variablen angelegt und die Defines für die Pinbelegung definiert.&lt;/p&gt;
+&lt;p&gt;Neben den beiden Funktionen &lt;code&gt;setup()&lt;/code&gt; und &lt;code&gt;loop()&lt;/code&gt; sind einige weitere Funktionen implementiert. Im Wesentlichen geht es hierbei um das Empfangen und Senden von MQTT-Nachrichten und das entsprechende Umsetzen der Nachrichten. Zudem ist ein Timer implementiert, der zyklisch die Temperatursensoren ausliest und per MQTT-Nachrichten publiziert.&lt;/p&gt;
+&lt;h2&gt;Die Details&lt;span class="hx:absolute hx:-mt-20" id="die-details"&gt;&lt;/span&gt;
+&lt;a href="#die-details" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;In der &lt;code&gt;loop&lt;/code&gt;-Funktion wird die WLAN-Verbindung immer wieder geprüft und gegebenenfalls wieder hergestellt. Das war ein tückisches Problem: der ESP hat immer mal wieder die WLAN-Verbindung verloren und ohne den Reconnect konnte er keine Daten mehr versenden.&lt;/li&gt;
+&lt;li&gt;Die Funktion &lt;code&gt;publish&lt;/code&gt; dient zum Versenden der MQTT-Nachrichten. So werden die Daten von einem Neustart und von den Temperaturmessungen als JSON-Nachrichten publiziert.&lt;/li&gt;
+&lt;li&gt;Der Timer für das Versenden der Temperaturen ist aufgeteilt. Grund ist, dass die eigentlichen Timer-Methoden möglichst kurz sein müssen. In der Implementierung ruft der Timer die Funktion &lt;code&gt;onTimer&lt;/code&gt; auf, welche nur den volatilen &lt;code&gt;interruptCounter&lt;/code&gt; inkrementiert. In der &lt;code&gt;loop&lt;/code&gt;-Funktion wird dieser überprüft und die eigentliche &lt;code&gt;onTemperature&lt;/code&gt;-Funktion ausgelöst. In dieser Methode wird auch die interne Temperatur des ESP ausgelesen und publiziert.&lt;/li&gt;
+&lt;li&gt;Die Funktion &lt;code&gt;onMQTTCallback&lt;/code&gt; wird aufgerufen, wenn eine Nachricht an ein Topic, das mit &lt;code&gt;/pool/switch/&lt;/code&gt; beginnt, gesendet wurde. Die Nachricht enthält die Information der Funksteckdose, ob diese ein- bzw. ausgeschaltet werden soll. Das Topic wird dabei weiter unterteilt in die Gruppe und die Gerätekodierung. Das heißt, die Kodierung der DIP-Schalter der Steckdose transformiert in 0 und 1. Dadurch ist diese Lösung flexibel auch an anderer Stelle nutzbar.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Der Quellcode des Pool-Controllers findet man direkt komplett in folgender Datei: &lt;a
+href="https://github.com/stritti/smart-swimming-pool/blob/master/Pool-Controller/src/pool-control.ino"target="_blank" rel="noopener"&gt;Pool-Controller/src/pool-control.ino&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Testing&lt;span class="hx:absolute hx:-mt-20" id="testing"&gt;&lt;/span&gt;
+&lt;a href="#testing" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Ist die Schaltung aufgebaut und das Projekt auf den ESP geladen, können wir bereits testen. Der ESP wird ein WLAN als Access Point öffnen, da standardmäßig kein WLAN eingerichtet ist. Wenn man sich mit dem Pool-Controller mit dem Smartphone verbindet, kann man das richtige WLAN einrichten. Danach startet der Microcontroller automatisch neu und versucht, sich mit dem angegebenen WLAN zu verbinden.&lt;/p&gt;
+&lt;p&gt;Ist alles richtig eingerichtet, so sollte bereits beim Start des ESP eine Statusnachricht via MQTT publiziert werden. Man kann mit folgendem Kommando auf dem Raspberry alle Nachrichten tracken:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mosquitto_sub -h localhost -v -t /#&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Eventuell muss im Quellcode die IP-Adresse des MQTT-Servers angepasst werden. Danach sollten im Minutenzyklus die Temperaturen auf dem Raspberry ausgegeben werden.&lt;/p&gt;
+&lt;p&gt;In die andere Richtung können wir die Funksteckdosen schalten, indem wir eine passende Nachricht versenden. Dabei setzt sich das Topic aus &lt;code&gt;/pool/switch/&amp;lt;group&amp;gt;/&amp;lt;device&amp;gt;&lt;/code&gt; zusammen. &lt;code&gt;Group&lt;/code&gt; und &lt;code&gt;Device&lt;/code&gt; sind die DIP-Schalter der Steckdose als 0 und 1. Als Nachricht wird &lt;code&gt;ON&lt;/code&gt; bzw. &lt;code&gt;OFF&lt;/code&gt; gesendet.&lt;/p&gt;
+&lt;h2&gt;Wie geht es weiter?&lt;span class="hx:absolute hx:-mt-20" id="wie-geht-es-weiter"&gt;&lt;/span&gt;
+&lt;a href="#wie-geht-es-weiter" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Damit sind die Grundlagen geschaffen: wir können die Temperaturen auslesen und wir können Steckdosen schalten.&lt;/p&gt;
+&lt;p&gt;Im folgenden Artikel verbinden wir den Pool-Controller mit der Smart Home Lösung openHAB und machen den Pool durch Regeln richtig smart.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/de/blog/swimmingpool-openhab-3-4/"&gt;Weiter zu Teil 3: Swimmingpool und OpenHAB (3/4)&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description></item></channel></rss>

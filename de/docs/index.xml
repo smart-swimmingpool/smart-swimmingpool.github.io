@@ -1,11 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Dokumente</title><link>https://smart-swimmingpool.github.io/de/docs/</link><description>Recent content in Dokumente on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><atom:link href="https://smart-swimmingpool.github.io/de/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Publikationen</title><link>https://smart-swimmingpool.github.io/de/docs/publications/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/publications/</guid><description>
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a
-href="https://www.az-delivery.de/blogs/azdelivery-blog-fur-arduino-und-raspberry-pi/projekt-smart-swimmingpool-einleitung"target="_blank" rel="noopener"&gt;AZ Delivery: Projekt Smart Swimmingpool&lt;/a&gt;, &lt;em&gt;Oktober 2018&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Vierteilige Blog-Reihe zur Version 1 des Smart Pool Controllers.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>Temperaturabhängige Filterlaufzeit</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/temperature-based-circulation/</link><pubDate>Fri, 19 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/temperature-based-circulation/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Dokumente</title><link>https://smart-swimmingpool.github.io/de/docs/</link><description>Recent content in Dokumente on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><atom:link href="https://smart-swimmingpool.github.io/de/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Temperaturabhängige Filterlaufzeit</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/temperature-based-circulation/</link><pubDate>Fri, 19 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/temperature-based-circulation/</guid><description>
 &lt;h1&gt;Temperaturabhängige Filterlaufzeit&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;Optimierung der Pool-Umwälzung für bessere Wasserqualität bei minimalem Stromverbrauch.&lt;/strong&gt;&lt;/p&gt;
 &lt;h2&gt;1. Motivation&lt;span class="hx:absolute hx:-mt-20" id="1-motivation"&gt;&lt;/span&gt;
 &lt;a href="#1-motivation" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die Poolpumpe ist der größte Stromverbraucher im Schwimmbad. Gleichzeitig bestimmt sie maßgeblich die Wasserqualität. Die aktuell nötige Umwälzmenge hängt stark von der Wassertemperatur ab:&lt;/p&gt;
@@ -583,6 +576,34 @@ data-copied-label="Kopiert!"
 &lt;li&gt;&lt;strong&gt;Kürzung bei Kälte&lt;/strong&gt;: Zusätzlicher Parameter &lt;code&gt;tempCircMinRuntime&lt;/code&gt;, der bei Unterschreitung eines Schwellwerts die Laufzeit reduziert&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Trend-basiert&lt;/strong&gt;: Berücksichtigung des Temperatur-Trends (steigend/falend), nicht nur des Absolutwerts&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Saisonaler Kalender&lt;/strong&gt;: Automatische Anpassung der Basis-Parameter an Sommer/Winter&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Publikationen</title><link>https://smart-swimmingpool.github.io/de/docs/publications/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/publications/</guid><description>
+&lt;p&gt;Auch verfügbar als &lt;a
+href="https://smart-swimmingpool.github.io/de/blog/"&gt;Blog-Beiträge&lt;/a&gt; auf dieser Seite.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a
+href="https://www.az-delivery.de/blogs/azdelivery-blog-fur-arduino-und-raspberry-pi/projekt-smart-swimmingpool-einleitung"target="_blank" rel="noopener"&gt;Projekt Smart Swimmingpool&lt;/a&gt;, &lt;em&gt;Oktober 2018&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Vierteilige Blog-Reihe zur Version 1 des Smart Pool Controllers.&lt;/p&gt;
+&lt;p&gt;📄 &lt;a
+href="https://smart-swimmingpool.github.io/de/blog/projekt-smart-swimmingpool-einleitung/"&gt;Hier auf der Seite lesen&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/de/blog/smarte-steuerung-1-4/"&gt;Smarte Steuerung für den Swimmingpool (1/4)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/de/blog/pool-controller-2-4/"&gt;Der Pool-Controller (2/4)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/de/blog/swimmingpool-openhab-3-4/"&gt;Swimmingpool und OpenHAB (3/4)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/de/blog/der-smarte-pool-4-4/"&gt;Der smarte Pool (4/4)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a
+href="https://medium.com/diy-my-smart-home/project-smart-swimmingpool-4c40eb6741f6"target="_blank" rel="noopener"&gt;Project Smart Swimming Pool&lt;/a&gt;, &lt;em&gt;Dezember 2018&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Englischer Blogpost über Version 1 des Smart Swimming Pool.&lt;/p&gt;
+&lt;p&gt;📄 &lt;a
+href="https://smart-swimmingpool.github.io/blog/smart-swimming-pool-project/"&gt;Hier auf der Seite lesen&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/security-references/</link><pubDate>Fri, 19 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/security-references/</guid><description>
 &lt;h1&gt;Sicherheitsreferenzen &amp;amp; Best Practices&lt;/h1&gt;&lt;p&gt;Dieses Dokument enthält Sicherheitsreferenzen, Best Practices und
 Implementierungsrichtlinien für das Pool Controller Projekt. Diese Referenzen

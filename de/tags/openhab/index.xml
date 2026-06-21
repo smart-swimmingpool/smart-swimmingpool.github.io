@@ -522,4 +522,102 @@ data-copied-label="Kopiert!"
 &lt;/li&gt;
 &lt;li&gt;In Paper UI install add-on &amp;lsquo;MQTT Binding&amp;rsquo; from bindings.&lt;/li&gt;
 &lt;li&gt;Check &lt;code&gt;services/mqtt.cfg&lt;/code&gt; for your environment.&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Der smarte Pool (4/4)</title><link>https://smart-swimmingpool.github.io/de/blog/der-smarte-pool-4-4/</link><pubDate>Wed, 24 Oct 2018 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/blog/der-smarte-pool-4-4/</guid><description>
+&lt;p&gt;In den &lt;a
+href="https://smart-swimmingpool.github.io/de/blog/swimmingpool-openhab-3-4/"&gt;vorangegangenen Artikeln&lt;/a&gt; haben wir den Pool-Controller mit openHAB verbunden. Über die Oberfläche der Sitemap in openHAB können in der Sektion Einstellungen die Parameter für die Temperaturen einfach eingestellt werden. Die Regeln reagieren auf diese Änderungen.&lt;/p&gt;
+&lt;p&gt;Nun geht es darum, die Steuerung auch wirklich smart zu machen: die Regelung verläuft automatisch und kann über WLAN bzw. Internet angepasst werden.&lt;/p&gt;
+&lt;h2&gt;Regelsteuerung des Pools&lt;span class="hx:absolute hx:-mt-20" id="regelsteuerung-des-pools"&gt;&lt;/span&gt;
+&lt;a href="#regelsteuerung-des-pools" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Für die Erwärmung des Pools haben wir drei Modi implementiert:&lt;/p&gt;
+&lt;h3&gt;Modus: Auto&lt;span class="hx:absolute hx:-mt-20" id="modus-auto"&gt;&lt;/span&gt;
+&lt;a href="#modus-auto" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Der vollautomatische Modus schaltet die Filterpumpe zeitgesteuert und erwärmt automatisch das Poolwasser bis zu einer Maximaltemperatur. Dies jedoch nur so lange, wie die Mindesttemperatur im Wärmespeicher nicht unterschritten wird.&lt;/p&gt;
+&lt;h3&gt;Modus: Boost&lt;span class="hx:absolute hx:-mt-20" id="modus-boost"&gt;&lt;/span&gt;
+&lt;a href="#modus-boost" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Vergleichbar mit dem Modus &amp;ldquo;Auto&amp;rdquo;, jedoch ohne Berücksichtigung der Mindesttemperatur im Wärmespeicher.&lt;/p&gt;
+&lt;h3&gt;Modus: Manuell&lt;span class="hx:absolute hx:-mt-20" id="modus-manuell"&gt;&lt;/span&gt;
+&lt;a href="#modus-manuell" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Die Pumpen werden über die App manuell ein- und ausgeschaltet. Unabhängig von Regeln und Schwellwerten.&lt;/p&gt;
+&lt;h2&gt;Die Grenzwerte&lt;span class="hx:absolute hx:-mt-20" id="die-grenzwerte"&gt;&lt;/span&gt;
+&lt;a href="#die-grenzwerte" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Für die Steuerung der Temperatur des Pools werden folgende drei Parameter benötigt:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Maximale Pooltemperatur&lt;/strong&gt;: Wie warm soll der Pool werden?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Minimale Wärmespeichertemperatur&lt;/strong&gt;: Welche Temperatur muss das Wasser im Pufferspeicher mindestens haben, damit der Pool mitgeheizt werden kann?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hysterese&lt;/strong&gt;: Wie groß soll die Temperaturabweichung sein, bevor die min/max-Regeln sich auswirken?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Das smarte Herz: pool.rules&lt;span class="hx:absolute hx:-mt-20" id="das-smarte-herz-poolrules"&gt;&lt;/span&gt;
+&lt;a href="#das-smarte-herz-poolrules" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die Regeln in der &lt;code&gt;pool.rules&lt;/code&gt; sind die Regeln von openHAB hinterlegt. Diese Regeln verwenden die Konfigurationswerte, die man über die Einstellungen festlegen kann.&lt;/p&gt;
+&lt;p&gt;Hier werden die Werte der Temperatursensoren verglichen und anhand der Hysterese dann die Funksteckdosen gesteuert. Die Hysterese ist notwendig, damit bei sehr geringen Temperaturdifferenzen die Pumpen nicht ständig ein- und ausgeschaltet werden. Ein Wert von 0,5 K hat sich als völlig ausreichend erwiesen.&lt;/p&gt;
+&lt;p&gt;Die Regeln sind aufgeteilt und bedienen so die einzelnen Betriebsmodi.&lt;/p&gt;
+&lt;h2&gt;Add-On: Anzeigemodul&lt;span class="hx:absolute hx:-mt-20" id="add-on-anzeigemodul"&gt;&lt;/span&gt;
+&lt;a href="#add-on-anzeigemodul" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Um die Temperaturen auch ohne App zu verfolgen, haben wir eine kleine Monitoring-Anwendung in eine alte Schraubenbox gesteckt. Dieses Modul entstand auf Basis des LCD-Displays 16×2.&lt;/p&gt;
+&lt;p&gt;Dieser Pool-Monitor basiert auf einem ESP8266 und einem LCD Display 16×2. Der ESP empfängt die Temperaturwerte — ebenfalls über MQTT — und aktualisiert das Display.&lt;/p&gt;
+&lt;p&gt;Der Quellcode dazu befindet sich ebenfalls im Code-Repository und ist vom Pool-Controller abgeleitet.&lt;/p&gt;
+&lt;p&gt;Das Gehäuse ist eine alte Schrauben-Box, die mit etwas Füllmaterial ausgepolstert wurde. Etwas tricky war die Bohrung für den Micro-USB Stecker. Vielleicht wird nächstes Jahr diese Box upgegraded und mit einer Solarzelle ausgestattet. Dann kann diese auch draußen in der Nähe des Pools installiert werden.&lt;/p&gt;
+&lt;h2&gt;Open Source&lt;span class="hx:absolute hx:-mt-20" id="open-source"&gt;&lt;/span&gt;
+&lt;a href="#open-source" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Ziel war es von Anfang an, ein Projekt basierend auf Open Source zu erstellen. So ist natürlich auch wieder ein Open Source Projekt entstanden.&lt;/p&gt;
+&lt;p&gt;Das gesamte Projekt ist auf GitHub verfügbar:&lt;/p&gt;
+&lt;p&gt;&lt;a
+href="https://github.com/stritti/smart-swimming-pool"target="_blank" rel="noopener"&gt;https://github.com/stritti/smart-swimming-pool&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Fazit&lt;span class="hx:absolute hx:-mt-20" id="fazit"&gt;&lt;/span&gt;
+&lt;a href="#fazit" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der Pool-Controller ist seit Mai im Einsatz und hat nach ein paar Verbesserungen den Sommer über zuverlässig funktioniert.&lt;/p&gt;
+&lt;p&gt;Hauptproblem war eigentlich die fehlende Prüfung, ob die WLAN-Verbindung noch besteht. Wir dachten immer, wir hätten irgendwo ein Leak im Code, dabei hat der ESP-Controller gelegentlich nur die Verbindung über das WLAN verloren. Jetzt läuft der Controller zuverlässig, liefert Daten und steuert die Pumpen.&lt;/p&gt;
+&lt;p&gt;Seit diesem Jahr gibt es also einen schönen warmen Pool und trotzdem immer genügend warmes Wasser im Haushalt. Ein Projekt mit klarem Mehrwert an Komfort mit relativ geringem finanziellem Einsatz. Dadurch hat das Projekt auch einen sehr hohen &lt;a
+href="https://de.m.wikipedia.org/wiki/Woman_acceptance_factor"target="_blank" rel="noopener"&gt;Woman Acceptance Factor&lt;/a&gt; erzielt.&lt;/p&gt;
+&lt;h2&gt;Ausblick&lt;span class="hx:absolute hx:-mt-20" id="ausblick"&gt;&lt;/span&gt;
+&lt;a href="#ausblick" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Es gibt noch einige Möglichkeiten, das Projekt über den kommenden Winter zu verbessern und zu erweitern. Wir denken da an:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Temperatursensor direkt am Solarkreislauf, um zu prüfen, ob die Heizung im Solar- oder Heizmodus ist&lt;/li&gt;
+&lt;li&gt;Outdoor-Sensor für Umgebungstemperatur und Wassertemperatur mit Versorgung über Solarzellen&lt;/li&gt;
+&lt;li&gt;Die Regelsteuerung direkt im ESP-Code auf dem Pool Controller (nur noch Update der Konfiguration und Monitoring über MQTT)&lt;/li&gt;
+&lt;li&gt;Mehr Sicherheit durch Verschlüsselung der MQTT-Kommunikation&lt;/li&gt;
+&lt;li&gt;Messung der Wasserqualität (pH, Chlor) durch zusätzliche Sensoren&lt;/li&gt;
+&lt;li&gt;Einbeziehen der Wettervorhersage, um den Pufferspeicher noch optimaler einzuteilen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Wir freuen uns über Nachbauten, inspirierte Projekte und Vorschläge für weitere Verbesserungen. Gerne auch als Pull-Requests auf GitHub.&lt;/p&gt;</description></item><item><title>Swimmingpool und OpenHAB (3/4)</title><link>https://smart-swimmingpool.github.io/de/blog/swimmingpool-openhab-3-4/</link><pubDate>Tue, 23 Oct 2018 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/blog/swimmingpool-openhab-3-4/</guid><description>
+&lt;p&gt;Nachdem wir im &lt;a
+href="https://smart-swimmingpool.github.io/de/blog/pool-controller-2-4/"&gt;vorangegangenen Blogartikel&lt;/a&gt; den Controller für die Poolsteuerung erstellt haben, werden wir diesen nun über das WLAN mit OpenHAB verbinden und dort die Regeln für die smarte Steuerung implementieren.&lt;/p&gt;
+&lt;h2&gt;Installation von OpenHAB&lt;span class="hx:absolute hx:-mt-20" id="installation-von-openhab"&gt;&lt;/span&gt;
+&lt;a href="#installation-von-openhab" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;OpenHAB ist ein &amp;ldquo;Home Automation Broker&amp;rdquo;, also eine Smart Home Server Software. Diese kann auf einem Raspberry Pi installiert werden. Wir gehen hier davon aus, dass schon eine Grundinstallation von OpenHAB besteht.&lt;/p&gt;
+&lt;p&gt;Wir müssen nun unter Umständen noch einige Addons der Installation hinzufügen. Dies ist über die Oberfläche &amp;ldquo;&lt;a
+href="https://www.openhab.org/docs/configuration/paperui.html"target="_blank" rel="noopener"&gt;Paper UI&lt;/a&gt;&amp;rdquo; im Unterpunkt &amp;ldquo;Add-ons&amp;rdquo; möglich.&lt;/p&gt;
+&lt;p&gt;Für die Integration der Poolsteuerung benötigen wir folgende Add-ons:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;MQTT Binding&lt;/li&gt;
+&lt;li&gt;openHAB Cloud Connector (optional für Internetzugriff über die Smartphone Apps)&lt;/li&gt;
+&lt;li&gt;RRD4j Persistence&lt;/li&gt;
+&lt;li&gt;JSONPath Transformation&lt;/li&gt;
+&lt;li&gt;Basic UI&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Konfiguration&lt;span class="hx:absolute hx:-mt-20" id="konfiguration"&gt;&lt;/span&gt;
+&lt;a href="#konfiguration" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die Konfigurationsdateien, die wir nun erstellen, liegen auf dem Raspberry normalerweise in dem Pfad &lt;code&gt;/etc/openhab2&lt;/code&gt;. Die entsprechende Struktur mit den Dateien sind im GitHub-Repository hinterlegt.&lt;/p&gt;
+&lt;h3&gt;MQTT-Broker anbinden&lt;span class="hx:absolute hx:-mt-20" id="mqtt-broker-anbinden"&gt;&lt;/span&gt;
+&lt;a href="#mqtt-broker-anbinden" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Die Konfiguration für die Anbindung des Mosquitto Dienstes befindet sich in der Datei &lt;code&gt;services/mqtt.cfg&lt;/code&gt;. Dort wird der Hostname und der Port konfiguriert. In unserem Fall laufen openHAB und Mosquitto auf demselben Raspberry.&lt;/p&gt;
+&lt;h3&gt;Sitemap mit den Items&lt;span class="hx:absolute hx:-mt-20" id="sitemap-mit-den-items"&gt;&lt;/span&gt;
+&lt;a href="#sitemap-mit-den-items" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Zunächst müssen wir nun in OpenHAB die Objekte (Items) definieren, damit wir diese auf der Sitemap steuern und auswerten können.&lt;/p&gt;
+&lt;h3&gt;pool.items&lt;span class="hx:absolute hx:-mt-20" id="poolitems"&gt;&lt;/span&gt;
+&lt;a href="#poolitems" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;In der Datei &lt;a
+href="https://github.com/stritti/smart-swimming-pool/blob/master/OpenHAB/items/2-pool.items"target="_blank" rel="noopener"&gt;&lt;code&gt;pool.items&lt;/code&gt;&lt;/a&gt; werden die Mess- und Steuerpunkte festgelegt. Dort werden zum Beispiel die Verknüpfungen der MQTT-Topics mit den Items vorgenommen. So gibt es die Items für die Temperaturen, welche die Daten von MQTT entgegennehmen und die Items, die Nachrichten versenden, um die Pumpen zu schalten. Das Größer- bzw. Kleiner-Zeichen in der Konfiguration gibt jeweils die Richtung der Nachrichten an:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-java" data-lang="java"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;Number&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Sensor_Solar_Temperature&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;#34;Solar&amp;#34;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;gPool&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;gTemperature&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Chart_Pool_Temperature&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;CurrentTemperature&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;#34;object:solar&amp;#34;&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;mqtt&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;&amp;lt;[mqtt:/sensor/solar/temperature:state:JSONPATH($.value)]&amp;#34;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Für Chart-Grafiken und die Integration in Alexa sind noch einige weitere Konfigurationselemente integriert. So kann zum Beispiel über die Einstellungen der Zeitraum der Charts festgelegt werden.&lt;/p&gt;
+&lt;p&gt;Die Charts werden genutzt, um die Temperaturverläufe und die Schaltzeiten zu visualisieren. Damit die Charts richtig funktionieren, benötigen diese Daten im Abstand von maximal einer Minute. Da passt also unser Timer im Pool-Controller bestens.&lt;/p&gt;
+&lt;p&gt;Die Messdaten werden in einer RRD4j-Datenbank gespeichert. Dazu existiert ebenfalls eine Konfiguration im Repository. Da wir die Daten nicht für Langzeitauswertungen benötigen, reicht diese interne Datenbank von openHAB völlig aus.&lt;/p&gt;
+&lt;h2&gt;Wie geht es weiter?&lt;span class="hx:absolute hx:-mt-20" id="wie-geht-es-weiter"&gt;&lt;/span&gt;
+&lt;a href="#wie-geht-es-weiter" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Nun haben wir die Sitemap mit den Temperaturwerten und den Schaltmöglichkeiten für die beiden Pumpen.&lt;/p&gt;
+&lt;p&gt;Im abschließenden vierten Artikel werden wir auf die Regeln für die automatisierte Steuerung des Pools eingehen.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/de/blog/der-smarte-pool-4-4/"&gt;Weiter zu Teil 4: Der smarte Pool (4/4)&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description></item></channel></rss>
