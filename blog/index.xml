@@ -1,0 +1,242 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Blog</title><link>https://smart-swimmingpool.github.io/blog/</link><description>Recent content in Blog on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><atom:link href="https://smart-swimmingpool.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Project Smart Swimming Pool</title><link>https://smart-swimmingpool.github.io/blog/smart-swimming-pool-project/</link><pubDate>Sat, 01 Dec 2018 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/blog/smart-swimming-pool-project/</guid><description>
+&lt;p&gt;Smart Control for the Swimming Pool — In the following four series of articles, we will describe step by step, how to control a swimming pool by means of self-built IoT modules. The cost of the required electronic components are less than 100 euros.&lt;/p&gt;
+&lt;h2&gt;Goal&lt;span class="hx:absolute hx:-mt-20" id="goal"&gt;&lt;/span&gt;
+&lt;a href="#goal" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;Control the pool and its temperature via a solar system with open source and low-cost electronic components&lt;/li&gt;
+&lt;li&gt;Access via WiFi and Internet&lt;/li&gt;
+&lt;li&gt;Flexible expandability&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Starting Position&lt;span class="hx:absolute hx:-mt-20" id="starting-position"&gt;&lt;/span&gt;
+&lt;a href="#starting-position" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;We have a swimming pool, which is cleaned by a sand filter system. This sand filter system has to filter the pool water daily for a certain amount of time.&lt;/p&gt;
+&lt;p&gt;In addition, we have a thermal solar system, which is designed to support heating and hot water. As this produces too much heat in the summer, it was natural to use this heat in the summer to heat the pool. This is easily possible via additional connections to the heat storage: a circulation pump directs the warm solar water through a &lt;a
+href="https://pooldoktor.at/waermetauscher-pool.html"target="_blank" rel="noopener"&gt;heat exchanger&lt;/a&gt;, which heats the pool water.&lt;/p&gt;
+&lt;p&gt;The pump for the water circulation is switched by a timer. The pump for heating is switched on manually as required behind the timer. Of course this is stupid, if one has integrated the solar system in the morning and changes the weather in the course of the day: In the evening, the water for showering and cooking is cold, since all the energy has flowed into the pool. That should change this year!&lt;/p&gt;
+&lt;h2&gt;Requirements&lt;span class="hx:absolute hx:-mt-20" id="requirements"&gt;&lt;/span&gt;
+&lt;a href="#requirements" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;From this situation arose the desire to control the pool smart. What are the basic requirements?&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Sensors for heat accumulators and pool water&lt;/li&gt;
+&lt;li&gt;Switching possibility for the pumps&lt;/li&gt;
+&lt;li&gt;Control system&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;All this is easy to implement with an ESP micro controller and a Raspberry Pi. The individual solutions are also available in the web. The pitfalls, however, are in the detail of the combination.&lt;/p&gt;
+&lt;h2&gt;Required Hardware&lt;span class="hx:absolute hx:-mt-20" id="required-hardware"&gt;&lt;/span&gt;
+&lt;a href="#required-hardware" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The following parts and components needed for the pool controller:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1× ESP32 NodeMCU&lt;/li&gt;
+&lt;li&gt;2× temperature sensors DS18B20&lt;/li&gt;
+&lt;li&gt;1× 433MHz radio module&lt;/li&gt;
+&lt;li&gt;2× 4.7kΩ resistors&lt;/li&gt;
+&lt;li&gt;2× radio sockets&lt;/li&gt;
+&lt;li&gt;various plug wires&lt;/li&gt;
+&lt;li&gt;board or breadboard&lt;/li&gt;
+&lt;li&gt;power supply&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For the openHAB server:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1× Raspberry Pi&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Basis for the Pool Controller&lt;span class="hx:absolute hx:-mt-20" id="basis-for-the-pool-controller"&gt;&lt;/span&gt;
+&lt;a href="#basis-for-the-pool-controller" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Let&amp;rsquo;s start with the heart of the game, the pool controller. In order not to reinvent the wheel again and again, I decided to set up the project on a basis. I found these in the &lt;a
+href="https://github.com/Pedroalbuquerque/ESPBASE"target="_blank" rel="noopener"&gt;ESPBASE&lt;/a&gt; project. As a template, the project offers support for setting up WiFi via an access point and some other functions that I no longer have to take care of myself. In his project, the developer created an &lt;a
+href="https://github.com/Pedroalbuquerque/ESPBASE/tree/master/Examples/WiFi_CFG_OTA_Telnet"target="_blank" rel="noopener"&gt;example&lt;/a&gt; for the use of ESPBASE. We will build the controller on this basis.&lt;/p&gt;
+&lt;h2&gt;Smart Home Integration&lt;span class="hx:absolute hx:-mt-20" id="smart-home-integration"&gt;&lt;/span&gt;
+&lt;a href="#smart-home-integration" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Finally, the pool controller is integrated into the open source home automation system &lt;a
+href="https://www.openhab.org/"target="_blank" rel="noopener"&gt;openHAB&lt;/a&gt; and thus also offers access via apps on the smartphone.&lt;/p&gt;
+&lt;p&gt;For the integration we need a protocol for the message exchange. We use MQTT for this. MQTT is a lightweight messaging protocol that is widely used in IoT (Internet of Things).&lt;/p&gt;
+&lt;p&gt;For the communication of the pool controller we will need an MQTT broker. For this purpose we have installed the broker &lt;a
+href="https://mosquitto.org/"target="_blank" rel="noopener"&gt;Mosquitto&lt;/a&gt; on the Raspberry Pi (since openHAB 2.4 there will be inbuild MQTT-server, too).&lt;/p&gt;
+&lt;h3&gt;Installing and Testing MQTT Server Mosquitto&lt;span class="hx:absolute hx:-mt-20" id="installing-and-testing-mqtt-server-mosquitto"&gt;&lt;/span&gt;
+&lt;a href="#installing-and-testing-mqtt-server-mosquitto" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;We install the MQTT broker Mosquitto on the Raspberry Pi:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt-get update
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt-get upgrade
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt-get install mosquitto mosquitto-clients&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;We open a Subscriber on the topic &amp;ldquo;/topic&amp;rdquo; which waiting for messages:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mosquitto_sub -h localhost -v -t /topic&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;The topic is like listening to a radio frequency. Different data such as temperatures can be transmitted in different channels.&lt;/p&gt;
+&lt;p&gt;We can test this directly on the Raspberry with the following command, which publishes a message in another console window:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mosquitto_pub -h localhost -t /topic -m &lt;span class="s2"&gt;&amp;#34;Hello smart Pool&amp;#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;There are also clients for the smartphone or the Windows PC to receive or send the MQTT messages.&lt;/p&gt;
+&lt;h2&gt;Task of the Pool Controller&lt;span class="hx:absolute hx:-mt-20" id="task-of-the-pool-controller"&gt;&lt;/span&gt;
+&lt;a href="#task-of-the-pool-controller" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The pool controller will take over the central control. It cyclically measures the temperatures of the pool water and the heat storage of the solar system. He will also switch the pumps (filter and heater). The ESP is thus both sensor and actuator. The data exchange takes place via WiFi using MQTT.&lt;/p&gt;
+&lt;h3&gt;Temperature Measurement&lt;span class="hx:absolute hx:-mt-20" id="temperature-measurement"&gt;&lt;/span&gt;
+&lt;a href="#temperature-measurement" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Measuring the temperature is usually the entry into the programming of IoT sensors. There are various project examples. Often the temperature sensors &lt;a
+href="https://amzn.to/2D28cJs"target="_blank" rel="noopener"&gt;DHT11&lt;/a&gt; or the more accurate &lt;a
+href="https://amzn.to/2Bf1e41"target="_blank" rel="noopener"&gt;DHT22&lt;/a&gt; are used. However, since the temperature sensors in the project have to be distributed externally, we use the waterproof sensor &lt;a
+href="https://amzn.to/2HKjSXc"target="_blank" rel="noopener"&gt;DS18B20&lt;/a&gt;. One of the two sensors for measuring the temperature of the pool water, the other for measuring the temperature in the buffer tank.&lt;/p&gt;
+&lt;p&gt;The measured temperatures are read by timer every 60 seconds and published by MQTT as a message. The interval is a compromise between the inertia of heating the water and debugging the program. Probably values would be sufficient every 5 minutes, but also the integration in openHAB makes the minute clock later much easier.&lt;/p&gt;
+&lt;h3&gt;Controlling Radio-controlled Sockets&lt;span class="hx:absolute hx:-mt-20" id="controlling-radio-controlled-sockets"&gt;&lt;/span&gt;
+&lt;a href="#controlling-radio-controlled-sockets" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Since I do not want to handle 230 volts AC directly in the project, I switch the pumps via radio-controlled sockets. There are some radio sockets that can be controlled via ESPs with a 433 MHz radio transmitter.&lt;/p&gt;
+&lt;h2&gt;Layout of the Circuit&lt;span class="hx:absolute hx:-mt-20" id="layout-of-the-circuit"&gt;&lt;/span&gt;
+&lt;a href="#layout-of-the-circuit" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The data pins on the ESP32 are assigned as follows:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cpp" data-lang="cpp"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt;#define PIN_DS_SOLAR 16 &lt;/span&gt;&lt;span class="c1"&gt;// temp sensor solar
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt;#define PIN_DS_POOL 17 &lt;/span&gt;&lt;span class="c1"&gt;// temp sensor pool
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt;#define PIN_RSSWITCH 18 &lt;/span&gt;&lt;span class="c1"&gt;// for 433MHz transmitter
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;Source Code of the Project&lt;span class="hx:absolute hx:-mt-20" id="source-code-of-the-project"&gt;&lt;/span&gt;
+&lt;a href="#source-code-of-the-project" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;For the project we use the development environment &lt;a
+href="https://platformio.org/platformio-ide"target="_blank" rel="noopener"&gt;Platform.io IDE&lt;/a&gt;. With this we create a project for the board &lt;code&gt;esp32dev&lt;/code&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The full source code of the project can be found in the GitHub repository: &lt;a
+href="https://github.com/stritti/smart-swimming-pool"target="_blank" rel="noopener"&gt;https://github.com/stritti/smart-swimming-pool&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Libraries Used&lt;span class="hx:absolute hx:-mt-20" id="libraries-used"&gt;&lt;/span&gt;
+&lt;a href="#libraries-used" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;In this project, it is important to use proven software components and to solve as much as possible about existing libraries. For this reason, the following libs are used:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;rc-switch&lt;/strong&gt;: Control of the radio-controlled sockets&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;OneWire&lt;/strong&gt;: Support for I2C sensors&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DallasTemperature&lt;/strong&gt;: Reading out the temperature of the sensors&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PubSubClient&lt;/strong&gt;: Receiving and sending MQTT messages&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;RemoteDebug&lt;/strong&gt;: Debugging via Telnet&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ESPBASE&lt;/strong&gt;: Template for IoT projects&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;These libraries are stored in the configuration of Platform.io (&lt;code&gt;platformio.ini&lt;/code&gt;) and are automatically loaded and integrated from the internet during compilation.&lt;/p&gt;
+&lt;h3&gt;The Details&lt;span class="hx:absolute hx:-mt-20" id="the-details"&gt;&lt;/span&gt;
+&lt;a href="#the-details" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;In the &lt;code&gt;loop&lt;/code&gt; function, the WiFi connection is repeatedly checked and, if necessary, restored. That was a treacherous problem: the ESP has repeatedly lost the wireless connection and without the reconnect it could no longer send any data.&lt;/li&gt;
+&lt;li&gt;The function &lt;code&gt;publish&lt;/code&gt; is used to send the MQTT messages. Thus the data of a restart and the temperature measurement are published as JSON messages.&lt;/li&gt;
+&lt;li&gt;The timer for sending the temperatures is split. The reason is that the actual timer methods have to be as short as possible. In the implementation, the timer calls the &lt;code&gt;onTimer&lt;/code&gt; function, which only increments the volatile &lt;code&gt;interruptCounter&lt;/code&gt;. The &lt;code&gt;loop&lt;/code&gt; function checks this and the actual &lt;code&gt;onTemperature&lt;/code&gt; function is triggered. This method also reads and publishes the internal temperature of the ESP.&lt;/li&gt;
+&lt;li&gt;The function &lt;code&gt;onMQTTCallback&lt;/code&gt; is called when a message is sent to a topic starting with &lt;code&gt;/pool/switch/&lt;/code&gt;. The message contains the information of the radio-controlled socket whether it should be switched on or off. The topic is further subdivided into the group and the device coding. This means that the coding of the DIP switches of the socket is transformed into 0 and 1. As a result, this solution can also be used flexibly elsewhere.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The source code of the pool controller can be found directly in the following file: &lt;a
+href="https://github.com/stritti/smart-swimming-pool/blob/master/Pool-Controller/src/pool-control.ino"target="_blank" rel="noopener"&gt;Pool-Controller/src/pool-control.ino&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Testing&lt;span class="hx:absolute hx:-mt-20" id="testing"&gt;&lt;/span&gt;
+&lt;a href="#testing" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Once the circuit has been set up and the project loaded onto the ESP, we can already test it. The ESP will open a WiFi as an access point because there is no WiFi setup by default. If you connect with the pool controller with the smartphone, you can set up the right wireless. Thereafter, the micro controller restarts automatically and tries to connect to the specified WiFi.&lt;/p&gt;
+&lt;p&gt;If everything is set up correctly, a status message via MQTT should be published already at the start of the ESP. You can do this with the following command on the Raspberry track all messages:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mosquitto_sub -h localhost -v -t /#&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;It may be necessary to change the IP address of the MQTT server in the source code. Thereafter, the temperatures should be shown on the Raspberry in a minute cycle.&lt;/p&gt;
+&lt;p&gt;In the other direction we can switch the radio sockets by sending a suitable message. The topic consists of &lt;code&gt;/pool/switch/&amp;lt;group&amp;gt;/&amp;lt;device&amp;gt;&lt;/code&gt;. &lt;code&gt;Group&lt;/code&gt; and &lt;code&gt;Device&lt;/code&gt; are the dip switches of the socket as 0 and 1. The message &amp;ldquo;ON&amp;rdquo; or &amp;ldquo;OFF&amp;rdquo; is sent.&lt;/p&gt;
+&lt;h2&gt;Swimming Pool and OpenHAB&lt;span class="hx:absolute hx:-mt-20" id="swimming-pool-and-openhab"&gt;&lt;/span&gt;
+&lt;a href="#swimming-pool-and-openhab" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;After we created the controller for the pool control, we will now connect it via WiFi with OpenHAB and implement the rules for the smart control.&lt;/p&gt;
+&lt;h3&gt;Installation of OpenHAB&lt;span class="hx:absolute hx:-mt-20" id="installation-of-openhab"&gt;&lt;/span&gt;
+&lt;a href="#installation-of-openhab" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;OpenHAB is a &amp;ldquo;Home Automation Broker&amp;rdquo;, which is a Smart Home Server software that can be installed on a Raspberry Pi. There is a very good &lt;a
+href="https://www.openhab.org/docs/installation/openhabian.html"target="_blank" rel="noopener"&gt;documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I assume here that a basic installation of openHAB already exists.&lt;/p&gt;
+&lt;p&gt;We now need to add some addons to the installation under certain circumstances. This is possible via the &amp;ldquo;&lt;a
+href="https://www.openhab.org/docs/configuration/paperui.html"target="_blank" rel="noopener"&gt;Paper UI&lt;/a&gt;&amp;rdquo; interface under &amp;ldquo;Add-ons&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;For the integration of the pool control, we need the following add-ons:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;MQTT Binding&lt;/li&gt;
+&lt;li&gt;openHAB Cloud Connector (optional for internet access via smartphone apps)&lt;/li&gt;
+&lt;li&gt;RRD4j Persistence&lt;/li&gt;
+&lt;li&gt;JSONPath Transformation&lt;/li&gt;
+&lt;li&gt;Basic UI&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Configuration&lt;span class="hx:absolute hx:-mt-20" id="configuration"&gt;&lt;/span&gt;
+&lt;a href="#configuration" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The configuration files that we create now are usually located in the path on the Raspberry &lt;code&gt;/etc/openhab2&lt;/code&gt;. The corresponding structure with the files are stored in the GitHub repository.&lt;/p&gt;
+&lt;h3&gt;Connect MQTT Broker&lt;span class="hx:absolute hx:-mt-20" id="connect-mqtt-broker"&gt;&lt;/span&gt;
+&lt;a href="#connect-mqtt-broker" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The configuration for connecting the Mosquitto service can be found in the file &lt;code&gt;services/mqtt.cfg&lt;/code&gt;. The host name and the port are configured there. In our case, openHAB and Mosquitto run on the same Raspberry.&lt;/p&gt;
+&lt;h3&gt;Sitemap with the Items&lt;span class="hx:absolute hx:-mt-20" id="sitemap-with-the-items"&gt;&lt;/span&gt;
+&lt;a href="#sitemap-with-the-items" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;First we have to define the objects (items) in openHAB so that we can control and evaluate them on the sitemap.&lt;/p&gt;
+&lt;h3&gt;pool.items&lt;span class="hx:absolute hx:-mt-20" id="poolitems"&gt;&lt;/span&gt;
+&lt;a href="#poolitems" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The measuring and control points are defined in the file &lt;a
+href="https://github.com/stritti/smart-swimming-pool/blob/master/OpenHAB/items/2-pool.items"target="_blank" rel="noopener"&gt;&lt;code&gt;pool.items&lt;/code&gt;&lt;/a&gt;. There, for example, the links between the MQTT topics and the items are made. So there are the items for the temperatures, which receive the data from MQTT and the items send the messages to switch the pumps. The greater or lesser character in the configuration indicates the direction of the messages.&lt;/p&gt;
+&lt;h2&gt;The Smart Swimming Pool&lt;span class="hx:absolute hx:-mt-20" id="the-smart-swimming-pool"&gt;&lt;/span&gt;
+&lt;a href="#the-smart-swimming-pool" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Now it&amp;rsquo;s all about making the controller really smart: the regulation is automatic and can be adjusted via WLAN or Internet.&lt;/p&gt;
+&lt;h3&gt;Rule Control of Pool&lt;span class="hx:absolute hx:-mt-20" id="rule-control-of-pool"&gt;&lt;/span&gt;
+&lt;a href="#rule-control-of-pool" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;I have implemented three modes for the heating of the pool:&lt;/p&gt;
+&lt;h3&gt;Mode: Auto&lt;span class="hx:absolute hx:-mt-20" id="mode-auto"&gt;&lt;/span&gt;
+&lt;a href="#mode-auto" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The fully automatic mode switches the filter pump time-controlled and automatically heats the pool water up to a maximum temperature. However, this only as long as the minimum temperature in the heat storage is not exceeded.&lt;/p&gt;
+&lt;h3&gt;Mode: Boost&lt;span class="hx:absolute hx:-mt-20" id="mode-boost"&gt;&lt;/span&gt;
+&lt;a href="#mode-boost" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Similar to the &amp;ldquo;Auto&amp;rdquo; mode, but without considering the minimum temperature in the heat accumulator.&lt;/p&gt;
+&lt;h3&gt;Mode: Manual&lt;span class="hx:absolute hx:-mt-20" id="mode-manual"&gt;&lt;/span&gt;
+&lt;a href="#mode-manual" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The pumps are manually switched on and off via the app. Regardless of rules and thresholds.&lt;/p&gt;
+&lt;h3&gt;The Limit Values&lt;span class="hx:absolute hx:-mt-20" id="the-limit-values"&gt;&lt;/span&gt;
+&lt;a href="#the-limit-values" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The following three parameters are required to control the temperature of the pool:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Maximum pool temperature&lt;/strong&gt;: How warm should the pool be?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Minimum heat storage temperature&lt;/strong&gt;: What temperature must the water in the storage tank at least have, that the pool can be co-heated?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hysteresis&lt;/strong&gt;: How big should the temperature deviation be before the min/max rules affect?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;The Smart Heart: pool.rules&lt;span class="hx:absolute hx:-mt-20" id="the-smart-heart-poolrules"&gt;&lt;/span&gt;
+&lt;a href="#the-smart-heart-poolrules" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The rules in the &lt;code&gt;pool.rules&lt;/code&gt; are the rules of openHAB. These rules use the configuration values that you can set in the settings.&lt;/p&gt;
+&lt;p&gt;The values of the temperature sensors are compared here and the radio sockets are then controlled on the basis of the hysteresis. Hysteresis is necessary so that the pumps are not constantly switched on and off at very low temperature differences. A value of 0.5 Kelvin has proved to be completely sufficient.&lt;/p&gt;
+&lt;p&gt;The rules are divided and thus operate the individual operating modes.&lt;/p&gt;
+&lt;h3&gt;Add-On: Display Module&lt;span class="hx:absolute hx:-mt-20" id="add-on-display-module"&gt;&lt;/span&gt;
+&lt;a href="#add-on-display-module" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;To monitor the temperatures even without an app, we put a small monitoring application in an old screw box. This module was based on the LCD display, which was also featured in a &lt;a
+href="https://www.az-delivery.de/blogs/azdelivery-blog-fur-arduino-und-raspberry-pi/lcd-display-16-x-2-produkteinfuhrung?ls=de"target="_blank" rel="noopener"&gt;blog article&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This pool monitor is based on an ESP8266 and a LCD display 16×2. The ESP receives the temperature values — also via MQTT — and updates the display.&lt;/p&gt;
+&lt;p&gt;The source code for this is also located in the code repository and was derived from the pool controller.&lt;/p&gt;
+&lt;p&gt;The case is an old screw box that has been padded with some filler material. Something tricky was the hole for the micro USB plug. Maybe next year this box will be upgraded and equipped with a solar cell. Then this can also be installed outside near the pool.&lt;/p&gt;
+&lt;h2&gt;Open Source&lt;span class="hx:absolute hx:-mt-20" id="open-source"&gt;&lt;/span&gt;
+&lt;a href="#open-source" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The aim from the beginning was to create a project based on open source. So, of course, again an open source project was created.&lt;/p&gt;
+&lt;p&gt;The entire project is available on GitHub:&lt;/p&gt;
+&lt;p&gt;&lt;a
+href="https://github.com/stritti/smart-swimming-pool"target="_blank" rel="noopener"&gt;https://github.com/stritti/smart-swimming-pool&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Conclusion&lt;span class="hx:absolute hx:-mt-20" id="conclusion"&gt;&lt;/span&gt;
+&lt;a href="#conclusion" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The pool controller has been in use since May and after a few improvements has worked reliably over the complete summer.&lt;/p&gt;
+&lt;p&gt;The main problem was actually the missing check, whether the WiFi connection still exists. We always thought we had a leak in the code somewhere, but occasionally the ESP controller just lost the connection over the WiFi. Now the controller runs reliably, provides data and controls the pumps.&lt;/p&gt;
+&lt;p&gt;Since this year, so there is a nice warm pool and still always enough hot water in the home. A project with clear added value in terms of comfort with relatively little financial input.&lt;/p&gt;
+&lt;h2&gt;Outlook&lt;span class="hx:absolute hx:-mt-20" id="outlook"&gt;&lt;/span&gt;
+&lt;a href="#outlook" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;There are still a few ways to improve and expand the project over the coming winter. We think of:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Temperature sensor directly on the solar circuit to check whether the heater is in solar or heating mode&lt;/li&gt;
+&lt;li&gt;Outdoor sensor for ambient temperature and water temperature with solar cell supply&lt;/li&gt;
+&lt;li&gt;The control directly in the ESP code on the pool controller (only update the configuration and monitoring via MQTT)&lt;/li&gt;
+&lt;li&gt;Greater security through encryption of MQTT communication&lt;/li&gt;
+&lt;li&gt;Measurement of water quality (pH, chlorine) by additional sensors&lt;/li&gt;
+&lt;li&gt;Inclusion of weather forecast to better allocate the buffer memory&lt;/li&gt;
+&lt;li&gt;Switch inbuild MQTT service of openHAB 2.4+ (and use Homie 3.0 conform MQTT messages)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I am looking forward to replicas, inspired projects and suggestions for further improvements. Also available as pull requests on GitHub.&lt;/p&gt;
+&lt;h2&gt;Author&lt;span class="hx:absolute hx:-mt-20" id="author"&gt;&lt;/span&gt;
+&lt;a href="#author" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Stephan Strittmatter&lt;/strong&gt; is talent scout at an IT consulting company and brings software development closer to young professionals. A few months ago he finally had contact points with the ESP controllers via the Raspberry Pi and the BBC micro:bit. They made his childhood dream possible, to finally connect hardware and software easily. The private pool was therefore a welcome project to combine IoT, Smart Home and research drive.&lt;/p&gt;</description></item></channel></rss>

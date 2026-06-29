@@ -1,0 +1,166 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Schematic</title><link>https://smart-swimmingpool.github.io/tags/schematic/</link><description>Recent content in Schematic on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Thu, 11 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/tags/schematic/index.xml" rel="self" type="application/rss+xml"/><item><title>ESP32 Complete Wiring Schematic</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/esp32-complete-wiring-schematic/</link><pubDate>Thu, 11 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/esp32-complete-wiring-schematic/</guid><description>
+&lt;p&gt;This document provides an additional, complete wiring diagram for the
+ESP32 setup with sensors, relays, resistors, and clock module (RTC).&lt;/p&gt;
+&lt;p&gt;The standard pins used in the firmware are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;PIN_DS_SOLAR&lt;/code&gt; = GPIO32&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PIN_DS_POOL&lt;/code&gt; = GPIO33&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PIN_RELAY_POOL&lt;/code&gt; = GPIO25&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PIN_RELAY_SOLAR&lt;/code&gt; = GPIO26&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;1) Components (incl. clock and resistors)&lt;span class="hx:absolute hx:-mt-20" id="1-components-incl-clock-and-resistors"&gt;&lt;/span&gt;
+&lt;a href="#1-components-incl-clock-and-resistors" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;1x ESP32 Dev Board&lt;/li&gt;
+&lt;li&gt;2x DS18B20 Temperature Sensor (Solar, Pool)&lt;/li&gt;
+&lt;li&gt;2x Resistor 4.7kΩ (Pull-up for OneWire data lines)&lt;/li&gt;
+&lt;li&gt;1x 2-Channel Relay Module 5V (preferably with optocoupler)&lt;/li&gt;
+&lt;li&gt;1x RTC Module DS3231 (clock, optional)&lt;/li&gt;
+&lt;li&gt;1x Power Supply 5V DC (sufficiently rated)&lt;/li&gt;
+&lt;li&gt;Wiring cables, terminals, optionally fuse/protection circuit on load side&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2) Complete Schematic (Text Representation)&lt;span class="hx:absolute hx:-mt-20" id="2-complete-schematic-text-representation"&gt;&lt;/span&gt;
+&lt;a href="#2-complete-schematic-text-representation" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;+----------------------------------+
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| ESP32 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| DS18B20 Solar DATA ---- GPIO32 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| DS18B20 Pool DATA ---- GPIO33 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| Relay IN1 (Pool) ----- GPIO25 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| Relay IN2 (Solar) ----- GPIO26 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| RTC SDA --------------- GPIO21 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| RTC SCL --------------- GPIO22 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| 3V3 ------------------- 3V3 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| GND ------------------- GND |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;+----------------+-----------------+
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;|
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| common ground (GND)
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;v
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;+----------------------+ +------------------------------+
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| DS18B20 Solar | | DS18B20 Pool |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| VDD -&amp;gt; 3V3 | | VDD -&amp;gt; 3V3 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| GND -&amp;gt; GND | | GND -&amp;gt; GND |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| DATA -&amp;gt; GPIO32 | | DATA -&amp;gt; GPIO33 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;+----------+-----------+ +----------+-------------------+
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;+--[4.7kΩ]---&amp;gt; 3V3 +--[4.7kΩ]---&amp;gt; 3V3
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;+----------------------------------+
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| 2-Channel Relay Module (5V, opto)|
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| IN1 &amp;lt;- GPIO25 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| IN2 &amp;lt;- GPIO26 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| VCC &amp;lt;- 5V (or module logic) |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| JD-VCC &amp;lt;- 5V (if separate) |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| GND &amp;lt;- GND |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;+----------------+-----------------+
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;|
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| Switching contacts
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;v
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; Pool Pump / Solar Pump (AC)
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;+--------------------------------------+
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| RTC DS3231 (optional, clock) |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| VCC &amp;lt;- 3V3 (or 5V depending on module type) |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| GND &amp;lt;- GND |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| SDA &amp;lt;- GPIO21 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| SCL &amp;lt;- GPIO22 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;+--------------------------------------+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;3) Wiring Table&lt;span class="hx:absolute hx:-mt-20" id="3-wiring-table"&gt;&lt;/span&gt;
+&lt;a href="#3-wiring-table" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Component&lt;/th&gt;
+&lt;th&gt;Signal&lt;/th&gt;
+&lt;th&gt;ESP32 Pin&lt;/th&gt;
+&lt;th&gt;Additional Component&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;DS18B20 Solar&lt;/td&gt;
+&lt;td&gt;DATA&lt;/td&gt;
+&lt;td&gt;GPIO32&lt;/td&gt;
+&lt;td&gt;4.7kΩ pull-up to 3V3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DS18B20 Pool&lt;/td&gt;
+&lt;td&gt;DATA&lt;/td&gt;
+&lt;td&gt;GPIO33&lt;/td&gt;
+&lt;td&gt;4.7kΩ pull-up to 3V3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relay Channel 1&lt;/td&gt;
+&lt;td&gt;IN1&lt;/td&gt;
+&lt;td&gt;GPIO25&lt;/td&gt;
+&lt;td&gt;optional pull-down (fail-safe)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relay Channel 2&lt;/td&gt;
+&lt;td&gt;IN2&lt;/td&gt;
+&lt;td&gt;GPIO26&lt;/td&gt;
+&lt;td&gt;optional pull-down (fail-safe)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;RTC DS3231 (optional)&lt;/td&gt;
+&lt;td&gt;SDA&lt;/td&gt;
+&lt;td&gt;GPIO21&lt;/td&gt;
+&lt;td&gt;I2C bus&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;RTC DS3231 (optional)&lt;/td&gt;
+&lt;td&gt;SCL&lt;/td&gt;
+&lt;td&gt;GPIO22&lt;/td&gt;
+&lt;td&gt;I2C bus&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;All components&lt;/td&gt;
+&lt;td&gt;GND&lt;/td&gt;
+&lt;td&gt;GND&lt;/td&gt;
+&lt;td&gt;common ground routing&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DS18B20 / RTC&lt;/td&gt;
+&lt;td&gt;Power&lt;/td&gt;
+&lt;td&gt;3V3&lt;/td&gt;
+&lt;td&gt;clean decoupling&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relay module&lt;/td&gt;
+&lt;td&gt;Power&lt;/td&gt;
+&lt;td&gt;5V&lt;/td&gt;
+&lt;td&gt;separate load/logic recommended&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;4) Important Notes&lt;span class="hx:absolute hx:-mt-20" id="4-important-notes"&gt;&lt;/span&gt;
+&lt;a href="#4-important-notes" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;230V/mains side of pumps must be wired according to applicable safety regulations.&lt;/li&gt;
+&lt;li&gt;Route sensor cables separately from mains and relay cables.&lt;/li&gt;
+&lt;li&gt;Check active logic of the relay module (active-low or active-high).&lt;/li&gt;
+&lt;li&gt;For low-noise operation near the ESP32, provide additional decoupling
+(e.g., 100nF).&lt;/li&gt;
+&lt;li&gt;The firmware uses NTP by default; the RTC module serves as an additional
+hardware clock for extensions/offline scenarios.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;5) References&lt;span class="hx:absolute hx:-mt-20" id="5-references"&gt;&lt;/span&gt;
+&lt;a href="#5-references" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Detailed assembly guide (also for beginners):
+&lt;a
+href="https://smart-swimmingpool.github.io/docs/pool-controller/hardware-guide/"&gt;Hardware Guide&lt;/a&gt; — step-by-step,
+manufacturing tips, troubleshooting&lt;/li&gt;
+&lt;li&gt;Pin background and optimization:
+&lt;a
+href="https://smart-swimmingpool.github.io/docs/pool-controller/esp32-schematic-optimization/"&gt;ESP32 Schematic Optimization&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="kicad/esp32-dev-board/esp32-dev-board-schematic.pdf"&gt;KiCad Schematic: ESP32 Dev Board&lt;/a&gt; — KiCad 9.0 schematic PDF export&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>

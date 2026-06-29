@@ -1,0 +1,837 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Lilygo</title><link>https://smart-swimmingpool.github.io/tags/lilygo/</link><description>Recent content in Lilygo on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Sun, 14 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/tags/lilygo/index.xml" rel="self" type="application/rss+xml"/><item><title>Hardware Guide of Pool Monitor</title><link>https://smart-swimmingpool.github.io/docs/pool-monitor/hardware-guide/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-monitor/hardware-guide/</guid><description>
+&lt;h2&gt;Overview&lt;span class="hx:absolute hx:-mt-20" id="overview"&gt;&lt;/span&gt;
+&lt;a href="#overview" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The Pool Monitor is a &lt;strong&gt;ready-to-use display device&lt;/strong&gt; built around the
+LILYGO TTGO T5 e-paper ESP32 board family. Unlike the
+&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller"target="_blank" rel="noopener"&gt;Pool Controller&lt;/a&gt;,
+no additional sensors or relay modules are required — just the board itself.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Target audience&lt;/strong&gt;: Anyone comfortable with basic electronics (connecting USB
+power). No soldering required.&lt;/p&gt;
+&lt;p&gt;Total cost: &lt;strong&gt;~35–55€&lt;/strong&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Safety ⚠️&lt;span class="hx:absolute hx:-mt-20" id="safety-"&gt;&lt;/span&gt;
+&lt;a href="#safety-" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;The Pool Monitor itself operates at &lt;strong&gt;low voltage (5V USB)&lt;/strong&gt; only.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;However&lt;/strong&gt;, it reads data from the
+&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller"target="_blank" rel="noopener"&gt;Pool Controller&lt;/a&gt; which
+switches &lt;strong&gt;230V AC mains voltage&lt;/strong&gt;. The monitor only receives MQTT data — it
+does &lt;strong&gt;not&lt;/strong&gt; directly handle mains voltage.&lt;/li&gt;
+&lt;li&gt;Keep the USB cable and board in a dry location. If used outdoors, place it in a
+weatherproof enclosure (IP54 or better).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Required Parts (BOM)&lt;span class="hx:absolute hx:-mt-20" id="required-parts-bom"&gt;&lt;/span&gt;
+&lt;a href="#required-parts-bom" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;#&lt;/th&gt;
+&lt;th&gt;Component&lt;/th&gt;
+&lt;th&gt;Qty&lt;/th&gt;
+&lt;th&gt;Approx. Cost&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;LILYGO TTGO T5 V2.3.1 (V231) E-Paper ESP32 Board&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;25–35€&lt;/td&gt;
+&lt;td&gt;2.13&amp;quot; E-Ink display, built-in ESP32&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;USB-C cable (data + power)&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;3–5€&lt;/td&gt;
+&lt;td&gt;For flashing firmware and power supply&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;USB power supply 5V/≥1A&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;5–10€&lt;/td&gt;
+&lt;td&gt;Standard phone charger&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;Optional: enclosure (ABS/PVC, IP54+)&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;5–10€&lt;/td&gt;
+&lt;td&gt;For outdoor/splash-prone installation&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Total&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;~35–55€&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Full kit, no soldering required&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;Where to Buy&lt;span class="hx:absolute hx:-mt-20" id="where-to-buy"&gt;&lt;/span&gt;
+&lt;a href="#where-to-buy" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;All parts are widely available on Amazon, AliExpress, eBay, or at electronics
+distributors like Reichelt, Pollin, Conrad (DE/AT/CH).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;TTGO T5&lt;/strong&gt;: Search for &amp;ldquo;TTGO T5 V2.3.1 e-paper ESP32&amp;rdquo; or &amp;ldquo;LILYGO T5
+e-ink display&amp;rdquo;. Make sure to get the &lt;strong&gt;V2.3.1 revision&lt;/strong&gt; for the newest
+E-Ink panel.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;USB-C cable&lt;/strong&gt;: Any data-capable cable works. Avoid charge-only cables for
+firmware flashing.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Power supply&lt;/strong&gt;: Standard USB phone charger (5V/≥1A). The board draws very
+little power, but a quality supply prevents brownouts during WiFi operation.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Compatible Board Variants&lt;span class="hx:absolute hx:-mt-20" id="compatible-board-variants"&gt;&lt;/span&gt;
+&lt;a href="#compatible-board-variants" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The TTGO T5 series comes in multiple revisions. The firmware supports:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Board Variant&lt;/th&gt;
+&lt;th&gt;Display Panel&lt;/th&gt;
+&lt;th&gt;Status&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;T5 V2.3.1 (V231)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;2.13&amp;quot; GxDEPG0213BN (b/w)&lt;/td&gt;
+&lt;td&gt;✅ &lt;strong&gt;Default&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Recommended&lt;/strong&gt; — most recent, actively tested&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;T5 V1.2 / V2.4&lt;/td&gt;
+&lt;td&gt;2.13&amp;quot; GxGDE0213B1 (b/w)&lt;/td&gt;
+&lt;td&gt;✅ Supported&lt;/td&gt;
+&lt;td&gt;Older panel, different driver&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;T5 V2.0 / V2.3&lt;/td&gt;
+&lt;td&gt;2.13&amp;quot; GxGDE0213B1 (b/w)&lt;/td&gt;
+&lt;td&gt;✅ Supported&lt;/td&gt;
+&lt;td&gt;No SD card slot&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;T5 V2.1&lt;/td&gt;
+&lt;td&gt;2.9&amp;quot; GxGDEH029A1 (b/w)&lt;/td&gt;
+&lt;td&gt;✅ Supported&lt;/td&gt;
+&lt;td&gt;Larger 2.9&amp;quot; display&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;T5 V2.2&lt;/td&gt;
+&lt;td&gt;2.9&amp;quot; GxGDEH029A1 (b/w)&lt;/td&gt;
+&lt;td&gt;✅ Supported&lt;/td&gt;
+&lt;td&gt;Different display pinout&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;T5 V2.8&lt;/td&gt;
+&lt;td&gt;2.7&amp;quot; GxGDEW027W3 (b/w)&lt;/td&gt;
+&lt;td&gt;✅ Supported&lt;/td&gt;
+&lt;td&gt;With audio DAC onboard&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;To select a different variant, edit &lt;code&gt;src/board_def.h&lt;/code&gt; and set the corresponding
+define at the top of the file:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cpp" data-lang="cpp"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt;#define LILYGO_T5_V231 1 &lt;/span&gt;&lt;span class="c1"&gt;// default — comment this out for other variants
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// #define TTGO_T5_2_1 1 // example: uncomment for 2.9&amp;#34; variant
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Then rebuild the firmware (see &lt;a
+href="https://smart-swimmingpool.github.io/docs/pool-monitor/software-guide/"&gt;Software Guide&lt;/a&gt;).&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Pin Assignment&lt;span class="hx:absolute hx:-mt-20" id="pin-assignment"&gt;&lt;/span&gt;
+&lt;a href="#pin-assignment" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The pin configuration is defined in &lt;code&gt;src/board_def.h&lt;/code&gt; and varies by board
+variant. For the default &lt;strong&gt;V2.3.1 (V231)&lt;/strong&gt; board:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Signal&lt;/th&gt;
+&lt;th&gt;GPIO&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;E-Ink BUSY&lt;/td&gt;
+&lt;td&gt;GPIO4&lt;/td&gt;
+&lt;td&gt;Display busy output&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E-Ink RESET&lt;/td&gt;
+&lt;td&gt;GPIO16&lt;/td&gt;
+&lt;td&gt;Display reset line&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E-Ink DC&lt;/td&gt;
+&lt;td&gt;GPIO17&lt;/td&gt;
+&lt;td&gt;Data/Command control&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E-Ink SS (CS)&lt;/td&gt;
+&lt;td&gt;GPIO5&lt;/td&gt;
+&lt;td&gt;SPI chip select&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;SPI MOSI&lt;/td&gt;
+&lt;td&gt;GPIO23&lt;/td&gt;
+&lt;td&gt;Display data line&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;SPI MISO&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td&gt;Not connected (E-Ink is write-only)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;SPI CLK&lt;/td&gt;
+&lt;td&gt;GPIO18&lt;/td&gt;
+&lt;td&gt;Display clock&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MODEM_POWER_ON&lt;/td&gt;
+&lt;td&gt;GPIO23&lt;/td&gt;
+&lt;td&gt;Modem power control (de-asserted in deep sleep)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;LED_BUILTIN&lt;/td&gt;
+&lt;td&gt;GPIO2&lt;/td&gt;
+&lt;td&gt;Built-in status LED&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The SPI pins are shared with the ESP32&amp;rsquo;s flash memory — this is normal and
+works because the E-Ink display is only accessed when the CPU is idle.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Pinout Notes&lt;span class="hx:absolute hx:-mt-20" id="pinout-notes"&gt;&lt;/span&gt;
+&lt;a href="#pinout-notes" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;SPI MISO&lt;/strong&gt; is unused because the E-Ink display receives data only (no
+read-back needed).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GPIO23&lt;/strong&gt; is dual-purpose (SPI MOSI + MODEM_POWER_ON). In deep sleep it is
+driven LOW to turn off external modem power. During normal operation both
+functions coexist safely.&lt;/li&gt;
+&lt;li&gt;The strapping pins (GPIO0, GPIO2, GPIO12, GPIO15) are avoided for E-Ink
+control signals to prevent boot issues.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Wiring&lt;span class="hx:absolute hx:-mt-20" id="wiring"&gt;&lt;/span&gt;
+&lt;a href="#wiring" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;No manual wiring is required.&lt;/strong&gt; The TTGO T5 board integrates all components:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ESP32 microcontroller (dual-core Xtensa LX6)&lt;/li&gt;
+&lt;li&gt;2.13&amp;quot; E-Ink display (SPI-connected, GxDEPG0213BN panel)&lt;/li&gt;
+&lt;li&gt;USB-to-serial converter (CP210x or CH340)&lt;/li&gt;
+&lt;li&gt;3.3V voltage regulator&lt;/li&gt;
+&lt;li&gt;Battery charging circuitry (optional Li-Po connector)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Simply connect the board via &lt;strong&gt;USB-C&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;To a &lt;strong&gt;computer&lt;/strong&gt; for flashing the firmware&lt;/li&gt;
+&lt;li&gt;To a &lt;strong&gt;USB phone charger&lt;/strong&gt; for permanent operation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Buttons (on supported variants)&lt;span class="hx:absolute hx:-mt-20" id="buttons-on-supported-variants"&gt;&lt;/span&gt;
+&lt;a href="#buttons-on-supported-variants" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Some TTGO T5 variants include hardware buttons. The firmware currently does
+&lt;strong&gt;not&lt;/strong&gt; use them — all configuration is done via the captive portal (see
+&lt;a
+href="https://smart-swimmingpool.github.io/docs/pool-monitor/users-guide/"&gt;Users Guide&lt;/a&gt;).&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Button&lt;/th&gt;
+&lt;th&gt;GPIO&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;BUTTON_1&lt;/td&gt;
+&lt;td&gt;GPIO37&lt;/td&gt;
+&lt;td&gt;Present on T5 V2.4/2.8 variants&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;BUTTON_2&lt;/td&gt;
+&lt;td&gt;GPIO38&lt;/td&gt;
+&lt;td&gt;Present on T5 V2.4/2.8 variants&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;BUTTON_3&lt;/td&gt;
+&lt;td&gt;GPIO39&lt;/td&gt;
+&lt;td&gt;Present on most variants&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2&gt;Power Supply&lt;span class="hx:absolute hx:-mt-20" id="power-supply"&gt;&lt;/span&gt;
+&lt;a href="#power-supply" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Source&lt;/th&gt;
+&lt;th&gt;Voltage&lt;/th&gt;
+&lt;th&gt;Current&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;USB-C phone charger&lt;/td&gt;
+&lt;td&gt;5V&lt;/td&gt;
+&lt;td&gt;≥1A&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Recommended&lt;/strong&gt; for permanent operation&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Computer USB port&lt;/td&gt;
+&lt;td&gt;5V&lt;/td&gt;
+&lt;td&gt;~500mA&lt;/td&gt;
+&lt;td&gt;Suitable for flashing and testing&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;USB power bank&lt;/td&gt;
+&lt;td&gt;5V&lt;/td&gt;
+&lt;td&gt;varies&lt;/td&gt;
+&lt;td&gt;Works, but deep sleep is designed for continuous mains power&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;Power Consumption&lt;span class="hx:absolute hx:-mt-20" id="power-consumption"&gt;&lt;/span&gt;
+&lt;a href="#power-consumption" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;State&lt;/th&gt;
+&lt;th&gt;Current&lt;/th&gt;
+&lt;th&gt;Duration per cycle&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Active (WiFi + MQTT + display update)&lt;/td&gt;
+&lt;td&gt;~80mA&lt;/td&gt;
+&lt;td&gt;~10–15 seconds&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Deep sleep&lt;/td&gt;
+&lt;td&gt;~10µA&lt;/td&gt;
+&lt;td&gt;~165–170 seconds&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Average&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;~5.5mA&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;over full 180s cycle&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;The 180-second deep sleep cycle means the board spends &lt;strong&gt;&amp;gt;90% of its life in
+deep sleep&lt;/strong&gt;, making it suitable for battery operation with a suitably sized
+Li-Po cell (the TTGO T5 has a built-in battery connector and charger).&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Solar Power Operation ☀️&lt;span class="hx:absolute hx:-mt-20" id="solar-power-operation-"&gt;&lt;/span&gt;
+&lt;a href="#solar-power-operation-" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The Pool Monitor&amp;rsquo;s extremely low power consumption (average ~5.5 mA at 5 V)
+makes it an excellent candidate for autonomous solar operation. With a small
+solar panel and a Li‑Po battery, the device can run indefinitely without a
+USB power supply.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Prerequisite&lt;/strong&gt;: The TTGO T5 board includes a &lt;strong&gt;built-in Li‑Po charger
+(TP4056)&lt;/strong&gt; and a &lt;strong&gt;JST 1.25 mm battery connector&lt;/strong&gt;. For solar operation you
+only need a solar panel and a battery — the board handles charging electronics
+itself.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h3&gt;Power Budget&lt;span class="hx:absolute hx:-mt-20" id="power-budget"&gt;&lt;/span&gt;
+&lt;a href="#power-budget" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;State&lt;/th&gt;
+&lt;th&gt;Current&lt;/th&gt;
+&lt;th&gt;Duration per cycle&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Active (WiFi + MQTT + display update)&lt;/td&gt;
+&lt;td&gt;~80 mA&lt;/td&gt;
+&lt;td&gt;~10–15 seconds&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Deep sleep&lt;/td&gt;
+&lt;td&gt;~10 µA&lt;/td&gt;
+&lt;td&gt;~165–170 seconds&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Average&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;~5.5 mA&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;over 180 s cycle&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Daily energy requirement&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;~132 mAh&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;at 5 V (≙ 660 mWh)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;The daily energy requirement of &lt;strong&gt;~130 mAh&lt;/strong&gt; (at 5 V) can be met by even a
+small solar panel at most locations.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Additional Parts Required&lt;span class="hx:absolute hx:-mt-20" id="additional-parts-required"&gt;&lt;/span&gt;
+&lt;a href="#additional-parts-required" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;#&lt;/th&gt;
+&lt;th&gt;Component&lt;/th&gt;
+&lt;th&gt;Qty&lt;/th&gt;
+&lt;th&gt;Approx. Cost&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;Solar panel, 5 V / 1–2 W&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;10–25 €&lt;/td&gt;
+&lt;td&gt;Monocrystalline, open-circuit voltage 5.5–6 V&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;Li‑Po battery, 3.7 V, 1000–2000 mAh&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;8–15 €&lt;/td&gt;
+&lt;td&gt;With JST 1.25 mm connector (2‑pin, red wire = positive)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;USB‑C breakout board or &lt;strong&gt;XC6206‑5.0V&lt;/strong&gt; regulator module&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;2–5 €&lt;/td&gt;
+&lt;td&gt;For stable 5 V feed from solar panel&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;Optional: Schottky diode (1N5819)&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;1 €&lt;/td&gt;
+&lt;td&gt;Reverse current protection when panel is dark&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;Optional: Enclosure (IP65+, transparent cover)&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;10–20 €&lt;/td&gt;
+&lt;td&gt;Solar panel can replace lid or be integrated&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Total&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;~30–65 €&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Additional to the base BOM&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4&gt;Where to Buy Solar Components&lt;span class="hx:absolute hx:-mt-20" id="where-to-buy-solar-components"&gt;&lt;/span&gt;
+&lt;a href="#where-to-buy-solar-components" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Solar panel&lt;/strong&gt;: Search for &lt;em&gt;&amp;ldquo;5V 2W solar panel&amp;rdquo;&lt;/em&gt; or &lt;em&gt;&amp;ldquo;6V 200mA solar
+module&amp;rdquo;&lt;/em&gt;, e.g. on Amazon, AliExpress. Monocrystalline panels with ETFE
+coating are ideal for outdoor use.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Li‑Po battery&lt;/strong&gt;: Search for &lt;em&gt;&amp;ldquo;3.7V 1000mAh Li‑Po JST 1.25&amp;rdquo;&lt;/em&gt; or
+&lt;em&gt;&amp;ldquo;LP401230 1000mAh&amp;rdquo;&lt;/em&gt;. Make sure it has a &lt;strong&gt;1.25 mm JST connector
+(2‑pin)&lt;/strong&gt;. Common form factors: 401230 (1000 mAh, ~30×12×4 mm) or
+503048 (1500 mAh).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;USB‑C breakout&lt;/strong&gt;: For direct 5 V injection via the USB‑C port.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3&gt;Circuit Variants&lt;span class="hx:absolute hx:-mt-20" id="circuit-variants"&gt;&lt;/span&gt;
+&lt;a href="#circuit-variants" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;Variant A: Solar Panel → USB‑C (recommended, simple)&lt;span class="hx:absolute hx:-mt-20" id="variant-a-solar-panel--usbc-recommended-simple"&gt;&lt;/span&gt;
+&lt;a href="#variant-a-solar-panel--usbc-recommended-simple" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;The simplest and safest method — uses the &lt;strong&gt;built-in TP4056 charger&lt;/strong&gt; of the
+TTGO T5.&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; Solar Panel TTGO T5 V231
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; (5-6V) ┌────────┐
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; │ │ USB-C │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; ├─[USB-C Breakout]───┤ Port │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; │ │ │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; Li‑Po Battery │ JST │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; (3.7V, 1000mAh) ────────┤ BAT │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; └────────┘&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Solar panel&lt;/strong&gt; (5–6 V) — solder to a USB‑C breakout board or directly to
+a USB‑C plug (VBUS to pins A4/A9/B4/B9, GND to A1/B1).&lt;/li&gt;
+&lt;li&gt;Plug the USB‑C breakout into the TTGO T5&amp;rsquo;s USB‑C port.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Li‑Po battery&lt;/strong&gt; — connect to the JST 1.25 mm (BAT) connector on the
+TTGO T5.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;em&gt;Note&lt;/em&gt;: The panel must deliver &lt;strong&gt;5 V (nominal) up to 6 V max&lt;/strong&gt;. The TP4056
+requires at least ~4.5 V to start charging.&lt;/p&gt;
+&lt;h4&gt;Variant B: External Solar Charger (more flexible)&lt;span class="hx:absolute hx:-mt-20" id="variant-b-external-solar-charger-more-flexible"&gt;&lt;/span&gt;
+&lt;a href="#variant-b-external-solar-charger-more-flexible" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Uses a dedicated solar charger module (e.g. &lt;strong&gt;CN3065&lt;/strong&gt; or &lt;strong&gt;TP4056 with solar
+input&lt;/strong&gt;) for better energy harvesting in low light.&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; Solar Panel Solar Charger TTGO T5 V231
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; (5-6V) Module ┌────────┐
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; │ │ │ USB-C │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; ├──────────────────┤ IN+ OUT+─┤ Port │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; │ │ │ │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; │ BAT+ ──────── │ JST │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; Li‑Po Battery ────────┤ BAT- ──────┤ BAT │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; │ └────────┘&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ol&gt;
+&lt;li&gt;Connect solar panel to the &lt;strong&gt;IN+ / IN−&lt;/strong&gt; terminals of the charger module.&lt;/li&gt;
+&lt;li&gt;Connect Li‑Po battery to &lt;strong&gt;BAT+ / BAT−&lt;/strong&gt; of the charger.&lt;/li&gt;
+&lt;li&gt;Connect charger output to the TTGO T5&amp;rsquo;s JST BAT connector &lt;strong&gt;or&lt;/strong&gt; via a
+5 V step-up converter to the USB‑C port.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Advantage&lt;/strong&gt;: Modules like the CN3065 feature an &lt;strong&gt;MPPT‑like input
+regulator&lt;/strong&gt; that still harvests power in cloudy conditions.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h3&gt;Minimum Configuration (Summer Only) ☀️&lt;span class="hx:absolute hx:-mt-20" id="minimum-configuration-summer-only-"&gt;&lt;/span&gt;
+&lt;a href="#minimum-configuration-summer-only-" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;If the monitor only needs to run &lt;strong&gt;during the warm season&lt;/strong&gt; (May–September)
+in &lt;strong&gt;mostly good weather&lt;/strong&gt;, minimal components are sufficient:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Component&lt;/th&gt;
+&lt;th&gt;Minimum&lt;/th&gt;
+&lt;th&gt;Rationale&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Solar panel&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;0.3–0.5 W&lt;/strong&gt; (5 V, ~60–100 mA)&lt;/td&gt;
+&lt;td&gt;Summer yield ~250 mAh/day – twice the daily need&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Battery&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;500 mAh&lt;/strong&gt; (e.g. LP401015)&lt;/td&gt;
+&lt;td&gt;Bridges the night (~66 mAh) + 2 cloudy days&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Schottky diode&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Optional but recommended&lt;/td&gt;
+&lt;td&gt;Prevents reverse current at night with small panels&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;The &lt;strong&gt;daily requirement of ~130 mAh&lt;/strong&gt; is already exceeded by a &lt;strong&gt;0.3 W panel&lt;/strong&gt;
+(60 mA × 6 h × 0.7 efficiency ≈ 250 mAh/day) in summer. The battery handles
+the night – even after a cloudy day there&amp;rsquo;s enough reserve for the next day.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Practical tip&lt;/strong&gt;: A panel below 0.5 W is often barely cheaper than a
+0.5 W panel. Recommendation: &lt;strong&gt;0.5 W + 500 mAh battery&lt;/strong&gt; as the cheapest
+combination (~15–25 € additional to the board).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Sizing&lt;span class="hx:absolute hx:-mt-20" id="sizing"&gt;&lt;/span&gt;
+&lt;a href="#sizing" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;Battery Capacity&lt;span class="hx:absolute hx:-mt-20" id="battery-capacity"&gt;&lt;/span&gt;
+&lt;a href="#battery-capacity" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Autonomy&lt;/th&gt;
+&lt;th&gt;Recommended Capacity&lt;/th&gt;
+&lt;th&gt;Example&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Night + 1 rainy day (summer minimum)&lt;/td&gt;
+&lt;td&gt;500 mAh&lt;/td&gt;
+&lt;td&gt;LP401015 / 501215 (~15×12×4 mm)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2–3 days (safety margin)&lt;/td&gt;
+&lt;td&gt;1000 mAh&lt;/td&gt;
+&lt;td&gt;LP401230 (30×12×4 mm)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;5–7 days (winter/overcast)&lt;/td&gt;
+&lt;td&gt;2000 mAh&lt;/td&gt;
+&lt;td&gt;LP503048 (50×30×5 mm)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;10+ days (emergency reserve)&lt;/td&gt;
+&lt;td&gt;3000 mAh&lt;/td&gt;
+&lt;td&gt;LP604560 (60×45×6 mm)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Rule of thumb&lt;/strong&gt;: In central Europe (DE/AT/CH) winter months typically see
+&lt;strong&gt;2–3 effective sun hours per day&lt;/strong&gt; (Nov–Feb). A 1000 mAh battery bridges
+5–7 days without sun. A 2000 mAh battery lasts 10–14 days.&lt;/p&gt;
+&lt;h4&gt;Solar Panel Size&lt;span class="hx:absolute hx:-mt-20" id="solar-panel-size"&gt;&lt;/span&gt;
+&lt;a href="#solar-panel-size" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Panel&lt;/th&gt;
+&lt;th&gt;Voltage&lt;/th&gt;
+&lt;th&gt;Current (max)&lt;/th&gt;
+&lt;th&gt;Daily yield (winter)&lt;/th&gt;
+&lt;th&gt;Daily yield (summer)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;0.3 W&lt;/td&gt;
+&lt;td&gt;5 V&lt;/td&gt;
+&lt;td&gt;~60 mA&lt;/td&gt;
+&lt;td&gt;~30 mAh&lt;/td&gt;
+&lt;td&gt;~150 mAh&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;0.5 W&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;5 V&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;~100 mA&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;~50 mAh&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;~250 mAh&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1 W&lt;/td&gt;
+&lt;td&gt;5 V&lt;/td&gt;
+&lt;td&gt;~200 mA&lt;/td&gt;
+&lt;td&gt;~100 mAh&lt;/td&gt;
+&lt;td&gt;~500 mAh&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2 W&lt;/td&gt;
+&lt;td&gt;5 V&lt;/td&gt;
+&lt;td&gt;~400 mA&lt;/td&gt;
+&lt;td&gt;~200 mAh&lt;/td&gt;
+&lt;td&gt;~1000 mAh&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Recommendation&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Summer only&lt;/strong&gt;: &lt;strong&gt;0.5 W + 500 mAh battery&lt;/strong&gt; – small, light, cheap&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Year-round (DE/AT/CH)&lt;/strong&gt;: &lt;strong&gt;1–2 W + 1000–2000 mAh battery&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Panel Dimensions (approximate)&lt;span class="hx:absolute hx:-mt-20" id="panel-dimensions-approximate"&gt;&lt;/span&gt;
+&lt;a href="#panel-dimensions-approximate" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Power&lt;/th&gt;
+&lt;th&gt;Typical size (W × H)&lt;/th&gt;
+&lt;th&gt;Thickness&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;0.5 W&lt;/td&gt;
+&lt;td&gt;90 × 60 mm&lt;/td&gt;
+&lt;td&gt;2–3 mm&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1 W&lt;/td&gt;
+&lt;td&gt;110 × 70 mm&lt;/td&gt;
+&lt;td&gt;2–3 mm&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2 W&lt;/td&gt;
+&lt;td&gt;155 × 85 mm&lt;/td&gt;
+&lt;td&gt;2–3 mm&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3 W&lt;/td&gt;
+&lt;td&gt;185 × 95 mm&lt;/td&gt;
+&lt;td&gt;2–3 mm&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h3&gt;Wiring – Step by Step&lt;span class="hx:absolute hx:-mt-20" id="wiring--step-by-step"&gt;&lt;/span&gt;
+&lt;a href="#wiring--step-by-step" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;Preparation&lt;span class="hx:absolute hx:-mt-20" id="preparation"&gt;&lt;/span&gt;
+&lt;a href="#preparation" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Disconnect TTGO T5 from any power source&lt;/strong&gt; (USB‑C and battery).&lt;/li&gt;
+&lt;li&gt;Lay out all components on a non-conductive surface.&lt;/li&gt;
+&lt;li&gt;If using stranded wire: tin the ends, prepare heatshrink tubing.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;Variant A (recommended) – Step by Step&lt;span class="hx:absolute hx:-mt-20" id="variant-a-recommended--step-by-step"&gt;&lt;/span&gt;
+&lt;a href="#variant-a-recommended--step-by-step" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Prepare the USB‑C breakout&lt;/strong&gt;: Tin the VBUS and GND pads with a fine
+soldering iron.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Prepare the solar panel&lt;/strong&gt;: Insulate the panel leads with heatshrink;
+positive (red) to VBUS, negative (black) to GND on the breakout.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Optional: Schottky diode 1N5819&lt;/strong&gt; — place in series with the positive
+lead (cathode toward breakout, anode toward panel) to prevent reverse
+current at night.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Insert the breakout&lt;/strong&gt;: Gently plug the USB‑C breakout into the TTGO T5&amp;rsquo;s
+USB‑C port.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Connect the Li‑Po battery&lt;/strong&gt;: Plug the battery connector into the
+&lt;strong&gt;JST 1.25 mm (BAT)&lt;/strong&gt; socket on the TTGO T5. Watch polarity — red wire =
+positive.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Visual inspection&lt;/strong&gt;: No loose wires, no short circuits.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;Test&lt;span class="hx:absolute hx:-mt-20" id="test"&gt;&lt;/span&gt;
+&lt;a href="#test" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;Connect &lt;strong&gt;solar panel only&lt;/strong&gt; (no battery) — the red LED on the TTGO T5
+should light if the panel receives sufficient light. The board should boot.&lt;/li&gt;
+&lt;li&gt;Disconnect panel, connect &lt;strong&gt;battery only&lt;/strong&gt; — the board should boot from
+battery.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Connect both&lt;/strong&gt; — normal operation. The TP4056 charges the battery in
+sunlight and automatically switches to battery when dark.&lt;/li&gt;
+&lt;li&gt;Test the firmware: WiFi connection, MQTT, display update.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h3&gt;Enclosure and Placement&lt;span class="hx:absolute hx:-mt-20" id="enclosure-and-placement"&gt;&lt;/span&gt;
+&lt;a href="#enclosure-and-placement" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Use a &lt;strong&gt;weatherproof enclosure (IP65+)&lt;/strong&gt;, e.g. ABS plastic enclosures from
+Bopla, Spelsberg, or Hammond.&lt;/li&gt;
+&lt;li&gt;The &lt;strong&gt;solar panel&lt;/strong&gt; can either:
+&lt;ul&gt;
+&lt;li&gt;be &lt;strong&gt;mounted on the outside&lt;/strong&gt; of the enclosure (cable routed through a
+cable gland),&lt;/li&gt;
+&lt;li&gt;or be placed &lt;strong&gt;inside behind a clear window&lt;/strong&gt; if the lid is transparent
+(yield reduction ~10–20 %).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Placement&lt;/strong&gt;: South-facing, tilt 30–45°, no shading (trees/buildings). In
+DE/AT/CH, as little as &lt;strong&gt;2–3 h of midday sun&lt;/strong&gt; is enough for minimum
+operation.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Ventilation slots&lt;/strong&gt; are not required due to the low heat dissipation.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Temperatures&lt;/strong&gt;: The Li‑Po battery should not exceed 60 °C. In direct
+sunlight on a dark enclosure, avoid heat buildup (use a light-colored
+enclosure or place in partial shade).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3&gt;Notes and Safety ⚠️&lt;span class="hx:absolute hx:-mt-20" id="notes-and-safety-"&gt;&lt;/span&gt;
+&lt;a href="#notes-and-safety-" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Li‑Po safety&lt;/strong&gt;: Only use batteries with &lt;strong&gt;built-in overcharge/overdischarge
+protection (PCB)&lt;/strong&gt;. Replace immediately if damaged (swelling, bulging).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Never&lt;/strong&gt; connect the solar panel to the &lt;strong&gt;JST BAT socket&lt;/strong&gt; — that connector
+is for the &lt;strong&gt;battery only&lt;/strong&gt;. The TP4056 input is limited to 6 V max; higher
+voltage will destroy the charger.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;USB‑C data path&lt;/strong&gt;: Variant A occupies the USB‑C port. To flash new
+firmware, unplug the breakout — unless you use &lt;strong&gt;UART via the pin headers&lt;/strong&gt;
+(RX/TX) on the board.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Strain relief&lt;/strong&gt;: Use cable ties or glue dots inside the enclosure to
+prevent force on the connectors.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;First Power-On and Testing&lt;span class="hx:absolute hx:-mt-20" id="first-power-on-and-testing"&gt;&lt;/span&gt;
+&lt;a href="#first-power-on-and-testing" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;1. Visual Inspection&lt;span class="hx:absolute hx:-mt-20" id="1-visual-inspection"&gt;&lt;/span&gt;
+&lt;a href="#1-visual-inspection" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Before connecting power:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Check the USB-C connector for debris&lt;/li&gt;
+&lt;li&gt;Verify the board is not placed on a conductive surface&lt;/li&gt;
+&lt;li&gt;Look for any visible damage (swollen components, corrosion)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;2. Power On&lt;span class="hx:absolute hx:-mt-20" id="2-power-on"&gt;&lt;/span&gt;
+&lt;a href="#2-power-on" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Connect the TTGO T5 to a USB power source (computer or phone charger).&lt;/li&gt;
+&lt;li&gt;The E-Ink display will update after a few seconds:
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;With stock firmware&lt;/strong&gt;: a test pattern or blank screen.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;With Pool Monitor firmware&lt;/strong&gt;: the splash screen — see
+&lt;a
+href="https://smart-swimmingpool.github.io/docs/pool-monitor/users-guide/#setup"&gt;Users Guide&lt;/a&gt; for first-time configuration.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;3. Initial Configuration&lt;span class="hx:absolute hx:-mt-20" id="3-initial-configuration"&gt;&lt;/span&gt;
+&lt;a href="#3-initial-configuration" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The device starts in &lt;strong&gt;AP mode&lt;/strong&gt; if no WiFi is configured:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Connect your phone/laptop to the &lt;strong&gt;&lt;code&gt;pool-monitor&lt;/code&gt;&lt;/strong&gt; WiFi network (open,
+no password).&lt;/li&gt;
+&lt;li&gt;A captive portal opens automatically — or navigate to
+&lt;strong&gt;&lt;code&gt;http://192.168.4.1&lt;/code&gt;&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Enter your WiFi credentials and MQTT broker settings.&lt;/li&gt;
+&lt;li&gt;Click &lt;strong&gt;Save&lt;/strong&gt; — the device reboots and connects to your network.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Details in the &lt;a
+href="https://smart-swimmingpool.github.io/docs/pool-monitor/users-guide/"&gt;Users Guide&lt;/a&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Troubleshooting&lt;span class="hx:absolute hx:-mt-20" id="troubleshooting"&gt;&lt;/span&gt;
+&lt;a href="#troubleshooting" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Symptom&lt;/th&gt;
+&lt;th&gt;Likely Cause&lt;/th&gt;
+&lt;th&gt;Fix&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Display stays white&lt;/td&gt;
+&lt;td&gt;No firmware or corrupted flash&lt;/td&gt;
+&lt;td&gt;Flash firmware via PlatformIO (see &lt;a
+href="https://smart-swimmingpool.github.io/docs/pool-monitor/software-guide/"&gt;Software Guide&lt;/a&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ldquo;MQTT Error&amp;rdquo; on display, portal opens&lt;/td&gt;
+&lt;td&gt;MQTT broker unreachable&lt;/td&gt;
+&lt;td&gt;Check broker hostname/IP; verify MQTT server is running&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ldquo;WiFi connection failed&amp;rdquo;&lt;/td&gt;
+&lt;td&gt;Wrong credentials or weak signal&lt;/td&gt;
+&lt;td&gt;Reconfigure via captive portal; check WiFi range&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Display shows old data (never updates)&lt;/td&gt;
+&lt;td&gt;MQTT issue or pool controller offline&lt;/td&gt;
+&lt;td&gt;Verify pool controller publishes to HA state topics&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;QR portal appears every 3 minutes&lt;/td&gt;
+&lt;td&gt;MQTT settings not saving&lt;/td&gt;
+&lt;td&gt;Re-enter MQTT hostname/IP; try IP address instead of hostname&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Brownout / reboot loop&lt;/td&gt;
+&lt;td&gt;Insufficient power supply&lt;/td&gt;
+&lt;td&gt;Use 5V/≥1A supply; try different USB cable&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Display updates but shows &lt;code&gt;--:--&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;NTP time sync failed&lt;/td&gt;
+&lt;td&gt;Check internet connectivity; NTP is attempted every hour&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2&gt;References&lt;span class="hx:absolute hx:-mt-20" id="references"&gt;&lt;/span&gt;
+&lt;a href="#references" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a
+href="http://www.lilygo.com/prod_view-66.html"target="_blank" rel="noopener"&gt;LILYGO TTGO T5 Product Page&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/ZinggJM/GxEPD"target="_blank" rel="noopener"&gt;GxEPD Library&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://www.espressif.com/en/products/socs/esp32"target="_blank" rel="noopener"&gt;ESP32 Datasheet&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller/blob/main/docs/hardware-guide.md"target="_blank" rel="noopener"&gt;Pool Controller Hardware Guide&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/smart-swimmingpool/monitor/blob/main/src/board_def.h"target="_blank" rel="noopener"&gt;Board definition source&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>

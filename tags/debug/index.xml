@@ -1,0 +1,282 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Debug</title><link>https://smart-swimmingpool.github.io/tags/debug/</link><description>Recent content in Debug on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Sun, 14 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/tags/debug/index.xml" rel="self" type="application/rss+xml"/><item><title>Troubleshooting</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/troubleshooting/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/troubleshooting/</guid><description>
+&lt;blockquote&gt;
+&lt;p&gt;⚠️ &lt;strong&gt;WARNING&lt;/strong&gt;: The troubleshooting steps below may involve working with
+&lt;strong&gt;230V AC mains voltage&lt;/strong&gt; (relay testing, pump wiring). &lt;strong&gt;Always disconnect
+power&lt;/strong&gt; before working on the circuit. If unsure, hire a qualified electrician.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Quick Reference Matrix&lt;span class="hx:absolute hx:-mt-20" id="quick-reference-matrix"&gt;&lt;/span&gt;
+&lt;a href="#quick-reference-matrix" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Symptom&lt;/th&gt;
+&lt;th&gt;Cause&lt;/th&gt;
+&lt;th&gt;Solution&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;-127 °C&lt;/strong&gt; temperature reading&lt;/td&gt;
+&lt;td&gt;DS18B20 not detected&lt;/td&gt;
+&lt;td&gt;Check 4.7 kΩ pull-up resistor, wiring, and solder joints&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;HA finds no device&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;MQTT Discovery payload not published&lt;/td&gt;
+&lt;td&gt;Verify &lt;code&gt;mqtt-protocol = &amp;quot;homeassistant&amp;quot;&lt;/code&gt;, check MQTT broker connectivity, use MQTT Explorer&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Relay behavior inverted&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Active-low module configured as active-high (or vice versa)&lt;/td&gt;
+&lt;td&gt;Set &lt;code&gt;relay-invert = true&lt;/code&gt; or &lt;code&gt;false&lt;/code&gt; in Configuration → Advanced&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Safe Mode active&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Boot-loop detected (4 consecutive short boots &amp;lt; 5 min)&lt;/td&gt;
+&lt;td&gt;Check serial log for crash reason, fix issue, reboot&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;OTA update fails&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;TLS issue or insufficient flash space&lt;/td&gt;
+&lt;td&gt;Use USB flashing fallback, check free space on device&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Web UI not loading&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;ESP32 not on network or wrong IP&lt;/td&gt;
+&lt;td&gt;Check router DHCP list, verify WiFi connection, try &lt;code&gt;pool-controller.local&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;MQTT connection refused&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Wrong credentials or broker unreachable&lt;/td&gt;
+&lt;td&gt;Verify broker IP, port, username/password in MQTT settings&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Temperature reads 85 °C&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;DS18B20 parasitic power issue&lt;/td&gt;
+&lt;td&gt;Add external 3.3V supply to sensor VCC pin&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Relay not clicking&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;GPIO pin damaged or relay module not powered&lt;/td&gt;
+&lt;td&gt;Verify relay VCC/GND, check GPIO voltage with multimeter&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;ESP32 keeps rebooting&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Power supply insufficient or watchdog timeout&lt;/td&gt;
+&lt;td&gt;Use &amp;gt;1A power supply, check serial log for panic messages&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;WiFi scan finds nothing&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;ESP32 antenna issue or interference&lt;/td&gt;
+&lt;td&gt;Move device closer to router, check antenna connection&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;mDNS not resolving&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Network doesn&amp;rsquo;t support mDNS&lt;/td&gt;
+&lt;td&gt;Use IP address directly, install mDNS reflector&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Sensor readings fluctuating&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Loose connection or interference&lt;/td&gt;
+&lt;td&gt;Check wiring, add shielded cable, verify pull-up resistor&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Configuration lost after reboot&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;NVS corruption or config not saved&lt;/td&gt;
+&lt;td&gt;Re-save configuration, try factory reset if persistent&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2&gt;Detailed Diagnosis&lt;span class="hx:absolute hx:-mt-20" id="detailed-diagnosis"&gt;&lt;/span&gt;
+&lt;a href="#detailed-diagnosis" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;1. Temperature Sensor Issues&lt;span class="hx:absolute hx:-mt-20" id="1-temperature-sensor-issues"&gt;&lt;/span&gt;
+&lt;a href="#1-temperature-sensor-issues" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;Symptom: Sensor reads -127 °C&lt;span class="hx:absolute hx:-mt-20" id="symptom-sensor-reads--127-c"&gt;&lt;/span&gt;
+&lt;a href="#symptom-sensor-reads--127-c" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;This is the DallasTemperature library default when no sensor is found on the
+OneWire bus.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Checklist:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Verify the 4.7 kΩ pull-up resistor between DATA and 3.3V&lt;/li&gt;
+&lt;li&gt;Check wiring: VCC (red) → 3.3V, GND (black) → GND, DATA (yellow/white) → GPIO&lt;/li&gt;
+&lt;li&gt;Swap the sensor to a known-working GPIO pin&lt;/li&gt;
+&lt;li&gt;Test with a known-working DS18B20&lt;/li&gt;
+&lt;li&gt;Measure voltage on DATA pin: should be ~3.3V idle, pulses during communication&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;Symptom: Sensor reads 85 °C&lt;span class="hx:absolute hx:-mt-20" id="symptom-sensor-reads-85-c"&gt;&lt;/span&gt;
+&lt;a href="#symptom-sensor-reads-85-c" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;This indicates the DS18B20 is in &lt;strong&gt;parasitic power mode&lt;/strong&gt; but not getting
+enough power.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt; Connect VCC pin (red) to 3.3V instead of relying on parasitic
+power.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;2. MQTT / Home Assistant Issues&lt;span class="hx:absolute hx:-mt-20" id="2-mqtt--home-assistant-issues"&gt;&lt;/span&gt;
+&lt;a href="#2-mqtt--home-assistant-issues" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;Symptom: Home Assistant doesn&amp;rsquo;t discover the controller&lt;span class="hx:absolute hx:-mt-20" id="symptom-home-assistant-doesnt-discover-the-controller"&gt;&lt;/span&gt;
+&lt;a href="#symptom-home-assistant-doesnt-discover-the-controller" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;Checklist:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Verify MQTT broker is running: &lt;code&gt;mosquitto_sub -h &amp;lt;broker&amp;gt; -t &amp;quot;#&amp;quot; -v&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Check controller MQTT settings via web UI (MQTT Settings tab)&lt;/li&gt;
+&lt;li&gt;Test with MQTT Explorer:
+&lt;ul&gt;
+&lt;li&gt;Subscribe to &lt;code&gt;pool-controller/#&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Look for discovery topics: &lt;code&gt;homeassistant/sensor/pool-controller-*/config&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Restart the MQTT broker&lt;/li&gt;
+&lt;li&gt;Reboot the controller&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;Symptom: Entities show as &amp;ldquo;unavailable&amp;rdquo;&lt;span class="hx:absolute hx:-mt-20" id="symptom-entities-show-as-unavailable"&gt;&lt;/span&gt;
+&lt;a href="#symptom-entities-show-as-unavailable" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;Check MQTT connection status in controller web UI&lt;/li&gt;
+&lt;li&gt;Verify the broker is reachable from both controller and HA&lt;/li&gt;
+&lt;li&gt;Restart HA MQTT integration&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h3&gt;3. Relay Issues&lt;span class="hx:absolute hx:-mt-20" id="3-relay-issues"&gt;&lt;/span&gt;
+&lt;a href="#3-relay-issues" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;Symptom: Relay clicks but pump doesn&amp;rsquo;t run&lt;span class="hx:absolute hx:-mt-20" id="symptom-relay-clicks-but-pump-doesnt-run"&gt;&lt;/span&gt;
+&lt;a href="#symptom-relay-clicks-but-pump-doesnt-run" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;Check COM/NO wiring — pump should be on the NO (normally open) terminal&lt;/li&gt;
+&lt;li&gt;Verify mains voltage at relay input&lt;/li&gt;
+&lt;li&gt;Check pump connection and fuse&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;Symptom: Relay doesn&amp;rsquo;t click&lt;span class="hx:absolute hx:-mt-20" id="symptom-relay-doesnt-click"&gt;&lt;/span&gt;
+&lt;a href="#symptom-relay-doesnt-click" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;Measure GPIO voltage — should toggle between HIGH and LOW&lt;/li&gt;
+&lt;li&gt;Verify relay module VCC (5V) and GND connections&lt;/li&gt;
+&lt;li&gt;Test relay module independently with 5V between IN and GND&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h3&gt;4. Boot and Stability Issues&lt;span class="hx:absolute hx:-mt-20" id="4-boot-and-stability-issues"&gt;&lt;/span&gt;
+&lt;a href="#4-boot-and-stability-issues" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;Symptom: Safe Mode activated&lt;span class="hx:absolute hx:-mt-20" id="symptom-safe-mode-activated"&gt;&lt;/span&gt;
+&lt;a href="#symptom-safe-mode-activated" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;The controller enters Safe Mode after 4 consecutive boots that last less than
+5 minutes each. All relays are forced OFF.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Recovery:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Connect serial monitor: &lt;code&gt;pio device monitor --baud 115200&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Read the boot log — look for panic messages, asserts, or exceptions&lt;/li&gt;
+&lt;li&gt;Common causes:
+&lt;ul&gt;
+&lt;li&gt;Stack overflow in a task&lt;/li&gt;
+&lt;li&gt;NULL pointer dereference&lt;/li&gt;
+&lt;li&gt;Heap exhaustion&lt;/li&gt;
+&lt;li&gt;Corrupt configuration&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Fix the issue and reboot&lt;/li&gt;
+&lt;li&gt;The boot counter resets after a successful 5+ minute run&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;Symptom: Random reboots every few hours&lt;span class="hx:absolute hx:-mt-20" id="symptom-random-reboots-every-few-hours"&gt;&lt;/span&gt;
+&lt;a href="#symptom-random-reboots-every-few-hours" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;Check &lt;code&gt;free_heap_space&lt;/code&gt; sensor — should be above 20 KB&lt;/li&gt;
+&lt;li&gt;Verify power supply (minimum 1A)&lt;/li&gt;
+&lt;li&gt;Check for WiFi disconnection/reconnection loops&lt;/li&gt;
+&lt;li&gt;Monitor serial output for crash messages&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h3&gt;5. OTA Update Issues&lt;span class="hx:absolute hx:-mt-20" id="5-ota-update-issues"&gt;&lt;/span&gt;
+&lt;a href="#5-ota-update-issues" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;Symptom: OTA fails with TLS error&lt;span class="hx:absolute hx:-mt-20" id="symptom-ota-fails-with-tls-error"&gt;&lt;/span&gt;
+&lt;a href="#symptom-ota-fails-with-tls-error" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;The web interface uses HTTPS for OTA — TLS handshake may fail on some
+networks&lt;/li&gt;
+&lt;li&gt;Ensure the ESP32 has enough free heap (check dashboard)&lt;/li&gt;
+&lt;li&gt;Try a smaller firmware binary&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Workaround:&lt;/strong&gt; Flash via USB:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pio run --target upload --upload-port /dev/ttyUSB0&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h4&gt;Symptom: OTA uploads but device doesn&amp;rsquo;t boot&lt;span class="hx:absolute hx:-mt-20" id="symptom-ota-uploads-but-device-doesnt-boot"&gt;&lt;/span&gt;
+&lt;a href="#symptom-ota-uploads-but-device-doesnt-boot" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;The new firmware may be corrupted or incompatible&lt;/li&gt;
+&lt;li&gt;Flash a known-good version via USB&lt;/li&gt;
+&lt;li&gt;Check partition table size&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2&gt;Diagnostic Tools&lt;span class="hx:absolute hx:-mt-20" id="diagnostic-tools"&gt;&lt;/span&gt;
+&lt;a href="#diagnostic-tools" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Serial Monitor&lt;span class="hx:absolute hx:-mt-20" id="serial-monitor"&gt;&lt;/span&gt;
+&lt;a href="#serial-monitor" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pio device monitor --port /dev/ttyUSB0 --baud &lt;span class="m"&gt;115200&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Useful for: boot logs, crash dumps, MQTT connection status.&lt;/p&gt;
+&lt;h3&gt;MQTT Explorer&lt;span class="hx:absolute hx:-mt-20" id="mqtt-explorer"&gt;&lt;/span&gt;
+&lt;a href="#mqtt-explorer" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Install &lt;a
+href="http://mqtt-explorer.com/"target="_blank" rel="noopener"&gt;MQTT Explorer&lt;/a&gt; or use CLI:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mosquitto_sub -h &amp;lt;broker&amp;gt; -t &lt;span class="s2"&gt;&amp;#34;pool-controller/#&amp;#34;&lt;/span&gt; -v&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Useful for: verifying MQTT Discovery payloads, checking telemetry data.&lt;/p&gt;
+&lt;h3&gt;Web UI Dashboard&lt;span class="hx:absolute hx:-mt-20" id="web-ui-dashboard"&gt;&lt;/span&gt;
+&lt;a href="#web-ui-dashboard" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Access via &lt;code&gt;http://&amp;lt;device-ip&amp;gt;&lt;/code&gt; — shows live status, temperatures, heap, RSSI.&lt;/p&gt;
+&lt;h3&gt;Network Scan&lt;span class="hx:absolute hx:-mt-20" id="network-scan"&gt;&lt;/span&gt;
+&lt;a href="#network-scan" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Find the controller on your network&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;nmap -sn 192.168.1.0/24
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Or use your router&amp;#39;s DHCP client list&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;h2&gt;Getting Help&lt;span class="hx:absolute hx:-mt-20" id="getting-help"&gt;&lt;/span&gt;
+&lt;a href="#getting-help" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;If the troubleshooting steps above don&amp;rsquo;t resolve your issue:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Search the &lt;a
+href="https://github.com/smart-swimmingpool/pool-controller/issues"target="_blank" rel="noopener"&gt;existing issues&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Check the &lt;a
+href="https://github.com/smart-swimmingpool/smart-swimmingpool.github.io/discussions"target="_blank" rel="noopener"&gt;discussions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Include the following information in your report:
+&lt;ul&gt;
+&lt;li&gt;Firmware version (from web UI or serial log)&lt;/li&gt;
+&lt;li&gt;Hardware variant (Basic, NORVI AE01-R, Custom)&lt;/li&gt;
+&lt;li&gt;ESP32 board type&lt;/li&gt;
+&lt;li&gt;MQTT broker and version&lt;/li&gt;
+&lt;li&gt;Home Assistant version (if applicable)&lt;/li&gt;
+&lt;li&gt;Serial monitor output (if available)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2&gt;Related Documents&lt;span class="hx:absolute hx:-mt-20" id="related-documents"&gt;&lt;/span&gt;
+&lt;a href="#related-documents" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/build-from-zero/"&gt;Build from Zero&lt;/a&gt; — Complete build guide&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/mqtt-configuration/"&gt;MQTT Configuration&lt;/a&gt; — MQTT setup details&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/electrical-safety/"&gt;Electrical Safety&lt;/a&gt; — Safety information&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/home-assistant/"&gt;Home Assistant Integration&lt;/a&gt; — HA setup guide&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>

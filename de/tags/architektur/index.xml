@@ -1,0 +1,265 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Architektur</title><link>https://smart-swimmingpool.github.io/de/tags/architektur/</link><description>Recent content in Architektur on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><lastBuildDate>Sun, 14 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/de/tags/architektur/index.xml" rel="self" type="application/rss+xml"/><item><title>Sicherheitsmodell</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/safety-model/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/safety-model/</guid><description>
+&lt;blockquote&gt;
+&lt;p&gt;⚠️ &lt;strong&gt;HINWEIS&lt;/strong&gt;: Dieses Dokument beschreibt die Sicherheitsarchitektur des
+Pool-Controllers. Praktische Anleitungen zur elektrischen Sicherheit beim
+Bau des Controllers finden sich in &lt;a
+href="electrical-safety.de.md"&gt;Elektrische Sicherheit&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Überblick&lt;span class="hx:absolute hx:-mt-20" id="überblick"&gt;&lt;/span&gt;
+&lt;a href="#%c3%bcberblick" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der Pool-Controller ist nach dem &lt;strong&gt;Defense-in-Depth&lt;/strong&gt;-Prinzip (mehrschichtige
+Sicherheitsarchitektur) aufgebaut. Sicherheit ist keine einzelne Funktion,
+sondern ein mehrschichtiges System aus Hardware, Firmware und Betriebsanweisungen.&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;┌──────────────────────────────────────────────┐
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ Betriebsebene │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ (Benutzerverfahren, Checklisten, Wartung) │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├──────────────────────────────────────────────┤
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ Software-Ebene │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ (Watchdog, Bootloop-Erkennung, Safe Mode) │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├──────────────────────────────────────────────┤
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ Firmware-Ebene │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ (Konfigurationsprüfung, Typsicherheit, CRC) │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├──────────────────────────────────────────────┤
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ Hardware-Ebene │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ (Relais-Trennung, Sicherungen, IP65-Gehäuse)│
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;└──────────────────────────────────────────────┘&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;h2&gt;Ebene 1: Hardware-Sicherheit&lt;span class="hx:absolute hx:-mt-20" id="ebene-1-hardware-sicherheit"&gt;&lt;/span&gt;
+&lt;a href="#ebene-1-hardware-sicherheit" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Relais-Trennung&lt;span class="hx:absolute hx:-mt-20" id="relais-trennung"&gt;&lt;/span&gt;
+&lt;a href="#relais-trennung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Relais bieten &lt;strong&gt;galvanische Trennung&lt;/strong&gt; zwischen ESP32 (3,3V/5V) und
+Netzspannung (230V AC)&lt;/li&gt;
+&lt;li&gt;Mindestens 4 mm Kriechstrecke zwischen Spule und Kontakten bei
+Qualitätsmodulen&lt;/li&gt;
+&lt;li&gt;Relaismodule mit Optokoppler-Eingang bieten zusätzliche Isolation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Überstromschutz&lt;span class="hx:absolute hx:-mt-20" id="überstromschutz"&gt;&lt;/span&gt;
+&lt;a href="#%c3%bcberstromschutz" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Ein &lt;strong&gt;Leitungsschutzschalter&lt;/strong&gt; muss auf dem Außenleiter installiert werden&lt;/li&gt;
+&lt;li&gt;Ausgelegt für die Pumpenlast (siehe &lt;a
+href="https://smart-swimmingpool.github.io/docs/electrical-safety/"&gt;Elektrische Sicherheit&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Schützt vor Kurzschluss und Überlast&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Gehäuse&lt;span class="hx:absolute hx:-mt-20" id="gehäuse"&gt;&lt;/span&gt;
+&lt;a href="#geh%c3%a4use" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;IP65-Gehäuse schützt vor Wasserstrahlen und Staub&lt;/li&gt;
+&lt;li&gt;Kabelverschraubungen sorgen für Zugentlastung und erhalten die IP-Schutzart&lt;/li&gt;
+&lt;li&gt;Physische Trennung von Netz- und Niederspannungsleitungen im Gehäuse&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Ausfallsicheres Relais-Verhalten&lt;span class="hx:absolute hx:-mt-20" id="ausfallsicheres-relais-verhalten"&gt;&lt;/span&gt;
+&lt;a href="#ausfallsicheres-relais-verhalten" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Relais sind &lt;strong&gt;Normally Open (NO)&lt;/strong&gt; — bei Spannungsverlust des ESP32 fallen
+die Relais ab und die Pumpen stoppen&lt;/li&gt;
+&lt;li&gt;Verhindert unkontrollierten Pumpenbetrieb bei Controller-Ausfall&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Ebene 2: Firmware-Sicherheit&lt;span class="hx:absolute hx:-mt-20" id="ebene-2-firmware-sicherheit"&gt;&lt;/span&gt;
+&lt;a href="#ebene-2-firmware-sicherheit" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Konfigurationsprüfung&lt;span class="hx:absolute hx:-mt-20" id="konfigurationsprüfung"&gt;&lt;/span&gt;
+&lt;a href="#konfigurationspr%c3%bcfung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Alle Konfigurationswerte werden vor der Übernahme validiert:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;Prüfung&lt;/th&gt;
+&lt;th&gt;Bereich&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Temperatur-Schwellwerte&lt;/td&gt;
+&lt;td&gt;Min-/Max-Grenzen&lt;/td&gt;
+&lt;td&gt;0–60 °C&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Timer-Werte&lt;/td&gt;
+&lt;td&gt;24h-Format&lt;/td&gt;
+&lt;td&gt;00:00–23:59&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;WLAN-Einstellungen&lt;/td&gt;
+&lt;td&gt;SSID-Längenprüfung&lt;/td&gt;
+&lt;td&gt;1–32 Zeichen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MQTT-Einstellungen&lt;/td&gt;
+&lt;td&gt;Hostname-Format&lt;/td&gt;
+&lt;td&gt;Gültiger Hostname/IP&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relais-Konfiguration&lt;/td&gt;
+&lt;td&gt;Enum-Prüfung&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;true&lt;/code&gt; / &lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Ungültige Konfigurationen werden &lt;strong&gt;zurückgewiesen&lt;/strong&gt; und der vorherige Wert
+bleibt erhalten.&lt;/p&gt;
+&lt;h3&gt;NVS-CRC-Schutz&lt;span class="hx:absolute hx:-mt-20" id="nvs-crc-schutz"&gt;&lt;/span&gt;
+&lt;a href="#nvs-crc-schutz" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Die im ESP32-NVS gespeicherte Konfiguration enthält eine CRC32-Prüfsumme. Bei
+Fehlern wird die Konfiguration auf Werkseinstellungen zurückgesetzt.&lt;/p&gt;
+&lt;h3&gt;Typsicherheit&lt;span class="hx:absolute hx:-mt-20" id="typsicherheit"&gt;&lt;/span&gt;
+&lt;a href="#typsicherheit" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Die Firmware verwendet stark typisierte Enums und Structs anstelle von
+allgemeinen Integern für die Betriebsartenauswahl — dies reduziert das Risiko
+ungültiger Zustände.&lt;/p&gt;
+&lt;h3&gt;Task-Überwachung&lt;span class="hx:absolute hx:-mt-20" id="task-überwachung"&gt;&lt;/span&gt;
+&lt;a href="#task-%c3%bcberwachung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Jeder FreeRTOS-Task überwacht seine eigene Stack-Nutzung. Wenn ein Task den
+konfigurierten Stack-Wasserstand überschreitet, wird eine Warnung protokolliert
+und das System kann Korrekturmaßnahmen ergreifen.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Ebene 3: Software-Sicherheit&lt;span class="hx:absolute hx:-mt-20" id="ebene-3-software-sicherheit"&gt;&lt;/span&gt;
+&lt;a href="#ebene-3-software-sicherheit" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Hardware-Watchdog (WDT)&lt;span class="hx:absolute hx:-mt-20" id="hardware-watchdog-wdt"&gt;&lt;/span&gt;
+&lt;a href="#hardware-watchdog-wdt" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ESP32-Hardware-Watchdog mit 30-Sekunden-Timeout&lt;/li&gt;
+&lt;li&gt;Reset, wenn die Hauptschleife länger als 30 Sekunden hängt&lt;/li&gt;
+&lt;li&gt;Automatisch nach jedem Boot aktiviert&lt;/li&gt;
+&lt;li&gt;Stellt sicher, dass der Controller nicht unbegrenzt hängen bleibt&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Bootloop-Erkennung&lt;span class="hx:absolute hx:-mt-20" id="bootloop-erkennung"&gt;&lt;/span&gt;
+&lt;a href="#bootloop-erkennung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;NVS-basierter Boot-Zähler erhöht sich bei jedem Boot&lt;/li&gt;
+&lt;li&gt;Zähler wird nach einem erfolgreichen 5-Minuten-Lauf zurückgesetzt&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;4 aufeinanderfolgende kurze Boots&lt;/strong&gt; lösen den Safe Mode aus&lt;/li&gt;
+&lt;li&gt;Im Safe Mode:
+&lt;ul&gt;
+&lt;li&gt;Alle Relais werden ausgeschaltet&lt;/li&gt;
+&lt;li&gt;Web-UI bleibt erreichbar&lt;/li&gt;
+&lt;li&gt;Serielles Log zeigt Safe-Mode-Indikator&lt;/li&gt;
+&lt;li&gt;Konfiguration kann geprüft und korrigiert werden&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Speicherüberwachung&lt;span class="hx:absolute hx:-mt-20" id="speicherüberwachung"&gt;&lt;/span&gt;
+&lt;a href="#speicher%c3%bcberwachung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Freier Heap wird alle 10 Sekunden geprüft&lt;/li&gt;
+&lt;li&gt;Bei &lt;strong&gt;kritischem Schwellwert&lt;/strong&gt; (8 KB freier Heap):
+&lt;ul&gt;
+&lt;li&gt;Warnung wird protokolliert&lt;/li&gt;
+&lt;li&gt;Graceful-Auto-Reboot wird eingeleitet&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Bei &lt;strong&gt;Warnschwellwert&lt;/strong&gt; (15 KB freier Heap):
+&lt;ul&gt;
+&lt;li&gt;Warnung wird protokolliert&lt;/li&gt;
+&lt;li&gt;Kein Neustart — Überwachung läuft weiter&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Sensor-Auto-Wiederherstellung&lt;span class="hx:absolute hx:-mt-20" id="sensor-auto-wiederherstellung"&gt;&lt;/span&gt;
+&lt;a href="#sensor-auto-wiederherstellung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Fehlerhafter DS18B20-Leseversuch löst schnelles Nachfragen aus (5s statt 300s)&lt;/li&gt;
+&lt;li&gt;Nach 3 erfolgreichen Leseversuchen zurück zum normalen Intervall&lt;/li&gt;
+&lt;li&gt;Verhindert unnötige Warnungen durch kurzzeitige Sensor-Aussetzer&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;NTP-Graceful-Degradation&lt;span class="hx:absolute hx:-mt-20" id="ntp-graceful-degradation"&gt;&lt;/span&gt;
+&lt;a href="#ntp-graceful-degradation" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Dreistufige Fallback-Logik für die Zeitsynchronisation:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Primär&lt;/strong&gt;: NTP-Server antwortet → normaler Betrieb&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Degradiert&lt;/strong&gt;: NTP fehlschlägt → letzte bekannte Zeit verwenden&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Safe&lt;/strong&gt;: Keine Zeit verfügbar → millis()-Laufzeit mit Warnung&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2&gt;Ebene 4: Betriebssicherheit&lt;span class="hx:absolute hx:-mt-20" id="ebene-4-betriebssicherheit"&gt;&lt;/span&gt;
+&lt;a href="#ebene-4-betriebssicherheit" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Inbetriebnahmeverfahren&lt;span class="hx:absolute hx:-mt-20" id="inbetriebnahmeverfahren"&gt;&lt;/span&gt;
+&lt;a href="#inbetriebnahmeverfahren" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Steckbrett-Test&lt;/strong&gt; vor Netzanschluss (siehe &lt;a
+href="https://smart-swimmingpool.github.io/docs/build-from-zero/"&gt;Von Null aufgebaut&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Relais-Leerlauftest&lt;/strong&gt; vor Pumpenanschluss&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Erster Netz-Einschalt&lt;/strong&gt;: 30-minütiger überwachter Betrieb&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Wartungsplan&lt;span class="hx:absolute hx:-mt-20" id="wartungsplan"&gt;&lt;/span&gt;
+&lt;a href="#wartungsplan" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Monatlich: Temperaturen prüfen, Warnungen kontrollieren&lt;/li&gt;
+&lt;li&gt;Jährlich: Verkabelung prüfen, RCD testen, Gehäusedichtungen kontrollieren&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Checklisten&lt;span class="hx:absolute hx:-mt-20" id="checklisten"&gt;&lt;/span&gt;
+&lt;a href="#checklisten" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/production-checklist/"&gt;Produktions-Checkliste&lt;/a&gt; — vor Inbetriebnahme&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/security-checklist/"&gt;Sicherheits-Checkliste&lt;/a&gt; — Sicherheitshärtung&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Fehlerfall-Analyse&lt;span class="hx:absolute hx:-mt-20" id="fehlerfall-analyse"&gt;&lt;/span&gt;
+&lt;a href="#fehlerfall-analyse" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Fehlerfall&lt;/th&gt;
+&lt;th&gt;Auswirkung&lt;/th&gt;
+&lt;th&gt;Sicherheitsebene&lt;/th&gt;
+&lt;th&gt;Maßnahme&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ESP32-Absturz&lt;/td&gt;
+&lt;td&gt;Relais aus, Pumpen stopp&lt;/td&gt;
+&lt;td&gt;Hardware&lt;/td&gt;
+&lt;td&gt;Failsafe-Relais (NO)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Software-Hang&lt;/td&gt;
+&lt;td&gt;Keine Relais-Updates&lt;/td&gt;
+&lt;td&gt;WDT&lt;/td&gt;
+&lt;td&gt;30s-Reset&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Konfigurationsfehler&lt;/td&gt;
+&lt;td&gt;Ungültige Einstellungen&lt;/td&gt;
+&lt;td&gt;Firmware&lt;/td&gt;
+&lt;td&gt;NVS CRC → Werksreset&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Wiederholte Abstürze&lt;/td&gt;
+&lt;td&gt;Unsicherer Zustand&lt;/td&gt;
+&lt;td&gt;Bootloop&lt;/td&gt;
+&lt;td&gt;Safe Mode → Relais AUS&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Heap-Erschöpfung&lt;/td&gt;
+&lt;td&gt;Unvorhersehbar&lt;/td&gt;
+&lt;td&gt;Speicher-Monitor&lt;/td&gt;
+&lt;td&gt;Graceful-Reboot&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Sensor-Ausfall&lt;/td&gt;
+&lt;td&gt;Keine Temperaturdaten&lt;/td&gt;
+&lt;td&gt;Sensor-Wiederherstellung&lt;/td&gt;
+&lt;td&gt;Schnelles Nachfragen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Stromausfall&lt;/td&gt;
+&lt;td&gt;Controller aus&lt;/td&gt;
+&lt;td&gt;Hardware&lt;/td&gt;
+&lt;td&gt;Relais standardmäßig AUS&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Netzwerkausfall&lt;/td&gt;
+&lt;td&gt;Keine Fernsteuerung&lt;/td&gt;
+&lt;td&gt;Software&lt;/td&gt;
+&lt;td&gt;Lokales Web-UI funktioniert&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2&gt;Verwandte Dokumente&lt;span class="hx:absolute hx:-mt-20" id="verwandte-dokumente"&gt;&lt;/span&gt;
+&lt;a href="#verwandte-dokumente" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/electrical-safety/"&gt;Elektrische Sicherheit&lt;/a&gt; — Sicherheitsinformationen&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/production-checklist/"&gt;Produktions-Checkliste&lt;/a&gt; — Prüfungen vor Inbetriebnahme&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/security-checklist/"&gt;Sicherheits-Checkliste&lt;/a&gt; — Sicherheitshärtung&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/build-from-zero/"&gt;Von Null aufgebaut&lt;/a&gt; — Komplette Bauanleitung&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>

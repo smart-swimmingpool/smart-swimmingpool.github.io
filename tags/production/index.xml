@@ -1,0 +1,141 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Production</title><link>https://smart-swimmingpool.github.io/tags/production/</link><description>Recent content in Production on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Sun, 14 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/tags/production/index.xml" rel="self" type="application/rss+xml"/><item><title>Production Checklist</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/production-checklist/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/production-checklist/</guid><description>
+&lt;blockquote&gt;
+&lt;p&gt;⚠️ &lt;strong&gt;WARNING: This checklist involves 230V AC mains voltage verification.&lt;/strong&gt;
+Improper wiring poses risk of electric shock, fire, or equipment damage.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Only proceed if you have experience with mains-voltage installations&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Always disconnect power&lt;/strong&gt; before working on the circuit&lt;/li&gt;
+&lt;li&gt;This is a DIY project — not CE/UL certified for commercial use&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Overview&lt;span class="hx:absolute hx:-mt-20" id="overview"&gt;&lt;/span&gt;
+&lt;a href="#overview" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This checklist covers everything that should be verified before putting the
+Pool Controller into production service. Use it during initial commissioning
+and as an annual maintenance reference.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Pre-Deployment Checklist&lt;span class="hx:absolute hx:-mt-20" id="pre-deployment-checklist"&gt;&lt;/span&gt;
+&lt;a href="#pre-deployment-checklist" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Hardware&lt;span class="hx:absolute hx:-mt-20" id="hardware"&gt;&lt;/span&gt;
+&lt;a href="#hardware" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; ESP32 mounted securely inside enclosure&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Relay module mounted with adequate ventilation&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Power supply secured and rated for load&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; All cable glands tightened and sealed&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Strain relief applied to all external cables&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Mains and low-voltage wiring physically separated&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; No loose wires or stray strands&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; All screw terminals tightened&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Fuse installed (correct rating for pump load)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Enclosure IP rating matches location requirements&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Wiring&lt;span class="hx:absolute hx:-mt-20" id="wiring"&gt;&lt;/span&gt;
+&lt;a href="#wiring" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; DS18B20 sensors: VCC → 3.3V, GND → GND, DATA → GPIO (4.7 kΩ pull-up)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Relay module: VCC → 5V, GND → GND, IN1 → GPIO18, IN2 → GPIO19&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Relay COM → mains Live&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Relay NO → pump Live&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Neutral → pump Neutral (direct, not through relay)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Protective Earth connected to pump and enclosure (if metal)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Ground continuity verified with multimeter&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Sensors&lt;span class="hx:absolute hx:-mt-20" id="sensors"&gt;&lt;/span&gt;
+&lt;a href="#sensors" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Pool temperature reads plausible value (not -127 °C)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Solar temperature reads plausible value (not -127 °C)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Temperature values stable (not fluctuating wildly)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Sensor cables undamaged and properly routed&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Firmware&lt;span class="hx:absolute hx:-mt-20" id="firmware"&gt;&lt;/span&gt;
+&lt;a href="#firmware" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Latest firmware version flashed&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; WiFi configured and connecting reliably&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; mDNS name resolves (&lt;code&gt;pool-controller.local&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Web UI accessible at device IP&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Web UI password changed from default&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; MQTT broker configured and connected&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Home Assistant Discovery active (controller visible in HA)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; All HA entities operational&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Relay Test (No-Load)&lt;span class="hx:absolute hx:-mt-20" id="relay-test-no-load"&gt;&lt;/span&gt;
+&lt;a href="#relay-test-no-load" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Pool pump relay clicks when toggled&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Solar pump relay clicks when toggled&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Relay behavior correct (not inverted)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Multimeter confirms COM–NO continuity when ON&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Multimeter confirms COM–NO open when OFF&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Relay Test (With Load)&lt;span class="hx:absolute hx:-mt-20" id="relay-test-with-load"&gt;&lt;/span&gt;
+&lt;a href="#relay-test-with-load" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Pool pump starts and runs correctly&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Pool pump stops when toggled OFF&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Solar pump starts and runs correctly&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Solar pump stops when toggled OFF&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; No unusual sounds from relays (buzzing, arcing)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; No excessive heat on relay terminals after 5 min&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Configuration&lt;span class="hx:absolute hx:-mt-20" id="configuration"&gt;&lt;/span&gt;
+&lt;a href="#configuration" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Timezone configured correctly&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Timer settings match desired schedule&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Temperature thresholds configured&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Operation mode tested (Auto, Manual, Boost, Timer)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; &lt;code&gt;relay-invert&lt;/code&gt; matches relay module type (active-low vs active-high)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;First 24 Hours Monitoring&lt;span class="hx:absolute hx:-mt-20" id="first-24-hours-monitoring"&gt;&lt;/span&gt;
+&lt;a href="#first-24-hours-monitoring" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Controller stays online (no unexpected reboots)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Temperatures update consistently&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; MQTT connection stays active&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Heap stays above 20 KB&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; WiFi signal stable (RSSI &amp;gt; -70 dBm recommended)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; No Safe Mode activation&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Relays operate on schedule (Auto mode)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Annual Maintenance Checklist&lt;span class="hx:absolute hx:-mt-20" id="annual-maintenance-checklist"&gt;&lt;/span&gt;
+&lt;a href="#annual-maintenance-checklist" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Verify all screw terminals are still tight&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Inspect cables for damage, wear, or corrosion&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Check enclosure seal and cable glands&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Test RCD/FI circuit breaker&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Clean enclosure ventilation openings&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Verify ground continuity&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Update firmware if newer version available&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Review configuration for any needed changes&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Check battery in RCD test unit (if applicable)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Verify all sensor readings are still accurate&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Sign-Off&lt;span class="hx:absolute hx:-mt-20" id="sign-off"&gt;&lt;/span&gt;
+&lt;a href="#sign-off" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Device ID / MAC: ______________________________
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Installation date: ___________________________
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Installed by: ________________________________
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Firmware version: ____________________________
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Last maintenance: ____________________________
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Next maintenance due: ________________________&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;h2&gt;Related Documents&lt;span class="hx:absolute hx:-mt-20" id="related-documents"&gt;&lt;/span&gt;
+&lt;a href="#related-documents" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/build-from-zero/"&gt;Build from Zero&lt;/a&gt; — Complete build guide&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/electrical-safety/"&gt;Electrical Safety&lt;/a&gt; — Safety information&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/safety-model/"&gt;Safety Model&lt;/a&gt; — System safety architecture&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/security-checklist/"&gt;Security Checklist&lt;/a&gt; — Security hardening&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/troubleshooting/"&gt;Troubleshooting&lt;/a&gt; — Common issues and fixes&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>

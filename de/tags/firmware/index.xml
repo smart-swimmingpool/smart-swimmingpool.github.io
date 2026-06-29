@@ -1,0 +1,538 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Firmware</title><link>https://smart-swimmingpool.github.io/de/tags/firmware/</link><description>Recent content in Firmware on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><lastBuildDate>Thu, 11 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/de/tags/firmware/index.xml" rel="self" type="application/rss+xml"/><item><title>Firmware-Migration (v2.x → v3.x)</title><link>https://smart-swimmingpool.github.io/de/docs/firmware-migration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/firmware-migration/</guid><description>
+&lt;p&gt;&lt;strong&gt;🏊 Smart Swimming Pool: Migration vom alten Homie 3.0-Format zum neuen MQTT-Discovery-Format&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Wenn Sie den &lt;strong&gt;Pool Controller v2.x&lt;/strong&gt; (oder älter) betreiben und auf &lt;strong&gt;v3.x&lt;/strong&gt; upgraden möchten, erklärt dieser Leitfaden, was sich ändert und wie Sie Ihre Smart-Home-Integration aktualisieren müssen.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;💡 &lt;strong&gt;Neuling?&lt;/strong&gt; Wenn Sie den Pool Controller zum ersten Mal installieren, folgen Sie stattdessen der &lt;a
+href="https://smart-swimmingpool.github.io/de/docs/getting-started/"&gt;Erste Schritte&lt;/a&gt;-Anleitung. Diese Anleitung ist nur relevant, wenn Sie bereits ein Homie 3.0-Setup haben.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2&gt;Übersicht&lt;span class="hx:absolute hx:-mt-20" id="übersicht"&gt;&lt;/span&gt;
+&lt;a href="#%c3%bcbersicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Aspekt&lt;/th&gt;
+&lt;th&gt;v2.x (Homie 3.0)&lt;/th&gt;
+&lt;th&gt;v3.x (HA Discovery)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;MQTT-Topic-Format&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homie/&amp;lt;mac&amp;gt;/&amp;lt;node&amp;gt;/&amp;lt;property&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/&amp;lt;component&amp;gt;/pool-controller/&amp;lt;id&amp;gt;/state&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Geräte-ID&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;MAC-Adresse (z.B. &lt;code&gt;5ccf7fb97572&lt;/code&gt;)&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;pool-controller&lt;/code&gt; (konfigurierbar)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Verfügbarkeit&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homie/&amp;lt;mac&amp;gt;/$state&lt;/code&gt; (&lt;code&gt;ready&lt;/code&gt;/&lt;code&gt;lost&lt;/code&gt;)&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/sensor/pool-controller/availability&lt;/code&gt; (&lt;code&gt;online&lt;/code&gt;/&lt;code&gt;offline&lt;/code&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Home Assistant&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Eingeschränkt, manuelle Konfiguration&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Nativ&lt;/strong&gt; — automatische Erkennung via MQTT&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;openHAB&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Volle Unterstützung (native Konfiguration)&lt;/td&gt;
+&lt;td&gt;Manuelle MQTT-Konfiguration erforderlich&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2&gt;Warum die Änderung?&lt;span class="hx:absolute hx:-mt-20" id="warum-die-änderung"&gt;&lt;/span&gt;
+&lt;a href="#warum-die-%c3%a4nderung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der Wechsel von Homie 3.0 zu &lt;a
+href="https://www.home-assistant.io/integrations/mqtt/#mqtt-discovery"target="_blank" rel="noopener"&gt;Home Assistant MQTT Discovery&lt;/a&gt; hatte zwei Ziele:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Null-Konfiguration für Home Assistant-Nutzer&lt;/strong&gt; — HA erkennt alle Entitäten automatisch, keine manuelle Konfiguration nötig&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Standardisierung&lt;/strong&gt; — HA Discovery ist der De-facto-Standard für MQTT-basierte IoT-Geräte, während Homie 3.0 nie breite Akzeptanz fand&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;openHAB wird weiterhin vollständig über manuelle MQTT-Konfiguration unterstützt.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Firmware-Upgrade&lt;span class="hx:absolute hx:-mt-20" id="firmware-upgrade"&gt;&lt;/span&gt;
+&lt;a href="#firmware-upgrade" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Schritt 1: v3.x flashen&lt;span class="hx:absolute hx:-mt-20" id="schritt-1-v3x-flashen"&gt;&lt;/span&gt;
+&lt;a href="#schritt-1-v3x-flashen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Folgen Sie der Standard-Flash-Prozedur in der &lt;a
+href="https://smart-swimmingpool.github.io/de/docs/getting-started/#firmware-installation"&gt;Erste Schritte&lt;/a&gt;-Anleitung:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# In VS Code mit PlatformIO:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 1. Firmware hochladen&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 2. Dateisystem-Image (LittleFS/Webinterface) hochladen&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;⚠️ &lt;strong&gt;Wichtig&lt;/strong&gt;: Nach dem Flashen von v3.x ist das Webinterface &lt;strong&gt;komplett neu geschrieben&lt;/strong&gt;. Einstellungen aus dem alten Web-UI werden &lt;strong&gt;nicht übernommen&lt;/strong&gt;. Sie müssen WiFi und MQTT über den Setup-AP (&lt;code&gt;Pool-Controller-Setup&lt;/code&gt;) neu konfigurieren.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Schritt 2: WiFi und MQTT neu konfigurieren&lt;span class="hx:absolute hx:-mt-20" id="schritt-2-wifi-und-mqtt-neu-konfigurieren"&gt;&lt;/span&gt;
+&lt;a href="#schritt-2-wifi-und-mqtt-neu-konfigurieren" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Nach dem Flashen startet der ESP32 im AP-Modus (&lt;code&gt;Pool-Controller-Setup&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;Verbinden Sie sich damit und konfigurieren Sie Ihr WLAN unter &lt;code&gt;http://192.168.4.1&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Nach dem Neustart konfigurieren Sie MQTT über &lt;strong&gt;Konfiguration → MQTT&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Schritt 3: Konfigurationsparameter erneut einstellen&lt;span class="hx:absolute hx:-mt-20" id="schritt-3-konfigurationsparameter-erneut-einstellen"&gt;&lt;/span&gt;
+&lt;a href="#schritt-3-konfigurationsparameter-erneut-einstellen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Nach der Migration konfigurieren Sie diese Parameter im Webinterface (oder über Home Assistant) neu:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Maximale Pooltemperatur&lt;/li&gt;
+&lt;li&gt;Minimale Solartemperatur&lt;/li&gt;
+&lt;li&gt;Hysterese&lt;/li&gt;
+&lt;li&gt;Timer Start / Ende&lt;/li&gt;
+&lt;li&gt;Sensor-Adressen (DS18B20)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Migration nach Smart-Home-Plattform&lt;span class="hx:absolute hx:-mt-20" id="migration-nach-smart-home-plattform"&gt;&lt;/span&gt;
+&lt;a href="#migration-nach-smart-home-plattform" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Home Assistant-Nutzer&lt;span class="hx:absolute hx:-mt-20" id="home-assistant-nutzer"&gt;&lt;/span&gt;
+&lt;a href="#home-assistant-nutzer" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Sie sind nach Schritt 2 fertig.&lt;/strong&gt; Die v3.x-Firmware erkennt sich automatisch über MQTT Discovery.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Gehen Sie zu &lt;strong&gt;Einstellungen → Geräte &amp;amp; Dienste&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Das Gerät &lt;strong&gt;Pool Controller&lt;/strong&gt; sollte automatisch erscheinen&lt;/li&gt;
+&lt;li&gt;Siehe &lt;a
+href="https://smart-swimmingpool.github.io/de/docs/home-assistant-integration/"&gt;Home Assistant Integrations-Guide&lt;/a&gt; für die vollständige Entity-Referenz&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Hinweis&lt;/strong&gt;: Wenn Sie manuell MQTT-Sensoren in Home Assistant für die Homie-Topics konfiguriert hatten, werden diese nach dem Upgrade als &lt;strong&gt;nicht verfügbar&lt;/strong&gt; angezeigt. Entfernen Sie sie manuell — die automatisch erkannten Entitäten ersetzen sie.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;openHAB-Nutzer&lt;span class="hx:absolute hx:-mt-20" id="openhab-nutzer"&gt;&lt;/span&gt;
+&lt;a href="#openhab-nutzer" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;openHAB erfordert &lt;strong&gt;manuelle MQTT-Konfiguration&lt;/strong&gt;. Der &lt;a
+href="https://smart-swimmingpool.github.io/de/docs/openhab-integration/"&gt;openHAB Integrations-Guide&lt;/a&gt; zeigt die vollständige Einrichtung.&lt;/p&gt;
+&lt;h4&gt;Was sich ändern muss&lt;span class="hx:absolute hx:-mt-20" id="was-sich-ändern-muss"&gt;&lt;/span&gt;
+&lt;a href="#was-sich-%c3%a4ndern-muss" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Datei&lt;/th&gt;
+&lt;th&gt;Änderung&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;things/mqtt.things&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Alle Topic-Pfade: &lt;code&gt;homie/&amp;lt;mac&amp;gt;/...&lt;/code&gt; → &lt;code&gt;homeassistant/...&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;items/2-pool.items&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Channel-Bindungen: Topic-Referenzen aktualisieren&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;sitemaps/pool.sitemap&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Meist keine Änderung (Item-Namen bleiben gleich)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4&gt;Topic-Mapping-Referenz&lt;span class="hx:absolute hx:-mt-20" id="topic-mapping-referenz"&gt;&lt;/span&gt;
+&lt;a href="#topic-mapping-referenz" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;v2.x Homie-Topic&lt;/th&gt;
+&lt;th&gt;v3.x HA-Discovery-Topic&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;homie/&amp;lt;mac&amp;gt;/operation-mode/mode&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/select/pool-controller/mode/state&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;homie/&amp;lt;mac&amp;gt;/operation-mode/mode/set&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/select/pool-controller/mode/set&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;homie/&amp;lt;mac&amp;gt;/operation-mode/pool-max-temp&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/number/pool-controller/pool-max-temp/state&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;homie/&amp;lt;mac&amp;gt;/operation-mode/pool-max-temp/set&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/number/pool-controller/pool-max-temp/set&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;homie/&amp;lt;mac&amp;gt;/operation-mode/solar-min-temp&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/number/pool-controller/solar-min-temp/state&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;homie/&amp;lt;mac&amp;gt;/operation-mode/solar-min-temp/set&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/number/pool-controller/solar-min-temp/set&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;homie/&amp;lt;mac&amp;gt;/operation-mode/hysteresis&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/number/pool-controller/hysteresis/state&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;homie/&amp;lt;mac&amp;gt;/operation-mode/hysteresis/set&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/number/pool-controller/hysteresis/set&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;homie/&amp;lt;mac&amp;gt;/pool-pump/switch&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/switch/pool-controller/pool-pump/state&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;homie/&amp;lt;mac&amp;gt;/pool-pump/switch/set&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/switch/pool-controller/pool-pump/set&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;homie/&amp;lt;mac&amp;gt;/solar-pump/switch&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/switch/pool-controller/solar-pump/state&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;homie/&amp;lt;mac&amp;gt;/solar-pump/switch/set&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/switch/pool-controller/solar-pump/set&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;homie/&amp;lt;mac&amp;gt;/pool-temp/temperature&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/sensor/pool-controller/pool-temp/state&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;homie/&amp;lt;mac&amp;gt;/solar-temp/temperature&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/sensor/pool-controller/solar-temp/state&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4&gt;Wichtige Werte-Änderungen&lt;span class="hx:absolute hx:-mt-20" id="wichtige-werte-änderungen"&gt;&lt;/span&gt;
+&lt;a href="#wichtige-werte-%c3%a4nderungen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Aspekt&lt;/th&gt;
+&lt;th&gt;v2.x (Homie)&lt;/th&gt;
+&lt;th&gt;v3.x (HA Discovery)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Pumpe EIN&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ON&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Pumpe AUS&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;OFF&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Verfügbarkeit online&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ready&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;online&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Verfügbarkeit offline&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;lost&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;offline&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2&gt;Breaking Changes&lt;span class="hx:absolute hx:-mt-20" id="breaking-changes"&gt;&lt;/span&gt;
+&lt;a href="#breaking-changes" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;1. Timer-Entities umstrukturiert&lt;span class="hx:absolute hx:-mt-20" id="1-timer-entities-umstrukturiert"&gt;&lt;/span&gt;
+&lt;a href="#1-timer-entities-umstrukturiert" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;v2.x&lt;/strong&gt;: 4 separate &lt;code&gt;number&lt;/code&gt;-Entities für Timer-Start/Ende (Stunden + Minuten einzeln)&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;homie/&amp;lt;mac&amp;gt;/operation-mode/timer-start-h
+homie/&amp;lt;mac&amp;gt;/operation-mode/timer-start-min
+homie/&amp;lt;mac&amp;gt;/operation-mode/timer-end-h
+homie/&amp;lt;mac&amp;gt;/operation-mode/timer-end-min&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;v3.x&lt;/strong&gt;: 2 &lt;code&gt;time&lt;/code&gt;-Entities im &lt;code&gt;HH:MM:SS&lt;/code&gt;-Format&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;homeassistant/time/pool-controller/timer-start
+homeassistant/time/pool-controller/timer-end&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Die alten Entitäten werden automatisch aus Home Assistant entfernt, wenn v3.x startet (leere retained-Payloads werden auf ihre Config-Topics veröffentlicht).&lt;/p&gt;
+&lt;h3&gt;2. Timezone-Entity geändert&lt;span class="hx:absolute hx:-mt-20" id="2-timezone-entity-geändert"&gt;&lt;/span&gt;
+&lt;a href="#2-timezone-entity-ge%c3%a4ndert" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;v2.x&lt;/strong&gt;: &lt;code&gt;number&lt;/code&gt;-Entity mit Zeitzonen-Index (z.B. &lt;code&gt;0&lt;/code&gt;, &lt;code&gt;1&lt;/code&gt;, &amp;hellip;)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;v3.x&lt;/strong&gt;: &lt;code&gt;select&lt;/code&gt;-Entity mit lesbaren Zeitzonen-Labels (z.B. &lt;code&gt;Europe/Berlin&lt;/code&gt;, &lt;code&gt;America/New_York&lt;/code&gt;)&lt;/p&gt;
+&lt;h3&gt;3. Temperaturbasierte Zirkulation (neu in v3.3+)&lt;span class="hx:absolute hx:-mt-20" id="3-temperaturbasierte-zirkulation-neu-in-v33"&gt;&lt;/span&gt;
+&lt;a href="#3-temperaturbasierte-zirkulation-neu-in-v33" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;v3.3 fügte drei neue Konfigurationsparameter für temperaturgesteuerte Zirkulation hinzu:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;temp-circ-threshold&lt;/code&gt; — minimale Temperaturdifferenz für Zirkulation&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;temp-circ-factor&lt;/code&gt; — Laufzeit-Multiplikator pro Grad über Schwelle&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;temp-circ-max-runtime&lt;/code&gt; — maximale Zirkulationslaufzeit&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Diese gab es in v2.x nicht und haben kein Homie-Äquivalent.&lt;/p&gt;
+&lt;h3&gt;4. Geräte-ID ist jetzt konfigurierbar&lt;span class="hx:absolute hx:-mt-20" id="4-geräte-id-ist-jetzt-konfigurierbar"&gt;&lt;/span&gt;
+&lt;a href="#4-ger%c3%a4te-id-ist-jetzt-konfigurierbar" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;In v2.x war die Geräte-ID &lt;strong&gt;immer&lt;/strong&gt; die MAC-Adresse (&lt;code&gt;5ccf7fb97572&lt;/code&gt;). In v3.x ist die Standard-ID &lt;code&gt;pool-controller&lt;/code&gt;, aber Sie können sie im Webinterface unter &lt;strong&gt;Konfiguration → MQTT → Geräte-ID&lt;/strong&gt; &lt;strong&gt;ändern&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Wenn Sie sie ändern, aktualisieren Sie alle Topic-Pfade entsprechend.&lt;/p&gt;
+&lt;h3&gt;5. Kein Homie-Kompatibilitätsmodus&lt;span class="hx:absolute hx:-mt-20" id="5-kein-homie-kompatibilitätsmodus"&gt;&lt;/span&gt;
+&lt;a href="#5-kein-homie-kompatibilit%c3%a4tsmodus" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Die v3.x-Firmware &lt;strong&gt;unterstützt nur&lt;/strong&gt; Home Assistant MQTT Discovery. Es gibt keinen Rückwärtskompatibilitätsmodus für Homie 3.0. Wenn Sie Homie für benutzerdefinierte Integrationen benötigen, bleiben Sie bei v2.x.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Rollback&lt;span class="hx:absolute hx:-mt-20" id="rollback"&gt;&lt;/span&gt;
+&lt;a href="#rollback" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Falls Sie zu v2.x zurückkehren müssen:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Flashen Sie die v2.x-Firmware mit PlatformIO&lt;/li&gt;
+&lt;li&gt;Konfigurieren Sie WiFi und MQTT neu (v2.x verwendet ebenfalls den Setup-AP)&lt;/li&gt;
+&lt;li&gt;Die alten Homie-Topics werden wieder aktiv&lt;/li&gt;
+&lt;li&gt;openHAB oder Home Assistant verbinden sich automatisch neu&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Hinweis&lt;/strong&gt;: Das Flashen von v3.x löscht die LittleFS-Dateisystempartition. v2.x speichert die Konfiguration möglicherweise anders. Planen Sie ein, nach dem Downgrade alle Einstellungen neu zu konfigurieren.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2&gt;Ältere Firmware-Versionen&lt;span class="hx:absolute hx:-mt-20" id="ältere-firmware-versionen"&gt;&lt;/span&gt;
+&lt;a href="#%c3%a4ltere-firmware-versionen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Version&lt;/th&gt;
+&lt;th&gt;MQTT-Format&lt;/th&gt;
+&lt;th&gt;Status&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;1.x&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Proprietäres JSON&lt;/td&gt;
+&lt;td&gt;Nicht mehr unterstützt&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;2.x&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Homie 3.0&lt;/td&gt;
+&lt;td&gt;Legacy — Update empfohlen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;3.x&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;HA Discovery&lt;/td&gt;
+&lt;td&gt;Aktuell — für alle Nutzer empfohlen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</description></item><item><title>OTA-Updates</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/ota-updates/</link><pubDate>Thu, 11 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/ota-updates/</guid><description>
+&lt;h1&gt;Over-The-Air (OTA) Updates&lt;/h1&gt;&lt;h2&gt;Übersicht&lt;span class="hx:absolute hx:-mt-20" id="übersicht"&gt;&lt;/span&gt;
+&lt;a href="#%c3%bcbersicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der Pool Controller unterstützt Over-The-Air (OTA) Firmware-Updates, sodass
+Sie das Gerät remote ohne physischen Zugriff aktualisieren können.&lt;/p&gt;
+&lt;h2&gt;Funktionen&lt;span class="hx:absolute hx:-mt-20" id="funktionen"&gt;&lt;/span&gt;
+&lt;a href="#funktionen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;WebUI-Firmware-Upload&lt;/strong&gt;: Eine signierte &lt;code&gt;.bin&lt;/code&gt;-Datei über das Dashboard flashen&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GitHub-Release-Updates&lt;/strong&gt;: Nach neuen Versionen suchen und automatisch installieren&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PlatformIO-Seriell-Upload&lt;/strong&gt;: Per USB flashen für die Entwicklung&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Status-Rückmeldung&lt;/strong&gt;: Fortschrittsanzeige über WebUI + MQTT&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Update-Methoden&lt;span class="hx:absolute hx:-mt-20" id="update-methoden"&gt;&lt;/span&gt;
+&lt;a href="#update-methoden" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Methode 1: WebUI (Empfohlen)&lt;span class="hx:absolute hx:-mt-20" id="methode-1-webui-empfohlen"&gt;&lt;/span&gt;
+&lt;a href="#methode-1-webui-empfohlen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Die einfachste Methode — keine Tools außer einem Browser nötig:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Pool Controller Dashboard im Browser öffnen&lt;/li&gt;
+&lt;li&gt;Zum Tab &lt;strong&gt;System&lt;/strong&gt; gehen&lt;/li&gt;
+&lt;li&gt;Eine der Optionen wählen:
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Manueller Firmware-Upload&lt;/strong&gt;: Eine &lt;code&gt;.bin&lt;/code&gt;-Datei auswählen und flashen&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Nach Updates suchen&lt;/strong&gt;: Lädt automatisch die neueste Version von GitHub&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Dem Fortschrittsbalken folgen — das Gerät startet nach Abschluss neu&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Methode 2: GitHub Release (Automatisch)&lt;span class="hx:absolute hx:-mt-20" id="methode-2-github-release-automatisch"&gt;&lt;/span&gt;
+&lt;a href="#methode-2-github-release-automatisch" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Die Firmware wird bei jedem GitHub-Release automatisch gebaut und veröffentlicht:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Im Tab &lt;strong&gt;System&lt;/strong&gt; auf &lt;strong&gt;Nach Updates suchen&lt;/strong&gt; klicken&lt;/li&gt;
+&lt;li&gt;Wenn eine neuere Version gefunden wird, erscheint &lt;strong&gt;Update installieren&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Klicken, um die neueste Firmware direkt von GitHub herunterzuladen und zu flashen&lt;/li&gt;
+&lt;li&gt;Der Fortschritt wird in der UI angezeigt; das Gerät startet nach Abschluss neu&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Methode 3: PlatformIO Seriell-Upload&lt;span class="hx:absolute hx:-mt-20" id="methode-3-platformio-seriell-upload"&gt;&lt;/span&gt;
+&lt;a href="#methode-3-platformio-seriell-upload" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Für die Entwicklung:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Bauen und per USB flashen&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pio run -e esp32dev --target upload
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Oder mit Projekt-Venv&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;./venv/bin/pio run -e esp32dev --target upload&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;Firmware für OTA bauen&lt;span class="hx:absolute hx:-mt-20" id="firmware-für-ota-bauen"&gt;&lt;/span&gt;
+&lt;a href="#firmware-f%c3%bcr-ota-bauen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Firmware-Binärdatei erstellen&lt;span class="hx:absolute hx:-mt-20" id="firmware-binärdatei-erstellen"&gt;&lt;/span&gt;
+&lt;a href="#firmware-bin%c3%a4rdatei-erstellen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Firmware bauen ohne hochzuladen&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pio run -e esp32dev
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Speicherort der Binärdatei&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;.pio/build/esp32dev/firmware.bin&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;Sicherheitshinweise&lt;span class="hx:absolute hx:-mt-20" id="sicherheitshinweise"&gt;&lt;/span&gt;
+&lt;a href="#sicherheitshinweise" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;1. Netzwerksicherheit&lt;span class="hx:absolute hx:-mt-20" id="1-netzwerksicherheit"&gt;&lt;/span&gt;
+&lt;a href="#1-netzwerksicherheit" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;WPA2/WPA3 WLAN-Verschlüsselung verwenden&lt;/li&gt;
+&lt;li&gt;IoT-Geräte nach Möglichkeit in einem separaten VLAN isolieren&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;2. Firmware-Überprüfung&lt;span class="hx:absolute hx:-mt-20" id="2-firmware-überprüfung"&gt;&lt;/span&gt;
+&lt;a href="#2-firmware-%c3%bcberpr%c3%bcfung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Nur Firmware aus vertrauenswürdigen Quellen flashen (offizielle GitHub-Releases)&lt;/li&gt;
+&lt;li&gt;Firmware-Builds vor dem Upload in die Produktion testen&lt;/li&gt;
+&lt;li&gt;Zuerst auf einem Entwicklungsgerät testen&lt;/li&gt;
+&lt;li&gt;Backup der funktionierenden Firmware-Version behalten&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Fehlerbehebung&lt;span class="hx:absolute hx:-mt-20" id="fehlerbehebung"&gt;&lt;/span&gt;
+&lt;a href="#fehlerbehebung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;OTA-Upload fehlschlägt&lt;span class="hx:absolute hx:-mt-20" id="ota-upload-fehlschlägt"&gt;&lt;/span&gt;
+&lt;a href="#ota-upload-fehlschl%c3%a4gt" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Problem&lt;/strong&gt;: Upload bricht mit Timeout-Fehler ab&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lösungen&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Prüfen, ob das Gerät online ist: &lt;code&gt;ping pool-controller.local&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Sicherstellen, dass das Gerät ausreichend freien Speicher hat (&amp;gt;50 KB)&lt;/li&gt;
+&lt;li&gt;Timeout in &lt;code&gt;upload_flags&lt;/code&gt; erhöhen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Gerät nicht gefunden&lt;span class="hx:absolute hx:-mt-20" id="gerät-nicht-gefunden"&gt;&lt;/span&gt;
+&lt;a href="#ger%c3%a4t-nicht-gefunden" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Problem&lt;/strong&gt;: Gerät in Netzwerkports nicht sichtbar&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lösungen&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;mDNS-Funktion prüfen: &lt;code&gt;avahi-browse -a&lt;/code&gt; (Linux) oder Bonjour (Windows)&lt;/li&gt;
+&lt;li&gt;IP-Adresse statt mDNS-Hostname verwenden&lt;/li&gt;
+&lt;li&gt;Gerät neu starten und auf WLAN-Verbindung warten&lt;/li&gt;
+&lt;li&gt;Prüfen, ob das Gerät im selben Netzwerk/Subnetz ist&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Upload erfolgreich, aber Gerät antwortet nicht&lt;span class="hx:absolute hx:-mt-20" id="upload-erfolgreich-aber-gerät-antwortet-nicht"&gt;&lt;/span&gt;
+&lt;a href="#upload-erfolgreich-aber-ger%c3%a4t-antwortet-nicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Problem&lt;/strong&gt;: Upload abgeschlossen, aber das Gerät startet nicht neu oder läuft nicht mit neuer Firmware&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lösungen&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Serielle Konsole auf Boot-Fehler prüfen&lt;/li&gt;
+&lt;li&gt;Sicherstellen, dass die Firmware für die richtige Plattform gebaut wurde (ESP32)&lt;/li&gt;
+&lt;li&gt;Prüfen, ob die Firmware in den Flash-Speicher passt&lt;/li&gt;
+&lt;li&gt;Auf Speicherprobleme im seriellen Log prüfen&lt;/li&gt;
+&lt;li&gt;Manuellen Neustart durchführen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Speicherprobleme während OTA&lt;span class="hx:absolute hx:-mt-20" id="speicherprobleme-während-ota"&gt;&lt;/span&gt;
+&lt;a href="#speicherprobleme-w%c3%a4hrend-ota" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Problem&lt;/strong&gt;: OTA fehlschlägt wegen unzureichendem Speicher&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lösungen&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Freier Speicher ist kritisch für OTA&lt;/li&gt;
+&lt;li&gt;Systemmonitor verhindert OTA bei Speicher &amp;lt; 8 KB&lt;/li&gt;
+&lt;li&gt;Gerät vor dem OTA-Versuch neu starten&lt;/li&gt;
+&lt;li&gt;Logging während des Updates reduzieren&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;OTA-Architektur&lt;span class="hx:absolute hx:-mt-20" id="ota-architektur"&gt;&lt;/span&gt;
+&lt;a href="#ota-architektur" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Funktionsweise&lt;span class="hx:absolute hx:-mt-20" id="funktionsweise"&gt;&lt;/span&gt;
+&lt;a href="#funktionsweise" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;WebUI ODER GitHub&lt;/strong&gt;: Benutzer löst Update über Dashboard oder automatisierte Prüfung aus&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Firmware-Download&lt;/strong&gt;: Binärdatei wird von lokalem Upload oder GitHub-Release geholt&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Flash-Schreiben&lt;/strong&gt;: Neue Firmware wird auf die OTA-Partition geschrieben (ESP32 Update-Bibliothek)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Verifizierung&lt;/strong&gt;: Firmware-Signatur und Integrität werden geprüft&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Neustart&lt;/strong&gt;: Automatischer Neustart mit neuer Firmware&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Speicheranforderungen&lt;span class="hx:absolute hx:-mt-20" id="speicheranforderungen"&gt;&lt;/span&gt;
+&lt;a href="#speicheranforderungen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;ESP32&lt;/strong&gt;: Mindestens 100 KB freier Heap für OTA&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Flash&lt;/strong&gt;: Ausreichend Platz für Dual-Boot-Partitionen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;LWIP-Konfiguration&lt;span class="hx:absolute hx:-mt-20" id="lwip-konfiguration"&gt;&lt;/span&gt;
+&lt;a href="#lwip-konfiguration" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Das Projekt verwendet das Flag &lt;code&gt;PIO_FRAMEWORK_ARDUINO_LWIP2_LOW_MEMORY&lt;/code&gt;, um den
+Netzwerk-Stack-Speicherverbrauch zu optimieren und zuverlässige OTA-Updates zu gewährleisten.&lt;/p&gt;
+&lt;h2&gt;OTA-Status überwachen&lt;span class="hx:absolute hx:-mt-20" id="ota-status-überwachen"&gt;&lt;/span&gt;
+&lt;a href="#ota-status-%c3%bcberwachen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der OTA-Fortschritt ist in der WebUI-Fortschrittsanzeige und über die serielle Konsole sichtbar.&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# PlatformIO Monitor&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pio device monitor
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Auf Log-Meldungen achten&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;[&lt;/span&gt;OTA&lt;span class="o"&gt;]&lt;/span&gt; Start
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;[&lt;/span&gt;OTA&lt;span class="o"&gt;]&lt;/span&gt; Progress: 25%
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;[&lt;/span&gt;OTA&lt;span class="o"&gt;]&lt;/span&gt; Progress: 50%
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;[&lt;/span&gt;OTA&lt;span class="o"&gt;]&lt;/span&gt; Progress: 75%
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;[&lt;/span&gt;OTA&lt;span class="o"&gt;]&lt;/span&gt; Success&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;Wiederherstellungsverfahren&lt;span class="hx:absolute hx:-mt-20" id="wiederherstellungsverfahren"&gt;&lt;/span&gt;
+&lt;a href="#wiederherstellungsverfahren" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Wiederherstellung nach fehlgeschlagenem OTA-Update&lt;span class="hx:absolute hx:-mt-20" id="wiederherstellung-nach-fehlgeschlagenem-ota-update"&gt;&lt;/span&gt;
+&lt;a href="#wiederherstellung-nach-fehlgeschlagenem-ota-update" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Wenn ein OTA-Update fehlschlägt und das Gerät nicht mehr reagiert:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Wiederherstellung mit physischem Zugriff&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Per USB-Seriell verbinden&lt;/li&gt;
+&lt;li&gt;Firmware per Seriell flashen: &lt;code&gt;pio run -e esp32dev --target upload&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Bootloader-Wiederherstellung&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ESP32-Bootloader ermöglicht serielle Wiederherstellung&lt;/li&gt;
+&lt;li&gt;BOOT-Taste beim Einschalten gedrückt halten&lt;/li&gt;
+&lt;li&gt;Firmware per esptool flashen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Werksreset&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Im WebUI: System-Tab → &lt;strong&gt;Factory Reset&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Oder seriell: NVS + LittleFS löschen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Zukünftige Erweiterungen&lt;span class="hx:absolute hx:-mt-20" id="zukünftige-erweiterungen"&gt;&lt;/span&gt;
+&lt;a href="#zuk%c3%bcnftige-erweiterungen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; Webbasiertes OTA-Update-Interface (System-Tab)&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; Automatische Update-Prüfung von GitHub-Releases&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Rollback-Funktion auf vorherige Firmware&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; A/B-Partitions-Updates für sicherere Updates&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Update-Planung über MQTT-Befehle&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Referenzen&lt;span class="hx:absolute hx:-mt-20" id="referenzen"&gt;&lt;/span&gt;
+&lt;a href="#referenzen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a
+href="https://docs.platformio.org/en/latest/platforms/espressif32.html#over-the-air-ota-update"target="_blank" rel="noopener"&gt;PlatformIO OTA Guide&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://docs.espressif.com/projects/arduino-esp32/en/latest/api/ota.html"target="_blank" rel="noopener"&gt;ESP32 Arduino OTA&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller/releases"target="_blank" rel="noopener"&gt;GitHub Releases&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Support&lt;span class="hx:absolute hx:-mt-20" id="support"&gt;&lt;/span&gt;
+&lt;a href="#support" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Bei OTA-bezogenen Problemen:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Issue öffnen: &lt;a
+href="https://github.com/smart-swimmingpool/pool-controller/issues"target="_blank" rel="noopener"&gt;https://github.com/smart-swimmingpool/pool-controller/issues&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Diskussionen: &lt;a
+href="https://github.com/smart-swimmingpool/smart-swimmingpool.github.io/discussions"target="_blank" rel="noopener"&gt;https://github.com/smart-swimmingpool/smart-swimmingpool.github.io/discussions&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Hinweis&lt;/strong&gt;: OTA wird mit der ESP32 Arduino Update-Bibliothek implementiert, die
+in das WebPortal integriert ist. GitHub-Release-Builds werden von der CI-Pipeline
+(&lt;code&gt;release.yml&lt;/code&gt;) erstellt.&lt;/p&gt;</description></item></channel></rss>

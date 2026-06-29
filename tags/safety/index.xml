@@ -1,0 +1,1581 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Safety</title><link>https://smart-swimmingpool.github.io/tags/safety/</link><description>Recent content in Safety on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Sun, 14 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/tags/safety/index.xml" rel="self" type="application/rss+xml"/><item><title>Commissioning Checklist</title><link>https://smart-swimmingpool.github.io/docs/checklist/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/checklist/</guid><description>
+&lt;p&gt;&lt;strong&gt;🏊 Smart Swimming Pool: Step-by-step checklist for first-time setup and commissioning.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Use this checklist &lt;strong&gt;before&lt;/strong&gt; connecting pumps to mains voltage. Tick off each item to ensure a safe and successful first run.&lt;/p&gt;
+&lt;div class="hx:rounded-lg hx:border-2 hx:border-red-300 hx:bg-red-50 hx:dark:border-red-700 hx:dark:bg-red-900/20 hx:p-4 hx:my-6"&gt;
+&lt;div class="hx:flex hx:items-start hx:gap-3"&gt;
+&lt;span class="hx:text-2xl hx:flex-shrink-0"&gt;⚠️&lt;/span&gt;
+&lt;div&gt;
+&lt;p class="hx:font-bold hx:text-red-700 hx:dark:text-red-400 hx:text-sm hx:uppercase hx:tracking-wide hx:mb-1"&gt;WARNING: 230V Mains Voltage&lt;/p&gt;
+&lt;p class="hx:text-sm hx:text-red-800 hx:dark:text-red-300 hx:mb-0"&gt;This project operates with &lt;strong&gt;230V AC mains voltage&lt;/strong&gt; and should only be built by individuals with &lt;strong&gt;basic electronics knowledge&lt;/strong&gt;.
+Always use an &lt;strong&gt;RCD (residual-current device)&lt;/strong&gt;. This project is &lt;strong&gt;not CE/UL certified&lt;/strong&gt; and not intended for commercial use.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;h2&gt;1. Hardware Assembly&lt;span class="hx:absolute hx:-mt-20" id="1-hardware-assembly"&gt;&lt;/span&gt;
+&lt;a href="#1-hardware-assembly" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;1.1 Controller Electronics&lt;span class="hx:absolute hx:-mt-20" id="11-controller-electronics"&gt;&lt;/span&gt;
+&lt;a href="#11-controller-electronics" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; ESP32 firmly seated on breadboard or perfboard&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Relay module connected: &lt;strong&gt;VCC → 5V&lt;/strong&gt; (not 3.3V!), &lt;strong&gt;GND → GND&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Relay IN1 (GPIO26) prepared for &lt;strong&gt;heating circuit pump&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Relay IN2 (GPIO25) prepared for &lt;strong&gt;filter/circulation pump&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; DS18B20 solar sensor: &lt;strong&gt;DATA → GPIO32&lt;/strong&gt;, &lt;strong&gt;VDD → 3.3V&lt;/strong&gt;, &lt;strong&gt;GND → GND&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; DS18B20 pool sensor: &lt;strong&gt;DATA → GPIO33&lt;/strong&gt;, &lt;strong&gt;VDD → 3.3V&lt;/strong&gt;, &lt;strong&gt;GND → GND&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; &lt;strong&gt;4.7kΩ pull-up resistor&lt;/strong&gt; between each DATA pin and 3.3V (2 resistors total)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; No shorts between adjacent pins on the breadboard&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;1.2 Power Supply&lt;span class="hx:absolute hx:-mt-20" id="12-power-supply"&gt;&lt;/span&gt;
+&lt;a href="#12-power-supply" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; USB power supply: &lt;strong&gt;5V / 1A minimum&lt;/strong&gt; (quality brand, not a phone charger from a discount store)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; USB cable is a &lt;strong&gt;data cable&lt;/strong&gt; (not charge-only)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Power supply is in a &lt;strong&gt;dry location&lt;/strong&gt; or IP-rated enclosure&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;1.3 Enclosure (if used)&lt;span class="hx:absolute hx:-mt-20" id="13-enclosure-if-used"&gt;&lt;/span&gt;
+&lt;a href="#13-enclosure-if-used" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Enclosure is &lt;strong&gt;IP54 or better&lt;/strong&gt; for outdoor / pool house installation&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Cable glands (PG fittings) installed for all cable entries&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Ventilation openings if enclosure traps heat&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Strain relief on all cables entering the enclosure&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;2. 230V / Mains Side&lt;span class="hx:absolute hx:-mt-20" id="2-230v--mains-side"&gt;&lt;/span&gt;
+&lt;a href="#2-230v--mains-side" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;⚠️ &lt;strong&gt;Danger to life!&lt;/strong&gt; Work on 230V circuits must only be performed by qualified personnel. Observe all applicable electrical codes.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; &lt;strong&gt;RCD / FI circuit breaker&lt;/strong&gt; installed in the supply line (mandatory!)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; &lt;strong&gt;Circuit breaker&lt;/strong&gt; (MCB) with appropriate rating for each pump&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Cable cross-section adequate for pump current draw&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; All connections in a &lt;strong&gt;junction box&lt;/strong&gt; or distribution board&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; &lt;strong&gt;Pumps are NOT connected to the relay outputs yet&lt;/strong&gt; — test without 230V first&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; If available: use a mains tester to verify the 230V wiring before connecting pumps&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;3. Firmware &amp;amp; First Boot&lt;span class="hx:absolute hx:-mt-20" id="3-firmware--first-boot"&gt;&lt;/span&gt;
+&lt;a href="#3-firmware--first-boot" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; PlatformIO project opened, environment set to &lt;strong&gt;esp32dev&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Firmware uploaded successfully: &lt;code&gt;pio run -e esp32dev -t upload&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Filesystem image uploaded: &lt;code&gt;pio run -e esp32dev -t uploadfs&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Serial monitor shows boot log at &lt;strong&gt;115200 baud&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; ESP32 starts in AP mode:
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;[INFO] Pool Controller v3.x.x starting...
+[INFO] WiFi: Starting in AP mode
+[INFO] AP: &amp;#39;Pool-Controller-Setup&amp;#39;. IP: 192.168.4.1&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;3.1 If Boot Fails&lt;span class="hx:absolute hx:-mt-20" id="31-if-boot-fails"&gt;&lt;/span&gt;
+&lt;a href="#31-if-boot-fails" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Symptom&lt;/th&gt;
+&lt;th&gt;Likely Cause&lt;/th&gt;
+&lt;th&gt;Check&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;No output on serial monitor&lt;/td&gt;
+&lt;td&gt;Wrong baud rate or USB cable&lt;/td&gt;
+&lt;td&gt;Set monitor to 115200 baud; try a data USB cable&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Continuous reboot loop&lt;/td&gt;
+&lt;td&gt;Power supply too weak&lt;/td&gt;
+&lt;td&gt;Use 5V/1A+, quality brand&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ets&lt;/code&gt; boot message then restart&lt;/td&gt;
+&lt;td&gt;Flash settings wrong&lt;/td&gt;
+&lt;td&gt;Ensure DIO mode, 4MB flash size&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ldquo;Failed to connect to ESP32&amp;rdquo;&lt;/td&gt;
+&lt;td&gt;Wrong COM port or BOOT not held&lt;/td&gt;
+&lt;td&gt;Hold BOOT during flash start&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2&gt;4. Temperature Sensors&lt;span class="hx:absolute hx:-mt-20" id="4-temperature-sensors"&gt;&lt;/span&gt;
+&lt;a href="#4-temperature-sensors" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; After boot, serial monitor shows detected DS18B20 sensors:
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;[INFO] OneWire: Found 2 DS18B20 sensor(s)
+[INFO] DS18B20[0]: 28-xxxxxxxxxxxx (Solar sensor on GPIO32)
+[INFO] DS18B20[1]: 28-yyyyyyyyyyyy (Pool sensor on GPIO33)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Both sensors read plausible temperatures (not &lt;code&gt;-127°C&lt;/code&gt; or &lt;code&gt;85°C&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Warm one sensor by holding it — reading rises within seconds&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; If only 1 sensor found: check wiring, pull-up resistor, or try the sensor alone&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;4.1 Temperature Sensor Quick Check&lt;span class="hx:absolute hx:-mt-20" id="41-temperature-sensor-quick-check"&gt;&lt;/span&gt;
+&lt;a href="#41-temperature-sensor-quick-check" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Reading&lt;/th&gt;
+&lt;th&gt;Meaning&lt;/th&gt;
+&lt;th&gt;Action&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;-127°C&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Sensor not found on bus&lt;/td&gt;
+&lt;td&gt;Check DATA wire, pull-up resistor, GPIO pin&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;85°C&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Sensor stuck at power-on default&lt;/td&gt;
+&lt;td&gt;Check for parasite power; all 3 wires must be connected&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Erratic / jumping values&lt;/td&gt;
+&lt;td&gt;Electrical interference&lt;/td&gt;
+&lt;td&gt;Keep sensor cable &amp;gt;30cm away from 230V wiring&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Both sensors identical&lt;/td&gt;
+&lt;td&gt;Normal if in same water&lt;/td&gt;
+&lt;td&gt;Verify with hand warmth test (see above)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2&gt;5. WiFi &amp;amp; Network&lt;span class="hx:absolute hx:-mt-20" id="5-wifi--network"&gt;&lt;/span&gt;
+&lt;a href="#5-wifi--network" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Connected to &lt;code&gt;Pool-Controller-Setup&lt;/code&gt; WiFi network&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Web interface reachable at &lt;strong&gt;http://192.168.4.1&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Home WiFi configured in web interface → &lt;strong&gt;Connection&lt;/strong&gt; section&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; ESP32 rebooted and connected to home network&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; New IP address noted (from router DHCP or serial monitor)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Web interface reachable at &lt;strong&gt;http://&lt;new-ip&gt;/&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; ESP32 pingable from your computer: &lt;code&gt;ping &amp;lt;new-ip&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;6. MQTT Connection&lt;span class="hx:absolute hx:-mt-20" id="6-mqtt-connection"&gt;&lt;/span&gt;
+&lt;a href="#6-mqtt-connection" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Prerequisites&lt;span class="hx:absolute hx:-mt-20" id="prerequisites"&gt;&lt;/span&gt;
+&lt;a href="#prerequisites" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; MQTT broker (Mosquitto) is installed and running&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Broker is reachable from the ESP32&amp;rsquo;s network (same subnet or firewall rule for port 1883)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; If using authentication: username/password noted&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Configuration&lt;span class="hx:absolute hx:-mt-20" id="configuration"&gt;&lt;/span&gt;
+&lt;a href="#configuration" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Web interface → &lt;strong&gt;Configuration → MQTT&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Broker address entered&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Port correct (default: &lt;code&gt;1883&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Credentials entered (if required)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Click &lt;strong&gt;Test Connection&lt;/strong&gt; — result shows &lt;strong&gt;&amp;ldquo;Connected&amp;rdquo;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Click &lt;strong&gt;Save&lt;/strong&gt; — controller restarts MQTT connection&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Verification&lt;span class="hx:absolute hx:-mt-20" id="verification"&gt;&lt;/span&gt;
+&lt;a href="#verification" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Subscribe to all topics on the broker:
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mosquitto_sub -h &amp;lt;broker-ip&amp;gt; -t &lt;span class="s2"&gt;&amp;#34;#&amp;#34;&lt;/span&gt; -v&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Pool controller topics appear (prefixed with &lt;code&gt;homeassistant/&lt;/code&gt; or &lt;code&gt;homie/&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Sensor values update periodically&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; If topics are missing: check &lt;code&gt;homeassistant&lt;/code&gt; prefix in HA configuration&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;7. Functional Test (Without 230V)&lt;span class="hx:absolute hx:-mt-20" id="7-functional-test-without-230v"&gt;&lt;/span&gt;
+&lt;a href="#7-functional-test-without-230v" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Before connecting any pump, test that the controller can switch the relays.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; &lt;strong&gt;Multimeter ready&lt;/strong&gt;, set to DC voltage mode&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Measure between relay IN1 pin and GND:
+&lt;ul&gt;
+&lt;li&gt;Web interface shows relay &lt;strong&gt;OFF&lt;/strong&gt; → IN1 reads &lt;strong&gt;~3.3V (HIGH)&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Web interface shows relay &lt;strong&gt;ON&lt;/strong&gt; → IN1 reads &lt;strong&gt;~0V (LOW)&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Repeat for relay IN2 — same behavior&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; If voltages are reversed: your relay module is &lt;strong&gt;active-high&lt;/strong&gt; — check for a HIGH/LOW jumper or replace the module&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Relay Test by GPIO&lt;span class="hx:absolute hx:-mt-20" id="relay-test-by-gpio"&gt;&lt;/span&gt;
+&lt;a href="#relay-test-by-gpio" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;GPIO&lt;/th&gt;
+&lt;th&gt;Expected OFF&lt;/th&gt;
+&lt;th&gt;Expected ON&lt;/th&gt;
+&lt;th&gt;Controls&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;GPIO26 (IN1)&lt;/td&gt;
+&lt;td&gt;~3.3V (HIGH)&lt;/td&gt;
+&lt;td&gt;~0V (LOW)&lt;/td&gt;
+&lt;td&gt;Heating pump (not yet connected)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;GPIO25 (IN2)&lt;/td&gt;
+&lt;td&gt;~3.3V (HIGH)&lt;/td&gt;
+&lt;td&gt;~0V (LOW)&lt;/td&gt;
+&lt;td&gt;Filter pump (not yet connected)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2&gt;8. Home Assistant Integration (Optional)&lt;span class="hx:absolute hx:-mt-20" id="8-home-assistant-integration-optional"&gt;&lt;/span&gt;
+&lt;a href="#8-home-assistant-integration-optional" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; MQTT integration configured in Home Assistant (Settings → Devices &amp;amp; Services → MQTT)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Discovery enabled: &lt;code&gt;discovery: true&lt;/code&gt; in HA &lt;code&gt;configuration.yaml&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Pool Controller appears as a device in &lt;strong&gt;Settings → Devices &amp;amp; Services → Devices&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; All entities visible and reporting values:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;sensor.pool_controller_pool_temp&lt;/code&gt; — pool temperature&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sensor.pool_controller_solar_temp&lt;/code&gt; — solar temperature&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;select.pool_controller_mode&lt;/code&gt; — operation mode&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;switch.pool_controller_pool_pump&lt;/code&gt; — pump control&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;switch.pool_controller_solar_pump&lt;/code&gt; — solar pump control&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; &lt;strong&gt;Operation Mode&lt;/strong&gt; can be changed via HA (try switching to &lt;code&gt;manu&lt;/code&gt; and back to &lt;code&gt;auto&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;9. First Real Test (With Pumps)&lt;span class="hx:absolute hx:-mt-20" id="9-first-real-test-with-pumps"&gt;&lt;/span&gt;
+&lt;a href="#9-first-real-test-with-pumps" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Only proceed when all previous steps pass.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; &lt;strong&gt;Disconnect&lt;/strong&gt; ESP32 from USB power&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Wire relay outputs to pump contactors or directly to pumps (230V side)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Double-check: relay common (COM) and normally open (NO) wired correctly&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Reconnect ESP32 to USB power&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Set operation mode to &lt;strong&gt;Manual (&lt;code&gt;manu&lt;/code&gt;)&lt;/strong&gt; via web interface&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Toggle &lt;strong&gt;Heating Pump&lt;/strong&gt; ON via web interface — pump starts&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Toggle &lt;strong&gt;Heating Pump&lt;/strong&gt; OFF — pump stops&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Toggle &lt;strong&gt;Filter Pump&lt;/strong&gt; ON — pump starts&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Toggle &lt;strong&gt;Filter Pump&lt;/strong&gt; OFF — pump stops&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; If pump does not start: check 230V wiring, circuit breaker, RCD&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; If pump starts but does not stop: relay contacts may be welded — disconnect 230V immediately&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;10. Automation Test&lt;span class="hx:absolute hx:-mt-20" id="10-automation-test"&gt;&lt;/span&gt;
+&lt;a href="#10-automation-test" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Set operation mode to &lt;strong&gt;Auto&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Verify the controller switches pumps according to its heating logic&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Solar temperature &amp;gt; Pool temperature + hysteresis → heating pump should turn ON&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Pool temperature reaches max. set temperature → heating pump should turn OFF&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Filter/circulation pump runs according to its schedule (timer or temperature-based)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;11. Final Verification&lt;span class="hx:absolute hx:-mt-20" id="11-final-verification"&gt;&lt;/span&gt;
+&lt;a href="#11-final-verification" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Temperature difference between solar and pool sensor is plausible&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Controller remains stable for 24+ hours without unexpected reboots&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; WiFi connection stays stable (check RSSI in diagnostics)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; MQTT connection persists (check availability topic: should read &lt;code&gt;online&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Home Assistant (if used) shows correct and current values&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Quick Reference Card&lt;span class="hx:absolute hx:-mt-20" id="quick-reference-card"&gt;&lt;/span&gt;
+&lt;a href="#quick-reference-card" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Print this abbreviated checklist for quick on-site reference:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;☐ ESP32: 5V USB power, data cable
+☐ Relay VCC → 5V, GND → GND
+☐ Relay IN1 → GPIO26 (heating)
+☐ Relay IN2 → GPIO25 (filter)
+☐ DS18B20 #1: GPIO32 &amp;#43; 4.7kΩ pull-up
+☐ DS18B20 #2: GPIO33 &amp;#43; 4.7kΩ pull-up
+☐ RCD / FI installed on 230V side
+☐ Firmware &amp;#43; Filesystem uploaded
+☐ WiFi configured, web UI reachable
+☐ MQTT test connection successful
+☐ Relay voltages correct (3.3V OFF / 0V ON)
+☐ Manual pump test (without 230V automa&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>⚠️ Sicherheitshinweise &amp; Warnungen</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/safety/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/safety/</guid><description>
+&lt;h2&gt;⚠️ &lt;strong&gt;WICHTIGE SICHERHEITSHINWEISE&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-wichtige-sicherheitshinweise"&gt;&lt;/span&gt;
+&lt;a href="#-wichtige-sicherheitshinweise" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;⚠️ ACHTUNG: DIESES PROJEKT ARBEITET MIT 230V WECHSELSTROM!&lt;/strong&gt;
+&lt;strong&gt;FALSCHE HANDHABUNG KANN ZU SCHWEREN VERLETZUNGEN, BRAND ODER TOD FÜHREN!&lt;/strong&gt;
+&lt;strong&gt;LESSEN SIE DIESE HINWEISE VOR DEM AUFBAU UNBEDINGT DURCH!&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2&gt;🔌 &lt;strong&gt;Allgemeine Sicherheitsregeln für 230V-Anlagen&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-allgemeine-sicherheitsregeln-für-230v-anlagen"&gt;&lt;/span&gt;
+&lt;a href="#-allgemeine-sicherheitsregeln-f%c3%bcr-230v-anlagen" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;✅ &lt;strong&gt;DOs (Was Sie TUN müssen)&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-dos-was-sie-tun-müssen"&gt;&lt;/span&gt;
+&lt;a href="#-dos-was-sie-tun-m%c3%bcssen" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Arbeiten Sie NUR an spannungsfreien Schaltkreisen!&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Schalten Sie immer die Stromversorgung AB&lt;/strong&gt;, bevor Sie an der Verdrahtung arbeiten.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Prüfen Sie mit einem Spannungsprüfer&lt;/strong&gt;, ob die Leitung tatsächlich spannungsfrei ist.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Verwenden Sie eine zweipolige Spannungsprüfer&lt;/strong&gt; (Phase + Nullleiter).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Verwenden Sie immer einen FI-Schalter (RCD) mit 30mA Auslösestrom!&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ein &lt;strong&gt;RCD (Residual Current Device)&lt;/strong&gt; schützt vor &lt;strong&gt;Stromschlägen&lt;/strong&gt; durch Isolationsfehler.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mindestens 30mA Auslösestrom&lt;/strong&gt; (für Personenschutz).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Testen Sie den RCD regelmäßig&lt;/strong&gt; (mit der Test-Taste).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Verwenden Sie immer eine Sicherung (MCB) für den Pool-Stromkreis!&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Empfohlene Sicherung:&lt;/strong&gt; 10A oder 16A (je nach Pumpenleistung).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Typ:&lt;/strong&gt; B oder C (für Haushaltsanwendungen).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Erden Sie alle metallischen Teile!&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Pumpengehäuse, Relais-Modul, ESP32-Gehäuse&lt;/strong&gt; müssen geerdet sein.&lt;/li&gt;
+&lt;li&gt;Verwenden Sie &lt;strong&gt;gelb-grüne Erdungskabel&lt;/strong&gt; (PE).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Verwenden Sie wasserdichte Verbindungen für Outdoor-Anwendungen!&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;IP67 oder höher&lt;/strong&gt; für Sensoren und Verbindungen im Freien.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Kabelgarnituren (PG-Verschraubungen)&lt;/strong&gt; für Kabeldurchführungen.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Schützen Sie die Elektronik vor Feuchtigkeit!&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Verwenden Sie ein &lt;strong&gt;wasserdichtes Gehäuse (IP54+)&lt;/strong&gt; für den Controller.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Silicon-Dichtmasse&lt;/strong&gt; für Kabeldurchführungen.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Verwenden Sie nur isolierte Werkzeuge!&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Isolierte Schraubendreher, Zangen und Multimeter&lt;/strong&gt; (für 1000V).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Führen Sie einen Funktionstest durch, BEVOR Sie die Pumpen anschließen!&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Testen Sie die &lt;strong&gt;Relays mit einer 12V-Lampe&lt;/strong&gt; (statt 230V), um die Verdrahtung zu prüfen.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h3&gt;❌ &lt;strong&gt;DON&amp;rsquo;Ts (Was Sie NICHT tun dürfen)&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-don"&gt;&lt;/span&gt;
+&lt;a href="#-don" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Arbeiten Sie NIEMALS unter Spannung!&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;230V ist tödlich!&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Verwenden Sie KEINE unisolierten Kabel oder Verbindungen!&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Keine blanken Drähte&lt;/strong&gt; in der Nähe von 230V!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Verwenden Sie KEINE billigen, unzertifizierten Netzteile!&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Nur CE/UL-zertifizierte Netzteile&lt;/strong&gt; verwenden.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Schließen Sie KEINE Pumpen ohne RCD an!&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;RCD ist Pflicht für Personenschutz!&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Verwenden Sie KEINE Relais-Module ohne Optokoppler!&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Optokoppler trennen die Niedervolt- (ESP32) von der Hochvolt-Seite (230V)&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Platzieren Sie den Controller NICHT in der Nähe von Wasser!&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Mindestens 3,5 Meter Abstand&lt;/strong&gt; zur Poolkante (gemäß DIN VDE 0100-702).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Verwenden Sie KEINE verlöteten Verbindungen für 230V!&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Nur Schraubklemmen oder Crimp-Verbindungen&lt;/strong&gt; für 230V-Kabel.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Lassen Sie das System NIEMALS unbeaufsichtigt im Testbetrieb!&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Testen Sie immer in Sichtweite&lt;/strong&gt; und mit &lt;strong&gt;Notfall-Abschaltung&lt;/strong&gt; (z. B. Stecker in Reichweite).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2&gt;🛡️ &lt;strong&gt;Sicherheitsausrüstung (Pflicht!)&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-sicherheitsausrüstung-pflicht"&gt;&lt;/span&gt;
+&lt;a href="#-sicherheitsausr%c3%bcstung-pflicht" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Ausstattung&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Zweck&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Empfehlung&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;RCD (FI-Schalter) 30mA&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Schutz vor Stromschlag bei Isolationsfehlern.&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Pflicht!&lt;/strong&gt; (z. B. von Hager, ABB, oder Siemens).&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;MCB (Sicherung) 10A/16A&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Schutz vor Überlastung und Kurzschluss.&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Pflicht!&lt;/strong&gt; (Typ B oder C).&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Isolierter Spannungsprüfer&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Prüfen, ob Leitungen spannungsfrei sind.&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Pflicht!&lt;/strong&gt; (z. B. von Fluke, Benning, oder Beha).&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Isolierte Werkzeuge&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Schutz vor Stromschlag beim Arbeiten an 230V.&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Empfohlen&lt;/strong&gt; (z. B. von Wera, Knipex, oder Wiha).&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Multimeter&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Messung von Spannung, Strom, Widerstand.&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Empfohlen&lt;/strong&gt; (z. B. von Fluke, Brymen, oder UNI-T).&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;IP67-Gehäuse&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Schutz vor Feuchtigkeit und Staub.&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Empfohlen&lt;/strong&gt; (z. B. von Hammond, Bopla, oder OKW).&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Kabelgarnituren (PG)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Wasserdichte Kabeldurchführungen.&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Empfohlen&lt;/strong&gt; (z. B. PG7 für dünne Kabel, PG9 für dickere Kabel).&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Erdungskabel (gelb-grün)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Erdung von metallischen Teilen.&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Pflicht!&lt;/strong&gt; (mind. 1,5mm² Querschnitt).&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2&gt;🔌 &lt;strong&gt;Verdrahtung &amp;amp; Anschlüsse&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-verdrahtung--anschlüsse"&gt;&lt;/span&gt;
+&lt;a href="#-verdrahtung--anschl%c3%bcsse" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;&lt;strong&gt;📌 230V-Verdrahtung (NUR FÜR FACHLEUTE!)&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-230v-verdrahtung-nur-für-fachleute"&gt;&lt;/span&gt;
+&lt;a href="#-230v-verdrahtung-nur-f%c3%bcr-fachleute" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;⚠️ ACHTUNG: FALSCHE VERDRAHTUNG KANN ZU BRAND ODER TOD FÜHREN!&lt;/strong&gt;
+&lt;strong&gt;Falls Sie sich unsicher sind, konsultieren Sie einen Elektriker!&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4&gt;&lt;strong&gt;🔹 Grundlegende Verdrahtung für Pumpen&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-grundlegende-verdrahtung-für-pumpen"&gt;&lt;/span&gt;
+&lt;a href="#-grundlegende-verdrahtung-f%c3%bcr-pumpen" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; ── 230V VERSORGUNG ────────────────────────────────────────────────
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; [Stromnetz]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; ├── L (Phase) ──── RCD ──── MCB ────┬── Relay COM1 ── Pool-Pumpe
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; │ │ NO1 ─────┘
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; │ │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; │ └── Relay COM2 ── Solar-Pumpe
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; │ NO2 ─────┘
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; ├── N (Nullleiter) ────────────────── Neutralleiste ──┬── Pool-Pumpe
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; │ └── Solar-Pumpe
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; └── PE (Erde) ─────────────────────── Erdungsleiste ──┬── Pool-Pumpe (Metallgehäuse)
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; └── Controller-Gehäuse&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h4&gt;&lt;strong&gt;🔹 Erläuterung der Anschlüsse&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-erläuterung-der-anschlüsse"&gt;&lt;/span&gt;
+&lt;a href="#-erl%c3%a4uterung-der-anschl%c3%bcsse" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Anschluss&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Beschreibung&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Farbcodierung (EU)&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;L (Phase)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Achtung: 230V!&lt;/strong&gt; – Führt Strom.&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Braun&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;N (Nullleiter)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Rückleiter (keine Spannung im Normalbetrieb, aber &lt;strong&gt;nicht berühren!&lt;/strong&gt;).&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Blau&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;PE (Erde)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Schutzleiter (Erdung).&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Gelb-Grün&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;COM (Common)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Gemeinsamer Anschluss des Relays (verbinden mit &lt;strong&gt;L&lt;/strong&gt;).&lt;/td&gt;
+&lt;td&gt;–&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;NO (Normally Open)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Schließer-Kontakt (verbinden mit &lt;strong&gt;Pumpe&lt;/strong&gt;).&lt;/td&gt;
+&lt;td&gt;–&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;NC (Normally Closed)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Öffner-Kontakt (nicht verwendet).&lt;/td&gt;
+&lt;td&gt;–&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4&gt;&lt;strong&gt;🔹 Wichtige Hinweise zur 230V-Verdrahtung&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-wichtige-hinweise-zur-230v-verdrahtung"&gt;&lt;/span&gt;
+&lt;a href="#-wichtige-hinweise-zur-230v-verdrahtung" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Relay-Kontakte:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;COM&lt;/strong&gt; → &lt;strong&gt;Phase (L)&lt;/strong&gt; der Pumpe.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;NO&lt;/strong&gt; → &lt;strong&gt;Pumpe&lt;/strong&gt; (andere Seite der Pumpe → &lt;strong&gt;Nullleiter (N)&lt;/strong&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;NC&lt;/strong&gt; → &lt;strong&gt;Nicht verwenden!&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Pumpenanschluss:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Phase (L)&lt;/strong&gt; → &lt;strong&gt;Relay COM&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Nullleiter (N)&lt;/strong&gt; → &lt;strong&gt;Direkt zur Pumpe&lt;/strong&gt; (ohne Relay!).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Erde (PE)&lt;/strong&gt; → &lt;strong&gt;Pumpengehäuse&lt;/strong&gt; (falls metallisch).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Kabelquerschnitt:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Mindestens 1,5mm²&lt;/strong&gt; für Pumpen bis 16A.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2,5mm²&lt;/strong&gt; für Pumpen mit höherer Leistung.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Kabeltyp:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;NYM-J 3x1,5mm²&lt;/strong&gt; für feste Installation.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;H07RN-F 3G1,5mm²&lt;/strong&gt; für flexible Anwendung (z. B. für Pool-Pumpen).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h3&gt;&lt;strong&gt;📌 Niedervolt-Verdrahtung (ESP32 &amp;amp; Sensoren)&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-niedervolt-verdrahtung-esp32--sensoren"&gt;&lt;/span&gt;
+&lt;a href="#-niedervolt-verdrahtung-esp32--sensoren" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;&lt;strong&gt;🔹 Stromversorgung&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-stromversorgung"&gt;&lt;/span&gt;
+&lt;a href="#-stromversorgung" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; ── STROMVERSORGUNG ─────────────────────────────────────────────────
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; [USB-Netzteil 5V/2A+] [ESP32 Board]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; ┌──────────┐ ┌─────────────┐
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; │ 5V (+) ──┼──────────────┤ VIN │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; │ │ │ │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; │ GND ─────┼──────────────┤ GND │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; └──────────┘ └────────┘
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; [ESP32 Board] [Relay-Modul]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; ┌─────────────┐ ┌────────────┐
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; │ 5V ─────────┼──────────────┤ VCC │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; │ │ │ │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; │ GND ────────┼──────────────┤ GND │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; └─────────────┘ └────────────┘&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h4&gt;&lt;strong&gt;🔹 Sensoren (DS18B20)&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-sensoren-ds18b20"&gt;&lt;/span&gt;
+&lt;a href="#-sensoren-ds18b20" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; [ESP32 Board] [DS18B20 Sensor]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; ┌─────────────┐ ┌───────────┐
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; │ 3.3V ───────┼──────────────┤ VDD (rot) │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; │ │ │ │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; │ GND ────────┼──────────────┤ GND (schwarz)│
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; │ │ │ │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; │ GPIO32/33 ──┼──[4.7kΩ]──────┤ DATA (gelb)│
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; └─────────────┘ └───────────┘&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h4&gt;&lt;strong&gt;🔹 Wichtige Hinweise zur Niedervolt-Verdrahtung&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-wichtige-hinweise-zur-niedervolt-verdrahtung"&gt;&lt;/span&gt;
+&lt;a href="#-wichtige-hinweise-zur-niedervolt-verdrahtung" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;DS18B20:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;VDD&lt;/strong&gt; → &lt;strong&gt;3.3V&lt;/strong&gt; (nicht 5V!).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GND&lt;/strong&gt; → &lt;strong&gt;GND&lt;/strong&gt; (gemeinsam mit ESP32).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DATA&lt;/strong&gt; → &lt;strong&gt;GPIO32/33&lt;/strong&gt; + &lt;strong&gt;4.7kΩ Pull-Up zu 3.3V&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Relay-Modul:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;VCC&lt;/strong&gt; → &lt;strong&gt;5V&lt;/strong&gt; (vom ESP32 VIN oder externem Netzteil).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GND&lt;/strong&gt; → &lt;strong&gt;GND&lt;/strong&gt; (gemeinsam mit ESP32).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;IN1/IN2&lt;/strong&gt; → &lt;strong&gt;GPIO25/26&lt;/strong&gt; (Aktiv-High!).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Stromversorgung:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;USB-Netzteil:&lt;/strong&gt; Mindestens &lt;strong&gt;5V/1A&lt;/strong&gt; (für ESP32 + 1 Relay).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Für 2 Relays:&lt;/strong&gt; Mindestens &lt;strong&gt;5V/2A&lt;/strong&gt; (z. B. USB-Netzteil eines Tablets).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2&gt;🔥 &lt;strong&gt;Brandschutz &amp;amp; Überhitzung&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-brandschutz--überhitzung"&gt;&lt;/span&gt;
+&lt;a href="#-brandschutz--%c3%bcberhitzung" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;&lt;strong&gt;🔹 Überhitzung vermeiden&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-überhitzung-vermeiden"&gt;&lt;/span&gt;
+&lt;a href="#-%c3%bcberhitzung-vermeiden" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Relay-Modul:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Relays können heiß werden&lt;/strong&gt; (besonders bei hoher Last).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Lösung:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Verwenden Sie ein &lt;strong&gt;Relay-Modul mit Optokoppler und Kühlkörper&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Belüftung&lt;/strong&gt; im Gehäuse sicherstellen.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;ESP32:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;ESP32 wird normalerweise nicht heiß&lt;/strong&gt;, aber bei hoher Last (z. B. viele Sensoren) kann er warm werden.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Lösung:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Gehäuse mit Lüftungsschlitzen&lt;/strong&gt; verwenden.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Nicht in der direkten Sonne&lt;/strong&gt; platzieren.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Netzteil:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Billige Netzteile können überhitzen&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Lösung:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Verwenden Sie ein &lt;strong&gt;qualitativ hochwertiges Netzteil&lt;/strong&gt; (z. B. von Mean Well).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mindestens 5V/2A&lt;/strong&gt; für ESP32 + 2 Relays.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;&lt;strong&gt;🔹 Brandschutzmaßnahmen&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-brandschutzmaßnahmen"&gt;&lt;/span&gt;
+&lt;a href="#-brandschutzma%c3%9fnahmen" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Feuerfeste Unterlage:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Platzieren Sie den Controller auf einer &lt;strong&gt;nicht brennbaren Unterlage&lt;/strong&gt; (z. B. Metall, Keramik).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Rauchmelder:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Installieren Sie einen &lt;strong&gt;Rauchmelder&lt;/strong&gt; in der Nähe des Controllers.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Notfall-Abschaltung:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Stecker in Reichweite&lt;/strong&gt; halten, um den Controller im Notfall schnell vom Strom zu trennen.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2&gt;⚡ &lt;strong&gt;Blitzschutz &amp;amp; Überspannungsschutz&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-blitzschutz--überspannungsschutz"&gt;&lt;/span&gt;
+&lt;a href="#-blitzschutz--%c3%bcberspannungsschutz" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;&lt;strong&gt;🔹 Überspannungsschutz für 230V&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-überspannungsschutz-für-230v"&gt;&lt;/span&gt;
+&lt;a href="#-%c3%bcberspannungsschutz-f%c3%bcr-230v" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Überspannungsableiter (SPD):&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Empfohlen für Outdoor-Anlagen&lt;/strong&gt; (z. B. Pool-Pumpen im Freien).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Typ 2 SPD&lt;/strong&gt; (für Haushaltsanwendungen).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Anschluss:&lt;/strong&gt; Zwischen &lt;strong&gt;L/N und PE&lt;/strong&gt; (vor dem RCD).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Netzfilter:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Reduziert Störungen&lt;/strong&gt; durch andere Geräte (z. B. Motorsteuerungen).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Empfohlen für empfindliche Elektronik&lt;/strong&gt; (z. B. ESP32).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2&gt;🌧️ &lt;strong&gt;Outdoor-Einsatz &amp;amp; Witterungsschutz&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-outdoor-einsatz--witterungsschutz"&gt;&lt;/span&gt;
+&lt;a href="#-outdoor-einsatz--witterungsschutz" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;&lt;strong&gt;🔹 Schutz vor Feuchtigkeit&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-schutz-vor-feuchtigkeit"&gt;&lt;/span&gt;
+&lt;a href="#-schutz-vor-feuchtigkeit" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Gehäuse:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Mindestens IP54&lt;/strong&gt; (staubgeschützt, spritzwassergeschützt).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Empfohlen: IP65 oder höher&lt;/strong&gt; für Outdoor-Einsatz.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Beispiele:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a
+href="https://www.hammfg.com/"target="_blank" rel="noopener"&gt;Hammond 1591XXSS&lt;/a&gt; (IP65, Kunststoff).&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://www.bopla.de/"target="_blank" rel="noopener"&gt;Bopla 7130&lt;/a&gt; (IP65, Polycarbonat).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Kabeldurchführungen:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Kabelgarnituren (PG-Verschraubungen)&lt;/strong&gt; verwenden.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;IP68 für Unterwasser-Anwendungen&lt;/strong&gt; (z. B. für Sensoren im Pool).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Dichtungen:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Silicon-Dichtmasse&lt;/strong&gt; für Kabeldurchführungen.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Dichtungsringe&lt;/strong&gt; für Gehäuseverschlüsse.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;&lt;strong&gt;🔹 Schutz vor Hitze &amp;amp; Kälte&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-schutz-vor-hitze--kälte"&gt;&lt;/span&gt;
+&lt;a href="#-schutz-vor-hitze--k%c3%a4lte" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Temperaturbereich:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;ESP32:&lt;/strong&gt; -40°C bis +85°C (aber &lt;strong&gt;nicht für direkte Sonneneinstrahlung&lt;/strong&gt; geeignet).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Relay-Modul:&lt;/strong&gt; -20°C bis +70°C.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DS18B20:&lt;/strong&gt; -55°C bis +125°C.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Kühlung:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Belüftung&lt;/strong&gt; im Gehäuse sicherstellen.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Keine direkte Sonneneinstrahlung&lt;/strong&gt; (z. B. durch Schatten oder Abdeckung).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Heizung (für kalte Umgebungen):&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Nicht erforderlich&lt;/strong&gt; für normale Anwendungen (Pool-Temperatur &amp;gt; 0°C).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Für Extrembedingungen:&lt;/strong&gt; Verwenden Sie ein &lt;strong&gt;beheiztes Gehäuse&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2&gt;🏊 &lt;strong&gt;Sicherheit am Pool&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-sicherheit-am-pool"&gt;&lt;/span&gt;
+&lt;a href="#-sicherheit-am-pool" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;&lt;strong&gt;🔹 Allgemeine Pool-Sicherheit&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-allgemeine-pool-sicherheit"&gt;&lt;/span&gt;
+&lt;a href="#-allgemeine-pool-sicherheit" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Elektrische Geräte am Pool:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Mindestens 3,5m Abstand&lt;/strong&gt; von der Poolkante (gemäß DIN VDE 0100-702).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Ausnahme:&lt;/strong&gt; Geräte mit &lt;strong&gt;IPX8-Schutz&lt;/strong&gt; (z. B. Unterwasser-Pumpen).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Pumpen &amp;amp; Filter:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Immer mit RCD (30mA) absichern!&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Regelmäßig auf Undichtigkeiten prüfen!&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Kabel &amp;amp; Stecker:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Keine Steckdosen in Reichweite des Pools!&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Verwenden Sie fest installierte Kabel&lt;/strong&gt; (keine Verlängerungskabel!).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;&lt;strong&gt;🔹 Sensoren im Pool&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-sensoren-im-pool"&gt;&lt;/span&gt;
+&lt;a href="#-sensoren-im-pool" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;DS18B20-Sensoren:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Wasserdicht (IP68)&lt;/strong&gt; für Pool-Anwendungen.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Kabel mit PG-Verschraubung&lt;/strong&gt; ins Gehäuse führen.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Kabelverlegung:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Keine Kabel im Pool verlegen!&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Kabel in Rohren oder Kabelkanälen&lt;/strong&gt; verlegen.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2&gt;📜 &lt;strong&gt;Rechtliche Hinweise &amp;amp; Haftungsausschluss&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-rechtliche-hinweise--haftungsausschluss"&gt;&lt;/span&gt;
+&lt;a href="#-rechtliche-hinweise--haftungsausschluss" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;&lt;strong&gt;🔹 Wichtig: Dieses Projekt ist NUR für den Eigenbau!&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-wichtig-dieses-projekt-ist-nur-für-den-eigenbau"&gt;&lt;/span&gt;
+&lt;a href="#-wichtig-dieses-projekt-ist-nur-f%c3%bcr-den-eigenbau" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Keine CE-Kennzeichnung:&lt;/strong&gt; Dieses Projekt ist &lt;strong&gt;nicht für den Verkauf oder die kommerzielle Nutzung&lt;/strong&gt; bestimmt.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Keine Gewährleistung:&lt;/strong&gt; Der Autor übernimmt &lt;strong&gt;keinerlei Haftung&lt;/strong&gt; für Schäden, Verletzungen oder Tod durch falsche Handhabung.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Eigenverantwortung:&lt;/strong&gt; Der Aufbau und Betrieb dieses Projekts erfolgt &lt;strong&gt;auf eigene Gefahr&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;&lt;strong&gt;🔹 Empfehlung für Unsichere&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-empfehlung-für-unsichere"&gt;&lt;/span&gt;
+&lt;a href="#-empfehlung-f%c3%bcr-unsichere" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Falls Sie sich &lt;strong&gt;unsicher sind&lt;/strong&gt; oder &lt;strong&gt;keine Erfahrung mit 230V-Elektronik haben&lt;/strong&gt;, empfehlen wir:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Konsultieren Sie einen Elektriker!&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ein &lt;strong&gt;Fachmann&lt;/strong&gt; kann die Verdrahtung prüfen und sicherstellen, dass alles den &lt;strong&gt;VDE-Bestimmungen&lt;/strong&gt; entspricht.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Verwenden Sie fertige Lösungen:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Es gibt &lt;strong&gt;kommerzielle Pool-Steuerungen&lt;/strong&gt; (z. B. von &lt;strong&gt;Hayward, Pentair,
+oder AstralPool&lt;/strong&gt;), die &lt;strong&gt;CE-zertifiziert&lt;/strong&gt; sind.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Bilden Sie sich weiter:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Kurse für Elektroinstallation&lt;/strong&gt; (z. B. bei der &lt;strong&gt;Handwerkskammer&lt;/strong&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Bücher über Elektrotechnik&lt;/strong&gt; (z. B. &amp;ldquo;Elektroinstallation für Dummies&amp;rdquo;).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2&gt;📞 &lt;strong&gt;Notfallmaßnahmen&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-notfallmaßnahmen"&gt;&lt;/span&gt;
+&lt;a href="#-notfallma%c3%9fnahmen" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;&lt;strong&gt;🔹 Bei Stromschlag:&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-bei-stromschlag"&gt;&lt;/span&gt;
+&lt;a href="#-bei-stromschlag" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Strom abschalten!&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;FI-Schalter (RCD) auslösen&lt;/strong&gt; oder &lt;strong&gt;Sicherung (MCB) herausdrehen&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Erste Hilfe leisten:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Nicht den Verletzten anfassen!&lt;/strong&gt; (könnte selbst unter Spannung stehen).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Notruf absetzen:&lt;/strong&gt; &lt;strong&gt;112 (Europa)&lt;/strong&gt; oder &lt;strong&gt;lokale Notrufnummer&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Erste-Hilfe-Maßnahmen&lt;/strong&gt; (falls kein Strom mehr anliegt).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;&lt;strong&gt;🔹 Bei Brand:&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-bei-brand"&gt;&lt;/span&gt;
+&lt;a href="#-bei-brand" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Strom abschalten!&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;FI-Schalter (RCD) auslösen&lt;/strong&gt; oder &lt;strong&gt;Hauptsicherung abschalten&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Löschen:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;NICHT mit Wasser löschen!&lt;/strong&gt; (230V-Gefahr!).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Verwenden Sie einen CO₂- oder Pulverlöscher&lt;/strong&gt; (für Elektronikbrände).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Notruf absetzen:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;112 (Europa)&lt;/strong&gt; oder &lt;strong&gt;lokale Notrufnummer&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2&gt;📚 &lt;strong&gt;Weiterführende Links &amp;amp; Normen&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-weiterführende-links--normen"&gt;&lt;/span&gt;
+&lt;a href="#-weiterf%c3%bchrende-links--normen" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;&lt;strong&gt;🔹 Normen &amp;amp; Richtlinien&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-normen--richtlinien"&gt;&lt;/span&gt;
+&lt;a href="#-normen--richtlinien" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Norm&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Beschreibung&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Link&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;DIN VDE 0100-702&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Elektrische Anlagen in Schwimmbädern und anderen Becken.&lt;/td&gt;
+&lt;td&gt;&lt;a
+href="https://www.vde.com/de/normen"target="_blank" rel="noopener"&gt;DIN VDE 0100-702&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;DIN VDE 0100-410&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Schutz gegen elektrischen Schlag.&lt;/td&gt;
+&lt;td&gt;&lt;a
+href="https://www.vde.com/de/normen"target="_blank" rel="noopener"&gt;DIN VDE 0100-410&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;DIN VDE 0100-530&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Auswahl und Errichtung elektrischer Betriebsmittel.&lt;/td&gt;
+&lt;td&gt;&lt;a
+href="https://www.vde.com/de/normen"target="_blank" rel="noopener"&gt;DIN VDE 0100-530&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;DIN EN 60335-1&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Sicherheit elektrischer Geräte für den Hausgebrauch.&lt;/td&gt;
+&lt;td&gt;&lt;a
+href="https://www.din.de/"target="_blank" rel="noopener"&gt;DIN EN 60335-1&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;&lt;strong&gt;🔹 Nützliche Ressourcen&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-nützliche-ressourcen"&gt;&lt;/span&gt;
+&lt;a href="#-n%c3%bctzliche-ressourcen" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a
+href="https://www.vde.com/de/verbraucher"target="_blank" rel="noopener"&gt;Elektroinstallation für Laien (VDE)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://www.dgs.de/"target="_blank" rel="noopener"&gt;Sicherheit im Haushalt (DGS)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://www.drk.de/"target="_blank" rel="noopener"&gt;Erste Hilfe bei Stromunfällen (DRK)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;✅ &lt;strong&gt;Checkliste vor der Inbetriebnahme&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-checkliste-vor-der-inbetriebnahme"&gt;&lt;/span&gt;
+&lt;a href="#-checkliste-vor-der-inbetriebnahme" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Prüfpunkt&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Erledigt?&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Hinweise&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;RCD (FI-Schalter) 30mA installiert&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;☐&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Pflicht für Personenschutz!&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;MCB (Sicherung) installiert&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;☐&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;10A oder 16A, Typ B oder C.&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Alle 230V-Verbindungen geprüft&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;☐&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Keine blanken Drähte, nur Schraubklemmen.&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Erdung aller metallischen Teile&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;☐&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Gelb-grüne Kabel verwenden.&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;IP67-Gehäuse für Outdoor-Einsatz&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;☐&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Nur bei Einsatz im Freien.&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Kabelgarnituren für Kabeldurchführungen&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;☐&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;PG7/PG9 für wasserdichte Durchführungen.&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Isolierter Spannungsprüfer getestet&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;☐&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Prüfen, ob alle Leitungen spannungsfrei sind.&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Funktionstest mit 12V-Lampe durchgeführt&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;☐&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Vor dem Anschließen der Pumpen!&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;RCD-Test durchzuführen&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;☐&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Test-Taste am RCD drücken.&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Notfall-Abschaltung in Reichweite&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;☐&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Stecker oder Sicherung schnell erreichbar.&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;🚨 WICHTIG: NUR FORTFAHREN, WENN ALLE PUNKTE ABGEHAKT SIND!&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;🎯 &lt;strong&gt;Zusammenfassung&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-zusammenfassung"&gt;&lt;/span&gt;
+&lt;a href="#-zusammenfassung" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;230V ist tödlich!&lt;/strong&gt; → &lt;strong&gt;Immer RCD + MCB verwenden!&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Nur an spannungsfreien Leitungen arbeiten!&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Immer Erdung (PE) für metallische Teile!&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Outdoor-Einsatz nur mit IP67+!&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Bei Unsicherheit: Elektriker konsultieren!&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Viel Erfolg und bleiben Sie sicher!&lt;/strong&gt; 🛡️&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Falls Sie Fragen haben, zögern Sie nicht, in den &lt;a
+href="https://github.com/smart-swimmingpool/pool-controller/discussions"target="_blank" rel="noopener"&gt;GitHub Discussions&lt;/a&gt; nachzufragen.&lt;/em&gt;&lt;/p&gt;</description></item><item><title>Electrical Safety</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/electrical-safety/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/electrical-safety/</guid><description>
+&lt;blockquote&gt;
+&lt;p&gt;⚠️ &lt;strong&gt;WARNING: This document describes 230V AC mains voltage installation.&lt;/strong&gt;
+Improper wiring poses risk of electric shock, fire, or equipment damage.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If you are not experienced with mains-voltage wiring, hire a qualified
+electrician&lt;/li&gt;
+&lt;li&gt;This guide is for informational purposes — local electrical codes may
+require certified installation&lt;/li&gt;
+&lt;li&gt;This is a DIY project — not CE/UL certified for commercial use&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Overview&lt;span class="hx:absolute hx:-mt-20" id="overview"&gt;&lt;/span&gt;
+&lt;a href="#overview" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The Pool Controller switches &lt;strong&gt;230V AC mains voltage&lt;/strong&gt; to pool and solar
+pumps.
+Improper wiring or installation poses risk of electric shock, fire, or equipment
+damage. Read this document carefully before connecting mains power.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;If you are not experienced with mains-voltage wiring, hire a qualified
+electrician.&lt;/strong&gt; This guide is for informational purposes — local electrical
+codes may require certified installation.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2&gt;Hazard Assessment&lt;span class="hx:absolute hx:-mt-20" id="hazard-assessment"&gt;&lt;/span&gt;
+&lt;a href="#hazard-assessment" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Hazard&lt;/th&gt;
+&lt;th&gt;Risk Level&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Electric shock&lt;/td&gt;
+&lt;td&gt;High&lt;/td&gt;
+&lt;td&gt;Direct contact with 230V AC can be fatal&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Fire&lt;/td&gt;
+&lt;td&gt;Medium&lt;/td&gt;
+&lt;td&gt;Overloaded circuits or loose connections can ignite&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Equipment damage&lt;/td&gt;
+&lt;td&gt;Medium&lt;/td&gt;
+&lt;td&gt;Incorrect wiring can destroy the controller or pumps&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Water ingress&lt;/td&gt;
+&lt;td&gt;High&lt;/td&gt;
+&lt;td&gt;Pool environment has high humidity and splash risk&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2&gt;General Safety Rules&lt;span class="hx:absolute hx:-mt-20" id="general-safety-rules"&gt;&lt;/span&gt;
+&lt;a href="#general-safety-rules" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Always disconnect power&lt;/strong&gt; before working on the controller or pumps&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Use a residual-current device (RCD/FI)&lt;/strong&gt; on the controller circuit&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Never work wet&lt;/strong&gt; — ensure dry hands and dry environment&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Use the correct fuse rating&lt;/strong&gt; for your pump load&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Keep mains and low-voltage wiring separated&lt;/strong&gt; inside the enclosure&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Secure all connections&lt;/strong&gt; with strain relief&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Label all cables&lt;/strong&gt; clearly&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2&gt;Mains Wiring&lt;span class="hx:absolute hx:-mt-20" id="mains-wiring"&gt;&lt;/span&gt;
+&lt;a href="#mains-wiring" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Relay Output Wiring&lt;span class="hx:absolute hx:-mt-20" id="relay-output-wiring"&gt;&lt;/span&gt;
+&lt;a href="#relay-output-wiring" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The relay module switches the &lt;strong&gt;Live (phase)&lt;/strong&gt; conductor only. The Neutral
+and Protective Earth connect directly to the pump.&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;AC Mains Relay Module Pump
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;┌────────┐ ┌──────────────┐ ┌─────┐
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ Live ──────┤ COM NO ──────┤ L │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ (230V) │ │ │ │ │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ Neutr. ───────────────────────────┤ N │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ │ │ │ │ │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ Earth ───────────────────────────┤ PE │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;└────────┘ └──────────────┘ └─────┘&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3&gt;Wire Sizing&lt;span class="hx:absolute hx:-mt-20" id="wire-sizing"&gt;&lt;/span&gt;
+&lt;a href="#wire-sizing" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Pump Power&lt;/th&gt;
+&lt;th&gt;Min. Wire Cross-Section&lt;/th&gt;
+&lt;th&gt;Fuse&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;≤ 500 W&lt;/td&gt;
+&lt;td&gt;1.5 mm² (AWG 15)&lt;/td&gt;
+&lt;td&gt;6 A&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;500–1000 W&lt;/td&gt;
+&lt;td&gt;1.5 mm² (AWG 15)&lt;/td&gt;
+&lt;td&gt;10 A&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1000–2000 W&lt;/td&gt;
+&lt;td&gt;2.5 mm² (AWG 13)&lt;/td&gt;
+&lt;td&gt;16 A&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;Fuse Requirements&lt;span class="hx:absolute hx:-mt-20" id="fuse-requirements"&gt;&lt;/span&gt;
+&lt;a href="#fuse-requirements" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Install a circuit breaker appropriate for your pump load&lt;/li&gt;
+&lt;li&gt;The fuse should be on the &lt;strong&gt;Live&lt;/strong&gt; conductor before the controller&lt;/li&gt;
+&lt;li&gt;Use a DIN-rail or panel-mount fuse holder&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Low-Voltage Wiring&lt;span class="hx:absolute hx:-mt-20" id="low-voltage-wiring"&gt;&lt;/span&gt;
+&lt;a href="#low-voltage-wiring" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;ESP32 and Sensor Wiring&lt;span class="hx:absolute hx:-mt-20" id="esp32-and-sensor-wiring"&gt;&lt;/span&gt;
+&lt;a href="#esp32-and-sensor-wiring" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ESP32 operates at 3.3V / 5V (USB power)&lt;/li&gt;
+&lt;li&gt;DS18B20 sensors use 3.3V — max cable length: 10 m&lt;/li&gt;
+&lt;li&gt;Keep sensor cables away from mains cables (min. 5 cm separation)&lt;/li&gt;
+&lt;li&gt;Use shielded twisted-pair cable for long sensor runs&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Power Supply&lt;span class="hx:absolute hx:-mt-20" id="power-supply"&gt;&lt;/span&gt;
+&lt;a href="#power-supply" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Use a &lt;strong&gt;regulated&lt;/strong&gt; 5V power supply (not a bare wall adapter)&lt;/li&gt;
+&lt;li&gt;Minimum 1A for ESP32 + relay module&lt;/li&gt;
+&lt;li&gt;For 12V pool systems, use a 12V→5V DC-DC converter&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Enclosure Requirements&lt;span class="hx:absolute hx:-mt-20" id="enclosure-requirements"&gt;&lt;/span&gt;
+&lt;a href="#enclosure-requirements" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;IP Rating&lt;span class="hx:absolute hx:-mt-20" id="ip-rating"&gt;&lt;/span&gt;
+&lt;a href="#ip-rating" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Location&lt;/th&gt;
+&lt;th&gt;Minimum IP Rating&lt;/th&gt;
+&lt;th&gt;Requirements&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Indoor (dry)&lt;/td&gt;
+&lt;td&gt;IP54&lt;/td&gt;
+&lt;td&gt;Dust protection, splash resistance&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Outdoor (sheltered)&lt;/td&gt;
+&lt;td&gt;IP65&lt;/td&gt;
+&lt;td&gt;Water jets, dust-tight&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Outdoor (direct weather)&lt;/td&gt;
+&lt;td&gt;IP66+&lt;/td&gt;
+&lt;td&gt;Powerful water jets, weatherproof&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;Enclosure Best Practices&lt;span class="hx:absolute hx:-mt-20" id="enclosure-best-practices"&gt;&lt;/span&gt;
+&lt;a href="#enclosure-best-practices" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Use &lt;strong&gt;cable glands&lt;/strong&gt; (PG9 or PG11) for all cable entries&lt;/li&gt;
+&lt;li&gt;Install a &lt;strong&gt;drip loop&lt;/strong&gt; on external cables before entering the enclosure&lt;/li&gt;
+&lt;li&gt;Keep mains and low-voltage cables on &lt;strong&gt;opposite sides&lt;/strong&gt; of the enclosure&lt;/li&gt;
+&lt;li&gt;Use &lt;strong&gt;strain relief&lt;/strong&gt; on all cables&lt;/li&gt;
+&lt;li&gt;Ensure the enclosure can be &lt;strong&gt;locked&lt;/strong&gt; or secured against tampering&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Grounding&lt;span class="hx:absolute hx:-mt-20" id="grounding"&gt;&lt;/span&gt;
+&lt;a href="#grounding" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Protective Earth (PE)&lt;span class="hx:absolute hx:-mt-20" id="protective-earth-pe"&gt;&lt;/span&gt;
+&lt;a href="#protective-earth-pe" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Connect the enclosure to protective earth if it is metal&lt;/li&gt;
+&lt;li&gt;Connect pump motor protective earth&lt;/li&gt;
+&lt;li&gt;Use green/yellow wire (min. 2.5 mm²) for ground connections&lt;/li&gt;
+&lt;li&gt;Verify ground continuity with a multimeter before commissioning&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Ground Loop Prevention&lt;span class="hx:absolute hx:-mt-20" id="ground-loop-prevention"&gt;&lt;/span&gt;
+&lt;a href="#ground-loop-prevention" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Run all ground wires to a &lt;strong&gt;single ground point&lt;/strong&gt; (star topology)&lt;/li&gt;
+&lt;li&gt;Do NOT daisy-chain ground connections&lt;/li&gt;
+&lt;li&gt;Use insulated crimp ring terminals on ground connections&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Commissioning&lt;span class="hx:absolute hx:-mt-20" id="commissioning"&gt;&lt;/span&gt;
+&lt;a href="#commissioning" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Before Connecting Mains&lt;span class="hx:absolute hx:-mt-20" id="before-connecting-mains"&gt;&lt;/span&gt;
+&lt;a href="#before-connecting-mains" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Complete the &lt;a
+href="https://smart-swimmingpool.github.io/docs/build-from-zero/"&gt;Build from Zero&lt;/a&gt; breadboard test&lt;/li&gt;
+&lt;li&gt;Verify sensors return plausible readings&lt;/li&gt;
+&lt;li&gt;Test relay operation with a multimeter (no-load)&lt;/li&gt;
+&lt;li&gt;Confirm the enclosure is properly sealed&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;First Power-On with Mains&lt;span class="hx:absolute hx:-mt-20" id="first-power-on-with-mains"&gt;&lt;/span&gt;
+&lt;a href="#first-power-on-with-mains" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Do not leave the controller unattended&lt;/strong&gt; for the first 30 minutes&lt;/li&gt;
+&lt;li&gt;Listen for unusual sounds (buzzing, arcing)&lt;/li&gt;
+&lt;li&gt;Check for warmth on relay terminals and power supply&lt;/li&gt;
+&lt;li&gt;Verify pump starts and stops correctly&lt;/li&gt;
+&lt;li&gt;Verify relay disengages when toggled OFF&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Annual Inspection&lt;span class="hx:absolute hx:-mt-20" id="annual-inspection"&gt;&lt;/span&gt;
+&lt;a href="#annual-inspection" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Check all screw terminals for tightness&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Inspect cables for damage or wear&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Test RCD/FI switch&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Clean enclosure ventilation openings&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Verify ground continuity&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Emergency Procedures&lt;span class="hx:absolute hx:-mt-20" id="emergency-procedures"&gt;&lt;/span&gt;
+&lt;a href="#emergency-procedures" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;If You Smell Burning&lt;span class="hx:absolute hx:-mt-20" id="if-you-smell-burning"&gt;&lt;/span&gt;
+&lt;a href="#if-you-smell-burning" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Immediately disconnect power&lt;/strong&gt; at the circuit breaker&lt;/li&gt;
+&lt;li&gt;Do not touch the controller&lt;/li&gt;
+&lt;li&gt;Use a CO₂ or powder fire extinguisher (NOT water)&lt;/li&gt;
+&lt;li&gt;Have the installation inspected before re-use&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;If Someone Receives an Electric Shock&lt;span class="hx:absolute hx:-mt-20" id="if-someone-receives-an-electric-shock"&gt;&lt;/span&gt;
+&lt;a href="#if-someone-receives-an-electric-shock" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Do not touch the person&lt;/strong&gt; if they are still in contact with power&lt;/li&gt;
+&lt;li&gt;Disconnect power at the circuit breaker&lt;/li&gt;
+&lt;li&gt;Call emergency services immediately&lt;/li&gt;
+&lt;li&gt;Begin first aid (CPR if trained) once power is disconnected&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2&gt;Related Documents&lt;span class="hx:absolute hx:-mt-20" id="related-documents"&gt;&lt;/span&gt;
+&lt;a href="#related-documents" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/build-from-zero/"&gt;Build from Zero&lt;/a&gt; — Complete build guide&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/hardware-guide/"&gt;Hardware Guide&lt;/a&gt; — Hardware assembly details&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/safety-model/"&gt;Safety Model&lt;/a&gt; — System safety architecture&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/production-checklist/"&gt;Production Checklist&lt;/a&gt; — Pre-deployment checks&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/security-checklist/"&gt;Security Checklist&lt;/a&gt; — Security hardening&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Safety Model</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/safety-model/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/safety-model/</guid><description>
+&lt;blockquote&gt;
+&lt;p&gt;⚠️ &lt;strong&gt;NOTE&lt;/strong&gt;: This document describes the safety architecture of the
+Pool Controller. For practical electrical safety instructions when
+building the controller, see &lt;a
+href="https://smart-swimmingpool.github.io/docs/pool-controller/electrical-safety/"&gt;Electrical Safety&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Overview&lt;span class="hx:absolute hx:-mt-20" id="overview"&gt;&lt;/span&gt;
+&lt;a href="#overview" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The Pool Controller is designed with a &lt;strong&gt;defense-in-depth&lt;/strong&gt; safety model.
+Safety is not a single feature but a multi-layer architecture spanning
+hardware, firmware, and operational procedures.&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;┌──────────────────────────────────────────────┐
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ Operational Layer │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ (User procedures, checklists, maintenance) │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├──────────────────────────────────────────────┤
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ Software Layer │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ (Watchdog, boot-loop detection, Safe Mode) │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├──────────────────────────────────────────────┤
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ Firmware Layer │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ (Config validation, type safety, NVS CRC) │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├──────────────────────────────────────────────┤
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ Hardware Layer │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ (Relay isolation, fuses, enclosure IP65) │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;└──────────────────────────────────────────────┘&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;h2&gt;Layer 1: Hardware Safety&lt;span class="hx:absolute hx:-mt-20" id="layer-1-hardware-safety"&gt;&lt;/span&gt;
+&lt;a href="#layer-1-hardware-safety" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Relay Isolation&lt;span class="hx:absolute hx:-mt-20" id="relay-isolation"&gt;&lt;/span&gt;
+&lt;a href="#relay-isolation" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Relays provide &lt;strong&gt;galvanic isolation&lt;/strong&gt; between the ESP32 (3.3V/5V) and
+mains voltage (230V AC)&lt;/li&gt;
+&lt;li&gt;Minimum 4 mm creepage distance between coil and contacts on quality modules&lt;/li&gt;
+&lt;li&gt;Relay modules with optocoupler input provide additional isolation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Overcurrent Protection&lt;span class="hx:absolute hx:-mt-20" id="overcurrent-protection"&gt;&lt;/span&gt;
+&lt;a href="#overcurrent-protection" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;A &lt;strong&gt;circuit breaker&lt;/strong&gt; must be installed on the mains Live conductor&lt;/li&gt;
+&lt;li&gt;Rated for the pump load (see &lt;a
+href="https://smart-swimmingpool.github.io/docs/electrical-safety/"&gt;Electrical Safety&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Protects against short circuits and overloads&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Enclosure&lt;span class="hx:absolute hx:-mt-20" id="enclosure"&gt;&lt;/span&gt;
+&lt;a href="#enclosure" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;IP65-rated enclosure protects against water jets and dust&lt;/li&gt;
+&lt;li&gt;Cable glands provide strain relief and maintain IP rating&lt;/li&gt;
+&lt;li&gt;Physical separation of mains and low-voltage wiring inside enclosure&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Failsafe Relay Behavior&lt;span class="hx:absolute hx:-mt-20" id="failsafe-relay-behavior"&gt;&lt;/span&gt;
+&lt;a href="#failsafe-relay-behavior" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Relays are &lt;strong&gt;normally open (NO)&lt;/strong&gt; — if the ESP32 loses power, the relays
+disengage and pumps stop&lt;/li&gt;
+&lt;li&gt;This prevents pumps from running uncontrollably on controller failure&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Layer 2: Firmware Safety&lt;span class="hx:absolute hx:-mt-20" id="layer-2-firmware-safety"&gt;&lt;/span&gt;
+&lt;a href="#layer-2-firmware-safety" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Configuration Validation&lt;span class="hx:absolute hx:-mt-20" id="configuration-validation"&gt;&lt;/span&gt;
+&lt;a href="#configuration-validation" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;All configuration values are validated before being applied:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;Validation&lt;/th&gt;
+&lt;th&gt;Range&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Temperature thresholds&lt;/td&gt;
+&lt;td&gt;Min/max bounds&lt;/td&gt;
+&lt;td&gt;0–60 °C&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Timer values&lt;/td&gt;
+&lt;td&gt;24h format check&lt;/td&gt;
+&lt;td&gt;00:00–23:59&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;WiFi settings&lt;/td&gt;
+&lt;td&gt;SSID length check&lt;/td&gt;
+&lt;td&gt;1–32 chars&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MQTT settings&lt;/td&gt;
+&lt;td&gt;Hostname format check&lt;/td&gt;
+&lt;td&gt;Valid hostname/IP&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relay configuration&lt;/td&gt;
+&lt;td&gt;Enum check&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;true&lt;/code&gt; / &lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Invalid configurations are &lt;strong&gt;rejected&lt;/strong&gt; and the previous value is preserved.&lt;/p&gt;
+&lt;h3&gt;NVS CRC Protection&lt;span class="hx:absolute hx:-mt-20" id="nvs-crc-protection"&gt;&lt;/span&gt;
+&lt;a href="#nvs-crc-protection" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Configuration stored in ESP32 NVS includes a CRC32 checksum. If the
+checksum doesn&amp;rsquo;t match on boot, the configuration is reset to factory defaults.&lt;/p&gt;
+&lt;h3&gt;Type Safety&lt;span class="hx:absolute hx:-mt-20" id="type-safety"&gt;&lt;/span&gt;
+&lt;a href="#type-safety" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The firmware uses strongly-typed enums and structs instead of generic integers
+for mode selection, reducing the risk of invalid states.&lt;/p&gt;
+&lt;h3&gt;Task Monitoring&lt;span class="hx:absolute hx:-mt-20" id="task-monitoring"&gt;&lt;/span&gt;
+&lt;a href="#task-monitoring" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Each FreeRTOS task monitors its own stack usage. If a task exceeds the
+configured stack watermark, a warning is logged and the system can take
+corrective action.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Layer 3: Software Safety&lt;span class="hx:absolute hx:-mt-20" id="layer-3-software-safety"&gt;&lt;/span&gt;
+&lt;a href="#layer-3-software-safety" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Hardware Watchdog Timer (WDT)&lt;span class="hx:absolute hx:-mt-20" id="hardware-watchdog-timer-wdt"&gt;&lt;/span&gt;
+&lt;a href="#hardware-watchdog-timer-wdt" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ESP32 hardware WDT with 30-second timeout&lt;/li&gt;
+&lt;li&gt;Reset if the main loop stalls for more than 30 seconds&lt;/li&gt;
+&lt;li&gt;Automatically re-enabled after boot&lt;/li&gt;
+&lt;li&gt;Ensures the controller cannot hang indefinitely&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Boot-Loop Detection&lt;span class="hx:absolute hx:-mt-20" id="boot-loop-detection"&gt;&lt;/span&gt;
+&lt;a href="#boot-loop-detection" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;NVS-based boot counter increments on each boot&lt;/li&gt;
+&lt;li&gt;Counter resets after a successful 5-minute run&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;4 consecutive short boots&lt;/strong&gt; trigger Safe Mode&lt;/li&gt;
+&lt;li&gt;In Safe Mode:
+&lt;ul&gt;
+&lt;li&gt;All relays are forced OFF&lt;/li&gt;
+&lt;li&gt;Web UI remains accessible&lt;/li&gt;
+&lt;li&gt;Serial log shows Safe Mode indicator&lt;/li&gt;
+&lt;li&gt;Configuration can be inspected and corrected&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Memory Monitoring&lt;span class="hx:absolute hx:-mt-20" id="memory-monitoring"&gt;&lt;/span&gt;
+&lt;a href="#memory-monitoring" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Free heap is checked every 10 seconds&lt;/li&gt;
+&lt;li&gt;At &lt;strong&gt;critical threshold&lt;/strong&gt; (8 KB free heap):
+&lt;ul&gt;
+&lt;li&gt;Warning logged&lt;/li&gt;
+&lt;li&gt;Graceful auto-reboot initiated&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;At &lt;strong&gt;warning threshold&lt;/strong&gt; (15 KB free heap):
+&lt;ul&gt;
+&lt;li&gt;Warning logged&lt;/li&gt;
+&lt;li&gt;No reboot — system continues monitoring&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Sensor Auto-Recovery&lt;span class="hx:absolute hx:-mt-20" id="sensor-auto-recovery"&gt;&lt;/span&gt;
+&lt;a href="#sensor-auto-recovery" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;DS18B20 read failure triggers fast re-polling (5s instead of 300s)&lt;/li&gt;
+&lt;li&gt;After 3 consecutive successful reads, back to normal interval&lt;/li&gt;
+&lt;li&gt;Prevents unnecessary alerts from transient sensor glitches&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;NTP Graceful Degradation&lt;span class="hx:absolute hx:-mt-20" id="ntp-graceful-degradation"&gt;&lt;/span&gt;
+&lt;a href="#ntp-graceful-degradation" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Three-stage fallback for time synchronization:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Primary&lt;/strong&gt;: NTP server responds → normal operation&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Degraded&lt;/strong&gt;: NTP fails → uses last known good time&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Safe&lt;/strong&gt;: No time available → uses millis() uptime with warning&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2&gt;Layer 4: Operational Safety&lt;span class="hx:absolute hx:-mt-20" id="layer-4-operational-safety"&gt;&lt;/span&gt;
+&lt;a href="#layer-4-operational-safety" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Commissioning Procedures&lt;span class="hx:absolute hx:-mt-20" id="commissioning-procedures"&gt;&lt;/span&gt;
+&lt;a href="#commissioning-procedures" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Breadboard test&lt;/strong&gt; before mains connection (see &lt;a
+href="https://smart-swimmingpool.github.io/docs/build-from-zero/"&gt;Build from Zero&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Relay no-load test&lt;/strong&gt; before connecting pumps&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;First power-on&lt;/strong&gt; with mains: 30-minute supervised operation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Maintenance Schedule&lt;span class="hx:absolute hx:-mt-20" id="maintenance-schedule"&gt;&lt;/span&gt;
+&lt;a href="#maintenance-schedule" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Monthly: verify temperatures, check warnings&lt;/li&gt;
+&lt;li&gt;Annually: inspect wiring, test RCD, check enclosure seals&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Checklists&lt;span class="hx:absolute hx:-mt-20" id="checklists"&gt;&lt;/span&gt;
+&lt;a href="#checklists" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/production-checklist/"&gt;Production Checklist&lt;/a&gt; — pre-deployment&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/security-checklist/"&gt;Security Checklist&lt;/a&gt; — security hardening&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Failure Mode Analysis&lt;span class="hx:absolute hx:-mt-20" id="failure-mode-analysis"&gt;&lt;/span&gt;
+&lt;a href="#failure-mode-analysis" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Failure Mode&lt;/th&gt;
+&lt;th&gt;Effect&lt;/th&gt;
+&lt;th&gt;Safety Layer&lt;/th&gt;
+&lt;th&gt;Mitigation&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ESP32 crash&lt;/td&gt;
+&lt;td&gt;Relays off, pumps stop&lt;/td&gt;
+&lt;td&gt;Hardware&lt;/td&gt;
+&lt;td&gt;Failsafe relay behavior (NO)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Software hang&lt;/td&gt;
+&lt;td&gt;No relay updates&lt;/td&gt;
+&lt;td&gt;WDT&lt;/td&gt;
+&lt;td&gt;30s reboot&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Config corruption&lt;/td&gt;
+&lt;td&gt;Invalid settings&lt;/td&gt;
+&lt;td&gt;Firmware&lt;/td&gt;
+&lt;td&gt;NVS CRC → factory reset&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Repeated crashes&lt;/td&gt;
+&lt;td&gt;Unsafe state&lt;/td&gt;
+&lt;td&gt;Boot-loop&lt;/td&gt;
+&lt;td&gt;Safe Mode → relays OFF&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Heap exhaustion&lt;/td&gt;
+&lt;td&gt;Unpredictable&lt;/td&gt;
+&lt;td&gt;Memory monitor&lt;/td&gt;
+&lt;td&gt;Graceful reboot&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Sensor failure&lt;/td&gt;
+&lt;td&gt;No temperature data&lt;/td&gt;
+&lt;td&gt;Sensor recovery&lt;/td&gt;
+&lt;td&gt;Fast re-polling&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Power loss&lt;/td&gt;
+&lt;td&gt;Controller off&lt;/td&gt;
+&lt;td&gt;Hardware&lt;/td&gt;
+&lt;td&gt;Relays default OFF&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Network loss&lt;/td&gt;
+&lt;td&gt;No remote control&lt;/td&gt;
+&lt;td&gt;Software&lt;/td&gt;
+&lt;td&gt;Local web UI still works&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2&gt;Related Documents&lt;span class="hx:absolute hx:-mt-20" id="related-documents"&gt;&lt;/span&gt;
+&lt;a href="#related-documents" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/electrical-safety/"&gt;Electrical Safety&lt;/a&gt; — Electrical safety information&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/production-checklist/"&gt;Production Checklist&lt;/a&gt; — Pre-deployment checks&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/security-checklist/"&gt;Security Checklist&lt;/a&gt; — Security hardening&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/build-from-zero/"&gt;Build from Zero&lt;/a&gt; — Complete build guide&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>

@@ -1,0 +1,503 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Architecture</title><link>https://smart-swimmingpool.github.io/tags/architecture/</link><description>Recent content in Architecture on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Sun, 14 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/tags/architecture/index.xml" rel="self" type="application/rss+xml"/><item><title>Architecture</title><link>https://smart-swimmingpool.github.io/docs/architecture/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/architecture/</guid><description>
+&lt;p&gt;&lt;strong&gt;🏊 Smart Swimming Pool: System architecture and data flow overview.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This page describes how the hardware components, software modules, and communication protocols work together in a typical Smart Swimming Pool installation.&lt;/p&gt;
+&lt;h2&gt;System Overview&lt;span class="hx:absolute hx:-mt-20" id="system-overview"&gt;&lt;/span&gt;
+&lt;a href="#system-overview" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The following diagram shows all major components and how they connect:&lt;/p&gt;
+&lt;div role="img" aria-label="Diagram"&gt;
+&lt;pre class="mermaid hx:mt-6"&gt;
+flowchart LR
+subgraph Sensors[&amp;#34;🌡️ Sensors (Low Voltage)&amp;#34;]
+S1[DS18B20&amp;lt;br/&amp;gt;Solar Collector] --&amp;gt;|GPIO32&amp;lt;br/&amp;gt;OneWire| ESP
+S2[DS18B20&amp;lt;br/&amp;gt;Pool Water] --&amp;gt;|GPIO33&amp;lt;br/&amp;gt;OneWire| ESP
+end
+subgraph Controller[&amp;#34;🎛️ Pool Controller&amp;#34;]
+ESP[ESP32&amp;lt;br/&amp;gt;Pool Controller&amp;lt;br/&amp;gt;Firmware v3.x]
+WEB[Web Interface&amp;lt;br/&amp;gt;LittleFS&amp;lt;br/&amp;gt;Configuration UI]
+ESP --- WEB
+end
+subgraph Relay[&amp;#34;🔌 Relay Module (Low Voltage)&amp;#34;]
+R[2-Channel&amp;lt;br/&amp;gt;Relay Module&amp;lt;br/&amp;gt;GPIO 25/26]
+end
+subgraph Mains[&amp;#34;⚡ Mains Voltage (230V)&amp;#34;]
+P1[Heating Circuit&amp;lt;br/&amp;gt;Pump]
+P2[Filter/Circulation&amp;lt;br/&amp;gt;Pump]
+RCD[FI / RCD&amp;lt;br/&amp;gt;Circuit Breaker]
+end
+subgraph Network[&amp;#34;🌐 Network&amp;#34;]
+MQTT[MQTT Broker&amp;lt;br/&amp;gt;Mosquitto]
+end
+subgraph SmartHome[&amp;#34;🏠 Smart Home (Optional)&amp;#34;]
+HA[Home Assistant&amp;lt;br/&amp;gt;MQTT Discovery]
+OH[openHAB&amp;lt;br/&amp;gt;MQTT Binding]
+GRAF[Grafana&amp;lt;br/&amp;gt;Dashboard]
+end
+subgraph Display[&amp;#34;🖥️ Optional Modules&amp;#34;]
+PM[Pool Monitor&amp;lt;br/&amp;gt;Wireless Display]
+end
+%% Connections
+ESP --&amp;gt;|GPIO 25/26&amp;lt;br/&amp;gt;Active-Low| R
+ESP --&amp;gt;|MQTT&amp;lt;br/&amp;gt;HA Discovery / Homie| MQTT
+R --&amp;gt;|230V via RCD| Mains
+RCD --- P1
+RCD --- P2
+MQTT --&amp;gt; HA
+MQTT --&amp;gt; OH
+MQTT --&amp;gt; GRAF
+MQTT --&amp;gt; PM
+&lt;/pre&gt;
+&lt;/div&gt;&lt;h3&gt;Diagram Legend&lt;span class="hx:absolute hx:-mt-20" id="diagram-legend"&gt;&lt;/span&gt;
+&lt;a href="#diagram-legend" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Element&lt;/th&gt;
+&lt;th&gt;Meaning&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Solid arrow&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Direct electrical connection&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Dotted/network arrow&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Network / MQTT connection&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;230V (Mains)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;High-voltage side — observe electrical safety&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Low Voltage&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;3.3V / 5V side — safe to work on when disconnected from mains&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2&gt;Component Descriptions&lt;span class="hx:absolute hx:-mt-20" id="component-descriptions"&gt;&lt;/span&gt;
+&lt;a href="#component-descriptions" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Sensors (Low Voltage)&lt;span class="hx:absolute hx:-mt-20" id="sensors-low-voltage"&gt;&lt;/span&gt;
+&lt;a href="#sensors-low-voltage" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Component&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Connection&lt;/th&gt;
+&lt;th&gt;Purpose&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Solar Collector Sensor&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;DS18B20 (waterproof)&lt;/td&gt;
+&lt;td&gt;GPIO32 via OneWire&lt;/td&gt;
+&lt;td&gt;Measures temperature at solar collector outlet&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Pool Water Sensor&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;DS18B20 (waterproof)&lt;/td&gt;
+&lt;td&gt;GPIO33 via OneWire&lt;/td&gt;
+&lt;td&gt;Measures pool water temperature&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Both sensors share the same 3.3V supply and GND. Each data line requires a &lt;strong&gt;4.7kΩ pull-up resistor&lt;/strong&gt; to 3.3V.&lt;/p&gt;
+&lt;h3&gt;Pool Controller&lt;span class="hx:absolute hx:-mt-20" id="pool-controller"&gt;&lt;/span&gt;
+&lt;a href="#pool-controller" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The &lt;strong&gt;ESP32&lt;/strong&gt; runs the pool controller firmware, which:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Reads both DS18B20 temperature sensors via OneWire protocol&lt;/li&gt;
+&lt;li&gt;Implements heating logic (hysteresis, temperature thresholds)&lt;/li&gt;
+&lt;li&gt;Controls circulation scheduling (timer, temperature-based)&lt;/li&gt;
+&lt;li&gt;Publishes all data via &lt;strong&gt;MQTT&lt;/strong&gt; using the &lt;strong&gt;Home Assistant MQTT Discovery&lt;/strong&gt; format (v3.x) or &lt;strong&gt;Homie convention&lt;/strong&gt; (v2.x)&lt;/li&gt;
+&lt;li&gt;Provides a &lt;strong&gt;web interface&lt;/strong&gt; for configuration (LittleFS)&lt;/li&gt;
+&lt;li&gt;Accepts commands via MQTT and web UI&lt;/li&gt;
+&lt;li&gt;Operates fully &lt;strong&gt;autonomously&lt;/strong&gt; — no smart home server required&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Relay Module&lt;span class="hx:absolute hx:-mt-20" id="relay-module"&gt;&lt;/span&gt;
+&lt;a href="#relay-module" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;A standard &lt;strong&gt;2-channel 5V relay module&lt;/strong&gt; (active-low):&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Channel&lt;/th&gt;
+&lt;th&gt;GPIO&lt;/th&gt;
+&lt;th&gt;Controls&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Relay IN1 (Ch. 1)&lt;/td&gt;
+&lt;td&gt;GPIO26&lt;/td&gt;
+&lt;td&gt;Heating circuit pump&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relay IN2 (Ch. 2)&lt;/td&gt;
+&lt;td&gt;GPIO25&lt;/td&gt;
+&lt;td&gt;Filter/circulation pump&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;The relay module provides &lt;strong&gt;galvanic isolation&lt;/strong&gt; between the ESP32 (low voltage) and the pumps (230V). Always connect pumps through an &lt;strong&gt;RCD/FI circuit breaker&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3&gt;Mains Voltage Side (230V)&lt;span class="hx:absolute hx:-mt-20" id="mains-voltage-side-230v"&gt;&lt;/span&gt;
+&lt;a href="#mains-voltage-side-230v" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hx:rounded-lg hx:border-2 hx:border-red-300 hx:bg-red-50 hx:dark:border-red-700 hx:dark:bg-red-900/20 hx:p-4 hx:my-6"&gt;
+&lt;div class="hx:flex hx:items-start hx:gap-3"&gt;
+&lt;span class="hx:text-2xl hx:flex-shrink-0"&gt;⚠️&lt;/span&gt;
+&lt;div&gt;
+&lt;p class="hx:font-bold hx:text-red-700 hx:dark:text-red-400 hx:text-sm hx:uppercase hx:tracking-wide hx:mb-1"&gt;WARNING: 230V Mains Voltage&lt;/p&gt;
+&lt;p class="hx:text-sm hx:text-red-800 hx:dark:text-red-300 hx:mb-0"&gt;This project operates with &lt;strong&gt;230V AC mains voltage&lt;/strong&gt; and should only be built by individuals with &lt;strong&gt;basic electronics knowledge&lt;/strong&gt;.
+Always use an &lt;strong&gt;RCD (residual-current device)&lt;/strong&gt;. This project is &lt;strong&gt;not CE/UL certified&lt;/strong&gt; and not intended for commercial use.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Heating circuit pump&lt;/strong&gt;: Circulates pool water through the heat exchanger&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Filter/circulation pump&lt;/strong&gt;: Runs the sand filter system on a schedule&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;RCD / FI&lt;/strong&gt;: Mandatory safety device — protects against ground faults&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Circuit breaker&lt;/strong&gt;: Overcurrent protection for each pump circuit&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;⚠️ All 230V wiring must comply with local electrical codes. If unsure, consult a licensed electrician.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2&gt;Data Flow&lt;span class="hx:absolute hx:-mt-20" id="data-flow"&gt;&lt;/span&gt;
+&lt;a href="#data-flow" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Sensor Reading&lt;/strong&gt;: ESP32 reads temperatures from DS18B20 sensors via OneWire&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Control Logic&lt;/strong&gt;: Firmware evaluates heating and circulation rules (autonomous, no server needed)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MQTT Publication&lt;/strong&gt;: All sensor values, switch states, and diagnostics are published to the MQTT broker using the Home Assistant MQTT Discovery format (v3.x)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Smart Home Integration&lt;/strong&gt;: Home Assistant, openHAB, or Grafana subscribe to MQTT topics for visualization and automation&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Actuation&lt;/strong&gt;: ESP32 drives the relay module to switch pumps on/off&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Key Design Decisions&lt;span class="hx:absolute hx:-mt-20" id="key-design-decisions"&gt;&lt;/span&gt;
+&lt;a href="#key-design-decisions" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Decision&lt;/th&gt;
+&lt;th&gt;Rationale&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Control logic on ESP32&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;System remains fully functional even when WiFi or the smart home server is offline&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;MQTT Discovery (HA / Homie)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Standardized auto-discovery, loose coupling; v3.x uses Home Assistant MQTT Discovery, v2.x used Homie convention&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Active-low relays&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Matches common cheap relay modules; during ESP32 boot, GPIOs are HIGH = relays stay OFF (failsafe)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Separate GPIO per sensor&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Allows independent fault detection; if one sensor fails, the other continues working&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2&gt;Optional Modules&lt;span class="hx:absolute hx:-mt-20" id="optional-modules"&gt;&lt;/span&gt;
+&lt;a href="#optional-modules" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The architecture supports several optional add-ons:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Module&lt;/th&gt;
+&lt;th&gt;Purpose&lt;/th&gt;
+&lt;th&gt;Integration&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Home Assistant&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Full dashboard, automations, notifications&lt;/td&gt;
+&lt;td&gt;MQTT Discovery (automatic)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;openHAB&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Sitemap-based control&lt;/td&gt;
+&lt;td&gt;MQTT Binding&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Grafana Dashboard&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Historical data visualization&lt;/td&gt;
+&lt;td&gt;MQTT → InfluxDB → Grafana&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Pool Monitor&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Solar-powered wireless temperature display&lt;/td&gt;
+&lt;td&gt;MQTT subscription&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Smart Analyzer&lt;/strong&gt; (planned)&lt;/td&gt;
+&lt;td&gt;Water quality monitoring&lt;/td&gt;
+&lt;td&gt;MQTT (future)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2&gt;Related Pages&lt;span class="hx:absolute hx:-mt-20" id="related-pages"&gt;&lt;/span&gt;
+&lt;a href="#related-pages" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/getting-started/"&gt;Getting Started&lt;/a&gt; — Build your own pool controller&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/home-assistant-integration/"&gt;Home Assistant Integration&lt;/a&gt; — Dashboard and automation guide&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/troubleshooting/"&gt;FAQ &amp;amp; Troubleshooting&lt;/a&gt; — Common problems and solutions&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Safety Model</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/safety-model/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/safety-model/</guid><description>
+&lt;blockquote&gt;
+&lt;p&gt;⚠️ &lt;strong&gt;NOTE&lt;/strong&gt;: This document describes the safety architecture of the
+Pool Controller. For practical electrical safety instructions when
+building the controller, see &lt;a
+href="https://smart-swimmingpool.github.io/docs/pool-controller/electrical-safety/"&gt;Electrical Safety&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Overview&lt;span class="hx:absolute hx:-mt-20" id="overview"&gt;&lt;/span&gt;
+&lt;a href="#overview" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The Pool Controller is designed with a &lt;strong&gt;defense-in-depth&lt;/strong&gt; safety model.
+Safety is not a single feature but a multi-layer architecture spanning
+hardware, firmware, and operational procedures.&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;┌──────────────────────────────────────────────┐
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ Operational Layer │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ (User procedures, checklists, maintenance) │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├──────────────────────────────────────────────┤
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ Software Layer │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ (Watchdog, boot-loop detection, Safe Mode) │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├──────────────────────────────────────────────┤
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ Firmware Layer │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ (Config validation, type safety, NVS CRC) │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├──────────────────────────────────────────────┤
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ Hardware Layer │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ (Relay isolation, fuses, enclosure IP65) │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;└──────────────────────────────────────────────┘&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;h2&gt;Layer 1: Hardware Safety&lt;span class="hx:absolute hx:-mt-20" id="layer-1-hardware-safety"&gt;&lt;/span&gt;
+&lt;a href="#layer-1-hardware-safety" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Relay Isolation&lt;span class="hx:absolute hx:-mt-20" id="relay-isolation"&gt;&lt;/span&gt;
+&lt;a href="#relay-isolation" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Relays provide &lt;strong&gt;galvanic isolation&lt;/strong&gt; between the ESP32 (3.3V/5V) and
+mains voltage (230V AC)&lt;/li&gt;
+&lt;li&gt;Minimum 4 mm creepage distance between coil and contacts on quality modules&lt;/li&gt;
+&lt;li&gt;Relay modules with optocoupler input provide additional isolation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Overcurrent Protection&lt;span class="hx:absolute hx:-mt-20" id="overcurrent-protection"&gt;&lt;/span&gt;
+&lt;a href="#overcurrent-protection" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;A &lt;strong&gt;circuit breaker&lt;/strong&gt; must be installed on the mains Live conductor&lt;/li&gt;
+&lt;li&gt;Rated for the pump load (see &lt;a
+href="https://smart-swimmingpool.github.io/docs/electrical-safety/"&gt;Electrical Safety&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Protects against short circuits and overloads&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Enclosure&lt;span class="hx:absolute hx:-mt-20" id="enclosure"&gt;&lt;/span&gt;
+&lt;a href="#enclosure" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;IP65-rated enclosure protects against water jets and dust&lt;/li&gt;
+&lt;li&gt;Cable glands provide strain relief and maintain IP rating&lt;/li&gt;
+&lt;li&gt;Physical separation of mains and low-voltage wiring inside enclosure&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Failsafe Relay Behavior&lt;span class="hx:absolute hx:-mt-20" id="failsafe-relay-behavior"&gt;&lt;/span&gt;
+&lt;a href="#failsafe-relay-behavior" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Relays are &lt;strong&gt;normally open (NO)&lt;/strong&gt; — if the ESP32 loses power, the relays
+disengage and pumps stop&lt;/li&gt;
+&lt;li&gt;This prevents pumps from running uncontrollably on controller failure&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Layer 2: Firmware Safety&lt;span class="hx:absolute hx:-mt-20" id="layer-2-firmware-safety"&gt;&lt;/span&gt;
+&lt;a href="#layer-2-firmware-safety" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Configuration Validation&lt;span class="hx:absolute hx:-mt-20" id="configuration-validation"&gt;&lt;/span&gt;
+&lt;a href="#configuration-validation" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;All configuration values are validated before being applied:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;Validation&lt;/th&gt;
+&lt;th&gt;Range&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Temperature thresholds&lt;/td&gt;
+&lt;td&gt;Min/max bounds&lt;/td&gt;
+&lt;td&gt;0–60 °C&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Timer values&lt;/td&gt;
+&lt;td&gt;24h format check&lt;/td&gt;
+&lt;td&gt;00:00–23:59&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;WiFi settings&lt;/td&gt;
+&lt;td&gt;SSID length check&lt;/td&gt;
+&lt;td&gt;1–32 chars&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MQTT settings&lt;/td&gt;
+&lt;td&gt;Hostname format check&lt;/td&gt;
+&lt;td&gt;Valid hostname/IP&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relay configuration&lt;/td&gt;
+&lt;td&gt;Enum check&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;true&lt;/code&gt; / &lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Invalid configurations are &lt;strong&gt;rejected&lt;/strong&gt; and the previous value is preserved.&lt;/p&gt;
+&lt;h3&gt;NVS CRC Protection&lt;span class="hx:absolute hx:-mt-20" id="nvs-crc-protection"&gt;&lt;/span&gt;
+&lt;a href="#nvs-crc-protection" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Configuration stored in ESP32 NVS includes a CRC32 checksum. If the
+checksum doesn&amp;rsquo;t match on boot, the configuration is reset to factory defaults.&lt;/p&gt;
+&lt;h3&gt;Type Safety&lt;span class="hx:absolute hx:-mt-20" id="type-safety"&gt;&lt;/span&gt;
+&lt;a href="#type-safety" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The firmware uses strongly-typed enums and structs instead of generic integers
+for mode selection, reducing the risk of invalid states.&lt;/p&gt;
+&lt;h3&gt;Task Monitoring&lt;span class="hx:absolute hx:-mt-20" id="task-monitoring"&gt;&lt;/span&gt;
+&lt;a href="#task-monitoring" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Each FreeRTOS task monitors its own stack usage. If a task exceeds the
+configured stack watermark, a warning is logged and the system can take
+corrective action.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Layer 3: Software Safety&lt;span class="hx:absolute hx:-mt-20" id="layer-3-software-safety"&gt;&lt;/span&gt;
+&lt;a href="#layer-3-software-safety" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Hardware Watchdog Timer (WDT)&lt;span class="hx:absolute hx:-mt-20" id="hardware-watchdog-timer-wdt"&gt;&lt;/span&gt;
+&lt;a href="#hardware-watchdog-timer-wdt" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ESP32 hardware WDT with 30-second timeout&lt;/li&gt;
+&lt;li&gt;Reset if the main loop stalls for more than 30 seconds&lt;/li&gt;
+&lt;li&gt;Automatically re-enabled after boot&lt;/li&gt;
+&lt;li&gt;Ensures the controller cannot hang indefinitely&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Boot-Loop Detection&lt;span class="hx:absolute hx:-mt-20" id="boot-loop-detection"&gt;&lt;/span&gt;
+&lt;a href="#boot-loop-detection" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;NVS-based boot counter increments on each boot&lt;/li&gt;
+&lt;li&gt;Counter resets after a successful 5-minute run&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;4 consecutive short boots&lt;/strong&gt; trigger Safe Mode&lt;/li&gt;
+&lt;li&gt;In Safe Mode:
+&lt;ul&gt;
+&lt;li&gt;All relays are forced OFF&lt;/li&gt;
+&lt;li&gt;Web UI remains accessible&lt;/li&gt;
+&lt;li&gt;Serial log shows Safe Mode indicator&lt;/li&gt;
+&lt;li&gt;Configuration can be inspected and corrected&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Memory Monitoring&lt;span class="hx:absolute hx:-mt-20" id="memory-monitoring"&gt;&lt;/span&gt;
+&lt;a href="#memory-monitoring" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Free heap is checked every 10 seconds&lt;/li&gt;
+&lt;li&gt;At &lt;strong&gt;critical threshold&lt;/strong&gt; (8 KB free heap):
+&lt;ul&gt;
+&lt;li&gt;Warning logged&lt;/li&gt;
+&lt;li&gt;Graceful auto-reboot initiated&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;At &lt;strong&gt;warning threshold&lt;/strong&gt; (15 KB free heap):
+&lt;ul&gt;
+&lt;li&gt;Warning logged&lt;/li&gt;
+&lt;li&gt;No reboot — system continues monitoring&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Sensor Auto-Recovery&lt;span class="hx:absolute hx:-mt-20" id="sensor-auto-recovery"&gt;&lt;/span&gt;
+&lt;a href="#sensor-auto-recovery" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;DS18B20 read failure triggers fast re-polling (5s instead of 300s)&lt;/li&gt;
+&lt;li&gt;After 3 consecutive successful reads, back to normal interval&lt;/li&gt;
+&lt;li&gt;Prevents unnecessary alerts from transient sensor glitches&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;NTP Graceful Degradation&lt;span class="hx:absolute hx:-mt-20" id="ntp-graceful-degradation"&gt;&lt;/span&gt;
+&lt;a href="#ntp-graceful-degradation" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Three-stage fallback for time synchronization:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Primary&lt;/strong&gt;: NTP server responds → normal operation&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Degraded&lt;/strong&gt;: NTP fails → uses last known good time&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Safe&lt;/strong&gt;: No time available → uses millis() uptime with warning&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2&gt;Layer 4: Operational Safety&lt;span class="hx:absolute hx:-mt-20" id="layer-4-operational-safety"&gt;&lt;/span&gt;
+&lt;a href="#layer-4-operational-safety" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Commissioning Procedures&lt;span class="hx:absolute hx:-mt-20" id="commissioning-procedures"&gt;&lt;/span&gt;
+&lt;a href="#commissioning-procedures" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Breadboard test&lt;/strong&gt; before mains connection (see &lt;a
+href="https://smart-swimmingpool.github.io/docs/build-from-zero/"&gt;Build from Zero&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Relay no-load test&lt;/strong&gt; before connecting pumps&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;First power-on&lt;/strong&gt; with mains: 30-minute supervised operation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Maintenance Schedule&lt;span class="hx:absolute hx:-mt-20" id="maintenance-schedule"&gt;&lt;/span&gt;
+&lt;a href="#maintenance-schedule" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Monthly: verify temperatures, check warnings&lt;/li&gt;
+&lt;li&gt;Annually: inspect wiring, test RCD, check enclosure seals&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Checklists&lt;span class="hx:absolute hx:-mt-20" id="checklists"&gt;&lt;/span&gt;
+&lt;a href="#checklists" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/production-checklist/"&gt;Production Checklist&lt;/a&gt; — pre-deployment&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/security-checklist/"&gt;Security Checklist&lt;/a&gt; — security hardening&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Failure Mode Analysis&lt;span class="hx:absolute hx:-mt-20" id="failure-mode-analysis"&gt;&lt;/span&gt;
+&lt;a href="#failure-mode-analysis" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Failure Mode&lt;/th&gt;
+&lt;th&gt;Effect&lt;/th&gt;
+&lt;th&gt;Safety Layer&lt;/th&gt;
+&lt;th&gt;Mitigation&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ESP32 crash&lt;/td&gt;
+&lt;td&gt;Relays off, pumps stop&lt;/td&gt;
+&lt;td&gt;Hardware&lt;/td&gt;
+&lt;td&gt;Failsafe relay behavior (NO)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Software hang&lt;/td&gt;
+&lt;td&gt;No relay updates&lt;/td&gt;
+&lt;td&gt;WDT&lt;/td&gt;
+&lt;td&gt;30s reboot&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Config corruption&lt;/td&gt;
+&lt;td&gt;Invalid settings&lt;/td&gt;
+&lt;td&gt;Firmware&lt;/td&gt;
+&lt;td&gt;NVS CRC → factory reset&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Repeated crashes&lt;/td&gt;
+&lt;td&gt;Unsafe state&lt;/td&gt;
+&lt;td&gt;Boot-loop&lt;/td&gt;
+&lt;td&gt;Safe Mode → relays OFF&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Heap exhaustion&lt;/td&gt;
+&lt;td&gt;Unpredictable&lt;/td&gt;
+&lt;td&gt;Memory monitor&lt;/td&gt;
+&lt;td&gt;Graceful reboot&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Sensor failure&lt;/td&gt;
+&lt;td&gt;No temperature data&lt;/td&gt;
+&lt;td&gt;Sensor recovery&lt;/td&gt;
+&lt;td&gt;Fast re-polling&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Power loss&lt;/td&gt;
+&lt;td&gt;Controller off&lt;/td&gt;
+&lt;td&gt;Hardware&lt;/td&gt;
+&lt;td&gt;Relays default OFF&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Network loss&lt;/td&gt;
+&lt;td&gt;No remote control&lt;/td&gt;
+&lt;td&gt;Software&lt;/td&gt;
+&lt;td&gt;Local web UI still works&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2&gt;Related Documents&lt;span class="hx:absolute hx:-mt-20" id="related-documents"&gt;&lt;/span&gt;
+&lt;a href="#related-documents" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/electrical-safety/"&gt;Electrical Safety&lt;/a&gt; — Electrical safety information&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/production-checklist/"&gt;Production Checklist&lt;/a&gt; — Pre-deployment checks&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/security-checklist/"&gt;Security Checklist&lt;/a&gt; — Security hardening&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/build-from-zero/"&gt;Build from Zero&lt;/a&gt; — Complete build guide&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>

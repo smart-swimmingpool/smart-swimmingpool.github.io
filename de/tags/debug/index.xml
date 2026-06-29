@@ -1,0 +1,287 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Debug</title><link>https://smart-swimmingpool.github.io/de/tags/debug/</link><description>Recent content in Debug on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><lastBuildDate>Sun, 14 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/de/tags/debug/index.xml" rel="self" type="application/rss+xml"/><item><title>Fehlerbehebung</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/troubleshooting/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/troubleshooting/</guid><description>
+&lt;blockquote&gt;
+&lt;p&gt;⚠️ &lt;strong&gt;WARNUNG&lt;/strong&gt;: Die nachfolgenden Schritte zur Fehlerbehebung können
+Arbeiten an &lt;strong&gt;230V AC-Netzspannung&lt;/strong&gt; umfassen (Relais-Test, Pumpen-
+Verdrahtung). &lt;strong&gt;Vor Arbeiten an der Schaltung immer stromlos schalten.&lt;/strong&gt;
+Im Zweifel eine qualifizierte Elektrofachkraft beauftragen.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Schnellreferenz-Matrix&lt;span class="hx:absolute hx:-mt-20" id="schnellreferenz-matrix"&gt;&lt;/span&gt;
+&lt;a href="#schnellreferenz-matrix" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Symptom&lt;/th&gt;
+&lt;th&gt;Ursache&lt;/th&gt;
+&lt;th&gt;Lösung&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;-127 °C&lt;/strong&gt; Temperaturwert&lt;/td&gt;
+&lt;td&gt;DS18B20 nicht erkannt&lt;/td&gt;
+&lt;td&gt;4,7 kΩ Pull-up prüfen, Verkabelung und Lötstellen kontrollieren&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;HA findet kein Gerät&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;MQTT-Discovery-Payload nicht gesendet&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;mqtt-protocol = &amp;quot;homeassistant&amp;quot;&lt;/code&gt; prüfen, MQTT-Broker-Verbindung checken, MQTT Explorer nutzen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Relais-Verhalten invertiert&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Active-Low-Modul als Active-High konfiguriert (oder umgekehrt)&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;relay-invert = true&lt;/code&gt; oder &lt;code&gt;false&lt;/code&gt; in Configuration → Advanced setzen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Safe Mode aktiv&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Bootloop erkannt (4 aufeinanderfolgende kurze Boots &amp;lt; 5 Min.)&lt;/td&gt;
+&lt;td&gt;Serielles Log auf Absturzursache prüfen, Problem beheben, neu starten&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;OTA-Update fehlgeschlagen&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;TLS-Problem oder zu wenig Flash-Speicher&lt;/td&gt;
+&lt;td&gt;USB-Flash als Fallback nutzen, freien Speicher prüfen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Web-UI lädt nicht&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;ESP32 nicht im Netzwerk oder falsche IP&lt;/td&gt;
+&lt;td&gt;Router-DHCP-Liste prüfen, WLAN-Verbindung prüfen, &lt;code&gt;pool-controller.local&lt;/code&gt; versuchen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;MQTT-Verbindung verweigert&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Falsche Zugangsdaten oder Broker nicht erreichbar&lt;/td&gt;
+&lt;td&gt;Broker-IP, Port, Benutzername/Passwort in MQTT-Einstellungen prüfen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Temperaturwert 85 °C&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;DS18B20-Parasitärversorgungsproblem&lt;/td&gt;
+&lt;td&gt;Externe 3,3V-Versorgung an Sensor-VCC anschließen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Relais klickt nicht&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;GPIO-Pin defekt oder Relaismodul nicht versorgt&lt;/td&gt;
+&lt;td&gt;Relais-VCC/GND prüfen, GPIO-Spannung mit Multimeter messen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;ESP32 startet immer wieder neu&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Netzteil zu schwach oder Watchdog-Timeout&lt;/td&gt;
+&lt;td&gt;&amp;gt;1A-Netzteil verwenden, serielles Log auf Panikmeldungen prüfen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;WLAN-Scan findet nichts&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;ESP32-Antennenproblem oder Interferenz&lt;/td&gt;
+&lt;td&gt;Gerät näher an Router bringen, Antennenanschluss prüfen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;mDNS wird nicht aufgelöst&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Netzwerk unterstützt kein mDNS&lt;/td&gt;
+&lt;td&gt;IP-Adresse direkt verwenden, mDNS-Reflektor installieren&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Sensorwerte schwanken&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Lose Verbindung oder Interferenz&lt;/td&gt;
+&lt;td&gt;Verkabelung prüfen, geschirmtes Kabel verwenden, Pull-up prüfen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Konfiguration nach Neustart weg&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;NVS-Korruption oder Konfiguration nicht gespeichert&lt;/td&gt;
+&lt;td&gt;Konfiguration erneut speichern, bei Beständigkeit Werksreset versuchen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2&gt;Detaildiagnose&lt;span class="hx:absolute hx:-mt-20" id="detaildiagnose"&gt;&lt;/span&gt;
+&lt;a href="#detaildiagnose" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;1. Temperatursensor-Probleme&lt;span class="hx:absolute hx:-mt-20" id="1-temperatursensor-probleme"&gt;&lt;/span&gt;
+&lt;a href="#1-temperatursensor-probleme" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;Symptom: Sensor zeigt -127 °C&lt;span class="hx:absolute hx:-mt-20" id="symptom-sensor-zeigt--127-c"&gt;&lt;/span&gt;
+&lt;a href="#symptom-sensor-zeigt--127-c" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Dies ist der Standardwert der DallasTemperature-Bibliothek, wenn kein Sensor
+am OneWire-Bus gefunden wird.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Checkliste:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;4,7 kΩ Pull-up-Widerstand zwischen DATA und 3,3V prüfen&lt;/li&gt;
+&lt;li&gt;Verdrahtung prüfen: VCC (rot) → 3,3V, GND (schwarz) → GND, DATA
+(gelb/weiß) → GPIO&lt;/li&gt;
+&lt;li&gt;Sensor an einen bekanntermaßen funktionierenden GPIO-Pin anschließen&lt;/li&gt;
+&lt;li&gt;Mit einem funktionierenden DS18B20 testen&lt;/li&gt;
+&lt;li&gt;Spannung auf DATA-Pin messen: sollte ~3,3V im Leerlauf sein, Impulse
+während Kommunikation&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;Symptom: Sensor zeigt 85 °C&lt;span class="hx:absolute hx:-mt-20" id="symptom-sensor-zeigt-85-c"&gt;&lt;/span&gt;
+&lt;a href="#symptom-sensor-zeigt-85-c" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Dies deutet darauf hin, dass der DS18B20 im &lt;strong&gt;Parasitärversorgungsmodus&lt;/strong&gt; läuft,
+aber nicht genug Strom bekommt.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lösung:&lt;/strong&gt; VCC-Pin (rot) mit 3,3V verbinden statt auf parasitäre Versorgung
+zu setzen.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;2. MQTT / Home Assistant-Probleme&lt;span class="hx:absolute hx:-mt-20" id="2-mqtt--home-assistant-probleme"&gt;&lt;/span&gt;
+&lt;a href="#2-mqtt--home-assistant-probleme" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;Symptom: Home Assistant entdeckt den Controller nicht&lt;span class="hx:absolute hx:-mt-20" id="symptom-home-assistant-entdeckt-den-controller-nicht"&gt;&lt;/span&gt;
+&lt;a href="#symptom-home-assistant-entdeckt-den-controller-nicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;Checkliste:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Prüfen, ob der MQTT-Broker läuft: &lt;code&gt;mosquitto_sub -h &amp;lt;broker&amp;gt; -t &amp;quot;#&amp;quot; -v&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Controller-MQTT-Einstellungen über Web-UI prüfen (Tab MQTT Settings)&lt;/li&gt;
+&lt;li&gt;Mit MQTT Explorer testen:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;pool-controller/#&lt;/code&gt; abonnieren&lt;/li&gt;
+&lt;li&gt;Nach Discovery-Topics suchen: &lt;code&gt;homeassistant/sensor/pool-controller-*/config&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;MQTT-Broker neu starten&lt;/li&gt;
+&lt;li&gt;Controller neustarten&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;Symptom: Entitäten werden als &amp;ldquo;nicht verfügbar&amp;rdquo; angezeigt&lt;span class="hx:absolute hx:-mt-20" id="symptom-entitäten-werden-als-nicht-verfügbar-angezeigt"&gt;&lt;/span&gt;
+&lt;a href="#symptom-entit%c3%a4ten-werden-als-nicht-verf%c3%bcgbar-angezeigt" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;MQTT-Verbindungsstatus im Controller-Web-UI prüfen&lt;/li&gt;
+&lt;li&gt;Prüfen, ob der Broker vom Controller und von HA aus erreichbar ist&lt;/li&gt;
+&lt;li&gt;HA-MQTT-Integration neustarten&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h3&gt;3. Relais-Probleme&lt;span class="hx:absolute hx:-mt-20" id="3-relais-probleme"&gt;&lt;/span&gt;
+&lt;a href="#3-relais-probleme" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;Symptom: Relais klickt, aber Pumpe läuft nicht&lt;span class="hx:absolute hx:-mt-20" id="symptom-relais-klickt-aber-pumpe-läuft-nicht"&gt;&lt;/span&gt;
+&lt;a href="#symptom-relais-klickt-aber-pumpe-l%c3%a4uft-nicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;COM/NO-Verdrahtung prüfen — Pumpe sollte am NO (normally open) liegen&lt;/li&gt;
+&lt;li&gt;Netzspannung am Relais-Eingang prüfen&lt;/li&gt;
+&lt;li&gt;Pumpenanschluss und Sicherung prüfen&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;Symptom: Relais klickt nicht&lt;span class="hx:absolute hx:-mt-20" id="symptom-relais-klickt-nicht"&gt;&lt;/span&gt;
+&lt;a href="#symptom-relais-klickt-nicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;GPIO-Spannung messen — sollte zwischen HIGH und LOW wechseln&lt;/li&gt;
+&lt;li&gt;Relaismodul VCC (5V) und GND prüfen&lt;/li&gt;
+&lt;li&gt;Relaismodul unabhängig testen (5V zwischen IN und GND)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h3&gt;4. Boot- und Stabilitätsprobleme&lt;span class="hx:absolute hx:-mt-20" id="4-boot--und-stabilitätsprobleme"&gt;&lt;/span&gt;
+&lt;a href="#4-boot--und-stabilit%c3%a4tsprobleme" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;Symptom: Safe Mode aktiviert&lt;span class="hx:absolute hx:-mt-20" id="symptom-safe-mode-aktiviert"&gt;&lt;/span&gt;
+&lt;a href="#symptom-safe-mode-aktiviert" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Der Controller wechselt in den Safe Mode nach 4 aufeinanderfolgenden Boots,
+die jeweils kürzer als 5 Minuten waren. Alle Relais werden ausgeschaltet.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Wiederherstellung:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Serielles Monitor: &lt;code&gt;pio device monitor --baud 115200&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Boot-Log lesen — nach Panikmeldungen, Asserts oder Exceptions suchen&lt;/li&gt;
+&lt;li&gt;Häufige Ursachen:
+&lt;ul&gt;
+&lt;li&gt;Stack-Overflow in einem Task&lt;/li&gt;
+&lt;li&gt;NULL-Pointer-Dereferenzierung&lt;/li&gt;
+&lt;li&gt;Heap-Erschöpfung&lt;/li&gt;
+&lt;li&gt;Korrupte Konfiguration&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Problem beheben und neustarten&lt;/li&gt;
+&lt;li&gt;Der Boot-Zähler wird nach einem erfolgreichen &amp;gt;5-Minuten-Lauf zurückgesetzt&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;Symptom: Zufällige Neustarts alle paar Stunden&lt;span class="hx:absolute hx:-mt-20" id="symptom-zufällige-neustarts-alle-paar-stunden"&gt;&lt;/span&gt;
+&lt;a href="#symptom-zuf%c3%a4llige-neustarts-alle-paar-stunden" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;free_heap_space&lt;/code&gt;-Sensor prüfen — sollte über 20 KB liegen&lt;/li&gt;
+&lt;li&gt;Spannungsversorgung prüfen (mindestens 1A)&lt;/li&gt;
+&lt;li&gt;Auf WLAN-Trennungs-/Wiederverbindungsschleifen achten&lt;/li&gt;
+&lt;li&gt;Serielle Ausgabe auf Absturzmeldungen überwachen&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h3&gt;5. OTA-Update-Probleme&lt;span class="hx:absolute hx:-mt-20" id="5-ota-update-probleme"&gt;&lt;/span&gt;
+&lt;a href="#5-ota-update-probleme" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;Symptom: OTA schlägt mit TLS-Fehler fehl&lt;span class="hx:absolute hx:-mt-20" id="symptom-ota-schlägt-mit-tls-fehler-fehl"&gt;&lt;/span&gt;
+&lt;a href="#symptom-ota-schl%c3%a4gt-mit-tls-fehler-fehl" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;Das Web-Interface verwendet HTTPS für OTA — TLS-Handshake kann in
+manchen Netzwerken fehlschlagen&lt;/li&gt;
+&lt;li&gt;Sicherstellen, dass der ESP32 genug freien Heap hat (Dashboard prüfen)&lt;/li&gt;
+&lt;li&gt;Kleinere Firmware-Binärdatei versuchen&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Workaround:&lt;/strong&gt; Über USB flashen:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pio run --target upload --upload-port /dev/ttyUSB0&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h4&gt;Symptom: OTA läuft hoch, aber Gerät startet nicht&lt;span class="hx:absolute hx:-mt-20" id="symptom-ota-läuft-hoch-aber-gerät-startet-nicht"&gt;&lt;/span&gt;
+&lt;a href="#symptom-ota-l%c3%a4uft-hoch-aber-ger%c3%a4t-startet-nicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;Die neue Firmware könnte korrupt oder inkompatibel sein&lt;/li&gt;
+&lt;li&gt;Eine bekanntermaßen funktionierende Version über USB flashen&lt;/li&gt;
+&lt;li&gt;Partitionstabelle-Größe prüfen&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2&gt;Diagnosewerkzeuge&lt;span class="hx:absolute hx:-mt-20" id="diagnosewerkzeuge"&gt;&lt;/span&gt;
+&lt;a href="#diagnosewerkzeuge" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Serielles Monitor&lt;span class="hx:absolute hx:-mt-20" id="serielles-monitor"&gt;&lt;/span&gt;
+&lt;a href="#serielles-monitor" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pio device monitor --port /dev/ttyUSB0 --baud &lt;span class="m"&gt;115200&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Nützlich für: Boot-Logs, Absturzausgaben, MQTT-Verbindungsstatus.&lt;/p&gt;
+&lt;h3&gt;MQTT Explorer&lt;span class="hx:absolute hx:-mt-20" id="mqtt-explorer"&gt;&lt;/span&gt;
+&lt;a href="#mqtt-explorer" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;a
+href="http://mqtt-explorer.com/"target="_blank" rel="noopener"&gt;MQTT Explorer&lt;/a&gt; installieren oder CLI nutzen:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mosquitto_sub -h &amp;lt;broker&amp;gt; -t &lt;span class="s2"&gt;&amp;#34;pool-controller/#&amp;#34;&lt;/span&gt; -v&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Nützlich für: Prüfen von MQTT-Discovery-Payloads, Anzeigen von Telemetriedaten.&lt;/p&gt;
+&lt;h3&gt;Web-UI Dashboard&lt;span class="hx:absolute hx:-mt-20" id="web-ui-dashboard"&gt;&lt;/span&gt;
+&lt;a href="#web-ui-dashboard" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Zugriff über &lt;code&gt;http://&amp;lt;gerät-ip&amp;gt;&lt;/code&gt; — zeigt Live-Status, Temperaturen, Heap, RSSI.&lt;/p&gt;
+&lt;h3&gt;Netzwerkscan&lt;span class="hx:absolute hx:-mt-20" id="netzwerkscan"&gt;&lt;/span&gt;
+&lt;a href="#netzwerkscan" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Controller im Netzwerk finden&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;nmap -sn 192.168.1.0/24
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Oder die DHCP-Client-Liste des Routers nutzen&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;h2&gt;Hilfe bekommen&lt;span class="hx:absolute hx:-mt-20" id="hilfe-bekommen"&gt;&lt;/span&gt;
+&lt;a href="#hilfe-bekommen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Falls die Fehlerbehebung dein Problem nicht löst:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller/issues"target="_blank" rel="noopener"&gt;Vorhandene Issues&lt;/a&gt;
+durchsuchen&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/smart-swimmingpool/smart-swimmingpool.github.io/discussions"target="_blank" rel="noopener"&gt;Diskussionen&lt;/a&gt;
+prüfen&lt;/li&gt;
+&lt;li&gt;Folgende Informationen in deinem Hilfegesuch angeben:
+&lt;ul&gt;
+&lt;li&gt;Firmware-Version (aus Web-UI oder seriellem Log)&lt;/li&gt;
+&lt;li&gt;Hardware-Variante (Basic, NORVI AE01-R, Custom)&lt;/li&gt;
+&lt;li&gt;ESP32-Board-Typ&lt;/li&gt;
+&lt;li&gt;MQTT-Broker und Version&lt;/li&gt;
+&lt;li&gt;Home Assistant-Version (falls zutreffend)&lt;/li&gt;
+&lt;li&gt;Serielle Monitor-Ausgabe (falls verfügbar)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2&gt;Verwandte Dokumente&lt;span class="hx:absolute hx:-mt-20" id="verwandte-dokumente"&gt;&lt;/span&gt;
+&lt;a href="#verwandte-dokumente" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/build-from-zero/"&gt;Von Null aufgebaut&lt;/a&gt; — Komplette Bauanleitung&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/mqtt-configuration/"&gt;MQTT-Konfiguration&lt;/a&gt; — MQTT-Einrichtung&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/electrical-safety/"&gt;Elektrische Sicherheit&lt;/a&gt; — Sicherheitsinformationen&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/home-assistant/"&gt;Home-Assistant-Integration&lt;/a&gt; — HA-Einrichtungsanleitung&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>

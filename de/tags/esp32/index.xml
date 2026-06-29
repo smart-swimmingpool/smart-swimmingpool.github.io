@@ -1,0 +1,1472 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Esp32</title><link>https://smart-swimmingpool.github.io/de/tags/esp32/</link><description>Recent content in Esp32 on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><lastBuildDate>Sun, 14 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/de/tags/esp32/index.xml" rel="self" type="application/rss+xml"/><item><title>Hardware Guide des Pool Monitors</title><link>https://smart-swimmingpool.github.io/de/docs/pool-monitor/hardware-guide/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-monitor/hardware-guide/</guid><description>
+&lt;h2&gt;Übersicht&lt;span class="hx:absolute hx:-mt-20" id="übersicht"&gt;&lt;/span&gt;
+&lt;a href="#%c3%bcbersicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der Pool Monitor ist ein &lt;strong&gt;fertig aufgebautes Anzeigegerät&lt;/strong&gt; auf Basis der
+LILYGO TTGO T5 E-Paper-ESP32-Board-Familie. Anders als der
+&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller"target="_blank" rel="noopener"&gt;Pool Controller&lt;/a&gt;
+werden &lt;strong&gt;keine zusätzlichen Sensoren oder Relais benötigt&lt;/strong&gt; — nur das Board selbst.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Zielgruppe&lt;/strong&gt;: Jeder, der mit grundlegender Elektronik vertraut ist (USB-Kabel
+einstecken). Keine Lötkenntnisse erforderlich.&lt;/p&gt;
+&lt;p&gt;Gesamtkosten: &lt;strong&gt;~35–55€&lt;/strong&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Sicherheit ⚠️&lt;span class="hx:absolute hx:-mt-20" id="sicherheit-"&gt;&lt;/span&gt;
+&lt;a href="#sicherheit-" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Der Pool Monitor arbeitet ausschließlich mit &lt;strong&gt;Kleinspannung (5V USB)&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Allerdings&lt;/strong&gt; liest er Daten vom
+&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller"target="_blank" rel="noopener"&gt;Pool Controller&lt;/a&gt;,
+der &lt;strong&gt;230V Netzspannung&lt;/strong&gt; schaltet. Der Monitor empfängt nur MQTT-Daten — er
+kommt &lt;strong&gt;nicht&lt;/strong&gt; direkt mit Netzspannung in Berührung.&lt;/li&gt;
+&lt;li&gt;Bewahren Sie das Board und das USB-Kabel an einem trockenen Ort auf. Bei
+Außeneinsatz in einem wetterfesten Gehäuse (IP54 oder besser) montieren.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Benötigte Teile (BOM)&lt;span class="hx:absolute hx:-mt-20" id="benötigte-teile-bom"&gt;&lt;/span&gt;
+&lt;a href="#ben%c3%b6tigte-teile-bom" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;#&lt;/th&gt;
+&lt;th&gt;Komponente&lt;/th&gt;
+&lt;th&gt;Menge&lt;/th&gt;
+&lt;th&gt;ca. Preis&lt;/th&gt;
+&lt;th&gt;Hinweise&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;LILYGO TTGO T5 V2.3.1 (V231) E-Paper ESP32 Board&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;25–35€&lt;/td&gt;
+&lt;td&gt;2.13&amp;quot; E-Ink Display, integrierter ESP32&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;USB-C Kabel (Daten + Strom)&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;3–5€&lt;/td&gt;
+&lt;td&gt;Zum Flashen der Firmware und Stromversorgung&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;USB-Netzteil 5V/≥1A&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;5–10€&lt;/td&gt;
+&lt;td&gt;Handelsübliches Handy-Ladegerät&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;Optional: Gehäuse (ABS/PVC, IP54+)&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;5–10€&lt;/td&gt;
+&lt;td&gt;Für Außeneinsatz / Spritzwasserschutz&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Gesamt&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;~35–55€&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Komplettset, kein Löten erforderlich&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;Wo kaufen?&lt;span class="hx:absolute hx:-mt-20" id="wo-kaufen"&gt;&lt;/span&gt;
+&lt;a href="#wo-kaufen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Alle Teile sind bei Amazon, AliExpress, eBay oder bei Elektronik-Distributoren
+wie Reichelt, Pollin, Conrad (DE/AT/CH) erhältlich.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;TTGO T5&lt;/strong&gt;: Suche nach &amp;ldquo;TTGO T5 V2.3.1 e-paper ESP32&amp;rdquo; oder &amp;ldquo;LILYGO T5
+e-ink display&amp;rdquo;. Achte auf die &lt;strong&gt;Revision V2.3.1&lt;/strong&gt; für das neueste E-Ink-Panel.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;USB-C Kabel&lt;/strong&gt;: Jedes datenfähige Kabel funktioniert. Vermeide
+reine Ladekabel zum Flashen.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Netzteil&lt;/strong&gt;: Standard-USB-Handyladegerät (5V/≥1A). Ein qualitatives Netzteil
+verhindert Spannungseinbrüche während des WiFi-Betriebs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Kompatible Board-Varianten&lt;span class="hx:absolute hx:-mt-20" id="kompatible-board-varianten"&gt;&lt;/span&gt;
+&lt;a href="#kompatible-board-varianten" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die TTGO T5 Serie gibt es in mehreren Revisionen. Die Firmware unterstützt:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Board-Variante&lt;/th&gt;
+&lt;th&gt;Display-Panel&lt;/th&gt;
+&lt;th&gt;Status&lt;/th&gt;
+&lt;th&gt;Hinweise&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;T5 V2.3.1 (V231)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;2.13&amp;quot; GxDEPG0213BN (s/w)&lt;/td&gt;
+&lt;td&gt;✅ &lt;strong&gt;Standard&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Empfohlen&lt;/strong&gt; — aktuellste Revision, aktiv getestet&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;T5 V1.2 / V2.4&lt;/td&gt;
+&lt;td&gt;2.13&amp;quot; GxGDE0213B1 (s/w)&lt;/td&gt;
+&lt;td&gt;✅ Unterstützt&lt;/td&gt;
+&lt;td&gt;Älteres Panel, anderer Treiber&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;T5 V2.0 / V2.3&lt;/td&gt;
+&lt;td&gt;2.13&amp;quot; GxGDE0213B1 (s/w)&lt;/td&gt;
+&lt;td&gt;✅ Unterstützt&lt;/td&gt;
+&lt;td&gt;Ohne SD-Kartenslot&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;T5 V2.1&lt;/td&gt;
+&lt;td&gt;2.9&amp;quot; GxGDEH029A1 (s/w)&lt;/td&gt;
+&lt;td&gt;✅ Unterstützt&lt;/td&gt;
+&lt;td&gt;Größeres 2.9&amp;quot; Display&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;T5 V2.2&lt;/td&gt;
+&lt;td&gt;2.9&amp;quot; GxGDEH029A1 (s/w)&lt;/td&gt;
+&lt;td&gt;✅ Unterstützt&lt;/td&gt;
+&lt;td&gt;Andere Display-Pinbelegung&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;T5 V2.8&lt;/td&gt;
+&lt;td&gt;2.7&amp;quot; GxGDEW027W3 (s/w)&lt;/td&gt;
+&lt;td&gt;✅ Unterstützt&lt;/td&gt;
+&lt;td&gt;Mit Audio-DAC&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Um eine andere Variante auszuwählen, &lt;code&gt;src/board_def.h&lt;/code&gt; editieren und den
+entsprechenden Define setzen:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cpp" data-lang="cpp"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt;#define LILYGO_T5_V231 1 &lt;/span&gt;&lt;span class="c1"&gt;// Standard — für andere Varianten auskommentieren
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// #define TTGO_T5_2_1 1 // Beispiel: für 2.9&amp;#34;-Variante aktivieren
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Dann die Firmware neu bauen (siehe &lt;a
+href="software-guide.de.md"&gt;Software Guide&lt;/a&gt;).&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Pinbelegung&lt;span class="hx:absolute hx:-mt-20" id="pinbelegung"&gt;&lt;/span&gt;
+&lt;a href="#pinbelegung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die Pin-Konfiguration ist in &lt;code&gt;src/board_def.h&lt;/code&gt; definiert und variiert je nach
+Board-Variante. Für das Standard-Board &lt;strong&gt;V2.3.1 (V231)&lt;/strong&gt;:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Signal&lt;/th&gt;
+&lt;th&gt;GPIO&lt;/th&gt;
+&lt;th&gt;Hinweise&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;E-Ink BUSY&lt;/td&gt;
+&lt;td&gt;GPIO4&lt;/td&gt;
+&lt;td&gt;Display-Busy-Ausgang&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E-Ink RESET&lt;/td&gt;
+&lt;td&gt;GPIO16&lt;/td&gt;
+&lt;td&gt;Display-Reset-Leitung&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E-Ink DC&lt;/td&gt;
+&lt;td&gt;GPIO17&lt;/td&gt;
+&lt;td&gt;Data/Command-Steuerung&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E-Ink SS (CS)&lt;/td&gt;
+&lt;td&gt;GPIO5&lt;/td&gt;
+&lt;td&gt;SPI Chip-Select&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;SPI MOSI&lt;/td&gt;
+&lt;td&gt;GPIO23&lt;/td&gt;
+&lt;td&gt;Display-Datenleitung&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;SPI MISO&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td&gt;Nicht verbunden (E-Ink ist schreibgeschützt)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;SPI CLK&lt;/td&gt;
+&lt;td&gt;GPIO18&lt;/td&gt;
+&lt;td&gt;Display-Takt&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MODEM_POWER_ON&lt;/td&gt;
+&lt;td&gt;GPIO23&lt;/td&gt;
+&lt;td&gt;Modem-Stromversorgung (im Deep Sleep ausgeschaltet)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;LED_BUILTIN&lt;/td&gt;
+&lt;td&gt;GPIO2&lt;/td&gt;
+&lt;td&gt;Eingebaute Status-LED&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Die SPI-Pins werden mit dem Flash-Speicher geteilt — das ist normal und
+funktioniert, weil das E-Ink-Display nur bei idle CPU zugegriffen wird.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Hinweise zur Pinbelegung&lt;span class="hx:absolute hx:-mt-20" id="hinweise-zur-pinbelegung"&gt;&lt;/span&gt;
+&lt;a href="#hinweise-zur-pinbelegung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;SPI MISO&lt;/strong&gt; wird nicht genutzt, da das E-Ink-Display nur Daten empfängt
+(kein Rücklesen nötig).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GPIO23&lt;/strong&gt; hat eine Doppelfunktion (SPI MOSI + MODEM_POWER_ON). Im Deep Sleep
+wird es auf LOW geschaltet, um externe Modem-Stromversorgung abzuschalten.&lt;/li&gt;
+&lt;li&gt;Die Strapping-Pins (GPIO0, GPIO2, GPIO12, GPIO15) werden für die
+E-Ink-Ansteuerung vermieden, um Boot-Probleme zu verhindern.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Verdrahtung&lt;span class="hx:absolute hx:-mt-20" id="verdrahtung"&gt;&lt;/span&gt;
+&lt;a href="#verdrahtung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Es ist keine manuelle Verdrahtung erforderlich.&lt;/strong&gt; Das TTGO T5 Board integriert
+alle Komponenten:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ESP32 Mikrocontroller (Dual-Core Xtensa LX6)&lt;/li&gt;
+&lt;li&gt;2.13&amp;quot; E-Ink Display (SPI-verbunden, GxDEPG0213BN Panel)&lt;/li&gt;
+&lt;li&gt;USB-Seriell-Wandler (CP210x oder CH340)&lt;/li&gt;
+&lt;li&gt;3.3V Spannungsregler&lt;/li&gt;
+&lt;li&gt;Li-Po Ladeschaltung (optionaler Akku-Anschluss)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Das Board wird einfach per &lt;strong&gt;USB-C&lt;/strong&gt; angeschlossen:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Am &lt;strong&gt;Computer&lt;/strong&gt; zum Flashen der Firmware&lt;/li&gt;
+&lt;li&gt;An einem &lt;strong&gt;USB-Netzteil&lt;/strong&gt; für den Dauerbetrieb&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Taster (bei unterstützten Varianten)&lt;span class="hx:absolute hx:-mt-20" id="taster-bei-unterstützten-varianten"&gt;&lt;/span&gt;
+&lt;a href="#taster-bei-unterst%c3%bctzten-varianten" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Einige TTGO T5 Varianten haben Hardware-Taster. Die Firmware nutzt sie
+derzeit &lt;strong&gt;nicht&lt;/strong&gt; — die gesamte Konfiguration erfolgt über das Captive Portal
+(siehe &lt;a
+href="users-guide.de.md"&gt;Users Guide&lt;/a&gt;).&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Taster&lt;/th&gt;
+&lt;th&gt;GPIO&lt;/th&gt;
+&lt;th&gt;Hinweise&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;BUTTON_1&lt;/td&gt;
+&lt;td&gt;GPIO37&lt;/td&gt;
+&lt;td&gt;Bei T5 V2.4/2.8 Varianten vorhanden&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;BUTTON_2&lt;/td&gt;
+&lt;td&gt;GPIO38&lt;/td&gt;
+&lt;td&gt;Bei T5 V2.4/2.8 Varianten vorhanden&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;BUTTON_3&lt;/td&gt;
+&lt;td&gt;GPIO39&lt;/td&gt;
+&lt;td&gt;Bei den meisten Varianten vorhanden&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2&gt;Stromversorgung&lt;span class="hx:absolute hx:-mt-20" id="stromversorgung"&gt;&lt;/span&gt;
+&lt;a href="#stromversorgung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Quelle&lt;/th&gt;
+&lt;th&gt;Spannung&lt;/th&gt;
+&lt;th&gt;Strom&lt;/th&gt;
+&lt;th&gt;Hinweise&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;USB-C Netzteil&lt;/td&gt;
+&lt;td&gt;5V&lt;/td&gt;
+&lt;td&gt;≥1A&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Empfohlen&lt;/strong&gt; für den Dauerbetrieb&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Computer-USB-Port&lt;/td&gt;
+&lt;td&gt;5V&lt;/td&gt;
+&lt;td&gt;~500mA&lt;/td&gt;
+&lt;td&gt;Geeignet zum Flashen und Testen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;USB-Powerbank&lt;/td&gt;
+&lt;td&gt;5V&lt;/td&gt;
+&lt;td&gt;variiert&lt;/td&gt;
+&lt;td&gt;Möglich, aber Deep Sleep ist für Netzbetrieb ausgelegt&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;Stromverbrauch&lt;span class="hx:absolute hx:-mt-20" id="stromverbrauch"&gt;&lt;/span&gt;
+&lt;a href="#stromverbrauch" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Zustand&lt;/th&gt;
+&lt;th&gt;Strom&lt;/th&gt;
+&lt;th&gt;Dauer pro Zyklus&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Aktiv (WiFi + MQTT + Display-Update)&lt;/td&gt;
+&lt;td&gt;~80mA&lt;/td&gt;
+&lt;td&gt;~10–15 Sekunden&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Deep Sleep&lt;/td&gt;
+&lt;td&gt;~10µA&lt;/td&gt;
+&lt;td&gt;~165–170 Sekunden&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Durchschnitt&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;~5.5mA&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;über gesamten 180s-Zyklus&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Durch den 180-Sekunden-Deep-Sleep-Zyklus verbringt das Board &lt;strong&gt;&amp;gt;90% der Zeit
+im Tiefschlaf&lt;/strong&gt;, was es auch für Batteriebetrieb geeignet macht (das TTGO T5
+hat einen eingebauten Akku-Anschluss und Ladeschaltung).&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Solarbetrieb ☀️&lt;span class="hx:absolute hx:-mt-20" id="solarbetrieb-"&gt;&lt;/span&gt;
+&lt;a href="#solarbetrieb-" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der Pool Monitor eignet sich aufgrund seines extrem niedrigen Energieverbrauchs
+(Durchschnitt ~5,5 mA bei 5 V) hervorragend für den autonomen Solarbetrieb.
+Mit einer kleinen Solarzelle und einem Li‑Po‑Akku kann das Gerät dauerhaft
+ohne USB‑Netzteil betrieben werden.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Voraussetzung&lt;/strong&gt;: Das TTGO T5 Board hat einen &lt;strong&gt;eingebauten Li‑Po‑Lader
+(TP4056)&lt;/strong&gt; und einen &lt;strong&gt;JST‑1,25‑mm‑Batteriestecker&lt;/strong&gt;. Für den Solarbetrieb wird
+nur ein Solarpanel und ein Akku benötigt – das Board übernimmt die Ladeelektronik.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h3&gt;Leistungsbudget&lt;span class="hx:absolute hx:-mt-20" id="leistungsbudget"&gt;&lt;/span&gt;
+&lt;a href="#leistungsbudget" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Zustand&lt;/th&gt;
+&lt;th&gt;Strom&lt;/th&gt;
+&lt;th&gt;Dauer pro Zyklus&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Aktiv (WiFi + MQTT + Display‑Update)&lt;/td&gt;
+&lt;td&gt;~80 mA&lt;/td&gt;
+&lt;td&gt;~10–15 Sekunden&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Deep Sleep&lt;/td&gt;
+&lt;td&gt;~10 µA&lt;/td&gt;
+&lt;td&gt;~165–170 Sekunden&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Durchschnitt&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;~5,5 mA&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;über 180‑s‑Zyklus&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Täglicher Energiebedarf&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;~132 mAh&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;bei 5 V (≙ 660 mWh)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Der tägliche Energiebedarf von &lt;strong&gt;~130 mAh&lt;/strong&gt; (bei 5 V) ist selbst mit einer
+kleinen Solarzelle an den meisten Standorten deckbar.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Benötigte Teile (zusätzlich)&lt;span class="hx:absolute hx:-mt-20" id="benötigte-teile-zusätzlich"&gt;&lt;/span&gt;
+&lt;a href="#ben%c3%b6tigte-teile-zus%c3%a4tzlich" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;#&lt;/th&gt;
+&lt;th&gt;Komponente&lt;/th&gt;
+&lt;th&gt;Menge&lt;/th&gt;
+&lt;th&gt;ca. Preis&lt;/th&gt;
+&lt;th&gt;Hinweise&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;Solarpanel, 5 V / 1–2 W&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;10–25 €&lt;/td&gt;
+&lt;td&gt;Monokristallin, offene Klemmenspannung 5,5–6 V&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;Li‑Po‑Akku, 3,7 V, 1000–2000 mAh&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;8–15 €&lt;/td&gt;
+&lt;td&gt;Mit JST‑1,25‑mm‑Stecker (2‑polig, roter Draht = Plus)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;USB‑C Breakout‑Board oder &lt;strong&gt;XC6206‑5.0V&lt;/strong&gt; Reglermodul&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;2–5 €&lt;/td&gt;
+&lt;td&gt;Zur stabilen 5 V‑Versorgung aus dem Solarpanel&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;Optional: Schottky‑Diode (1N5819)&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;1 €&lt;/td&gt;
+&lt;td&gt;Rückflussschutz vom Board zum Panel bei Dunkelheit&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;Optional: Gehäuse (IP65+, transparente Abdeckung)&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;10–20 €&lt;/td&gt;
+&lt;td&gt;Solarpanel kann Deckel ersetzen oder integriert werden&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Gesamt&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;~30–65 €&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Zusätzlich zum Basis‑BOM&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4&gt;Bezugsquellen für Solarkomponenten&lt;span class="hx:absolute hx:-mt-20" id="bezugsquellen-für-solarkomponenten"&gt;&lt;/span&gt;
+&lt;a href="#bezugsquellen-f%c3%bcr-solarkomponenten" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Solarpanel&lt;/strong&gt;: Suche nach &lt;em&gt;„5V 2W Solarpanel“&lt;/em&gt; oder &lt;em&gt;„6V 200mA Solarmodul“&lt;/em&gt;,
+z. B. bei Reichelt, Pollin, Amazon oder AliExpress. Ideal sind monokristalline
+Panels mit ETFE-Beschichtung für Außeneinsatz.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Li‑Po‑Akku&lt;/strong&gt;: Suche nach &lt;em&gt;„3.7V 1000mAh Li‑Po JST 1.25“&lt;/em&gt; oder
+&lt;em&gt;„LP401230 1000mAh“&lt;/em&gt;. Achte auf den &lt;strong&gt;1,25‑mm‑JST‑Stecker (2‑polig)&lt;/strong&gt;.
+Gängige Formate: 401230 (1000 mAh, ca. 30×12×4 mm) oder 503048 (1500 mAh).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;USB‑C Breakout&lt;/strong&gt;: Für direkte 5 V‑Einspeisung über den USB‑C‑Port.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3&gt;Schaltungsvarianten&lt;span class="hx:absolute hx:-mt-20" id="schaltungsvarianten"&gt;&lt;/span&gt;
+&lt;a href="#schaltungsvarianten" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;Variante A: Solarpanel → USB‑C (empfohlen, einfach)&lt;span class="hx:absolute hx:-mt-20" id="variante-a-solarpanel--usbc-empfohlen-einfach"&gt;&lt;/span&gt;
+&lt;a href="#variante-a-solarpanel--usbc-empfohlen-einfach" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Die einfachste und sicherste Methode – nutzt den &lt;strong&gt;eingebauten TP4056 Lader&lt;/strong&gt;
+des TTGO T5.&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; Solarpanel TTGO T5 V231
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; (5-6V) ┌────────┐
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; │ │ USB-C │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; ├─[USB-C Breakout]───┤ Port │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; │ │ │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; Li‑Po Akku │ JST │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; (3.7V, 1000mAh) ────────┤ BAT │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; └────────┘&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Solarpanel&lt;/strong&gt; (5–6 V) an ein USB‑C Breakout‑Board oder direkt an einen
+USB‑C Stecker löten (VBUS auf Pin A4/A9/B4/B9, GND auf A1/B1).&lt;/li&gt;
+&lt;li&gt;USB‑C Breakout in den USB‑C Port des TTGO T5 stecken.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Li‑Po‑Akku&lt;/strong&gt; an den JST‑1,25‑mm‑Stecker (BAT) des TTGO T5 anschließen.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;em&gt;Hinweis&lt;/em&gt;: Das Panel muss &lt;strong&gt;5 V (nominal) bis max. 6 V&lt;/strong&gt; liefern. Der TP4056
+benötigt mindestens ~4,5 V zum Starten des Ladevorgangs.&lt;/p&gt;
+&lt;h4&gt;Variante B: Externer Solarlader (flexibler)&lt;span class="hx:absolute hx:-mt-20" id="variante-b-externer-solarlader-flexibler"&gt;&lt;/span&gt;
+&lt;a href="#variante-b-externer-solarlader-flexibler" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Verwendet ein separates Solarlader-Modul (z. B. &lt;strong&gt;CN3065&lt;/strong&gt; oder &lt;strong&gt;TP4056 mit
+Solar-Eingang&lt;/strong&gt;) für bessere Energieausbeute bei schwachem Licht.&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; Solarpanel Solarlader TTGO T5 V231
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; (5-6V) Modul ┌────────┐
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; │ │ │ USB-C │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; ├──────────────────┤ IN+ OUT+─┤ Port │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; │ │ │ │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; │ BAT+ ──────── │ JST │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; Li‑Po Akku ───────────┤ BAT- ──────┤ BAT │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; │ └────────┘&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ol&gt;
+&lt;li&gt;Solarpanel an den &lt;strong&gt;IN+ / IN−&lt;/strong&gt; Anschluss des Ladereglers.&lt;/li&gt;
+&lt;li&gt;Li‑Po‑Akku an &lt;strong&gt;BAT+ / BAT−&lt;/strong&gt; des Ladereglers.&lt;/li&gt;
+&lt;li&gt;Lader‑Ausgang an den JST‑BAT‑Stecker des TTGO T5 &lt;strong&gt;oder&lt;/strong&gt; über einen
+5 V‑Step‑Up‑Wandler an den USB‑C Port.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Vorteil&lt;/strong&gt;: Module wie der CN3065 haben einen &lt;strong&gt;MPPT‑ähnlichen
+Eingangsregler&lt;/strong&gt;, der auch bei Bewölkung noch Energie liefert.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h3&gt;Minimalkonfiguration (Sommerbetrieb) ☀️&lt;span class="hx:absolute hx:-mt-20" id="minimalkonfiguration-sommerbetrieb-"&gt;&lt;/span&gt;
+&lt;a href="#minimalkonfiguration-sommerbetrieb-" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Wenn der Monitor &lt;strong&gt;nur in der warmen Jahreszeit&lt;/strong&gt; (Mai–September) und bei
+&lt;strong&gt;überwiegend gutem Wetter&lt;/strong&gt; laufen soll, reichen minimale Komponenten:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Komponente&lt;/th&gt;
+&lt;th&gt;Minimal&lt;/th&gt;
+&lt;th&gt;Begründung&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Solarpanel&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;0,3–0,5 W&lt;/strong&gt; (5 V, ~60–100 mA)&lt;/td&gt;
+&lt;td&gt;Im Sommer ~250 mAh/Tag Ertrag – das Doppelte des Bedarfs&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Akku&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;500 mAh&lt;/strong&gt; (z. B. LP401015)&lt;/td&gt;
+&lt;td&gt;Überbrückt die Nacht (~66 mAh) + 2 bewölkte Tage&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Schottky-Diode&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Optional, aber empfohlen&lt;/td&gt;
+&lt;td&gt;Verhindert nächtlichen Rückstrom bei kleinem Panel&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Der &lt;strong&gt;tägliche Bedarf von ~130 mAh&lt;/strong&gt; wird im Sommer bereits von einem
+&lt;strong&gt;0,3‑W‑Panel&lt;/strong&gt; (60 mA × 6 h × 0,7 Wirkungsgrad ≈ 250 mAh/Tag) übertroffen.
+Die Nacht überbrückt der Akku – selbst nach einem bewölkten Tag ist noch
+genug Reserve für den Folgetag.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Praxis-Tipp&lt;/strong&gt;: Ein Panel unter 0,5 W ist oft kaum günstiger als ein
+0,5‑W‑Panel. Empfehlung daher: &lt;strong&gt;0,5 W + 500‑mAh‑Akku&lt;/strong&gt; als günstigste
+Kombination (Kosten ~15–25 € zusätzlich zum Board).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Dimensionierung&lt;span class="hx:absolute hx:-mt-20" id="dimensionierung"&gt;&lt;/span&gt;
+&lt;a href="#dimensionierung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;Akku-Größe&lt;span class="hx:absolute hx:-mt-20" id="akku-größe"&gt;&lt;/span&gt;
+&lt;a href="#akku-gr%c3%b6%c3%9fe" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Autonomie&lt;/th&gt;
+&lt;th&gt;Empfohlene Kapazität&lt;/th&gt;
+&lt;th&gt;Beispiel&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Nacht + 1 Regentag (Sommer-Minimum)&lt;/td&gt;
+&lt;td&gt;500 mAh&lt;/td&gt;
+&lt;td&gt;LP401015 / 501215 (~15×12×4 mm)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2–3 Tage (Sicherheit)&lt;/td&gt;
+&lt;td&gt;1000 mAh&lt;/td&gt;
+&lt;td&gt;LP401230 (30×12×4 mm)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;5–7 Tage (Winter/trüb)&lt;/td&gt;
+&lt;td&gt;2000 mAh&lt;/td&gt;
+&lt;td&gt;LP503048 (50×30×5 mm)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;10+ Tage (Notversorgung)&lt;/td&gt;
+&lt;td&gt;3000 mAh&lt;/td&gt;
+&lt;td&gt;LP604560 (60×45×6 mm)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Faustregel&lt;/strong&gt;: In Deutschland sind im Winter durchschnittlich &lt;strong&gt;2–3 Sonnenstunden
+pro Tag&lt;/strong&gt; üblich (Nov–Feb). Ein 1000‑mAh‑Akku überbrückt 5–7 Tage ohne Sonne.
+Ein 2000‑mAh‑Akku reicht für 10–14 Tage.&lt;/p&gt;
+&lt;h4&gt;Solarpanel-Größe&lt;span class="hx:absolute hx:-mt-20" id="solarpanel-größe"&gt;&lt;/span&gt;
+&lt;a href="#solarpanel-gr%c3%b6%c3%9fe" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Panel&lt;/th&gt;
+&lt;th&gt;Spannung&lt;/th&gt;
+&lt;th&gt;Strom (max)&lt;/th&gt;
+&lt;th&gt;Tagesertrag (Winter)&lt;/th&gt;
+&lt;th&gt;Tagesertrag (Sommer)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;0,3 W&lt;/td&gt;
+&lt;td&gt;5 V&lt;/td&gt;
+&lt;td&gt;~60 mA&lt;/td&gt;
+&lt;td&gt;~30 mAh&lt;/td&gt;
+&lt;td&gt;~150 mAh&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;0,5 W&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;5 V&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;~100 mA&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;~50 mAh&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;~250 mAh&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1 W&lt;/td&gt;
+&lt;td&gt;5 V&lt;/td&gt;
+&lt;td&gt;~200 mA&lt;/td&gt;
+&lt;td&gt;~100 mAh&lt;/td&gt;
+&lt;td&gt;~500 mAh&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2 W&lt;/td&gt;
+&lt;td&gt;5 V&lt;/td&gt;
+&lt;td&gt;~400 mA&lt;/td&gt;
+&lt;td&gt;~200 mAh&lt;/td&gt;
+&lt;td&gt;~1000 mAh&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Empfehlung&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Nur Sommer&lt;/strong&gt;: &lt;strong&gt;0,5 W + 500‑mAh‑Akku&lt;/strong&gt; – klein, leicht, günstig&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Ganzjahresbetrieb (DE/AT/CH)&lt;/strong&gt;: &lt;strong&gt;1–2 W + 1000–2000‑mAh‑Akku&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Panel‑Abmessungen (Richtwerte)&lt;span class="hx:absolute hx:-mt-20" id="panelabmessungen-richtwerte"&gt;&lt;/span&gt;
+&lt;a href="#panelabmessungen-richtwerte" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Leistung&lt;/th&gt;
+&lt;th&gt;Typische Maße (Breite × Höhe)&lt;/th&gt;
+&lt;th&gt;Dicke&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;0,5 W&lt;/td&gt;
+&lt;td&gt;90 × 60 mm&lt;/td&gt;
+&lt;td&gt;2–3 mm&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1 W&lt;/td&gt;
+&lt;td&gt;110 × 70 mm&lt;/td&gt;
+&lt;td&gt;2–3 mm&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2 W&lt;/td&gt;
+&lt;td&gt;155 × 85 mm&lt;/td&gt;
+&lt;td&gt;2–3 mm&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3 W&lt;/td&gt;
+&lt;td&gt;185 × 95 mm&lt;/td&gt;
+&lt;td&gt;2–3 mm&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h3&gt;Verdrahtung – Schritt für Schritt&lt;span class="hx:absolute hx:-mt-20" id="verdrahtung--schritt-für-schritt"&gt;&lt;/span&gt;
+&lt;a href="#verdrahtung--schritt-f%c3%bcr-schritt" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;Vorbereitung&lt;span class="hx:absolute hx:-mt-20" id="vorbereitung"&gt;&lt;/span&gt;
+&lt;a href="#vorbereitung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;TTGO T5 vom Strom trennen&lt;/strong&gt; (USB‑C und Akku entfernen).&lt;/li&gt;
+&lt;li&gt;Alle Komponenten auf einer nicht-leitenden Unterlage auslegen.&lt;/li&gt;
+&lt;li&gt;Bei Verwendung von Litzen: Adern verzinnen, Schrumpfschlauch vorbereiten.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;Variante A (empfohlen) – Schritt-für-Schritt&lt;span class="hx:absolute hx:-mt-20" id="variante-a-empfohlen--schritt-für-schritt"&gt;&lt;/span&gt;
+&lt;a href="#variante-a-empfohlen--schritt-f%c3%bcr-schritt" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;USB‑C Breakout vorbereiten&lt;/strong&gt;: Die Pads VBUS und GND mit einem
+feinen Lötkolben verzinnen.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Solarpanel vorbereiten&lt;/strong&gt;: Die Litzen des Panels mit Schrumpfschlauch
+isolieren; Plus (rot) an VBUS, Minus (schwarz) an GND des Breakouts.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Optional: Schottky‑Diode 1N5819&lt;/strong&gt; in Reihe zur Plus‑Leitung setzen
+(Kathode zum Breakout, Anode zum Panel), um Rückstrom bei Dunkelheit
+zu verhindern.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Breakout einstecken&lt;/strong&gt;: USB‑C Breakout vorsichtig in den USB‑C Port
+des TTGO T5 stecken.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Li‑Po‑Akku anschließen&lt;/strong&gt;: Den Akku‑Stecker in die &lt;strong&gt;JST‑1,25‑mm‑Buchse
+(BAT)&lt;/strong&gt; auf dem TTGO T5 stecken. Achtung: Verpolung – roter Draht = Plus.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sichtprüfung&lt;/strong&gt;: Keine losen Drähte, keine Kurzschlüsse.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;Test&lt;span class="hx:absolute hx:-mt-20" id="test"&gt;&lt;/span&gt;
+&lt;a href="#test" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;Nur &lt;strong&gt;Solarpanel&lt;/strong&gt; anschließen (ohne Akku) – die rote LED auf dem TTGO T5
+sollte leuchten, wenn das Panel ausreichend Licht bekommt. Das Board sollte
+booten.&lt;/li&gt;
+&lt;li&gt;Panel abstecken, &lt;strong&gt;Akku allein&lt;/strong&gt; anschließen – das Board sollte aus dem Akku
+booten.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Beide anschließen&lt;/strong&gt; – Normalbetrieb. Der TP4056 lädt den Akku bei
+Lichteinfall und schaltet bei Dunkelheit automatisch auf Akku um.&lt;/li&gt;
+&lt;li&gt;Firmware testen: WiFi‑Verbindung, MQTT, Display‑Update.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h3&gt;Gehäuse und Aufstellung&lt;span class="hx:absolute hx:-mt-20" id="gehäuse-und-aufstellung"&gt;&lt;/span&gt;
+&lt;a href="#geh%c3%a4use-und-aufstellung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Wetterfestes Gehäuse (IP65+)&lt;/strong&gt; verwenden, z. B. ABS‑Kunststoffgehäuse von
+Bopla, Spelsberg oder Hammond.&lt;/li&gt;
+&lt;li&gt;Das &lt;strong&gt;Solarpanel&lt;/strong&gt; kann entweder:
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;außen auf dem Gehäuse&lt;/strong&gt; montiert werden (Kabel durch Dichteinführung),&lt;/li&gt;
+&lt;li&gt;oder bei transparentem Deckel &lt;strong&gt;innen hinter einer klaren Scheibe&lt;/strong&gt; liegen
+(Ertrag dann ca. 10–20 % geringer).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Aufstellort&lt;/strong&gt;: Südausrichtung, Neigung 30–45°, kein Schattenwurf
+(Bäume/Gebäude). In DE/AT/CH reicht bereits eine &lt;strong&gt;Mittagssonne von 2–3 h&lt;/strong&gt;
+für den Minimalbetrieb.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Lüftungsschlitze&lt;/strong&gt; sind wegen der geringen Verlustleistung nicht nötig.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Temperaturen&lt;/strong&gt;: Der Li‑Po‑Akku sollte nicht über 60 °C erwärmt werden.
+Bei direkter Sonneneinstrahlung auf das schwarze Gehäuse Hitzestau vermeiden
+(ggf. helles Gehäuse oder Schattenplatz).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3&gt;Hinweise und Sicherheit ⚠️&lt;span class="hx:absolute hx:-mt-20" id="hinweise-und-sicherheit-"&gt;&lt;/span&gt;
+&lt;a href="#hinweise-und-sicherheit-" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Li‑Po‑Sicherheit&lt;/strong&gt;: Nur Akkus mit &lt;strong&gt;Überlade‑/Tiefentladeschutz (PCB)&lt;/strong&gt;
+verwenden. Bei Beschädigung (Beule, Aufblähung) sofort austauschen.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Niemals&lt;/strong&gt; das Solarpanel an die &lt;strong&gt;JST‑BAT‑Buchse&lt;/strong&gt; anschließen – dort gehört
+nur ein &lt;strong&gt;Akku&lt;/strong&gt; hin. Die Eingangsspannung des TP4056 ist auf max. 6 V
+begrenzt; höhere Spannung zerstört den Charger.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;USB‑C Datenleitung&lt;/strong&gt;: Bei Variante A wird der USB‑C Port belegt.
+Zum Flashen der Firmware muss das Breakout abgezogen werden – es sei denn,
+man nutzt &lt;strong&gt;UART über die Stiftleisten&lt;/strong&gt; (RX/TX) am Board.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Kabelzugentlastung&lt;/strong&gt;: Im Gehäuse Kabelbinder oder Kleberpunkte gegen
+Zugbelastung auf den Steckern vorsehen.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Erste Inbetriebnahme&lt;span class="hx:absolute hx:-mt-20" id="erste-inbetriebnahme"&gt;&lt;/span&gt;
+&lt;a href="#erste-inbetriebnahme" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;1. Sichtprüfung&lt;span class="hx:absolute hx:-mt-20" id="1-sichtprüfung"&gt;&lt;/span&gt;
+&lt;a href="#1-sichtpr%c3%bcfung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Vor dem Anschließen:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;USB-C-Anschluss auf Fremdkörper prüfen&lt;/li&gt;
+&lt;li&gt;Board nicht auf leitfähiger Oberfläche platzieren&lt;/li&gt;
+&lt;li&gt;Auf sichtbare Schäden (Aufblähungen, Korrosion) prüfen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;2. Einschalten&lt;span class="hx:absolute hx:-mt-20" id="2-einschalten"&gt;&lt;/span&gt;
+&lt;a href="#2-einschalten" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;TTGO T5 per USB-C an Stromquelle (Computer oder Netzteil) anschließen.&lt;/li&gt;
+&lt;li&gt;Das E-Ink Display aktualisiert sich nach wenigen Sekunden:
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Ohne Firmware&lt;/strong&gt;: Testmuster oder leerer Bildschirm.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mit Pool Monitor Firmware&lt;/strong&gt;: Der Startbildschirm — siehe
+&lt;a
+href="users-guide.de.md#einrichtung"&gt;Users Guide&lt;/a&gt; für die Ersteinrichtung.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;3. Ersteinrichtung&lt;span class="hx:absolute hx:-mt-20" id="3-ersteinrichtung"&gt;&lt;/span&gt;
+&lt;a href="#3-ersteinrichtung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Das Gerät startet im &lt;strong&gt;AP-Modus&lt;/strong&gt;, wenn kein WiFi konfiguriert ist:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Verbinde dich mit dem WLAN &lt;strong&gt;&lt;code&gt;pool-monitor&lt;/code&gt;&lt;/strong&gt; (offenes Netz, kein Passwort).&lt;/li&gt;
+&lt;li&gt;Ein Captive Portal öffnet sich automatisch — oder öffne
+&lt;strong&gt;&lt;code&gt;http://192.168.4.1&lt;/code&gt;&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Gib deine WLAN-Zugangsdaten und MQTT-Broker-Einstellungen ein.&lt;/li&gt;
+&lt;li&gt;Klicke &lt;strong&gt;Save&lt;/strong&gt; — das Gerät startet neu und verbindet sich mit deinem Netzwerk.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Details im &lt;a
+href="users-guide.de.md"&gt;Users Guide&lt;/a&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Fehlerbehebung&lt;span class="hx:absolute hx:-mt-20" id="fehlerbehebung"&gt;&lt;/span&gt;
+&lt;a href="#fehlerbehebung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Symptom&lt;/th&gt;
+&lt;th&gt;Wahrscheinliche Ursache&lt;/th&gt;
+&lt;th&gt;Lösung&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Display bleibt weiß&lt;/td&gt;
+&lt;td&gt;Keine oder korrupte Firmware&lt;/td&gt;
+&lt;td&gt;Firmware per PlatformIO flashen (siehe &lt;a
+href="software-guide.de.md"&gt;Software Guide&lt;/a&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ldquo;MQTT Error&amp;rdquo; auf Display, Portal startet&lt;/td&gt;
+&lt;td&gt;MQTT-Broker nicht erreichbar&lt;/td&gt;
+&lt;td&gt;Broker-Hostname/IP prüfen; MQTT-Server läuft?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ldquo;WiFi connection failed&amp;rdquo;&lt;/td&gt;
+&lt;td&gt;Falsche Zugangsdaten oder schwaches Signal&lt;/td&gt;
+&lt;td&gt;Über Captive Portal neu konfigurieren; WLAN-Reichweite prüfen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Display zeigt alte Daten (keine Aktualisierung)&lt;/td&gt;
+&lt;td&gt;MQTT-Problem oder Pool Controller offline&lt;/td&gt;
+&lt;td&gt;Prüfen, ob der Pool Controller auf HA-State-Topics veröffentlicht&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;QR-Portal erscheint alle 3 Minuten&lt;/td&gt;
+&lt;td&gt;MQTT-Einstellungen nicht gespeichert&lt;/td&gt;
+&lt;td&gt;MQTT-Hostname/IP erneut eingeben; IP statt Hostname versuchen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Brownout / Neustart-Schleife&lt;/td&gt;
+&lt;td&gt;Zu schwaches Netzteil&lt;/td&gt;
+&lt;td&gt;5V/≥1A Netzteil verwenden; anderes USB-Kabel probieren&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Display aktualisiert, zeigt aber &lt;code&gt;--:--&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;NTP-Zeitsynchronisation fehlgeschlagen&lt;/td&gt;
+&lt;td&gt;Internetverbindung prüfen; NTP wird stündlich versucht&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2&gt;Referenzen&lt;span class="hx:absolute hx:-mt-20" id="referenzen"&gt;&lt;/span&gt;
+&lt;a href="#referenzen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a
+href="http://www.lilygo.com/prod_view-66.html"target="_blank" rel="noopener"&gt;LILYGO TTGO T5 Produktseite&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/ZinggJM/GxEPD"target="_blank" rel="noopener"&gt;GxEPD Bibliothek&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://www.espressif.com/en/products/socs/esp32"target="_blank" rel="noopener"&gt;ESP32 Datenblatt&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller/blob/main/docs/hardware-guide.md"target="_blank" rel="noopener"&gt;Pool Controller Hardware Guide&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/smart-swimmingpool/monitor/blob/main/src/board_def.h"target="_blank" rel="noopener"&gt;Board-Definitionen (Quelle)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>OTA-Updates</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/ota-updates/</link><pubDate>Thu, 11 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/ota-updates/</guid><description>
+&lt;h1&gt;Over-The-Air (OTA) Updates&lt;/h1&gt;&lt;h2&gt;Übersicht&lt;span class="hx:absolute hx:-mt-20" id="übersicht"&gt;&lt;/span&gt;
+&lt;a href="#%c3%bcbersicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der Pool Controller unterstützt Over-The-Air (OTA) Firmware-Updates, sodass
+Sie das Gerät remote ohne physischen Zugriff aktualisieren können.&lt;/p&gt;
+&lt;h2&gt;Funktionen&lt;span class="hx:absolute hx:-mt-20" id="funktionen"&gt;&lt;/span&gt;
+&lt;a href="#funktionen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;WebUI-Firmware-Upload&lt;/strong&gt;: Eine signierte &lt;code&gt;.bin&lt;/code&gt;-Datei über das Dashboard flashen&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GitHub-Release-Updates&lt;/strong&gt;: Nach neuen Versionen suchen und automatisch installieren&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PlatformIO-Seriell-Upload&lt;/strong&gt;: Per USB flashen für die Entwicklung&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Status-Rückmeldung&lt;/strong&gt;: Fortschrittsanzeige über WebUI + MQTT&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Update-Methoden&lt;span class="hx:absolute hx:-mt-20" id="update-methoden"&gt;&lt;/span&gt;
+&lt;a href="#update-methoden" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Methode 1: WebUI (Empfohlen)&lt;span class="hx:absolute hx:-mt-20" id="methode-1-webui-empfohlen"&gt;&lt;/span&gt;
+&lt;a href="#methode-1-webui-empfohlen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Die einfachste Methode — keine Tools außer einem Browser nötig:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Pool Controller Dashboard im Browser öffnen&lt;/li&gt;
+&lt;li&gt;Zum Tab &lt;strong&gt;System&lt;/strong&gt; gehen&lt;/li&gt;
+&lt;li&gt;Eine der Optionen wählen:
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Manueller Firmware-Upload&lt;/strong&gt;: Eine &lt;code&gt;.bin&lt;/code&gt;-Datei auswählen und flashen&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Nach Updates suchen&lt;/strong&gt;: Lädt automatisch die neueste Version von GitHub&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Dem Fortschrittsbalken folgen — das Gerät startet nach Abschluss neu&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Methode 2: GitHub Release (Automatisch)&lt;span class="hx:absolute hx:-mt-20" id="methode-2-github-release-automatisch"&gt;&lt;/span&gt;
+&lt;a href="#methode-2-github-release-automatisch" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Die Firmware wird bei jedem GitHub-Release automatisch gebaut und veröffentlicht:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Im Tab &lt;strong&gt;System&lt;/strong&gt; auf &lt;strong&gt;Nach Updates suchen&lt;/strong&gt; klicken&lt;/li&gt;
+&lt;li&gt;Wenn eine neuere Version gefunden wird, erscheint &lt;strong&gt;Update installieren&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Klicken, um die neueste Firmware direkt von GitHub herunterzuladen und zu flashen&lt;/li&gt;
+&lt;li&gt;Der Fortschritt wird in der UI angezeigt; das Gerät startet nach Abschluss neu&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Methode 3: PlatformIO Seriell-Upload&lt;span class="hx:absolute hx:-mt-20" id="methode-3-platformio-seriell-upload"&gt;&lt;/span&gt;
+&lt;a href="#methode-3-platformio-seriell-upload" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Für die Entwicklung:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Bauen und per USB flashen&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pio run -e esp32dev --target upload
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Oder mit Projekt-Venv&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;./venv/bin/pio run -e esp32dev --target upload&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;Firmware für OTA bauen&lt;span class="hx:absolute hx:-mt-20" id="firmware-für-ota-bauen"&gt;&lt;/span&gt;
+&lt;a href="#firmware-f%c3%bcr-ota-bauen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Firmware-Binärdatei erstellen&lt;span class="hx:absolute hx:-mt-20" id="firmware-binärdatei-erstellen"&gt;&lt;/span&gt;
+&lt;a href="#firmware-bin%c3%a4rdatei-erstellen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Firmware bauen ohne hochzuladen&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pio run -e esp32dev
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Speicherort der Binärdatei&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;.pio/build/esp32dev/firmware.bin&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;Sicherheitshinweise&lt;span class="hx:absolute hx:-mt-20" id="sicherheitshinweise"&gt;&lt;/span&gt;
+&lt;a href="#sicherheitshinweise" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;1. Netzwerksicherheit&lt;span class="hx:absolute hx:-mt-20" id="1-netzwerksicherheit"&gt;&lt;/span&gt;
+&lt;a href="#1-netzwerksicherheit" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;WPA2/WPA3 WLAN-Verschlüsselung verwenden&lt;/li&gt;
+&lt;li&gt;IoT-Geräte nach Möglichkeit in einem separaten VLAN isolieren&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;2. Firmware-Überprüfung&lt;span class="hx:absolute hx:-mt-20" id="2-firmware-überprüfung"&gt;&lt;/span&gt;
+&lt;a href="#2-firmware-%c3%bcberpr%c3%bcfung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Nur Firmware aus vertrauenswürdigen Quellen flashen (offizielle GitHub-Releases)&lt;/li&gt;
+&lt;li&gt;Firmware-Builds vor dem Upload in die Produktion testen&lt;/li&gt;
+&lt;li&gt;Zuerst auf einem Entwicklungsgerät testen&lt;/li&gt;
+&lt;li&gt;Backup der funktionierenden Firmware-Version behalten&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Fehlerbehebung&lt;span class="hx:absolute hx:-mt-20" id="fehlerbehebung"&gt;&lt;/span&gt;
+&lt;a href="#fehlerbehebung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;OTA-Upload fehlschlägt&lt;span class="hx:absolute hx:-mt-20" id="ota-upload-fehlschlägt"&gt;&lt;/span&gt;
+&lt;a href="#ota-upload-fehlschl%c3%a4gt" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Problem&lt;/strong&gt;: Upload bricht mit Timeout-Fehler ab&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lösungen&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Prüfen, ob das Gerät online ist: &lt;code&gt;ping pool-controller.local&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Sicherstellen, dass das Gerät ausreichend freien Speicher hat (&amp;gt;50 KB)&lt;/li&gt;
+&lt;li&gt;Timeout in &lt;code&gt;upload_flags&lt;/code&gt; erhöhen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Gerät nicht gefunden&lt;span class="hx:absolute hx:-mt-20" id="gerät-nicht-gefunden"&gt;&lt;/span&gt;
+&lt;a href="#ger%c3%a4t-nicht-gefunden" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Problem&lt;/strong&gt;: Gerät in Netzwerkports nicht sichtbar&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lösungen&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;mDNS-Funktion prüfen: &lt;code&gt;avahi-browse -a&lt;/code&gt; (Linux) oder Bonjour (Windows)&lt;/li&gt;
+&lt;li&gt;IP-Adresse statt mDNS-Hostname verwenden&lt;/li&gt;
+&lt;li&gt;Gerät neu starten und auf WLAN-Verbindung warten&lt;/li&gt;
+&lt;li&gt;Prüfen, ob das Gerät im selben Netzwerk/Subnetz ist&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Upload erfolgreich, aber Gerät antwortet nicht&lt;span class="hx:absolute hx:-mt-20" id="upload-erfolgreich-aber-gerät-antwortet-nicht"&gt;&lt;/span&gt;
+&lt;a href="#upload-erfolgreich-aber-ger%c3%a4t-antwortet-nicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Problem&lt;/strong&gt;: Upload abgeschlossen, aber das Gerät startet nicht neu oder läuft nicht mit neuer Firmware&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lösungen&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Serielle Konsole auf Boot-Fehler prüfen&lt;/li&gt;
+&lt;li&gt;Sicherstellen, dass die Firmware für die richtige Plattform gebaut wurde (ESP32)&lt;/li&gt;
+&lt;li&gt;Prüfen, ob die Firmware in den Flash-Speicher passt&lt;/li&gt;
+&lt;li&gt;Auf Speicherprobleme im seriellen Log prüfen&lt;/li&gt;
+&lt;li&gt;Manuellen Neustart durchführen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Speicherprobleme während OTA&lt;span class="hx:absolute hx:-mt-20" id="speicherprobleme-während-ota"&gt;&lt;/span&gt;
+&lt;a href="#speicherprobleme-w%c3%a4hrend-ota" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Problem&lt;/strong&gt;: OTA fehlschlägt wegen unzureichendem Speicher&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lösungen&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Freier Speicher ist kritisch für OTA&lt;/li&gt;
+&lt;li&gt;Systemmonitor verhindert OTA bei Speicher &amp;lt; 8 KB&lt;/li&gt;
+&lt;li&gt;Gerät vor dem OTA-Versuch neu starten&lt;/li&gt;
+&lt;li&gt;Logging während des Updates reduzieren&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;OTA-Architektur&lt;span class="hx:absolute hx:-mt-20" id="ota-architektur"&gt;&lt;/span&gt;
+&lt;a href="#ota-architektur" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Funktionsweise&lt;span class="hx:absolute hx:-mt-20" id="funktionsweise"&gt;&lt;/span&gt;
+&lt;a href="#funktionsweise" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;WebUI ODER GitHub&lt;/strong&gt;: Benutzer löst Update über Dashboard oder automatisierte Prüfung aus&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Firmware-Download&lt;/strong&gt;: Binärdatei wird von lokalem Upload oder GitHub-Release geholt&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Flash-Schreiben&lt;/strong&gt;: Neue Firmware wird auf die OTA-Partition geschrieben (ESP32 Update-Bibliothek)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Verifizierung&lt;/strong&gt;: Firmware-Signatur und Integrität werden geprüft&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Neustart&lt;/strong&gt;: Automatischer Neustart mit neuer Firmware&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Speicheranforderungen&lt;span class="hx:absolute hx:-mt-20" id="speicheranforderungen"&gt;&lt;/span&gt;
+&lt;a href="#speicheranforderungen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;ESP32&lt;/strong&gt;: Mindestens 100 KB freier Heap für OTA&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Flash&lt;/strong&gt;: Ausreichend Platz für Dual-Boot-Partitionen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;LWIP-Konfiguration&lt;span class="hx:absolute hx:-mt-20" id="lwip-konfiguration"&gt;&lt;/span&gt;
+&lt;a href="#lwip-konfiguration" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Das Projekt verwendet das Flag &lt;code&gt;PIO_FRAMEWORK_ARDUINO_LWIP2_LOW_MEMORY&lt;/code&gt;, um den
+Netzwerk-Stack-Speicherverbrauch zu optimieren und zuverlässige OTA-Updates zu gewährleisten.&lt;/p&gt;
+&lt;h2&gt;OTA-Status überwachen&lt;span class="hx:absolute hx:-mt-20" id="ota-status-überwachen"&gt;&lt;/span&gt;
+&lt;a href="#ota-status-%c3%bcberwachen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der OTA-Fortschritt ist in der WebUI-Fortschrittsanzeige und über die serielle Konsole sichtbar.&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# PlatformIO Monitor&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pio device monitor
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Auf Log-Meldungen achten&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;[&lt;/span&gt;OTA&lt;span class="o"&gt;]&lt;/span&gt; Start
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;[&lt;/span&gt;OTA&lt;span class="o"&gt;]&lt;/span&gt; Progress: 25%
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;[&lt;/span&gt;OTA&lt;span class="o"&gt;]&lt;/span&gt; Progress: 50%
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;[&lt;/span&gt;OTA&lt;span class="o"&gt;]&lt;/span&gt; Progress: 75%
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;[&lt;/span&gt;OTA&lt;span class="o"&gt;]&lt;/span&gt; Success&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;Wiederherstellungsverfahren&lt;span class="hx:absolute hx:-mt-20" id="wiederherstellungsverfahren"&gt;&lt;/span&gt;
+&lt;a href="#wiederherstellungsverfahren" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Wiederherstellung nach fehlgeschlagenem OTA-Update&lt;span class="hx:absolute hx:-mt-20" id="wiederherstellung-nach-fehlgeschlagenem-ota-update"&gt;&lt;/span&gt;
+&lt;a href="#wiederherstellung-nach-fehlgeschlagenem-ota-update" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Wenn ein OTA-Update fehlschlägt und das Gerät nicht mehr reagiert:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Wiederherstellung mit physischem Zugriff&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Per USB-Seriell verbinden&lt;/li&gt;
+&lt;li&gt;Firmware per Seriell flashen: &lt;code&gt;pio run -e esp32dev --target upload&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Bootloader-Wiederherstellung&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ESP32-Bootloader ermöglicht serielle Wiederherstellung&lt;/li&gt;
+&lt;li&gt;BOOT-Taste beim Einschalten gedrückt halten&lt;/li&gt;
+&lt;li&gt;Firmware per esptool flashen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Werksreset&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Im WebUI: System-Tab → &lt;strong&gt;Factory Reset&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Oder seriell: NVS + LittleFS löschen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Zukünftige Erweiterungen&lt;span class="hx:absolute hx:-mt-20" id="zukünftige-erweiterungen"&gt;&lt;/span&gt;
+&lt;a href="#zuk%c3%bcnftige-erweiterungen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; Webbasiertes OTA-Update-Interface (System-Tab)&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; Automatische Update-Prüfung von GitHub-Releases&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Rollback-Funktion auf vorherige Firmware&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; A/B-Partitions-Updates für sicherere Updates&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Update-Planung über MQTT-Befehle&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Referenzen&lt;span class="hx:absolute hx:-mt-20" id="referenzen"&gt;&lt;/span&gt;
+&lt;a href="#referenzen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a
+href="https://docs.platformio.org/en/latest/platforms/espressif32.html#over-the-air-ota-update"target="_blank" rel="noopener"&gt;PlatformIO OTA Guide&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://docs.espressif.com/projects/arduino-esp32/en/latest/api/ota.html"target="_blank" rel="noopener"&gt;ESP32 Arduino OTA&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller/releases"target="_blank" rel="noopener"&gt;GitHub Releases&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Support&lt;span class="hx:absolute hx:-mt-20" id="support"&gt;&lt;/span&gt;
+&lt;a href="#support" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Bei OTA-bezogenen Problemen:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Issue öffnen: &lt;a
+href="https://github.com/smart-swimmingpool/pool-controller/issues"target="_blank" rel="noopener"&gt;https://github.com/smart-swimmingpool/pool-controller/issues&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Diskussionen: &lt;a
+href="https://github.com/smart-swimmingpool/smart-swimmingpool.github.io/discussions"target="_blank" rel="noopener"&gt;https://github.com/smart-swimmingpool/smart-swimmingpool.github.io/discussions&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Hinweis&lt;/strong&gt;: OTA wird mit der ESP32 Arduino Update-Bibliothek implementiert, die
+in das WebPortal integriert ist. GitHub-Release-Builds werden von der CI-Pipeline
+(&lt;code&gt;release.yml&lt;/code&gt;) erstellt.&lt;/p&gt;</description></item><item><title>ESP32 Komplett-Schaltplan</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/esp32-complete-wiring-schematic/</link><pubDate>Fri, 15 May 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/esp32-complete-wiring-schematic/</guid><description>
+&lt;p&gt;Dieses Dokument zeigt einen zusätzlichen, vollständigen Verdrahtungsplan für
+den ESP32-Aufbau mit Sensoren, Relais, Widerständen und Uhr-Modul (RTC).&lt;/p&gt;
+&lt;p&gt;Die verwendeten Standard-Pins in der Firmware sind:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;PIN_DS_SOLAR&lt;/code&gt; = GPIO32&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PIN_DS_POOL&lt;/code&gt; = GPIO33&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PIN_RELAY_POOL&lt;/code&gt; = GPIO25&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PIN_RELAY_SOLAR&lt;/code&gt; = GPIO26&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;1) Komponenten (inkl. Uhr und Widerstände)&lt;span class="hx:absolute hx:-mt-20" id="1-komponenten-inkl-uhr-und-widerstände"&gt;&lt;/span&gt;
+&lt;a href="#1-komponenten-inkl-uhr-und-widerst%c3%a4nde" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;1x ESP32 Dev Board&lt;/li&gt;
+&lt;li&gt;2x DS18B20 Temperatursensor (Solar, Pool)&lt;/li&gt;
+&lt;li&gt;2x Widerstand 4.7kΩ (Pull-up für OneWire-Datenleitungen)&lt;/li&gt;
+&lt;li&gt;1x 2-Kanal-Relaismodul 5V (bevorzugt mit Optokoppler)&lt;/li&gt;
+&lt;li&gt;1x RTC-Modul DS3231 (Uhr, optional)&lt;/li&gt;
+&lt;li&gt;1x Netzteil 5V DC (ausreichend dimensioniert)&lt;/li&gt;
+&lt;li&gt;Verdrahtungskabel, Klemmen, ggf. Sicherung/Schutzbeschaltung auf Lastseite&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2) Komplett-Schaltplan (Textdarstellung)&lt;span class="hx:absolute hx:-mt-20" id="2-komplett-schaltplan-textdarstellung"&gt;&lt;/span&gt;
+&lt;a href="#2-komplett-schaltplan-textdarstellung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;+----------------------------------+
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| ESP32 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| DS18B20 Solar DATA ---- GPIO32 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| DS18B20 Pool DATA ---- GPIO33 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| Relay IN1 (Pool) ----- GPIO25 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| Relay IN2 (Solar) ----- GPIO26 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| RTC SDA --------------- GPIO21 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| RTC SCL --------------- GPIO22 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| 3V3 ------------------- 3V3 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| GND ------------------- GND |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;+----------------+-----------------+
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;|
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| gemeinsame Masse (GND)
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;v
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;+----------------------+ +------------------------------+
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| DS18B20 Solar | | DS18B20 Pool |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| VDD -&amp;gt; 3V3 | | VDD -&amp;gt; 3V3 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| GND -&amp;gt; GND | | GND -&amp;gt; GND |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| DATA -&amp;gt; GPIO32 | | DATA -&amp;gt; GPIO33 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;+----------+-----------+ +----------+-------------------+
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;+--[4.7kΩ]---&amp;gt; 3V3 +--[4.7kΩ]---&amp;gt; 3V3
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;+----------------------------------+
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| 2-Kanal Relaismodul (5V, opto) |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| IN1 &amp;lt;- GPIO25 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| IN2 &amp;lt;- GPIO26 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| VCC &amp;lt;- 5V (oder Modul-Logik) |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| JD-VCC &amp;lt;- 5V (falls getrennt) |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| GND &amp;lt;- GND |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;+----------------+-----------------+
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;|
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| Schaltkontakte
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;v
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; Pool-Pumpe / Solar-Pumpe (AC)
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;+--------------------------------------+
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| RTC DS3231 (optional, Uhr) |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| VCC &amp;lt;- 3V3 (oder 5V je Modultyp) |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| GND &amp;lt;- GND |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| SDA &amp;lt;- GPIO21 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;| SCL &amp;lt;- GPIO22 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;+--------------------------------------+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;3) Verdrahtungstabelle&lt;span class="hx:absolute hx:-mt-20" id="3-verdrahtungstabelle"&gt;&lt;/span&gt;
+&lt;a href="#3-verdrahtungstabelle" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Bauteil&lt;/th&gt;
+&lt;th&gt;Signal&lt;/th&gt;
+&lt;th&gt;ESP32 Pin&lt;/th&gt;
+&lt;th&gt;Zusatzbauteil&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;DS18B20 Solar&lt;/td&gt;
+&lt;td&gt;DATA&lt;/td&gt;
+&lt;td&gt;GPIO32&lt;/td&gt;
+&lt;td&gt;4.7kΩ Pull-up nach 3V3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DS18B20 Pool&lt;/td&gt;
+&lt;td&gt;DATA&lt;/td&gt;
+&lt;td&gt;GPIO33&lt;/td&gt;
+&lt;td&gt;4.7kΩ Pull-up nach 3V3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relais Kanal 1&lt;/td&gt;
+&lt;td&gt;IN1&lt;/td&gt;
+&lt;td&gt;GPIO25&lt;/td&gt;
+&lt;td&gt;optional Pull-down (Fail-Safe)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relais Kanal 2&lt;/td&gt;
+&lt;td&gt;IN2&lt;/td&gt;
+&lt;td&gt;GPIO26&lt;/td&gt;
+&lt;td&gt;optional Pull-down (Fail-Safe)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;RTC DS3231 (optional)&lt;/td&gt;
+&lt;td&gt;SDA&lt;/td&gt;
+&lt;td&gt;GPIO21&lt;/td&gt;
+&lt;td&gt;I2C-Bus&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;RTC DS3231 (optional)&lt;/td&gt;
+&lt;td&gt;SCL&lt;/td&gt;
+&lt;td&gt;GPIO22&lt;/td&gt;
+&lt;td&gt;I2C-Bus&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Alle Bauteile&lt;/td&gt;
+&lt;td&gt;GND&lt;/td&gt;
+&lt;td&gt;GND&lt;/td&gt;
+&lt;td&gt;gemeinsame Masseführung&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DS18B20 / RTC&lt;/td&gt;
+&lt;td&gt;Versorgung&lt;/td&gt;
+&lt;td&gt;3V3&lt;/td&gt;
+&lt;td&gt;sauber entkoppeln&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relaismodul&lt;/td&gt;
+&lt;td&gt;Versorgung&lt;/td&gt;
+&lt;td&gt;5V&lt;/td&gt;
+&lt;td&gt;getrennte Last/Logik empfohlen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;4) Wichtige Hinweise&lt;span class="hx:absolute hx:-mt-20" id="4-wichtige-hinweise"&gt;&lt;/span&gt;
+&lt;a href="#4-wichtige-hinweise" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;230V/Netzseite der Pumpen nur nach geltenden Sicherheitsregeln verdrahten.&lt;/li&gt;
+&lt;li&gt;Sensorleitungen getrennt von Netz- und Relaisleitungen führen.&lt;/li&gt;
+&lt;li&gt;Beim Relaismodul aktive Logik prüfen (active-low oder active-high).&lt;/li&gt;
+&lt;li&gt;Für störarmen Betrieb nahe ESP32 zusätzliche Entkopplung (z. B. 100nF)
+vorsehen.&lt;/li&gt;
+&lt;li&gt;Die Firmware nutzt standardmäßig NTP; das RTC-Modul ist als zusätzliche
+Hardware-Uhr für Erweiterungen/Offline-Szenarien vorgesehen.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;5) Bezug zu bestehender Doku&lt;span class="hx:absolute hx:-mt-20" id="5-bezug-zu-bestehender-doku"&gt;&lt;/span&gt;
+&lt;a href="#5-bezug-zu-bestehender-doku" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Ausführliche Aufbauanleitung (auch für Einsteiger):
+&lt;a
+href="hardware-guide.de.md"&gt;Hardware-Anleitung&lt;/a&gt; — Schritt-für-Schritt,
+Fertigungstipps, Fehlersuche&lt;/li&gt;
+&lt;li&gt;Pin-Hintergrund und Optimierung:
+&lt;a
+href="esp32-schematic-optimization.de.md"&gt;ESP32 Schaltplananalyse und Optimierung&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="kicad/esp32-dev-board/esp32-dev-board-schematic.pdf"&gt;KiCad-Schaltplan: ESP32 Dev Board&lt;/a&gt; — KiCad-9.0-Schaltplan als PDF-Export&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>ESP32 Schaltplananalyse und Optimierung</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/esp32-schematic-optimization/</link><pubDate>Thu, 14 May 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/esp32-schematic-optimization/</guid><description>
+&lt;p&gt;Dieses Dokument analysiert den vorhandenen Aufbau (Fritzing-Quelle + bestehende
+Hardware-Dokumentation) und beschreibt einen optimierten ESP32-Vorschlag für
+Sensoren und Relais.&lt;/p&gt;
+&lt;h2&gt;1) Ist-Analyse (relevante Signale)&lt;span class="hx:absolute hx:-mt-20" id="1-ist-analyse-relevante-signale"&gt;&lt;/span&gt;
+&lt;a href="#1-ist-analyse-relevante-signale" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Aktuelle Firmware-Pinbelegung für ESP32 (&lt;code&gt;src/Config.hpp&lt;/code&gt;):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;PIN_DS_SOLAR&lt;/code&gt; = GPIO32&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PIN_DS_POOL&lt;/code&gt; = GPIO33&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PIN_RELAY_POOL&lt;/code&gt; = GPIO25&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PIN_RELAY_SOLAR&lt;/code&gt; = GPIO26&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Verwendete Hardware laut Doku:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;2x DS18B20 Temperaturfühler&lt;/li&gt;
+&lt;li&gt;2-Kanal Relaismodul (5V)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2) Hauptthemen im bisherigen Aufbau (vor Optimierung)&lt;span class="hx:absolute hx:-mt-20" id="2-hauptthemen-im-bisherigen-aufbau-vor-optimierung"&gt;&lt;/span&gt;
+&lt;a href="#2-hauptthemen-im-bisherigen-aufbau-vor-optimierung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;DS18B20 war auf GPIO15 (Strapping-Pin)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;GPIO15 ist beim ESP32 ein Boot-Strapping-Pin.
+Ein OneWire-Bus mit Pull-up auf diesem Pin kann das Boot-Verhalten negativ
+beeinflussen.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Relais-/Versorgungskopplung&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;5V-Relaismodule können Schaltstörungen verursachen (Spikes/Noise).
+Ohne saubere Trennung von Logik- und Lastversorgung steigt das Risiko von
+Resets und Messrauschen.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Fehlende explizite Fail-Safe-Definition im Schaltplan&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Beim Start oder Reset darf keine Pumpe unbeabsichtigt einschalten.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;3) Optimierter ESP32-Vorschlag&lt;span class="hx:absolute hx:-mt-20" id="3-optimierter-esp32-vorschlag"&gt;&lt;/span&gt;
+&lt;a href="#3-optimierter-esp32-vorschlag" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;3.1 Empfohlene Pinbelegung&lt;span class="hx:absolute hx:-mt-20" id="31-empfohlene-pinbelegung"&gt;&lt;/span&gt;
+&lt;a href="#31-empfohlene-pinbelegung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Funktion&lt;/th&gt;
+&lt;th&gt;Vorher (ESP32)&lt;/th&gt;
+&lt;th&gt;Jetzt (ESP32)&lt;/th&gt;
+&lt;th&gt;Grund&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;DS18B20 Solar&lt;/td&gt;
+&lt;td&gt;GPIO15&lt;/td&gt;
+&lt;td&gt;GPIO32&lt;/td&gt;
+&lt;td&gt;Vermeidet Strapping-Pins&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DS18B20 Pool&lt;/td&gt;
+&lt;td&gt;GPIO16&lt;/td&gt;
+&lt;td&gt;GPIO33&lt;/td&gt;
+&lt;td&gt;Klare Trennung der Sensorleitungen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relais Pool&lt;/td&gt;
+&lt;td&gt;GPIO18&lt;/td&gt;
+&lt;td&gt;GPIO25&lt;/td&gt;
+&lt;td&gt;Robuster Output, konfliktarm&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relais Solar&lt;/td&gt;
+&lt;td&gt;GPIO19&lt;/td&gt;
+&lt;td&gt;GPIO26&lt;/td&gt;
+&lt;td&gt;Robuster Output, konfliktarm&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Hinweis: Für bestehende Installationen mit alter Verdrahtung ist eine Anpassung
+der Firmware-Pins und ggf. Umverdrahtung erforderlich.&lt;/p&gt;
+&lt;h3&gt;3.1.1 Entscheidungsdokumentation (klarer Entscheid)&lt;span class="hx:absolute hx:-mt-20" id="311-entscheidungsdokumentation-klarer-entscheid"&gt;&lt;/span&gt;
+&lt;a href="#311-entscheidungsdokumentation-klarer-entscheid" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Entscheidung:&lt;/strong&gt; Für ESP32 werden die Signale dauerhaft auf
+&lt;code&gt;GPIO32/33&lt;/code&gt; (DS18B20) sowie &lt;code&gt;GPIO25/26&lt;/code&gt; (Relais) geführt.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Warum genau diese Zuordnung:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Boot-Robustheit:&lt;/strong&gt; Sensoren liegen nicht mehr auf Strapping-Pins
+(insbesondere kein OneWire auf GPIO15).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Störarmut:&lt;/strong&gt; Sensor-GPIOs sind von Relais-GPIOs logisch getrennt; dadurch
+weniger gegenseitige Beeinflussung bei Schaltvorgängen.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Betriebssicherheit:&lt;/strong&gt; Relais auf gut nutzbaren Output-Pins mit klarer
+Fail-Safe-Auslegung beim Start/Reset.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Wartbarkeit:&lt;/strong&gt; Einheitliche, dokumentierte Standardbelegung in Firmware und
+Hardware-Doku reduziert Fehlverdrahtung und Support-Aufwand.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Nicht gewählt wurde:&lt;/strong&gt; Die frühere ESP32-Belegung (&lt;code&gt;15/16/18/19&lt;/code&gt;), da sie
+höheres Boot-/Störrisiko mitbringt.&lt;/p&gt;
+&lt;h3&gt;3.2 Sensor-Optimierung (DS18B20)&lt;span class="hx:absolute hx:-mt-20" id="32-sensor-optimierung-ds18b20"&gt;&lt;/span&gt;
+&lt;a href="#32-sensor-optimierung-ds18b20" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Pro Sensorleitung einen sauberen &lt;strong&gt;4.7k Pull-up nach 3.3V&lt;/strong&gt; vorsehen.&lt;/li&gt;
+&lt;li&gt;Sensorleitungen räumlich von Relais-/230V-Leitungen trennen.&lt;/li&gt;
+&lt;li&gt;Bei längeren Leitungen: verdrillte Leitung und gemeinsamer sauberer GND.&lt;/li&gt;
+&lt;li&gt;100nF nahe ESP32-Versorgung zur Entstörung vorsehen.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;3.3 Relais-Optimierung&lt;span class="hx:absolute hx:-mt-20" id="33-relais-optimierung"&gt;&lt;/span&gt;
+&lt;a href="#33-relais-optimierung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Relaismodul mit Optokoppler&lt;/strong&gt; und sauber dokumentierter Logikpegelrichtung
+(active-low/active-high) verwenden.&lt;/li&gt;
+&lt;li&gt;Wenn Modul es unterstützt: &lt;strong&gt;JD-VCC (Relais-Spule) von VCC (Logik) trennen&lt;/strong&gt;
+und gemeinsame Masseführung sternförmig auslegen.&lt;/li&gt;
+&lt;li&gt;Auf Pumpenseite geeignete Netzschutzmaßnahmen einplanen (z. B. passende
+Absicherung/Schutzbeschaltung entsprechend Installation).&lt;/li&gt;
+&lt;li&gt;Relais-Eingänge zusätzlich mit Pull-up/Pull-down fail-safe auslegen, damit
+beim Booten kein ungewolltes Schalten erfolgt.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;3.4 Verdrahtung (Visualisierung)&lt;span class="hx:absolute hx:-mt-20" id="34-verdrahtung-visualisierung"&gt;&lt;/span&gt;
+&lt;a href="#34-verdrahtung-visualisierung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; +---------------------+
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; | ESP32 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; | |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;DS18B20 Solar DATA &amp;lt;----&amp;gt;| GPIO32 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;DS18B20 Pool DATA &amp;lt;----&amp;gt;| GPIO33 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Relay IN1 (Pool) &amp;lt;----&amp;gt;| GPIO25 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Relay IN2 (Solar) &amp;lt;----&amp;gt;| GPIO26 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; | |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;3V3 ---------------------&amp;gt;| 3V3 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;GND ---------------------&amp;gt;| GND |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; +----------+----------+
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; | gemeinsame Masse
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; v
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; +----------------+----------------+
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; | 2-Kanal Relaismodul (5V, opto) |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; | VCC (Logik) &amp;lt;- 3V3/5V* |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; | JD-VCC (Spule)&amp;lt;- 5V |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; | GND &amp;lt;- GND |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; | IN1 &amp;lt;- GPIO25 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; | IN2 &amp;lt;- GPIO26 |
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; +----------------+----------------+
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;DS18B20 Solar: VDD -&amp;gt; 3V3, GND -&amp;gt; GND, DATA -&amp;gt; GPIO32, Pull-up 4.7k nach 3V3
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;DS18B20 Pool : VDD -&amp;gt; 3V3, GND -&amp;gt; GND, DATA -&amp;gt; GPIO33, Pull-up 4.7k nach 3V3
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;* abhängig vom eingesetzten Relaismodul (Logikpegel beachten)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;4) Firmware-Bezug bei Umverdrahtung&lt;span class="hx:absolute hx:-mt-20" id="4-firmware-bezug-bei-umverdrahtung"&gt;&lt;/span&gt;
+&lt;a href="#4-firmware-bezug-bei-umverdrahtung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die empfohlenen Pins sind in &lt;code&gt;src/Config.hpp&lt;/code&gt; umgesetzt. Relevant sind:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;PIN_DS_SOLAR&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PIN_DS_POOL&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PIN_RELAY_POOL&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PIN_RELAY_SOLAR&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;5) Verifikations-Checkliste nach Umbau&lt;span class="hx:absolute hx:-mt-20" id="5-verifikations-checkliste-nach-umbau"&gt;&lt;/span&gt;
+&lt;a href="#5-verifikations-checkliste-nach-umbau" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Bootet der ESP32 reproduzierbar (kalt/warm) ohne Fehlstart?&lt;/li&gt;
+&lt;li&gt;Schalten Relais beim Boot &lt;strong&gt;nicht&lt;/strong&gt; unbeabsichtigt?&lt;/li&gt;
+&lt;li&gt;Sind Temperaturmessungen stabil, auch bei Relais-Schaltvorgängen?&lt;/li&gt;
+&lt;li&gt;Keine Resets bei parallelem WLAN + Relaisbetrieb?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;6) Betrieb und Sicherheit&lt;span class="hx:absolute hx:-mt-20" id="6-betrieb-und-sicherheit"&gt;&lt;/span&gt;
+&lt;a href="#6-betrieb-und-sicherheit" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Für den produktiven 24/7-Betrieb und Sicherheitsaspekte bitte zusätzlich
+&lt;code&gt;AGENTS.md&lt;/code&gt; beachten (insbesondere Ressourcenmanagement, Security, OTA und
+Robustheit).&lt;/p&gt;
+&lt;h2&gt;7) Siehe auch&lt;span class="hx:absolute hx:-mt-20" id="7-siehe-auch"&gt;&lt;/span&gt;
+&lt;a href="#7-siehe-auch" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Ausführliche Aufbauanleitung mit Schritt-für-Schritt-Anleitung und
+Fertigungstipps: &lt;a
+href="hardware-guide.de.md"&gt;Hardware-Anleitung&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Kompletter Verdrahtungsplan mit RTC-Modul:
+&lt;a
+href="esp32-complete-wiring-schematic.de.md"&gt;ESP32 Komplett-Schaltplan&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Der Pool-Controller (2/4)</title><link>https://smart-swimmingpool.github.io/de/blog/pool-controller-2-4/</link><pubDate>Mon, 22 Oct 2018 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/blog/pool-controller-2-4/</guid><description>
+&lt;p&gt;Im &lt;a
+href="https://smart-swimmingpool.github.io/de/blog/smarte-steuerung-1-4/"&gt;vorangegangenen Artikel&lt;/a&gt; haben wir einen Überblick über das Projekt des smart gesteuerten Pools gegeben. In diesem zweiten Teil werden wir auf das Herzstück, den Controller, eingehen. Dieser basiert auf einem ESP32, könnte aber mit wenigen Modifikationen auch mit einem ESP8266 umgesetzt werden.&lt;/p&gt;
+&lt;h2&gt;Aufgabe des Pool-Controllers&lt;span class="hx:absolute hx:-mt-20" id="aufgabe-des-pool-controllers"&gt;&lt;/span&gt;
+&lt;a href="#aufgabe-des-pool-controllers" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der Controller wird die zentrale Steuerung übernehmen. Er misst zyklisch die Temperaturen des Poolwassers und des Wärmespeichers der Solaranlage. Zudem wird er die Pumpen (Filter und Heizung) schalten. Der ESP ist also sowohl Sensor als auch Aktor. Der Datenaustausch erfolgt über WLAN mittels MQTT.&lt;/p&gt;
+&lt;h3&gt;Temperaturen messen&lt;span class="hx:absolute hx:-mt-20" id="temperaturen-messen"&gt;&lt;/span&gt;
+&lt;a href="#temperaturen-messen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Das Messen der Temperatur ist meist der Einstieg in die Programmierung von IoT-Sensoren. Es gibt diverse Projektbeispiele dazu. Dabei kommen oft die Temperatursensoren DHT11 oder der genauere DHT22 zum Einsatz. Da die Temperatursensoren im Projekt jedoch verteilt extern platziert werden müssen, verwenden wir den wasserdichten Sensor &lt;a
+href="https://www.az-delivery.de/collections/temperatursensoren/products/2xds18b20wasserdicht?ls=de"target="_blank" rel="noopener"&gt;DS18B20&lt;/a&gt;. Einen der beiden Sensoren zur Messung der Temperatur des Poolwassers, der andere zur Messung der Temperatur im Pufferspeicher.&lt;/p&gt;
+&lt;p&gt;Die gemessenen Temperaturen werden mittels Timer alle 60 Sekunden ausgelesen und per MQTT als Nachricht veröffentlicht. Der Intervall ist ein Kompromiss zwischen der Trägheit der Erwärmung des Wassers und dem Debugging des Programms. Vermutlich würden auch Werte alle 5 Minuten ausreichen, doch auch die Integration in OpenHAB macht der minütliche Takt später wesentlich einfacher.&lt;/p&gt;
+&lt;h3&gt;Funksteckdosen steuern&lt;span class="hx:absolute hx:-mt-20" id="funksteckdosen-steuern"&gt;&lt;/span&gt;
+&lt;a href="#funksteckdosen-steuern" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Da wir in dem Projekt nicht direkt mit 230 Volt Wechselspannung hantieren möchten, schalten wir die Pumpen über Funksteckdosen. Bei den Funksteckdosen gibt es einige, die man über ESPs mit einem &lt;a
+href="https://www.az-delivery.de/products/433-mhz-modul?ls=de"target="_blank" rel="noopener"&gt;433 MHz Funksender&lt;/a&gt; steuern kann. Eine Liste der kompatiblen Funksteckdosen findet sich im &lt;a
+href="https://github.com/sui77/rc-switch/wiki/List_KnownDevices"target="_blank" rel="noopener"&gt;Wiki&lt;/a&gt; der verwendeten Bibliothek.&lt;/p&gt;
+&lt;h2&gt;Aufbau der Schaltung&lt;span class="hx:absolute hx:-mt-20" id="aufbau-der-schaltung"&gt;&lt;/span&gt;
+&lt;a href="#aufbau-der-schaltung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die Datenpins am ESP32 sind wie folgt belegt:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cpp" data-lang="cpp"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt;#define PIN_DS_SOLAR 16 &lt;/span&gt;&lt;span class="c1"&gt;// Temp-Sensor Solar
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt;#define PIN_DS_POOL 17 &lt;/span&gt;&lt;span class="c1"&gt;// Temp-Sensor Pool
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt;#define PIN_RSSWITCH 18 &lt;/span&gt;&lt;span class="c1"&gt;// für 433MHz Sender
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;Quellcode des Projektes&lt;span class="hx:absolute hx:-mt-20" id="quellcode-des-projektes"&gt;&lt;/span&gt;
+&lt;a href="#quellcode-des-projektes" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Für das Projekt verwenden wir die Entwicklungsumgebung &lt;a
+href="https://platformio.org/platformio-ide"target="_blank" rel="noopener"&gt;Platform.io IDE&lt;/a&gt;. Damit legen wir ein Projekt für das Board &lt;code&gt;esp32dev&lt;/code&gt; an.&lt;/p&gt;
+&lt;p&gt;Der komplette Quellcode des Projektes ist im GitHub-Repository des Autors zu finden: &lt;a
+href="https://github.com/stritti/smart-swimming-pool"target="_blank" rel="noopener"&gt;https://github.com/stritti/smart-swimming-pool&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Verwendete Bibliotheken&lt;span class="hx:absolute hx:-mt-20" id="verwendete-bibliotheken"&gt;&lt;/span&gt;
+&lt;a href="#verwendete-bibliotheken" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;In diesem Projekt ist es uns wichtig, auf bewährte Softwarekomponenten zurückzugreifen und möglichst viel über vorhandene Bibliotheken zu lösen. Aus diesem Grund kommen folgende Libs zum Einsatz:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;rc-switch&lt;/strong&gt;: Steuerung der Funksteckdosen&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;OneWire&lt;/strong&gt;: Unterstützung für I2C-Sensoren&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DallasTemperature&lt;/strong&gt;: Auslesen der Temperatur der Sensoren&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PubSubClient&lt;/strong&gt;: MQTT-Nachrichten empfangen und versenden&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;RemoteDebug&lt;/strong&gt;: Debugging über Telnet&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ESPBASE&lt;/strong&gt;: Template für IoT-Projekte&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Diese Bibliotheken sind in der Konfiguration von Platform.io (&lt;code&gt;platformio.ini&lt;/code&gt;) hinterlegt und werden beim Kompilieren automatisch aus dem Internet geladen und eingebunden.&lt;/p&gt;
+&lt;p&gt;Das Programm für den Pool-Controller basiert auf ESPBASE, das wie im vorangegangenen Artikel geschrieben einige Setup-Funktionen bereitstellt. Am Anfang des Codes werden dazu einige Variablen angelegt und die Defines für die Pinbelegung definiert.&lt;/p&gt;
+&lt;p&gt;Neben den beiden Funktionen &lt;code&gt;setup()&lt;/code&gt; und &lt;code&gt;loop()&lt;/code&gt; sind einige weitere Funktionen implementiert. Im Wesentlichen geht es hierbei um das Empfangen und Senden von MQTT-Nachrichten und das entsprechende Umsetzen der Nachrichten. Zudem ist ein Timer implementiert, der zyklisch die Temperatursensoren ausliest und per MQTT-Nachrichten publiziert.&lt;/p&gt;
+&lt;h2&gt;Die Details&lt;span class="hx:absolute hx:-mt-20" id="die-details"&gt;&lt;/span&gt;
+&lt;a href="#die-details" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;In der &lt;code&gt;loop&lt;/code&gt;-Funktion wird die WLAN-Verbindung immer wieder geprüft und gegebenenfalls wieder hergestellt. Das war ein tückisches Problem: der ESP hat immer mal wieder die WLAN-Verbindung verloren und ohne den Reconnect konnte er keine Daten mehr versenden.&lt;/li&gt;
+&lt;li&gt;Die Funktion &lt;code&gt;publish&lt;/code&gt; dient zum Versenden der MQTT-Nachrichten. So werden die Daten von einem Neustart und von den Temperaturmessungen als JSON-Nachrichten publiziert.&lt;/li&gt;
+&lt;li&gt;Der Timer für das Versenden der Temperaturen ist aufgeteilt. Grund ist, dass die eigentlichen Timer-Methoden möglichst kurz sein müssen. In der Implementierung ruft der Timer die Funktion &lt;code&gt;onTimer&lt;/code&gt; auf, welche nur den volatilen &lt;code&gt;interruptCounter&lt;/code&gt; inkrementiert. In der &lt;code&gt;loop&lt;/code&gt;-Funktion wird dieser überprüft und die eigentliche &lt;code&gt;onTemperature&lt;/code&gt;-Funktion ausgelöst. In dieser Methode wird auch die interne Temperatur des ESP ausgelesen und publiziert.&lt;/li&gt;
+&lt;li&gt;Die Funktion &lt;code&gt;onMQTTCallback&lt;/code&gt; wird aufgerufen, wenn eine Nachricht an ein Topic, das mit &lt;code&gt;/pool/switch/&lt;/code&gt; beginnt, gesendet wurde. Die Nachricht enthält die Information der Funksteckdose, ob diese ein- bzw. ausgeschaltet werden soll. Das Topic wird dabei weiter unterteilt in die Gruppe und die Gerätekodierung. Das heißt, die Kodierung der DIP-Schalter der Steckdose transformiert in 0 und 1. Dadurch ist diese Lösung flexibel auch an anderer Stelle nutzbar.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Der Quellcode des Pool-Controllers findet man direkt komplett in folgender Datei: &lt;a
+href="https://github.com/stritti/smart-swimming-pool/blob/master/Pool-Controller/src/pool-control.ino"target="_blank" rel="noopener"&gt;Pool-Controller/src/pool-control.ino&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Testing&lt;span class="hx:absolute hx:-mt-20" id="testing"&gt;&lt;/span&gt;
+&lt;a href="#testing" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Ist die Schaltung aufgebaut und das Projekt auf den ESP geladen, können wir bereits testen. Der ESP wird ein WLAN als Access Point öffnen, da standardmäßig kein WLAN eingerichtet ist. Wenn man sich mit dem Pool-Controller mit dem Smartphone verbindet, kann man das richtige WLAN einrichten. Danach startet der Microcontroller automatisch neu und versucht, sich mit dem angegebenen WLAN zu verbinden.&lt;/p&gt;
+&lt;p&gt;Ist alles richtig eingerichtet, so sollte bereits beim Start des ESP eine Statusnachricht via MQTT publiziert werden. Man kann mit folgendem Kommando auf dem Raspberry alle Nachrichten tracken:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mosquitto_sub -h localhost -v -t /#&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Eventuell muss im Quellcode die IP-Adresse des MQTT-Servers angepasst werden. Danach sollten im Minutenzyklus die Temperaturen auf dem Raspberry ausgegeben werden.&lt;/p&gt;
+&lt;p&gt;In die andere Richtung können wir die Funksteckdosen schalten, indem wir eine passende Nachricht versenden. Dabei setzt sich das Topic aus &lt;code&gt;/pool/switch/&amp;lt;group&amp;gt;/&amp;lt;device&amp;gt;&lt;/code&gt; zusammen. &lt;code&gt;Group&lt;/code&gt; und &lt;code&gt;Device&lt;/code&gt; sind die DIP-Schalter der Steckdose als 0 und 1. Als Nachricht wird &lt;code&gt;ON&lt;/code&gt; bzw. &lt;code&gt;OFF&lt;/code&gt; gesendet.&lt;/p&gt;
+&lt;h2&gt;Wie geht es weiter?&lt;span class="hx:absolute hx:-mt-20" id="wie-geht-es-weiter"&gt;&lt;/span&gt;
+&lt;a href="#wie-geht-es-weiter" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Damit sind die Grundlagen geschaffen: wir können die Temperaturen auslesen und wir können Steckdosen schalten.&lt;/p&gt;
+&lt;p&gt;Im folgenden Artikel verbinden wir den Pool-Controller mit der Smart Home Lösung openHAB und machen den Pool durch Regeln richtig smart.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/de/blog/swimmingpool-openhab-3-4/"&gt;Weiter zu Teil 3: Swimmingpool und OpenHAB (3/4)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>

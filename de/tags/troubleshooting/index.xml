@@ -1,0 +1,665 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Troubleshooting</title><link>https://smart-swimmingpool.github.io/de/tags/troubleshooting/</link><description>Recent content in Troubleshooting on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><lastBuildDate>Sun, 14 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/de/tags/troubleshooting/index.xml" rel="self" type="application/rss+xml"/><item><title>FAQ &amp; Fehlerbehebung</title><link>https://smart-swimmingpool.github.io/de/docs/troubleshooting/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/troubleshooting/</guid><description>
+&lt;p&gt;&lt;strong&gt;🏊 Häufig gestellte Fragen und Lösungen für typische Probleme.&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="hx:rounded-lg hx:border-2 hx:border-red-300 hx:bg-red-50 hx:dark:border-red-700 hx:dark:bg-red-900/20 hx:p-4 hx:my-6"&gt;
+&lt;div class="hx:flex hx:items-start hx:gap-3"&gt;
+&lt;span class="hx:text-2xl hx:flex-shrink-0"&gt;⚠️&lt;/span&gt;
+&lt;div&gt;
+&lt;p class="hx:font-bold hx:text-red-700 hx:dark:text-red-400 hx:text-sm hx:uppercase hx:tracking-wide hx:mb-1"&gt;WARNUNG: 230V Netzspannung&lt;/p&gt;
+&lt;p class="hx:text-sm hx:text-red-800 hx:dark:text-red-300 hx:mb-0"&gt;Dieses Projekt arbeitet mit &lt;strong&gt;230V Wechselstrom&lt;/strong&gt; und darf &lt;strong&gt;nur von Personen mit Elektronik-Grundkenntnissen&lt;/strong&gt; nachgebaut werden.
+Verwende immer einen &lt;strong&gt;RCD (FI-Schutzschalter)&lt;/strong&gt;. Das Projekt ist &lt;strong&gt;nicht CE/UL-zertifiziert&lt;/strong&gt; und nicht für den gewerblichen Einsatz bestimmt.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;Relais-Probleme&lt;span class="hx:absolute hx:-mt-20" id="relais-probleme"&gt;&lt;/span&gt;
+&lt;a href="#relais-probleme" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Relais-Modul schaltet nicht / Pumpe verhält sich unerwartet&lt;span class="hx:absolute hx:-mt-20" id="relais-modul-schaltet-nicht--pumpe-verhält-sich-unerwartet"&gt;&lt;/span&gt;
+&lt;a href="#relais-modul-schaltet-nicht--pumpe-verh%c3%a4lt-sich-unerwartet" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Wahrscheinliche Ursache:&lt;/strong&gt; Die Polarität des Relais-Moduls passt nicht zur Firmware.&lt;/p&gt;
+&lt;p&gt;Die Pool-Controller-Firmware steuert die Relais &lt;strong&gt;Aktiv-Low&lt;/strong&gt; (GPIO &lt;strong&gt;LOW&lt;/strong&gt; = Relais EIN, GPIO &lt;strong&gt;HIGH&lt;/strong&gt; = Relais AUS). Dies entspricht der überwiegenden Mehrheit gängiger 2-Kanal-5V-Relais-Module.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lösung:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Wenn Ihr Relais normal funktioniert:&lt;/strong&gt; Sie haben ein Standard-&lt;strong&gt;Aktiv-Low&lt;/strong&gt;-Modul — alles in Ordnung.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Wenn das Relais dauerhaft ein- oder ausgeschaltet ist:&lt;/strong&gt; Möglicherweise ist Ihr Modul &lt;strong&gt;Aktiv-High&lt;/strong&gt; (GPIO HIGH = Relais EIN).
+&lt;ul&gt;
+&lt;li&gt;Suchen Sie nach einem Jumper mit der Bezeichnung &amp;ldquo;HIGH/LOW&amp;rdquo; und stellen Sie ihn auf &lt;strong&gt;LOW&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Ohne Jumper müssen Sie das Modul möglicherweise durch ein standard Aktiv-Low-Modul ersetzen (~5€).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Schnelltest:&lt;/strong&gt; Messen Sie bei eingeschaltetem ESP32 (ohne angeschlossene Pumpen!) die Spannung zwischen Relais-IN-Pin und GND:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Bei AUS (Weboberfläche zeigt AUS): Pin sollte &lt;strong&gt;~3,3V&lt;/strong&gt; (HIGH) anzeigen&lt;/li&gt;
+&lt;li&gt;Bei EIN (Weboberfläche zeigt EIN): Pin sollte &lt;strong&gt;~0V&lt;/strong&gt; (LOW) anzeigen&lt;/li&gt;
+&lt;li&gt;Bei umgekehrtem Verhalten ist Ihr Modul Aktiv-High.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Relais klickt, aber Pumpe startet nicht&lt;span class="hx:absolute hx:-mt-20" id="relais-klickt-aber-pumpe-startet-nicht"&gt;&lt;/span&gt;
+&lt;a href="#relais-klickt-aber-pumpe-startet-nicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Die Relais-Kontakte sind möglicherweise für geringere Ströme ausgelegt als Ihre Pumpe zieht.&lt;/li&gt;
+&lt;li&gt;Prüfen Sie die Pumpenleistung: Ein 10A-Relais ist für die meisten Umwälzpumpen ausreichend. Verwenden Sie für größere Pumpen das Relais zur Ansteuerung eines Schützes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Welche Relais-Module sind kompatibel?&lt;span class="hx:absolute hx:-mt-20" id="welche-relais-module-sind-kompatibel"&gt;&lt;/span&gt;
+&lt;a href="#welche-relais-module-sind-kompatibel" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Bestätigt funktionierende Module (Aktiv-Low, Optokopler-isoliert):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;HW-279 / HW-316&lt;/strong&gt; 2-Kanal-5V-Relais-Modul&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SRD-05VDC-SL-C&lt;/strong&gt; basierte Module&lt;/li&gt;
+&lt;li&gt;Die meisten generischen 2-Kanal-5V-Relaisplatinen mit Optokopler (Jumper auf &lt;strong&gt;LOW&lt;/strong&gt; prüfen)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Vermeiden Sie: Module ohne Optokopler-Isolation (einzeltransistor-getrieben) — diese können die ESP32-GPIO-Pins beschädigen.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Heizungs- &amp;amp; Zirkulationsprobleme&lt;span class="hx:absolute hx:-mt-20" id="heizungs---zirkulationsprobleme"&gt;&lt;/span&gt;
+&lt;a href="#heizungs---zirkulationsprobleme" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Solarpumpe startet nie / Pool heizt nicht auf&lt;span class="hx:absolute hx:-mt-20" id="solarpumpe-startet-nie--pool-heizt-nicht-auf"&gt;&lt;/span&gt;
+&lt;a href="#solarpumpe-startet-nie--pool-heizt-nicht-auf" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Prüfen Sie in dieser Reihenfolge:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Solartemperatur &amp;gt; Pooltemperatur?&lt;/strong&gt; Die Heizlogik aktiviert nur, wenn der Solarkollektor wärmer ist als das Poolwasser. Liest der Solar-Sensor niedrigere Werte als der Pool-Sensor, erfolgt keine Heizung — das ist bei Bewölkung oder nachts korrekt.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Hysterese zu hoch eingestellt?&lt;/strong&gt; Die Standard-Hysterese beträgt 2 K. Bei &amp;gt;5 K benötigt der Controller eine große Temperaturdifferenz zum Einschalten. Versuchen Sie 1–2 K.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Min. Solar Temp zu hoch?&lt;/strong&gt; Wenn der Parameter &lt;strong&gt;Min. Solar Temp&lt;/strong&gt; über der tatsächlichen Kollektortemperatur liegt, wird der Heizkreis blockiert. Zum Test auf 20–25°C senken.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Sensoren vertauscht?&lt;/strong&gt; Wenn Solar- und Pool-Sensor an den falschen GPIO-Pins angeschlossen sind, liest der Controller die falschen Temperaturen. Prüfen Sie:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;GPIO32 = Solarkollektor (sollte bei Sonne wärmer sein)&lt;/li&gt;
+&lt;li&gt;GPIO33 = Poolwasser (sollte näher an Umgebungstemperatur sein)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Status&lt;/strong&gt;-Seite in der Weboberfläche zum Vergleich der Werte&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Heizkreis deaktiviert?&lt;/strong&gt; In der Weboberfläche &lt;strong&gt;Configuration → Heating&lt;/strong&gt; prüfen, ob der Heizkreis &lt;strong&gt;aktiviert&lt;/strong&gt; ist.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Motorventil geschlossen?&lt;/strong&gt; Falls ein Motorventil im Heizkreis verbaut ist, prüfen ob es geöffnet ist (separates Relais oder manuell).&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Pumpe schaltet im Auto-Modus nicht&lt;span class="hx:absolute hx:-mt-20" id="pumpe-schaltet-im-auto-modus-nicht"&gt;&lt;/span&gt;
+&lt;a href="#pumpe-schaltet-im-auto-modus-nicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Der Pool-Controller aktiviert Pumpen im Automatik-Modus nur unter bestimmten Bedingungen:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Filterpumpe:&lt;/strong&gt; Läuft nach Zeitplan (Timer oder temperaturbasiert). Läuft nur innerhalb des eingestellten Zeitfensters.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Heizpumpe:&lt;/strong&gt; Nur wenn Solartemperatur &amp;gt; Pooltemperatur + Hysterese, UND Pooltemperatur &amp;lt; max. Pooltemperatur.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Logik prüfen:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Operation Mode&lt;/strong&gt; auf &lt;strong&gt;&lt;code&gt;manu&lt;/code&gt;&lt;/strong&gt; (Manuell) in der Weboberfläche &lt;strong&gt;Control&lt;/strong&gt;-Seite&lt;/li&gt;
+&lt;li&gt;Jede Pumpe manuell ein- und ausschalten — bestätigt, dass Relais und Verkabelung funktionieren&lt;/li&gt;
+&lt;li&gt;Zurück auf &lt;strong&gt;&lt;code&gt;auto&lt;/code&gt;&lt;/strong&gt; schalten und beobachten: ggf. wartet der Controller nur auf Bedingungen&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Eine Pumpe funktioniert, die andere nicht&lt;span class="hx:absolute hx:-mt-20" id="eine-pumpe-funktioniert-die-andere-nicht"&gt;&lt;/span&gt;
+&lt;a href="#eine-pumpe-funktioniert-die-andere-nicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Verkabelung der betroffenen Pumpe auf der 230V-Seite prüfen (LS, FI, Schütz)&lt;/li&gt;
+&lt;li&gt;Relais-Kanäle in der Weboberfläche tauschen (folgt die Pumpe dem getauschten Kanal, liegt das Problem auf der 230V-Seite; wenn nicht, ist der Relais-Kanal defekt)&lt;/li&gt;
+&lt;li&gt;Spannung an den Relais-Ausgangsklemmen beim Schalten messen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Temperatursensor-Probleme&lt;span class="hx:absolute hx:-mt-20" id="temperatursensor-probleme"&gt;&lt;/span&gt;
+&lt;a href="#temperatursensor-probleme" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;DS18B20 wird nicht erkannt / zeigt -127°C oder 85°C&lt;span class="hx:absolute hx:-mt-20" id="ds18b20-wird-nicht-erkannt--zeigt--127c-oder-85c"&gt;&lt;/span&gt;
+&lt;a href="#ds18b20-wird-nicht-erkannt--zeigt--127c-oder-85c" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Wahrscheinliche Ursache:&lt;/strong&gt; Verdrahtungsproblem oder fehlender Pull-Up-Widerstand.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Diagnose:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;-127°C&lt;/code&gt; = Sensor nicht auf dem OneWire-Bus gefunden (keine Kommunikation)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;85°C&lt;/code&gt; = Sensor gefunden, aber im Power-On-Standard hängend (Parasite-Power-Problem)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Lösungen:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Pull-Up-Widerstand prüfen:&lt;/strong&gt; Ein &lt;strong&gt;4,7kΩ-Widerstand&lt;/strong&gt; MUSS zwischen DATA (gelb/weiß) und 3,3V (rot) liegen. Ohne diesen funktioniert OneWire nicht.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Verdrahtung prüfen (esp32dev-Konfiguration verwendet getrennte Pins):&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Rot → 3,3V (ESP32)&lt;/li&gt;
+&lt;li&gt;Schwarz → GND (ESP32)&lt;/li&gt;
+&lt;li&gt;Solar-Sensor DATA → &lt;strong&gt;GPIO32&lt;/strong&gt; (Gelb/Weiß)&lt;/li&gt;
+&lt;li&gt;Pool-Sensor DATA → &lt;strong&gt;GPIO33&lt;/strong&gt; (Gelb/Weiß)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Einen Sensor nach dem anderen testen&lt;/strong&gt;, um einen defekten Sensor oder ein defektes Kabel zu identifizieren.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Kabellänge prüfen:&lt;/strong&gt; DS18B20 funktioniert zuverlässig bis ~30m mit 4,7kΩ Pull-Up. Für längere Strecken einen niedrigeren Wert (z. B. 2,2kΩ) oder geschirmte Twisted-Pair-Kabel verwenden.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Parasite-Power-Modus vermeiden:&lt;/strong&gt; Die Firmware verwendet externen Strommodus (3 Adern). Stellen Sie sicher, dass beide Sensoren mit allen 3 Adern angeschlossen sind.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Temperaturwerte sind offensichtlich falsch (z. B. 120°C bei 25°C Pool)&lt;span class="hx:absolute hx:-mt-20" id="temperaturwerte-sind-offensichtlich-falsch-z-b-120c-bei-25c-pool"&gt;&lt;/span&gt;
+&lt;a href="#temperaturwerte-sind-offensichtlich-falsch-z-b-120c-bei-25c-pool" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Störungen:&lt;/strong&gt; Das Sensorkabel verläuft möglicherweise zu nah an 230V-Kabeln. Verlegen Sie das Sensorkabel mindestens 30cm entfernt von Netzleitung.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Defekter Sensor:&lt;/strong&gt; Sensor ersetzen — kosten ~3€.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Feuchtigkeit:&lt;/strong&gt; Wenn die Edelstahlsonde nicht vollständig eingetaucht ist oder das Kabelende nass ist, können die Werte unplausibel sein. Trocknen lassen und mit Schrumpfschlauch abdichten.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Temperaturwerte schwanken / springen unregelmäßig&lt;span class="hx:absolute hx:-mt-20" id="temperaturwerte-schwanken--springen-unregelmäßig"&gt;&lt;/span&gt;
+&lt;a href="#temperaturwerte-schwanken--springen-unregelm%c3%a4%c3%9fig" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Wahrscheinliche Ursache:&lt;/strong&gt; Elektrische Störungen oder lockerer Kontakt auf der DATA-Leitung.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lösungen:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;DATA-Verbindung prüfen:&lt;/strong&gt; Ein loses Jumper-Kabel auf dem Breadboard kann intermittierenden Kontakt verursachen. Kabel fest in das Breadboard drücken.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sensorkabel von 230V fernhalten:&lt;/strong&gt; Mindestens &lt;strong&gt;30 cm&lt;/strong&gt; Abstand zu Netzleitungen. Parallele Verlegung über längere Strecken verstärkt Störungen.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Geschirmtes Kabel verwenden:&lt;/strong&gt; Bei Verlängerungen &amp;gt;5 m &lt;strong&gt;geschirmte Twisted-Pair-Kabel&lt;/strong&gt; (z.B. LiYCY 2×0,25mm²) nutzen. Schirm nur auf ESP32-Seite an GND anschließen.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Pull-Up-Widerstand prüfen:&lt;/strong&gt; Widerstand zwischen DATA und 3,3V messen — sollte ~4,7 kΩ betragen.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Wasser in der Verbindungsdose?:&lt;/strong&gt; Bei Verlängerungskabeln kann die Verbindungsdose Kondenswasser enthalten. Öffnen, trocknen und mit Schrumpfschlauch oder Silikon abdichten.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Beide Sensoren zeigen dieselbe Temperatur&lt;span class="hx:absolute hx:-mt-20" id="beide-sensoren-zeigen-dieselbe-temperatur"&gt;&lt;/span&gt;
+&lt;a href="#beide-sensoren-zeigen-dieselbe-temperatur" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Das ist normal, wenn sie im Wasser auf gleicher Temperatur liegen. Zur Überprüfung:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Nehmen Sie einen Sensor in die Hand — der Wert sollte innerhalb weniger Sekunden steigen.&lt;/li&gt;
+&lt;li&gt;Halten Sie den anderen in kaltes Wasser — der Wert sollte fallen.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2&gt;WLAN- &amp;amp; Netzwerk-Probleme&lt;span class="hx:absolute hx:-mt-20" id="wlan---netzwerk-probleme"&gt;&lt;/span&gt;
+&lt;a href="#wlan---netzwerk-probleme" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;ESP32 erscheint nicht in der WLAN-Liste nach dem Flashen&lt;span class="hx:absolute hx:-mt-20" id="esp32-erscheint-nicht-in-der-wlan-liste-nach-dem-flashen"&gt;&lt;/span&gt;
+&lt;a href="#esp32-erscheint-nicht-in-der-wlan-liste-nach-dem-flashen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Lösung:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Der ESP32 startet beim ersten Boot im &lt;strong&gt;AP-Modus&lt;/strong&gt; (Netzwerkname: &lt;strong&gt;&lt;code&gt;Pool-Controller-Setup&lt;/code&gt;&lt;/strong&gt;).&lt;/li&gt;
+&lt;li&gt;Wenn Sie ihn nicht sehen, prüfen Sie die serielle Monitor-Ausgabe (115200 Baud).&lt;/li&gt;
+&lt;li&gt;Der ESP32 wurde möglicherweise bereits für Ihr Heim-WLAN konfiguriert — zurücksetzen auf Werkseinstellungen:
+&lt;ul&gt;
+&lt;li&gt;Per seriellem Monitor verbinden&lt;/li&gt;
+&lt;li&gt;Befehl &lt;code&gt;reset&lt;/code&gt; senden&lt;/li&gt;
+&lt;li&gt;Oder BOOT-Taste für 10 Sekunden beim Einschalten gedrückt halten&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;ESP32 verbindet sich mit WLAN, ist aber nicht erreichbar&lt;span class="hx:absolute hx:-mt-20" id="esp32-verbindet-sich-mit-wlan-ist-aber-nicht-erreichbar"&gt;&lt;/span&gt;
+&lt;a href="#esp32-verbindet-sich-mit-wlan-ist-aber-nicht-erreichbar" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Prüfen Sie die DHCP-Client-Liste Ihres Routers auf die IP-Adresse des ESP32.&lt;/li&gt;
+&lt;li&gt;Versuchen Sie &lt;code&gt;ping &amp;lt;esp32-ip&amp;gt;&lt;/code&gt; von Ihrem Computer.&lt;/li&gt;
+&lt;li&gt;Wenn der ESP32 in einem anderen VLAN/Subnetz ist, stellen Sie sicher, dass MQTT-Traffic erlaubt ist.&lt;/li&gt;
+&lt;li&gt;Starten Sie Router und ESP32 neu.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;WLAN-Verbindung bricht häufig ab&lt;span class="hx:absolute hx:-mt-20" id="wlan-verbindung-bricht-häufig-ab"&gt;&lt;/span&gt;
+&lt;a href="#wlan-verbindung-bricht-h%c3%a4ufig-ab" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Die WLAN-Reichweite des ESP32 ist begrenzt. Halten Sie ihn innerhalb von 15m Ihres Access Points.&lt;/li&gt;
+&lt;li&gt;Bei weiter Entfernung: WLAN-Repeater oder kabelgebundene Verbindung (ESP32 kann mit LAN8720-Modul Ethernet nutzen – nicht im Standard-Firmware-Umfang).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;MQTT-Probleme&lt;span class="hx:absolute hx:-mt-20" id="mqtt-probleme"&gt;&lt;/span&gt;
+&lt;a href="#mqtt-probleme" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Controller erscheint nicht in Home Assistant&lt;span class="hx:absolute hx:-mt-20" id="controller-erscheint-nicht-in-home-assistant"&gt;&lt;/span&gt;
+&lt;a href="#controller-erscheint-nicht-in-home-assistant" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Voraussetzungen:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Home Assistant muss die &lt;strong&gt;MQTT-Integration&lt;/strong&gt; konfiguriert haben (Einstellungen → Geräte &amp;amp; Dienste → Integration hinzufügen → MQTT).&lt;/li&gt;
+&lt;li&gt;Der Pool Controller muss mit &lt;strong&gt;demselben MQTT-Broker&lt;/strong&gt; verbunden sein.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Fehlersuche:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Öffnen Sie die Weboberfläche des Pool Controllers → &lt;strong&gt;Konfiguration → MQTT&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Überprüfen Sie Broker-Adresse, Port (Standard: 1883) und Zugangsdaten.&lt;/li&gt;
+&lt;li&gt;Klicken Sie auf &lt;strong&gt;Verbindung testen&lt;/strong&gt; — Sie sollten &amp;ldquo;Verbunden&amp;rdquo; oder eine Fehlermeldung sehen.&lt;/li&gt;
+&lt;li&gt;Prüfen Sie die Home Assistant-Logs: Suchen Sie nach &lt;code&gt;MQTT&lt;/code&gt; oder &lt;code&gt;pool&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Testen Sie MQTT manuell:
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mosquitto_pub -h &amp;lt;broker-ip&amp;gt; -t &lt;span class="s2"&gt;&amp;#34;test&amp;#34;&lt;/span&gt; -m &lt;span class="s2"&gt;&amp;#34;hallo&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mosquitto_sub -h &amp;lt;broker-ip&amp;gt; -t &lt;span class="s2"&gt;&amp;#34;#&amp;#34;&lt;/span&gt; -v &lt;span class="c1"&gt;# sollte pool-Themen zeigen&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;MQTT-Nachrichten werden gesendet, aber Home Assistant zeigt &amp;ldquo;unbekannte&amp;rdquo; Entitäten&lt;span class="hx:absolute hx:-mt-20" id="mqtt-nachrichten-werden-gesendet-aber-home-assistant-zeigt-unbekannte-entitäten"&gt;&lt;/span&gt;
+&lt;a href="#mqtt-nachrichten-werden-gesendet-aber-home-assistant-zeigt-unbekannte-entit%c3%a4ten" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Der Controller verwendet &lt;strong&gt;Home Assistant MQTT Discovery&lt;/strong&gt; (automatische Entity-Erstellung).&lt;/li&gt;
+&lt;li&gt;Wenn Entitäten &amp;ldquo;unbekannt&amp;rdquo; anzeigen, erreicht das Discovery-Thema möglicherweise HA nicht.&lt;/li&gt;
+&lt;li&gt;Prüfen Sie, ob das MQTT-Präfix in Ihrer Home Assistant MQTT-Integration mit dem des Controllers übereinstimmt (Standard ist &lt;code&gt;homeassistant&lt;/code&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;MQTT verbindet nicht / Verbindung abgelehnt&lt;span class="hx:absolute hx:-mt-20" id="mqtt-verbindet-nicht--verbindung-abgelehnt"&gt;&lt;/span&gt;
+&lt;a href="#mqtt-verbindet-nicht--verbindung-abgelehnt" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Stellen Sie sicher, dass der MQTT-Broker läuft: &lt;code&gt;systemctl status mosquitto&lt;/code&gt; (Linux) oder prüfen Sie den Home Assistant Add-on-Status.&lt;/li&gt;
+&lt;li&gt;Prüfen Sie die Firewall-Regeln: Port 1883 (TCP) muss zwischen ESP32 und Broker offen sein.&lt;/li&gt;
+&lt;li&gt;Bei Authentifizierung: Benutzername und Passwort in der MQTT-Konfiguration des Controllers prüfen.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Pumpenschalter reagieren nicht auf Home Assistant&lt;span class="hx:absolute hx:-mt-20" id="pumpenschalter-reagieren-nicht-auf-home-assistant"&gt;&lt;/span&gt;
+&lt;a href="#pumpenschalter-reagieren-nicht-auf-home-assistant" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Wahrscheinliche Ursache:&lt;/strong&gt; Der Controller akzeptiert Pumpenbefehle per MQTT nur im &lt;strong&gt;Manuell&lt;/strong&gt;-Modus.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lösungen:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Operation Mode&lt;/strong&gt; auf &lt;strong&gt;&lt;code&gt;manu&lt;/code&gt;&lt;/strong&gt; in Home Assistant stellen (&lt;code&gt;select.pool_controller_mode&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;Die Pumpenschalter sollten jetzt schreibbar sein&lt;/li&gt;
+&lt;li&gt;Nach manueller Steuerung zurück auf &lt;code&gt;auto&lt;/code&gt; für automatischen Betrieb&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Wenn die Schalter auch im &lt;code&gt;manu&lt;/code&gt;-Modus nicht reagieren:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;MQTT-&lt;strong&gt;Verfügbarkeits-Topic&lt;/strong&gt; prüfen: &lt;code&gt;homeassistant/sensor/pool-controller/availability&lt;/code&gt; sollte &lt;code&gt;online&lt;/code&gt; anzeigen&lt;/li&gt;
+&lt;li&gt;Stale-Discovery löschen: Leeres Payload an das &lt;code&gt;/config&lt;/code&gt;-Topic der Entity senden&lt;/li&gt;
+&lt;li&gt;Controller über die Weboberfläche neu starten&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2&gt;Controller &amp;amp; Automatisierungsprobleme&lt;span class="hx:absolute hx:-mt-20" id="controller--automatisierungsprobleme"&gt;&lt;/span&gt;
+&lt;a href="#controller--automatisierungsprobleme" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Controller schaltet Pumpen nicht, obwohl Bedingungen erfüllt sind&lt;span class="hx:absolute hx:-mt-20" id="controller-schaltet-pumpen-nicht-obwohl-bedingungen-erfüllt-sind"&gt;&lt;/span&gt;
+&lt;a href="#controller-schaltet-pumpen-nicht-obwohl-bedingungen-erf%c3%bcllt-sind" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Prüfen Sie:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Ist der Betriebsmodus auf &lt;code&gt;auto&lt;/code&gt;?&lt;/strong&gt; Im Modus &lt;code&gt;manu&lt;/code&gt; (Manuell) automatisiert der Controller nicht. Im Modus &lt;code&gt;timer&lt;/code&gt; läuft nur der Timer-Zeitplan. Nur &lt;code&gt;auto&lt;/code&gt; nutzt die vollständige Heizlogik.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Status-Seite prüfen:&lt;/strong&gt; Die Weboberfläche &lt;strong&gt;Status&lt;/strong&gt; zeigt den aktuellen Zustand aller Sensoren und die Entscheidungslogik des Controllers. Wenn der Controller Bedingungen als nicht erfüllt ansieht, ist der Grund hier sichtbar.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MQTT-Befehl anhängig?&lt;/strong&gt; Wenn Sie kürzlich eine Pumpe via Home Assistant geschaltet haben, überschreibt ein MQTT-Befehl ggf. den Automatik-Zustand. Pumpe AUS und zurück auf AUTO schalten oder Controller neu starten.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Firmware-Fehler?&lt;/strong&gt; GitHub Issues für Ihre Firmware-Version prüfen.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Modus-Wahl lässt sich nicht ändern / springt zurück&lt;span class="hx:absolute hx:-mt-20" id="modus-wahl-lässt-sich-nicht-ändern--springt-zurück"&gt;&lt;/span&gt;
+&lt;a href="#modus-wahl-l%c3%a4sst-sich-nicht-%c3%a4ndern--springt-zur%c3%bcck" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Der Controller speichert den Modus im Flash-Speicher. Wenn der Modus nach Sekunden zurückspringt, kann das Schreiben fehlschlagen.&lt;/li&gt;
+&lt;li&gt;Controller neu starten und erneut versuchen.&lt;/li&gt;
+&lt;li&gt;Bei anhaltendem Problem: Firmware neu flashen (Konfiguration bleibt in den meisten Fällen erhalten).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;ESP32- &amp;amp; Firmware-Probleme&lt;span class="hx:absolute hx:-mt-20" id="esp32---firmware-probleme"&gt;&lt;/span&gt;
+&lt;a href="#esp32---firmware-probleme" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;ESP32 startet nicht / startet ständig neu&lt;span class="hx:absolute hx:-mt-20" id="esp32-startet-nicht--startet-ständig-neu"&gt;&lt;/span&gt;
+&lt;a href="#esp32-startet-nicht--startet-st%c3%a4ndig-neu" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Serielle Monitor-Ausgabe:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;ets Jun 8 2016 00:22:57
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Lösungen:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Stromversorgung prüfen:&lt;/strong&gt; ESP32 benötigt eine stabile 5V-Versorgung. USB-Ports an Computern oder günstige Handynetzteile liefern oft nicht genug Strom (&amp;gt;500mA). Verwenden Sie ein qualitativ hochwertiges 5V/1A+ Netzteil.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Falsche Flash-Einstellungen:&lt;/strong&gt; In Arduino IDE oder PlatformIO sicherstellen:
+&lt;ul&gt;
+&lt;li&gt;Flash Mode: &lt;strong&gt;DIO&lt;/strong&gt; (nicht QIO)&lt;/li&gt;
+&lt;li&gt;Flash Size: &lt;strong&gt;4MB&lt;/strong&gt; (oder entsprechend Ihrem Board)&lt;/li&gt;
+&lt;li&gt;Partition Scheme: &lt;strong&gt;Default 4MB with spiffs&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Schlechtes USB-Kabel:&lt;/strong&gt; Manche Kabel sind reine Ladekabel (keine Datenleitungen). Verwenden Sie ein bekannt gutes Datenkabel.&lt;/li&gt;
+&lt;li&gt;Wenn das Booten mit USB am Computer funktioniert, aber nicht mit einem separaten Netzteil, ist das Netzteil wahrscheinlich zu schwach.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;&amp;ldquo;A fatal error occurred: Failed to connect to ESP32&amp;rdquo; beim Flashen&lt;span class="hx:absolute hx:-mt-20" id="a-fatal-error-occurred-failed-to-connect-to-esp32-beim-flashen"&gt;&lt;/span&gt;
+&lt;a href="#a-fatal-error-occurred-failed-to-connect-to-esp32-beim-flashen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Halten Sie die &lt;strong&gt;BOOT&lt;/strong&gt;-Taste am ESP32, klicken Sie in der IDE auf &lt;strong&gt;Upload&lt;/strong&gt;, lassen Sie BOOT los, sobald das Flashen beginnt.&lt;/li&gt;
+&lt;li&gt;Prüfen Sie, ob der richtige COM-Port ausgewählt ist.&lt;/li&gt;
+&lt;li&gt;Versuchen Sie ein anderes USB-Kabel (Datenkabel, kein reines Ladekabel).&lt;/li&gt;
+&lt;li&gt;Bei CP210x-basierten Boards: Treiber installieren/neu installieren.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Serieller Monitor zeigt Zeichensalat&lt;span class="hx:absolute hx:-mt-20" id="serieller-monitor-zeigt-zeichensalat"&gt;&lt;/span&gt;
+&lt;a href="#serieller-monitor-zeigt-zeichensalat" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Falsche Baudrate — stellen Sie sie auf &lt;strong&gt;115200&lt;/strong&gt; ein.&lt;/li&gt;
+&lt;li&gt;Falsche Spannung — ESP32 arbeitet mit 3,3V. Wenn Sie ihn an einen Arduino Uno angeschlossen haben, könnte die serielle Schnittstelle beschädigt sein.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Controller nach Firmware-Update nicht erreichbar&lt;span class="hx:absolute hx:-mt-20" id="controller-nach-firmware-update-nicht-erreichbar"&gt;&lt;/span&gt;
+&lt;a href="#controller-nach-firmware-update-nicht-erreichbar" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Wahrscheinliche Ursache:&lt;/strong&gt; Das Update hat die WLAN-Konfiguration zurückgesetzt oder die IP-Adresse geändert.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lösungen:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;WLAN-Zugangsdaten zurückgesetzt.&lt;/strong&gt; Nach manchen Updates fällt der Controller in den AP-Modus zurück (&lt;code&gt;Pool-Controller-Setup&lt;/code&gt;). Mit diesem Netzwerk verbinden und WLAN über die Weboberfläche unter &lt;code&gt;http://192.168.4.1&lt;/code&gt; neu konfigurieren.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;IP-Adresse geändert.&lt;/strong&gt; DHCP-Client-Liste des Routers nach einer neuen IP durchsuchen. Der Controller kann nach dem Flashen eine andere MAC-Adresse haben, wenn die NVS-Partition gelöscht wurde.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;OTA-Update fehlgeschlagen.&lt;/strong&gt; War das OTA-Update unterbrochen oder die neue Firmware defekt, kann der Controller in einer Boot-Schleife hängen. Wiederherstellung erfordert &lt;strong&gt;serielles (USB-) Flashen&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;ESP32 per USB verbinden&lt;/li&gt;
+&lt;li&gt;BOOT-Taste gedrückt halten&lt;/li&gt;
+&lt;li&gt;Firmware via PlatformIO wie gewohnt flashen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Partitionslayout geändert.&lt;/strong&gt; Bei geändertem Partitionsschema kann das Dateisystem (Weboberfläche) fehlen oder beschädigt sein. Dateisystem-Image erneut hochladen:
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pio run -e esp32dev -t uploadfs&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Vorbeugung:&lt;/strong&gt; Vor OTA-Update sicherstellen, dass der ESP32 in WLAN-Reichweite ist und eine stabile Stromversorgung hat. Update nicht unterbrechen.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2&gt;Allgemein &amp;amp; Hardware&lt;span class="hx:absolute hx:-mt-20" id="allgemein--hardware"&gt;&lt;/span&gt;
+&lt;a href="#allgemein--hardware" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Das System hat mehr als 100€ gekostet — ist das normal?&lt;span class="hx:absolute hx:-mt-20" id="das-system-hat-mehr-als-100-gekostet--ist-das-normal"&gt;&lt;/span&gt;
+&lt;a href="#das-system-hat-mehr-als-100-gekostet--ist-das-normal" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Die Schätzung von &lt;strong&gt;~45–75€&lt;/strong&gt; umfasst &lt;strong&gt;nur die Controller-Elektronik&lt;/strong&gt; (ESP32, Sensoren, Relais, Breadboard, Gehäuse). Nicht enthalten sind:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Poolpumpe und Filtersystem&lt;/li&gt;
+&lt;li&gt;Heizkreispumpe&lt;/li&gt;
+&lt;li&gt;Wärmetauscher-Installation&lt;/li&gt;
+&lt;li&gt;Verdrahtungsmaterial (Kabel, Steckverbinder, Sicherungen)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Wenn diese Komponenten hinzukommen, können die Gesamtkosten deutlich höher sein.&lt;/p&gt;
+&lt;h3&gt;Kann ich das ohne Smart-Home-Server nutzen?&lt;span class="hx:absolute hx:-mt-20" id="kann-ich-das-ohne-smart-home-server-nutzen"&gt;&lt;/span&gt;
+&lt;a href="#kann-ich-das-ohne-smart-home-server-nutzen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Ja.&lt;/strong&gt; Der Pool Controller ist vollständig autark:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Er übernimmt Zirkulationssteuerung und Heizungsregelung &lt;strong&gt;ohne&lt;/strong&gt; externen Server.&lt;/li&gt;
+&lt;li&gt;Die Weboberfläche erlaubt grundlegende Konfiguration und manuelle Steuerung.&lt;/li&gt;
+&lt;li&gt;MQTT-Integration und Home Assistant sind optional — sie erweitern um Fernsteuerung, Automatisierung und Visualisierung.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Wie wetterfest ist das System?&lt;span class="hx:absolute hx:-mt-20" id="wie-wetterfest-ist-das-system"&gt;&lt;/span&gt;
+&lt;a href="#wie-wetterfest-ist-das-system" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Der Pool Controller selbst ist &lt;strong&gt;nicht wetterfest&lt;/strong&gt; im Auslieferungszustand. Sie benötigen:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Standort&lt;/th&gt;
+&lt;th&gt;Schutz&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Inneninstallation (bevorzugt)&lt;/td&gt;
+&lt;td&gt;Kein besonderer Schutz nötig&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Außen / Gartenhaus&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;IP54+&lt;/strong&gt;-Gehäuse, Kabelverschraubungen für alle Eingänge&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Sensoren (DS18B20)&lt;/td&gt;
+&lt;td&gt;Edelstahlsonde ist IP68 — Kabeleinführung muss abgedichtet sein&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Netzteil&lt;/td&gt;
+&lt;td&gt;Muss trocken stehen oder in IP-geschütztem Gehäuse&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;Kann ich das mit einer Wärmepumpe statt Solarheizung nutzen?&lt;span class="hx:absolute hx:-mt-20" id="kann-ich-das-mit-einer-wärmepumpe-statt-solarheizung-nutzen"&gt;&lt;/span&gt;
+&lt;a href="#kann-ich-das-mit-einer-w%c3%a4rmepumpe-statt-solarheizung-nutzen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Ja. Die Heizungslogik des Pool Controllers schaltet eine Pumpe bei Heizbedarf. Das funktioniert mit jeder Wärmequelle:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Solarthermie-Anlage&lt;/li&gt;
+&lt;li&gt;Wärmepumpe&lt;/li&gt;
+&lt;li&gt;Gas-/Ölheizung mit Wärmetauscher&lt;/li&gt;
+&lt;li&gt;Elektro-Heizelement (über Relais/Schütz)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Welche Pumpen können gesteuert werden?&lt;span class="hx:absolute hx:-mt-20" id="welche-pumpen-können-gesteuert-werden"&gt;&lt;/span&gt;
+&lt;a href="#welche-pumpen-k%c3%b6nnen-gesteuert-werden" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Das Relais-Modul schaltet 230V/10A max (ohmsche Last). Bei induktiven Lasten (Motoren, Pumpen) mit ~5A. Verwenden Sie für größere Pumpen das Relais zur Ansteuerung eines Schützes.&lt;/p&gt;
+&lt;h3&gt;Ist dieses Projekt CE-/UL-zertifiziert?&lt;span class="hx:absolute hx:-mt-20" id="ist-dieses-projekt-ce-ul-zertifiziert"&gt;&lt;/span&gt;
+&lt;a href="#ist-dieses-projekt-ce-ul-zertifiziert" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Nein.&lt;/strong&gt; Dies ist ein Hobby-DIY-Projekt. Es wurde von keiner Aufsichtsbehörde geprüft oder zertifiziert. Sie bauen und betreiben es auf eigene Gefahr. Verwenden Sie immer einen &lt;strong&gt;RCD (FI-Schutzschalter)&lt;/strong&gt; beim Anschluss an die Netzspannung.&lt;/p&gt;
+&lt;div class="hx:rounded-lg hx:border-2 hx:border-red-300 hx:bg-red-50 hx:dark:border-red-700 hx:dark:bg-red-900/20 hx:p-4 hx:my-6"&gt;
+&lt;div class="hx:flex hx:items-start hx:gap-3"&gt;
+&lt;span class="hx:text-2xl hx:flex-shrink-0"&gt;⚠️&lt;/span&gt;
+&lt;div&gt;
+&lt;p class="hx:font-bold hx:text-red-700 hx:dark:text-red-400 hx:text-sm hx:uppercase hx:tracking-wide hx:mb-1"&gt;WARNUNG: 230V Netzspannung&lt;/p&gt;
+&lt;p class="hx:text-sm hx:text-red-800 hx:dark:text-red-300 hx:mb-0"&gt;Dieses Projekt arbeitet mit &lt;strong&gt;230V Wechselstrom&lt;/strong&gt; und darf &lt;strong&gt;nur von Personen mit Elektronik-Grundkenntnissen&lt;/strong&gt; nachgebaut werden.
+Verwende immer einen &lt;strong&gt;RCD (FI-Schutzschalter)&lt;/strong&gt;. Das Projekt ist &lt;strong&gt;nicht CE/UL-zertifiziert&lt;/strong&gt; und nicht für den gewerblichen Einsatz bestimmt.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>Fehlerbehebung</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/troubleshooting/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/troubleshooting/</guid><description>
+&lt;blockquote&gt;
+&lt;p&gt;⚠️ &lt;strong&gt;WARNUNG&lt;/strong&gt;: Die nachfolgenden Schritte zur Fehlerbehebung können
+Arbeiten an &lt;strong&gt;230V AC-Netzspannung&lt;/strong&gt; umfassen (Relais-Test, Pumpen-
+Verdrahtung). &lt;strong&gt;Vor Arbeiten an der Schaltung immer stromlos schalten.&lt;/strong&gt;
+Im Zweifel eine qualifizierte Elektrofachkraft beauftragen.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Schnellreferenz-Matrix&lt;span class="hx:absolute hx:-mt-20" id="schnellreferenz-matrix"&gt;&lt;/span&gt;
+&lt;a href="#schnellreferenz-matrix" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Symptom&lt;/th&gt;
+&lt;th&gt;Ursache&lt;/th&gt;
+&lt;th&gt;Lösung&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;-127 °C&lt;/strong&gt; Temperaturwert&lt;/td&gt;
+&lt;td&gt;DS18B20 nicht erkannt&lt;/td&gt;
+&lt;td&gt;4,7 kΩ Pull-up prüfen, Verkabelung und Lötstellen kontrollieren&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;HA findet kein Gerät&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;MQTT-Discovery-Payload nicht gesendet&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;mqtt-protocol = &amp;quot;homeassistant&amp;quot;&lt;/code&gt; prüfen, MQTT-Broker-Verbindung checken, MQTT Explorer nutzen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Relais-Verhalten invertiert&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Active-Low-Modul als Active-High konfiguriert (oder umgekehrt)&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;relay-invert = true&lt;/code&gt; oder &lt;code&gt;false&lt;/code&gt; in Configuration → Advanced setzen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Safe Mode aktiv&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Bootloop erkannt (4 aufeinanderfolgende kurze Boots &amp;lt; 5 Min.)&lt;/td&gt;
+&lt;td&gt;Serielles Log auf Absturzursache prüfen, Problem beheben, neu starten&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;OTA-Update fehlgeschlagen&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;TLS-Problem oder zu wenig Flash-Speicher&lt;/td&gt;
+&lt;td&gt;USB-Flash als Fallback nutzen, freien Speicher prüfen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Web-UI lädt nicht&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;ESP32 nicht im Netzwerk oder falsche IP&lt;/td&gt;
+&lt;td&gt;Router-DHCP-Liste prüfen, WLAN-Verbindung prüfen, &lt;code&gt;pool-controller.local&lt;/code&gt; versuchen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;MQTT-Verbindung verweigert&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Falsche Zugangsdaten oder Broker nicht erreichbar&lt;/td&gt;
+&lt;td&gt;Broker-IP, Port, Benutzername/Passwort in MQTT-Einstellungen prüfen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Temperaturwert 85 °C&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;DS18B20-Parasitärversorgungsproblem&lt;/td&gt;
+&lt;td&gt;Externe 3,3V-Versorgung an Sensor-VCC anschließen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Relais klickt nicht&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;GPIO-Pin defekt oder Relaismodul nicht versorgt&lt;/td&gt;
+&lt;td&gt;Relais-VCC/GND prüfen, GPIO-Spannung mit Multimeter messen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;ESP32 startet immer wieder neu&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Netzteil zu schwach oder Watchdog-Timeout&lt;/td&gt;
+&lt;td&gt;&amp;gt;1A-Netzteil verwenden, serielles Log auf Panikmeldungen prüfen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;WLAN-Scan findet nichts&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;ESP32-Antennenproblem oder Interferenz&lt;/td&gt;
+&lt;td&gt;Gerät näher an Router bringen, Antennenanschluss prüfen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;mDNS wird nicht aufgelöst&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Netzwerk unterstützt kein mDNS&lt;/td&gt;
+&lt;td&gt;IP-Adresse direkt verwenden, mDNS-Reflektor installieren&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Sensorwerte schwanken&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Lose Verbindung oder Interferenz&lt;/td&gt;
+&lt;td&gt;Verkabelung prüfen, geschirmtes Kabel verwenden, Pull-up prüfen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Konfiguration nach Neustart weg&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;NVS-Korruption oder Konfiguration nicht gespeichert&lt;/td&gt;
+&lt;td&gt;Konfiguration erneut speichern, bei Beständigkeit Werksreset versuchen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2&gt;Detaildiagnose&lt;span class="hx:absolute hx:-mt-20" id="detaildiagnose"&gt;&lt;/span&gt;
+&lt;a href="#detaildiagnose" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;1. Temperatursensor-Probleme&lt;span class="hx:absolute hx:-mt-20" id="1-temperatursensor-probleme"&gt;&lt;/span&gt;
+&lt;a href="#1-temperatursensor-probleme" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;Symptom: Sensor zeigt -127 °C&lt;span class="hx:absolute hx:-mt-20" id="symptom-sensor-zeigt--127-c"&gt;&lt;/span&gt;
+&lt;a href="#symptom-sensor-zeigt--127-c" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Dies ist der Standardwert der DallasTemperature-Bibliothek, wenn kein Sensor
+am OneWire-Bus gefunden wird.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Checkliste:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;4,7 kΩ Pull-up-Widerstand zwischen DATA und 3,3V prüfen&lt;/li&gt;
+&lt;li&gt;Verdrahtung prüfen: VCC (rot) → 3,3V, GND (schwarz) → GND, DATA
+(gelb/weiß) → GPIO&lt;/li&gt;
+&lt;li&gt;Sensor an einen bekanntermaßen funktionierenden GPIO-Pin anschließen&lt;/li&gt;
+&lt;li&gt;Mit einem funktionierenden DS18B20 testen&lt;/li&gt;
+&lt;li&gt;Spannung auf DATA-Pin messen: sollte ~3,3V im Leerlauf sein, Impulse
+während Kommunikation&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;Symptom: Sensor zeigt 85 °C&lt;span class="hx:absolute hx:-mt-20" id="symptom-sensor-zeigt-85-c"&gt;&lt;/span&gt;
+&lt;a href="#symptom-sensor-zeigt-85-c" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Dies deutet darauf hin, dass der DS18B20 im &lt;strong&gt;Parasitärversorgungsmodus&lt;/strong&gt; läuft,
+aber nicht genug Strom bekommt.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lösung:&lt;/strong&gt; VCC-Pin (rot) mit 3,3V verbinden statt auf parasitäre Versorgung
+zu setzen.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;2. MQTT / Home Assistant-Probleme&lt;span class="hx:absolute hx:-mt-20" id="2-mqtt--home-assistant-probleme"&gt;&lt;/span&gt;
+&lt;a href="#2-mqtt--home-assistant-probleme" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;Symptom: Home Assistant entdeckt den Controller nicht&lt;span class="hx:absolute hx:-mt-20" id="symptom-home-assistant-entdeckt-den-controller-nicht"&gt;&lt;/span&gt;
+&lt;a href="#symptom-home-assistant-entdeckt-den-controller-nicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;Checkliste:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Prüfen, ob der MQTT-Broker läuft: &lt;code&gt;mosquitto_sub -h &amp;lt;broker&amp;gt; -t &amp;quot;#&amp;quot; -v&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Controller-MQTT-Einstellungen über Web-UI prüfen (Tab MQTT Settings)&lt;/li&gt;
+&lt;li&gt;Mit MQTT Explorer testen:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;pool-controller/#&lt;/code&gt; abonnieren&lt;/li&gt;
+&lt;li&gt;Nach Discovery-Topics suchen: &lt;code&gt;homeassistant/sensor/pool-controller-*/config&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;MQTT-Broker neu starten&lt;/li&gt;
+&lt;li&gt;Controller neustarten&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;Symptom: Entitäten werden als &amp;ldquo;nicht verfügbar&amp;rdquo; angezeigt&lt;span class="hx:absolute hx:-mt-20" id="symptom-entitäten-werden-als-nicht-verfügbar-angezeigt"&gt;&lt;/span&gt;
+&lt;a href="#symptom-entit%c3%a4ten-werden-als-nicht-verf%c3%bcgbar-angezeigt" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;MQTT-Verbindungsstatus im Controller-Web-UI prüfen&lt;/li&gt;
+&lt;li&gt;Prüfen, ob der Broker vom Controller und von HA aus erreichbar ist&lt;/li&gt;
+&lt;li&gt;HA-MQTT-Integration neustarten&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h3&gt;3. Relais-Probleme&lt;span class="hx:absolute hx:-mt-20" id="3-relais-probleme"&gt;&lt;/span&gt;
+&lt;a href="#3-relais-probleme" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;Symptom: Relais klickt, aber Pumpe läuft nicht&lt;span class="hx:absolute hx:-mt-20" id="symptom-relais-klickt-aber-pumpe-läuft-nicht"&gt;&lt;/span&gt;
+&lt;a href="#symptom-relais-klickt-aber-pumpe-l%c3%a4uft-nicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;COM/NO-Verdrahtung prüfen — Pumpe sollte am NO (normally open) liegen&lt;/li&gt;
+&lt;li&gt;Netzspannung am Relais-Eingang prüfen&lt;/li&gt;
+&lt;li&gt;Pumpenanschluss und Sicherung prüfen&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;Symptom: Relais klickt nicht&lt;span class="hx:absolute hx:-mt-20" id="symptom-relais-klickt-nicht"&gt;&lt;/span&gt;
+&lt;a href="#symptom-relais-klickt-nicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;GPIO-Spannung messen — sollte zwischen HIGH und LOW wechseln&lt;/li&gt;
+&lt;li&gt;Relaismodul VCC (5V) und GND prüfen&lt;/li&gt;
+&lt;li&gt;Relaismodul unabhängig testen (5V zwischen IN und GND)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h3&gt;4. Boot- und Stabilitätsprobleme&lt;span class="hx:absolute hx:-mt-20" id="4-boot--und-stabilitätsprobleme"&gt;&lt;/span&gt;
+&lt;a href="#4-boot--und-stabilit%c3%a4tsprobleme" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;Symptom: Safe Mode aktiviert&lt;span class="hx:absolute hx:-mt-20" id="symptom-safe-mode-aktiviert"&gt;&lt;/span&gt;
+&lt;a href="#symptom-safe-mode-aktiviert" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Der Controller wechselt in den Safe Mode nach 4 aufeinanderfolgenden Boots,
+die jeweils kürzer als 5 Minuten waren. Alle Relais werden ausgeschaltet.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Wiederherstellung:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Serielles Monitor: &lt;code&gt;pio device monitor --baud 115200&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Boot-Log lesen — nach Panikmeldungen, Asserts oder Exceptions suchen&lt;/li&gt;
+&lt;li&gt;Häufige Ursachen:
+&lt;ul&gt;
+&lt;li&gt;Stack-Overflow in einem Task&lt;/li&gt;
+&lt;li&gt;NULL-Pointer-Dereferenzierung&lt;/li&gt;
+&lt;li&gt;Heap-Erschöpfung&lt;/li&gt;
+&lt;li&gt;Korrupte Konfiguration&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Problem beheben und neustarten&lt;/li&gt;
+&lt;li&gt;Der Boot-Zähler wird nach einem erfolgreichen &amp;gt;5-Minuten-Lauf zurückgesetzt&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;Symptom: Zufällige Neustarts alle paar Stunden&lt;span class="hx:absolute hx:-mt-20" id="symptom-zufällige-neustarts-alle-paar-stunden"&gt;&lt;/span&gt;
+&lt;a href="#symptom-zuf%c3%a4llige-neustarts-alle-paar-stunden" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;free_heap_space&lt;/code&gt;-Sensor prüfen — sollte über 20 KB liegen&lt;/li&gt;
+&lt;li&gt;Spannungsversorgung prüfen (mindestens 1A)&lt;/li&gt;
+&lt;li&gt;Auf WLAN-Trennungs-/Wiederverbindungsschleifen achten&lt;/li&gt;
+&lt;li&gt;Serielle Ausgabe auf Absturzmeldungen überwachen&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h3&gt;5. OTA-Update-Probleme&lt;span class="hx:absolute hx:-mt-20" id="5-ota-update-probleme"&gt;&lt;/span&gt;
+&lt;a href="#5-ota-update-probleme" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;Symptom: OTA schlägt mit TLS-Fehler fehl&lt;span class="hx:absolute hx:-mt-20" id="symptom-ota-schlägt-mit-tls-fehler-fehl"&gt;&lt;/span&gt;
+&lt;a href="#symptom-ota-schl%c3%a4gt-mit-tls-fehler-fehl" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;Das Web-Interface verwendet HTTPS für OTA — TLS-Handshake kann in
+manchen Netzwerken fehlschlagen&lt;/li&gt;
+&lt;li&gt;Sicherstellen, dass der ESP32 genug freien Heap hat (Dashboard prüfen)&lt;/li&gt;
+&lt;li&gt;Kleinere Firmware-Binärdatei versuchen&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Workaround:&lt;/strong&gt; Über USB flashen:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pio run --target upload --upload-port /dev/ttyUSB0&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h4&gt;Symptom: OTA läuft hoch, aber Gerät startet nicht&lt;span class="hx:absolute hx:-mt-20" id="symptom-ota-läuft-hoch-aber-gerät-startet-nicht"&gt;&lt;/span&gt;
+&lt;a href="#symptom-ota-l%c3%a4uft-hoch-aber-ger%c3%a4t-startet-nicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;Die neue Firmware könnte korrupt oder inkompatibel sein&lt;/li&gt;
+&lt;li&gt;Eine bekanntermaßen funktionierende Version über USB flashen&lt;/li&gt;
+&lt;li&gt;Partitionstabelle-Größe prüfen&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2&gt;Diagnosewerkzeuge&lt;span class="hx:absolute hx:-mt-20" id="diagnosewerkzeuge"&gt;&lt;/span&gt;
+&lt;a href="#diagnosewerkzeuge" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Serielles Monitor&lt;span class="hx:absolute hx:-mt-20" id="serielles-monitor"&gt;&lt;/span&gt;
+&lt;a href="#serielles-monitor" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pio device monitor --port /dev/ttyUSB0 --baud &lt;span class="m"&gt;115200&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Nützlich für: Boot-Logs, Absturzausgaben, MQTT-Verbindungsstatus.&lt;/p&gt;
+&lt;h3&gt;MQTT Explorer&lt;span class="hx:absolute hx:-mt-20" id="mqtt-explorer"&gt;&lt;/span&gt;
+&lt;a href="#mqtt-explorer" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;a
+href="http://mqtt-explorer.com/"target="_blank" rel="noopener"&gt;MQTT Explorer&lt;/a&gt; installieren oder CLI nutzen:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mosquitto_sub -h &amp;lt;broker&amp;gt; -t &lt;span class="s2"&gt;&amp;#34;pool-controller/#&amp;#34;&lt;/span&gt; -v&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Nützlich für: Prüfen von MQTT-Discovery-Payloads, Anzeigen von Telemetriedaten.&lt;/p&gt;
+&lt;h3&gt;Web-UI Dashboard&lt;span class="hx:absolute hx:-mt-20" id="web-ui-dashboard"&gt;&lt;/span&gt;
+&lt;a href="#web-ui-dashboard" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Zugriff über &lt;code&gt;http://&amp;lt;gerät-ip&amp;gt;&lt;/code&gt; — zeigt Live-Status, Temperaturen, Heap, RSSI.&lt;/p&gt;
+&lt;h3&gt;Netzwerkscan&lt;span class="hx:absolute hx:-mt-20" id="netzwerkscan"&gt;&lt;/span&gt;
+&lt;a href="#netzwerkscan" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Controller im Netzwerk finden&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;nmap -sn 192.168.1.0/24
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Oder die DHCP-Client-Liste des Routers nutzen&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;h2&gt;Hilfe bekommen&lt;span class="hx:absolute hx:-mt-20" id="hilfe-bekommen"&gt;&lt;/span&gt;
+&lt;a href="#hilfe-bekommen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Falls die Fehlerbehebung dein Problem nicht löst:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller/issues"target="_blank" rel="noopener"&gt;Vorhandene Issues&lt;/a&gt;
+durchsuchen&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/smart-swimmingpool/smart-swimmingpool.github.io/discussions"target="_blank" rel="noopener"&gt;Diskussionen&lt;/a&gt;
+prüfen&lt;/li&gt;
+&lt;li&gt;Folgende Informationen in deinem Hilfegesuch angeben:
+&lt;ul&gt;
+&lt;li&gt;Firmware-Version (aus Web-UI oder seriellem Log)&lt;/li&gt;
+&lt;li&gt;Hardware-Variante (Basic, NORVI AE01-R, Custom)&lt;/li&gt;
+&lt;li&gt;ESP32-Board-Typ&lt;/li&gt;
+&lt;li&gt;MQTT-Broker und Version&lt;/li&gt;
+&lt;li&gt;Home Assistant-Version (falls zutreffend)&lt;/li&gt;
+&lt;li&gt;Serielle Monitor-Ausgabe (falls verfügbar)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2&gt;Verwandte Dokumente&lt;span class="hx:absolute hx:-mt-20" id="verwandte-dokumente"&gt;&lt;/span&gt;
+&lt;a href="#verwandte-dokumente" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/build-from-zero/"&gt;Von Null aufgebaut&lt;/a&gt; — Komplette Bauanleitung&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/mqtt-configuration/"&gt;MQTT-Konfiguration&lt;/a&gt; — MQTT-Einrichtung&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/electrical-safety/"&gt;Elektrische Sicherheit&lt;/a&gt; — Sicherheitsinformationen&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/home-assistant/"&gt;Home-Assistant-Integration&lt;/a&gt; — HA-Einrichtungsanleitung&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>
