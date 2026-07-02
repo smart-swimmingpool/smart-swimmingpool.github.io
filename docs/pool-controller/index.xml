@@ -542,49 +542,24 @@ href="https://github.com/smart-swimmingpool/pool-controller/blob/main/docs/home-
 &lt;a href="#1-prerequisites-1" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;openHAB installed (see &lt;a
 href="https://www.openhab.org/"target="_blank" rel="noopener"&gt;https://www.openhab.org/&lt;/a&gt;).&lt;/li&gt;
-&lt;li&gt;MQTT Binding installed (via &lt;strong&gt;Paper UI &amp;gt; Add-ons &amp;gt; Bindings &amp;gt; MQTT Binding&lt;/strong&gt;).&lt;/li&gt;
+&lt;li&gt;MQTT Binding installed (via &lt;strong&gt;Add-ons → Bindings → MQTT Binding&lt;/strong&gt;).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4&gt;2️⃣ Configure MQTT Broker&lt;span class="hx:absolute hx:-mt-20" id="2-configure-mqtt-broker"&gt;&lt;/span&gt;
-&lt;a href="#2-configure-mqtt-broker" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;a href="#2-configure-mqtt-broker" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Since v3.3.0 the controller uses &lt;strong&gt;Home Assistant MQTT Discovery&lt;/strong&gt; exclusively.
+openHAB does not support HA Discovery natively, so you need to manually add
+the controller as &lt;strong&gt;MQTT Things&lt;/strong&gt; using the raw topic structure.&lt;/p&gt;
+&lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;Edit the MQTT configuration file:&lt;/p&gt;
-&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
-&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo nano /etc/openhab2/services/mqtt.cfg&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
-&lt;button
-class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
-title="Copy code"
-aria-label="Copy code"
-data-copied-label="Copied!"
-&gt;
-&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
-&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
-&lt;/button&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+&lt;p&gt;Add your MQTT broker in openHAB (openHAB 3+: &lt;strong&gt;Settings → Things → &lt;code&gt;+&lt;/code&gt; → MQTT Broker&lt;/strong&gt;).&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Add your broker settings:&lt;/p&gt;
-&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
-&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-ini" data-lang="ini"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;mqtt:broker.url&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;tcp://localhost:1883&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;mqtt:broker.clientId&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;openhab&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;mqtt:broker.user&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;your_username&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;mqtt:broker.password&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;your_password&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
-&lt;button
-class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
-title="Copy code"
-aria-label="Copy code"
-data-copied-label="Copied!"
-&gt;
-&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
-&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
-&lt;/button&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+&lt;p&gt;Create a &lt;strong&gt;New Thing&lt;/strong&gt; from the MQTT Binding and subscribe to the topic:
+&lt;code&gt;homeassistant/#&lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Restart openHAB:&lt;/p&gt;
+&lt;p&gt;Restart openHAB or refresh the MQTT Binding:&lt;/p&gt;
 &lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
-&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo systemctl restart openhab2&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo systemctl restart openhab&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
 &lt;button
 class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
 title="Copy code"
@@ -598,10 +573,13 @@ data-copied-label="Copied!"
 &lt;/div&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h4&gt;3️⃣ Manually Add Devices&lt;span class="hx:absolute hx:-mt-20" id="3-manually-add-devices"&gt;&lt;/span&gt;
-&lt;a href="#3-manually-add-devices" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Since &lt;strong&gt;Homie support was removed in v3.3.0&lt;/strong&gt;, you need to manually configure the MQTT topics in openHAB.
-See the &lt;a
-href="https://github.com/smart-swimmingpool/openhab-config"target="_blank" rel="noopener"&gt;openHAB Configuration Guide&lt;/a&gt; for examples.&lt;/p&gt;
+&lt;h4&gt;3️⃣ Discover &amp;amp; Configure Things&lt;span class="hx:absolute hx:-mt-20" id="3-discover--configure-things"&gt;&lt;/span&gt;
+&lt;a href="#3-discover--configure-things" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;After the broker is set up, the controller&amp;rsquo;s entities should appear as
+discoverable Things under &lt;code&gt;homeassistant/#&lt;/code&gt;. If they don&amp;rsquo;t appear automatically,
+you can manually create Things by subscribing to the individual state/command topics.&lt;/p&gt;
+&lt;p&gt;See the &lt;a
+href="https://github.com/smart-swimmingpool/openhab-config"target="_blank" rel="noopener"&gt;openHAB Configuration Guide&lt;/a&gt;
+for ready-to-use &lt;code&gt;.things&lt;/code&gt; and &lt;code&gt;.items&lt;/code&gt; examples.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2&gt;🔍 Step 6: Test &amp;amp; Troubleshoot&lt;span class="hx:absolute hx:-mt-20" id="-step-6-test--troubleshoot"&gt;&lt;/span&gt;
 &lt;a href="#-step-6-test--troubleshoot" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;✅ Verify Sensors&lt;span class="hx:absolute hx:-mt-20" id="-verify-sensors"&gt;&lt;/span&gt;
@@ -5195,31 +5173,21 @@ href="https://www.openhab.org/docs/installation/"target="_blank" rel="noopener"&
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;MQTT-Binding installieren&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Gehe zu &lt;strong&gt;Paper UI → Add-ons → Bindings&lt;/strong&gt;.&lt;/li&gt;
-&lt;li&gt;Suche nach &lt;strong&gt;MQTT Binding&lt;/strong&gt; und installiere es.&lt;/li&gt;
+&lt;li&gt;Gehe zu &lt;strong&gt;Add-ons → Bindings → MQTT Binding&lt;/strong&gt; und installiere es.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;MQTT-Broker konfigurieren&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;MQTT-Broker konfigurieren&lt;/strong&gt;
+Seit v3.3.0 verwendet der Controller ausschließlich &lt;strong&gt;Home Assistant MQTT Discovery&lt;/strong&gt;.
+openHAB unterstützt HA Discovery nicht nativ, daher müssen die MQTT-Things manuell
+konfiguriert werden.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Bearbeite die Datei &lt;strong&gt;&lt;code&gt;/etc/openhab/services/mqtt.cfg&lt;/code&gt;&lt;/strong&gt;:&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
-&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-ini" data-lang="ini"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;broker.url&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;tcp://192.168.1.50:1883&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;broker.user&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;mqtt_user&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;broker.password&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;secret&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
-&lt;button
-class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
-title="Copy code"
-aria-label="Copy code"
-data-copied-label="Copied!"
-&gt;
-&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
-&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
-&lt;/button&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Füge den MQTT-Broker in openHAB hinzu (&lt;strong&gt;Einstellungen → Things → &lt;code&gt;+&lt;/code&gt; → MQTT Broker&lt;/strong&gt;).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Erstelle ein &lt;strong&gt;neues Thing&lt;/strong&gt; aus dem MQTT-Binding und abonniere das Topic &lt;code&gt;homeassistant/#&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Starte openHAB neu:&lt;/p&gt;
 &lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
@@ -5239,9 +5207,12 @@ data-copied-label="Copied!"
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Pool Controller manuell einrichten&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Pool Controller einrichten&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Da der Controller &lt;strong&gt;keine Homie-Unterstützung mehr hat&lt;/strong&gt; (ab v3.3.0), musst du die Geräte &lt;strong&gt;manuell&lt;/strong&gt; einrichten.&lt;/li&gt;
+&lt;li&gt;Nachdem der Broker konfiguriert ist, sollten die Entitäten des Controllers automatisch
+unter &lt;code&gt;homeassistant/#&lt;/code&gt; auffindbar sein.&lt;/li&gt;
+&lt;li&gt;Falls nicht, können die Things manuell erstellt werden, indem die einzelnen
+State/Command-Topics abonniert werden.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Beispiel-Konfiguration:&lt;/strong&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a
@@ -11274,15 +11245,18 @@ href="https://www.home-assistant.io/integrations/mqtt/#mqtt-discovery"target="_b
 for automatic device registration — devices appear automatically in Home Assistant
 without any manual configuration.&lt;/p&gt;
 &lt;h2&gt;OpenHAB Integration&lt;span class="hx:absolute hx:-mt-20" id="openhab-integration"&gt;&lt;/span&gt;
-&lt;a href="#openhab-integration" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The &lt;strong&gt;Smart Swimmingpool Controller&lt;/strong&gt; could be integrated in &lt;a
-href="https://www.openhab.org"target="_blank" rel="noopener"&gt;openHAB&lt;/a&gt; since version 2.4.&lt;/p&gt;
-&lt;p&gt;It is possible to interact with the controller to enable/disable the pump or to switch the current rule.&lt;/p&gt;
-&lt;p&gt;Also it is possible to monitor the current values of temperatures or states.&lt;/p&gt;
-&lt;p&gt;At least the &lt;a
-href="#settings"&gt;settings&lt;/a&gt; could be updated, too.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;TODO: add example of openhab config.&lt;/li&gt;
-&lt;/ul&gt;
+&lt;a href="#openhab-integration" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Since v3.3.0 the controller uses &lt;strong&gt;Home Assistant MQTT Discovery&lt;/strong&gt; exclusively — the former
+Homie protocol support has been removed. openHAB does not support HA Discovery natively,
+so you need to configure the MQTT Things manually.&lt;/p&gt;
+&lt;p&gt;All controller entities are published as plain MQTT topics under
+&lt;code&gt;homeassistant/&amp;lt;component&amp;gt;/pool-controller/&amp;lt;object-id&amp;gt;/&lt;/code&gt;. You can add them in openHAB
+as &lt;strong&gt;MQTT Things&lt;/strong&gt; by subscribing to the relevant state/command topics.&lt;/p&gt;
+&lt;p&gt;See the entity reference and topic structure in the
+&lt;a
+href="../mqtt-configuration"&gt;MQTT Configuration&lt;/a&gt; page.&lt;/p&gt;
+&lt;p&gt;Ready-to-use openHAB configuration examples are available in the
+&lt;a
+href="https://github.com/smart-swimmingpool/openhab-config"target="_blank" rel="noopener"&gt;openHAB Configuration Guide&lt;/a&gt;.&lt;/p&gt;
 &lt;h3&gt;Device&lt;span class="hx:absolute hx:-mt-20" id="device"&gt;&lt;/span&gt;
 &lt;a href="#device" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h3&gt;Properties&lt;span class="hx:absolute hx:-mt-20" id="properties"&gt;&lt;/span&gt;
 &lt;a href="#properties" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;</description></item></channel></rss>

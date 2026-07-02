@@ -2919,15 +2919,19 @@ href="https://www.home-assistant.io/integrations/mqtt/#mqtt-discovery"target="_b
 zur automatischen Geräteregistrierung — Geräte erscheinen automatisch in Home Assistant
 ohne manuelle Konfiguration.&lt;/p&gt;
 &lt;h2&gt;openHAB-Integration&lt;span class="hx:absolute hx:-mt-20" id="openhab-integration"&gt;&lt;/span&gt;
-&lt;a href="#openhab-integration" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der &lt;strong&gt;Smart Swimmingpool Controller&lt;/strong&gt; kann seit Version 2.4 in &lt;a
-href="https://www.openhab.org"target="_blank" rel="noopener"&gt;openHAB&lt;/a&gt; integriert werden.&lt;/p&gt;
-&lt;p&gt;Es ist möglich, mit dem Controller zu interagieren, um die Pumpe ein-/auszuschalten oder die aktuelle Regel zu wechseln.&lt;/p&gt;
-&lt;p&gt;Auch die aktuellen Temperatur- oder Zustandswerte können überwacht werden.&lt;/p&gt;
-&lt;p&gt;Schließlich können auch die &lt;a
-href="#einstellungen"&gt;Einstellungen&lt;/a&gt; aktualisiert werden.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;TODO: Beispiel für openHAB-Konfiguration hinzufügen.&lt;/li&gt;
-&lt;/ul&gt;
+&lt;a href="#openhab-integration" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Seit v3.3.0 verwendet der Controller ausschließlich &lt;strong&gt;Home Assistant MQTT Discovery&lt;/strong&gt; —
+die bisherige Homie-Protokoll-Unterstützung wurde entfernt. openHAB unterstützt HA Discovery
+nicht nativ, daher müssen die MQTT-Things manuell konfiguriert werden.&lt;/p&gt;
+&lt;p&gt;Alle Controller-Entitäten werden als einfache MQTT-Topics unter
+&lt;code&gt;homeassistant/&amp;lt;component&amp;gt;/pool-controller/&amp;lt;object-id&amp;gt;/&lt;/code&gt; veröffentlicht. In openHAB
+können sie als &lt;strong&gt;MQTT Things&lt;/strong&gt; hinzugefügt werden, indem die entsprechenden
+State/Command-Topics abonniert werden.&lt;/p&gt;
+&lt;p&gt;Die Entity-Referenz und Topic-Struktur findest du auf der Seite
+&lt;a
+href="../mqtt-configuration"&gt;MQTT-Konfiguration&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Beispiele für openHAB-Konfigurationen gibt es im
+&lt;a
+href="https://github.com/smart-swimmingpool/openhab-config"target="_blank" rel="noopener"&gt;openHAB Configuration Guide&lt;/a&gt;.&lt;/p&gt;
 &lt;h3&gt;Gerät&lt;span class="hx:absolute hx:-mt-20" id="gerät"&gt;&lt;/span&gt;
 &lt;a href="#ger%c3%a4t" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h3&gt;Eigenschaften&lt;span class="hx:absolute hx:-mt-20" id="eigenschaften"&gt;&lt;/span&gt;
 &lt;a href="#eigenschaften" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;</description></item><item><title>OpenHAB Konfiguration</title><link>https://smart-swimmingpool.github.io/de/docs/openhab-configuration/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/openhab-configuration/</guid><description>
@@ -3077,7 +3081,7 @@ href="https://www.home-assistant.io/integrations/mqtt/#mqtt-discovery"target="_b
 &lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; &lt;a
 href="https://home-assistant.io"target="_blank" rel="noopener"&gt;Home Assistant&lt;/a&gt; via nativer MQTT Discovery&lt;/li&gt;
 &lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; &lt;a
-href="https://www.openhab.org"target="_blank" rel="noopener"&gt;openHAB&lt;/a&gt; via MQTT&lt;/li&gt;
+href="https://www.openhab.org"target="_blank" rel="noopener"&gt;openHAB&lt;/a&gt; via MQTT (manuelle Konfiguration erforderlich)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; Automatische Zeitsynchronisierung mit NTP (europe.pool.ntp.org)&lt;/li&gt;
