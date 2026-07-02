@@ -74,7 +74,7 @@ href="https://smart-swimmingpool.github.io/de/docs/openhab-configuration/"&gt;op
 &lt;a href="#kann-ich-grafana-nutzen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Ja.&lt;/strong&gt; Der Controller veröffentlicht alle Daten per MQTT. Mit &lt;a
 href="https://www.influxdata.com/time-series-platform/telegraf/"target="_blank" rel="noopener"&gt;Telegraf&lt;/a&gt; können MQTT-Daten in &lt;a
 href="https://www.influxdata.com/"target="_blank" rel="noopener"&gt;InfluxDB&lt;/a&gt; gespeichert und mit &lt;a
-href="https://smart-swimmingpool.github.io/docs/grafana-dashboard/"&gt;Grafana&lt;/a&gt; visualisiert werden.&lt;/p&gt;
+href="https://smart-swimmingpool.github.io/de/docs/grafana-dashboard/"&gt;Grafana&lt;/a&gt; visualisiert werden.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2&gt;Konfiguration &amp;amp; Betrieb&lt;span class="hx:absolute hx:-mt-20" id="konfiguration--betrieb"&gt;&lt;/span&gt;
 &lt;a href="#konfiguration--betrieb" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Wie stelle ich die Zieltemperatur ein?&lt;span class="hx:absolute hx:-mt-20" id="wie-stelle-ich-die-zieltemperatur-ein"&gt;&lt;/span&gt;

@@ -1,4 +1,126 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Monitoring</title><link>https://smart-swimmingpool.github.io/de/tags/monitoring/</link><description>Recent content in Monitoring on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><lastBuildDate>Thu, 11 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/de/tags/monitoring/index.xml" rel="self" type="application/rss+xml"/><item><title>Zustandsspeicherung und Systemüberwachung</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/state-persistence/</link><pubDate>Thu, 11 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/state-persistence/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Monitoring</title><link>https://smart-swimmingpool.github.io/de/tags/monitoring/</link><description>Recent content in Monitoring on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><lastBuildDate>Thu, 11 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/de/tags/monitoring/index.xml" rel="self" type="application/rss+xml"/><item><title>Grafana Dashboard</title><link>https://smart-swimmingpool.github.io/de/docs/grafana-dashboard/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/grafana-dashboard/</guid><description>
+&lt;h1&gt;\ud83d\udcc Grafana Dashboard&lt;/h1&gt;&lt;p&gt;Das &lt;strong&gt;Grafana Dashboard&lt;/strong&gt; bietet eine sch\u00f6ne Visualisierung Ihrer Pool-Daten und erm\u00f6glicht es Ihnen, Temperaturtrends, Systemstatus und historische Daten \u00fcber die Zeit zu verfolgen.&lt;/p&gt;
+&lt;h2&gt;\ud83d\udca1 \u00dcbersicht&lt;span class="hx:absolute hx:-mt-20" id="ud83dudca1-u00dcbersicht"&gt;&lt;/span&gt;
+&lt;a href="#ud83dudca1-u00dcbersicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Das Grafana Dashboard bietet:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Temperaturvisualisierung&lt;/strong&gt;: Verfolgen Sie Pool- und Solartemperaturen \u00fcber die Zeit&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Historische Daten&lt;/strong&gt;: Zeigen Sie Trends und Muster in Ihren Pool-Daten an&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;System\u00fcberwachung&lt;/strong&gt;: \u00dcberwachen Sie Pumpenstatus, Betriebszeit und andere Metriken&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Anpassbar&lt;/strong&gt;: Passen Sie das Dashboard an Ihre spezifischen Bed\u00fcrfnisse an&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Echtzeit-Updates&lt;/strong&gt;: Live-Daten von Ihrem Pool-Controller \u00fcber MQTT&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Benachrichtigungen&lt;/strong&gt;: Richten Sie Warnungen f\u00fcr bestimmte Bedingungen ein&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;\ud83d\udcc Hauptmerkmale&lt;span class="hx:absolute hx:-mt-20" id="ud83dudcc-hauptmerkmale"&gt;&lt;/span&gt;
+&lt;a href="#ud83dudcc-hauptmerkmale" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;\u2705 &lt;strong&gt;Temperaturdiagramme&lt;/strong&gt;: Sch\u00f6ne Grafiken, die Temperaturtrends zeigen&lt;/li&gt;
+&lt;li&gt;\u2705 &lt;strong&gt;Pumpenstatus&lt;/strong&gt;: Visuelle Anzeige der Pumpenbetriebszeiten&lt;/li&gt;
+&lt;li&gt;\u2705 &lt;strong&gt;Systemgesundheit&lt;/strong&gt;: \u00dcberwachen Sie Controller-Betriebszeit und Verbindung&lt;/li&gt;
+&lt;li&gt;\u2705 &lt;strong&gt;Benutzerdefinierte Panels&lt;/strong&gt;: F\u00fcgen Sie Panels hinzu oder passen Sie sie an&lt;/li&gt;
+&lt;li&gt;\u2705 &lt;strong&gt;Zeitbereichsauswahl&lt;/strong&gt;: Zeigen Sie Daten von Stunden bis Monaten an&lt;/li&gt;
+&lt;li&gt;\u2705 &lt;strong&gt;Export/Import&lt;/strong&gt;: Teilen Sie Ihre Dashboard-Konfiguration mit anderen&lt;/li&gt;
+&lt;li&gt;\u2705 &lt;strong&gt;Open Source&lt;/strong&gt;: MIT-Lizenz, frei zu verwenden und zu modifizieren&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;\ud83d\ud87 Schnelle Links&lt;span class="hx:absolute hx:-mt-20" id="ud83dud87-schnelle-links"&gt;&lt;/span&gt;
+&lt;a href="#ud83dud87-schnelle-links" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Erste Schritte&lt;span class="hx:absolute hx:-mt-20" id="erste-schritte"&gt;&lt;/span&gt;
+&lt;a href="#erste-schritte" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/grafana-dashboard"target="_blank" rel="noopener"&gt;Grafana Dashboard Repository&lt;/a&gt;&lt;/strong&gt; - Haupt-Repository mit Dashboard-JSON&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/grafana-dashboard#installation"target="_blank" rel="noopener"&gt;Installationsanleitung&lt;/a&gt;&lt;/strong&gt; - Schritt-f\u00fcr-Schritt-Setup-Anleitung&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/grafana-dashboard#configuration"target="_blank" rel="noopener"&gt;Konfiguration&lt;/a&gt;&lt;/strong&gt; - Dashboard-Setup und Anpassung&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Voraussetzungen&lt;span class="hx:absolute hx:-mt-20" id="voraussetzungen"&gt;&lt;/span&gt;
+&lt;a href="#voraussetzungen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://grafana.com/docs/grafana/latest/setup-grafana/installation/"target="_blank" rel="noopener"&gt;Grafana-Installation&lt;/a&gt;&lt;/strong&gt; - Installieren Sie Grafana auf Ihrem System&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://www.influxdata.com/time-series-platform/influxdb/"target="_blank" rel="noopener"&gt;InfluxDB-Setup&lt;/a&gt;&lt;/strong&gt; - Zeitreihendatenbank zum Speichern von Pool-Daten&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/grafana-dashboard#mqtt-to-influxdb"target="_blank" rel="noopener"&gt;MQTT zu InfluxDB&lt;/a&gt;&lt;/strong&gt; - Br\u00fccke MQTT-Daten zu InfluxDB&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Dashboard-Setup&lt;span class="hx:absolute hx:-mt-20" id="dashboard-setup"&gt;&lt;/span&gt;
+&lt;a href="#dashboard-setup" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/grafana-dashboard#import-dashboard"target="_blank" rel="noopener"&gt;Dashboard importieren&lt;/a&gt;&lt;/strong&gt; - Importieren Sie das vorkonfigurierte Dashboard&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/grafana-dashboard#data-sources"target="_blank" rel="noopener"&gt;Datenquellen&lt;/a&gt;&lt;/strong&gt; - Konfigurieren Sie Datenquellen in Grafana&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/grafana-dashboard#customization"target="_blank" rel="noopener"&gt;Anpassung&lt;/a&gt;&lt;/strong&gt; - Passen Sie das Dashboard an Ihre Bed\u00fcrfnisse an&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;\ud83c\udf9b Screenshot&lt;span class="hx:absolute hx:-mt-20" id="ud83cudf9b-screenshot"&gt;&lt;/span&gt;
+&lt;a href="#ud83cudf9b-screenshot" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;img src="https://smart-swimmingpool.github.io/img/grafana-dashboard.png" alt="Grafana Dashboard" data-zoomable loading="lazy" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Das Smart Swimming Pool Grafana Dashboard zeigt Temperaturtrends und Systemstatus&lt;/em&gt;&lt;/p&gt;
+&lt;h2&gt;\ud83d\udda5 Dashboard-Panels&lt;span class="hx:absolute hx:-mt-20" id="ud83dudda5-dashboard-panels"&gt;&lt;/span&gt;
+&lt;a href="#ud83dudda5-dashboard-panels" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Das Standard-Dashboard enth\u00e4lt:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Panel&lt;/th&gt;
+&lt;th&gt;Beschreibung&lt;/th&gt;
+&lt;th&gt;Datenquelle&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Pool-Temperatur&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Aktuelle und historische Poolwassertemperatur&lt;/td&gt;
+&lt;td&gt;MQTT/InfluxDB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Solar-Temperatur&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Aktuelle und historische Solarkollektortemperatur&lt;/td&gt;
+&lt;td&gt;MQTT/InfluxDB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Temperaturdifferenz&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Differenz zwischen Solar- und Pool-Temperatur&lt;/td&gt;
+&lt;td&gt;Berechnet&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Pumpenstatus&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Aktueller Zustand und Betriebszeiten beider Pumpen&lt;/td&gt;
+&lt;td&gt;MQTT/InfluxDB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;System-Betriebszeit&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Controller-Betriebszeit und Verbindungsstatus&lt;/td&gt;
+&lt;td&gt;MQTT/InfluxDB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Heizungseffizienz&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Heizungsleistungsmetriken&lt;/td&gt;
+&lt;td&gt;Berechnet&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Tagesstatistiken&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;T\u00e4gliche Temperaturbereiche und Pumpenbetrieb&lt;/td&gt;
+&lt;td&gt;MQTT/InfluxDB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;\ud83d\udc82 N\u00e4chste Schritte&lt;span class="hx:absolute hx:-mt-20" id="ud83dudc82-nu00e4chste-schritte"&gt;&lt;/span&gt;
+&lt;a href="#ud83dudc82-nu00e4chste-schritte" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.github.io/de/docs/start-here/"&gt;Hier beginnen&lt;/a&gt;&lt;/strong&gt; - W\u00e4hlen Sie Ihren Weg basierend auf Ihren Zielen&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/grafana-dashboard"target="_blank" rel="noopener"&gt;Repository besuchen&lt;/a&gt;&lt;/strong&gt; - Zugriff auf Dashboard-JSON und Dokumentation&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.github.io/de/docs/pool-controller/"&gt;Pool Controller Setup&lt;/a&gt;&lt;/strong&gt; - Stellen Sie sicher, dass Ihr Controller l\u00e4uft&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.github.io/de/docs/home-assistant-integration/"&gt;Home Assistant Integration&lt;/a&gt;&lt;/strong&gt; - Alternative Visualisierungsoption&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;\ud83d\udcdd Brauchen Sie Hilfe?&lt;span class="hx:absolute hx:-mt-20" id="ud83dudcdd-brauchen-sie-hilfe"&gt;&lt;/span&gt;
+&lt;a href="#ud83dudcdd-brauchen-sie-hilfe" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Pr\u00fcfen Sie die &lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.github.io/de/docs/troubleshooting/"&gt;FAQ &amp;amp; Fehlerbehebung&lt;/a&gt;&lt;/strong&gt; Seite&lt;/li&gt;
+&lt;li&gt;Besuchen Sie das &lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/grafana-dashboard"target="_blank" rel="noopener"&gt;Grafana Dashboard Repository&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;\u00d6ffnen Sie ein &lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/grafana-dashboard/issues"target="_blank" rel="noopener"&gt;Issue&lt;/a&gt;&lt;/strong&gt; f\u00fcr Bugs oder Feature-Anfragen&lt;/li&gt;
+&lt;li&gt;Konsultieren Sie die &lt;strong&gt;&lt;a
+href="https://grafana.com/docs/"target="_blank" rel="noopener"&gt;Grafana-Dokumentation&lt;/a&gt;&lt;/strong&gt; f\u00fcr Grafana-spezifische Fragen&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Zustandsspeicherung und Systemüberwachung</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/state-persistence/</link><pubDate>Thu, 11 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/state-persistence/</guid><description>
 &lt;h1&gt;Zustandsspeicherung und Systemüberwachung&lt;/h1&gt;&lt;h2&gt;Übersicht&lt;span class="hx:absolute hx:-mt-20" id="übersicht"&gt;&lt;/span&gt;
 &lt;a href="#%c3%bcbersicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der Pool Controller verfügt über eine umfassende Zustandsspeicherung und
 Systemzustandsüberwachung für zuverlässigen 24/7-Betrieb.&lt;/p&gt;
