@@ -349,39 +349,11 @@ itself.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;hr&gt;
 &lt;h3&gt;Power Budget&lt;span class="hx:absolute hx:-mt-20" id="power-budget"&gt;&lt;/span&gt;
-&lt;a href="#power-budget" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;State&lt;/th&gt;
-&lt;th&gt;Current&lt;/th&gt;
-&lt;th&gt;Duration per cycle&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Active (WiFi + MQTT + display update)&lt;/td&gt;
-&lt;td&gt;~80 mA&lt;/td&gt;
-&lt;td&gt;~10–15 seconds&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Deep sleep&lt;/td&gt;
-&lt;td&gt;~10 µA&lt;/td&gt;
-&lt;td&gt;~165–170 seconds&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;Average&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;&lt;strong&gt;~5.5 mA&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;over 180 s cycle&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;Daily energy requirement&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;&lt;strong&gt;~132 mAh&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;at 5 V (≙ 660 mWh)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;The daily energy requirement of &lt;strong&gt;~130 mAh&lt;/strong&gt; (at 5 V) can be met by even a
-small solar panel at most locations.&lt;/p&gt;
+&lt;a href="#power-budget" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;See the &lt;a
+href="#power-consumption"&gt;Power Consumption&lt;/a&gt; table in the base section
+above for the active/sleep current draw. The daily energy requirement of
+&lt;strong&gt;~130 mAh&lt;/strong&gt; (at 5 V) can be met by even a small solar panel at most
+locations.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3&gt;Additional Parts Required&lt;span class="hx:absolute hx:-mt-20" id="additional-parts-required"&gt;&lt;/span&gt;
 &lt;a href="#additional-parts-required" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;

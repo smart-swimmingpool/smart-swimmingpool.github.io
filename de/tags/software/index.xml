@@ -64,16 +64,25 @@ Minuten.&lt;/p&gt;
 &lt;a href="#projektstruktur" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
 &lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;monitor/
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── platformio.ini # Build-Konfiguration
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── Makefile # Lokale Dev-Tasks (lint, build, format)
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── CPPLINT.cfg # C++ Linting-Konfiguration
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── src/
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ ├── main.cpp # Hauptfirmware (setup, loop, MQTT, Display)
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ ├── board_def.h # Board-spezifische Pin-Definitionen
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ ├── u8g2_display.h # E-Ink Display-Hilfsfunktionen (Text, Icons)
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ └── ntp_localtime.h # NTP-Zeitsynchronisation &amp;amp; Zeitzone
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;└── docs/
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; ├── hardware-guide.md # Hardware-Anleitung
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; ├── software-guide.md # Dieses Dokument
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; ├── users-guide.md # Einrichtung &amp;amp; Konfiguration
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; └── home-assistant-migration.md # HA-Migrationsnotizen&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ ├── main.cpp # Arduino-Entry-Point (setup, loop)
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ └── PoolMonitor/ # Subsystem-Klassen (Namespace PoolMonitor)
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ ├── Config.hpp # Pin-Definitionen &amp;amp; Compile-Zeit-Konstanten
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ ├── PoolMonitorContext.{hpp,cpp} # Core-Kontext — besitzt alle Subsysteme
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ ├── DisplayManager.{hpp,cpp} # E-Ink Display-Verwaltung
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ ├── NetworkManager.{hpp,cpp} # WiFi &amp;amp; MQTT-Verbindung
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ ├── OtaUpdater.{hpp,cpp} # OTA-Firmware-Updates
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ ├── SystemMonitor.{hpp,cpp} # Watchdog, Speicher, Boot-Loop-Erkennung
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ └── TimeClientHelper.{hpp,cpp} # NTP-Zeitsync &amp;amp; Zeitzone
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── lib/ # Externe Bibliotheken (von PlatformIO verwaltet)
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── docs/
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ ├── hardware-guide.md # Hardware-Anleitung
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ ├── software-guide.md # Dieses Dokument
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ └── users-guide.md # Einrichtung &amp;amp; Konfiguration
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── .github/workflows/ # GitHub Actions CI
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;└── platformio.ini # Build-Konfiguration&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
 &lt;button
 class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
 title="Code kopieren"
@@ -87,16 +96,20 @@ data-copied-label="Kopiert!"
 &lt;/div&gt;
 &lt;hr&gt;
 &lt;h2&gt;Benötigte Bibliotheken&lt;span class="hx:absolute hx:-mt-20" id="benötigte-bibliotheken"&gt;&lt;/span&gt;
-&lt;a href="#ben%c3%b6tigte-bibliotheken" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;adafruit/Adafruit BusIO&lt;/li&gt;
-&lt;li&gt;adafruit/Adafruit GFX Library&lt;/li&gt;
-&lt;li&gt;zinggjm/GxEPD&lt;/li&gt;
-&lt;li&gt;juerd/ESP-WiFiSettings&lt;/li&gt;
-&lt;li&gt;olikraus/U8g2&lt;/li&gt;
-&lt;li&gt;olikraus/U8g2_for_Adafruit_GFX&lt;/li&gt;
-&lt;li&gt;hmueller01/PubSubClient3&lt;/li&gt;
-&lt;li&gt;arduino-libraries/NTPClient&lt;/li&gt;
-&lt;li&gt;jchristensen/Timezone&lt;/li&gt;
+&lt;a href="#ben%c3%b6tigte-bibliotheken" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die Bibliotheken werden in &lt;a
+href="https://github.com/smart-swimmingpool/monitor/blob/main/platformio.ini"target="_blank" rel="noopener"&gt;&lt;code&gt;platformio.ini&lt;/code&gt;&lt;/a&gt;
+mit Versionsangaben deklariert und von PlatformIO automatisch aufgelöst:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;zinggjm/GxEPD&lt;/code&gt; — E-Ink Display-Treiber&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;juerd/ESP-WiFiSettings&lt;/code&gt; — Captive Portal für WLAN/MQTT-Konfiguration&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;olikraus/U8g2&lt;/code&gt; — Icon-Schriftarten fürs Display&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;olikraus/U8g2_for_Adafruit_GFX&lt;/code&gt; — U8g2-Integration mit Adafruit GFX&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;knolleary/PubSubClient&lt;/code&gt; — MQTT-Client&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;arduino-libraries/NTPClient&lt;/code&gt; — NTP-Zeitsynchronisation&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;jchristensen/Timezone&lt;/code&gt; — Zeitzone &amp;amp; Sommerzeit&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;adafruit/Adafruit BusIO&lt;/code&gt; — SPI/I2C-Abstraktion&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;adafruit/Adafruit GFX Library&lt;/code&gt; — Grafik-Primitive&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;bblanchon/ArduinoJson&lt;/code&gt; — JSON-Parsing für OTA-Update-Metadaten&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Vielen Dank an die Maintainer dieser Bibliotheken!&lt;/p&gt;
 &lt;hr&gt;
@@ -126,7 +139,7 @@ href="hardware-guide.de.md#kompatible-board-varianten"&gt;Hardware Guide&lt;/a&g
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h3&gt;Laufzeit-Konstanten&lt;span class="hx:absolute hx:-mt-20" id="laufzeit-konstanten"&gt;&lt;/span&gt;
-&lt;a href="#laufzeit-konstanten" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Definiert in &lt;code&gt;src/main.cpp&lt;/code&gt;:&lt;/p&gt;
+&lt;a href="#laufzeit-konstanten" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Definiert in &lt;code&gt;src/PoolMonitor/Config.hpp&lt;/code&gt;:&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -161,24 +174,11 @@ href="hardware-guide.de.md#kompatible-board-varianten"&gt;Hardware Guide&lt;/a&g
 &lt;hr&gt;
 &lt;h2&gt;Konfiguration&lt;span class="hx:absolute hx:-mt-20" id="konfiguration"&gt;&lt;/span&gt;
 &lt;a href="#konfiguration" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;WiFi &amp;amp; MQTT Einrichtung&lt;span class="hx:absolute hx:-mt-20" id="wifi--mqtt-einrichtung"&gt;&lt;/span&gt;
-&lt;a href="#wifi--mqtt-einrichtung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Die Firmware verwendet die Bibliothek &lt;strong&gt;ESP-WiFiSettings&lt;/strong&gt; für ein Captive
-Portal zur Ersteinrichtung:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Beim ersten Start (kein WiFi konfiguriert) startet das Gerät einen
-&lt;strong&gt;Access Point&lt;/strong&gt; namens &lt;code&gt;pool-monitor&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Mit diesem AP verbinden — ein Webportal öffnet sich unter
-&lt;code&gt;http://192.168.4.1&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Eingabe:
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;WLAN-SSID&lt;/strong&gt; und &lt;strong&gt;Passwort&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;MQTT-Broker-Hostname&lt;/strong&gt; oder IP-Adresse&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;MQTT-Port&lt;/strong&gt; (Standard: 1883)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Save&lt;/strong&gt; klicken — das Gerät startet neu und verbindet sich.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Siehe &lt;a
-href="users-guide.de.md"&gt;Users Guide&lt;/a&gt; für detaillierte Anweisungen.&lt;/p&gt;
+&lt;a href="#wifi--mqtt-einrichtung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Die Firmware verwendet die Bibliothek &lt;strong&gt;ESP-WiFiSettings&lt;/strong&gt; für das Captive-
+Portal. Für den &lt;strong&gt;Endbenutzer-Setup-Prozess&lt;/strong&gt; (Verbinden mit dem AP, Eingabe
+der Zugangsdaten, QR-Code-Portal bei Fehlern) siehe den
+&lt;a
+href="users-guide.de.md"&gt;Users Guide&lt;/a&gt;.&lt;/p&gt;
 &lt;h3&gt;MQTT Topics&lt;span class="hx:absolute hx:-mt-20" id="mqtt-topics"&gt;&lt;/span&gt;
 &lt;a href="#mqtt-topics" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Der Pool Monitor abonniert &lt;strong&gt;Home Assistant State Topics&lt;/strong&gt;, die vom
 &lt;a
@@ -226,7 +226,14 @@ Discovery.&lt;/p&gt;
 Daten.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3&gt;Preferences (NVS)&lt;span class="hx:absolute hx:-mt-20" id="preferences-nvs"&gt;&lt;/span&gt;
-&lt;a href="#preferences-nvs" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Die Firmware speichert Betriebszustände im ESP32 NVS (Non-Volatile Storage)
+&lt;a href="#preferences-nvs" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;⚠️ Dieser Abschnitt ist &lt;strong&gt;veraltet&lt;/strong&gt; — das NVS-Layout wurde in die
+&lt;code&gt;PoolMonitor&lt;/code&gt;-Subsysteme überführt. Siehe
+&lt;a
+href="https://github.com/smart-swimmingpool/monitor/blob/main/src/PoolMonitor/PoolMonitorContext.cpp"target="_blank" rel="noopener"&gt;&lt;code&gt;PoolMonitorContext.cpp&lt;/code&gt;&lt;/a&gt;
+für die aktuelle Implementierung.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Die Firmware speichert Betriebszustände im ESP32 NVS (Non-Volatile Storage)
 über die Arduino &lt;code&gt;Preferences&lt;/code&gt;-Bibliothek im Namespace &lt;code&gt;pool-monitor&lt;/code&gt;:&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -296,27 +303,6 @@ Daten.&lt;/p&gt;
 &lt;li&gt;Zwischen den Synchronisationen wird die aktuelle Uhrzeit aus dem
 gespeicherten Epoch-Wert und der vergangenen Betriebszeit &lt;strong&gt;rekonstruiert&lt;/strong&gt;.&lt;/li&gt;
 &lt;li&gt;Das Display zeigt die &lt;strong&gt;Ortszeit&lt;/strong&gt; mit automatischer
-Sommerzeitumstellung (CET/CEST, konfiguriert in &lt;code&gt;src/ntp_localtime.h&lt;/code&gt;).&lt;/li&gt;
+Sommerzeitumstellung (CET/CEST, konfiguriert in &lt;code&gt;src/PoolMonitor/TimeClientHelper.hpp&lt;/code&gt;).&lt;/li&gt;
 &lt;li&gt;Das E-Ink Display aktualisiert sich &lt;strong&gt;nur bei Datenänderungen&lt;/strong&gt; (per MQTT).&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2&gt;Changelog&lt;span class="hx:absolute hx:-mt-20" id="changelog"&gt;&lt;/span&gt;
-&lt;a href="#changelog" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;2026-06-10 — DNS-Failover, mDNS, QR-Code-Portal und 5-Minuten-Timeout&lt;span class="hx:absolute hx:-mt-20" id="2026-06-10--dns-failover-mdns-qr-code-portal-und-5-minuten-timeout"&gt;&lt;/span&gt;
-&lt;a href="#2026-06-10--dns-failover-mdns-qr-code-portal-und-5-minuten-timeout" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;DNS-Failover:&lt;/strong&gt; MQTT-Verbindung wird immer versucht, auch wenn der
-Hostname nicht via DNS aufgelöst werden kann. PubSubClient löst DNS selbst
-auf.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;mDNS:&lt;/strong&gt; Gerät registriert sich als &lt;code&gt;pool-monitor.local&lt;/code&gt; im Netzwerk.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;WiFi-Disconnect entfernt:&lt;/strong&gt; Das explizite &lt;code&gt;WiFi.disconnect(true)&lt;/code&gt; vor dem
-Tiefschlaf wurde entfernt, damit der DHCP-Lease erhalten bleibt. Das Gerät
-bleibt in der Router-Tabelle sichtbar.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;MQTT-Portal mit QR-Code:&lt;/strong&gt; Bei MQTT-Fehler startet ein
-Konfigurationsportal. Display zeigt SSID, AP-IP und QR-Code.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;5-Minuten-Timeout:&lt;/strong&gt; Das Portal bleibt maximal 5 Minuten aktiv. Ohne
-Benutzereingabe geht das Gerät in Tiefschlaf und wiederholt den
-Verbindungsversuch beim nächsten Wake.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;upload_speed:&lt;/strong&gt; Auf 115200 Baud reduziert für Kompatibilität mit älteren
-ESP32 rev1.0.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;QR-Code Bibliothek:&lt;/strong&gt; Verwendet ESP32-Builtin &lt;code&gt;esp_qrcode&lt;/code&gt; — keine
-zusätzliche Abhängigkeit.&lt;/li&gt;
 &lt;/ul&gt;</description></item></channel></rss>

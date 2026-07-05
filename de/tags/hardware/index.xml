@@ -1094,39 +1094,11 @@ nur ein Solarpanel und ein Akku benötigt – das Board übernimmt die Ladeelekt
 &lt;/blockquote&gt;
 &lt;hr&gt;
 &lt;h3&gt;Leistungsbudget&lt;span class="hx:absolute hx:-mt-20" id="leistungsbudget"&gt;&lt;/span&gt;
-&lt;a href="#leistungsbudget" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Zustand&lt;/th&gt;
-&lt;th&gt;Strom&lt;/th&gt;
-&lt;th&gt;Dauer pro Zyklus&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Aktiv (WiFi + MQTT + Display‑Update)&lt;/td&gt;
-&lt;td&gt;~80 mA&lt;/td&gt;
-&lt;td&gt;~10–15 Sekunden&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Deep Sleep&lt;/td&gt;
-&lt;td&gt;~10 µA&lt;/td&gt;
-&lt;td&gt;~165–170 Sekunden&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;Durchschnitt&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;&lt;strong&gt;~5,5 mA&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;über 180‑s‑Zyklus&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;Täglicher Energiebedarf&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;&lt;strong&gt;~132 mAh&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;bei 5 V (≙ 660 mWh)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;Der tägliche Energiebedarf von &lt;strong&gt;~130 mAh&lt;/strong&gt; (bei 5 V) ist selbst mit einer
-kleinen Solarzelle an den meisten Standorten deckbar.&lt;/p&gt;
+&lt;a href="#leistungsbudget" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Siehe die &lt;a
+href="#stromverbrauch"&gt;Stromverbrauch&lt;/a&gt;-Tabelle im Basisabschnitt oben
+für die Stromaufnahme in Aktiv- und Schlafzustand. Der tägliche
+Energiebedarf von &lt;strong&gt;~130 mAh&lt;/strong&gt; (bei 5 V) ist selbst mit einer kleinen
+Solarzelle an den meisten Standorten deckbar.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3&gt;Benötigte Teile (zusätzlich)&lt;span class="hx:absolute hx:-mt-20" id="benötigte-teile-zusätzlich"&gt;&lt;/span&gt;
 &lt;a href="#ben%c3%b6tigte-teile-zus%c3%a4tzlich" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;

@@ -1,0 +1,183 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Setup</title><link>https://smart-swimmingpool.github.io/tags/setup/</link><description>Recent content in Setup on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Sat, 11 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/tags/setup/index.xml" rel="self" type="application/rss+xml"/><item><title>Users Guide of Pool Monitor</title><link>https://smart-swimmingpool.github.io/docs/pool-monitor/users-guide/</link><pubDate>Sat, 11 Jun 2022 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-monitor/users-guide/</guid><description>
+&lt;h2&gt;Setup&lt;span class="hx:absolute hx:-mt-20" id="setup"&gt;&lt;/span&gt;
+&lt;a href="#setup" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;When the device is powered on for the first time (or after a factory reset),
+it starts a &lt;strong&gt;WiFi hotspot&lt;/strong&gt; named &lt;code&gt;pool-monitor&lt;/code&gt;.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Connect your smartphone or laptop to the &lt;code&gt;pool-monitor&lt;/code&gt; WiFi network (open,
+no password).&lt;/li&gt;
+&lt;li&gt;A &lt;strong&gt;captive portal&lt;/strong&gt; should open automatically. If not, open a browser and
+go to &lt;strong&gt;&lt;code&gt;http://192.168.4.1&lt;/code&gt;&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Enter the following:
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;WiFi SSID&lt;/strong&gt; and &lt;strong&gt;password&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MQTT broker hostname&lt;/strong&gt; or IP address&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MQTT port&lt;/strong&gt; (default: &lt;code&gt;1883&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Click &lt;strong&gt;Save&lt;/strong&gt; — the device reboots and connects to your network.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;After a few seconds, the E-Ink display updates with the current pool data.&lt;/p&gt;
+&lt;h3&gt;MQTT Broker&lt;span class="hx:absolute hx:-mt-20" id="mqtt-broker"&gt;&lt;/span&gt;
+&lt;a href="#mqtt-broker" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The Pool Monitor reads data published by the
+&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller"target="_blank" rel="noopener"&gt;Pool Controller&lt;/a&gt;
+via Home Assistant MQTT state topics. Your MQTT broker must be reachable from
+the same WiFi network as the monitor.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Display Layout&lt;span class="hx:absolute hx:-mt-20" id="display-layout"&gt;&lt;/span&gt;
+&lt;a href="#display-layout" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The E-Ink display shows the following information:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;┌──────────────────────────────────┐
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ 🌊 Pool Temperature 25.3 °C │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ ☀️ Solar Temperature 55.1 °C │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ ⏱️ Pump Pool ON │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ ⏱️ Solar Pump ON │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ ⏱️ Mode auto │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ 14:30 │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ www.smart-swimmingpool.com │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;└──────────────────────────────────┘&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Temperatures&lt;/strong&gt; are updated whenever new MQTT data arrives.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Pump status&lt;/strong&gt; shows &lt;code&gt;ON&lt;/code&gt; / &lt;code&gt;OFF&lt;/code&gt; based on the pool controller state.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mode&lt;/strong&gt; shows the current operation mode (&lt;code&gt;auto&lt;/code&gt;, &lt;code&gt;manual&lt;/code&gt;, etc.).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Time&lt;/strong&gt; is synchronised via NTP (hourly) with automatic CET/CEST.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Branding&lt;/strong&gt; at the bottom shows the project website.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The display only updates when data changes — it stays unchanged during deep
+sleep to save energy.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Network Configuration (mDNS)&lt;span class="hx:absolute hx:-mt-20" id="network-configuration-mdns"&gt;&lt;/span&gt;
+&lt;a href="#network-configuration-mdns" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The device is reachable on your local network as &lt;code&gt;pool-monitor.local&lt;/code&gt; via mDNS.
+This works on most networks without any configuration.&lt;/p&gt;
+&lt;p&gt;The DHCP lease is preserved across deep sleep cycles — the device does not
+release its IP address when going to sleep. It remains visible in the router&amp;rsquo;s
+client table (though unreachable while sleeping).&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;MQTT Errors and Configuration Portal&lt;span class="hx:absolute hx:-mt-20" id="mqtt-errors-and-configuration-portal"&gt;&lt;/span&gt;
+&lt;a href="#mqtt-errors-and-configuration-portal" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;If the MQTT broker cannot be reached (wrong hostname, temporary outage, etc.),
+the device automatically starts a &lt;strong&gt;configuration portal&lt;/strong&gt;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The display shows:
+&lt;ul&gt;
+&lt;li&gt;WiFi SSID (&lt;code&gt;pool-monitor&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;Access point IP (&lt;code&gt;192.168.4.1&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;A QR code for quick access&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Connect to the &lt;code&gt;pool-monitor&lt;/code&gt; WiFi network (open, no password).&lt;/li&gt;
+&lt;li&gt;Open the configuration page — either scan the QR code or go to
+&lt;code&gt;http://192.168.4.1&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Correct the MQTT settings (hostname, port) or WiFi credentials.&lt;/li&gt;
+&lt;li&gt;Click &lt;strong&gt;Save&lt;/strong&gt; — the device reboots and retries the connection.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;DNS tip&lt;/strong&gt;: If the MQTT hostname (e.g. &lt;code&gt;smarthome-pi&lt;/code&gt;) cannot be resolved,
+enter the IP address instead. The hostname is still attempted without DNS
+(PubSubClient resolves internally), but a direct IP is more reliable.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The portal stays active for &lt;strong&gt;5 minutes&lt;/strong&gt;. If no configuration is saved within
+this time, the device enters deep sleep to conserve power. It retries the
+connection on the next wake cycle (every 180 seconds).&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;OTA Firmware Updates&lt;span class="hx:absolute hx:-mt-20" id="ota-firmware-updates"&gt;&lt;/span&gt;
+&lt;a href="#ota-firmware-updates" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The Pool Monitor supports &lt;strong&gt;over-the-air (OTA) firmware updates&lt;/strong&gt; via GitHub
+Releases:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;On each wake cycle, the device checks GitHub for a newer firmware version.&lt;/li&gt;
+&lt;li&gt;If an update is available, it downloads the &lt;code&gt;.bin&lt;/code&gt; release asset and flashes
+it automatically.&lt;/li&gt;
+&lt;li&gt;The display briefly shows &amp;ldquo;Update&amp;rdquo; during the process.&lt;/li&gt;
+&lt;li&gt;After the update, the device reboots and resumes normal operation.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;No manual intervention is required — the update happens fully automatically
+during a regular wake cycle. To trigger an immediate check, simply power-cycle
+the device.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Time Synchronisation&lt;span class="hx:absolute hx:-mt-20" id="time-synchronisation"&gt;&lt;/span&gt;
+&lt;a href="#time-synchronisation" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The device synchronises its clock via NTP (Network Time Protocol) using
+&lt;code&gt;europe.pool.ntp.org&lt;/code&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;NTP sync&lt;/strong&gt; occurs approximately every &lt;strong&gt;60 minutes&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Between syncs, the time is reconstructed from the last known time plus
+elapsed uptime.&lt;/li&gt;
+&lt;li&gt;The display always shows &lt;strong&gt;local time&lt;/strong&gt; with automatic daylight saving time
+switching (CET/CEST).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If the time shows &lt;code&gt;--:--&lt;/code&gt; on the display, NTP sync has not succeeded yet.
+This typically resolves on the next wake cycle (within 3 minutes).&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Troubleshooting&lt;span class="hx:absolute hx:-mt-20" id="troubleshooting"&gt;&lt;/span&gt;
+&lt;a href="#troubleshooting" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Symptom&lt;/th&gt;
+&lt;th&gt;Likely Cause&lt;/th&gt;
+&lt;th&gt;Fix&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Display stays white&lt;/td&gt;
+&lt;td&gt;No firmware or corrupted flash&lt;/td&gt;
+&lt;td&gt;Flash firmware via PlatformIO (see &lt;a
+href="https://smart-swimmingpool.github.io/docs/pool-monitor/software-guide/"&gt;Software Guide&lt;/a&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ldquo;MQTT Error&amp;rdquo; on display, portal opens&lt;/td&gt;
+&lt;td&gt;MQTT broker unreachable&lt;/td&gt;
+&lt;td&gt;Check broker hostname/IP; verify MQTT server is running&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ldquo;WiFi connection failed&amp;rdquo;&lt;/td&gt;
+&lt;td&gt;Wrong credentials or weak signal&lt;/td&gt;
+&lt;td&gt;Reconfigure via captive portal; check WiFi range&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Display shows old data (never updates)&lt;/td&gt;
+&lt;td&gt;MQTT issue or pool controller offline&lt;/td&gt;
+&lt;td&gt;Verify pool controller publishes to HA state topics&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;QR portal appears every 3 minutes&lt;/td&gt;
+&lt;td&gt;MQTT settings not saving&lt;/td&gt;
+&lt;td&gt;Re-enter MQTT hostname/IP; try IP address instead of hostname&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Brownout / reboot loop&lt;/td&gt;
+&lt;td&gt;Insufficient power supply&lt;/td&gt;
+&lt;td&gt;Use 5V/≥1A supply; try different USB cable&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Display updates but shows &lt;code&gt;--:--&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;NTP time sync failed&lt;/td&gt;
+&lt;td&gt;Check internet connectivity; NTP is attempted every hour&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2&gt;References&lt;span class="hx:absolute hx:-mt-20" id="references"&gt;&lt;/span&gt;
+&lt;a href="#references" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/pool-monitor/hardware-guide/"&gt;Hardware Guide&lt;/a&gt; — Board assembly, pinout, solar powering&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/pool-monitor/software-guide/"&gt;Software Guide&lt;/a&gt; — Development setup, build, MQTT topics&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller"target="_blank" rel="noopener"&gt;Pool Controller&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://www.home-assistant.io/"target="_blank" rel="noopener"&gt;Home Assistant&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://www.smart-swimmingpool.com"target="_blank" rel="noopener"&gt;Smart Swimming Pool Website&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>
