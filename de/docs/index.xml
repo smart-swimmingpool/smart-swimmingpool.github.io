@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Dokumentation</title><link>https://smart-swimmingpool.github.io/de/docs/</link><description>Recent content in Dokumentation on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><atom:link href="https://smart-swimmingpool.github.io/de/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Temperaturabhängige Filterlaufzeit</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/temperature-based-circulation/</link><pubDate>Sun, 05 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/temperature-based-circulation/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Dokumentation</title><link>https://smart-swimmingpool.github.io/de/docs/</link><description>Recent content in Dokumentation on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><atom:link href="https://smart-swimmingpool.github.io/de/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Temperaturabhängige Filterlaufzeit</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/temperature-based-circulation/</link><pubDate>Mon, 06 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/temperature-based-circulation/</guid><description>
 &lt;h1&gt;Temperaturabhängige Filterlaufzeit&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;Optimierung der Pool-Umwälzung für bessere Wasserqualität bei minimalem Stromverbrauch.&lt;/strong&gt;&lt;/p&gt;
 &lt;h2&gt;1. Motivation&lt;span class="hx:absolute hx:-mt-20" id="1-motivation"&gt;&lt;/span&gt;
 &lt;a href="#1-motivation" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die Poolpumpe ist der größte Stromverbraucher im Schwimmbad. Gleichzeitig bestimmt sie maßgeblich die Wasserqualität. Die aktuell nötige Umwälzmenge hängt stark von der Wassertemperatur ab:&lt;/p&gt;
@@ -604,7 +604,7 @@ href="https://medium.com/diy-my-smart-home/project-smart-swimmingpool-4c40eb6741
 &lt;p&gt;📄 &lt;a
 href="https://smart-swimmingpool.github.io/blog/smart-swimming-pool-project/"&gt;Hier auf der Seite lesen&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/security-references/</link><pubDate>Sun, 05 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/security-references/</guid><description>
+&lt;/ul&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/security-references/</link><pubDate>Mon, 06 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/security-references/</guid><description>
 &lt;h1&gt;Sicherheitsreferenzen &amp;amp; Best Practices&lt;/h1&gt;&lt;p&gt;Dieses Dokument enthält Sicherheitsreferenzen, Best Practices und
 Implementierungsrichtlinien für das Pool Controller Projekt. Diese Referenzen
 wurden während der umfassenden IoT-Sicherheitsanalyse am 2025-01-15 zusammengestellt.&lt;/p&gt;
@@ -791,8 +791,8 @@ Semantische Code-Analyse-Engine zum Auffinden von Sicherheitslücken. In GitHub 
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a
-href="https://github.com/github/super-linter"target="_blank" rel="noopener"&gt;Super-Linter&lt;/a&gt;&lt;/strong&gt;
-Multi-Sprachen-Linting-Framework, das mehrere Linter kombiniert. Wird in der CI-Pipeline dieses Projekts verwendet.&lt;/p&gt;
+href="https://megalinter.io/"target="_blank" rel="noopener"&gt;MegaLinter&lt;/a&gt;&lt;/strong&gt;
+Multi-Sprachen-Linting-Framework von OX Security, das mehrere Linter kombiniert. Wird in der CI-Pipeline dieses Projekts verwendet.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a
@@ -847,8 +847,8 @@ Strategien zur Implementierung von Qualitätsgates in CI/CD-Pipelines.&lt;/p&gt;
 &lt;a href="#linting--formatierung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a
-href="https://github.com/github/super-linter/blob/main/README.md"target="_blank" rel="noopener"&gt;Super-Linter einrichten&lt;/a&gt;&lt;/strong&gt;
-Konfigurations- und Anpassungsleitfaden für Super-Linter.&lt;/p&gt;
+href="https://megalinter.io/latest/configuration/"target="_blank" rel="noopener"&gt;MegaLinter Konfiguration&lt;/a&gt;&lt;/strong&gt;
+Konfigurations- und Anpassungsleitfaden für MegaLinter.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a
