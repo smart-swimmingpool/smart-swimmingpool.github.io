@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Dokumentation</title><link>https://smart-swimmingpool.github.io/de/docs/</link><description>Recent content in Dokumentation on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><atom:link href="https://smart-swimmingpool.github.io/de/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Temperaturabhängige Filterlaufzeit</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/temperature-based-circulation/</link><pubDate>Mon, 06 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/temperature-based-circulation/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Dokumentation</title><link>https://smart-swimmingpool.github.io/de/docs/</link><description>Recent content in Dokumentation on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><atom:link href="https://smart-swimmingpool.github.io/de/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Temperaturabhängige Filterlaufzeit</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/temperature-based-circulation/</link><pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/temperature-based-circulation/</guid><description>
 &lt;h1&gt;Temperaturabhängige Filterlaufzeit&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;Optimierung der Pool-Umwälzung für bessere Wasserqualität bei minimalem Stromverbrauch.&lt;/strong&gt;&lt;/p&gt;
 &lt;h2&gt;1. Motivation&lt;span class="hx:absolute hx:-mt-20" id="1-motivation"&gt;&lt;/span&gt;
 &lt;a href="#1-motivation" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die Poolpumpe ist der größte Stromverbraucher im Schwimmbad. Gleichzeitig bestimmt sie maßgeblich die Wasserqualität. Die aktuell nötige Umwälzmenge hängt stark von der Wassertemperatur ab:&lt;/p&gt;
@@ -604,7 +604,867 @@ href="https://medium.com/diy-my-smart-home/project-smart-swimmingpool-4c40eb6741
 &lt;p&gt;📄 &lt;a
 href="https://smart-swimmingpool.github.io/blog/smart-swimming-pool-project/"&gt;Hier auf der Seite lesen&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/security-references/</link><pubDate>Mon, 06 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/security-references/</guid><description>
+&lt;/ul&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/norvi-display-navigation-concept/</link><pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/norvi-display-navigation-concept/</guid><description>
+&lt;h1&gt;Bedien- und Navigationskonzept — NORVI IIOT-AE01-R OLED + 3 Tasten&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Status:&lt;/strong&gt; Konzept / RFC
+&lt;strong&gt;Ziel:&lt;/strong&gt; Verbesserung der UX des 128×64 OLED-Displays mit den drei Fronttasten (S1/S2/S3)
+&lt;strong&gt;Behandelt:&lt;/strong&gt; Button-Mapping, Bildschirm-Hierarchie, Hints, Wizard-Navigation, Sonderfälle&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2&gt;1. Physikalische Gegebenheiten&lt;span class="hx:absolute hx:-mt-20" id="1-physikalische-gegebenheiten"&gt;&lt;/span&gt;
+&lt;a href="#1-physikalische-gegebenheiten" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Display:&lt;/strong&gt; 0,96″ SSD1306 OLED, 128×64 Pixel, I2C (Adresse 0x3C)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Tasten:&lt;/strong&gt; 3 Tact-Switches rechts neben dem Display (vertikale Anordnung)
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;S1 (oben)&lt;/strong&gt; — ▲&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;S2 (Mitte)&lt;/strong&gt; — ▼&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;S3 (unten)&lt;/strong&gt; — ●&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Tasten-Interface:&lt;/strong&gt; Resistor-Ladder an GPIO32 (ADC), kein Interrupt — Polling alle 50 ms&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Long-Press:&lt;/strong&gt; Erkennung nach &amp;gt;2 s, kann Short-Press konsumieren (Callback-Rückgabe &lt;code&gt;true&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;2. Ist-Analyse: UX-Probleme der aktuellen Implementierung&lt;span class="hx:absolute hx:-mt-20" id="2-ist-analyse-ux-probleme-der-aktuellen-implementierung"&gt;&lt;/span&gt;
+&lt;a href="#2-ist-analyse-ux-probleme-der-aktuellen-implementierung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;2.1 S3 ist überladen und gefährlich&lt;span class="hx:absolute hx:-mt-20" id="21-s3-ist-überladen-und-gefährlich"&gt;&lt;/span&gt;
+&lt;a href="#21-s3-ist-%c3%bcberladen-und-gef%c3%a4hrlich" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Kontext&lt;/th&gt;
+&lt;th&gt;S3-Kurz (aktuell)&lt;/th&gt;
+&lt;th&gt;Problem&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;MAIN&lt;/td&gt;
+&lt;td&gt;Betriebsmodus cyclen (auto→manu→boost→timer)&lt;/td&gt;
+&lt;td&gt;Ein Tastendruck ändert unumkehrbar den Betriebsmodus. Ein versehentlicher Druck während des Vorbeiscrollens schaltet von &lt;code&gt;auto&lt;/code&gt; auf &lt;code&gt;manu&lt;/code&gt; — die Pumpe läuft dann dauerhaft.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Andere Infoseiten&lt;/td&gt;
+&lt;td&gt;Betriebsmodus cyclen&lt;/td&gt;
+&lt;td&gt;Der Nutzer erwartet auf PAGE 3 (QRCODE) keine Modus-Änderung.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;SENSOR_SETUP&lt;/td&gt;
+&lt;td&gt;Wizard-Advance&lt;/td&gt;
+&lt;td&gt;Einziger Kontext, in dem S3 sinnvoll ist.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;➜ S3 darf auf Infoseiten keine Seiteneffekte haben, die den Anlagenbetrieb verändern.&lt;/strong&gt;&lt;/p&gt;
+&lt;h3&gt;2.2 Hint-Labels „nxt&amp;quot; für S1 und S2&lt;span class="hx:absolute hx:-mt-20" id="22-hint-labels-nxt-für-s1-und-s2"&gt;&lt;/span&gt;
+&lt;a href="#22-hint-labels-nxt-f%c3%bcr-s1-und-s2" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Beide Tasten zeigen auf normalen Seiten das Label &lt;code&gt;nxt&lt;/code&gt;. Damit ist nicht ersichtlich, dass S1 &lt;strong&gt;zurück&lt;/strong&gt; und S2 &lt;strong&gt;vor&lt;/strong&gt; blättert. Der Nutzer muss durch Trial &amp;amp; Error herausfinden, welche Taste wohin navigiert.&lt;/p&gt;
+&lt;h3&gt;2.3 Fehlende visuelle Hierarchie&lt;span class="hx:absolute hx:-mt-20" id="23-fehlende-visuelle-hierarchie"&gt;&lt;/span&gt;
+&lt;a href="#23-fehlende-visuelle-hierarchie" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Keine Unterscheidung zwischen „Info-Seiten&amp;quot; und „Interaktions-Seiten&amp;quot;&lt;/li&gt;
+&lt;li&gt;Kein Hinweis, dass man sich auf Seite X von Y befindet (nur eine nackte Zahl rechts unten)&lt;/li&gt;
+&lt;li&gt;Kein „Exit&amp;quot;- oder „Back&amp;quot;-Gefühl — einmal im Sensor-Wizard steckt man fest, bis man entweder fertig ist oder 60 s gewartet hat&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;2.4 Long-Press ist unsichtbar&lt;span class="hx:absolute hx:-mt-20" id="24-long-press-ist-unsichtbar"&gt;&lt;/span&gt;
+&lt;a href="#24-long-press-ist-unsichtbar" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;S3 lang speichert Sensor-Mapping und rebootet — aber der Nutzer sieht das nirgends, solange nicht beide Sensoren zugewiesen sind.&lt;/li&gt;
+&lt;li&gt;Es gibt kein konsistentes Long-Press-Modell, das der Nutzer lernen und erwarten kann.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;2.5 Auto-Return ohne Vorwarnung&lt;span class="hx:absolute hx:-mt-20" id="25-auto-return-ohne-vorwarnung"&gt;&lt;/span&gt;
+&lt;a href="#25-auto-return-ohne-vorwarnung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Nach 60 s springt das Display unhinterfragt zurück zu MAIN — das kann mitten im Lesen einer IP-Adresse passieren.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;3. Design-Prinzipien&lt;span class="hx:absolute hx:-mt-20" id="3-design-prinzipien"&gt;&lt;/span&gt;
+&lt;a href="#3-design-prinzipien" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Konsistenz:&lt;/strong&gt; Jede Taste hat eine gleichbleibende Grundbedeutung (S1=▲=rauf/zurück, S2=▼=runter/vor, S3=●=Aktion/bestätigen).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sicherheit:&lt;/strong&gt; Keine Taste ändert den Anlagenzustand ohne explizite Bestätigung oder klares Label.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sichtbarkeit:&lt;/strong&gt; Jede Taste hat ein kontextspezifisches, eindeutiges Hint-Label.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Minimale Überraschung:&lt;/strong&gt; Keine Side-Effects beim Scrollen. Aktionen sind explizit.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Fat-Finger-freundlich:&lt;/strong&gt; Wichtige Aktionen erfordern zwei Schritte oder Long-Press.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2&gt;4. Vorgeschlagenes Button-Mapping&lt;span class="hx:absolute hx:-mt-20" id="4-vorgeschlagenes-button-mapping"&gt;&lt;/span&gt;
+&lt;a href="#4-vorgeschlagenes-button-mapping" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;4.1 Grundzuordnung (gilt als Default)&lt;span class="hx:absolute hx:-mt-20" id="41-grundzuordnung-gilt-als-default"&gt;&lt;/span&gt;
+&lt;a href="#41-grundzuordnung-gilt-als-default" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Taste&lt;/th&gt;
+&lt;th&gt;Label&lt;/th&gt;
+&lt;th&gt;Kurz (Normal)&lt;/th&gt;
+&lt;th&gt;Kurz (Wizard)&lt;/th&gt;
+&lt;th&gt;Lang (&amp;gt;2 s)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;S1&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;▲&lt;/td&gt;
+&lt;td&gt;Vorherige Seite&lt;/td&gt;
+&lt;td&gt;Vorherige Option&lt;/td&gt;
+&lt;td&gt;— (nicht belegt)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;S2&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;▼&lt;/td&gt;
+&lt;td&gt;Nächste Seite&lt;/td&gt;
+&lt;td&gt;Nächste Option&lt;/td&gt;
+&lt;td&gt;— (nicht belegt)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;S3&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;●&lt;/td&gt;
+&lt;td&gt;Aktion / Enter (siehe Seite)&lt;/td&gt;
+&lt;td&gt;Bestätigen / Weiter&lt;/td&gt;
+&lt;td&gt;Kontext-Aktion (speichern, reboot)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;S1 und S2 sind &lt;strong&gt;immer&lt;/strong&gt; Navigation — egal ob zwischen Seiten oder innerhalb eines Wizards.
+S3 ist &lt;strong&gt;immer&lt;/strong&gt; die Aktionstaste — was sie tut, steht im Hint-Label.&lt;/p&gt;
+&lt;h3&gt;4.2 Hint-Labels pro Seite&lt;span class="hx:absolute hx:-mt-20" id="42-hint-labels-pro-seite"&gt;&lt;/span&gt;
+&lt;a href="#42-hint-labels-pro-seite" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Seite&lt;/th&gt;
+&lt;th&gt;S1-Hint&lt;/th&gt;
+&lt;th&gt;S2-Hint&lt;/th&gt;
+&lt;th&gt;S3-Hint&lt;/th&gt;
+&lt;th&gt;S3-Lang&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;MAIN&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td&gt;next&lt;/td&gt;
+&lt;td&gt;menu&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;NETWORK&lt;/td&gt;
+&lt;td&gt;prev&lt;/td&gt;
+&lt;td&gt;next&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;SYSTEM&lt;/td&gt;
+&lt;td&gt;prev&lt;/td&gt;
+&lt;td&gt;next&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;QRCODE&lt;/td&gt;
+&lt;td&gt;prev&lt;/td&gt;
+&lt;td&gt;next&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;WIFI_SETUP&lt;/td&gt;
+&lt;td&gt;prev&lt;/td&gt;
+&lt;td&gt;next&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;SENSOR_SETUP (IDLE)&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td&gt;setup&lt;/td&gt;
+&lt;td&gt;save+reboot&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;SENSOR_SETUP (SELECT)&lt;/td&gt;
+&lt;td&gt;up&lt;/td&gt;
+&lt;td&gt;dn&lt;/td&gt;
+&lt;td&gt;select&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;SENSOR_SETUP (ROLE)&lt;/td&gt;
+&lt;td&gt;up&lt;/td&gt;
+&lt;td&gt;dn&lt;/td&gt;
+&lt;td&gt;assign&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Änderungen:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;S1 zeigt &lt;code&gt;prev&lt;/code&gt; statt &lt;code&gt;nxt&lt;/code&gt; — eindeutig anders als S2 (&lt;code&gt;next&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;S3 zeigt &lt;strong&gt;nie&lt;/strong&gt; &lt;code&gt;ok&lt;/code&gt; auf Infoseiten, sondern ist entweder leer (keine Aktion) oder zeigt klar, was passiert (&lt;code&gt;menu&lt;/code&gt;, &lt;code&gt;setup&lt;/code&gt;, &lt;code&gt;select&lt;/code&gt;, &lt;code&gt;assign&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;MAIN-Seite: S3 öffnet ein Aktionsmenü statt direkt den Modus zu wechseln&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;5. Bildschirm-Hierarchie&lt;span class="hx:absolute hx:-mt-20" id="5-bildschirm-hierarchie"&gt;&lt;/span&gt;
+&lt;a href="#5-bildschirm-hierarchie" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;┌─────────────────────────────────────┐
+│ INFO-MODUS │
+│ (Seiten: MAIN / NETWORK / SYSTEM / │
+│ QRCODE / WIFI_SETUP) │
+│ │
+│ S1/S2 = prev/next │
+│ S3 = kontextspezifisch │
+│ Auto-Return nach 60 s → MAIN │
+└──────────────────┬──────────────────┘
+│ S3 in MAIN
+▼
+┌─────────────────────────────────────┐
+│ AKTIONSMENÜ (MAIN) │
+│ │
+│ &amp;gt; Mode: auto │
+│ Pump: on/off │
+│ → Back │
+│ │
+│ S1/S2 = Menü-Zeile wechseln │
+│ S3 = Auswahl aktivieren │
+└─────────────────────────────────────┘
+┌─────────────────────────────────────┐
+│ SENSOR-SETUP-WIZARD │
+│ (erreichbar via S3 auf Seite │
+│ SENSOR_SETUP) │
+│ │
+│ Step 1: SELECT_SENSOR │
+│ S1/S2 = up/dn (Sensor wählen) │
+│ S3 = select (bestätigen) │
+│ │
+│ Step 2: SELECT_ROLE │
+│ S1/S2 = up/dn (Solar/Pool) │
+│ S3 = assign (zuweisen) │
+│ │
+│ Nach assign → zurück zu IDLE │
+│ S3 lang = save&amp;#43;reboot (wenn beide │
+│ Sensoren zugewiesen) │
+└─────────────────────────────────────┘&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;h2&gt;6. Detaillierte Seitenbeschreibungen&lt;span class="hx:absolute hx:-mt-20" id="6-detaillierte-seitenbeschreibungen"&gt;&lt;/span&gt;
+&lt;a href="#6-detaillierte-seitenbeschreibungen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;6.1 MAIN — Übersichtsseite&lt;span class="hx:absolute hx:-mt-20" id="61-main--übersichtsseite"&gt;&lt;/span&gt;
+&lt;a href="#61-main--%c3%bcbersichtsseite" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;┌──────────────────────┬──────┐
+│ ● 22.5°C │ │
+│ Pool auto │ S2 ▼│ next
+│ ○ 19.1°C │ S3 ●│ menu
+│ Solar │ │
+├──────────────────────┴──────┤
+│ AUTO 12:30 v2.1.0 1 │
+└─────────────────────────────┘&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;S2 = &lt;code&gt;next&lt;/code&gt; → nächste Info-Seite (NETWORK)&lt;/li&gt;
+&lt;li&gt;S3 = &lt;code&gt;menu&lt;/code&gt; → öffnet Aktionsmenü (siehe 6.6)&lt;/li&gt;
+&lt;li&gt;S1 = kein Hint, da MAIN die erste Seite ist (kein „prev&amp;quot; nötig)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;6.2 NETWORK — Netzwerkstatus&lt;span class="hx:absolute hx:-mt-20" id="62-network--netzwerkstatus"&gt;&lt;/span&gt;
+&lt;a href="#62-network--netzwerkstatus" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;┌──────────────────────┬──────┐
+│ Network Status │ │
+│──────────────────────│ S1 ▲│ prev
+│ WiFi: MyHomeWLAN │ S2 ▼│ next
+│ IP: 192.168.1.42 │ S3 │
+│ MQTT: CONNECTED │ │
+├──────────────────────┴──────┤
+│ AUTO 12:30 v2.1.0 2 │
+└─────────────────────────────┘&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;S1/S2 = Seiten blättern (wrap-around über MAIN–QRCODE)&lt;/li&gt;
+&lt;li&gt;S3 = kein Hint — kein Side-Effect&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;6.3 SYSTEM — Systeminformationen&lt;span class="hx:absolute hx:-mt-20" id="63-system--systeminformationen"&gt;&lt;/span&gt;
+&lt;a href="#63-system--systeminformationen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;┌──────────────────────┬──────┐
+│ System Info │ │
+│──────────────────────│ S1 ▲│ prev
+│ Up: 12d 5h 32m │ S2 ▼│ next
+│ Heap: 123456 B │ S3 │
+│ FW: v2.1.0 │ │
+│ Min: 98000 B │ │
+├──────────────────────┴──────┤
+│ AUTO 12:30 v2.1.0 3 │
+└─────────────────────────────┘&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3&gt;6.4 QRCODE — Web-Interface QR&lt;span class="hx:absolute hx:-mt-20" id="64-qrcode--web-interface-qr"&gt;&lt;/span&gt;
+&lt;a href="#64-qrcode--web-interface-qr" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;┌──────────────────────┬──────┐
+│ http://192.168.1.42 │ │
+│ ┌──────────────┐ │ S1 ▲│ prev
+│ │ ██ ██ ██ │ │ S2 ▼│ next
+│ │ ██ ██ ██ │ │ S3 │
+│ │ ██ ██ ██ │ │ │
+│ └──────────────┘ │ │
+├──────────────────────┴──────┤
+│ AUTO 12:30 v2.1.0 4 │
+└─────────────────────────────┘&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3&gt;6.5 WIFI_SETUP — Ersteinrichtung&lt;span class="hx:absolute hx:-mt-20" id="65-wifi_setup--ersteinrichtung"&gt;&lt;/span&gt;
+&lt;a href="#65-wifi_setup--ersteinrichtung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Identisch zu QRCODE im Layout, aber mit zusätzlichem Text zur WiFi-Einrichtung.&lt;/p&gt;
+&lt;h3&gt;6.6 Aktionsmenü (auf MAIN via S3)&lt;span class="hx:absolute hx:-mt-20" id="66-aktionsmenü-auf-main-via-s3"&gt;&lt;/span&gt;
+&lt;a href="#66-aktionsmen%c3%bc-auf-main-via-s3" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;┌──────────────────────┬──────┐
+│ &amp;gt; Mode: auto ◄ │ │
+│ Pump: on/off │ S1 ▲│
+│ → Exit menu │ S2 ▼│
+│ │ S3 ●│ select
+│ │ │
+├──────────────────────┴──────┤
+│ AUTO 12:30 v2.1.0 1 │
+└─────────────────────────────┘&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Menü-Eintrag&lt;/th&gt;
+&lt;th&gt;S3-Aktion&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Mode: auto&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Modus cyclen (auto→manu→boost→timer→auto) + sofort zurück zu MAIN&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Pump: on/off&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Pumpe manuell ein/aus + zurück zu MAIN&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;→ Exit menu&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Zurück zu MAIN ohne Änderung&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;S1/S2 navigieren zwischen den Menüzeilen. S3 bestätigt die Auswahl.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Warum ein Menü statt direkter Modus-Cycle?&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Der Nutzer muss aktiv ins Menü gehen → kein versehentlicher Modus-Wechsel beim Blättern&lt;/li&gt;
+&lt;li&gt;Das Label &lt;code&gt;menu&lt;/code&gt; auf S3 ist eindeutig und erwartbar&lt;/li&gt;
+&lt;li&gt;Langfristig können hier weitere Aktionen ergänzt werden (Pumpe togglen, Relais-Status, Neustart)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;6.7 SENSOR_SETUP — Sensor-Zuordnungswizard&lt;span class="hx:absolute hx:-mt-20" id="67-sensor_setup--sensor-zuordnungswizard"&gt;&lt;/span&gt;
+&lt;a href="#67-sensor_setup--sensor-zuordnungswizard" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Step 1 — SELECT_SENSOR:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;┌──────────────────────┬──────┐
+│ Sensor Setup │ │
+│──────────────────────│ S1 ▲│ up
+│ ▓0: 28FFAABB &amp;lt;-SOLAR│ S2 ▼│ dn
+│ 22.5°C ◄ │ S3 ●│ select
+│ 1: 28FECD12 │ │
+│ 19.1°C │ │
+├──────────────────────┴──────┤
+│ S1/S2=pick S3=select │
+└─────────────────────────────┘&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Step 2 — SELECT_ROLE:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;┌──────────────────────┬──────┐
+│ Sensor Setup │ │
+│──────────────────────│ S1 ▲│ up
+│ 0: 28FFAABB SOLAR │ S2 ▼│ dn
+│ ┌──────────────────┐ │ S3 ●│ assign
+│ │ Assign as: │ │ │
+│ │ ▓Solar │ │ │
+│ │ Pool │ │ │
+│ └──────────────────┘ │ │
+├──────────────────────┴──────┤
+│ S1/S2=role S3=assign │
+└─────────────────────────────┘&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;IDLE-Zustand (beide zugewiesen):&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;┌──────────────────────┬──────┐
+│ Sensor Setup │ │
+│──────────────────────│ │
+│ 0: 28FFAABB SOLAR │ S3 ●│ setup
+│ 1: 28FECD12 POOL │ │
+│ │ S3 │
+│ │ lang│ save&amp;#43;reboot
+├──────────────────────┴──────┤
+│ Both set. Hold S3=Save │
+└─────────────────────────────┘&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;h2&gt;7. Hint-Bar-Design (rechte Spalte)&lt;span class="hx:absolute hx:-mt-20" id="7-hint-bar-design-rechte-spalte"&gt;&lt;/span&gt;
+&lt;a href="#7-hint-bar-design-rechte-spalte" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die Hint-Bar nutzt die rechten ~30 Pixel (Spalten 98–127). Sie wird auf allen Info-Seiten gezeichnet.&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;Spalte: 98 108 118 128
+┌──────┬──────┬──────┐
+│ │ │ │
+S1 │ prev │ ▲ │ │ &amp;lt;- Text, darunter Dreieck-Symbol
+│ │ │ │
+Trenner│ │ │ │ &amp;lt;- vertikale Linie
+│ │ │ │
+S2 │ next │ ▼ │ │
+│ │ │ │
+Trenner│ │ │ │
+│ │ │ │
+S3 │ menu │ ● │ │
+│ │ │ │
+└──────┴──────┴──────┘&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Gestaltungsregeln:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;S1 ist oben, S2 mitte, S3 unten — exakt wie die physikalische Anordnung&lt;/li&gt;
+&lt;li&gt;Das Label steht &lt;strong&gt;links&lt;/strong&gt; vom Symbol, damit es gelesen wird bevor das Auge zum Symbol wandert&lt;/li&gt;
+&lt;li&gt;Wenn eine Taste keine Aktion hat, wird sie ausgeblendet (kein Text, kein Symbol)&lt;/li&gt;
+&lt;li&gt;Symbole: ▲ (S1), ▼ (S2), ● (S3) — auch in der Lücke ohne Text erkennbar&lt;/li&gt;
+&lt;li&gt;Die Farbgebung bleibt monochrom (SSD1306_WHITE)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;8. Sonderfälle &amp;amp; Edge Cases&lt;span class="hx:absolute hx:-mt-20" id="8-sonderfälle--edge-cases"&gt;&lt;/span&gt;
+&lt;a href="#8-sonderf%c3%a4lle--edge-cases" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;8.1 Erster Boot (kein WiFi / keine Sensor-Mapping)&lt;span class="hx:absolute hx:-mt-20" id="81-erster-boot-kein-wifi--keine-sensor-mapping"&gt;&lt;/span&gt;
+&lt;a href="#81-erster-boot-kein-wifi--keine-sensor-mapping" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Display startet automatisch auf &lt;strong&gt;WIFI_SETUP&lt;/strong&gt; oder &lt;strong&gt;SENSOR_SETUP&lt;/strong&gt; (bereits implementiert)&lt;/li&gt;
+&lt;li&gt;Button-Verhalten ist identisch zu den normalen Seiten — S1/S2 blättern, S3 hat keine Aktion außer auf SENSOR_SETUP&lt;/li&gt;
+&lt;li&gt;Der Nutzer muss zwingend ins Web-Interface — das Display macht das klar („Scan QR or enter URL&amp;quot;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;8.2 Auto-Return-Timeouts&lt;span class="hx:absolute hx:-mt-20" id="82-auto-return-timeouts"&gt;&lt;/span&gt;
+&lt;a href="#82-auto-return-timeouts" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Zustand&lt;/th&gt;
+&lt;th&gt;Timeout&lt;/th&gt;
+&lt;th&gt;Ziel&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Info-Seite (nicht MAIN)&lt;/td&gt;
+&lt;td&gt;60 s&lt;/td&gt;
+&lt;td&gt;MAIN&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Aktionsmenü&lt;/td&gt;
+&lt;td&gt;30 s&lt;/td&gt;
+&lt;td&gt;MAIN&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Sensor-Wizard (SELECT)&lt;/td&gt;
+&lt;td&gt;120 s&lt;/td&gt;
+&lt;td&gt;IDLE+MAIN&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Sensor-Wizard (ROLE)&lt;/td&gt;
+&lt;td&gt;120 s&lt;/td&gt;
+&lt;td&gt;IDLE+MAIN&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Neu:&lt;/strong&gt; 5 s vor Auto-Return wird der Bildschirm nicht sofort umgeschaltet — stattdessen läuft das Menü einfach aus. Der Timeout wird nur &lt;strong&gt;zwischen&lt;/strong&gt; Tastendrücken gemessen. Solange der Nutzer aktiv ist, passiert nichts.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;8.3 Wizard-Cancel / Rückzug&lt;span class="hx:absolute hx:-mt-20" id="83-wizard-cancel--rückzug"&gt;&lt;/span&gt;
+&lt;a href="#83-wizard-cancel--r%c3%bcckzug" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Im Sensor-Wizard gibt es aktuell keinen Weg zurück, außer abzubrechen (Timeout).
+&lt;strong&gt;Vorschlag:&lt;/strong&gt; S1 auf der ersten Wizard-Stufe (SELECT_SENSOR) zeigt &lt;code&gt;back&lt;/code&gt;, wenn &lt;code&gt;setupSelectedDev_ == 0&lt;/code&gt; und der Nutzer nochmal S1 drückt → zurück zu IDLE.
+(Das erfordert minimale Logik-Änderung in &lt;code&gt;setupSelectPrevious()&lt;/code&gt;.)&lt;/p&gt;
+&lt;h3&gt;8.4 Long-Press-Modell&lt;span class="hx:absolute hx:-mt-20" id="84-long-press-modell"&gt;&lt;/span&gt;
+&lt;a href="#84-long-press-modell" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Long-Press wird nur für &lt;strong&gt;kritische, bestätigungspflichtige Aktionen&lt;/strong&gt; genutzt:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Sensor-Mapping speichern + Reboot&lt;/li&gt;
+&lt;li&gt;Zukünftig: Factory Reset, Safe Mode&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Optimalerweise wird Long-Press auf S3 &lt;strong&gt;auf allen Seiten&lt;/strong&gt; konsistent als „erweiterte Aktion&amp;quot; etabliert.&lt;/p&gt;
+&lt;h3&gt;8.5 QR-Code-Seiten mit vollem Bildschirm&lt;span class="hx:absolute hx:-mt-20" id="85-qr-code-seiten-mit-vollem-bildschirm"&gt;&lt;/span&gt;
+&lt;a href="#85-qr-code-seiten-mit-vollem-bildschirm" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Auf QRCODE und WIFI_SETUP wird die Hint-Bar aktuell ausgeblendet, um Platz für den QR-Code zu schaffen.
+Das ist akzeptabel, da der QR-Code die primäre Interaktion ist und der Nutzer auf diesen Seiten typischerweise nicht navigiert, sondern scannt.&lt;/p&gt;
+&lt;h3&gt;8.6 Horizontaler Text-Scroll bei Überlänge&lt;span class="hx:absolute hx:-mt-20" id="86-horizontaler-text-scroll-bei-überlänge"&gt;&lt;/span&gt;
+&lt;a href="#86-horizontaler-text-scroll-bei-%c3%bcberl%c3%a4nge" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Das Display zeigt 128 Pixel Breite. Bei Text Size 1 (6×8 px/Zeichen) passen ca. &lt;strong&gt;21 Zeichen&lt;/strong&gt; in eine Zeile.
+Folgende Texte können diese Länge überschreiten und &lt;strong&gt;müssen horizontal scrollen&lt;/strong&gt; statt abgeschnitten zu werden:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Seite&lt;/th&gt;
+&lt;th&gt;Text&lt;/th&gt;
+&lt;th&gt;Maximale Länge&lt;/th&gt;
+&lt;th&gt;Problem&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;NETWORK&lt;/td&gt;
+&lt;td&gt;WiFi SSID&lt;/td&gt;
+&lt;td&gt;32 Zeichen&lt;/td&gt;
+&lt;td&gt;Wird auf 9 Zeichen gekürzt — unbrauchbar&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;WIFI_SETUP&lt;/td&gt;
+&lt;td&gt;AP-Name (SoftAP SSID)&lt;/td&gt;
+&lt;td&gt;32 Zeichen&lt;/td&gt;
+&lt;td&gt;Wird auf 14 Zeichen gekürzt&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;QRCODE&lt;/td&gt;
+&lt;td&gt;URL (&lt;a
+href="http://192.168.xxx.xxx/"target="_blank" rel="noopener"&gt;http://192.168.xxx.xxx/&lt;/a&gt;)&lt;/td&gt;
+&lt;td&gt;~23 Zeichen&lt;/td&gt;
+&lt;td&gt;Wird auf 20 Zeichen gekürzt&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;QRCODE (WiFi)&lt;/td&gt;
+&lt;td&gt;IP-Adresse in Text Size 2&lt;/td&gt;
+&lt;td&gt;~14 Zeichen&lt;/td&gt;
+&lt;td&gt;Überläuft die 128px (12px/Zeichen)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Scroll-Verhalten:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Text beginnt sichtbar (linksbündig) — 2 s Pause&lt;/li&gt;
+&lt;li&gt;Scrollt mit &lt;strong&gt;25 px/s&lt;/strong&gt; nach links, bis das Ende sichtbar ist&lt;/li&gt;
+&lt;li&gt;1 s Pause am Ende&lt;/li&gt;
+&lt;li&gt;Scrollt mit &lt;strong&gt;50 px/s&lt;/strong&gt; zurück zum Start&lt;/li&gt;
+&lt;li&gt;Wiederholt endlos&lt;/li&gt;
+&lt;li&gt;Reset bei Seitenwechsel oder Textänderung&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Implementierung:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;drawScrollingText(x, y, text, maxWidth)&lt;/code&gt; — freie Hilfsfunktion in &lt;code&gt;NorviOledDisplay.cpp&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Nutzt das Hardware-Clipping des SSD1306: Zeichnen bei negativem &lt;code&gt;x&lt;/code&gt; blendet den überstehenden Teil automatisch aus&lt;/li&gt;
+&lt;li&gt;Funktioniert nur mit Text Size 1 (für Size 2 müsste der Faktor angepasst werden)&lt;/li&gt;
+&lt;li&gt;Zustandsautomat (Phase 0–3) mit &lt;code&gt;millis()&lt;/code&gt;-gesteuerter Animation&lt;/li&gt;
+&lt;li&gt;Flash-freundlich: kein &lt;code&gt;String&lt;/code&gt;, keine dynamische Allokation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;9. Umsetzungsplan (Code-Änderungen)&lt;span class="hx:absolute hx:-mt-20" id="9-umsetzungsplan-code-änderungen"&gt;&lt;/span&gt;
+&lt;a href="#9-umsetzungsplan-code-%c3%a4nderungen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;9.1 Hint-Labels korrigieren&lt;span class="hx:absolute hx:-mt-20" id="91-hint-labels-korrigieren"&gt;&lt;/span&gt;
+&lt;a href="#91-hint-labels-korrigieren" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Dateien:&lt;/strong&gt; &lt;code&gt;NorviOledDisplay.cpp&lt;/code&gt; — Funktion &lt;code&gt;drawButtonHints()&lt;/code&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Change&lt;/th&gt;
+&lt;th&gt;Aktuell&lt;/th&gt;
+&lt;th&gt;Neu&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;S1-Label auf Info-Seiten&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;nxt&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;prev&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;S2-Label auf Info-Seiten&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;nxt&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;next&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;S3 auf MAIN&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ok&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;menu&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;S3 auf NETWORK/SYSTEM/QRCODE/WIFI_SETUP&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ok&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;leer (ausblenden)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;9.2 S3-Modus-Cycle entfernen, Aktionsmenü einbauen&lt;span class="hx:absolute hx:-mt-20" id="92-s3-modus-cycle-entfernen-aktionsmenü-einbauen"&gt;&lt;/span&gt;
+&lt;a href="#92-s3-modus-cycle-entfernen-aktionsmen%c3%bc-einbauen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Datei:&lt;/strong&gt; &lt;code&gt;PoolController.cpp&lt;/code&gt; — Callback S3&lt;/p&gt;
+&lt;p&gt;Statt direktem Mode-Cycle:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;S3 auf MAIN → setzt internen &lt;code&gt;menuActive_&lt;/code&gt;-Flag&lt;/li&gt;
+&lt;li&gt;Display zeigt Menü-Overlay (3 Zeilen: Mode, Pump, Exit)&lt;/li&gt;
+&lt;li&gt;S1/S2 navigieren im Menü&lt;/li&gt;
+&lt;li&gt;S3 bestätigt Auswahl&lt;/li&gt;
+&lt;li&gt;S3 (oder Exit) → zurück zu MAIN&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Separate kleine State-Machine in &lt;code&gt;NorviOledDisplay&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cpp" data-lang="cpp"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;enum&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;MenuItem&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kt"&gt;uint8_t&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;MODE&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;PUMP&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;EXIT&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;static&lt;/span&gt; &lt;span class="n"&gt;MenuItem&lt;/span&gt; &lt;span class="n"&gt;menuSelection_&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;static&lt;/span&gt; &lt;span class="kt"&gt;bool&lt;/span&gt; &lt;span class="n"&gt;menuActive_&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3&gt;9.3 Wizard-Cancel&lt;span class="hx:absolute hx:-mt-20" id="93-wizard-cancel"&gt;&lt;/span&gt;
+&lt;a href="#93-wizard-cancel" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Datei:&lt;/strong&gt; &lt;code&gt;NorviOledDisplay.cpp&lt;/code&gt; — &lt;code&gt;setupSelectPrevious()&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Wenn &lt;code&gt;setupSelectedDev_ == 0&lt;/code&gt; und nochmal &lt;code&gt;previous()&lt;/code&gt; → zurücksetzen auf IDLE.&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cpp" data-lang="cpp"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="n"&gt;NorviOledDisplay&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;setupSelectPrevious&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;setupSelectedDev_&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;setupStep_&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;SetupStep&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;SELECT_SENSOR&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;// Back to IDLE
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;setupStep_&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;SetupStep&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;IDLE&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;forceRedraw_&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;true&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;// ... existing logic ...
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3&gt;9.4 Footer-Zeile optimieren&lt;span class="hx:absolute hx:-mt-20" id="94-footer-zeile-optimieren"&gt;&lt;/span&gt;
+&lt;a href="#94-footer-zeile-optimieren" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Datei:&lt;/strong&gt; &lt;code&gt;NorviOledDisplay.cpp&lt;/code&gt; — &lt;code&gt;drawFooter()&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Page-Zahl rechts: aktuell &amp;ldquo;1&amp;rdquo;–&amp;ldquo;6&amp;rdquo; statt &amp;ldquo;1/6&amp;rdquo;–&amp;ldquo;6/6&amp;rdquo; (oder Punkte-Dots)&lt;/li&gt;
+&lt;li&gt;Vorschlag: &lt;code&gt;◉○○○○○&lt;/code&gt; statt Zahl (füllt weniger Platz und ist intuitiver)&lt;/li&gt;
+&lt;li&gt;Oder Zahl mit Max: &lt;code&gt;1/6&lt;/code&gt;, &lt;code&gt;2/6&lt;/code&gt; etc. (max. 4 Zeichen)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;9.5 Horizontalen Text-Scroll einbauen&lt;span class="hx:absolute hx:-mt-20" id="95-horizontalen-text-scroll-einbauen"&gt;&lt;/span&gt;
+&lt;a href="#95-horizontalen-text-scroll-einbauen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Dateien:&lt;/strong&gt; &lt;code&gt;NorviOledDisplay.cpp&lt;/code&gt; — neue Hilfsfunktion + Änderung in &lt;code&gt;drawNetworkPage()&lt;/code&gt;, &lt;code&gt;drawWiFiSetupPage()&lt;/code&gt;, &lt;code&gt;drawQrCodePage()&lt;/code&gt;&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cpp" data-lang="cpp"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cm"&gt;/**
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cm"&gt; * @brief Draw text with horizontal scrolling if it exceeds maxWidth.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cm"&gt; * Pauses 2s, scrolls left 25 px/s, pauses 1s, rewinds 50 px/s.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cm"&gt; * Animation resets on page or text change.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cm"&gt; */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;static&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;drawScrollingText&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int16_t&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int16_t&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int16_t&lt;/span&gt; &lt;span class="n"&gt;maxWidth&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;/// Überladung für PROGMEM-Strings (__FlashStringHelper)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;static&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;drawScrollingText&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int16_t&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int16_t&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;__FlashStringHelper&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kt"&gt;int16_t&lt;/span&gt; &lt;span class="n"&gt;maxWidth&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Betroffene Aufrufe:&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Seite&lt;/th&gt;
+&lt;th&gt;Alt&lt;/th&gt;
+&lt;th&gt;Neu&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;NETWORK, SSID&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ssid.substring(0,9)&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;drawScrollingText(36, 13, WiFi.SSID().c_str(), 92)&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;WIFI_SETUP, AP-Name&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;apName.substring(0,14)&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;drawScrollingText(24, 12, WiFi.softAPSSID().c_str(), 104)&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;QRCODE, URL&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;url.substring(0,20)&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;drawScrollingText(0, 0, url.c_str(), 128)&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;9.6 Hint-Bar-Code aufräumen&lt;span class="hx:absolute hx:-mt-20" id="96-hint-bar-code-aufräumen"&gt;&lt;/span&gt;
+&lt;a href="#96-hint-bar-code-aufr%c3%a4umen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Die aktuelle &lt;code&gt;drawButtonHints()&lt;/code&gt; hat 3×3 verschachtelte Cases. Besser:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cpp" data-lang="cpp"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;struct&lt;/span&gt; &lt;span class="nc"&gt;ButtonHint&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;label&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kt"&gt;bool&lt;/span&gt; &lt;span class="n"&gt;hasIcon&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;ButtonHint&lt;/span&gt; &lt;span class="n"&gt;hints&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// ... fill based on page + setup step ...
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// ... render loop ...
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;h2&gt;10. Offene Fragen / Diskussion&lt;span class="hx:absolute hx:-mt-20" id="10-offene-fragen--diskussion"&gt;&lt;/span&gt;
+&lt;a href="#10-offene-fragen--diskussion" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;S3 im Aktionsmenü:&lt;/strong&gt; Soll die Modus-Änderung sofort生效 oder erst beim Verlassen des Menüs?
+&lt;ul&gt;
+&lt;li&gt;Vote: &lt;strong&gt;Sofort&lt;/strong&gt; — das Menü ist nur Auswahl, kein Formular. Nach Auswahl → zurück zu MAIN.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Belegung S3-Lang auf Info-Seiten:&lt;/strong&gt; Aktuell nur im Sensor-Kontext sinnvoll. Soll S3-Lang auf MAIN einen Factory Reset / Reboot anbieten?
+&lt;ul&gt;
+&lt;li&gt;Vote: &lt;strong&gt;Später&lt;/strong&gt; — erstmal nur Sensor-Speichern.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;S1 auf MAIN:&lt;/strong&gt; Soll S1 von MAIN aus direkt zur letzten Seite springen (wrap) oder deaktiviert sein?
+&lt;ul&gt;
+&lt;li&gt;Vote: &lt;strong&gt;Deaktiviert&lt;/strong&gt; — kein Hint, keine Aktion. Der Nutzer kann nur vorwärts.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Auto-Return-Timeouts:&lt;/strong&gt; Sollen die unterschiedlich lang sein je nach Seite?
+&lt;ul&gt;
+&lt;li&gt;Vote: &lt;strong&gt;Einheitlich 60 s&lt;/strong&gt; — einfacher zu verstehen. Nur Menü und Wizard bekommen eigene Timeouts (30 s / 120 s).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2&gt;11. Visual Summary&lt;span class="hx:absolute hx:-mt-20" id="11-visual-summary"&gt;&lt;/span&gt;
+&lt;a href="#11-visual-summary" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;┌─────────────────────────────────────────────────────┐
+│ NAVIGATIONSKONZEPT │
+│ │
+│ Tasten Infoseiten Wizard / Menü │
+│ ┌──────┐ ┌──────────┐ ┌──────────┐ │
+│ │ S1 ▲ │ ──→ │ prev │ │ up/back │ │
+│ │──────│ │ Seite◄ │ │ Option◄ │ │
+│ │ S2 ▼ │ ──→ │ next │ │ down │ │
+│ │──────│ │ Seite► │ │ Option► │ │
+│ │ S3 ● │ ──→ │ menu │ │ select │ │
+│ │ │ │ (MAIN) │ │ assign │ │
+│ │ lang│ ──→ │ save │ │ save&amp;#43; │ │
+│ └──────┘ │ (Sensor) │ │ reboot │ │
+│ └──────────┘ └──────────┘ │
+│ │
+│ FAQ: &amp;#34;prev&amp;#34; auf S1 ≠ &amp;#34;next&amp;#34; auf S2 │
+│ → Klare Richtungshinweise, kein &amp;#34;nxt&amp;#34; mehr │
+│ │
+│ S3 nie &amp;#39;ok&amp;#39; auf Info-Seiten │
+│ → Entweder &amp;#39;menu&amp;#39; (MAIN) oder leer │
+│ │
+│ Aktion erfordert immer zwei Schritte: │
+│ S3→menu → S1/S2→Auswahl → S3→Bestätigung │
+└─────────────────────────────────────────────────────┘&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Nächste Schritte:&lt;/strong&gt; Review des Konzepts, dann Implementierung in folgenden PRs:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Hint-Labels korrigieren + Footer verbessern (niedriges Risiko)&lt;/li&gt;
+&lt;li&gt;S3-Aktionsmenü einbauen (mittleres Risiko, neue State-Machine)&lt;/li&gt;
+&lt;li&gt;Wizard-Cancel + Long-Press-Modell (mittleres Risiko)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/security-references/</link><pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/security-references/</guid><description>
 &lt;h1&gt;Sicherheitsreferenzen &amp;amp; Best Practices&lt;/h1&gt;&lt;p&gt;Dieses Dokument enthält Sicherheitsreferenzen, Best Practices und
 Implementierungsrichtlinien für das Pool Controller Projekt. Diese Referenzen
 wurden während der umfassenden IoT-Sicherheitsanalyse am 2025-01-15 zusammengestellt.&lt;/p&gt;
@@ -5614,6 +6474,15 @@ N (Neutral) ──────────────────────�
 Die NORVI-Relais sind Schließer (SPST) — schließe deine 230V AC
 Verbraucher zwischen COM und NO an. Die Relais sind für 5A/250V AC
 ausgelegt.
+⚡ Relais-Polarität: Im Gegensatz zu externen Relaismodulen (die typischerweise
+active-LOW sind: LOW = EIN, HIGH = AUS) sind die eingebauten NORVI-Relais
+**active-HIGH**: `HIGH` auf dem GPIO-Pin erregt die Relaisspule (Schließer
+schließt), `LOW` entregt sie (Schließer öffnet).
+Die Firmware handhabt dies automatisch über den `activeLow`-Parameter des
+`RelayModuleNode`-Konstruktors. NORVI-Builds erstellen die Relais-Instanzen
+mit `activeLow = false` (siehe `PoolController.cpp`). Bei der Portierung auf
+ein anderes Board mit eingebauten Relais sollte die Relais-Treiber-Polarität
+geprüft werden.
 ─── STATUS-LED (extern) ──────────────────────────────────────────────
 NORVI Transistorausgang 0.1 (GPIO27):
 GPIO27 ─── 330Ω ─── LED (Anode) ─── LED (Kathode) ─── GND
@@ -5763,6 +6632,11 @@ wird aus der einzelnen 24V-DC-Einspeisung versorgt.&lt;/p&gt;
 &lt;td&gt;Integriert (24V → Relaisspulen)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Relais-Polarität&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Active-LOW (LOW = EIN)&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Active-HIGH&lt;/strong&gt; (HIGH = EIN)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
 &lt;td&gt;&lt;strong&gt;Sensor-Pins&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;GPIO32, GPIO33&lt;/td&gt;
 &lt;td&gt;GPIO25 (Exp Port), GPIO5 (löten)&lt;/td&gt;
@@ -5829,6 +6703,7 @@ data-copied-label="Kopiert!"
 &lt;li&gt;Definiert &lt;code&gt;-D NORVI_AE01_R&lt;/code&gt; für die alternative Pinbelegung (Shared OneWire Bus)&lt;/li&gt;
 &lt;li&gt;Bindet &lt;code&gt;Adafruit SSD1306&lt;/code&gt; und &lt;code&gt;Adafruit GFX Library&lt;/code&gt; für das OLED ein&lt;/li&gt;
 &lt;li&gt;Initialisiert I2C auf GPIO16/GPIO17 und den Taster-ADC auf GPIO32&lt;/li&gt;
+&lt;li&gt;Erzeugt Relais-Instanzen mit &lt;code&gt;activeLow = false&lt;/code&gt; für die eingebauten active-HIGH-Relais&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Zum Hochladen des LittleFS-Dateisystems (Web-Oberfläche):&lt;/p&gt;
 &lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
