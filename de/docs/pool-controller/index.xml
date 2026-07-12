@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Pool Controller 3.3</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/</link><description>Recent content in Pool Controller 3.3 on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><lastBuildDate>Thu, 28 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/de/docs/pool-controller/index.xml" rel="self" type="application/rss+xml"/><item><title>Temperaturabhängige Filterlaufzeit</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/temperature-based-circulation/</link><pubDate>Fri, 10 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/temperature-based-circulation/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Pool Controller 3.3</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/</link><description>Recent content in Pool Controller 3.3 on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><lastBuildDate>Thu, 28 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/de/docs/pool-controller/index.xml" rel="self" type="application/rss+xml"/><item><title>Temperaturabhängige Filterlaufzeit</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/temperature-based-circulation/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/temperature-based-circulation/</guid><description>
 &lt;h1&gt;Temperaturabhängige Filterlaufzeit&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;Optimierung der Pool-Umwälzung für bessere Wasserqualität bei minimalem Stromverbrauch.&lt;/strong&gt;&lt;/p&gt;
 &lt;h2&gt;1. Motivation&lt;span class="hx:absolute hx:-mt-20" id="1-motivation"&gt;&lt;/span&gt;
 &lt;a href="#1-motivation" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die Poolpumpe ist der größte Stromverbraucher im Schwimmbad. Gleichzeitig bestimmt sie maßgeblich die Wasserqualität. Die aktuell nötige Umwälzmenge hängt stark von der Wassertemperatur ab:&lt;/p&gt;
@@ -576,7 +576,7 @@ data-copied-label="Kopiert!"
 &lt;li&gt;&lt;strong&gt;Kürzung bei Kälte&lt;/strong&gt;: Zusätzlicher Parameter &lt;code&gt;tempCircMinRuntime&lt;/code&gt;, der bei Unterschreitung eines Schwellwerts die Laufzeit reduziert&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Trend-basiert&lt;/strong&gt;: Berücksichtigung des Temperatur-Trends (steigend/falend), nicht nur des Absolutwerts&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Saisonaler Kalender&lt;/strong&gt;: Automatische Anpassung der Basis-Parameter an Sommer/Winter&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/norvi-display-navigation-concept/</link><pubDate>Fri, 10 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/norvi-display-navigation-concept/</guid><description>
+&lt;/ul&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/norvi-display-navigation-concept/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/norvi-display-navigation-concept/</guid><description>
 &lt;h1&gt;Bedien- und Navigationskonzept — NORVI IIOT-AE01-R OLED + 3 Tasten&lt;/h1&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Status:&lt;/strong&gt; Konzept / RFC
 &lt;strong&gt;Ziel:&lt;/strong&gt; Verbesserung der UX des 128×64 OLED-Displays mit den drei Fronttasten (S1/S2/S3)
@@ -1436,7 +1436,7 @@ data-copied-label="Kopiert!"
 &lt;li&gt;S3-Aktionsmenü einbauen (mittleres Risiko, neue State-Machine)&lt;/li&gt;
 &lt;li&gt;Wizard-Cancel + Long-Press-Modell (mittleres Risiko)&lt;/li&gt;
 &lt;/ol&gt;
-&lt;/blockquote&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/security-references/</link><pubDate>Fri, 10 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/security-references/</guid><description>
+&lt;/blockquote&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/security-references/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/security-references/</guid><description>
 &lt;h1&gt;Sicherheitsreferenzen &amp;amp; Best Practices&lt;/h1&gt;&lt;p&gt;Dieses Dokument enthält Sicherheitsreferenzen, Best Practices und
 Implementierungsrichtlinien für das Pool Controller Projekt. Diese Referenzen
 wurden während der umfassenden IoT-Sicherheitsanalyse am 2025-01-15 zusammengestellt.&lt;/p&gt;
@@ -5113,9 +5113,9 @@ Pinbelegung ausgewählt, die die belegten und reinen-Eingang-Pins vermeidet:&lt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;PIN_RELAY_SOLAR&lt;/code&gt;&lt;/td&gt;
-&lt;td style="text-align: center"&gt;&lt;strong&gt;GPIO12&lt;/strong&gt; (R1)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;GPIO33&lt;/strong&gt; (R5)&lt;/td&gt;
 &lt;td&gt;Relais — Solarheizungspumpe&lt;/td&gt;
-&lt;td style="text-align: center"&gt;Relaisausgang 1&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Relaisausgang 5&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;PIN_LED_STATUS&lt;/code&gt;&lt;/td&gt;
@@ -5329,13 +5329,22 @@ Ein 4,7kΩ-Widerstand zwischen DATA (Pin 1) und 3,3V (Pin 7) reicht.
 Dupont-Kabel: 3× Female-Female (rot/gelb/schwarz).
 ─── RELAISAUSGÄNGE (eingebaut) ───────────────────────────────────────
 NORVI Relaisausgang 0 (GPIO14): Pool-Pumpe
-NORVI Relaisausgang 1 (GPIO12): Solar-Pumpe
+NORVI Relaisausgang 5 (GPIO33): Solar-Pumpe
 L (Außenleiter) ─── RCD ─── MCB ──┬── Relais COM0 ── Pool-Pumpe NO
-└── Relais COM1 ── Solar-Pumpe NO
+└── Relais COM5 ── Solar-Pumpe NO
 N (Neutral) ──────────────────────────── Neutralleiter ── Pumpen N
 Die NORVI-Relais sind Schließer (SPST) — schließe deine 230V AC
 Verbraucher zwischen COM und NO an. Die Relais sind für 5A/250V AC
 ausgelegt.
+&amp;gt; **Hinweis:** Die Solar-Pumpe wurde von Relaisausgang 1 (GPIO12) auf
+&amp;gt; Relaisausgang 5 (GPIO33) verlegt, nachdem bei einem Feldgerät der
+&amp;gt; R1-Kanal dauerhaft leitend war (Relais klickt hörbar beim
+&amp;gt; Schalten, aber COM1/NO1 öffnet nie) — ein Hardwarefehler
+&amp;gt; (verschweißter Kontakt oder NO/NC-Verwechslung), nachweislich kein
+&amp;gt; Firmware-Fehler, da Relaisausgang 0 dieselbe Schaltlogik nutzt und
+&amp;gt; korrekt funktioniert. Falls dein R1-Kanal einwandfrei funktioniert,
+&amp;gt; kannst du ihn weiterverwenden, indem du `PIN_RELAY_SOLAR` in
+&amp;gt; `Config.hpp` zurücksetzt.
 ⚡ Relais-Polarität: Im Gegensatz zu externen Relaismodulen (die typischerweise
 active-LOW sind: LOW = EIN, HIGH = AUS) sind die eingebauten NORVI-Relais
 **active-HIGH**: `HIGH` auf dem GPIO-Pin erregt die Relaisspule (Schließer
@@ -5506,7 +5515,7 @@ wird aus der einzelnen 24V-DC-Einspeisung versorgt.&lt;/p&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;strong&gt;Relais-Pins&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;GPIO25, GPIO26&lt;/td&gt;
-&lt;td&gt;GPIO14 (R0), GPIO12 (R1)&lt;/td&gt;
+&lt;td&gt;GPIO14 (R0), GPIO33 (R5)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;strong&gt;Status-LED&lt;/strong&gt;&lt;/td&gt;
@@ -5630,8 +5639,8 @@ Debug-Ausgabe.&lt;/p&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style="text-align: center"&gt;12&lt;/td&gt;
-&lt;td&gt;&lt;strong&gt;Relaisausgang 1&lt;/strong&gt;&lt;/td&gt;
-&lt;td style="text-align: center"&gt;✅ Solar-Pumpe&lt;/td&gt;
+&lt;td&gt;Relaisausgang 1 (vermeiden — siehe Hinweis oben)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;❌&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style="text-align: center"&gt;13&lt;/td&gt;
@@ -5709,9 +5718,9 @@ Debug-Ausgabe.&lt;/p&gt;
 &lt;td style="text-align: center"&gt;✅ 3 Fronttaster&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style="text-align: center"&gt;33&lt;/td&gt;
-&lt;td&gt;Relaisausgang 5&lt;/td&gt;
-&lt;td style="text-align: center"&gt;❌&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;33&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Relaisausgang 5&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;✅ Solar-Pumpe&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style="text-align: center"&gt;34&lt;/td&gt;
