@@ -478,7 +478,7 @@ between the DATA pin and the 3.3V rail. The resistor can be any 4.7kΩ ±5%
 to activate (close) the relay. If your relay module switches with LOW instead
 (active-low), look for a &lt;strong&gt;jumper&lt;/strong&gt; on the module to change the mode, or choose
 a different module — active-high modules are easier to work with.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Load wiring (230V side):&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Load wiring (230V side) — Standard external relay module:&lt;/strong&gt;&lt;/p&gt;
 &lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
 &lt;div&gt;&lt;pre&gt;&lt;code&gt; L (mains live) ─── RCD ─── MCB ──┬── Relay COM1 ── Pool Pump
 │ NO1 ─────┘
@@ -498,10 +498,35 @@ data-copied-label="Copied!"
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;ul&gt;
-&lt;li&gt;Connect the pump&amp;rsquo;s live wire to the relay&amp;rsquo;s &lt;strong&gt;COM&lt;/strong&gt; (common) terminal.&lt;/li&gt;
-&lt;li&gt;Connect the relay&amp;rsquo;s &lt;strong&gt;NO&lt;/strong&gt; (normally open) terminal to the pump.&lt;/li&gt;
-&lt;li&gt;The other pump wire goes to &lt;strong&gt;neutral (N)&lt;/strong&gt;.&lt;/li&gt;
-&lt;li&gt;Always wire the 230V circuit through an &lt;strong&gt;RCD and appropriately rated MCB&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Connect the pump&amp;rsquo;s live wire to the relay&amp;rsquo;s &lt;strong&gt;COM&lt;/strong&gt; (common) terminal.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Connect the relay&amp;rsquo;s &lt;strong&gt;NO&lt;/strong&gt; (normally open) terminal to the pump.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The other pump wire goes to &lt;strong&gt;neutral (N)&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Always wire the 230V circuit through an &lt;strong&gt;RCD and appropriately rated MCB&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;╔══════════════════════════════════════════════════════════════════════╗
+║ ⚠ IMPORTANT — Motor Load Limitation (same as NORVI) ║
+║ ║
+║ External 5V relay modules (e.g. SRD-05VDC-SL-C) are specified ║
+║ for &lt;strong&gt;resistive loads&lt;/strong&gt; (typically 10A/250V AC). A &lt;strong&gt;pump is an ║
+║ inductive motor load&lt;/strong&gt; with 5–10× higher inrush current that can ║
+║ weld the relay contacts after repeated switching, just like the ║
+║ NORVI built-in relays. ║
+║ ║
+║ If you are switching pumps or any motor load &amp;gt;300W: ║
+║ → Use the ESP32 relay to switch a &lt;strong&gt;DIN-rail contactor&lt;/strong&gt; ║
+║ → The contactor handles the motor load; the 5V relay is only a ║
+║ control interface (no contact wear) ║
+║ ║
+║ See → &lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/pool-controller/contactor-guide/"&gt;Contactor Wiring Guide&lt;/a&gt;&lt;/strong&gt; ║
+╚══════════════════════════════════════════════════════════════════════╝&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4&gt;3. Power Supply&lt;span class="hx:absolute hx:-mt-20" id="3-power-supply"&gt;&lt;/span&gt;
 &lt;a href="#3-power-supply" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;table&gt;
@@ -769,6 +794,19 @@ data-copied-label="Copied!"
 &lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Does the LED on the relay module light up when GPIO goes HIGH?&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
+&lt;h2&gt;⚠ Important: Relay Contacts Under Motor Load (Pumps)&lt;span class="hx:absolute hx:-mt-20" id="-important-relay-contacts-under-motor-load-pumps"&gt;&lt;/span&gt;
+&lt;a href="#-important-relay-contacts-under-motor-load-pumps" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The relays used in this project (NORVI on-board relays as well as external 5V
+modules) are specified for &lt;strong&gt;resistive loads&lt;/strong&gt;. A &lt;strong&gt;pump is an inductive motor
+load&lt;/strong&gt; with 5–10× higher inrush current. This can cause &lt;strong&gt;welded relay
+contacts&lt;/strong&gt; after a few hundred switching cycles — the relay still clicks, but
+the NO contact never opens, and the pump runs continuously even with the
+controller showing OFF.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Recommendation:&lt;/strong&gt; For pumps &amp;gt;300W, always use &lt;strong&gt;external DIN-rail
+contactors&lt;/strong&gt; between the relay and the pump. The relay then switches only
+the contactor&amp;rsquo;s 24V coil (a few mA) — the contactor&amp;rsquo;s main contacts handle
+the 230V load. See the dedicated guide:&lt;/p&gt;
+&lt;p&gt;👉 &lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/pool-controller/contactor-guide/"&gt;Contactor Wiring Guide&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;h2&gt;Troubleshooting&lt;span class="hx:absolute hx:-mt-20" id="troubleshooting"&gt;&lt;/span&gt;
 &lt;a href="#troubleshooting" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
 &lt;thead&gt;
@@ -803,6 +841,12 @@ data-copied-label="Copied!"
 &lt;td&gt;Relay clicks but pump doesn&amp;rsquo;t run&lt;/td&gt;
 &lt;td&gt;230V wiring issue&lt;/td&gt;
 &lt;td&gt;Check COM/NO terminals, verify pump connection&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Pump runs despite OFF display&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Welded relay contact (motor load)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Use external contactor&lt;/strong&gt; (see &lt;a
+href="https://smart-swimmingpool.github.io/docs/pool-controller/contactor-guide/"&gt;Contactor Guide&lt;/a&gt;)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;ESP32 won&amp;rsquo;t boot (brownout)&lt;/td&gt;
@@ -958,6 +1002,10 @@ href="https://smart-swimmingpool.github.io/docs/pool-controller/norvi-ae01-r/"&g
 href="https://smart-swimmingpool.github.io/docs/pool-controller/esp32-schematic-optimization/"&gt;ESP32 Schematic Optimization (DE)&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a
 href="https://smart-swimmingpool.github.io/docs/pool-controller/esp32-complete-wiring-schematic/"&gt;ESP32 Complete Wiring Schematic (DE)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/pool-controller/contactor-guide/"&gt;Contactor Wiring Guide&lt;/a&gt; — External contactors for reliable pump switching&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="wiring-contactor.svg"&gt;SVG Wiring Diagram: Contactor Circuit&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a
 href="https://www.analog.com/media/en/technical-documentation/data-sheets/DS18B20.pdf"target="_blank" rel="noopener"&gt;DS18B20 Datasheet&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a

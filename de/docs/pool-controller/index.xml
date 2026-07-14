@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Pool Controller 3.3</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/</link><description>Recent content in Pool Controller 3.3 on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><lastBuildDate>Thu, 28 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/de/docs/pool-controller/index.xml" rel="self" type="application/rss+xml"/><item><title>Temperaturabhängige Filterlaufzeit</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/temperature-based-circulation/</link><pubDate>Sun, 12 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/temperature-based-circulation/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Pool Controller 3.3</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/</link><description>Recent content in Pool Controller 3.3 on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><lastBuildDate>Thu, 28 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/de/docs/pool-controller/index.xml" rel="self" type="application/rss+xml"/><item><title>Temperaturabhängige Filterlaufzeit</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/temperature-based-circulation/</link><pubDate>Mon, 13 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/temperature-based-circulation/</guid><description>
 &lt;h1&gt;Temperaturabhängige Filterlaufzeit&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;Optimierung der Pool-Umwälzung für bessere Wasserqualität bei minimalem Stromverbrauch.&lt;/strong&gt;&lt;/p&gt;
 &lt;h2&gt;1. Motivation&lt;span class="hx:absolute hx:-mt-20" id="1-motivation"&gt;&lt;/span&gt;
 &lt;a href="#1-motivation" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die Poolpumpe ist der größte Stromverbraucher im Schwimmbad. Gleichzeitig bestimmt sie maßgeblich die Wasserqualität. Die aktuell nötige Umwälzmenge hängt stark von der Wassertemperatur ab:&lt;/p&gt;
@@ -576,7 +576,7 @@ data-copied-label="Kopiert!"
 &lt;li&gt;&lt;strong&gt;Kürzung bei Kälte&lt;/strong&gt;: Zusätzlicher Parameter &lt;code&gt;tempCircMinRuntime&lt;/code&gt;, der bei Unterschreitung eines Schwellwerts die Laufzeit reduziert&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Trend-basiert&lt;/strong&gt;: Berücksichtigung des Temperatur-Trends (steigend/falend), nicht nur des Absolutwerts&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Saisonaler Kalender&lt;/strong&gt;: Automatische Anpassung der Basis-Parameter an Sommer/Winter&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/norvi-display-navigation-concept/</link><pubDate>Sun, 12 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/norvi-display-navigation-concept/</guid><description>
+&lt;/ul&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/norvi-display-navigation-concept/</link><pubDate>Mon, 13 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/norvi-display-navigation-concept/</guid><description>
 &lt;h1&gt;Bedien- und Navigationskonzept — NORVI IIOT-AE01-R OLED + 3 Tasten&lt;/h1&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Status:&lt;/strong&gt; Konzept / RFC
 &lt;strong&gt;Ziel:&lt;/strong&gt; Verbesserung der UX des 128×64 OLED-Displays mit den drei Fronttasten (S1/S2/S3)
@@ -1436,7 +1436,7 @@ data-copied-label="Kopiert!"
 &lt;li&gt;S3-Aktionsmenü einbauen (mittleres Risiko, neue State-Machine)&lt;/li&gt;
 &lt;li&gt;Wizard-Cancel + Long-Press-Modell (mittleres Risiko)&lt;/li&gt;
 &lt;/ol&gt;
-&lt;/blockquote&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/security-references/</link><pubDate>Sun, 12 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/security-references/</guid><description>
+&lt;/blockquote&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/security-references/</link><pubDate>Mon, 13 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/security-references/</guid><description>
 &lt;h1&gt;Sicherheitsreferenzen &amp;amp; Best Practices&lt;/h1&gt;&lt;p&gt;Dieses Dokument enthält Sicherheitsreferenzen, Best Practices und
 Implementierungsrichtlinien für das Pool Controller Projekt. Diese Referenzen
 wurden während der umfassenden IoT-Sicherheitsanalyse am 2025-01-15 zusammengestellt.&lt;/p&gt;
@@ -1820,7 +1820,413 @@ href="../.opencode/skills/cpp-code-quality/SKILL.md"&gt;C++ Code Quality Skill&l
 &lt;p&gt;&lt;strong&gt;📅 Zuletzt aktualisiert&lt;/strong&gt;: 2025-01-15
 &lt;strong&gt;🔍 Analyse durchgeführt von&lt;/strong&gt;: Vibe Code - IoT Security Expert Mode
 &lt;strong&gt;📝 Verwandter PR&lt;/strong&gt;: &lt;a
-href="https://github.com/smart-swimmingpool/pool-controller/pull/112"target="_blank" rel="noopener"&gt;#112 - IoT Security &amp;amp; Memory Optimization Analysis&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Elektrische Sicherheit</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/electrical-safety/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/electrical-safety/</guid><description>
+href="https://github.com/smart-swimmingpool/pool-controller/pull/112"target="_blank" rel="noopener"&gt;#112 - IoT Security &amp;amp; Memory Optimization Analysis&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Schütz-Schaltung für Pumpen</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/contactor-guide/</link><pubDate>Mon, 13 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/contactor-guide/</guid><description>
+&lt;h2&gt;Übersicht&lt;span class="hx:absolute hx:-mt-20" id="übersicht"&gt;&lt;/span&gt;
+&lt;a href="#%c3%bcbersicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Dieses Dokument erklärt, warum die eingebauten Relais des NORVI AE01-R (und
+anderer handelsüblicher Relaismodule) bei Motorlast (Pumpen) versagen können,
+und wie du mit &lt;strong&gt;externen Installationsschützen&lt;/strong&gt; (Contacteurs/Contactor) eine
+dauerhaft zuverlässige Schaltung aufbaust.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Gilt für:&lt;/strong&gt; NORVI AE01-R (R0–R5) und externe 5V-Relaismodule (Standard-ESP32).&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Problem: Relaiskontakte verschweißen bei Motorlast&lt;span class="hx:absolute hx:-mt-20" id="problem-relaiskontakte-verschweißen-bei-motorlast"&gt;&lt;/span&gt;
+&lt;a href="#problem-relaiskontakte-verschwei%c3%9fen-bei-motorlast" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Die NORVI-Relais&lt;span class="hx:absolute hx:-mt-20" id="die-norvi-relais"&gt;&lt;/span&gt;
+&lt;a href="#die-norvi-relais" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Der NORVI AE01-R hat &lt;strong&gt;6 eingebaute elektromechanische Relais&lt;/strong&gt; (SPST-NO,
+5A/250V AC). Diese sind für &lt;strong&gt;ohmsche Last&lt;/strong&gt; spezifiziert — also Glühlampen,
+Heizwiderstände oder elektronische Geräte mit geringem Einschaltstrom.&lt;/p&gt;
+&lt;p&gt;Eine &lt;strong&gt;Pumpe ist eine induktive Last&lt;/strong&gt; (Motor mit Spulen):&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Eigenschaft&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Ohmsche Last&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Motorlast (induktiv)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Dauerstrom&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Wie angegeben&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Wie angegeben&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Einschaltstrom (Inrush)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;1–1,5× Nennstrom&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;5–10× Nennstrom&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Lichtbogen beim Schalten&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Gering&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;Stark&lt;/strong&gt; (durch Back-EMF)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Kontaktverschleiß&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Minimal&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;Hoch&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Praktische Folge:&lt;/strong&gt; Ein NORVI-Relais mit &amp;ldquo;5A&amp;rdquo; spezifikation kann an einer
+300–600W-Pumpe (1,3–2,6A Dauerstrom, aber 6,5–13A Einschaltspitze) nach
+einigen hundert Schaltvorgängen &lt;strong&gt;verschweißte Kontakte&lt;/strong&gt; bekommen. Das Relais
+klickt dann zwar noch hörbar (die Spule funktioniert), aber der NO-Kontakt
+trennt nicht mehr — die Pumpe läuft &lt;strong&gt;dauerhaft&lt;/strong&gt;, auch wenn der Controller
+&amp;ldquo;AUS&amp;rdquo; anzeigt.&lt;/p&gt;
+&lt;h3&gt;Feldbericht&lt;span class="hx:absolute hx:-mt-20" id="feldbericht"&gt;&lt;/span&gt;
+&lt;a href="#feldbericht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;In einer realen Installation trat dieser Fehler nacheinander an zwei
+verschiedenen Relaisausgängen (zuerst R1, dann R5) desselben NORVI-Moduls auf,
+nachdem diese jeweils die Solarpumpe (300–600W) schalteten. Der
+gemeinsame Faktor war &lt;strong&gt;nicht&lt;/strong&gt; das Relais oder der Treiber, sondern die
+&lt;strong&gt;Pumpe selbst&lt;/strong&gt; als Last. Das baugleiche R0 (Poolpumpe) zeigte keine
+Ausfälle — likely weil die Poolpumpe anders aufgebaut ist
+(Kondensatormotor mit Sanftanlauf, seltener geschaltet, oder geringere
+Leistung).&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Lösung: Externes Installationsschütz&lt;span class="hx:absolute hx:-mt-20" id="lösung-externes-installationsschütz"&gt;&lt;/span&gt;
+&lt;a href="#l%c3%b6sung-externes-installationssch%c3%bctz" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Ein &lt;strong&gt;Schütz (Contacteur/Contactor)&lt;/strong&gt; ist ein für Motorlast ausgelegtes,
+robustes Relais in Hutschienenbauweise. Das NORVI-Relais schaltet nur noch
+die &lt;strong&gt;Steuerspule des Schützes&lt;/strong&gt; (einige mA bei 24V DC) — die Hauptkontakte
+des Schützes schalten die 230V-Last.&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt; NORVI-Relais Schütz (extern) Pumpe
+┌──────────┐ ┌──────────────────┐ ┌────────┐
+│ │ 24V DC │ A1 (&amp;#43;) │ │ │
+│ COM ─────┼──────────┤ (Spule) │ │ │
+│ │ │ A2 (-) ──┼── GND│ │
+│ NO ─────┼──────┐ │ │ │ │
+└──────────┘ │ │ 1 (L-Eingang) ───┤─── 2 │ │
+│ └──────────────────┘ │ L-N │
+230V L ───────────┘ └────────┘
+230V N ───────────────────────────────────────────┘&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3&gt;Vorteile&lt;span class="hx:absolute hx:-mt-20" id="vorteile"&gt;&lt;/span&gt;
+&lt;a href="#vorteile" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Vorteil&lt;/th&gt;
+&lt;th&gt;Beschreibung&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Kontaktlebensdauer&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Schütze sind für 1–5 Millionen Schaltungen unter Motorlast ausgelegt&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Tauschbar&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Defektes Schütz wird in 2 Minuten auf der Hutschiene getauscht — ohne Löten&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;NORVI bleibt unbelastet&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Die NORVI-Relais schalten nur mA → kein Kontaktverschleiß mehr&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Kostengünstig&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Pro Schütz ~10–25€&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2&gt;Empfohlene Schütze&lt;span class="hx:absolute hx:-mt-20" id="empfohlene-schütze"&gt;&lt;/span&gt;
+&lt;a href="#empfohlene-sch%c3%bctze" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Finder 22 Serie (empfohlen)&lt;span class="hx:absolute hx:-mt-20" id="finder-22-serie-empfohlen"&gt;&lt;/span&gt;
+&lt;a href="#finder-22-serie-empfohlen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Kompakte Hutschienen-Schütze mit integrierter Überspannungsunterdrückung.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Typ&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Spule&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Kontakt&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Motorlast&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Breite&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Preis&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;22.21.0.024.4000&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;24V DC&lt;/td&gt;
+&lt;td style="text-align: center"&gt;1× NO, 20A&lt;/td&gt;
+&lt;td style="text-align: center"&gt;1,5 kW&lt;/td&gt;
+&lt;td style="text-align: center"&gt;17,6mm&lt;/td&gt;
+&lt;td style="text-align: center"&gt;~20–25€&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;22.32.0.024.4000&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;24V DC&lt;/td&gt;
+&lt;td style="text-align: center"&gt;2× NO, 16A&lt;/td&gt;
+&lt;td style="text-align: center"&gt;1,5 kW&lt;/td&gt;
+&lt;td style="text-align: center"&gt;17,6mm&lt;/td&gt;
+&lt;td style="text-align: center"&gt;~25–30€&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Vorteil Finder 22:&lt;/strong&gt; Eingebaute Suppressor-Diode (Varistor) — kein externer
+Freilauf notwendig, aber zur Sicherheit trotzdem eine 1N4007-Diode parallel
+zur Spule empfehlenswert.&lt;/p&gt;
+&lt;h3&gt;Eaton / Moeller DILM&lt;span class="hx:absolute hx:-mt-20" id="eaton--moeller-dilm"&gt;&lt;/span&gt;
+&lt;a href="#eaton--moeller-dilm" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Robuste Schütze, oft günstiger.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Typ&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Spule&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Kontakt&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Motorlast&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Breite&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Preis&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;DILM7-01 (24V DC)&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;24V DC&lt;/td&gt;
+&lt;td style="text-align: center"&gt;3× NO, 7A&lt;/td&gt;
+&lt;td style="text-align: center"&gt;3 kW&lt;/td&gt;
+&lt;td style="text-align: center"&gt;45mm&lt;/td&gt;
+&lt;td style="text-align: center"&gt;~12–15€&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;Interface-Relais (kompakt)&lt;span class="hx:absolute hx:-mt-20" id="interface-relais-kompakt"&gt;&lt;/span&gt;
+&lt;a href="#interface-relais-kompakt" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Wenn du maximale Platzersparnis brauchst:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Typ&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Spule&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Kontakt&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Breite&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Preis&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Finder 40.52.9.024.0040&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;24V DC&lt;/td&gt;
+&lt;td style="text-align: center"&gt;1× Wechsler 16A&lt;/td&gt;
+&lt;td style="text-align: center"&gt;6,2mm&lt;/td&gt;
+&lt;td style="text-align: center"&gt;~10€&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;+ &lt;strong&gt;Sockel 94.02&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;—&lt;/td&gt;
+&lt;td style="text-align: center"&gt;—&lt;/td&gt;
+&lt;td style="text-align: center"&gt;—&lt;/td&gt;
+&lt;td style="text-align: center"&gt;~3€&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Hinweis:&lt;/strong&gt; Interface-Relais sind kleiner als Installationsschütze, aber
+immer noch deutlich robuster als die NORVI-Bordrelais. Für Pumpen bis 600W
+völlig ausreichend.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2&gt;Schaltplan&lt;span class="hx:absolute hx:-mt-20" id="schaltplan"&gt;&lt;/span&gt;
+&lt;a href="#schaltplan" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;24V-Steuerkreis&lt;span class="hx:absolute hx:-mt-20" id="24v-steuerkreis"&gt;&lt;/span&gt;
+&lt;a href="#24v-steuerkreis" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;24V DC (&amp;#43;) ──┬── NORVI R0 COM ── NO ──┬── Schütz Pool A1 ── A2 ──┬── GND
+│ │ │
+├── NORVI R5 COM ── NO ──┤── Schütz Solar A1 ── A2 ──┤
+│ │ │
+└───── NORVI 24V IN ─────┘ │
+│
+GND ─────────────────────────────────────────────────────┘&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Freilaufdioden 1N4007&lt;/strong&gt; parallel zu jeder Schützspule:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Kathode (Strichseite) an &lt;strong&gt;A1 (+)&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Anode an &lt;strong&gt;A2 (GND)&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Die Dioden löschen den Spannungsrückschlag (Back-EMF) der Schützspule beim
+Abschalten. Ohne Diode kann der Spannungsstoß das NORVI-Relais beschädigen.&lt;/p&gt;
+&lt;h3&gt;230V-Leistungskreis&lt;span class="hx:absolute hx:-mt-20" id="230v-leistungskreis"&gt;&lt;/span&gt;
+&lt;a href="#230v-leistungskreis" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;230V L (Phase) ─── RCD ─── MCB ──┬── Schütz Solar 1-2 ── Solarpumpe L
+│
+└── Schütz Pool 1-2 ─── Poolpumpe L
+230V N (Neutral) ────────────────────────── Beide Pumpen N&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Die 230V-Seite gehört &lt;strong&gt;immer&lt;/strong&gt; hinter FI (RCD, 30mA) und
+Leitungsschutzschalter (MCB, B10A).&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Materialliste (beide Pumpen)&lt;span class="hx:absolute hx:-mt-20" id="materialliste-beide-pumpen"&gt;&lt;/span&gt;
+&lt;a href="#materialliste-beide-pumpen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="text-align: center"&gt;Stk&lt;/th&gt;
+&lt;th&gt;Artikel&lt;/th&gt;
+&lt;th style="text-align: center"&gt;ca. Preis&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;2&lt;/td&gt;
+&lt;td&gt;Finder 22.21.0.024.4000 (20A, 24V DC, 1× NO)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;~45€&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;2&lt;/td&gt;
+&lt;td&gt;1N4007 Diode (Freilauf, parallel zur Schützspule)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;~0,50€&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;5m&lt;/td&gt;
+&lt;td&gt;3×1,5mm² Leitung (NYM-J oder H07RN-F)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;~8€&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;1&lt;/td&gt;
+&lt;td&gt;Aderendhülsen-Set 0,75mm² + 1,5mm²&lt;/td&gt;
+&lt;td style="text-align: center"&gt;~5€&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;2&lt;/td&gt;
+&lt;td&gt;Wago 221-412 (Dienstklemmstellen)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;~4€&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;—&lt;/td&gt;
+&lt;td&gt;Diverse Kabelbinder, Schrumpfschlauch, Beschriftung&lt;/td&gt;
+&lt;td style="text-align: center"&gt;~5€&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;Gesamt&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;~65–70€&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Kurzversion:&lt;/strong&gt; Such einfach &amp;ldquo;Finder 22.21.0.024.4000&amp;rdquo; und &amp;ldquo;1N4007&amp;rdquo;
+auf &lt;a
+href="https://reichelt.de"target="_blank" rel="noopener"&gt;Reichelt.de&lt;/a&gt;, &lt;a
+href="https://elmeg.de"target="_blank" rel="noopener"&gt;ELMEG&lt;/a&gt; oder
+Amazon.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Einbau-Schritte&lt;span class="hx:absolute hx:-mt-20" id="einbau-schritte"&gt;&lt;/span&gt;
+&lt;a href="#einbau-schritte" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;1. Vorbereitung&lt;span class="hx:absolute hx:-mt-20" id="1-vorbereitung"&gt;&lt;/span&gt;
+&lt;a href="#1-vorbereitung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Spannungsfrei schalten&lt;/strong&gt; — 230V-Sicherung raus, 24V-Netzteil trennen&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hutschiene prüfen&lt;/strong&gt; — die Schütze sind 17,6mm breit (Finder 22) oder
+45mm (Eaton). Neben dem NORVI-Platz einplanen.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Kabel vorbereiten&lt;/strong&gt; — 1,5mm² für 230V, 0,75mm² für 24V. Aderendhülsen
+aufcrimpen.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;2. Verdrahtung&lt;span class="hx:absolute hx:-mt-20" id="2-verdrahtung"&gt;&lt;/span&gt;
+&lt;a href="#2-verdrahtung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Schritt 1: 24V-Steuerkreis&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;24V DC (+) an NORVI-Relais COM&lt;/strong&gt; — Brücken von NORVI-24V-Klemme zu
+COM-R0 und COM-R5&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;NORVI-Relais NO an Schütz-A1&lt;/strong&gt; — jeweils R0-NO → Schütz Pool A1,
+R5-NO → Schütz Solar A1&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Schütz-A2 an GND&lt;/strong&gt; — beide A2 auf GND-Sammelschiene&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Freilaufdiode&lt;/strong&gt; — 1N4007 parallel zu A1/A2 jedes Schützes
+(Kathode an A1, Anode an A2)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Schritt 2: 230V-Leistungskreis&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;230V L von FI/LS&lt;/strong&gt; — auf Schütz-Klemme 1 (beide Schütze parallel)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Schütz-Klemme 2&lt;/strong&gt; — zur entsprechenden Pumpe L&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;230V N&lt;/strong&gt; — direkt zur Pumpe N (nicht über Schütz)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Schutzleiter (PE)&lt;/strong&gt; — falls Pumpengehäuse, separat anschließen&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Schritt 3: Prüfen&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Durchgangsprüfung&lt;/strong&gt; — 24V-Seite: zwischen A1 und A2 ca. 100–400Ω
+(Spulenwiderstand). Diodentest: Diode in Sperrrichtung messen&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Kurzschlussprüfung&lt;/strong&gt; — 230V-Seite: zwischen L und N &amp;gt; 1MΩ&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Widerstand zwischen 24V und 230V&lt;/strong&gt; — &amp;gt; 10MΩ (galvanische Trennung)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;3. Funktionstest&lt;span class="hx:absolute hx:-mt-20" id="3-funktionstest"&gt;&lt;/span&gt;
+&lt;a href="#3-funktionstest" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;24V einschalten → Controller bootet&lt;/li&gt;
+&lt;li&gt;Controller zeigt Pumpen AUS → &lt;strong&gt;Schütze müssen offen sein&lt;/strong&gt; (kein
+Durchgang zwischen Klemme 1 und 2)&lt;/li&gt;
+&lt;li&gt;Pumpen EIN schalten (Web UI, MQTT oder OLED) → &lt;strong&gt;Schütz muss hörbar
+schalten&lt;/strong&gt; (deutliches Klacken)&lt;/li&gt;
+&lt;li&gt;Pumpe läuft an → &lt;strong&gt;alles OK&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2&gt;Fehlersuche&lt;span class="hx:absolute hx:-mt-20" id="fehlersuche"&gt;&lt;/span&gt;
+&lt;a href="#fehlersuche" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Symptom&lt;/th&gt;
+&lt;th&gt;Ursache&lt;/th&gt;
+&lt;th&gt;Lösung&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Schütz klackt nicht&lt;/td&gt;
+&lt;td&gt;NORVI-Relais schaltet nicht&lt;/td&gt;
+&lt;td&gt;GPIO-Pin im Controller prüfen, Relais-ID prüfen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Schütz klackt, Pumpe läuft nicht&lt;/td&gt;
+&lt;td&gt;Schütz 1-2 hat keinen Durchgang&lt;/td&gt;
+&lt;td&gt;230V-Versorgung prüfen, Klemmen 1-2 durchmessen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Pumpe läuft trotz AUS&lt;/td&gt;
+&lt;td&gt;Schütz-Kontakt geschweißt &lt;strong&gt;oder&lt;/strong&gt; NORVI-Relais hält&lt;/td&gt;
+&lt;td&gt;Schütz tauschen; NORVI-Diagnose: GPIO-Pegel messen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Schütz brummt&lt;/td&gt;
+&lt;td&gt;Spulenspannung zu niedrig&lt;/td&gt;
+&lt;td&gt;24V-Versorgung prüfen (min. 21,6V DC)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Controller resetet beim Schalten&lt;/td&gt;
+&lt;td&gt;Keine Freilaufdiode&lt;/td&gt;
+&lt;td&gt;1N4007 nachrüsten&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2&gt;Referenzen&lt;span class="hx:absolute hx:-mt-20" id="referenzen"&gt;&lt;/span&gt;
+&lt;a href="#referenzen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a
+href="wiring-contactor.svg"&gt;SVG-Schaltplan: Schütz-Schaltung&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="norvi-ae01-r.de.md"&gt;NORVI AE01-R Konfiguration&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="hardware-guide.de.md"&gt;Hardware-Anleitung&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://www.findernet.com/de/series/22-series-industrial-relays/"target="_blank" rel="noopener"&gt;Finder 22 Datenblatt&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://www.eaton.com"target="_blank" rel="noopener"&gt;Eaton DILM Datenblatt&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Elektrische Sicherheit</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/electrical-safety/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/electrical-safety/</guid><description>
 &lt;blockquote&gt;
 &lt;p&gt;⚠️ &lt;strong&gt;WARNUNG: Dieses Dokument beschreibt die Installation von 230V AC-Netzspannung.&lt;/strong&gt;
 Fehlerhafte Verdrahtung kann zu Stromschlag, Brand oder Geräteschäden führen.&lt;/p&gt;
@@ -5328,23 +5734,62 @@ kommt zum Einsatz.&lt;/p&gt;
 Ein 4,7kΩ-Widerstand zwischen DATA (Pin 1) und 3,3V (Pin 7) reicht.
 Dupont-Kabel: 3× Female-Female (rot/gelb/schwarz).
 ─── RELAISAUSGÄNGE (eingebaut) ───────────────────────────────────────
-NORVI Relaisausgang 0 (GPIO14): Pool-Pumpe
-NORVI Relaisausgang 5 (GPIO33): Solar-Pumpe
-L (Außenleiter) ─── RCD ─── MCB ──┬── Relais COM0 ── Pool-Pumpe NO
-└── Relais COM5 ── Solar-Pumpe NO
-N (Neutral) ──────────────────────────── Neutralleiter ── Pumpen N
-Die NORVI-Relais sind Schließer (SPST) — schließe deine 230V AC
-Verbraucher zwischen COM und NO an. Die Relais sind für 5A/250V AC
-ausgelegt.
-&amp;gt; **Hinweis:** Die Solar-Pumpe wurde von Relaisausgang 1 (GPIO12) auf
-&amp;gt; Relaisausgang 5 (GPIO33) verlegt, nachdem bei einem Feldgerät der
-&amp;gt; R1-Kanal dauerhaft leitend war (Relais klickt hörbar beim
-&amp;gt; Schalten, aber COM1/NO1 öffnet nie) — ein Hardwarefehler
-&amp;gt; (verschweißter Kontakt oder NO/NC-Verwechslung), nachweislich kein
-&amp;gt; Firmware-Fehler, da Relaisausgang 0 dieselbe Schaltlogik nutzt und
-&amp;gt; korrekt funktioniert. Falls dein R1-Kanal einwandfrei funktioniert,
-&amp;gt; kannst du ihn weiterverwenden, indem du `PIN_RELAY_SOLAR` in
-&amp;gt; `Config.hpp` zurücksetzt.
+╔══════════════════════════════════════════════════════════════════════╗
+║ ⚠ WICHTIG — Grenze bei Motorlast ║
+║ ║
+║ Die NORVI-Bordrelais sind für **5A ohmsche Last** ausgelegt ║
+║ (Glühlampen, Heizungen, Signallasten). Eine **Pumpe ist eine ║
+║ induktive Motorlast** mit 5–10× höherem Einschaltstrom, der die ║
+║ Relaiskontakte nach einigen hundert Schaltspielen verschweißt. ║
+║ ║
+║ **Standard-Konfiguration:** Die NORVI-Relais ausschließlich als ║
+║ **Steuerrelais für externe Hutschienen-Schütze** verwenden. Das ║
+║ Schütz schaltet die 230V-Pumpe; das NORVI-Relais schaltet nur die ║
+║ 24V-Spule des Schützes (~20mA). Das ist verscheißfrei für die ║
+║ gesamte Lebensdauer der Anlage. ║
+║ ║
+║ Siehe → **[Schütz-Schaltung für Pumpen](contactor-guide.de.md)** ║
+╚══════════════════════════════════════════════════════════════════════╝
+NORVI Relaisausgang 0 (GPIO14): Steuersignal → Schütz Pool A1
+NORVI Relaisausgang 5 (GPIO33): Steuersignal → Schütz Solar A1
+── Standard-Verdrahtung (mit Schützen) ─────────────────────────────
+24V DC (&amp;#43;) ──┬── NORVI R0 COM ── NO ──┬── Ext. Schütz Pool A1 ── A2 ──┬── GND
+│ │ │
+├── NORVI R5 COM ── NO ──┤── Ext. Schütz Solar A1 ── A2 ──┤
+│ │ │
+└───── NORVI 24V IN ─────┘ │
+│
+GND ──────────────────────────────────────────────────────────────────┘
+Jeweils eine 1N4007-Freilaufdiode parallel zur Schützspule
+(Kathode an A1, Anode an A2). Die 230V-Lastseite:
+L (Außenleiter) ─── RCD ─── MCB ──┬── Schütz Solar 1-2 ── Solarpumpe L
+└── Schütz Pool 1-2 ─── Poolpumpe L
+N (Neutral) ──────────────────────────── Neutralleiter ── Beide Pumpen N
+── Alternative: Direktverdrahtung (nur ohmsche Last) ────────────────
+Falls du **keine Motorlast** schaltest (Heizstäbe, LED-Beleuchtung,
+Ventile, Signallampen), können die NORVI-Relais direkt verdrahtet
+werden. Sie sind Schließer (SPST), ausgelegt für 5A/250V AC.
+L (Außenleiter) ─── RCD ─── MCB ──┬── NORVI COM0 ── NO0 ── Ohmsche Last
+└── NORVI COM5 ── NO5 ── Ohmsche Last
+N (Neutral) ──────────────────────────── Neutralleiter ── Last N
+&amp;gt; **Schließe Pumpen oder andere induktive Motorlasten niemals direkt
+&amp;gt; an die NORVI-Relais an.** Die Kontakte werden unter dem
+&amp;gt; Einschaltstrom versagen (verschweißen). Verwende externe Schütze
+&amp;gt; wie oben gezeigt.
+── Feldbericht ──────────────────────────────────────────────────────
+In einer Feldinstallation wurde eine Solarpumpe (300–600W) zuerst an
+Relaisausgang 1 (GPIO12, R1) betrieben. Nach einigen hundert
+Schaltvorgängen hatte R1 einen verschweißten Kontakt — das Relais
+klickte hörbar, aber der NO-Kontakt öffnete nie. Die Pumpe wurde
+auf Relaisausgang 5 (GPIO33, R5) umgeklemmt, der Wochen später
+denselben Fehler zeigte. Relaisausgang 0 (GPIO14, Poolpumpe)
+arbeitete währenddessen fehlerfrei, weil die Poolpumpe andere
+Motoreigenschaften hat (geringerer Einschaltstrom, Kondensator-
+oder Sanftanlauf).
+**Gemeinsamer Faktor: die Motorlast der Solarpumpe, nicht die
+Relais-Hardware.**
+Siehe die [Schütz-Schaltung für Pumpen](contactor-guide.de.md) für
+die dauerhaft zuverlässige Lösung.
 ⚡ Relais-Polarität: Im Gegensatz zu externen Relaismodulen (die typischerweise
 active-LOW sind: LOW = EIN, HIGH = AUS) sind die eingebauten NORVI-Relais
 **active-HIGH**: `HIGH` auf dem GPIO-Pin erregt die Relaisspule (Schließer
@@ -5758,9 +6203,13 @@ href="https://norvi.io/docs/norvi-iiot-ae01-r-datasheet/"target="_blank" rel="no
 &lt;li&gt;&lt;a
 href="https://norvi.io/docs/norvi-iiot-ae01-r-user-guide/"target="_blank" rel="noopener"&gt;NORVI IIOT-AE01-R Benutzerhandbuch&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="kicad/norvi-ae01-r/norvi-ae01-r-schematic.pdf"&gt;KiCad-Schaltplan: NORVI AE01-R&lt;/a&gt; — KiCad-9.0-Schaltplan als PDF-Export&lt;/li&gt;
+href="kicad/norvi-ae01-r/norvi-ae01-r-schematic.pdf"&gt;KiCad-Schaltplan: NORVI AE01-R&lt;/a&gt; — KiCad 9.0 PDF-Export des Schaltplans&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="hardware-guide.de.md"&gt;Haupt-Hardware-Guide&lt;/a&gt;&lt;/li&gt;
+href="hardware-guide.de.md"&gt;Haupt-Hardware-Anleitung&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="contactor-guide.de.md"&gt;Schütz-Schaltung für Pumpen&lt;/a&gt; — Externe Schütze für dauerhaft zuverlässiges Pumpenschalten&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="wiring-contactor.svg"&gt;SVG-Schaltplan: Schütz-Schaltung&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a
 href="https://github.com/smart-swimmingpool/pool-controller/blob/main/src/Config.hpp"target="_blank" rel="noopener"&gt;Config.hpp Pin-Quelle&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description></item><item><title>Hardware-Anleitung</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/hardware-guide/</link><pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/hardware-guide/</guid><description>
@@ -6084,7 +6533,7 @@ Metall- oder Kohleschicht).&lt;/p&gt;
 um das Relais zu aktivieren (active-high). Wenn dein Modul bei LOW schaltet
 (active-low), suche nach einem &lt;strong&gt;Jumper&lt;/strong&gt; auf der Modulplatine, um den Modus
 zu wechseln. Active-high-Module sind einfacher in der Handhabung.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Lastseite (230V-Seite):&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lastseite (230V-Seite) — Standard-Relaismodul:&lt;/strong&gt;&lt;/p&gt;
 &lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
 &lt;div&gt;&lt;pre&gt;&lt;code&gt; L (Außenleiter) ─── FI ─── LS ──┬── Relais COM1 ── Pool-Pumpe
 │ NO1 ─────┘
@@ -6104,11 +6553,37 @@ data-copied-label="Kopiert!"
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;ul&gt;
-&lt;li&gt;Den Außenleiter (L) der Pumpe an den &lt;strong&gt;COM&lt;/strong&gt;-Kontakt (Mitte) des Relais.&lt;/li&gt;
-&lt;li&gt;Den &lt;strong&gt;NO&lt;/strong&gt;-Kontakt (Schließer, &amp;ldquo;normally open&amp;rdquo;) mit der Pumpe verbinden.&lt;/li&gt;
-&lt;li&gt;Den anderen Pumpenanschluss an &lt;strong&gt;Neutralleiter (N)&lt;/strong&gt;.&lt;/li&gt;
-&lt;li&gt;Den 230V-Stromkreis &lt;strong&gt;immer&lt;/strong&gt; über einen FI-Schutzschalter und einen
-passend abgesicherten Leitungsschutzschalter führen.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Den Außenleiter (L) der Pumpe an den &lt;strong&gt;COM&lt;/strong&gt;-Kontakt (Mitte) des Relais.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Den &lt;strong&gt;NO&lt;/strong&gt;-Kontakt (Schließer, &amp;ldquo;normally open&amp;rdquo;) mit der Pumpe verbinden.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Den anderen Pumpenanschluss an &lt;strong&gt;Neutralleiter (N)&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Den 230V-Stromkreis &lt;strong&gt;immer&lt;/strong&gt; über einen FI-Schutzschalter und einen
+passend abgesicherten Leitungsschutzschalter führen.&lt;/p&gt;
+&lt;p&gt;╔══════════════════════════════════════════════════════════════════════╗
+║ ⚠ WICHTIG — Grenze bei Motorlast (gleiches Problem wie NORVI) ║
+║ ║
+║ Externe 5V-Relaismodule (z.B. SRD-05VDC-SL-C) sind für ohmsche ║
+║ Last spezifiziert (typ. 10A/250V AC). Eine &lt;strong&gt;Pumpe ist eine ║
+║ induktive Motorlast&lt;/strong&gt; mit 5–10× höherem Einschaltstrom, der die ║
+║ Relaiskontakte nach wiederholtem Schalten verschweißen kann — ║
+║ genauso wie bei den NORVI-Bordrelais. ║
+║ ║
+║ Falls du Pumpen oder andere Motorlasten &amp;gt;300W schaltest: ║
+║ → Verwende das ESP32-Relais nur zur Ansteuerung eines ║
+║ &lt;strong&gt;Hutschienen-Schützes&lt;/strong&gt; (Contacteur) ║
+║ → Das Schütz übernimmt die Motorlast; das 5V-Relais ist nur ║
+║ noch die Steuerschnittstelle (kein Kontaktverschleiß) ║
+║ ║
+║ Siehe → &lt;strong&gt;&lt;a
+href="contactor-guide.de.md"&gt;Schütz-Schaltung für Pumpen&lt;/a&gt;&lt;/strong&gt; ║
+╚══════════════════════════════════════════════════════════════════════╝&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;3. Stromversorgung&lt;span class="hx:absolute hx:-mt-20" id="3-stromversorgung"&gt;&lt;/span&gt;
 &lt;a href="#3-stromversorgung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
@@ -6389,6 +6864,19 @@ data-copied-label="Kopiert!"
 &lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Leuchtet die LED auf dem Relaismodul, wenn GPIO auf HIGH geht?&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
+&lt;h2&gt;⚠ Wichtig: Relaiskontakte bei Motorlast (Pumpen)&lt;span class="hx:absolute hx:-mt-20" id="-wichtig-relaiskontakte-bei-motorlast-pumpen"&gt;&lt;/span&gt;
+&lt;a href="#-wichtig-relaiskontakte-bei-motorlast-pumpen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die verwendeten Relais (NORVI-Bordrelais wie auch externe 5V-Module) sind für
+&lt;strong&gt;ohmsche Lasten&lt;/strong&gt; spezifiziert. Eine &lt;strong&gt;Pumpe ist eine induktive Motorlast&lt;/strong&gt;
+mit 5–10× höherem Einschaltstrom (Inrush). Dies kann nach einigen hundert
+Schaltvorgängen zu &lt;strong&gt;verschweißten Relaiskontakten&lt;/strong&gt; führen — das Relais
+klickt dann zwar noch, aber der NO-Kontakt trennt nicht mehr, und die Pumpe
+läuft dauerhaft, obwohl der Controller AUS anzeigt.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Empfehlung:&lt;/strong&gt; Verwende bei Pumpen &amp;gt;300W grundsätzlich &lt;strong&gt;externe
+Installationsschütze&lt;/strong&gt; zwischen Relais und Pumpe. Das Relais schaltet dann
+nur die 24V-Spule des Schützes (einige mA) — die Hauptkontakte des Schützes
+schalten die 230V-Last. Siehe die separate Anleitung:&lt;/p&gt;
+&lt;p&gt;👉 &lt;strong&gt;&lt;a
+href="contactor-guide.de.md"&gt;Schütz-Schaltung für Pumpen – Anleitung&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;h2&gt;Fehlersuche&lt;span class="hx:absolute hx:-mt-20" id="fehlersuche"&gt;&lt;/span&gt;
 &lt;a href="#fehlersuche" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
 &lt;thead&gt;
@@ -6423,6 +6911,12 @@ data-copied-label="Kopiert!"
 &lt;td&gt;Relais klickt, Pumpe läuft nicht&lt;/td&gt;
 &lt;td&gt;230V-Verdrahtungsfehler&lt;/td&gt;
 &lt;td&gt;COM/NO-Kontakte prüfen, Pumpenanschluss kontrollieren&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Pumpe läuft trotz AUS-Anzeige&lt;/td&gt;
+&lt;td&gt;Relaiskontakt verschweißt (Motorlast)&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Schütz zwischenschalten&lt;/strong&gt; (siehe &lt;a
+href="contactor-guide.de.md"&gt;Schütz-Anleitung&lt;/a&gt;)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;ESP32 startet nicht (Brownout)&lt;/td&gt;
@@ -6579,6 +7073,10 @@ href="norvi-ae01-r.de.md"&gt;NORVI AE01-R Konfigurationsanleitung&lt;/a&gt; — 
 href="esp32-schematic-optimization.de.md"&gt;ESP32 Schaltplananalyse und Optimierung&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a
 href="esp32-complete-wiring-schematic.de.md"&gt;ESP32 Komplett-Schaltplan&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="contactor-guide.de.md"&gt;Schütz-Schaltung für Pumpen&lt;/a&gt; — Externe Schütze für dauerhaft zuverlässiges Pumpenschalten&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="wiring-contactor.svg"&gt;SVG-Schaltplan: Schütz-Schaltung&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a
 href="https://www.analog.com/media/en/technical-documentation/data-sheets/DS18B20.pdf"target="_blank" rel="noopener"&gt;DS18B20 Datenblatt&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a

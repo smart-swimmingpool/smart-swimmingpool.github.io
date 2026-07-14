@@ -935,7 +935,7 @@ Metall- oder Kohleschicht).&lt;/p&gt;
 um das Relais zu aktivieren (active-high). Wenn dein Modul bei LOW schaltet
 (active-low), suche nach einem &lt;strong&gt;Jumper&lt;/strong&gt; auf der Modulplatine, um den Modus
 zu wechseln. Active-high-Module sind einfacher in der Handhabung.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Lastseite (230V-Seite):&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lastseite (230V-Seite) — Standard-Relaismodul:&lt;/strong&gt;&lt;/p&gt;
 &lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
 &lt;div&gt;&lt;pre&gt;&lt;code&gt; L (Außenleiter) ─── FI ─── LS ──┬── Relais COM1 ── Pool-Pumpe
 │ NO1 ─────┘
@@ -955,11 +955,37 @@ data-copied-label="Kopiert!"
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;ul&gt;
-&lt;li&gt;Den Außenleiter (L) der Pumpe an den &lt;strong&gt;COM&lt;/strong&gt;-Kontakt (Mitte) des Relais.&lt;/li&gt;
-&lt;li&gt;Den &lt;strong&gt;NO&lt;/strong&gt;-Kontakt (Schließer, &amp;ldquo;normally open&amp;rdquo;) mit der Pumpe verbinden.&lt;/li&gt;
-&lt;li&gt;Den anderen Pumpenanschluss an &lt;strong&gt;Neutralleiter (N)&lt;/strong&gt;.&lt;/li&gt;
-&lt;li&gt;Den 230V-Stromkreis &lt;strong&gt;immer&lt;/strong&gt; über einen FI-Schutzschalter und einen
-passend abgesicherten Leitungsschutzschalter führen.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Den Außenleiter (L) der Pumpe an den &lt;strong&gt;COM&lt;/strong&gt;-Kontakt (Mitte) des Relais.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Den &lt;strong&gt;NO&lt;/strong&gt;-Kontakt (Schließer, &amp;ldquo;normally open&amp;rdquo;) mit der Pumpe verbinden.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Den anderen Pumpenanschluss an &lt;strong&gt;Neutralleiter (N)&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Den 230V-Stromkreis &lt;strong&gt;immer&lt;/strong&gt; über einen FI-Schutzschalter und einen
+passend abgesicherten Leitungsschutzschalter führen.&lt;/p&gt;
+&lt;p&gt;╔══════════════════════════════════════════════════════════════════════╗
+║ ⚠ WICHTIG — Grenze bei Motorlast (gleiches Problem wie NORVI) ║
+║ ║
+║ Externe 5V-Relaismodule (z.B. SRD-05VDC-SL-C) sind für ohmsche ║
+║ Last spezifiziert (typ. 10A/250V AC). Eine &lt;strong&gt;Pumpe ist eine ║
+║ induktive Motorlast&lt;/strong&gt; mit 5–10× höherem Einschaltstrom, der die ║
+║ Relaiskontakte nach wiederholtem Schalten verschweißen kann — ║
+║ genauso wie bei den NORVI-Bordrelais. ║
+║ ║
+║ Falls du Pumpen oder andere Motorlasten &amp;gt;300W schaltest: ║
+║ → Verwende das ESP32-Relais nur zur Ansteuerung eines ║
+║ &lt;strong&gt;Hutschienen-Schützes&lt;/strong&gt; (Contacteur) ║
+║ → Das Schütz übernimmt die Motorlast; das 5V-Relais ist nur ║
+║ noch die Steuerschnittstelle (kein Kontaktverschleiß) ║
+║ ║
+║ Siehe → &lt;strong&gt;&lt;a
+href="contactor-guide.de.md"&gt;Schütz-Schaltung für Pumpen&lt;/a&gt;&lt;/strong&gt; ║
+╚══════════════════════════════════════════════════════════════════════╝&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;3. Stromversorgung&lt;span class="hx:absolute hx:-mt-20" id="3-stromversorgung"&gt;&lt;/span&gt;
 &lt;a href="#3-stromversorgung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
@@ -1240,6 +1266,19 @@ data-copied-label="Kopiert!"
 &lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Leuchtet die LED auf dem Relaismodul, wenn GPIO auf HIGH geht?&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
+&lt;h2&gt;⚠ Wichtig: Relaiskontakte bei Motorlast (Pumpen)&lt;span class="hx:absolute hx:-mt-20" id="-wichtig-relaiskontakte-bei-motorlast-pumpen"&gt;&lt;/span&gt;
+&lt;a href="#-wichtig-relaiskontakte-bei-motorlast-pumpen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die verwendeten Relais (NORVI-Bordrelais wie auch externe 5V-Module) sind für
+&lt;strong&gt;ohmsche Lasten&lt;/strong&gt; spezifiziert. Eine &lt;strong&gt;Pumpe ist eine induktive Motorlast&lt;/strong&gt;
+mit 5–10× höherem Einschaltstrom (Inrush). Dies kann nach einigen hundert
+Schaltvorgängen zu &lt;strong&gt;verschweißten Relaiskontakten&lt;/strong&gt; führen — das Relais
+klickt dann zwar noch, aber der NO-Kontakt trennt nicht mehr, und die Pumpe
+läuft dauerhaft, obwohl der Controller AUS anzeigt.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Empfehlung:&lt;/strong&gt; Verwende bei Pumpen &amp;gt;300W grundsätzlich &lt;strong&gt;externe
+Installationsschütze&lt;/strong&gt; zwischen Relais und Pumpe. Das Relais schaltet dann
+nur die 24V-Spule des Schützes (einige mA) — die Hauptkontakte des Schützes
+schalten die 230V-Last. Siehe die separate Anleitung:&lt;/p&gt;
+&lt;p&gt;👉 &lt;strong&gt;&lt;a
+href="contactor-guide.de.md"&gt;Schütz-Schaltung für Pumpen – Anleitung&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;h2&gt;Fehlersuche&lt;span class="hx:absolute hx:-mt-20" id="fehlersuche"&gt;&lt;/span&gt;
 &lt;a href="#fehlersuche" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
 &lt;thead&gt;
@@ -1274,6 +1313,12 @@ data-copied-label="Kopiert!"
 &lt;td&gt;Relais klickt, Pumpe läuft nicht&lt;/td&gt;
 &lt;td&gt;230V-Verdrahtungsfehler&lt;/td&gt;
 &lt;td&gt;COM/NO-Kontakte prüfen, Pumpenanschluss kontrollieren&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Pumpe läuft trotz AUS-Anzeige&lt;/td&gt;
+&lt;td&gt;Relaiskontakt verschweißt (Motorlast)&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Schütz zwischenschalten&lt;/strong&gt; (siehe &lt;a
+href="contactor-guide.de.md"&gt;Schütz-Anleitung&lt;/a&gt;)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;ESP32 startet nicht (Brownout)&lt;/td&gt;
@@ -1430,6 +1475,10 @@ href="norvi-ae01-r.de.md"&gt;NORVI AE01-R Konfigurationsanleitung&lt;/a&gt; — 
 href="esp32-schematic-optimization.de.md"&gt;ESP32 Schaltplananalyse und Optimierung&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a
 href="esp32-complete-wiring-schematic.de.md"&gt;ESP32 Komplett-Schaltplan&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="contactor-guide.de.md"&gt;Schütz-Schaltung für Pumpen&lt;/a&gt; — Externe Schütze für dauerhaft zuverlässiges Pumpenschalten&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="wiring-contactor.svg"&gt;SVG-Schaltplan: Schütz-Schaltung&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a
 href="https://www.analog.com/media/en/technical-documentation/data-sheets/DS18B20.pdf"target="_blank" rel="noopener"&gt;DS18B20 Datenblatt&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a

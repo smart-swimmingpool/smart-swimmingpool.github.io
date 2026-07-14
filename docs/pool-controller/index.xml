@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Pool Controller</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/</link><description>Recent content in Pool Controller on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/docs/pool-controller/index.xml" rel="self" type="application/rss+xml"/><item><title>Quick Start Guide</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/quick-start/</link><pubDate>Sun, 12 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/quick-start/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Pool Controller</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/</link><description>Recent content in Pool Controller on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/docs/pool-controller/index.xml" rel="self" type="application/rss+xml"/><item><title>Quick Start Guide</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/quick-start/</link><pubDate>Mon, 13 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/quick-start/</guid><description>
 &lt;p&gt;&lt;strong&gt;Target audience:&lt;/strong&gt; DIY enthusiasts with &lt;strong&gt;basic electronics knowledge&lt;/strong&gt; (soldering, GPIO, MQTT).
 &lt;strong&gt;Time required:&lt;/strong&gt; ~4\u20136 hours (including parts sourcing).
 &lt;strong&gt;Cost:&lt;/strong&gt; ~45\u201375\u20ac (excluding pumps and pool infrastructure).&lt;/p&gt;
@@ -961,7 +961,7 @@ href="https://www.reddit.com/r/homeassistant/"target="_blank" rel="noopener"&gt;
 &lt;hr&gt;
 &lt;p align="center"&gt;
 ✅ Congratulations! You now have a smart swimming pool! ✅\n \n Made with ❤️ by the Smart Swimming Pool community
-&lt;/p&gt;</description></item><item><title>Frequently Asked Questions (FAQ)</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/faq/</link><pubDate>Sun, 12 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/faq/</guid><description>
+&lt;/p&gt;</description></item><item><title>Frequently Asked Questions (FAQ)</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/faq/</link><pubDate>Mon, 13 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/faq/</guid><description>
 &lt;p&gt;This FAQ covers &lt;strong&gt;common issues&lt;/strong&gt; and their solutions for the &lt;strong&gt;Smart Swimming Pool Controller&lt;/strong&gt;.
 If your problem isn&amp;rsquo;t listed here, check the
 &lt;a
@@ -1233,7 +1233,7 @@ href="https://github.com/smart-swimmingpool/pool-controller/issues/new"target="_
 &lt;/ol&gt;
 &lt;hr&gt;
 &lt;h2&gt;📄 License&lt;span class="hx:absolute hx:-mt-20" id="-license"&gt;&lt;/span&gt;
-&lt;a href="#-license" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This FAQ is part of the &lt;strong&gt;Smart Swimming Pool&lt;/strong&gt; project, licensed under the &lt;strong&gt;MIT License&lt;/strong&gt;.&lt;/p&gt;</description></item><item><title>Temperature-Based Circulation Time</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/temperature-based-circulation/</link><pubDate>Sun, 12 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/temperature-based-circulation/</guid><description>
+&lt;a href="#-license" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This FAQ is part of the &lt;strong&gt;Smart Swimming Pool&lt;/strong&gt; project, licensed under the &lt;strong&gt;MIT License&lt;/strong&gt;.&lt;/p&gt;</description></item><item><title>Temperature-Based Circulation Time</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/temperature-based-circulation/</link><pubDate>Mon, 13 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/temperature-based-circulation/</guid><description>
 &lt;h1&gt;Temperature-Based Circulation Time&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;Optimize pool circulation for better water quality with minimal power consumption.&lt;/strong&gt;&lt;/p&gt;
 &lt;h2&gt;1. Motivation&lt;span class="hx:absolute hx:-mt-20" id="1-motivation"&gt;&lt;/span&gt;
 &lt;a href="#1-motivation" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The pool pump is the largest power consumer in a swimming pool. At the same time, it determines water quality. The required circulation volume strongly depends on water temperature:&lt;/p&gt;
@@ -1793,7 +1793,7 @@ data-copied-label="Copied!"
 &lt;li&gt;&lt;strong&gt;Cold reduction&lt;/strong&gt;: Optional &lt;code&gt;tempCircMinRuntime&lt;/code&gt; below a lower threshold&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Trend-based&lt;/strong&gt;: Factor in whether temperature is rising or falling&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Seasonal calendar&lt;/strong&gt;: Automatically adjust base parameters for summer/winter&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/security-fixes-v3.2.1/</link><pubDate>Sun, 12 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/security-fixes-v3.2.1/</guid><description>
+&lt;/ul&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/security-fixes-v3.2.1/</link><pubDate>Mon, 13 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/security-fixes-v3.2.1/</guid><description>
 &lt;h1&gt;Security Fixes v3.2.1&lt;/h1&gt;&lt;p&gt;This document provides comprehensive documentation of all security vulnerabilities and memory leaks identified and
 fixed in Pool Controller v3.2.1. All changes have been validated through CI/CD pipeline and address critical, high, and
 medium priority issues.&lt;/p&gt;
@@ -2708,7 +2708,7 @@ Discussions&lt;/a&gt;&lt;/li&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;⚠️ DISCLAIMER&lt;/strong&gt;: While these fixes address identified vulnerabilities, no system can be 100% secure. Users are
 responsible for their own security configurations and should follow best practices for IoT device security.&lt;/p&gt;
-&lt;/blockquote&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/security-references/</link><pubDate>Sun, 12 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/security-references/</guid><description>
+&lt;/blockquote&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/security-references/</link><pubDate>Mon, 13 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/security-references/</guid><description>
 &lt;h1&gt;Security References &amp;amp; Best Practices&lt;/h1&gt;&lt;p&gt;This document contains security references, best practices, and implementation
 guidelines for the Pool Controller project. These references were compiled during the
 comprehensive IoT security analysis performed on 2025-01-15.&lt;/p&gt;
@@ -3089,7 +3089,7 @@ href="../.opencode/skills/cpp-code-quality/SKILL.md"&gt;C++ Code Quality Skill&l
 &lt;strong&gt;🔍 Analysis Performed By&lt;/strong&gt;: Vibe Code - IoT Security Expert Mode
 &lt;strong&gt;📝 Related PR&lt;/strong&gt;:
 &lt;a
-href="https://github.com/smart-swimmingpool/pool-controller/pull/112"target="_blank" rel="noopener"&gt;#112 - IoT Security &amp;amp; Memory Optimization Analysis&lt;/a&gt;&lt;/p&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/tasmota-ota-review/</link><pubDate>Sun, 12 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/tasmota-ota-review/</guid><description>
+href="https://github.com/smart-swimmingpool/pool-controller/pull/112"target="_blank" rel="noopener"&gt;#112 - IoT Security &amp;amp; Memory Optimization Analysis&lt;/a&gt;&lt;/p&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/tasmota-ota-review/</link><pubDate>Mon, 13 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/tasmota-ota-review/</guid><description>
 &lt;h1&gt;Tasmota OTA Update Verification Review&lt;/h1&gt;&lt;p&gt;This document provides a comprehensive analysis of Tasmota&amp;rsquo;s OTA (Over-The-Air) update verification approach and
 evaluates which aspects could be beneficial to adapt for the Pool Controller project.&lt;/p&gt;
 &lt;h2&gt;Executive Summary&lt;span class="hx:absolute hx:-mt-20" id="executive-summary"&gt;&lt;/span&gt;
@@ -4020,7 +4020,402 @@ href="https://github.com/openspec/specs/blob/main/openspec/specs/github-ca-chain
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;📝 Note&lt;/strong&gt;: This review was conducted on 2026-06-19 based on Tasmota v15.3.0 documentation and Pool Controller v3.2.1
 codebase.&lt;/p&gt;
-&lt;/blockquote&gt;</description></item><item><title>⚠️ Sicherheitshinweise &amp; Warnungen</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/safety/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/safety/</guid><description>
+&lt;/blockquote&gt;</description></item><item><title>Contactor Wiring Guide</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/contactor-guide/</link><pubDate>Mon, 13 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/contactor-guide/</guid><description>
+&lt;h2&gt;Overview&lt;span class="hx:absolute hx:-mt-20" id="overview"&gt;&lt;/span&gt;
+&lt;a href="#overview" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This document explains why the built-in relays of the NORVI AE01-R (and other
+standard relay modules) can fail when switching motor loads (pumps), and how to
+build a robust, long-term solution using &lt;strong&gt;external DIN-rail contactors&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Applies to:&lt;/strong&gt; NORVI AE01-R (R0–R5) and external 5V relay modules (standard
+ESP32 builds).&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Problem: Relay Contacts Weld Under Motor Load&lt;span class="hx:absolute hx:-mt-20" id="problem-relay-contacts-weld-under-motor-load"&gt;&lt;/span&gt;
+&lt;a href="#problem-relay-contacts-weld-under-motor-load" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;The NORVI Relays&lt;span class="hx:absolute hx:-mt-20" id="the-norvi-relays"&gt;&lt;/span&gt;
+&lt;a href="#the-norvi-relays" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The NORVI AE01-R has &lt;strong&gt;6 built-in electromechanical relays&lt;/strong&gt; (SPST-NO,
+5A/250V AC). These are rated for &lt;strong&gt;resistive loads&lt;/strong&gt; — incandescent lamps,
+heating elements, or low-inrush electronics.&lt;/p&gt;
+&lt;p&gt;A &lt;strong&gt;pump is an inductive load&lt;/strong&gt; (motor with coils):&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Characteristic&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Resistive Load&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Motor Load (Inductive)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Continuous current&lt;/td&gt;
+&lt;td style="text-align: center"&gt;As rated&lt;/td&gt;
+&lt;td style="text-align: center"&gt;As rated&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Inrush current&lt;/td&gt;
+&lt;td style="text-align: center"&gt;1–1.5× rated current&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;5–10× rated current&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Switching arc&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Minor&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;Severe&lt;/strong&gt; (back-EMF)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Contact wear&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Minimal&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;High&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;In practice:&lt;/strong&gt; A NORVI relay rated &amp;ldquo;5A&amp;rdquo; driving a 300–600W pump
+(1.3–2.6A running, 6.5–13A inrush peak) can develop &lt;strong&gt;welded contacts&lt;/strong&gt;
+after a few hundred switching cycles. The relay coil still clicks audibly,
+but the NO contact stays closed — the pump runs &lt;strong&gt;continuously&lt;/strong&gt; even with
+the controller showing OFF.&lt;/p&gt;
+&lt;h3&gt;Field Report&lt;span class="hx:absolute hx:-mt-20" id="field-report"&gt;&lt;/span&gt;
+&lt;a href="#field-report" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;In one field installation this failure occurred sequentially on two different
+relay outputs (R1, then R5) of the same NORVI unit, both switching the same
+solar pump (300–600W). The common factor was &lt;strong&gt;the pump load&lt;/strong&gt;, not the relay
+or driver circuit. The identical R0 channel (pool pump) showed no failure —
+likely because the pool pump is a different type (capacitor-start with soft
+start, switched less frequently, or lower power).&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Solution: External DIN-Rail Contactor&lt;span class="hx:absolute hx:-mt-20" id="solution-external-din-rail-contactor"&gt;&lt;/span&gt;
+&lt;a href="#solution-external-din-rail-contactor" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;A &lt;strong&gt;contactor&lt;/strong&gt; is a heavy-duty relay built for motor loads. The NORVI relay
+switches only the &lt;strong&gt;contactor&amp;rsquo;s coil&lt;/strong&gt; (a few mA at 24V DC) — the contactor&amp;rsquo;s
+main contacts handle the 230V AC load.&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt; NORVI Relay Contactor (external) Pump
+┌──────────┐ ┌────────────────────┐ ┌────────┐
+│ │ 24V DC │ A1 (&amp;#43;) │ │ │
+│ COM ─────┼──────────┤ (coil) │ │ │
+│ │ │ A2 (-) ───┼── GND│ │
+│ NO ─────┼──────┐ │ │ │ │
+└──────────┘ │ │ 1 (L-input) ───────┤─── 2 │ │
+│ └────────────────────┘ │ L-N │
+230V L ───────────┘ └────────┘
+230V N ─────────────────────────────────────────────┘&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3&gt;Benefits&lt;span class="hx:absolute hx:-mt-20" id="benefits"&gt;&lt;/span&gt;
+&lt;a href="#benefits" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Benefit&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Contact life&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Contactors rated for 1–5 million operations under motor load&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Serviceable&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Replace a defective contactor in 2 minutes on DIN rail — no soldering&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;NORVI unloaded&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;NORVI relays switch mA → no contact wear at all&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Cost-effective&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;~15–25€ per contactor&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2&gt;Recommended Contactors&lt;span class="hx:absolute hx:-mt-20" id="recommended-contactors"&gt;&lt;/span&gt;
+&lt;a href="#recommended-contactors" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Finder 22 Series (recommended)&lt;span class="hx:absolute hx:-mt-20" id="finder-22-series-recommended"&gt;&lt;/span&gt;
+&lt;a href="#finder-22-series-recommended" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Compact DIN-rail contactors with built-in surge suppression.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Coil&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Contact&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Motor Load&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Width&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Price&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;22.21.0.024.4000&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;24V DC&lt;/td&gt;
+&lt;td style="text-align: center"&gt;1× NO, 20A&lt;/td&gt;
+&lt;td style="text-align: center"&gt;1.5 kW&lt;/td&gt;
+&lt;td style="text-align: center"&gt;17.6mm&lt;/td&gt;
+&lt;td style="text-align: center"&gt;~20–25€&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;22.32.0.024.4000&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;24V DC&lt;/td&gt;
+&lt;td style="text-align: center"&gt;2× NO, 16A&lt;/td&gt;
+&lt;td style="text-align: center"&gt;1.5 kW&lt;/td&gt;
+&lt;td style="text-align: center"&gt;17.6mm&lt;/td&gt;
+&lt;td style="text-align: center"&gt;~25–30€&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Finder 22 includes a built-in suppressor diode (varistor), but
+adding an external 1N4007 flyback diode across the coil is still recommended.&lt;/p&gt;
+&lt;h3&gt;Eaton / Moeller DILM&lt;span class="hx:absolute hx:-mt-20" id="eaton--moeller-dilm"&gt;&lt;/span&gt;
+&lt;a href="#eaton--moeller-dilm" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Robust contactors, often more affordable.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Coil&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Contact&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Motor Load&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Width&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Price&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;DILM7-01 (24V DC)&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;24V DC&lt;/td&gt;
+&lt;td style="text-align: center"&gt;3× NO, 7A&lt;/td&gt;
+&lt;td style="text-align: center"&gt;3 kW&lt;/td&gt;
+&lt;td style="text-align: center"&gt;45mm&lt;/td&gt;
+&lt;td style="text-align: center"&gt;~12–15€&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;Interface Relays (compact)&lt;span class="hx:absolute hx:-mt-20" id="interface-relays-compact"&gt;&lt;/span&gt;
+&lt;a href="#interface-relays-compact" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;For maximum space saving:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Coil&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Contact&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Width&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Price&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Finder 40.52.9.024.0040&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;24V DC&lt;/td&gt;
+&lt;td style="text-align: center"&gt;1× SPDT 16A&lt;/td&gt;
+&lt;td style="text-align: center"&gt;6.2mm&lt;/td&gt;
+&lt;td style="text-align: center"&gt;~10€&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;+ &lt;strong&gt;Socket 94.02&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;—&lt;/td&gt;
+&lt;td style="text-align: center"&gt;—&lt;/td&gt;
+&lt;td style="text-align: center"&gt;—&lt;/td&gt;
+&lt;td style="text-align: center"&gt;~3€&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Interface relays are smaller than full-size contactors, but still
+significantly more robust than NORVI&amp;rsquo;s on-board relays. Adequate for pumps
+up to 600W.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2&gt;Wiring Diagram&lt;span class="hx:absolute hx:-mt-20" id="wiring-diagram"&gt;&lt;/span&gt;
+&lt;a href="#wiring-diagram" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;24V Control Circuit&lt;span class="hx:absolute hx:-mt-20" id="24v-control-circuit"&gt;&lt;/span&gt;
+&lt;a href="#24v-control-circuit" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;24V DC (&amp;#43;) ──┬── NORVI R0 COM ── NO ──┬── Contactor Pool A1 ── A2 ──┬── GND
+│ │ │
+├── NORVI R5 COM ── NO ──┤── Contactor Solar A1 ── A2 ──┤
+│ │ │
+└───── NORVI 24V IN ─────┘ │
+│
+GND ───────────────────────────────────────────────────────────────┘&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Flyback diodes 1N4007&lt;/strong&gt; across each contactor coil:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Cathode (banded end) to &lt;strong&gt;A1 (+)&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Anode to &lt;strong&gt;A2 (GND)&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;These diodes absorb the back-EMF spike when the contactor coil switches off.
+Without them, the voltage spike can damage the NORVI relay driver.&lt;/p&gt;
+&lt;h3&gt;230V Power Circuit&lt;span class="hx:absolute hx:-mt-20" id="230v-power-circuit"&gt;&lt;/span&gt;
+&lt;a href="#230v-power-circuit" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;230V L (Live) ─── RCD ─── MCB ──┬── Contactor Solar 1-2 ── Solar Pump L
+│
+└── Contactor Pool 1-2 ─── Pool Pump L
+230V N (Neutral) ──────────────────────── Both Pump N&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Always protect the 230V side with an RCD (30mA) and MCB (B10A or appropriate).&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Bill of Materials (Both Pumps)&lt;span class="hx:absolute hx:-mt-20" id="bill-of-materials-both-pumps"&gt;&lt;/span&gt;
+&lt;a href="#bill-of-materials-both-pumps" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="text-align: center"&gt;Qty&lt;/th&gt;
+&lt;th&gt;Item&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Est. Price&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;2&lt;/td&gt;
+&lt;td&gt;Finder 22.21.0.024.4000 (20A, 24V DC, 1× NO)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;~45€&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;2&lt;/td&gt;
+&lt;td&gt;1N4007 diode (flyback across contactor coil)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;~0.50€&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;5m&lt;/td&gt;
+&lt;td&gt;3×1.5mm² cable (NYM-J or H07RN-F)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;~8€&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;1&lt;/td&gt;
+&lt;td&gt;Ferrule crimp set 0.75mm² + 1.5mm²&lt;/td&gt;
+&lt;td style="text-align: center"&gt;~5€&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;2&lt;/td&gt;
+&lt;td&gt;Wago 221-412 (junction terminals)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;~4€&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;—&lt;/td&gt;
+&lt;td&gt;Cable ties, heatshrink, labelling&lt;/td&gt;
+&lt;td style="text-align: center"&gt;~5€&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;Total&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;~65–70€&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2&gt;Installation Steps&lt;span class="hx:absolute hx:-mt-20" id="installation-steps"&gt;&lt;/span&gt;
+&lt;a href="#installation-steps" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;1. Preparation&lt;span class="hx:absolute hx:-mt-20" id="1-preparation"&gt;&lt;/span&gt;
+&lt;a href="#1-preparation" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Disconnect power&lt;/strong&gt; — turn off 230V breaker, disconnect 24V supply&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Check DIN rail&lt;/strong&gt; — contactors are 17.6mm (Finder 22) or 45mm (Eaton).
+Plan space next to the NORVI.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Prepare cables&lt;/strong&gt; — 1.5mm² for 230V, 0.75mm² for 24V. Crimp ferrules.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;2. Wiring&lt;span class="hx:absolute hx:-mt-20" id="2-wiring"&gt;&lt;/span&gt;
+&lt;a href="#2-wiring" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Step 1: 24V Control Circuit&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;24V DC (+) to NORVI relay COM&lt;/strong&gt; — bridge from NORVI 24V terminal to
+COM-R0 and COM-R5&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;NORVI relay NO to contactor A1&lt;/strong&gt; — R0-NO → Pool contactor A1,
+R5-NO → Solar contactor A1&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Contactor A2 to GND&lt;/strong&gt; — both A2 to GND bus&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Flyback diode&lt;/strong&gt; — 1N4007 across A1/A2 of each contactor
+(cathode to A1, anode to A2)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Step 2: 230V Power Circuit&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;230V L from RCD/MCB&lt;/strong&gt; — to contactor terminal 1 (both contactors
+paralleled)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Contactor terminal 2&lt;/strong&gt; — to respective pump L&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;230V N&lt;/strong&gt; — directly to pump N (not through contactor)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Earth (PE)&lt;/strong&gt; — if pump has a housing, connect separately&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Step 3: Verification&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Continuity check&lt;/strong&gt; — 24V side: ~100–400Ω between A1 and A2 (coil
+resistance). Diode test: measure in reverse direction&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Short circuit check&lt;/strong&gt; — 230V side: &amp;gt; 1MΩ between L and N&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Isolation check&lt;/strong&gt; — &amp;gt; 10MΩ between 24V and 230V circuits
+(galvanic isolation)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;3. Functional Test&lt;span class="hx:absolute hx:-mt-20" id="3-functional-test"&gt;&lt;/span&gt;
+&lt;a href="#3-functional-test" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Apply 24V → controller boots&lt;/li&gt;
+&lt;li&gt;Controller shows pumps OFF → &lt;strong&gt;contactors must be open&lt;/strong&gt; (no continuity
+between terminal 1 and 2)&lt;/li&gt;
+&lt;li&gt;Turn pumps ON (Web UI, MQTT, or OLED) → &lt;strong&gt;contactor must audibly click&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Pump starts running → &lt;strong&gt;success&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2&gt;Troubleshooting&lt;span class="hx:absolute hx:-mt-20" id="troubleshooting"&gt;&lt;/span&gt;
+&lt;a href="#troubleshooting" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Symptom&lt;/th&gt;
+&lt;th&gt;Cause&lt;/th&gt;
+&lt;th&gt;Solution&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Contactor silent&lt;/td&gt;
+&lt;td&gt;NORVI relay not switching&lt;/td&gt;
+&lt;td&gt;Check GPIO pin in controller, verify relay ID&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Contactor clicks, pump dead&lt;/td&gt;
+&lt;td&gt;Contactor 1-2 not conducting&lt;/td&gt;
+&lt;td&gt;Check 230V supply, measure across terminals 1-2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Pump runs despite OFF&lt;/td&gt;
+&lt;td&gt;Welded contactor &lt;strong&gt;or&lt;/strong&gt; stuck NORVI relay&lt;/td&gt;
+&lt;td&gt;Replace contactor; NORVI diagnosis: measure GPIO level&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Contactor buzzing&lt;/td&gt;
+&lt;td&gt;Coil voltage too low&lt;/td&gt;
+&lt;td&gt;Check 24V supply (min 21.6V DC)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Controller resets on switching&lt;/td&gt;
+&lt;td&gt;Missing flyback diode&lt;/td&gt;
+&lt;td&gt;Add 1N4007 diode&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2&gt;References&lt;span class="hx:absolute hx:-mt-20" id="references"&gt;&lt;/span&gt;
+&lt;a href="#references" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a
+href="wiring-contactor.svg"&gt;SVG Wiring Diagram: Contactor Circuit&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/pool-controller/norvi-ae01-r/"&gt;NORVI AE01-R Configuration&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/pool-controller/hardware-guide/"&gt;Hardware Guide&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://www.findernet.com/en/series/22-series-industrial-relays/"target="_blank" rel="noopener"&gt;Finder 22 Datasheet&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://www.eaton.com"target="_blank" rel="noopener"&gt;Eaton DILM Datasheet&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>⚠️ Sicherheitshinweise &amp; Warnungen</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/safety/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/safety/</guid><description>
 &lt;h2&gt;⚠️ &lt;strong&gt;WICHTIGE SICHERHEITSHINWEISE&lt;/strong&gt;&lt;span class="hx:absolute hx:-mt-20" id="-wichtige-sicherheitshinweise"&gt;&lt;/span&gt;
 &lt;a href="#-wichtige-sicherheitshinweise" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;⚠️ ACHTUNG: DIESES PROJEKT ARBEITET MIT 230V WECHSELSTROM!&lt;/strong&gt; &amp;gt; &lt;strong&gt;FALSCHE HANDHABUNG KANN ZU SCHWEREN VERLETZUNGEN, BRAND ODER TOD FÜHREN!&lt;/strong&gt; &amp;gt; &lt;strong&gt;LESSEN SIE DIESE HINWEISE VOR DEM AUFBAU UNBEDINGT DURCH!&lt;/strong&gt;&lt;/p&gt;
@@ -8482,21 +8877,59 @@ to the default device index.&lt;/p&gt;
 One 4.7kΩ resistor between DATA (Pin 1) and 3.3V (Pin 7) is enough.
 Dupont cables: 3× Female-Female (red/yellow/black).
 ─── RELAY OUTPUTS (built-in) ─────────────────────────────────────────
-NORVI Relay Output 0 (GPIO14): Pool pump
-NORVI Relay Output 5 (GPIO33): Solar pump
-L (mains) ─── RCD ─── MCB ──┬── Relay COM0 ── Pool Pump NO
-└── Relay COM5 ── Solar Pump NO
-N (neutral) ───────────────────────── Neutral bar ── Pump N
-The NORVI relays are Normally Open (SPST) — connect your 230V AC
-loads between COM and NO. The relays are rated 5A/250V AC.
-&amp;gt; **Note:** Solar pump moved from Relay Output 1 (GPIO12) to Relay
-&amp;gt; Output 5 (GPIO33) after a field unit&amp;#39;s R1 channel was found
-&amp;gt; permanently conducting (relay audibly clicks, but COM1/NO1 never
-&amp;gt; opens) — a hardware fault (welded/fused contact or NO/NC
-&amp;gt; miswiring), confirmed not to be a firmware issue since Relay
-&amp;gt; Output 0 uses identical control logic and switches correctly.
-&amp;gt; If your R1 channel works fine, you can keep using it by reverting
-&amp;gt; `PIN_RELAY_SOLAR` in `Config.hpp`.
+╔══════════════════════════════════════════════════════════════════════╗
+║ ⚠ IMPORTANT — Motor Load Limitation ║
+║ ║
+║ The NORVI built-in relays are rated for **5A resistive load** ║
+║ (light bulbs, heaters, signal loads). A **pump is an inductive ║
+║ motor load** with 5–10× higher inrush current that can weld the ║
+║ relay contacts after a few hundred switching cycles. ║
+║ ║
+║ **Standard configuration:** Use the NORVI relays exclusively as ║
+║ **control relays for external DIN-rail contactors.** The contactor ║
+║ switches the 230V pump load; the NORVI relay switches only the ║
+║ contactor&amp;#39;s 24V DC coil (~20mA). This is zero-wear on the NORVI ║
+║ relays and fully reliable for the life of the installation. ║
+║ ║
+║ See → **[Contactor Wiring Guide](contactor-guide.md)** ║
+╚══════════════════════════════════════════════════════════════════════╝
+NORVI Relay Output 0 (GPIO14): Control signal → Pool contactor coil
+NORVI Relay Output 5 (GPIO33): Control signal → Solar contactor coil
+── Standard wiring (contactors) ─────────────────────────────────────
+24V DC (&amp;#43;) ──┬── NORVI R0 COM ── NO ──┬── Ext. Contactor Pool A1 ── A2 ──┬── GND
+│ │ │
+├── NORVI R5 COM ── NO ──┤── Ext. Contactor Solar A1 ── A2 ──┤
+│ │ │
+└───── NORVI 24V IN ─────┘ │
+│
+GND ─────────────────────────────────────────────────────────────────────┘
+Each contactor requires a 1N4007 flyback diode across its coil
+(cathode to A1, anode to A2). The 230V load side:
+L (mains) ─── RCD ─── MCB ──┬── Contactor Solar 1-2 ── Solar Pump L
+└── Contactor Pool 1-2 ─── Pool Pump L
+N (neutral) ───────────────────────── Neutral bar ── Both Pumps N
+── Alternative: direct wiring (resistive loads only) ─────────────────
+If you are switching **non-motor loads** (heating elements, LED
+lighting, valves, signal lamps), the NORVI relays can be wired
+directly. They are Normally Open (SPST), rated 5A/250V AC.
+L (mains) ─── RCD ─── MCB ──┬── NORVI COM0 ── NO0 ── Resistive Load
+└── NORVI COM5 ── NO5 ── Resistive Load
+N (neutral) ───────────────────────── Neutral bar ── Load N
+&amp;gt; **Do not wire pumps or any inductive motor load directly to the
+&amp;gt; NORVI relays.** The contacts will fail (weld closed) under the
+&amp;gt; inrush current. Use external contactors as shown above.
+── Field report ─────────────────────────────────────────────────────
+In one field installation, a solar pump (300–600W) was first connected
+to Relay Output 1 (GPIO12, R1). After a few hundred switching cycles,
+R1 developed a welded contact — the relay clicked audibly but the NO
+contact never opened. The pump was then rewired to Relay Output 5
+(GPIO33, R5), which had the same failure weeks later. Relay Output 0
+(GPIO14, pool pump) continued working throughout because the pool
+pump has a different motor characteristic (lower inrush, capacitor
+start, or soft-start).
+**Common factor: the solar pump motor load, not the relay hardware.**
+See the [Contactor Wiring Guide](contactor-guide.md) for the
+permanently reliable solution.
 ⚡ Relay polarity: Unlike standard external relay modules (which are
 typically active-LOW: LOW = ON, HIGH = OFF), the NORVI AE01-R built-in
 relays are **active-HIGH**: writing `HIGH` to the GPIO pin energizes
@@ -8909,6 +9342,10 @@ href="kicad/norvi-ae01-r/norvi-ae01-r-schematic.pdf"&gt;KiCad Schematic: NORVI A
 &lt;li&gt;&lt;a
 href="https://smart-swimmingpool.github.io/docs/pool-controller/hardware-guide/"&gt;Main Hardware Guide&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/pool-controller/contactor-guide/"&gt;Contactor Wiring Guide&lt;/a&gt; — External contactors for reliable pump switching&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="wiring-contactor.svg"&gt;SVG Wiring Diagram: Contactor Circuit&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
 href="https://github.com/smart-swimmingpool/pool-controller/blob/main/src/Config.hpp"target="_blank" rel="noopener"&gt;Config.hpp pin source&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description></item><item><title>Hardware Guide</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/hardware-guide/</link><pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/hardware-guide/</guid><description>
 &lt;h2&gt;Overview&lt;span class="hx:absolute hx:-mt-20" id="overview"&gt;&lt;/span&gt;
@@ -9225,7 +9662,7 @@ between the DATA pin and the 3.3V rail. The resistor can be any 4.7kΩ ±5%
 to activate (close) the relay. If your relay module switches with LOW instead
 (active-low), look for a &lt;strong&gt;jumper&lt;/strong&gt; on the module to change the mode, or choose
 a different module — active-high modules are easier to work with.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Load wiring (230V side):&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Load wiring (230V side) — Standard external relay module:&lt;/strong&gt;&lt;/p&gt;
 &lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
 &lt;div&gt;&lt;pre&gt;&lt;code&gt; L (mains live) ─── RCD ─── MCB ──┬── Relay COM1 ── Pool Pump
 │ NO1 ─────┘
@@ -9245,10 +9682,35 @@ data-copied-label="Copied!"
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;ul&gt;
-&lt;li&gt;Connect the pump&amp;rsquo;s live wire to the relay&amp;rsquo;s &lt;strong&gt;COM&lt;/strong&gt; (common) terminal.&lt;/li&gt;
-&lt;li&gt;Connect the relay&amp;rsquo;s &lt;strong&gt;NO&lt;/strong&gt; (normally open) terminal to the pump.&lt;/li&gt;
-&lt;li&gt;The other pump wire goes to &lt;strong&gt;neutral (N)&lt;/strong&gt;.&lt;/li&gt;
-&lt;li&gt;Always wire the 230V circuit through an &lt;strong&gt;RCD and appropriately rated MCB&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Connect the pump&amp;rsquo;s live wire to the relay&amp;rsquo;s &lt;strong&gt;COM&lt;/strong&gt; (common) terminal.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Connect the relay&amp;rsquo;s &lt;strong&gt;NO&lt;/strong&gt; (normally open) terminal to the pump.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The other pump wire goes to &lt;strong&gt;neutral (N)&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Always wire the 230V circuit through an &lt;strong&gt;RCD and appropriately rated MCB&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;╔══════════════════════════════════════════════════════════════════════╗
+║ ⚠ IMPORTANT — Motor Load Limitation (same as NORVI) ║
+║ ║
+║ External 5V relay modules (e.g. SRD-05VDC-SL-C) are specified ║
+║ for &lt;strong&gt;resistive loads&lt;/strong&gt; (typically 10A/250V AC). A &lt;strong&gt;pump is an ║
+║ inductive motor load&lt;/strong&gt; with 5–10× higher inrush current that can ║
+║ weld the relay contacts after repeated switching, just like the ║
+║ NORVI built-in relays. ║
+║ ║
+║ If you are switching pumps or any motor load &amp;gt;300W: ║
+║ → Use the ESP32 relay to switch a &lt;strong&gt;DIN-rail contactor&lt;/strong&gt; ║
+║ → The contactor handles the motor load; the 5V relay is only a ║
+║ control interface (no contact wear) ║
+║ ║
+║ See → &lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/pool-controller/contactor-guide/"&gt;Contactor Wiring Guide&lt;/a&gt;&lt;/strong&gt; ║
+╚══════════════════════════════════════════════════════════════════════╝&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4&gt;3. Power Supply&lt;span class="hx:absolute hx:-mt-20" id="3-power-supply"&gt;&lt;/span&gt;
 &lt;a href="#3-power-supply" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;table&gt;
@@ -9516,6 +9978,19 @@ data-copied-label="Copied!"
 &lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Does the LED on the relay module light up when GPIO goes HIGH?&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
+&lt;h2&gt;⚠ Important: Relay Contacts Under Motor Load (Pumps)&lt;span class="hx:absolute hx:-mt-20" id="-important-relay-contacts-under-motor-load-pumps"&gt;&lt;/span&gt;
+&lt;a href="#-important-relay-contacts-under-motor-load-pumps" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The relays used in this project (NORVI on-board relays as well as external 5V
+modules) are specified for &lt;strong&gt;resistive loads&lt;/strong&gt;. A &lt;strong&gt;pump is an inductive motor
+load&lt;/strong&gt; with 5–10× higher inrush current. This can cause &lt;strong&gt;welded relay
+contacts&lt;/strong&gt; after a few hundred switching cycles — the relay still clicks, but
+the NO contact never opens, and the pump runs continuously even with the
+controller showing OFF.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Recommendation:&lt;/strong&gt; For pumps &amp;gt;300W, always use &lt;strong&gt;external DIN-rail
+contactors&lt;/strong&gt; between the relay and the pump. The relay then switches only
+the contactor&amp;rsquo;s 24V coil (a few mA) — the contactor&amp;rsquo;s main contacts handle
+the 230V load. See the dedicated guide:&lt;/p&gt;
+&lt;p&gt;👉 &lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/pool-controller/contactor-guide/"&gt;Contactor Wiring Guide&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;h2&gt;Troubleshooting&lt;span class="hx:absolute hx:-mt-20" id="troubleshooting"&gt;&lt;/span&gt;
 &lt;a href="#troubleshooting" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
 &lt;thead&gt;
@@ -9550,6 +10025,12 @@ data-copied-label="Copied!"
 &lt;td&gt;Relay clicks but pump doesn&amp;rsquo;t run&lt;/td&gt;
 &lt;td&gt;230V wiring issue&lt;/td&gt;
 &lt;td&gt;Check COM/NO terminals, verify pump connection&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Pump runs despite OFF display&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Welded relay contact (motor load)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Use external contactor&lt;/strong&gt; (see &lt;a
+href="https://smart-swimmingpool.github.io/docs/pool-controller/contactor-guide/"&gt;Contactor Guide&lt;/a&gt;)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;ESP32 won&amp;rsquo;t boot (brownout)&lt;/td&gt;
@@ -9705,6 +10186,10 @@ href="https://smart-swimmingpool.github.io/docs/pool-controller/norvi-ae01-r/"&g
 href="https://smart-swimmingpool.github.io/docs/pool-controller/esp32-schematic-optimization/"&gt;ESP32 Schematic Optimization (DE)&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a
 href="https://smart-swimmingpool.github.io/docs/pool-controller/esp32-complete-wiring-schematic/"&gt;ESP32 Complete Wiring Schematic (DE)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/pool-controller/contactor-guide/"&gt;Contactor Wiring Guide&lt;/a&gt; — External contactors for reliable pump switching&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="wiring-contactor.svg"&gt;SVG Wiring Diagram: Contactor Circuit&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a
 href="https://www.analog.com/media/en/technical-documentation/data-sheets/DS18B20.pdf"target="_blank" rel="noopener"&gt;DS18B20 Datasheet&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a
