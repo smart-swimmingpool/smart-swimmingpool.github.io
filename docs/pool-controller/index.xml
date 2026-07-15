@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Pool Controller</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/</link><description>Recent content in Pool Controller on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/docs/pool-controller/index.xml" rel="self" type="application/rss+xml"/><item><title>Quick Start Guide</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/quick-start/</link><pubDate>Mon, 13 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/quick-start/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Pool Controller</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/</link><description>Recent content in Pool Controller on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/docs/pool-controller/index.xml" rel="self" type="application/rss+xml"/><item><title>Quick Start Guide</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/quick-start/</link><pubDate>Wed, 15 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/quick-start/</guid><description>
 &lt;p&gt;&lt;strong&gt;Target audience:&lt;/strong&gt; DIY enthusiasts with &lt;strong&gt;basic electronics knowledge&lt;/strong&gt; (soldering, GPIO, MQTT).
 &lt;strong&gt;Time required:&lt;/strong&gt; ~4\u20136 hours (including parts sourcing).
 &lt;strong&gt;Cost:&lt;/strong&gt; ~45\u201375\u20ac (excluding pumps and pool infrastructure).&lt;/p&gt;
@@ -961,7 +961,7 @@ href="https://www.reddit.com/r/homeassistant/"target="_blank" rel="noopener"&gt;
 &lt;hr&gt;
 &lt;p align="center"&gt;
 ✅ Congratulations! You now have a smart swimming pool! ✅\n \n Made with ❤️ by the Smart Swimming Pool community
-&lt;/p&gt;</description></item><item><title>Frequently Asked Questions (FAQ)</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/faq/</link><pubDate>Mon, 13 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/faq/</guid><description>
+&lt;/p&gt;</description></item><item><title>Frequently Asked Questions (FAQ)</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/faq/</link><pubDate>Wed, 15 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/faq/</guid><description>
 &lt;p&gt;This FAQ covers &lt;strong&gt;common issues&lt;/strong&gt; and their solutions for the &lt;strong&gt;Smart Swimming Pool Controller&lt;/strong&gt;.
 If your problem isn&amp;rsquo;t listed here, check the
 &lt;a
@@ -1233,7 +1233,7 @@ href="https://github.com/smart-swimmingpool/pool-controller/issues/new"target="_
 &lt;/ol&gt;
 &lt;hr&gt;
 &lt;h2&gt;📄 License&lt;span class="hx:absolute hx:-mt-20" id="-license"&gt;&lt;/span&gt;
-&lt;a href="#-license" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This FAQ is part of the &lt;strong&gt;Smart Swimming Pool&lt;/strong&gt; project, licensed under the &lt;strong&gt;MIT License&lt;/strong&gt;.&lt;/p&gt;</description></item><item><title>Temperature-Based Circulation Time</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/temperature-based-circulation/</link><pubDate>Mon, 13 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/temperature-based-circulation/</guid><description>
+&lt;a href="#-license" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This FAQ is part of the &lt;strong&gt;Smart Swimming Pool&lt;/strong&gt; project, licensed under the &lt;strong&gt;MIT License&lt;/strong&gt;.&lt;/p&gt;</description></item><item><title>Temperature-Based Circulation Time</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/temperature-based-circulation/</link><pubDate>Wed, 15 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/temperature-based-circulation/</guid><description>
 &lt;h1&gt;Temperature-Based Circulation Time&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;Optimize pool circulation for better water quality with minimal power consumption.&lt;/strong&gt;&lt;/p&gt;
 &lt;h2&gt;1. Motivation&lt;span class="hx:absolute hx:-mt-20" id="1-motivation"&gt;&lt;/span&gt;
 &lt;a href="#1-motivation" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The pool pump is the largest power consumer in a swimming pool. At the same time, it determines water quality. The required circulation volume strongly depends on water temperature:&lt;/p&gt;
@@ -1793,7 +1793,7 @@ data-copied-label="Copied!"
 &lt;li&gt;&lt;strong&gt;Cold reduction&lt;/strong&gt;: Optional &lt;code&gt;tempCircMinRuntime&lt;/code&gt; below a lower threshold&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Trend-based&lt;/strong&gt;: Factor in whether temperature is rising or falling&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Seasonal calendar&lt;/strong&gt;: Automatically adjust base parameters for summer/winter&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/security-fixes-v3.2.1/</link><pubDate>Mon, 13 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/security-fixes-v3.2.1/</guid><description>
+&lt;/ul&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/security-fixes-v3.2.1/</link><pubDate>Wed, 15 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/security-fixes-v3.2.1/</guid><description>
 &lt;h1&gt;Security Fixes v3.2.1&lt;/h1&gt;&lt;p&gt;This document provides comprehensive documentation of all security vulnerabilities and memory leaks identified and
 fixed in Pool Controller v3.2.1. All changes have been validated through CI/CD pipeline and address critical, high, and
 medium priority issues.&lt;/p&gt;
@@ -2708,7 +2708,7 @@ Discussions&lt;/a&gt;&lt;/li&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;⚠️ DISCLAIMER&lt;/strong&gt;: While these fixes address identified vulnerabilities, no system can be 100% secure. Users are
 responsible for their own security configurations and should follow best practices for IoT device security.&lt;/p&gt;
-&lt;/blockquote&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/security-references/</link><pubDate>Mon, 13 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/security-references/</guid><description>
+&lt;/blockquote&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/security-references/</link><pubDate>Wed, 15 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/security-references/</guid><description>
 &lt;h1&gt;Security References &amp;amp; Best Practices&lt;/h1&gt;&lt;p&gt;This document contains security references, best practices, and implementation
 guidelines for the Pool Controller project. These references were compiled during the
 comprehensive IoT security analysis performed on 2025-01-15.&lt;/p&gt;
@@ -3089,7 +3089,7 @@ href="../.opencode/skills/cpp-code-quality/SKILL.md"&gt;C++ Code Quality Skill&l
 &lt;strong&gt;🔍 Analysis Performed By&lt;/strong&gt;: Vibe Code - IoT Security Expert Mode
 &lt;strong&gt;📝 Related PR&lt;/strong&gt;:
 &lt;a
-href="https://github.com/smart-swimmingpool/pool-controller/pull/112"target="_blank" rel="noopener"&gt;#112 - IoT Security &amp;amp; Memory Optimization Analysis&lt;/a&gt;&lt;/p&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/tasmota-ota-review/</link><pubDate>Mon, 13 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/tasmota-ota-review/</guid><description>
+href="https://github.com/smart-swimmingpool/pool-controller/pull/112"target="_blank" rel="noopener"&gt;#112 - IoT Security &amp;amp; Memory Optimization Analysis&lt;/a&gt;&lt;/p&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/tasmota-ota-review/</link><pubDate>Wed, 15 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/tasmota-ota-review/</guid><description>
 &lt;h1&gt;Tasmota OTA Update Verification Review&lt;/h1&gt;&lt;p&gt;This document provides a comprehensive analysis of Tasmota&amp;rsquo;s OTA (Over-The-Air) update verification approach and
 evaluates which aspects could be beneficial to adapt for the Pool Controller project.&lt;/p&gt;
 &lt;h2&gt;Executive Summary&lt;span class="hx:absolute hx:-mt-20" id="executive-summary"&gt;&lt;/span&gt;
@@ -11126,10 +11126,13 @@ href="https://home-assistant.io"target="_blank" rel="noopener"&gt;Home Assistant
 &lt;h2&gt;MQTT Discovery&lt;span class="hx:absolute hx:-mt-20" id="mqtt-discovery"&gt;&lt;/span&gt;
 &lt;a href="#mqtt-discovery" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The controller publishes &lt;a
 href="https://www.home-assistant.io/integrations/mqtt/#mqtt-discovery"target="_blank" rel="noopener"&gt;HA MQTT Discovery&lt;/a&gt;
-payloads on startup and on MQTT reconnect. No manual MQTT configuration is needed \u2014 devices appear in Home
+payloads on startup and on MQTT reconnect. No manual MQTT configuration is needed — devices appear in Home
 Assistant automatically.&lt;/p&gt;
 &lt;h3&gt;Available Entities&lt;span class="hx:absolute hx:-mt-20" id="available-entities"&gt;&lt;/span&gt;
-&lt;a href="#available-entities" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;a href="#available-entities" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Entity IDs are derived from the &lt;code&gt;name&lt;/code&gt; field in each discovery payload (e.g. name &lt;code&gt;&amp;quot;Pool Temperature&amp;quot;&lt;/code&gt;
+produces &lt;code&gt;sensor.&amp;lt;prefix&amp;gt;_pool_temperature&lt;/code&gt;). Replace &lt;code&gt;&amp;lt;prefix&amp;gt;&lt;/code&gt; with your device prefix
+(see warning below).&lt;/p&gt;
+&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
 &lt;th&gt;Domain&lt;/th&gt;
@@ -11142,13 +11145,13 @@ Assistant automatically.&lt;/p&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;sensor&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;pool_temperature&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;\u2014&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
 &lt;td&gt;Pool water temperature&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;sensor&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;solar_temperature&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;\u2014&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
 &lt;td&gt;Solar collector temperature&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -11207,14 +11210,14 @@ Assistant automatically.&lt;/p&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;binary_sensor&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;mqtt_status&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;mqtt_connected&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;diagnostic&lt;/td&gt;
 &lt;td&gt;MQTT connection status&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;select&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;mode&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;\u2014&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;operation_mode&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
 &lt;td&gt;Operating mode (auto/manu/boost/timer)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -11238,62 +11241,62 @@ Assistant automatically.&lt;/p&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;switch&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;pool_pump&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;\u2014&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
 &lt;td&gt;Pool circulation pump&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;switch&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;solar_pump&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;\u2014&lt;/td&gt;
-&lt;td&gt;Solar circulation pump&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td&gt;Solar heating pump&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;pool_max_temp&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;maximum_pool_temperature&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;config&lt;/td&gt;
-&lt;td&gt;Maximum pool temperature (\u00b0C)&lt;/td&gt;
+&lt;td&gt;Maximum pool temperature target&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;solar_min_temp&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;minimum_solar_temperature&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;config&lt;/td&gt;
-&lt;td&gt;Minimum solar temperature (\u00b0C)&lt;/td&gt;
+&lt;td&gt;Minimum solar activation temperature&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;hysteresis&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;temperature_hysteresis&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;config&lt;/td&gt;
-&lt;td&gt;Temperature hysteresis (K)&lt;/td&gt;
+&lt;td&gt;Temperature hysteresis value&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;temp_circ_threshold&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;circulation_temperature_threshold&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;config&lt;/td&gt;
-&lt;td&gt;Circulation temperature threshold (\u00b0C)&lt;/td&gt;
+&lt;td&gt;Temperature-based circulation threshold&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;temp_circ_factor&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;circulation_temperature_factor&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;config&lt;/td&gt;
-&lt;td&gt;Circulation temperature factor (min/\u00b0C)&lt;/td&gt;
+&lt;td&gt;Temperature-based circulation factor&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;temp_circ_max_runtime&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;circulation_maximum_runtime&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;config&lt;/td&gt;
-&lt;td&gt;Circulation maximum runtime (min)&lt;/td&gt;
+&lt;td&gt;Temperature-based circulation max runtime&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;time&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;timer_start&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;config&lt;/td&gt;
-&lt;td&gt;Timer start time (HH:MM:SS)&lt;/td&gt;
+&lt;td&gt;Timer start time (HH:MM)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;time&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;timer_end&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;config&lt;/td&gt;
-&lt;td&gt;Timer end time (HH:MM:SS)&lt;/td&gt;
+&lt;td&gt;Timer end time (HH:MM)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;text&lt;/code&gt;&lt;/td&gt;
@@ -11304,157 +11307,47 @@ Assistant automatically.&lt;/p&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;update&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;firmware&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;\u2014&lt;/td&gt;
+&lt;td&gt;config&lt;/td&gt;
 &lt;td&gt;Firmware update entity&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;climate&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;pool_climate&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;\u2014&lt;/td&gt;
-&lt;td&gt;Pool temperature control with preset modes&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;pool_thermostat&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;config&lt;/td&gt;
+&lt;td&gt;Pool thermostat (HVAC mode + target temp)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3&gt;Entity Details&lt;span class="hx:absolute hx:-mt-20" id="entity-details"&gt;&lt;/span&gt;
-&lt;a href="#entity-details" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;Temperature Sensors&lt;span class="hx:absolute hx:-mt-20" id="temperature-sensors"&gt;&lt;/span&gt;
-&lt;a href="#temperature-sensors" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;All temperature sensors report values in \u00b0C with 1 decimal precision.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Entity IDs&lt;/strong&gt; in HA are generated from the MQTT discovery &lt;code&gt;name&lt;/code&gt; field. The entity_id will be
+&lt;code&gt;sensor.&amp;lt;device_prefix&amp;gt;_pool_temperature&lt;/code&gt; etc. — where &lt;code&gt;&amp;lt;device_prefix&amp;gt;&lt;/code&gt; is typically
+&lt;code&gt;pool_controller&lt;/code&gt; (from the device name). Check &lt;strong&gt;Developer Tools → Entities&lt;/strong&gt; and filter by
+&amp;ldquo;pool&amp;rdquo; to find your actual IDs. Replace &lt;code&gt;pool_controller&lt;/code&gt; in the dashboard YAML with your
+device prefix if it differs.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Lovelace Dashboard&lt;span class="hx:absolute hx:-mt-20" id="lovelace-dashboard"&gt;&lt;/span&gt;
+&lt;a href="#lovelace-dashboard" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;A pre-built Lovelace dashboard configuration is provided in &lt;a
+href="dashboard.yaml"&gt;&lt;code&gt;dashboard.yaml&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;Features&lt;span class="hx:absolute hx:-mt-20" id="features"&gt;&lt;/span&gt;
+&lt;a href="#features" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Two audience-specific views:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;sensor.pool_temperature&lt;/code&gt;&lt;/strong&gt;: Current pool water temperature. Used for automation and climate control.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;sensor.solar_temperature&lt;/code&gt;&lt;/strong&gt;: Current solar collector temperature. Used to determine if solar heating is beneficial.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;sensor.controller_temperature&lt;/code&gt;&lt;/strong&gt;: ESP32 chip temperature for device monitoring.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🏊 Pool view&lt;/strong&gt; — for the pool operator (daily operation): Temperature gauges, mode switching (with active-mode highlighting), timer, pump control, climate thermostat, temperature-based circulation settings, 24h history with controller temperature&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚙ System view&lt;/strong&gt; — for the IoT developer (diagnostics &amp;amp; configuration): Timezone &amp;amp; NTP, sensor mapping (DS18B20 address selection), system diagnostics (heap, WiFi, uptime, controller temperature, effective runtime), firmware updates&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4&gt;Binary Sensors&lt;span class="hx:absolute hx:-mt-20" id="binary-sensors"&gt;&lt;/span&gt;
-&lt;a href="#binary-sensors" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;binary_sensor.pool_sensor_found&lt;/code&gt;&lt;/strong&gt;: Indicates if the pool temperature sensor is detected (Found/Missing). Uses &lt;code&gt;connectivity&lt;/code&gt; device class for green/red visualization in HA.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;binary_sensor.solar_sensor_found&lt;/code&gt;&lt;/strong&gt;: Indicates if the solar temperature sensor is detected (Found/Missing). Uses &lt;code&gt;connectivity&lt;/code&gt; device class for green/red visualization in HA.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;binary_sensor.mqtt_status&lt;/code&gt;&lt;/strong&gt;: Indicates MQTT connection status (ON/OFF). Uses &lt;code&gt;connectivity&lt;/code&gt; device class.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;Switches&lt;span class="hx:absolute hx:-mt-20" id="switches"&gt;&lt;/span&gt;
-&lt;a href="#switches" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;switch.pool_pump&lt;/code&gt;&lt;/strong&gt;: Controls the pool circulation pump. Device class: &lt;code&gt;outlet&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;switch.solar_pump&lt;/code&gt;&lt;/strong&gt;: Controls the solar circulation pump. Device class: &lt;code&gt;outlet&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;Number Entities&lt;span class="hx:absolute hx:-mt-20" id="number-entities"&gt;&lt;/span&gt;
-&lt;a href="#number-entities" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;All number entities support configuration changes via Home Assistant UI:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;number.pool_max_temp&lt;/code&gt;&lt;/strong&gt;: Maximum desired pool temperature (0.0\u201440.0\u00b0C, step 0.1).&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;number.solar_min_temp&lt;/code&gt;&lt;/strong&gt;: Minimum solar temperature for heating (0.0\u2014100.0\u00b0C, step 0.1).&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;number.hysteresis&lt;/code&gt;&lt;/strong&gt;: Temperature difference required to turn pumps off (0.0\u201410.0 K, step 0.1).&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;number.temp_circ_threshold&lt;/code&gt;&lt;/strong&gt;: Temperature threshold for circulation (0.0\u201440.0\u00b0C, step 0.5).&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;number.temp_circ_factor&lt;/code&gt;&lt;/strong&gt;: Circulation factor based on temperature (0.0\u2014120.0 min/\u00b0C, step 5.0).&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;number.temp_circ_max_runtime&lt;/code&gt;&lt;/strong&gt;: Maximum circulation runtime (60.0\u20141440.0 min, step 15.0).&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;Select Entities&lt;span class="hx:absolute hx:-mt-20" id="select-entities"&gt;&lt;/span&gt;
-&lt;a href="#select-entities" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;select.mode&lt;/code&gt;&lt;/strong&gt;: Operation mode selection. Options: &lt;code&gt;auto&lt;/code&gt;, &lt;code&gt;manu&lt;/code&gt; (manual), &lt;code&gt;boost&lt;/code&gt;, &lt;code&gt;timer&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;select.pool_sensor&lt;/code&gt;&lt;/strong&gt;: Pool sensor address mapping. Options are dynamically populated from detected 1-Wire devices.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;select.solar_sensor&lt;/code&gt;&lt;/strong&gt;: Solar sensor address mapping. Options are dynamically populated from detected 1-Wire devices.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;select.timezone&lt;/code&gt;&lt;/strong&gt;: Timezone selection for local time display.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;Time Entities&lt;span class="hx:absolute hx:-mt-20" id="time-entities"&gt;&lt;/span&gt;
-&lt;a href="#time-entities" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;time.timer_start&lt;/code&gt;&lt;/strong&gt;: Start time for timer-based circulation (HH:MM:SS format).&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;time.timer_end&lt;/code&gt;&lt;/strong&gt;: End time for timer-based circulation (HH:MM:SS format).&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;Text Entities&lt;span class="hx:absolute hx:-mt-20" id="text-entities"&gt;&lt;/span&gt;
-&lt;a href="#text-entities" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;text.ntp_server&lt;/code&gt;&lt;/strong&gt;: NTP server address for time synchronization.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;Update Entity&lt;span class="hx:absolute hx:-mt-20" id="update-entity"&gt;&lt;/span&gt;
-&lt;a href="#update-entity" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;update.firmware&lt;/code&gt;&lt;/strong&gt;: Firmware update entity for OTA updates.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;Climate Entity&lt;span class="hx:absolute hx:-mt-20" id="climate-entity"&gt;&lt;/span&gt;
-&lt;a href="#climate-entity" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;climate.pool_climate&lt;/code&gt;&lt;/strong&gt;: Thermostat-style climate control with the following features:
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Current Temperature&lt;/strong&gt;: Pool water temperature&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Target Temperature&lt;/strong&gt;: Configurable via &lt;code&gt;number.pool_max_temp&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Temperature Unit&lt;/strong&gt;: \u00b0C&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Preset Modes&lt;/strong&gt;: Maps to operation modes
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;none&lt;/code&gt; \u2192 &lt;code&gt;auto&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;manual&lt;/code&gt; \u2192 &lt;code&gt;manu&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;schedule&lt;/code&gt; \u2192 &lt;code&gt;timer&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;boost&lt;/code&gt; \u2192 &lt;code&gt;boost&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;State Classes&lt;span class="hx:absolute hx:-mt-20" id="state-classes"&gt;&lt;/span&gt;
-&lt;a href="#state-classes" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;All sensor entities now include appropriate &lt;code&gt;state_class&lt;/code&gt; for Home Assistant history statistics:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;measurement&lt;/code&gt;&lt;/strong&gt;: Temperature sensors, heap, max_alloc_block, wifi_signal_strength, effective_runtime&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;total_increasing&lt;/code&gt;&lt;/strong&gt;: System uptime&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;This enables long-term statistics and energy monitoring in Home Assistant.&lt;/p&gt;
-&lt;h3&gt;Device Classes&lt;span class="hx:absolute hx:-mt-20" id="device-classes"&gt;&lt;/span&gt;
-&lt;a href="#device-classes" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;connectivity&lt;/code&gt;&lt;/strong&gt;: binary_sensor.pool_sensor_found, binary_sensor.solar_sensor_found, binary_sensor.mqtt_status&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;signal_strength&lt;/code&gt;&lt;/strong&gt;: sensor.wifi_signal_strength (RSSI in dBm)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;temperature&lt;/code&gt;&lt;/strong&gt;: All temperature sensors&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;outlet&lt;/code&gt;&lt;/strong&gt;: pool_pump, solar_pump switches&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Migration from Legacy Configs&lt;span class="hx:absolute hx:-mt-20" id="migration-from-legacy-configs"&gt;&lt;/span&gt;
-&lt;a href="#migration-from-legacy-configs" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;If you have existing MQTT configurations for &lt;code&gt;sensor.pool_sensor_found&lt;/code&gt; or &lt;code&gt;sensor.solar_sensor_found&lt;/code&gt; (which were text sensors with &amp;ldquo;Found&amp;rdquo;/&amp;ldquo;Missing&amp;rdquo; states), these will be automatically cleaned up on MQTT connect. The new entities use the &lt;code&gt;binary_sensor&lt;/code&gt; domain with proper device class for better visualization.&lt;/p&gt;
-&lt;p&gt;Old config topics:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;homeassistant/sensor/pool-controller/pool-sensor-found/config&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;homeassistant/sensor/pool-controller/solar-sensor-found/config&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;These topics will be removed when the controller connects to MQTT.&lt;/p&gt;
-&lt;h3&gt;Lovelace Dashboard&lt;span class="hx:absolute hx:-mt-20" id="lovelace-dashboard"&gt;&lt;/span&gt;
-&lt;a href="#lovelace-dashboard" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;A ready-to-use Lovelace dashboard YAML is available in &lt;a
-href="dashboard.yaml"&gt;dashboard.yaml&lt;/a&gt;. Import it via:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Home Assistant \u2192 Settings \u2192 Dashboards \u2192 Add Dashboard&lt;/li&gt;
-&lt;li&gt;Select &amp;ldquo;Import&amp;rdquo; and paste the YAML content&lt;/li&gt;
-&lt;li&gt;Customize cards as needed&lt;/li&gt;
+&lt;h3&gt;Setup&lt;span class="hx:absolute hx:-mt-20" id="setup"&gt;&lt;/span&gt;
+&lt;a href="#setup" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Copy the YAML file to your HA configuration directory&lt;/li&gt;
+&lt;li&gt;Open HA → &lt;strong&gt;Dashboard → Edit → Three-dot menu → Raw Configuration Editor&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Paste the content&lt;/li&gt;
+&lt;li&gt;Adjust entity IDs to match your installation (see warning below)&lt;/li&gt;
+&lt;li&gt;Save&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;The dashboard includes:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Temperature overview cards&lt;/li&gt;
-&lt;li&gt;Pump control cards&lt;/li&gt;
-&lt;li&gt;Mode selection&lt;/li&gt;
-&lt;li&gt;Configuration parameters&lt;/li&gt;
-&lt;li&gt;System diagnostics&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Troubleshooting&lt;span class="hx:absolute hx:-mt-20" id="troubleshooting"&gt;&lt;/span&gt;
-&lt;a href="#troubleshooting" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;Entities Not Appearing&lt;span class="hx:absolute hx:-mt-20" id="entities-not-appearing"&gt;&lt;/span&gt;
-&lt;a href="#entities-not-appearing" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Check MQTT Connection&lt;/strong&gt;: Verify the controller is connected to your MQTT broker.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Check Discovery Topics&lt;/strong&gt;: Look for messages on &lt;code&gt;homeassistant/#&lt;/code&gt; topics.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Restart Home Assistant&lt;/strong&gt;: Sometimes HA needs a restart to pick up new discovery messages.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Check Logs&lt;/strong&gt;: The controller logs MQTT discovery messages on startup.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4&gt;Device Not Available&lt;span class="hx:absolute hx:-mt-20" id="device-not-available"&gt;&lt;/span&gt;
-&lt;a href="#device-not-available" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;Verify the MQTT broker is running and accessible&lt;/li&gt;
-&lt;li&gt;Check the controller&amp;rsquo;s serial output for connection errors&lt;/li&gt;
-&lt;li&gt;Ensure the controller has network connectivity&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;Temperature Readings Incorrect&lt;span class="hx:absolute hx:-mt-20" id="temperature-readings-incorrect"&gt;&lt;/span&gt;
-&lt;a href="#temperature-readings-incorrect" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;Verify sensor wiring (1-Wire bus for DS18B20 sensors)&lt;/li&gt;
-&lt;li&gt;Check for electrical interference on long sensor cables&lt;/li&gt;
-&lt;li&gt;Ensure proper pull-up resistors are installed&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;Configuration&lt;span class="hx:absolute hx:-mt-20" id="configuration"&gt;&lt;/span&gt;
-&lt;a href="#configuration" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;No configuration is required for MQTT Discovery. The controller automatically:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Generates a unique device identifier based on MAC address&lt;/li&gt;
-&lt;li&gt;Publishes discovery messages for all entities on startup&lt;/li&gt;
-&lt;li&gt;Re-publishes discovery messages on MQTT reconnect&lt;/li&gt;
-&lt;li&gt;Updates entity states periodically&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Customizing Entity IDs&lt;span class="hx:absolute hx:-mt-20" id="customizing-entity-ids"&gt;&lt;/span&gt;
-&lt;a href="#customizing-entity-ids" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;To customize entity IDs, modify the &lt;code&gt;objectId&lt;/code&gt; parameters in the &lt;code&gt;publishDiscovery()&lt;/code&gt; method and update the corresponding state publishing calls.&lt;/p&gt;
-&lt;h3&gt;MQTT Topics&lt;span class="hx:absolute hx:-mt-20" id="mqtt-topics"&gt;&lt;/span&gt;
-&lt;a href="#mqtt-topics" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;All entities follow the Home Assistant MQTT Discovery convention:&lt;/p&gt;
+&lt;h3&gt;Dependencies&lt;span class="hx:absolute hx:-mt-20" id="dependencies"&gt;&lt;/span&gt;
+&lt;a href="#dependencies" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The mode buttons use &lt;a
+href="https://github.com/custom-cards/button-card"target="_blank" rel="noopener"&gt;&lt;code&gt;button-card&lt;/code&gt;&lt;/a&gt; (custom card) to visually
+highlight the active operation mode:&lt;/p&gt;
 &lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
-&lt;div&gt;&lt;pre&gt;&lt;code&gt;homeassistant/&amp;lt;component&amp;gt;/pool-controller/&amp;lt;object_id&amp;gt;/config
-homeassistant/&amp;lt;component&amp;gt;/pool-controller/&amp;lt;object_id&amp;gt;/state&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;HACS → Frontend → button-card → Install&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
 &lt;button
 class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
 title="Copy code"
@@ -11466,36 +11359,17 @@ data-copied-label="Copied!"
 &lt;/button&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;For commands (switches, numbers, selects):&lt;/p&gt;
-&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
-&lt;div&gt;&lt;pre&gt;&lt;code&gt;homeassistant/&amp;lt;component&amp;gt;/pool-controller/&amp;lt;object_id&amp;gt;/set&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
-&lt;button
-class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
-title="Copy code"
-aria-label="Copy code"
-data-copied-label="Copied!"
-&gt;
-&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
-&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
-&lt;/button&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;h3&gt;Availability&lt;span class="hx:absolute hx:-mt-20" id="availability"&gt;&lt;/span&gt;
-&lt;a href="#availability" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;All entities use the same availability topic:&lt;/p&gt;
-&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
-&lt;div&gt;&lt;pre&gt;&lt;code&gt;homeassistant/sensor/pool-controller/availability&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
-&lt;button
-class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
-title="Copy code"
-aria-label="Copy code"
-data-copied-label="Copied!"
-&gt;
-&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
-&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
-&lt;/button&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;This topic publishes &lt;code&gt;online&lt;/code&gt; when the controller is connected and &lt;code&gt;offline&lt;/code&gt; when disconnected.&lt;/p&gt;</description></item><item><title>Software Guide</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/software-guide/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/software-guide/</guid><description>
+&lt;p&gt;Without &lt;code&gt;button-card&lt;/code&gt;, replace &lt;code&gt;custom:button-card&lt;/code&gt; with &lt;code&gt;type: button&lt;/code&gt; in the grid cards (loses
+active-mode highlighting).&lt;/p&gt;
+&lt;h3&gt;Entity ID Warning&lt;span class="hx:absolute hx:-mt-20" id="entity-id-warning"&gt;&lt;/span&gt;
+&lt;a href="#entity-id-warning" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Entity IDs depend on the MQTT discovery configuration — the dashboard uses &lt;code&gt;pool_controller&lt;/code&gt; as the
+device prefix. If your IDs use a different prefix, replace all occurrences in the YAML. Check your
+actual entity IDs in &lt;strong&gt;Developer Tools → Entities&lt;/strong&gt; (filter by &amp;ldquo;pool&amp;rdquo;).&lt;/p&gt;
+&lt;h2&gt;Migration from earlier versions&lt;span class="hx:absolute hx:-mt-20" id="migration-from-earlier-versions"&gt;&lt;/span&gt;
+&lt;a href="#migration-from-earlier-versions" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;If upgrading from a previous firmware version, old discovery configs may remain in the MQTT broker. The
+controller automatically publishes empty retained configs for obsolete entities
+(&lt;code&gt;number/timer-start-h/min&lt;/code&gt;, &lt;code&gt;number/timer-end-h/min&lt;/code&gt;, &lt;code&gt;number/timezone&lt;/code&gt;). After the first MQTT reconnect,
+Home Assistant removes the orphaned entities automatically.&lt;/p&gt;</description></item><item><title>Software Guide</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/software-guide/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/software-guide/</guid><description>
 &lt;h2&gt;Development Environment&lt;span class="hx:absolute hx:-mt-20" id="development-environment"&gt;&lt;/span&gt;
 &lt;a href="#development-environment" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Required Libraries&lt;span class="hx:absolute hx:-mt-20" id="required-libraries"&gt;&lt;/span&gt;
 &lt;a href="#required-libraries" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
