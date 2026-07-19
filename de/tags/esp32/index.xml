@@ -1359,23 +1359,7 @@ href="hardware-guide.de.md"&gt;Hardware-Anleitung&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Kompletter Verdrahtungsplan mit RTC-Modul:
 &lt;a
 href="esp32-complete-wiring-schematic.de.md"&gt;ESP32 Komplett-Schaltplan&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>Pool Monitor</title><link>https://smart-swimmingpool.github.io/de/docs/pool-monitor/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-monitor/</guid><description>
-&lt;span style="text-shadow: none;"&gt;
-&lt;a class="github-button" href="https://github.com/smart-swimmingpool/monitor/subscription" data-size="large" data-show-count="true" aria-label="Watch smart-swimmingpool/monitor on GitHub"&gt;Watch&lt;/a&gt;
-&lt;a class="github-button" href="https://github.com/smart-swimmingpool/monitor" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star this on GitHub"&gt;Star&lt;/a&gt;&lt;script async defer src="https://buttons.github.io/buttons.js"&gt;&lt;/script&gt;
-&lt;/span&gt;
-&lt;p&gt;Der &lt;a
-href="https://github.com/smart-swimmingpool/monitor"target="_blank" rel="noopener"&gt;Pool Monitor&lt;/a&gt; ist ein dediziertes E-Ink-Anzeigegerät, das aktuelle Pool-Daten anzeigt — Temperatur, Pumpen-Status und Solar-Status — durch Abonnement der Home-Assistant-MQTT-Topics des &lt;a
-href="https://github.com/smart-swimmingpool/pool-controller"target="_blank" rel="noopener"&gt;Pool Controllers&lt;/a&gt;.&lt;/p&gt;
-&lt;figure&gt;&lt;img src="pool-monitor-prototype.jpg"&gt;&lt;figcaption&gt;
-&lt;h4&gt;Prototype of Pool Monitor&lt;/h4&gt;
-&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p&gt;&lt;a
-href="https://www.home-assistant.io/"target="_blank" rel="noopener"&gt;&lt;figure&gt;
-&lt;img src="https://img.shields.io/badge/works%20with-Home%20Assistant-41BDF5.svg?logo=home-assistant&amp;amp;logoColor=white" title="works with Home Assistant" alt="works with Home Assistant" data-zoomable loading="lazy" /&gt;
-&lt;figcaption&gt;works with Home Assistant&lt;/figcaption&gt;
-&lt;/figure&gt;&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Der Pool-Controller (2/4)</title><link>https://smart-swimmingpool.github.io/de/blog/pool-controller-2-4/</link><pubDate>Mon, 22 Oct 2018 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/blog/pool-controller-2-4/</guid><description>
+&lt;/ul&gt;</description></item><item><title>Der Pool-Controller (2/4)</title><link>https://smart-swimmingpool.github.io/de/blog/pool-controller-2-4/</link><pubDate>Mon, 22 Oct 2018 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/blog/pool-controller-2-4/</guid><description>
 &lt;p&gt;Im &lt;a
 href="https://smart-swimmingpool.github.io/de/blog/smarte-steuerung-1-4/"&gt;vorangegangenen Artikel&lt;/a&gt; haben wir einen Überblick über das Projekt des smart gesteuerten Pools gegeben. In diesem zweiten Teil werden wir auf das Herzstück, den Controller, eingehen. Dieser basiert auf einem ESP32, könnte aber mit wenigen Modifikationen auch mit einem ESP8266 umgesetzt werden.&lt;/p&gt;
 &lt;h2&gt;Aufgabe des Pool-Controllers&lt;span class="hx:absolute hx:-mt-20" id="aufgabe-des-pool-controllers"&gt;&lt;/span&gt;

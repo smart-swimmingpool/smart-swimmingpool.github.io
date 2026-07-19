@@ -129,13 +129,13 @@ data-copied-label="Kopiert!"
 &lt;h2&gt;Verwandte Dokumente&lt;span class="hx:absolute hx:-mt-20" id="verwandte-dokumente"&gt;&lt;/span&gt;
 &lt;a href="#verwandte-dokumente" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/build-from-zero/"&gt;Von Null aufgebaut&lt;/a&gt; — Komplette Bauanleitung&lt;/li&gt;
+href="https://smart-swimmingpool.github.io/de/docs/pool-controller/build-from-zero/"&gt;Von Null aufgebaut&lt;/a&gt; — Komplette Bauanleitung&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/electrical-safety/"&gt;Elektrische Sicherheit&lt;/a&gt; — Sicherheitsinformationen&lt;/li&gt;
+href="https://smart-swimmingpool.github.io/de/docs/pool-controller/electrical-safety/"&gt;Elektrische Sicherheit&lt;/a&gt; — Sicherheitsinformationen&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/safety-model/"&gt;Sicherheitsmodell&lt;/a&gt; — System-Sicherheitsarchitektur&lt;/li&gt;
+href="https://smart-swimmingpool.github.io/de/docs/pool-controller/safety-model/"&gt;Sicherheitsmodell&lt;/a&gt; — System-Sicherheitsarchitektur&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/security-checklist/"&gt;Sicherheits-Checkliste&lt;/a&gt; — Sicherheitshärtung&lt;/li&gt;
+href="https://smart-swimmingpool.github.io/de/docs/pool-controller/security-checklist/"&gt;Sicherheits-Checkliste&lt;/a&gt; — Sicherheitshärtung&lt;/li&gt;
 &lt;li&gt;&lt;a
 href="https://smart-swimmingpool.github.io/de/docs/troubleshooting/"&gt;Fehlerbehebung&lt;/a&gt; — Häufige Probleme und Lösungen&lt;/li&gt;
 &lt;/ul&gt;</description></item><item><title>Sicherheits-Checkliste</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/security-checklist/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/security-checklist/</guid><description>
@@ -251,7 +251,7 @@ angeschlossen werden&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Warum&lt;/strong&gt;: Ein defektes Relais könnte eine Pumpe permanent eingeschaltet
 lassen, was ein Sicherheitsrisiko darstellt&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Vorgehen&lt;/strong&gt;: Siehe &lt;a
-href="https://smart-swimmingpool.github.io/docs/hardware-guide/#relais-test"&gt;Hardware-Guide → Relais-Test&lt;/a&gt;&lt;/li&gt;
+href="https://smart-swimmingpool.github.io/de/docs/pool-controller/hardware-guide/#relais-test"&gt;Hardware-Guide → Relais-Test&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;8. Dediziertes Netzwerk-VLAN verwenden&lt;span class="hx:absolute hx:-mt-20" id="8-dediziertes-netzwerk-vlan-verwenden"&gt;&lt;/span&gt;
 &lt;a href="#8-dediziertes-netzwerk-vlan-verwenden" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Für fortgeschrittene Aufbauten:&lt;/p&gt;
@@ -431,11 +431,11 @@ Verschlüsselungsschlüssel nicht mehr gelesen werden.&lt;/p&gt;
 &lt;h2&gt;Verwandte Dokumente&lt;span class="hx:absolute hx:-mt-20" id="verwandte-dokumente"&gt;&lt;/span&gt;
 &lt;a href="#verwandte-dokumente" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/hardware-guide/"&gt;Hardware-Guide&lt;/a&gt; — Bau- und Verdrahtungsanleitung&lt;/li&gt;
+href="https://smart-swimmingpool.github.io/de/docs/pool-controller/hardware-guide/"&gt;Hardware-Guide&lt;/a&gt; — Bau- und Verdrahtungsanleitung&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/software-guide/"&gt;Software-Guide&lt;/a&gt; — Ersteinrichtung und Konfiguration&lt;/li&gt;
+href="https://smart-swimmingpool.github.io/de/docs/pool-controller/software-guide/"&gt;Software-Guide&lt;/a&gt; — Ersteinrichtung und Konfiguration&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/mqtt-configuration/"&gt;MQTT-Konfiguration&lt;/a&gt; — MQTT-Broker-Einrichtung&lt;/li&gt;
+href="https://smart-swimmingpool.github.io/de/docs/pool-controller/mqtt-configuration/"&gt;MQTT-Konfiguration&lt;/a&gt; — MQTT-Broker-Einrichtung&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/troubleshooting-matrix/"&gt;Fehlerbehebungs-Matrix&lt;/a&gt; — Häufige Probleme und Lösungen&lt;/li&gt;
+href="https://smart-swimmingpool.github.io/de/docs/pool-controller/troubleshooting-matrix/"&gt;Fehlerbehebungs-Matrix&lt;/a&gt; — Häufige Probleme und Lösungen&lt;/li&gt;
 &lt;/ul&gt;</description></item></channel></rss>

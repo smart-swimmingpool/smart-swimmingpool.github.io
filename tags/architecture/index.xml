@@ -288,7 +288,7 @@ mains voltage (230V AC)&lt;/li&gt;
 &lt;a href="#overcurrent-protection" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;A &lt;strong&gt;circuit breaker&lt;/strong&gt; must be installed on the mains Live conductor&lt;/li&gt;
 &lt;li&gt;Rated for the pump load (see &lt;a
-href="https://smart-swimmingpool.github.io/docs/electrical-safety/"&gt;Electrical Safety&lt;/a&gt;)&lt;/li&gt;
+href="https://smart-swimmingpool.github.io/docs/pool-controller/electrical-safety/"&gt;Electrical Safety&lt;/a&gt;)&lt;/li&gt;
 &lt;li&gt;Protects against short circuits and overloads&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Enclosure&lt;span class="hx:absolute hx:-mt-20" id="enclosure"&gt;&lt;/span&gt;
@@ -411,7 +411,7 @@ corrective action.&lt;/p&gt;
 &lt;a href="#layer-4-operational-safety" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Commissioning Procedures&lt;span class="hx:absolute hx:-mt-20" id="commissioning-procedures"&gt;&lt;/span&gt;
 &lt;a href="#commissioning-procedures" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Breadboard test&lt;/strong&gt; before mains connection (see &lt;a
-href="https://smart-swimmingpool.github.io/docs/build-from-zero/"&gt;Build from Zero&lt;/a&gt;)&lt;/li&gt;
+href="https://smart-swimmingpool.github.io/docs/pool-controller/build-from-zero/"&gt;Build from Zero&lt;/a&gt;)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Relay no-load test&lt;/strong&gt; before connecting pumps&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;First power-on&lt;/strong&gt; with mains: 30-minute supervised operation&lt;/li&gt;
 &lt;/ul&gt;
@@ -423,9 +423,9 @@ href="https://smart-swimmingpool.github.io/docs/build-from-zero/"&gt;Build from 
 &lt;h3&gt;Checklists&lt;span class="hx:absolute hx:-mt-20" id="checklists"&gt;&lt;/span&gt;
 &lt;a href="#checklists" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/production-checklist/"&gt;Production Checklist&lt;/a&gt; — pre-deployment&lt;/li&gt;
+href="https://smart-swimmingpool.github.io/docs/pool-controller/production-checklist/"&gt;Production Checklist&lt;/a&gt; — pre-deployment&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/security-checklist/"&gt;Security Checklist&lt;/a&gt; — security hardening&lt;/li&gt;
+href="https://smart-swimmingpool.github.io/docs/pool-controller/security-checklist/"&gt;Security Checklist&lt;/a&gt; — security hardening&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2&gt;Failure Mode Analysis&lt;span class="hx:absolute hx:-mt-20" id="failure-mode-analysis"&gt;&lt;/span&gt;
@@ -493,11 +493,11 @@ href="https://smart-swimmingpool.github.io/docs/security-checklist/"&gt;Security
 &lt;h2&gt;Related Documents&lt;span class="hx:absolute hx:-mt-20" id="related-documents"&gt;&lt;/span&gt;
 &lt;a href="#related-documents" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/electrical-safety/"&gt;Electrical Safety&lt;/a&gt; — Electrical safety information&lt;/li&gt;
+href="https://smart-swimmingpool.github.io/docs/pool-controller/electrical-safety/"&gt;Electrical Safety&lt;/a&gt; — Electrical safety information&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/production-checklist/"&gt;Production Checklist&lt;/a&gt; — Pre-deployment checks&lt;/li&gt;
+href="https://smart-swimmingpool.github.io/docs/pool-controller/production-checklist/"&gt;Production Checklist&lt;/a&gt; — Pre-deployment checks&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/security-checklist/"&gt;Security Checklist&lt;/a&gt; — Security hardening&lt;/li&gt;
+href="https://smart-swimmingpool.github.io/docs/pool-controller/security-checklist/"&gt;Security Checklist&lt;/a&gt; — Security hardening&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/build-from-zero/"&gt;Build from Zero&lt;/a&gt; — Complete build guide&lt;/li&gt;
+href="https://smart-swimmingpool.github.io/docs/pool-controller/build-from-zero/"&gt;Build from Zero&lt;/a&gt; — Complete build guide&lt;/li&gt;
 &lt;/ul&gt;</description></item></channel></rss>

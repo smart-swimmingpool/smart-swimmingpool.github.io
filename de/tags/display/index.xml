@@ -1,4 +1,170 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Display</title><link>https://smart-swimmingpool.github.io/de/tags/display/</link><description>Recent content in Display on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><lastBuildDate>Sun, 14 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/de/tags/display/index.xml" rel="self" type="application/rss+xml"/><item><title>Hardware Guide des Pool Monitors</title><link>https://smart-swimmingpool.github.io/de/docs/pool-monitor/hardware-guide/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-monitor/hardware-guide/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Display</title><link>https://smart-swimmingpool.github.io/de/tags/display/</link><description>Recent content in Display on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><lastBuildDate>Sun, 14 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/de/tags/display/index.xml" rel="self" type="application/rss+xml"/><item><title>Pool Monitor</title><link>https://smart-swimmingpool.github.io/de/docs/pool-monitor/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-monitor/</guid><description>
+&lt;h1&gt;\ud83d\udda5 Pool Monitor&lt;/h1&gt;&lt;p&gt;Der &lt;strong&gt;Pool Monitor&lt;/strong&gt; ist ein solarbetriebenes, kabelloses Display, das die aktuelle Pooltemperatur anzeigt. Es ist so konzipiert, dass es energieeffizient ist und vollst\u00e4ndig unabh\u00e4ngig von Ihrem Haupt-Pool-Controller funktioniert.&lt;/p&gt;
+&lt;h2&gt;\ud83d\udca1 \u00dcbersicht&lt;span class="hx:absolute hx:-mt-20" id="ud83dudca1-u00dcbersicht"&gt;&lt;/span&gt;
+&lt;a href="#ud83dudca1-u00dcbersicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der Pool Monitor bietet:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Kabellose Temperaturanzeige&lt;/strong&gt;: Zeigt die aktuelle Poolwassertemperatur an&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Solarbetrieben&lt;/strong&gt;: Energieeffizientes Design f\u00fcr kontinuierlichen Betrieb&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ESP8266-basiert&lt;/strong&gt;: Mikrocontroller mit niedrigem Stromverbrauch und WLAN-Anbindung&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;E-Ink-Display&lt;/strong&gt;: Geringer Stromverbrauch, bei Sonneneinstrahlung gut lesbar&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MQTT-Integration&lt;/strong&gt;: Empf\u00e4ngt Daten vom Pool-Controller \u00fcber MQTT&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Standalone-Betrieb&lt;/strong&gt;: Funktioniert unabh\u00e4ngig vom Hauptcontroller&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;\ud83d\udcc Hauptmerkmale&lt;span class="hx:absolute hx:-mt-20" id="ud83dudcc-hauptmerkmale"&gt;&lt;/span&gt;
+&lt;a href="#ud83dudcc-hauptmerkmale" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;\u2705 &lt;strong&gt;Solarbetrieben&lt;/strong&gt;: Kann kontinuierlich mit Solarstrom betrieben werden&lt;/li&gt;
+&lt;li&gt;\u2705 &lt;strong&gt;Kabellos&lt;/strong&gt;: Keine Kabel ben\u00f6tigt, kommuniziert \u00fcber WLAN&lt;/li&gt;
+&lt;li&gt;\u2705 &lt;strong&gt;E-Ink-Display&lt;/strong&gt;: Klare Sichtbarkeit bei direktem Sonnenlicht&lt;/li&gt;
+&lt;li&gt;\u2705 &lt;strong&gt;Niedriger Stromverbrauch&lt;/strong&gt;: F\u00fcr minimalen Energieverbrauch ausgelegt&lt;/li&gt;
+&lt;li&gt;\u2705 &lt;strong&gt;MQTT-Abonnent&lt;/strong&gt;: Empf\u00e4ngt Daten von Ihrem Pool-Controller&lt;/li&gt;
+&lt;li&gt;\u2705 &lt;strong&gt;Standalone&lt;/strong&gt;: Unabh\u00e4ngig vom Hauptcontroller-Betrieb&lt;/li&gt;
+&lt;li&gt;\u2705 &lt;strong&gt;Open Source&lt;/strong&gt;: MIT-Lizenz, frei zu verwenden und zu modifizieren&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;\ud83d\ud87 Schnelle Links&lt;span class="hx:absolute hx:-mt-20" id="ud83dud87-schnelle-links"&gt;&lt;/span&gt;
+&lt;a href="#ud83dud87-schnelle-links" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Erste Schritte&lt;span class="hx:absolute hx:-mt-20" id="erste-schritte"&gt;&lt;/span&gt;
+&lt;a href="#erste-schritte" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/monitor"target="_blank" rel="noopener"&gt;Pool Monitor Repository&lt;/a&gt;&lt;/strong&gt; - Haupt-Repository mit aller Dokumentation&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/monitor#build-guide"target="_blank" rel="noopener"&gt;Aufbauanleitung&lt;/a&gt;&lt;/strong&gt; - Schritt-f\u00fcr-Schritt-Bauanleitung&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/monitor#hardware"target="_blank" rel="noopener"&gt;Hardware \u00dcbersicht&lt;/a&gt;&lt;/strong&gt; - Komponentenbeschreibungen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Hardware&lt;span class="hx:absolute hx:-mt-20" id="hardware"&gt;&lt;/span&gt;
+&lt;a href="#hardware" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/monitor#wiring"target="_blank" rel="noopener"&gt;Verdrahtungsdiagramm&lt;/a&gt;&lt;/strong&gt; - Anschlussanleitung&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/monitor#bill-of-materials"target="_blank" rel="noopener"&gt;St\u00fcckliste&lt;/a&gt;&lt;/strong&gt; - Vollst\u00e4ndige Teileliste&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Firmware&lt;span class="hx:absolute hx:-mt-20" id="firmware"&gt;&lt;/span&gt;
+&lt;a href="#firmware" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/monitor#firmware"target="_blank" rel="noopener"&gt;Firmware-Installation&lt;/a&gt;&lt;/strong&gt; - Flash-Anleitung&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/monitor#configuration"target="_blank" rel="noopener"&gt;Konfiguration&lt;/a&gt;&lt;/strong&gt; - Einrichtungshinweise&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/monitor#mqtt-configuration"target="_blank" rel="noopener"&gt;MQTT-Konfiguration&lt;/a&gt;&lt;/strong&gt; - Broker-Einrichtung&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;\ud83c\udf9b Hardware-Anforderungen&lt;span class="hx:absolute hx:-mt-20" id="ud83cudf9b-hardware-anforderungen"&gt;&lt;/span&gt;
+&lt;a href="#ud83cudf9b-hardware-anforderungen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Komponente&lt;/th&gt;
+&lt;th&gt;Zweck&lt;/th&gt;
+&lt;th&gt;Ca. Preis&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ESP8266 (Wemos D1 Mini)&lt;/td&gt;
+&lt;td&gt;Hauptcontroller&lt;/td&gt;
+&lt;td&gt;5-8 \u20ac&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E-Ink-Display (2,13&amp;quot;)&lt;/td&gt;
+&lt;td&gt;Temperaturanzeige&lt;/td&gt;
+&lt;td&gt;15-20 \u20ac&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Solarmodul (6V)&lt;/td&gt;
+&lt;td&gt;Stromquelle&lt;/td&gt;
+&lt;td&gt;10-15 \u20ac&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;LiPo-Akku (18650)&lt;/td&gt;
+&lt;td&gt;Energiespeicher&lt;/td&gt;
+&lt;td&gt;5-10 \u20ac&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Ladeschaltung&lt;/td&gt;
+&lt;td&gt;Akku-Management&lt;/td&gt;
+&lt;td&gt;3-5 \u20ac&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Geh\u00e4use&lt;/td&gt;
+&lt;td&gt;Wetterschutz&lt;/td&gt;
+&lt;td&gt;5-10 \u20ac&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Gesamt&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;~45-70 \u20ac&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;\ud83d\udda5 Pin-Konfiguration&lt;span class="hx:absolute hx:-mt-20" id="ud83dudda5-pin-konfiguration"&gt;&lt;/span&gt;
+&lt;a href="#ud83dudda5-pin-konfiguration" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Funktion&lt;/th&gt;
+&lt;th&gt;ESP8266 Pin&lt;/th&gt;
+&lt;th&gt;Hinweise&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Display SDA&lt;/td&gt;
+&lt;td&gt;D2 (GPIO4)&lt;/td&gt;
+&lt;td&gt;I2C-Daten&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Display SCL&lt;/td&gt;
+&lt;td&gt;D1 (GPIO5)&lt;/td&gt;
+&lt;td&gt;I2C-Takt&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Display BUSY&lt;/td&gt;
+&lt;td&gt;D5 (GPIO14)&lt;/td&gt;
+&lt;td&gt;Besch\u00e4ftigt-Signal&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Display DC&lt;/td&gt;
+&lt;td&gt;D6 (GPIO12)&lt;/td&gt;
+&lt;td&gt;Daten/Befehl&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Display RST&lt;/td&gt;
+&lt;td&gt;D7 (GPIO13)&lt;/td&gt;
+&lt;td&gt;Reset&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Display CS&lt;/td&gt;
+&lt;td&gt;D8 (GPIO15)&lt;/td&gt;
+&lt;td&gt;Chip-Auswahl&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Solarmodul&lt;/td&gt;
+&lt;td&gt;5V&lt;/td&gt;
+&lt;td&gt;Stromeingang&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Akku&lt;/td&gt;
+&lt;td&gt;3,3V&lt;/td&gt;
+&lt;td&gt;Stromausgang&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;\ud83d\udc82 N\u00e4chste Schritte&lt;span class="hx:absolute hx:-mt-20" id="ud83dudc82-nu00e4chste-schritte"&gt;&lt;/span&gt;
+&lt;a href="#ud83dudc82-nu00e4chste-schritte" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.github.io/de/docs/start-here/"&gt;Hier beginnen&lt;/a&gt;&lt;/strong&gt; - W\u00e4hlen Sie Ihren Weg basierend auf Ihren Zielen&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/monitor"target="_blank" rel="noopener"&gt;Repository besuchen&lt;/a&gt;&lt;/strong&gt; - Zugriff auf alle Dokumentationen und Quellcode&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.github.io/de/docs/home-assistant-integration/"&gt;Home Assistant Integration&lt;/a&gt;&lt;/strong&gt; - Smarthome-Integration&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.github.io/de/docs/grafana-dashboard/"&gt;Grafana Dashboard&lt;/a&gt;&lt;/strong&gt; - Datenvisualisierung&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;\ud83d\udcdd Brauchen Sie Hilfe?&lt;span class="hx:absolute hx:-mt-20" id="ud83dudcdd-brauchen-sie-hilfe"&gt;&lt;/span&gt;
+&lt;a href="#ud83dudcdd-brauchen-sie-hilfe" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Pr\u00fcfen Sie die &lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.github.io/de/docs/troubleshooting/"&gt;FAQ &amp;amp; Fehlerbehebung&lt;/a&gt;&lt;/strong&gt; Seite&lt;/li&gt;
+&lt;li&gt;Besuchen Sie das &lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/monitor"target="_blank" rel="noopener"&gt;Pool Monitor Repository&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;\u00d6ffnen Sie ein &lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/monitor/issues"target="_blank" rel="noopener"&gt;Issue&lt;/a&gt;&lt;/strong&gt; f\u00fcr Bugs oder Feature-Anfragen&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Hardware Guide des Pool Monitors</title><link>https://smart-swimmingpool.github.io/de/docs/pool-monitor/hardware-guide/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-monitor/hardware-guide/</guid><description>
 &lt;h2&gt;Übersicht&lt;span class="hx:absolute hx:-mt-20" id="übersicht"&gt;&lt;/span&gt;
 &lt;a href="#%c3%bcbersicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der Pool Monitor ist ein &lt;strong&gt;fertig aufgebautes Anzeigegerät&lt;/strong&gt; auf Basis der
 LILYGO TTGO T5 E-Paper-ESP32-Board-Familie. Anders als der

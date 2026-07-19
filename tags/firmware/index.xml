@@ -1,4 +1,215 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Firmware</title><link>https://smart-swimmingpool.github.io/tags/firmware/</link><description>Recent content in Firmware on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Sun, 07 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/tags/firmware/index.xml" rel="self" type="application/rss+xml"/><item><title>Firmware Migration (v2.x → v3.x)</title><link>https://smart-swimmingpool.github.io/docs/firmware-migration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/firmware-migration/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Firmware</title><link>https://smart-swimmingpool.github.io/tags/firmware/</link><description>Recent content in Firmware on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Sun, 07 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/tags/firmware/index.xml" rel="self" type="application/rss+xml"/><item><title>Pool Controller</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/</guid><description>
+&lt;h1&gt;\ud83c\udf9b Pool Controller&lt;/h1&gt;&lt;p&gt;The &lt;strong&gt;Pool Controller&lt;/strong&gt; is the heart of the Smart Swimming Pool system. It&amp;rsquo;s an ESP32-based device that provides central control logic for your pool automation.&lt;/p&gt;
+&lt;h2&gt;\ud83d\udca1 Overview&lt;span class="hx:absolute hx:-mt-20" id="ud83dudca1-overview"&gt;&lt;/span&gt;
+&lt;a href="#ud83dudca1-overview" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The Pool Controller handles:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Temperature Monitoring&lt;/strong&gt;: Reads data from DS18B20 temperature sensors (pool water and solar collector)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Pump Control&lt;/strong&gt;: Controls circulation and heating pumps via relay modules&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Automation Logic&lt;/strong&gt;: Implements heating logic with hysteresis and temperature thresholds&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Circulation Scheduling&lt;/strong&gt;: Automated timing for sand filter cleaning&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MQTT Integration&lt;/strong&gt;: Publishes all data using Home Assistant MQTT Discovery format&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Web Interface&lt;/strong&gt;: Built-in configuration UI for easy setup&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Autonomous Operation&lt;/strong&gt;: Works independently without a smart home server&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;\ud83d\udcc Key Features&lt;span class="hx:absolute hx:-mt-20" id="ud83dudcc-key-features"&gt;&lt;/span&gt;
+&lt;a href="#ud83dudcc-key-features" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;\u2705 &lt;strong&gt;ESP32-based&lt;/strong&gt;: Powerful microcontroller with WiFi connectivity&lt;/li&gt;
+&lt;li&gt;\u2705 &lt;strong&gt;MQTT Discovery&lt;/strong&gt;: Automatic integration with Home Assistant&lt;/li&gt;
+&lt;li&gt;\u2705 &lt;strong&gt;Web UI&lt;/strong&gt;: Easy configuration via browser&lt;/li&gt;
+&lt;li&gt;\u2705 &lt;strong&gt;Active-Low Relays&lt;/strong&gt;: Safe default state (relays OFF during boot)&lt;/li&gt;
+&lt;li&gt;\u2705 &lt;strong&gt;Separate GPIO per Sensor&lt;/strong&gt;: Independent fault detection&lt;/li&gt;
+&lt;li&gt;\u2705 &lt;strong&gt;Offline Operation&lt;/strong&gt;: Continues working without WiFi&lt;/li&gt;
+&lt;li&gt;\u2705 &lt;strong&gt;Open Source&lt;/strong&gt;: MIT License, free to use and modify&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;\ud83d\ud87 Quick Links&lt;span class="hx:absolute hx:-mt-20" id="ud83dud87-quick-links"&gt;&lt;/span&gt;
+&lt;a href="#ud83dud87-quick-links" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Getting Started&lt;span class="hx:absolute hx:-mt-20" id="getting-started"&gt;&lt;/span&gt;
+&lt;a href="#getting-started" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller/blob/main/docs/build-from-zero.md"target="_blank" rel="noopener"&gt;Build from Zero&lt;/a&gt;&lt;/strong&gt; - Complete build guide&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller/blob/main/docs/electrical-safety.md"target="_blank" rel="noopener"&gt;Electrical Safety&lt;/a&gt;&lt;/strong&gt; - Important safety information&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller/blob/main/docs/production-checklist.md"target="_blank" rel="noopener"&gt;Production Checklist&lt;/a&gt;&lt;/strong&gt; - Pre-deployment verification&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller/blob/main/docs/security-checklist.md"target="_blank" rel="noopener"&gt;Security Checklist&lt;/a&gt;&lt;/strong&gt; - Security best practices&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Hardware&lt;span class="hx:absolute hx:-mt-20" id="hardware"&gt;&lt;/span&gt;
+&lt;a href="#hardware" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller#hardware"target="_blank" rel="noopener"&gt;Hardware Overview&lt;/a&gt;&lt;/strong&gt; - Component descriptions&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller#wiring"target="_blank" rel="noopener"&gt;Wiring Diagram&lt;/a&gt;&lt;/strong&gt; - Connection guide&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/bom/"&gt;Bill of Materials&lt;/a&gt;&lt;/strong&gt; - Complete parts list&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Firmware&lt;span class="hx:absolute hx:-mt-20" id="firmware"&gt;&lt;/span&gt;
+&lt;a href="#firmware" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller#firmware"target="_blank" rel="noopener"&gt;Firmware Installation&lt;/a&gt;&lt;/strong&gt; - Flashing guide&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller#configuration"target="_blank" rel="noopener"&gt;Configuration&lt;/a&gt;&lt;/strong&gt; - Web interface setup&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller#mqtt-configuration"target="_blank" rel="noopener"&gt;MQTT Configuration&lt;/a&gt;&lt;/strong&gt; - Broker setup&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Advanced&lt;span class="hx:absolute hx:-mt-20" id="advanced"&gt;&lt;/span&gt;
+&lt;a href="#advanced" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller/blob/main/docs/safety-model.md"target="_blank" rel="noopener"&gt;Safety Model&lt;/a&gt;&lt;/strong&gt; - Safety architecture&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller/blob/main/docs/troubleshooting.md"target="_blank" rel="noopener"&gt;Troubleshooting&lt;/a&gt;&lt;/strong&gt; - Common issues and solutions&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller#api"target="_blank" rel="noopener"&gt;API Reference&lt;/a&gt;&lt;/strong&gt; - MQTT topics and commands&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;\ud83c\udf9b Hardware Requirements&lt;span class="hx:absolute hx:-mt-20" id="ud83cudf9b-hardware-requirements"&gt;&lt;/span&gt;
+&lt;a href="#ud83cudf9b-hardware-requirements" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Minimum Setup&lt;span class="hx:absolute hx:-mt-20" id="minimum-setup"&gt;&lt;/span&gt;
+&lt;a href="#minimum-setup" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Component&lt;/th&gt;
+&lt;th&gt;Purpose&lt;/th&gt;
+&lt;th&gt;Approx. Cost&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ESP32 DevKit V1&lt;/td&gt;
+&lt;td&gt;Main controller&lt;/td&gt;
+&lt;td&gt;8-12 \u20ac&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2-Channel Relay Module&lt;/td&gt;
+&lt;td&gt;Pump control&lt;/td&gt;
+&lt;td&gt;4-6 \u20ac&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2\u00d7 DS18B20 Sensors&lt;/td&gt;
+&lt;td&gt;Temperature measurement&lt;/td&gt;
+&lt;td&gt;6-10 \u20ac&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4.7k\u03a9 Resistors (2x)&lt;/td&gt;
+&lt;td&gt;Pull-up resistors&lt;/td&gt;
+&lt;td&gt;&amp;lt; 1 \u20ac&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Breadboard + Wires&lt;/td&gt;
+&lt;td&gt;Prototyping&lt;/td&gt;
+&lt;td&gt;3-8 \u20ac&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Total&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;~30 \u20ac&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;Production Setup&lt;span class="hx:absolute hx:-mt-20" id="production-setup"&gt;&lt;/span&gt;
+&lt;a href="#production-setup" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Component&lt;/th&gt;
+&lt;th&gt;Purpose&lt;/th&gt;
+&lt;th&gt;Approx. Cost&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;NORVI AE01-R&lt;/td&gt;
+&lt;td&gt;Industrial ESP32&lt;/td&gt;
+&lt;td&gt;25-30 \u20ac&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;IP65 Enclosure&lt;/td&gt;
+&lt;td&gt;Weather protection&lt;/td&gt;
+&lt;td&gt;10-15 \u20ac&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DIN Rail Components&lt;/td&gt;
+&lt;td&gt;Professional mounting&lt;/td&gt;
+&lt;td&gt;15-20 \u20ac&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Total&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;~75 \u20ac&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;\ud83d\udda5 Pin Configuration&lt;span class="hx:absolute hx:-mt-20" id="ud83dudda5-pin-configuration"&gt;&lt;/span&gt;
+&lt;a href="#ud83dudda5-pin-configuration" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Function&lt;/th&gt;
+&lt;th&gt;ESP32 Pin&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Solar Sensor (DS18B20)&lt;/td&gt;
+&lt;td&gt;GPIO32&lt;/td&gt;
+&lt;td&gt;OneWire data&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Pool Sensor (DS18B20)&lt;/td&gt;
+&lt;td&gt;GPIO33&lt;/td&gt;
+&lt;td&gt;OneWire data&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Heating Pump Relay&lt;/td&gt;
+&lt;td&gt;GPIO26&lt;/td&gt;
+&lt;td&gt;Active-low&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Filter Pump Relay&lt;/td&gt;
+&lt;td&gt;GPIO25&lt;/td&gt;
+&lt;td&gt;Active-low&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relay Module VCC&lt;/td&gt;
+&lt;td&gt;5V (VIN)&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;NOT 3.3V!&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relay Module GND&lt;/td&gt;
+&lt;td&gt;GND&lt;/td&gt;
+&lt;td&gt;Common ground&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Sensor VDD&lt;/td&gt;
+&lt;td&gt;3.3V&lt;/td&gt;
+&lt;td&gt;Power for sensors&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Sensor GND&lt;/td&gt;
+&lt;td&gt;GND&lt;/td&gt;
+&lt;td&gt;Ground for sensors&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;\u26a0\ufe0f &lt;strong&gt;Important&lt;/strong&gt;: Each DS18B20 data line requires a &lt;strong&gt;4.7k\u03a9 pull-up resistor&lt;/strong&gt; to 3.3V.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;\ud83d\udc82 Next Steps&lt;span class="hx:absolute hx:-mt-20" id="ud83dudc82-next-steps"&gt;&lt;/span&gt;
+&lt;a href="#ud83dudc82-next-steps" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/start-here/"&gt;Start Here&lt;/a&gt;&lt;/strong&gt; - Choose your path based on your goals&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/quickstart/"&gt;Quick Start&lt;/a&gt;&lt;/strong&gt; - Fastest way to get running (60 minutes)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/getting-started/"&gt;Getting Started&lt;/a&gt;&lt;/strong&gt; - Comprehensive build guide&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/home-assistant-integration/"&gt;Home Assistant Integration&lt;/a&gt;&lt;/strong&gt; - Smart home integration&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;\ud83d\udcdd Need Help?&lt;span class="hx:absolute hx:-mt-20" id="ud83dudcdd-need-help"&gt;&lt;/span&gt;
+&lt;a href="#ud83dudcdd-need-help" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Check the &lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.github.io/docs/troubleshooting/"&gt;FAQ &amp;amp; Troubleshooting&lt;/a&gt;&lt;/strong&gt; page&lt;/li&gt;
+&lt;li&gt;Visit the &lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller"target="_blank" rel="noopener"&gt;Pool Controller Repository&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Open an &lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller/issues"target="_blank" rel="noopener"&gt;Issue&lt;/a&gt;&lt;/strong&gt; for bugs or feature requests&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Firmware Migration (v2.x → v3.x)</title><link>https://smart-swimmingpool.github.io/docs/firmware-migration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/firmware-migration/</guid><description>
 &lt;p&gt;&lt;strong&gt;🏊 Smart Swimming Pool: Migrate from the old Homie 3.0 format to the new MQTT Discovery format&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;If you are running the &lt;strong&gt;Pool Controller v2.x&lt;/strong&gt; (or earlier) and plan to upgrade to &lt;strong&gt;v3.x&lt;/strong&gt;, this guide explains what changes and how to update your smart home integration.&lt;/p&gt;
 &lt;blockquote&gt;

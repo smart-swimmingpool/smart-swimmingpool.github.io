@@ -1,0 +1,114 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Smarthome</title><link>https://smart-swimmingpool.github.io/de/tags/smarthome/</link><description>Recent content in Smarthome on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><atom:link href="https://smart-swimmingpool.github.io/de/tags/smarthome/index.xml" rel="self" type="application/rss+xml"/><item><title>openHAB Konfiguration</title><link>https://smart-swimmingpool.github.io/de/docs/openhab-configuration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/openhab-configuration/</guid><description>
+&lt;h1&gt;\ud83c\udfed openHAB Konfiguration&lt;/h1&gt;&lt;p&gt;Die &lt;strong&gt;openHAB Konfiguration&lt;/strong&gt; bietet vollst\u00e4ndige Konfigurationsdateien f\u00fcr die Integration Ihres Smart Swimming Pools mit dem openHAB Smarthome-Server.&lt;/p&gt;
+&lt;h2&gt;\ud83d\udca1 \u00dcbersicht&lt;span class="hx:absolute hx:-mt-20" id="ud83dudca1-u00dcbersicht"&gt;&lt;/span&gt;
+&lt;a href="#ud83dudca1-u00dcbersicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Dieses Modul enth\u00e4lt:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Sitemap&lt;/strong&gt;: Benutzeroberfl\u00e4che zur Steuerung Ihres Pools \u00fcber openHAB-Apps&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Items&lt;/strong&gt;: Alle Datenpunkte und Steuerungen f\u00fcr Ihr Poolsystem&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Regeln&lt;/strong&gt;: Automatisierungslogik f\u00fcr die Poolsteuerung&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Transformationen&lt;/strong&gt;: Datenformatierung und Einheitenumrechnungen&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Persistenz&lt;/strong&gt;: Konfiguration f\u00fcr historische Datenspeicherung&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;\ud83d\udcc Hauptmerkmale&lt;span class="hx:absolute hx:-mt-20" id="ud83dudcc-hauptmerkmale"&gt;&lt;/span&gt;
+&lt;a href="#ud83dudcc-hauptmerkmale" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;\u2705 &lt;strong&gt;Vollst\u00e4ndige Sitemap&lt;/strong&gt;: Mobilefreundliche Oberfl\u00e4che zur Poolsteuerung&lt;/li&gt;
+&lt;li&gt;\u2705 &lt;strong&gt;MQTT-Binding&lt;/strong&gt;: Integration mit Ihrem Pool-Controller \u00fcber MQTT&lt;/li&gt;
+&lt;li&gt;\u2705 &lt;strong&gt;Automatisierungsregeln&lt;/strong&gt;: Fortgeschrittene Automatisierungslogik&lt;/li&gt;
+&lt;li&gt;\u2705 &lt;strong&gt;Historische Daten&lt;/strong&gt;: Persistenzkonfiguration f\u00fcr Diagramme und Trends&lt;/li&gt;
+&lt;li&gt;\u2705 &lt;strong&gt;Mehrsprachig&lt;/strong&gt;: Unterst\u00fctzung f\u00fcr verschiedene Sprachen&lt;/li&gt;
+&lt;li&gt;\u2705 &lt;strong&gt;Open Source&lt;/strong&gt;: MIT-Lizenz, frei zu verwenden und zu modifizieren&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;\ud83d\ud87 Schnelle Links&lt;span class="hx:absolute hx:-mt-20" id="ud83dud87-schnelle-links"&gt;&lt;/span&gt;
+&lt;a href="#ud83dud87-schnelle-links" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Erste Schritte&lt;span class="hx:absolute hx:-mt-20" id="erste-schritte"&gt;&lt;/span&gt;
+&lt;a href="#erste-schritte" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/openhab-config"target="_blank" rel="noopener"&gt;openHAB Konfiguration Repository&lt;/a&gt;&lt;/strong&gt; - Haupt-Repository mit allen Konfigurationsdateien&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.github.io/de/docs/openhab-integration/"&gt;openHAB Integrationsanleitung&lt;/a&gt;&lt;/strong&gt; - Schritt-f\u00fcr-Schritt-Integrationsanleitung&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/openhab-config#installation"target="_blank" rel="noopener"&gt;Installation&lt;/a&gt;&lt;/strong&gt; - Setup-Anleitung&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Konfigurationsdateien&lt;span class="hx:absolute hx:-mt-20" id="konfigurationsdateien"&gt;&lt;/span&gt;
+&lt;a href="#konfigurationsdateien" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/openhab-config/blob/main/sitemaps/pool.sitemap"target="_blank" rel="noopener"&gt;Sitemap&lt;/a&gt;&lt;/strong&gt; - Benutzeroberfl\u00e4chendefinition&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/openhab-config/blob/main/items/pool-controller.items"target="_blank" rel="noopener"&gt;Items&lt;/a&gt;&lt;/strong&gt; - Datenpunkte und Steuerungen&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/openhab-config/blob/main/rules/pool-automation.rules"target="_blank" rel="noopener"&gt;Regeln&lt;/a&gt;&lt;/strong&gt; - Automatisierungslogik&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/openhab-config/tree/main/transform"target="_blank" rel="noopener"&gt;Transformationen&lt;/a&gt;&lt;/strong&gt; - Datenformatierung&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/openhab-config/blob/main/persistence/rrd4j.persist"target="_blank" rel="noopener"&gt;Persistenz&lt;/a&gt;&lt;/strong&gt; - Historische Datenspeicherung&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;\ud83c\udf9b Sitemap-Vorschau&lt;span class="hx:absolute hx:-mt-20" id="ud83cudf9b-sitemap-vorschau"&gt;&lt;/span&gt;
+&lt;a href="#ud83cudf9b-sitemap-vorschau" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die Sitemap bietet eine mobilefreundliche Oberfl\u00e4che mit:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Dashboard&lt;/strong&gt;: \u00dcbersicht \u00fcber alle Pool-Status und Steuerungen&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Temperaturen&lt;/strong&gt;: Aktuelle Pool- und Solartemperaturen&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Pumpensteuerung&lt;/strong&gt;: Manuelle und automatische Pumpensteuerung&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Heizung&lt;/strong&gt;: Heizkreislaufsteuerung und Einstellungen&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Zeitpl\u00e4ne&lt;/strong&gt;: Zirkulations- und Heizungszeitpl\u00e4ne&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Verlauf&lt;/strong&gt;: Historische Daten und Diagramme&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Einstellungen&lt;/strong&gt;: Konfiguration und Systemeinstellungen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;\ud83d\udda5 Items \u00dcbersicht&lt;span class="hx:absolute hx:-mt-20" id="ud83dudda5-items-u00dcbersicht"&gt;&lt;/span&gt;
+&lt;a href="#ud83dudda5-items-u00dcbersicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die Items-Datei enth\u00e4lt:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Kategorie&lt;/th&gt;
+&lt;th&gt;Items&lt;/th&gt;
+&lt;th&gt;Beschreibung&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Temperaturen&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;PoolTemp, SolarTemp&lt;/td&gt;
+&lt;td&gt;Aktuelle Temperaturen von den Sensoren&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Pumpen&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;FilterPumpe, Heizungspumpe&lt;/td&gt;
+&lt;td&gt;Pumpenstatus und Steuerung&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Heizung&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;HeizungAktiviert, MaxPoolTemp&lt;/td&gt;
+&lt;td&gt;Heizungssteuerungsparameter&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Zeitpl\u00e4ne&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Zirkulationszeitplan&lt;/td&gt;
+&lt;td&gt;Zeitschaltungseinstellungen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;System&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Systemstatus, Betriebszeit&lt;/td&gt;
+&lt;td&gt;Systemgesundheit und Status&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;\ud83d\udc82 N\u00e4chste Schritte&lt;span class="hx:absolute hx:-mt-20" id="ud83dudc82-nu00e4chste-schritte"&gt;&lt;/span&gt;
+&lt;a href="#ud83dudc82-nu00e4chste-schritte" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.github.io/de/docs/start-here/"&gt;Hier beginnen&lt;/a&gt;&lt;/strong&gt; - W\u00e4hlen Sie Ihren Weg basierend auf Ihren Zielen&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.github.io/de/docs/openhab-integration/"&gt;openHAB Integrationsanleitung&lt;/a&gt;&lt;/strong&gt; - Schritt-f\u00fcr-Schritt-Integrationsanleitung&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/openhab-config"target="_blank" rel="noopener"&gt;Repository besuchen&lt;/a&gt;&lt;/strong&gt; - Zugriff auf alle Konfigurationsdateien&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.github.io/de/docs/pool-controller/"&gt;Pool Controller Setup&lt;/a&gt;&lt;/strong&gt; - Stellen Sie sicher, dass Ihr Controller l\u00e4uft&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;\ud83d\udcdd Brauchen Sie Hilfe?&lt;span class="hx:absolute hx:-mt-20" id="ud83dudcdd-brauchen-sie-hilfe"&gt;&lt;/span&gt;
+&lt;a href="#ud83dudcdd-brauchen-sie-hilfe" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Pr\u00fcfen Sie die &lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.github.io/de/docs/troubleshooting/"&gt;FAQ &amp;amp; Fehlerbehebung&lt;/a&gt;&lt;/strong&gt; Seite&lt;/li&gt;
+&lt;li&gt;Besuchen Sie das &lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/openhab-config"target="_blank" rel="noopener"&gt;openHAB Konfiguration Repository&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;\u00d6ffnen Sie ein &lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/openhab-config/issues"target="_blank" rel="noopener"&gt;Issue&lt;/a&gt;&lt;/strong&gt; f\u00fcr Bugs oder Feature-Anfragen&lt;/li&gt;
+&lt;li&gt;Konsultieren Sie die &lt;strong&gt;&lt;a
+href="https://www.openhab.org/docs/"target="_blank" rel="noopener"&gt;openHAB-Dokumentation&lt;/a&gt;&lt;/strong&gt; f\u00fcr openHAB-spezifische Fragen&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>
