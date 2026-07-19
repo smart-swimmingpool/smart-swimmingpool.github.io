@@ -4879,12 +4879,12 @@ data-copied-label="Copied!"
 &lt;h3&gt;📸 Visuelle Anleitung&lt;span class="hx:absolute hx:-mt-20" id="-visuelle-anleitung"&gt;&lt;/span&gt;
 &lt;a href="#-visuelle-anleitung" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;🔗 &lt;a
-href="https://github.com/smart-swimmingpool/pool-controller/raw/main/docs/pool-controller.fzz"target="_blank" rel="noopener"&gt;Fritzing-Datei herunterladen&lt;/a&gt;&lt;/strong&gt;
+href="pool-controller.fzz"&gt;Fritzing-Datei herunterladen&lt;/a&gt;&lt;/strong&gt;
 (Öffne mit &lt;a
 href="https://fritzing.org/"target="_blank" rel="noopener"&gt;Fritzing&lt;/a&gt;)&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Hier ist ein &lt;strong&gt;Beispiel-Foto&lt;/strong&gt; des Aufbaus:&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://github.com/smart-swimmingpool/pool-controller/raw/main/docs/images/pool-controller_breadboard.png" alt="Pool Controller Breadboard Aufbau" data-zoomable loading="lazy" /&gt;
+&lt;p&gt;&lt;img src="../pool-controller_breadboard.png" alt="Pool Controller Breadboard Aufbau" data-zoomable loading="lazy" /&gt;
 &lt;em&gt;Beispielaufbau auf einem Breadboard&lt;/em&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2&gt;💻 Schritt 3: Firmware flashen&lt;span class="hx:absolute hx:-mt-20" id="-schritt-3-firmware-flashen"&gt;&lt;/span&gt;
@@ -9558,7 +9558,7 @@ additional 3.3V components, consider an external 3.3V regulator.&lt;/p&gt;
 &lt;li&gt;&lt;strong&gt;Verify&lt;/strong&gt;: See &lt;a
 href="#first-power-on-and-testing"&gt;First Power-On&lt;/a&gt; below&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure&gt;&lt;img src="../pool-controller_breadboard.png"&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src="pool-controller_breadboard.png"&gt;&lt;figcaption&gt;
 &lt;h4&gt;Breadboard prototype with ESP32, DS18B20 sensors, 4.7kΩ pull-up resistors, and 2-channel relay module&lt;/h4&gt;
 &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -9965,7 +9965,7 @@ IoT device status indication. The LED is updated once per control loop cycle.&lt
 &lt;h2&gt;References&lt;span class="hx:absolute hx:-mt-20" id="references"&gt;&lt;/span&gt;
 &lt;a href="#references" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Fritzing source file: &lt;a
-href="https://github.com/smart-swimmingpool/pool-controller/raw/main/docs/pool-controller.fzz"target="_blank" rel="noopener"&gt;pool-controller.fzz&lt;/a&gt;&lt;/li&gt;
+href="pool-controller.fzz"&gt;pool-controller.fzz&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a
 href="kicad/esp32-dev-board/esp32-dev-board-schematic.pdf"&gt;KiCad Schematic: ESP32 Dev Board&lt;/a&gt; — KiCad 9.0 PDF export&lt;/li&gt;
 &lt;li&gt;&lt;a
