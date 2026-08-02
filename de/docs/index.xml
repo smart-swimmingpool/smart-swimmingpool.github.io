@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Dokumentation</title><link>https://smart-swimmingpool.github.io/de/docs/</link><description>Recent content in Dokumentation on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><atom:link href="https://smart-swimmingpool.github.io/de/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Temperaturabhängige Filterlaufzeit</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/temperature-based-circulation/</link><pubDate>Sat, 18 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/temperature-based-circulation/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Dokumentation</title><link>https://smart-swimmingpool.github.io/de/docs/</link><description>Recent content in Dokumentation on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><atom:link href="https://smart-swimmingpool.github.io/de/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Temperaturabhängige Filterlaufzeit</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/temperature-based-circulation/</link><pubDate>Sat, 01 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/temperature-based-circulation/</guid><description>
 &lt;h1&gt;Temperaturabhängige Filterlaufzeit&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;Optimierung der Pool-Umwälzung für bessere Wasserqualität bei minimalem Stromverbrauch.&lt;/strong&gt;&lt;/p&gt;
 &lt;h2&gt;1. Motivation&lt;span class="hx:absolute hx:-mt-20" id="1-motivation"&gt;&lt;/span&gt;
 &lt;a href="#1-motivation" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die Poolpumpe ist der größte Stromverbraucher im Schwimmbad. Gleichzeitig bestimmt sie maßgeblich die Wasserqualität. Die aktuell nötige Umwälzmenge hängt stark von der Wassertemperatur ab:&lt;/p&gt;
@@ -604,7 +604,7 @@ href="https://medium.com/diy-my-smart-home/project-smart-swimmingpool-4c40eb6741
 &lt;p&gt;📄 &lt;a
 href="https://smart-swimmingpool.github.io/blog/smart-swimming-pool-project/"&gt;Hier auf der Seite lesen&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/norvi-display-navigation-concept/</link><pubDate>Sat, 18 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/norvi-display-navigation-concept/</guid><description>
+&lt;/ul&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/norvi-display-navigation-concept/</link><pubDate>Sat, 01 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/norvi-display-navigation-concept/</guid><description>
 &lt;h1&gt;Bedien- und Navigationskonzept — NORVI IIOT-AE01-R OLED + 3 Tasten&lt;/h1&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Status:&lt;/strong&gt; Konzept / RFC
 &lt;strong&gt;Ziel:&lt;/strong&gt; Verbesserung der UX des 128×64 OLED-Displays mit den drei Fronttasten (S1/S2/S3)
@@ -1464,7 +1464,7 @@ data-copied-label="Kopiert!"
 &lt;li&gt;S3-Aktionsmenü einbauen (mittleres Risiko, neue State-Machine)&lt;/li&gt;
 &lt;li&gt;Wizard-Cancel + Long-Press-Modell (mittleres Risiko)&lt;/li&gt;
 &lt;/ol&gt;
-&lt;/blockquote&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/security-references/</link><pubDate>Sat, 18 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/security-references/</guid><description>
+&lt;/blockquote&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/security-references/</link><pubDate>Sat, 01 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/security-references/</guid><description>
 &lt;h1&gt;Sicherheitsreferenzen &amp;amp; Best Practices&lt;/h1&gt;&lt;p&gt;Dieses Dokument enthält Sicherheitsreferenzen, Best Practices und
 Implementierungsrichtlinien für das Pool Controller Projekt. Diese Referenzen
 wurden während der umfassenden IoT-Sicherheitsanalyse am 2025-01-15 zusammengestellt.&lt;/p&gt;
