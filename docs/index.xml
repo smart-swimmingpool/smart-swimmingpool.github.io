@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Documentation</title><link>https://smart-swimmingpool.github.io/docs/</link><description>Recent content in Documentation on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><atom:link href="https://smart-swimmingpool.github.io/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Quick Start Guide</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/quick-start/</link><pubDate>Sat, 01 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/quick-start/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Documentation</title><link>https://smart-swimmingpool.github.io/docs/</link><description>Recent content in Documentation on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><atom:link href="https://smart-swimmingpool.github.io/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Quick Start Guide</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/quick-start/</link><pubDate>Sun, 02 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/quick-start/</guid><description>
 &lt;p&gt;&lt;strong&gt;Target audience:&lt;/strong&gt; DIY enthusiasts with &lt;strong&gt;basic electronics knowledge&lt;/strong&gt; (soldering, GPIO, MQTT).
 &lt;strong&gt;Time required:&lt;/strong&gt; ~4\u20136 hours (including parts sourcing).
 &lt;strong&gt;Cost:&lt;/strong&gt; ~45\u201375\u20ac (excluding pumps and pool infrastructure).&lt;/p&gt;
@@ -961,7 +961,7 @@ href="https://www.reddit.com/r/homeassistant/"target="_blank" rel="noopener"&gt;
 &lt;hr&gt;
 &lt;p align="center"&gt;
 ✅ Congratulations! You now have a smart swimming pool! ✅\n \n Made with ❤️ by the Smart Swimming Pool community
-&lt;/p&gt;</description></item><item><title>Frequently Asked Questions (FAQ)</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/faq/</link><pubDate>Sat, 01 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/faq/</guid><description>
+&lt;/p&gt;</description></item><item><title>Frequently Asked Questions (FAQ)</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/faq/</link><pubDate>Sun, 02 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/faq/</guid><description>
 &lt;p&gt;This FAQ covers &lt;strong&gt;common issues&lt;/strong&gt; and their solutions for the &lt;strong&gt;Smart Swimming Pool Controller&lt;/strong&gt;.
 If your problem isn&amp;rsquo;t listed here, check the
 &lt;a
@@ -1233,7 +1233,7 @@ href="https://github.com/smart-swimmingpool/pool-controller/issues/new"target="_
 &lt;/ol&gt;
 &lt;hr&gt;
 &lt;h2&gt;📄 License&lt;span class="hx:absolute hx:-mt-20" id="-license"&gt;&lt;/span&gt;
-&lt;a href="#-license" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This FAQ is part of the &lt;strong&gt;Smart Swimming Pool&lt;/strong&gt; project, licensed under the &lt;strong&gt;MIT License&lt;/strong&gt;.&lt;/p&gt;</description></item><item><title>Temperature-Based Circulation Time</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/temperature-based-circulation/</link><pubDate>Sat, 01 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/temperature-based-circulation/</guid><description>
+&lt;a href="#-license" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This FAQ is part of the &lt;strong&gt;Smart Swimming Pool&lt;/strong&gt; project, licensed under the &lt;strong&gt;MIT License&lt;/strong&gt;.&lt;/p&gt;</description></item><item><title>Temperature-Based Circulation Time</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/temperature-based-circulation/</link><pubDate>Sun, 02 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/temperature-based-circulation/</guid><description>
 &lt;h1&gt;Temperature-Based Circulation Time&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;Optimize pool circulation for better water quality with minimal power consumption.&lt;/strong&gt;&lt;/p&gt;
 &lt;h2&gt;1. Motivation&lt;span class="hx:absolute hx:-mt-20" id="1-motivation"&gt;&lt;/span&gt;
 &lt;a href="#1-motivation" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The pool pump is the largest power consumer in a swimming pool. At the same time, it determines water quality. The required circulation volume strongly depends on water temperature:&lt;/p&gt;
@@ -1819,7 +1819,7 @@ href="https://smart-swimmingpool.github.io/de/blog/swimmingpool-openhab-3-4/"&gt
 href="https://smart-swimmingpool.github.io/de/blog/der-smarte-pool-4-4/"&gt;Der smarte Pool (4/4)&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/security-fixes-v3.2.1/</link><pubDate>Sat, 01 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/security-fixes-v3.2.1/</guid><description>
+&lt;/ul&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/security-fixes-v3.2.1/</link><pubDate>Sun, 02 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/security-fixes-v3.2.1/</guid><description>
 &lt;h1&gt;Security Fixes v3.2.1&lt;/h1&gt;&lt;p&gt;This document provides comprehensive documentation of all security vulnerabilities and memory leaks identified and
 fixed in Pool Controller v3.2.1. All changes have been validated through CI/CD pipeline and address critical, high, and
 medium priority issues.&lt;/p&gt;
@@ -2734,7 +2734,7 @@ Discussions&lt;/a&gt;&lt;/li&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;⚠️ DISCLAIMER&lt;/strong&gt;: While these fixes address identified vulnerabilities, no system can be 100% secure. Users are
 responsible for their own security configurations and should follow best practices for IoT device security.&lt;/p&gt;
-&lt;/blockquote&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/security-references/</link><pubDate>Sat, 01 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/security-references/</guid><description>
+&lt;/blockquote&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/security-references/</link><pubDate>Sun, 02 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/security-references/</guid><description>
 &lt;h1&gt;Security References &amp;amp; Best Practices&lt;/h1&gt;&lt;p&gt;This document contains security references, best practices, and implementation
 guidelines for the Pool Controller project. These references were compiled during the
 comprehensive IoT security analysis performed on 2025-01-15.&lt;/p&gt;
@@ -3115,7 +3115,686 @@ href="../.opencode/skills/cpp-code-quality/SKILL.md"&gt;C++ Code Quality Skill&l
 &lt;strong&gt;🔍 Analysis Performed By&lt;/strong&gt;: Vibe Code - IoT Security Expert Mode
 &lt;strong&gt;📝 Related PR&lt;/strong&gt;:
 &lt;a
-href="https://github.com/smart-swimmingpool/pool-controller/pull/112"target="_blank" rel="noopener"&gt;#112 - IoT Security &amp;amp; Memory Optimization Analysis&lt;/a&gt;&lt;/p&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/tasmota-ota-review/</link><pubDate>Sat, 01 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/tasmota-ota-review/</guid><description>
+href="https://github.com/smart-swimmingpool/pool-controller/pull/112"target="_blank" rel="noopener"&gt;#112 - IoT Security &amp;amp; Memory Optimization Analysis&lt;/a&gt;&lt;/p&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/superpowers/plans/2026-07-31-logging-view/</link><pubDate>Sun, 02 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/superpowers/plans/2026-07-31-logging-view/</guid><description>
+&lt;h1&gt;Implementierungsplan: Logging View (Web-Log-Konsole)&lt;/h1&gt;&lt;p&gt;Datum: 2026-07-31
+Basis: &lt;code&gt;docs/superpowers/specs/2026-07-31-logging-view-design.md&lt;/code&gt; (approved, Ansatz A)
+Branch: &lt;code&gt;fix/relay-r4-solar-pump&lt;/code&gt;
+Commit-Historie: &lt;code&gt;db3a970&lt;/code&gt; (Spec-Update) → &lt;code&gt;2e40262&lt;/code&gt; (research-backed MQTT event entity) → &lt;code&gt;0783fd8&lt;/code&gt; (Spec-Initial)&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Goal&lt;span class="hx:absolute hx:-mt-20" id="goal"&gt;&lt;/span&gt;
+&lt;a href="#goal" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Dem Pool-Controller eine zentrale Log-Capture-Architektur geben:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;LogCapture&lt;/code&gt;&lt;/strong&gt; — RAM-Ringbuffer, ersetzt die 253 direkten &lt;code&gt;Serial.*&lt;/code&gt;-Aufrufe in 21 Dateien.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;REST&lt;/strong&gt; — unauthentifiziertes &lt;code&gt;GET /api/logs&lt;/code&gt; (mit &lt;code&gt;since&lt;/code&gt;-Polling), authentifiziertes &lt;code&gt;POST /api/logs/clear&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MQTT&lt;/strong&gt; — HA-„event&amp;quot;-Entity-Discovery (research-backed, &lt;code&gt;event_types&lt;/code&gt;) + Export von WARN/ERROR + kuratierten Events.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;UI&lt;/strong&gt; — „📜 Logs&amp;quot;-Button auf dem Dashboard (unauthentifizierter Zugriffspfad) + Eintrag im More-Menü; Konsole mit 2s-Polling, Level-Filtern, Pause-on-Scroll, Auth-Gated-Clear.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Docs&lt;/strong&gt; — &lt;code&gt;mqtt-configuration.md&lt;/code&gt;, &lt;code&gt;software-guide.md&lt;/code&gt;, Home-Assistant-Sektion (Logbook-Automation-Blueprint).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Explizite Vorgaben (User-Entscheidungen, in Spec committed):&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;LittleFS only&lt;/strong&gt; — kein PROGMEM-Fallback für die neue View (&lt;code&gt;WebPortal.cpp:58&lt;/code&gt;: „PROGMEM fallbacks removed&amp;quot;).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Platzierung&lt;/strong&gt;: Dashboard-Button &lt;strong&gt;und&lt;/strong&gt; More-Menü-Eintrag — Grund: Tab-Bar + More-Menü sind ohne Login unsichtbar (&lt;code&gt;app.js:262-263&lt;/code&gt; &lt;code&gt;tabBar.style.display = isAuthenticated ? '' : 'none'&lt;/code&gt;); der Dashboard-Button ist der einzige unauthentifizierte Einstieg.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Kein @librarian-Einsatz&lt;/strong&gt; — HA-Recherche ist abgeschlossen und committed (2e40262). Ergebnis: HA-&lt;strong&gt;event&lt;/strong&gt;-Component (&lt;code&gt;platform: event&lt;/code&gt;, &lt;code&gt;event_types&lt;/code&gt;), kein Sensor/Device-Tracker.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Architektur&lt;span class="hx:absolute hx:-mt-20" id="architektur"&gt;&lt;/span&gt;
+&lt;a href="#architektur" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;Serial.*-Calls (21 Dateien, 253 Stellen)
+│ migriert zu
+▼
+LogCapture::log(level, fmt, ...) ──► RAM-Ringbuffer (static, kein Heap)
+│ (mit LogToSerial-Flag: Mirror auf Serial, Byte-identisch)
+├──► WebPortal::apiGetLogs() GET /api/logs?since=&amp;amp;count=&amp;amp;level= (unauthentifiziert)
+│ apiClearLogs() POST /api/logs/clear (handleAuthentication)
+└──► MqttPublisher homeassistant/event/.../config (Discovery, platform: event)
+homeassistant/event/.../state ({&amp;#34;event_type&amp;#34;: ..., &amp;#34;message&amp;#34;: ...})
+pool-controller/log (Raw, WARN/ERROR)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Design-Entscheidungen:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;LogCapture&lt;/code&gt; ist eine static-Klasse (Codebase-Konvention, vgl. &lt;code&gt;StateManager&lt;/code&gt;, &lt;code&gt;DegradationManager&lt;/code&gt;, &lt;code&gt;SystemMonitor&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;Ringbuffer: statisches &lt;code&gt;std::array&lt;/code&gt;-artiges C-Array, &lt;strong&gt;kein Heap&lt;/strong&gt; (IoT-Qualitätsgate, &lt;code&gt;cpp-memory-opt&lt;/code&gt;-Skill: keine String-Klassen, keine Allokation in Hot-Paths).&lt;/li&gt;
+&lt;li&gt;Thread-Safety: &lt;code&gt;portMUX_TYPE&lt;/code&gt;-Guard, nur unter &lt;code&gt;#ifdef ARDUINO&lt;/code&gt; aktiv — in Native-Tests (kein portMUX-Mock) kompiliert er zu no-op. Aufrufer sind Loop-Task + WebServer-Handler (Loop) + MQTT-Callbacks (WiFi-Task) → Guard notwendig.&lt;/li&gt;
+&lt;li&gt;Serial-Mirror bleibt &lt;strong&gt;standardmäßig an&lt;/strong&gt; (&lt;code&gt;Flags::LogToSerial&lt;/code&gt;-Semantik aus Logger-Stub): bestehendes Serial-Debugging (pio monitor) funktioniert unverändert weiter; Verifikations-Invariante „Serial-Ausgabe byte-identisch&amp;quot; wird so erfüllbar.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;LogLevel&lt;/code&gt;-Enum bleibt namensgleich zum Logger-Stub (&lt;code&gt;Debug=0, Info, Warning, Critical, Error&lt;/code&gt;) — kein Consumer außer &lt;code&gt;Logger.cpp&lt;/code&gt; selbst (verifiziert: kein Include von &lt;code&gt;Logger.hpp&lt;/code&gt; in &lt;code&gt;src/&lt;/code&gt; oder &lt;code&gt;test/native/&lt;/code&gt;), Stub wird gelöscht.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Tech Stack&lt;span class="hx:absolute hx:-mt-20" id="tech-stack"&gt;&lt;/span&gt;
+&lt;a href="#tech-stack" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;C++17, PlatformIO/ESP32 (Arduino-Framework), ArduinoJson, WebServer (async-frei, Loop-gepollt).&lt;/li&gt;
+&lt;li&gt;Native Tests: CMake (&lt;code&gt;test/native&lt;/code&gt;), &lt;code&gt;./build/test_runner&lt;/code&gt; mit ASAN, &lt;code&gt;test/native/relay_safety&lt;/code&gt; (separater Build).&lt;/li&gt;
+&lt;li&gt;CI: &lt;code&gt;.github/workflows/native-tests.yml&lt;/code&gt; (cmake build → test_runner → relay_safety → lcov → PR-Kommentar).&lt;/li&gt;
+&lt;li&gt;Frontend: vanilla HTML/CSS/JS auf LittleFS (&lt;code&gt;data/web/&lt;/code&gt;), 2s-Polling-Muster analog &lt;code&gt;loadTelemetry&lt;/code&gt; (&lt;code&gt;app.js:1005&lt;/code&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Global Constraints&lt;span class="hx:absolute hx:-mt-20" id="global-constraints"&gt;&lt;/span&gt;
+&lt;a href="#global-constraints" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Kein Heap in LogCapture&lt;/strong&gt; — statischer Ringbuffer, feste Entry-Größe, &lt;code&gt;vsnprintf&lt;/code&gt; in Entry-Buffer.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Serial-Ausgabe bleibt byte-identisch&lt;/strong&gt; — &lt;code&gt;LogCapture::log&lt;/code&gt; formatiert exakt das übergebene Format (inkl. &lt;code&gt;\n&lt;/code&gt;) und spiegelt es 1:1 auf Serial.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Keine String-Klasse&lt;/strong&gt; in LogCapture — &lt;code&gt;char[]&lt;/code&gt; + &lt;code&gt;vsnprintf&lt;/code&gt; (Clean-Code/Heap-Regeln).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Unauthentifizierte Endpoints nur lesend&lt;/strong&gt; — &lt;code&gt;GET /api/logs&lt;/code&gt; (Limit/Cap), Schreibzugriff (&lt;code&gt;clear&lt;/code&gt;) ausschließlich hinter &lt;code&gt;handleAuthentication()&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;XSS-Sicherheit in der UI&lt;/strong&gt; — Log-Messages sind Fremdtext; im Frontend per &lt;code&gt;textContent&lt;/code&gt;/Escaping rendern, nie per &lt;code&gt;innerHTML&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Native Tests müssen grün bleiben&lt;/strong&gt; — &lt;code&gt;test_runner&lt;/code&gt; &lt;strong&gt;und&lt;/strong&gt; &lt;code&gt;relay_safety&lt;/code&gt; (separater Build), ASAN-Optionen wie CI.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Dokumentation EN+DE&lt;/strong&gt; — alle Docs-Dateien existieren als &lt;code&gt;.md&lt;/code&gt; + &lt;code&gt;.de.md&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LittleFS-only&lt;/strong&gt; — keine PROGMEM-Spiegel für neue Assets.&lt;/li&gt;
+&lt;li&gt;Jeder Task endet mit Build + Test + Commit (Conventional Commits, Scope &lt;code&gt;logging&lt;/code&gt;).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2&gt;Tasks&lt;span class="hx:absolute hx:-mt-20" id="tasks"&gt;&lt;/span&gt;
+&lt;a href="#tasks" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Task 1 — LogCapture-Kern (Ringbuffer + API)&lt;span class="hx:absolute hx:-mt-20" id="task-1--logcapture-kern-ringbuffer--api"&gt;&lt;/span&gt;
+&lt;a href="#task-1--logcapture-kern-ringbuffer--api" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Dateien:&lt;/strong&gt; &lt;code&gt;src/LogCapture.hpp&lt;/code&gt; (neu), &lt;code&gt;src/LogCapture.cpp&lt;/code&gt; (neu), &lt;code&gt;src/Nodes/Logger.{hpp,cpp}&lt;/code&gt; (löschen)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Schritte:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;src/LogCapture.hpp&lt;/code&gt; anlegen:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cpp" data-lang="cpp"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// Copyright (c) 2018-2026 Smart Swimming Pool, Stephan Strittmatter
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// SPDX-License-Identifier: MIT
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt;#pragma once
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;Arduino.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;cstddef&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;cstdint&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;namespace&lt;/span&gt; &lt;span class="n"&gt;PoolController&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;enum&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;LogLevel&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;std&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="kt"&gt;uint8_t&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;Debug&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Info&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Warning&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Critical&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Error&lt;/span&gt; &lt;span class="p"&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;struct&lt;/span&gt; &lt;span class="nc"&gt;LogEntry&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;std&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="kt"&gt;uint32_t&lt;/span&gt; &lt;span class="n"&gt;seq&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;// monoton steigend, für since-Polling
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;std&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="kt"&gt;uint32_t&lt;/span&gt; &lt;span class="n"&gt;uptimeMs&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;// millis() zum Zeitpunkt des Eintrags
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;LogLevel&lt;/span&gt; &lt;span class="n"&gt;level&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="n"&gt;message&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;LOG_MSG_SIZE&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;LogCapture&lt;/span&gt; &lt;span class="k"&gt;final&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;public&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;static&lt;/span&gt; &lt;span class="k"&gt;constexpr&lt;/span&gt; &lt;span class="n"&gt;std&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;size_t&lt;/span&gt; &lt;span class="n"&gt;LOG_BUFFER_ENTRIES&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;LOG_BUFFER_SIZE&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="n"&gt;LOG_MSG_SIZE&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;static&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;begin&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;static&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;LogLevel&lt;/span&gt; &lt;span class="n"&gt;level&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;fmt&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;...);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;static&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;logEvent&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;eventType&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;fmt&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;...);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;static&lt;/span&gt; &lt;span class="n"&gt;std&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;size_t&lt;/span&gt; &lt;span class="n"&gt;getEntries&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;std&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="kt"&gt;uint32_t&lt;/span&gt; &lt;span class="n"&gt;sinceSeq&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;std&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;size_t&lt;/span&gt; &lt;span class="n"&gt;maxCount&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;LogLevel&lt;/span&gt; &lt;span class="n"&gt;minLevel&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;LogEntry&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;out&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;std&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;size_t&lt;/span&gt; &lt;span class="n"&gt;outCapacity&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;static&lt;/span&gt; &lt;span class="n"&gt;std&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="kt"&gt;uint32_t&lt;/span&gt; &lt;span class="n"&gt;lastSeq&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;static&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;clear&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;static&lt;/span&gt; &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="nf"&gt;levelName&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;LogLevel&lt;/span&gt; &lt;span class="n"&gt;level&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;static&lt;/span&gt; &lt;span class="n"&gt;LogLevel&lt;/span&gt; &lt;span class="nf"&gt;parseLevel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="c1"&gt;// &amp;#34;info&amp;#34;|&amp;#34;warning&amp;#34;|&amp;#34;error&amp;#34; → Level, sonst Info
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;static&lt;/span&gt; &lt;span class="kt"&gt;bool&lt;/span&gt; &lt;span class="nf"&gt;isLogToSerial&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;static&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;setLogToSerial&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;bool&lt;/span&gt; &lt;span class="n"&gt;enabled&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="c1"&gt;// namespace PoolController
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt;#define LOG_DEBUG(...) PoolController::LogCapture::log(PoolController::LogLevel::Debug, __VA_ARGS__)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt;#define LOG_INFO(...) PoolController::LogCapture::log(PoolController::LogLevel::Info, __VA_ARGS__)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt;#define LOG_WARN(...) PoolController::LogCapture::log(PoolController::LogLevel::Warning, __VA_ARGS__)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt;#define LOG_ERROR(...) PoolController::LogCapture::log(PoolController::LogLevel::Error, __VA_ARGS__)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ol start="2"&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;src/LogCapture.cpp&lt;/code&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Defaults: &lt;code&gt;LOG_BUFFER_SIZE&lt;/code&gt; = 8192, &lt;code&gt;LOG_MSG_SIZE&lt;/code&gt; = 96 (platformio.ini &lt;code&gt;build_flags&lt;/code&gt;: &lt;code&gt;-DLOG_BUFFER_SIZE=...&lt;/code&gt; überschreibbar — bestehende &lt;code&gt;build_flags&lt;/code&gt;-Blöcke &lt;code&gt;platformio.ini:33,56&lt;/code&gt; ergänzen, Default in Header).&lt;/li&gt;
+&lt;li&gt;Statischer Ring: &lt;code&gt;static LogEntry s_buffer[LOG_BUFFER_ENTRIES];&lt;/code&gt;, &lt;code&gt;static std::size_t s_head;&lt;/code&gt; (nächster freier Slot), &lt;code&gt;static std::uint32_t s_seq;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;log()&lt;/code&gt;: &lt;code&gt;va_list&lt;/code&gt; → &lt;code&gt;vsnprintf(message, sizeof, fmt, args)&lt;/code&gt; → in Ring schreiben → falls &lt;code&gt;s_logToSerial&lt;/code&gt;: &lt;code&gt;Serial.print(entry.message)&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;logEvent(eventType, ...)&lt;/code&gt;: Entry mit &lt;code&gt;level=Info&lt;/code&gt; und &lt;code&gt;message&lt;/code&gt; = &lt;code&gt;&amp;quot;[eventType] &amp;lt;formatted&amp;gt;&amp;quot;&lt;/code&gt; — Marker für den MQTT-Export (Task 4), Serial-Mirror identisch.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;getEntries&lt;/code&gt;: vom ältesten Eintrag ≥ &lt;code&gt;sinceSeq&lt;/code&gt; (Ring durchlaufen, seq-Vergleich) bis &lt;code&gt;maxCount&lt;/code&gt;, filter &lt;code&gt;&amp;gt;= minLevel&lt;/code&gt;, Kopie nach &lt;code&gt;out&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;lastSeq()&lt;/code&gt;: aktueller &lt;code&gt;s_seq&lt;/code&gt;-Stand (für &lt;code&gt;next&lt;/code&gt; im REST-Payload).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;clear()&lt;/code&gt;: Ring leeren, &lt;code&gt;s_seq&lt;/code&gt; NICHT zurücksetzen (sonst brechen Polling-Clients), s_head=0.&lt;/li&gt;
+&lt;li&gt;Guard: &lt;code&gt;portMUX_TYPE s_mux;&lt;/code&gt; nur &lt;code&gt;#ifdef ARDUINO&lt;/code&gt; (&lt;code&gt;portMUX_INITIALIZER_UNLOCKED&lt;/code&gt;), in &lt;code&gt;log/getEntries/clear&lt;/code&gt; &lt;code&gt;portENTER_CRITICAL(&amp;amp;s_mux)&lt;/code&gt; … &lt;code&gt;portEXIT_CRITICAL(&amp;amp;s_mux)&lt;/code&gt;. Native Build (kein portMUX) → no-op ohne &lt;code&gt;#ifdef&lt;/code&gt;-Zweig.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;begin()&lt;/code&gt;: &lt;code&gt;s_head=0; s_seq=0; s_logToSerial=true;&lt;/code&gt; (init Mux).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;src/Nodes/Logger.hpp&lt;/code&gt; + &lt;code&gt;Logger.cpp&lt;/code&gt; löschen (&lt;code&gt;git rm&lt;/code&gt;). Kein anderer Referenzpunkt existiert (verifiziert).&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Test (TDD — Test zuerst schreiben):&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;test/native/tests/test_logcapture.cpp&lt;/code&gt; (neu), Funktion &lt;code&gt;run_logcapture_tests()&lt;/code&gt;:
+&lt;ul&gt;
+&lt;li&gt;Ring-Wraparound: &lt;code&gt;LOG_BUFFER_ENTRIES + 5&lt;/code&gt; Einträge loggen → &lt;code&gt;getEntries(0, 4096, Debug, ...)&lt;/code&gt; liefert letzte &lt;code&gt;LOG_BUFFER_ENTRIES&lt;/code&gt;, älteste seq &amp;gt; 0.&lt;/li&gt;
+&lt;li&gt;seq-Monotonie: nach N Logs ist &lt;code&gt;lastSeq() == N&lt;/code&gt;; Einträge haben strikt steigende seq.&lt;/li&gt;
+&lt;li&gt;since-Filter: &lt;code&gt;getEntries(sinceSeq=N, ...)&lt;/code&gt; liefert nur seq &amp;gt; N.&lt;/li&gt;
+&lt;li&gt;Level-Filter: nur &lt;code&gt;&amp;gt;= Warning&lt;/code&gt; bei &lt;code&gt;minLevel=Warning&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;clear()&lt;/code&gt;: danach &lt;code&gt;getEntries(0, ...) == 0&lt;/code&gt;, &lt;code&gt;lastSeq()&lt;/code&gt; unverändert.&lt;/li&gt;
+&lt;li&gt;Truncation: Message &amp;gt; &lt;code&gt;LOG_MSG_SIZE&lt;/code&gt; wird gekappt, kein Overflow (ASAN-frei).&lt;/li&gt;
+&lt;li&gt;Kein Heap: statische Buffer (kein dynamisches Verhalten testbar; ASAN/leak-check im CI).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;logEvent&lt;/code&gt;: Message beginnt mit &lt;code&gt;[&lt;/code&gt; und enthält eventType.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;test/native/CMakeLists.txt&lt;/code&gt;: &lt;code&gt;${PROJ_ROOT}/src/LogCapture.cpp&lt;/code&gt; zu &lt;code&gt;SERVICE_SOURCES&lt;/code&gt; (Zeile 52-59), &lt;code&gt;tests/test_logcapture.cpp&lt;/code&gt; zu &lt;code&gt;TEST_SOURCES&lt;/code&gt; (Zeile 69).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;test/native/tests/test_main.cpp&lt;/code&gt;: &lt;code&gt;extern int run_logcapture_tests();&lt;/code&gt; (Zeile ~102) + &lt;code&gt;total += run_logcapture_tests();&lt;/code&gt; (Zeile ~116).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Verify:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;cmake -B build -S . &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; cmake --build build &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nv"&gt;ASAN_OPTIONS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;detect_leaks&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;1:halt_on_error&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt; ./build/test_runner
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;cmake -B relay_safety/build -S relay_safety &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; cmake --build relay_safety/build &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; ./relay_safety/build/test_relay_safety
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pio run &lt;span class="c1"&gt;# Firmware kompiliert (LogCapture wird in setup() noch nicht benutzt — siehe Task 2)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Commit:&lt;/strong&gt; &lt;code&gt;feat(logging): add LogCapture ring buffer core with native tests&lt;/code&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Task 2 — Integration in PoolController-Setup&lt;span class="hx:absolute hx:-mt-20" id="task-2--integration-in-poolcontroller-setup"&gt;&lt;/span&gt;
+&lt;a href="#task-2--integration-in-poolcontroller-setup" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Dateien:&lt;/strong&gt; &lt;code&gt;src/PoolController.cpp&lt;/code&gt; (setup: ~Zeile 268), &lt;code&gt;platformio.ini&lt;/code&gt; (build_flags 33, 56)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Schritte:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;#include &amp;quot;LogCapture.hpp&amp;quot;&lt;/code&gt; ergänzen.&lt;/li&gt;
+&lt;li&gt;In &lt;code&gt;setup()&lt;/code&gt; unmittelbar nach &lt;code&gt;Serial.begin(...)&lt;/code&gt; (vor &lt;code&gt;StateManager::begin()&lt;/code&gt; Zeile 268): &lt;code&gt;LogCapture::begin();&lt;/code&gt; — Ring muss vor allen Logging-Seiten stehen.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;platformio.ini&lt;/code&gt;: &lt;code&gt;-DLOG_BUFFER_SIZE=8192&lt;/code&gt; zu den &lt;code&gt;build_flags&lt;/code&gt;-Blöcken (Zeile 33, 56) hinzufügen (Default steht im Header; explizit machen für OTA-Konsistenz beider Envs).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Verify:&lt;/strong&gt; &lt;code&gt;pio run&lt;/code&gt; grün; &lt;code&gt;test_runner&lt;/code&gt; + &lt;code&gt;relay_safety&lt;/code&gt; grün (keine LogCapture-Nutzung außer begin → keine Verhaltensänderung).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Commit:&lt;/strong&gt; &lt;code&gt;feat(logging): initialize LogCapture during boot&lt;/code&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Task 3 — Serial-Migration (21 Dateien, 253 Stellen)&lt;span class="hx:absolute hx:-mt-20" id="task-3--serial-migration-21-dateien-253-stellen"&gt;&lt;/span&gt;
+&lt;a href="#task-3--serial-migration-21-dateien-253-stellen" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Level-Inferenz-Regeln (mechanisch):&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Marker im String&lt;/th&gt;
+&lt;th&gt;Level&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;✖&lt;/code&gt;, &lt;code&gt;ERROR&lt;/code&gt;, &lt;code&gt;FAIL&lt;/code&gt;, &lt;code&gt;CRITICAL&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;LOG_ERROR&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;⚠&lt;/code&gt;, &lt;code&gt;WARN&lt;/code&gt;, &lt;code&gt;WARNING&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;LOG_WARN&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;✔&lt;/code&gt;, &lt;code&gt;✓&lt;/code&gt;, sonst nichts&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;LOG_INFO&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;rein technische Poll-Diagnostik&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;LOG_DEBUG&lt;/code&gt; (nur wenn erkennbar Debug-Charakter, z. B. Rohwerte-Dumps in Schleifen)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Mechanik:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Serial.printf(&amp;quot;...&amp;quot;, args)&lt;/code&gt; → &lt;code&gt;LOG_INFO(&amp;quot;...&amp;quot;, args)&lt;/code&gt; (bzw. Level nach Tabelle) — Format inkl. &lt;code&gt;\n&lt;/code&gt; unverändert (Serial-Mirror ist byte-identisch).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Serial.println(&amp;quot;...&amp;quot;)&lt;/code&gt; → &lt;code&gt;LOG_INFO(&amp;quot;...\n&amp;quot;)&lt;/code&gt; (println hängt &lt;code&gt;\n&lt;/code&gt; an; Mirror muss identisch sein).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Serial.print(&amp;quot;...&amp;quot;)&lt;/code&gt; (ohne &lt;code&gt;\n&lt;/code&gt;) → &lt;code&gt;LOG_INFO(&amp;quot;...&amp;quot;)&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Mehrteilige Chains (&lt;code&gt;Serial.print(a); Serial.print(b); Serial.println(c);&lt;/code&gt;) → zu &lt;strong&gt;einer&lt;/strong&gt; &lt;code&gt;LOG_*&lt;/code&gt;-Zeile mit kombiniertem Format mergen (gleiche Bytefolge: &lt;code&gt;&amp;quot;ab&amp;quot; + c + &amp;quot;\n&amp;quot;&lt;/code&gt;), wo trivial; sonst je Fragment eine Zeile beibehalten.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Serial.println()&lt;/code&gt; ohne Argument (Leerzeile) → &lt;code&gt;LOG_INFO(&amp;quot;&amp;quot;)&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Update.printError(Serial)&lt;/code&gt; in OtaUpdater → &lt;code&gt;Serial.print(Update.errorString())&lt;/code&gt;-Ersatz via &lt;code&gt;LOG_ERROR(&amp;quot;%s&amp;quot;, Update.errorString())&lt;/code&gt; NUR wo die Updater-API es erlaubt (printError ist library-intern auf Serial verdrahtet — &lt;strong&gt;unverändert lassen&lt;/strong&gt;, kommentieren).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Reihenfolge&lt;/strong&gt; (klein → groß, jeder Datei-Task einzeln committen; Call-Zahlen verifiziert):&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;src/Timer.cpp&lt;/code&gt; (1) · 2. &lt;code&gt;src/RuleTimer.cpp&lt;/code&gt; (1) · 3. &lt;code&gt;src/RuleManu.cpp&lt;/code&gt; (1) · 4. &lt;code&gt;src/TimeClientHelper.cpp&lt;/code&gt; (2) · 5. &lt;code&gt;src/ESP32TemperatureNode.cpp&lt;/code&gt; (2) ·
+6. &lt;code&gt;src/StatusLed.cpp&lt;/code&gt; (5) · 7. &lt;code&gt;src/RelayModuleNode.cpp&lt;/code&gt; (5) · 8. &lt;code&gt;src/NorviButtonHandler.cpp&lt;/code&gt; (7) · 9. &lt;code&gt;src/NorviOledDisplay.cpp&lt;/code&gt; (8) ·
+10. &lt;code&gt;src/WpsProvisioner.cpp&lt;/code&gt; (10) · 11. &lt;code&gt;src/ConfigManager.cpp&lt;/code&gt; (11) · 12. &lt;code&gt;src/RuleBoost.cpp&lt;/code&gt; (12) · 13. &lt;code&gt;src/WebPortal.cpp&lt;/code&gt; (13) ·
+14. &lt;code&gt;src/NetworkManager.cpp&lt;/code&gt; (15) · 15. &lt;code&gt;src/DegradationManager.cpp&lt;/code&gt; (15) · 16. &lt;code&gt;src/RuleAuto.cpp&lt;/code&gt; (16) · 17. &lt;code&gt;src/DallasTemperatureNode.cpp&lt;/code&gt; (20) ·
+18. &lt;code&gt;src/OperationModeNode.cpp&lt;/code&gt; (23) · 19. &lt;code&gt;src/PoolController.cpp&lt;/code&gt; (26) · 20. &lt;code&gt;src/MqttPublisher.cpp&lt;/code&gt; (27) · 21. &lt;code&gt;src/OtaUpdater.cpp&lt;/code&gt; (33)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Sonderfälle:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;NorviOledDisplay&lt;/code&gt;/&lt;code&gt;NorviButtonHandler&lt;/code&gt;: Serial nur als Debug-Pfad — Flags/Guard-Bedingungen (z. B. &lt;code&gt;if (DEBUG)&lt;/code&gt;) beibehalten, nur die Ausgabe ersetzen.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;DallasTemperatureNode&lt;/code&gt;: Poll-Schleifen-Logging → &lt;code&gt;LOG_DEBUG&lt;/code&gt; (würde sonst Ringbuffer in Sekunden fluten).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;OperationModeNode&lt;/code&gt;: &lt;code&gt;✖ UNDEFINED Mode&lt;/code&gt; → &lt;code&gt;LOG_ERROR&lt;/code&gt;, &lt;code&gt;⚠ NTP time sync failed&lt;/code&gt; → &lt;code&gt;LOG_WARN&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;MqttPublisher&lt;/code&gt;/&lt;code&gt;NetworkManager&lt;/code&gt;/&lt;code&gt;OtaUpdater&lt;/code&gt;/&lt;code&gt;WebPortal&lt;/code&gt;: kuratierte Events (siehe Task 4, Schritt 3) hier gleichzeitig als &lt;code&gt;logEvent&lt;/code&gt; statt &lt;code&gt;log&lt;/code&gt; setzen, wo Mode-/Pump-/Wifi-/MQTT-/OTA-Übergänge geloggt werden (kein zweiter Durchlauf).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Per-Task Verify:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pio run &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; cmake -B build -S . &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; cmake --build build &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nv"&gt;ASAN_OPTIONS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;detect_leaks&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;1:halt_on_error&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt; ./build/test_runner &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; cmake -B relay_safety/build -S relay_safety &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; cmake --build relay_safety/build &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; ./relay_safety/build/test_relay_safety&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Invarianz-Check je Datei: &lt;code&gt;git diff&lt;/code&gt; auf reine Call-Substitution prüfen (keine Logikänderung).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Commit je Datei:&lt;/strong&gt; &lt;code&gt;refactor(logging): migrate Serial calls in &amp;lt;Datei&amp;gt; to LogCapture&lt;/code&gt; (bis zu 21 Commits; kleine Gruppen á 3-4 Dateien erlaubt, wenn diff klar bleibt).&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Task 4 — REST-Endpoint &lt;code&gt;/api/logs&lt;/code&gt;&lt;span class="hx:absolute hx:-mt-20" id="task-4--rest-endpoint-apilogs"&gt;&lt;/span&gt;
+&lt;a href="#task-4--rest-endpoint-apilogs" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Dateien:&lt;/strong&gt; &lt;code&gt;src/WebPortal.cpp&lt;/code&gt; (setupRoutes:180, apiGetStatus:436 als Muster), &lt;code&gt;src/WebPortal.hpp&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Schritte:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;WebPortal.hpp&lt;/code&gt;: &lt;code&gt;static void apiGetLogs();&lt;/code&gt; + &lt;code&gt;static void apiClearLogs();&lt;/code&gt; (private, wie apiGetStatus).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;setupRoutes()&lt;/code&gt; ergänzen (Muster Zeile 193 / 199-208):&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cpp" data-lang="cpp"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// Log view — GET unauthenticated (read-only), clear requires login
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;server_&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;on&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;/api/logs&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;HTTP_GET&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;apiGetLogs&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;server_&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;on&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;/api/logs/clear&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;HTTP_POST&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;[]()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="n"&gt;handleAuthentication&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;apiClearLogs&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;});&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ol start="3"&gt;
+&lt;li&gt;&lt;code&gt;apiGetLogs()&lt;/code&gt;:
+&lt;ul&gt;
+&lt;li&gt;Query: &lt;code&gt;since&lt;/code&gt; (seq, default 0), &lt;code&gt;count&lt;/code&gt; (default 200, Cap 500), &lt;code&gt;level&lt;/code&gt; (&lt;code&gt;parseLevel&lt;/code&gt;, default &lt;code&gt;Info&lt;/code&gt; — damit Debug nicht im Web landet; &lt;code&gt;level=debug&lt;/code&gt; explizit möglich).&lt;/li&gt;
+&lt;li&gt;JSON: &lt;code&gt;{&amp;quot;ok&amp;quot;:true, &amp;quot;next&amp;quot;:&amp;lt;lastSeq()+1&amp;gt;, &amp;quot;entries&amp;quot;:[{&amp;quot;seq&amp;quot;:…,&amp;quot;t&amp;quot;:&amp;lt;uptimeMs&amp;gt;,&amp;quot;level&amp;quot;:&amp;quot;info|warning|error&amp;quot;,&amp;quot;msg&amp;quot;:&amp;quot;…&amp;quot;}, …]}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;JsonDocument doc;&lt;/code&gt; + &lt;code&gt;serializeJson&lt;/code&gt; → &lt;code&gt;server_.send(200, &amp;quot;application/json&amp;quot;, payload)&lt;/code&gt; — exakt wie &lt;code&gt;apiGetStatus&lt;/code&gt; (Zeile 436ff, Payload-Buffer-Muster).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;apiClearLogs()&lt;/code&gt;: &lt;code&gt;LogCapture::clear();&lt;/code&gt; → &lt;code&gt;{&amp;quot;ok&amp;quot;:true}&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Keine PROGMEM-Anteile (LittleFS-only-Vorgabe).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Test (TDD):&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Neues Muster anlehnen an &lt;code&gt;test_webportal_json.cpp&lt;/code&gt; (WebServer-Mock fängt &lt;code&gt;send()&lt;/code&gt; via &lt;code&gt;wsCapture&lt;/code&gt;). Da &lt;code&gt;apiGetStatus&lt;/code&gt; private ist und der bestehende Test
+inline-JSON baut, wird für &lt;code&gt;apiGetLogs&lt;/code&gt; derselbe Weg genutzt: &lt;strong&gt;Test-Hook&lt;/strong&gt; — &lt;code&gt;LogCapture&lt;/code&gt; selbst unit-testen (Task 1) + JSON-Serialisierung über einen
+&lt;strong&gt;public static Test-Hook&lt;/strong&gt; testen, z. B. &lt;code&gt;WebPortal::buildLogsJson(uint32_t since, size_t count, LogLevel minLevel, char *buf, size_t bufSize) -&amp;gt; size_t&lt;/code&gt;
+(public for testing, Muster: „Rate limiting helpers (public for testing)&amp;quot; existiert bereits in &lt;code&gt;WebPortal.hpp&lt;/code&gt;). &lt;code&gt;apiGetLogs&lt;/code&gt; ruft den Hook auf und sendet.&lt;/li&gt;
+&lt;li&gt;Testfälle: since-Filter wirkt, count-Cap, Level-Filter, &lt;code&gt;next&lt;/code&gt; = lastSeq+1, leeres Ergebnis → &lt;code&gt;entries: []&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Registrierung: &lt;code&gt;test_webportal_json.cpp&lt;/code&gt; erweitern oder neue Testdatei + &lt;code&gt;test_main.cpp&lt;/code&gt;-Eintrag.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Verify:&lt;/strong&gt; test_runner + relay_safety grün; &lt;code&gt;pio run&lt;/code&gt; grün.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Commit:&lt;/strong&gt; &lt;code&gt;feat(logging): add unauthenticated /api/logs endpoint and authenticated clear&lt;/code&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Task 5 — MQTT-Event-Export&lt;span class="hx:absolute hx:-mt-20" id="task-5--mqtt-event-export"&gt;&lt;/span&gt;
+&lt;a href="#task-5--mqtt-event-export" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Dateien:&lt;/strong&gt; &lt;code&gt;src/MqttPublisher.cpp&lt;/code&gt;/&lt;code&gt;.hpp&lt;/code&gt;, &lt;code&gt;src/LogCapture.hpp&lt;/code&gt; (falls Event-Zugriff nötig)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Schritte:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;publishEventDiscovery()&lt;/code&gt; — Muster &lt;code&gt;publishTextDiscovery&lt;/code&gt; (Zeile 212) / &lt;code&gt;publishNumberDiscovery&lt;/code&gt; (Zeile ~200), TopicBuilder (&lt;code&gt;homeassistant/&amp;lt;component&amp;gt;/pool-controller/&amp;lt;object-id&amp;gt;/config&lt;/code&gt;, &lt;code&gt;cfgTopic.build(&amp;quot;event&amp;quot;, objectId, &amp;quot;/config&amp;quot;)&lt;/code&gt;):&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cpp" data-lang="cpp"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="n"&gt;MqttPublisher&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;publishEventDiscovery&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;objectId&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;icon&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;TopicBuilder&lt;/span&gt; &lt;span class="n"&gt;cfgTopic&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;stateTopic&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;JsonDocument&lt;/span&gt; &lt;span class="n"&gt;doc&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;doc&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;name&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;doc&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;unique_id&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;deviceId_&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;_&amp;#34;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;objectId&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;doc&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;state_topic&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;stateTopic&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;build&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;event&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;objectId&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;/state&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;doc&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;availability_topic&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;homeassistant/sensor/pool-controller/availability&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;doc&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;platform&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;event&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;// research-backed: HA event component
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;JsonArray&lt;/span&gt; &lt;span class="n"&gt;eventTypes&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;doc&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;event_types&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;].&lt;/span&gt;&lt;span class="n"&gt;to&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;JsonArray&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;eventTypes&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;LOG_WARN&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="n"&gt;eventTypes&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;LOG_ERROR&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;eventTypes&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;MODE_CHANGED&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="n"&gt;eventTypes&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;PUMP_ON&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="n"&gt;eventTypes&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;PUMP_OFF&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;eventTypes&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;WIFI_CONNECTED&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="n"&gt;eventTypes&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;WIFI_DISCONNECTED&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;eventTypes&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;MQTT_CONNECTED&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="n"&gt;eventTypes&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;MQTT_DISCONNECTED&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;icon&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;doc&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;icon&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;icon&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;addDeviceInfo&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;doc&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="n"&gt;payloadBuf&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1024&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;serializeJson&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;doc&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;payloadBuf&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;sizeof&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;payloadBuf&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;NetworkManager&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;publish&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cfgTopic&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;build&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;event&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;objectId&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;/config&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;payloadBuf&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;true&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ol start="2"&gt;
+&lt;li&gt;In &lt;code&gt;publishDiscovery()&lt;/code&gt; (Zeile ~430, nach &lt;code&gt;isMqttConnected()&lt;/code&gt;-Guard): &lt;code&gt;publishEventDiscovery(&amp;quot;logs&amp;quot;, &amp;quot;Pool Controller Logs&amp;quot;, &amp;quot;mdi:clipboard-text-outline&amp;quot;);&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Export-Pumpe&lt;/strong&gt; — in &lt;code&gt;publishStates()&lt;/code&gt; (wird im Loop 2× aufgerufen): neue Einträge seit &lt;code&gt;s_lastExportedSeq&lt;/code&gt;:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;LogCapture::logEvent&lt;/code&gt;-Marker &lt;code&gt;[EVENT]&lt;/code&gt; bzw. die Event-Marker (Mode/Pump/Wifi/MQTT/OTA — in Task 3 als &lt;code&gt;logEvent&lt;/code&gt; gesetzt) → &lt;code&gt;{&amp;quot;event_type&amp;quot;: &amp;quot;&amp;lt;TYPE&amp;gt;&amp;quot;, &amp;quot;message&amp;quot;: &amp;quot;&amp;lt;msg&amp;gt;&amp;quot;}&lt;/code&gt; auf &lt;code&gt;stateTopic&lt;/code&gt; (&lt;code&gt;event&lt;/code&gt;-Component) — &lt;strong&gt;nur&lt;/strong&gt; bei Änderung (dedup: gleiche seq nicht erneut).&lt;/li&gt;
+&lt;li&gt;WARN/ERROR-Einträge ohne Event-Marker → &lt;code&gt;{&amp;quot;event_type&amp;quot;: &amp;quot;LOG_WARN&amp;quot;|&amp;quot;LOG_ERROR&amp;quot;, &amp;quot;message&amp;quot;: &amp;quot;...&amp;quot;}&lt;/code&gt; auf denselben &lt;code&gt;stateTopic&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Raw-Topic&lt;/strong&gt; &lt;code&gt;pool-controller/log&lt;/code&gt; (via &lt;code&gt;getBaseTopic()&lt;/code&gt;): WARN/ERROR als JSON-Lines &lt;code&gt;{&amp;quot;seq&amp;quot;:…,&amp;quot;t&amp;quot;:…,&amp;quot;level&amp;quot;:…,&amp;quot;msg&amp;quot;:…}&lt;/code&gt; für externe Tools — mit &lt;code&gt;s_lastExportedSeq&lt;/code&gt; dedupliziert.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;s_lastExportedSeq = LogCapture::lastSeq();&lt;/code&gt; am Ende (Volumen-Kontrolle: keine Info/Debug über MQTT).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Kuratierte Event-Trigger&lt;/strong&gt; (setzen als &lt;code&gt;logEvent&lt;/code&gt; beim Übergang, Referenz aus Task 3):
+&lt;ul&gt;
+&lt;li&gt;Mode-Wechsel: &lt;code&gt;OperationModeNode&lt;/code&gt;/&lt;code&gt;PoolController&lt;/code&gt; (mode set) → &lt;code&gt;logEvent(&amp;quot;MODE_CHANGED&amp;quot;, ...)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Pumpe: &lt;code&gt;PoolController::togglePoolPump/toggleSolarPump&lt;/code&gt; → &lt;code&gt;PUMP_ON&lt;/code&gt;/&lt;code&gt;PUMP_OFF&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;WLAN: &lt;code&gt;NetworkManager&lt;/code&gt; connect/disconnect (Zeile ~256/268) → &lt;code&gt;WIFI_CONNECTED&lt;/code&gt;/&lt;code&gt;WIFI_DISCONNECTED&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;MQTT: &lt;code&gt;MqttPublisher::onMqttConnect/onMqttDisconnect&lt;/code&gt; → &lt;code&gt;MQTT_CONNECTED&lt;/code&gt;/&lt;code&gt;MQTT_DISCONNECTED&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Test (TDD):&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;test_mqttpublisher.cpp&lt;/code&gt; erweitern (Muster &lt;code&gt;mqttCapture.published&lt;/code&gt;):
+&lt;ul&gt;
+&lt;li&gt;Nach &lt;code&gt;begin()&lt;/code&gt;: Discovery-Payload für &lt;code&gt;homeassistant/event/pool-controller/logs/config&lt;/code&gt; enthält &lt;code&gt;&amp;quot;platform&amp;quot;:&amp;quot;event&amp;quot;&lt;/code&gt; und &lt;code&gt;event_types&lt;/code&gt; mit &lt;code&gt;LOG_WARN&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Export-Pumpe: WARN-Entry in LogCapture → nach &lt;code&gt;publishStates()&lt;/code&gt; ist &lt;code&gt;{&amp;quot;event_type&amp;quot;:&amp;quot;LOG_WARN&amp;quot;,...}&lt;/code&gt; auf dem event-state-Topic publiziert; Info-Entry wird NICHT publiziert.&lt;/li&gt;
+&lt;li&gt;Dedup: zweiter &lt;code&gt;publishStates()&lt;/code&gt;-Aufruf ohne neue Einträge publiziert nichts Neues.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;logEvent(&amp;quot;MODE_CHANGED&amp;quot;, ...)&lt;/code&gt; → &lt;code&gt;event_type&lt;/code&gt; = &lt;code&gt;MODE_CHANGED&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;MqttPublisher ist WRAPPER_SOURCE (wrapper generiert &lt;code&gt;wrappers/MqttPublisher.cpp&lt;/code&gt; mit &lt;code&gt;mqttCapture&lt;/code&gt;) — neue Publikationen laufen über &lt;code&gt;NetworkManager::publish&lt;/code&gt; (Mock, &lt;code&gt;_mqttConnected=true&lt;/code&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Verify:&lt;/strong&gt; test_runner + relay_safety grün; &lt;code&gt;pio run&lt;/code&gt; grün.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Commit:&lt;/strong&gt; &lt;code&gt;feat(logging): export log events via MQTT event entity with HA discovery&lt;/code&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Task 6 — Web-UI: Dashboard-Button, More-Eintrag, Log-Konsole&lt;span class="hx:absolute hx:-mt-20" id="task-6--web-ui-dashboard-button-more-eintrag-log-konsole"&gt;&lt;/span&gt;
+&lt;a href="#task-6--web-ui-dashboard-button-more-eintrag-log-konsole" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Dateien:&lt;/strong&gt; &lt;code&gt;data/web/index.html&lt;/code&gt;, &lt;code&gt;data/web/app.js&lt;/code&gt;, &lt;code&gt;data/web/style.css&lt;/code&gt; (LittleFS-Deployment via &lt;code&gt;uploadfs&lt;/code&gt;)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Schritte:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;index.html&lt;/code&gt;:
+&lt;ul&gt;
+&lt;li&gt;Dashboard-Header (bei Login-Banner-Zeile ~146): &lt;code&gt;&amp;lt;button id=&amp;quot;btnLogs&amp;quot; class=&amp;quot;...&amp;quot;&amp;gt;📜 Logs&amp;lt;/button&amp;gt;&lt;/code&gt; — sichtbar &lt;strong&gt;immer&lt;/strong&gt; (unauthentifizierter Einstieg).&lt;/li&gt;
+&lt;li&gt;More-Menü (&lt;code&gt;moreMenu&lt;/code&gt;, Zeile ~67-83): &lt;code&gt;&amp;lt;a href=&amp;quot;#&amp;quot; data-tab=&amp;quot;logs&amp;quot;&amp;gt;📜 Logs&amp;lt;/a&amp;gt;&lt;/code&gt; vor &lt;code&gt;wifi&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Neuer &lt;code&gt;&amp;lt;section id=&amp;quot;tab-logs&amp;quot; class=&amp;quot;tab&amp;quot;&amp;gt;&lt;/code&gt; (Muster &lt;code&gt;tab-wifi&lt;/code&gt; etc.):
+&lt;ul&gt;
+&lt;li&gt;Kopf: Filter-Chips &lt;code&gt;Alle&lt;/code&gt; / &lt;code&gt;Warnungen&lt;/code&gt; / &lt;code&gt;Fehler&lt;/code&gt; + &lt;code&gt;Logs löschen&lt;/code&gt;-Button (&lt;code&gt;hidden&lt;/code&gt; ohne Login).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;div id=&amp;quot;logConsole&amp;quot;&amp;gt;&lt;/code&gt; (Scroll-Container) + &lt;code&gt;&amp;lt;div id=&amp;quot;logConsoleEmpty&amp;quot;&amp;gt;&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;app.js&lt;/code&gt;:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;moreTabs = ['logs', 'wifi', 'mqtt', 'system', 'about']&lt;/code&gt; (Zeile 15) — &lt;code&gt;logs&lt;/code&gt; wird über das More-Menü erreicht, &lt;code&gt;barTab&lt;/code&gt;-Mapping greift.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;switchTab('logs')&lt;/code&gt; zeigt &lt;code&gt;#tab-logs&lt;/code&gt; (bestehende Mechanik reicht).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;loadLogs()&lt;/code&gt;: &lt;code&gt;fetch('/api/logs?since=' + lastSeq + '&amp;amp;count=200&amp;amp;level=' + levelFilter)&lt;/code&gt; → Einträge an &lt;code&gt;#logConsole&lt;/code&gt; anhängen (&lt;code&gt;textContent&lt;/code&gt;-basiert, keine innerHTML mit Fremdtext!), &lt;code&gt;lastSeq = data.next&lt;/code&gt;; Auto-Scroll ans Ende &lt;strong&gt;nur wenn&lt;/strong&gt; User nicht hochgescrollt hat (&lt;code&gt;scrollTop + clientHeight &amp;gt;= scrollHeight - 40&lt;/code&gt;); relative Zeit (Uptime-ms → &lt;code&gt;h:mm:ss&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;setInterval(loadLogs, 2000)&lt;/code&gt; (parallel zu &lt;code&gt;loadTelemetry&lt;/code&gt;, Zeile ~1005); beim Tab-Wechsel zu &lt;code&gt;logs&lt;/code&gt; sofort einmal laden.&lt;/li&gt;
+&lt;li&gt;Filter-Chips: Klick setzt &lt;code&gt;levelFilter&lt;/code&gt; (&lt;code&gt;info|warning|error&lt;/code&gt;), leert Konsole, &lt;code&gt;lastSeq=0&lt;/code&gt;, sofort &lt;code&gt;loadLogs()&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Clear-Button: nur sichtbar wenn &lt;code&gt;isAuthenticated&lt;/code&gt; (&lt;code&gt;updateAuthUI()&lt;/code&gt;-Erweiterung, Zeile ~225); Klick → &lt;code&gt;fetch('/api/logs/clear', {method:'POST'})&lt;/code&gt; → Konsole leeren, &lt;code&gt;lastSeq=0&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Escape-Hilfe: &lt;code&gt;function escapeHtml(s)&lt;/code&gt; (ersetze &lt;code&gt;&amp;lt;&lt;/code&gt;, &lt;code&gt;&amp;gt;&lt;/code&gt;, &lt;code&gt;&amp;amp;&lt;/code&gt;, &lt;code&gt;&amp;quot;&lt;/code&gt;) — verwenden für &lt;code&gt;msg&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;style.css&lt;/code&gt;: &lt;code&gt;#logConsole&lt;/code&gt; (monospace, &lt;code&gt;overflow-y: auto&lt;/code&gt;, max-height), Level-Farben (&lt;code&gt;.log-debug&lt;/code&gt; grau, &lt;code&gt;.log-info&lt;/code&gt; default, &lt;code&gt;.log-warn&lt;/code&gt; amber, &lt;code&gt;.log-error&lt;/code&gt; rot), Chips, Empty-State.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Hinweis:&lt;/strong&gt; UI-Arbeit wird beim Ausführen an &lt;code&gt;@designer&lt;/code&gt; gegeben (Layout/Feel) — Copy danach vom Orchestrator geprüft. Design-Absicht (Polling, Pause-on-Scroll, Filter, Auth-Gating) bleibt fix.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Verify:&lt;/strong&gt; &lt;code&gt;pio run&lt;/code&gt; + &lt;code&gt;uploadfs&lt;/code&gt;-Deployment auf Gerät (oder lokale Inspektion); manuell: Button ohne Login erreichbar, Konsole füllt sich, Scroll-Pause, Filter, Clear nur mit Login, XSS-Check (Sonderzeichen in Logs rendern sicher).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Commit:&lt;/strong&gt; &lt;code&gt;feat(logging): add web log console with polling, filters and auth-gated clear&lt;/code&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Task 7 — Dokumentation (EN + DE)&lt;span class="hx:absolute hx:-mt-20" id="task-7--dokumentation-en--de"&gt;&lt;/span&gt;
+&lt;a href="#task-7--dokumentation-en--de" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Dateien:&lt;/strong&gt; &lt;code&gt;docs/mqtt-configuration.md&lt;/code&gt; + &lt;code&gt;.de.md&lt;/code&gt;, &lt;code&gt;docs/software-guide.md&lt;/code&gt; + &lt;code&gt;.de.md&lt;/code&gt;, &lt;code&gt;docs/home-assistant/_index.md&lt;/code&gt; + &lt;code&gt;.de.md&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Inhalt:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;mqtt-configuration.*&lt;/code&gt;: neues Topic &lt;code&gt;homeassistant/event/pool-controller/logs/config&lt;/code&gt; (Discovery, &lt;code&gt;platform: event&lt;/code&gt;, &lt;code&gt;event_types&lt;/code&gt;-Liste), State-Topic, Raw-Topic &lt;code&gt;pool-controller/log&lt;/code&gt; (JSON-Lines, WARN/ERROR), Beispiel-Payload.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;software-guide.*&lt;/code&gt;: REST-API &lt;code&gt;GET /api/logs&lt;/code&gt; (Parameter &lt;code&gt;since&lt;/code&gt;/&lt;code&gt;count&lt;/code&gt;/&lt;code&gt;level&lt;/code&gt;, Beispiel-Response), &lt;code&gt;POST /api/logs/clear&lt;/code&gt; (Auth), Web-Log-Konsole (Platzierung: Dashboard-Button + More-Menü, Filter, Auto-Polling).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;home-assistant/_index.*&lt;/code&gt;: &lt;strong&gt;Logbook-Automation-Blueprint&lt;/strong&gt; (dokumentiert, nicht im Firmware) — YAML-Snippet, das &lt;code&gt;event&lt;/code&gt;-Entity-Events in das HA-Logbook schreibt (Trigger &lt;code&gt;event&lt;/code&gt;, Bedingung event_type in Liste, &lt;code&gt;logbook.log&lt;/code&gt;-Action).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Verify:&lt;/strong&gt; Markdown-Validierung (Dateien existieren EN+DE, Links konsistent), kein Build-Einfluss.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Commit:&lt;/strong&gt; &lt;code&gt;docs(logging): document log view API, MQTT event entity and HA logbook blueprint&lt;/code&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Task 8 — Gesamt-Verifikation &amp;amp; Review&lt;span class="hx:absolute hx:-mt-20" id="task-8--gesamt-verifikation--review"&gt;&lt;/span&gt;
+&lt;a href="#task-8--gesamt-verifikation--review" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Schritte:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Vollständiger CI-Lauf lokal: &lt;code&gt;pio run&lt;/code&gt; + &lt;code&gt;test_runner&lt;/code&gt; (ASAN) + &lt;code&gt;relay_safety&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Serial-Invarianz-Stichprobe: vor/nach Diff der formatierten Strings (kein Zeichenverlust, &lt;code&gt;\n&lt;/code&gt;-Semantik println→&lt;code&gt;\n&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;Review durch @oracle (Risiko: Ringbuffer-Corner-Cases, Thread-Safety, XSS, MQTT-Volumen) — optional, wenn Task 1-6 ohne Auffälligkeiten.&lt;/li&gt;
+&lt;li&gt;Finale Commit-Historie prüfen (Conventional Commits, Scope &lt;code&gt;logging&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;Deployment-Vorbereitung: &lt;code&gt;pio run&lt;/code&gt;-Binary für &lt;code&gt;uploadfs&lt;/code&gt; + OTA (Deploy-Skill folgt separat, nicht Teil dieses Plans).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Commit:&lt;/strong&gt; ggf. &lt;code&gt;fix(logging): ...&lt;/code&gt; für Review-Fundstücke.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Selbst-Review gegen Spec&lt;span class="hx:absolute hx:-mt-20" id="selbst-review-gegen-spec"&gt;&lt;/span&gt;
+&lt;a href="#selbst-review-gegen-spec" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Spec-Anforderung&lt;/th&gt;
+&lt;th&gt;Plan-Abdeckung&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Ansatz A: zentrale Capture + Migration&lt;/td&gt;
+&lt;td&gt;Task 1 + 3 (253 Calls / 21 Dateien, verifizierte Zahlen)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;RAM-Ringbuffer, kein Heap&lt;/td&gt;
+&lt;td&gt;Task 1 (statisch, vsnprintf, IoT-Gates)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Unauthentifiziertes &lt;code&gt;/api/logs&lt;/code&gt; (Polling &lt;code&gt;since&lt;/code&gt;)&lt;/td&gt;
+&lt;td&gt;Task 4 (since/count/level, Cap 500)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Clear nur mit Login&lt;/td&gt;
+&lt;td&gt;Task 4 (&lt;code&gt;handleAuthentication&lt;/code&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MQTT-Export WARN/ERROR + kuratierte Events&lt;/td&gt;
+&lt;td&gt;Task 5 (event-Entity + Raw-Topic, dedup via lastExportedSeq)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;HA-Discovery research-backed (event-Typ)&lt;/td&gt;
+&lt;td&gt;Task 5 (committed Ergebnis 2e40262, &lt;code&gt;platform: event&lt;/code&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;UI: Konsole, 2s-Polling, Filter, Pause-on-Scroll&lt;/td&gt;
+&lt;td&gt;Task 6 (Polling-Muster wie loadTelemetry)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Platzierung: Dashboard-Button + More-Menü&lt;/td&gt;
+&lt;td&gt;Task 6 (Dashboard = unauthentifizierter Einstieg, More für eingeloggte)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;LittleFS-only, kein PROGMEM&lt;/td&gt;
+&lt;td&gt;Task 4/6 (keine PROGMEM-Anteile)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Docs EN+DE&lt;/td&gt;
+&lt;td&gt;Task 7 (alle 3 Docs-Paare)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Native Tests + relay_safety grün&lt;/td&gt;
+&lt;td&gt;jeder Task (Verify-Block)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Ohne @librarian&lt;/td&gt;
+&lt;td&gt;eingehalten — Recherche committed, keine externe Recherche nötig&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;Risiken / Offene Punkte&lt;span class="hx:absolute hx:-mt-20" id="risiken--offene-punkte"&gt;&lt;/span&gt;
+&lt;a href="#risiken--offene-punkte" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Ringbuffer-Volumen&lt;/strong&gt;: Poll-Schleifen-Logging (DallasTemperature) muss auf &lt;code&gt;LOG_DEBUG&lt;/code&gt; — sonst ist der 8KB-Ring in Sekunden überschrieben und die Web-Konsole zeigt nur Hot-Path-Logs. Task 3 Sonderfälle deckt das ab; Review-Schritt 8.3 validiert.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;Update.printError(Serial)&lt;/code&gt;&lt;/strong&gt; bleibt serial-gebunden (library-intern) — Web/MQTT sehen OTA-Fehler nur über den kuratierten &lt;code&gt;OTA_FAILED&lt;/code&gt;-Event (Task 3, Sonderfälle).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Event-Dedup über Reconnect&lt;/strong&gt;: &lt;code&gt;s_lastExportedSeq&lt;/code&gt; ist RAM-only — nach Reboot werden ältere seqs nicht re-exportiert (gewollt; MQTT-retained nur Discovery, nicht Events).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;XSS&lt;/strong&gt;: Log-Console rendert nur via &lt;code&gt;textContent&lt;/code&gt;/&lt;code&gt;escapeHtml&lt;/code&gt; — Fremdtexte (Mode-Namen, WLAN-SSIDs) sind potenzielle Payloads.&lt;/li&gt;
+&lt;/ol&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/superpowers/specs/2026-07-31-logging-view-design/</link><pubDate>Sun, 02 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/superpowers/specs/2026-07-31-logging-view-design/</guid><description>
+&lt;h1&gt;Design: Logging View for Pool Controller&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;Date:&lt;/strong&gt; 2026-07-31
+&lt;strong&gt;Status:&lt;/strong&gt; Approved (brainstorming)
+&lt;strong&gt;Scope:&lt;/strong&gt; New &amp;ldquo;Logs&amp;rdquo; view in the web UI with RAM ring buffer log capture, REST endpoint, MQTT export, and UI console.&lt;/p&gt;
+&lt;h2&gt;Motivation&lt;span class="hx:absolute hx:-mt-20" id="motivation"&gt;&lt;/span&gt;
+&lt;a href="#motivation" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The pool controller currently logs exclusively to the serial interface (253
+&lt;code&gt;Serial.printf/print/println&lt;/code&gt; calls across 21 files). There is no way to inspect
+logs from the web UI, which makes remote debugging difficult on a 24/7 device.&lt;/p&gt;
+&lt;p&gt;This feature adds a web-based logging view: the device captures log lines into a
+RAM ring buffer, serves them via an unauthenticated read-only REST endpoint, and
+optionally exports warnings/errors to MQTT (Home Assistant). The UI shows the log
+as a console with level filters, auto-refresh, and auto-scroll.&lt;/p&gt;
+&lt;h2&gt;Requirements (from brainstorming)&lt;span class="hx:absolute hx:-mt-20" id="requirements-from-brainstorming"&gt;&lt;/span&gt;
+&lt;a href="#requirements-from-brainstorming" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Content:&lt;/strong&gt; Full system log + filtered event view (level/category filters).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Persistence:&lt;/strong&gt; RAM ring buffer only (no flash wear). Optional MQTT export for
+warnings/errors + curated events so logs survive reboot in Home Assistant.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Placement:&lt;/strong&gt; &amp;ldquo;📜 Logs&amp;rdquo; button on the dashboard plus an entry in the More
+bottom-sheet menu (not a bottom tab). The dashboard button is the unauthenticated
+access path — the tab bar and More menu are hidden entirely without login.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Access:&lt;/strong&gt; Read-only without login (like dashboard telemetry); clear operation
+requires login.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Updates:&lt;/strong&gt; Auto-polling every 2 s while the tab is visible (same pattern as
+dashboard telemetry).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Approach (chosen: A — central capture + migration)&lt;span class="hx:absolute hx:-mt-20" id="approach-chosen-a--central-capture--migration"&gt;&lt;/span&gt;
+&lt;a href="#approach-chosen-a--central-capture--migration" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Full migration of all &lt;code&gt;Serial.printf/print/println&lt;/code&gt; calls to a central logging API
+that continues to write to Serial (behavior unchanged) and additionally appends to
+the ring buffer.&lt;/p&gt;
+&lt;h2&gt;Architecture&lt;span class="hx:absolute hx:-mt-20" id="architecture"&gt;&lt;/span&gt;
+&lt;a href="#architecture" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;1. LogCapture module (&lt;code&gt;src/LogCapture.{hpp,cpp}&lt;/code&gt;)&lt;span class="hx:absolute hx:-mt-20" id="1-logcapture-module-srclogcapturehppcpp"&gt;&lt;/span&gt;
+&lt;a href="#1-logcapture-module-srclogcapturehppcpp" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Replaces the current stub &lt;code&gt;src/Nodes/Logger.{hpp,cpp}&lt;/code&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Static ring buffer&lt;/strong&gt;: fixed size (default 8 KB, configurable via build flag
+&lt;code&gt;-DLOG_BUFFER_SIZE=&amp;lt;bytes&amp;gt;&lt;/code&gt;). No heap allocation per log line → no fragmentation.
+Estimated ~80–100 bytes/entry → ~80–100 lines in the buffer.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Entry format&lt;/strong&gt;: &lt;code&gt;{seq, level, uptime_ms, msg}&lt;/code&gt;.
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;seq&lt;/code&gt;: monotonically increasing sequence number (uint32) for incremental polling.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;level&lt;/code&gt;: enum &lt;code&gt;Debug, Info, Warning, Critical, Error&lt;/code&gt; (reuse existing
+&lt;code&gt;Logger::LogLevel&lt;/code&gt; enum names).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;uptime_ms&lt;/code&gt;: milliseconds since boot (survives in the entry; absolute time is
+derived in the UI when NTP is synced).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;msg&lt;/code&gt;: null-terminated formatted string.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;API&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;LogCapture::log(Level level, const char *fmt, ...)&lt;/code&gt; — variadic snprintf into a
+static buffer, write to Serial AND append to ring buffer.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;LogCapture::begin()&lt;/code&gt; — initialize (called from &lt;code&gt;setup()&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;LogCapture::getEntries(uint32_t since, size_t maxCount, Level minLevel, ...)&lt;/code&gt;
+— returns entries after &lt;code&gt;since&lt;/code&gt;, capped, filtered by level (for REST handler).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;LogCapture::clear()&lt;/code&gt; — reset ring buffer.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Thread safety&lt;/strong&gt;: short critical section (portMUX or mutex) — writes come from
+both the WebServer task and the main loop task.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Level filtering at capture time&lt;/strong&gt;: configurable; DEBUG included by default at
+build, standard capture from INFO up (configurable via build flag if needed).&lt;/li&gt;
+&lt;li&gt;Remove the stub &lt;code&gt;Nodes/Logger&lt;/code&gt; (or fold its enum/flags into &lt;code&gt;LogCapture&lt;/code&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;2. Log capture: migration of 276 Serial calls&lt;span class="hx:absolute hx:-mt-20" id="2-log-capture-migration-of-276-serial-calls"&gt;&lt;/span&gt;
+&lt;a href="#2-log-capture-migration-of-276-serial-calls" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;New macros &lt;code&gt;LOG_DEBUG/LOG_INFO/LOG_WARN/LOG_ERROR(...)&lt;/code&gt; that expand to
+&lt;code&gt;LogCapture::log(Level::..., __VA_ARGS__)&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mechanical migration&lt;/strong&gt; via ast-grep:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Serial.printf(&amp;quot;...&amp;quot;, ...)&lt;/code&gt; → &lt;code&gt;LOG_INFO(&amp;quot;...&amp;quot;, ...)&lt;/code&gt; (level inferred from
+message content: &amp;ldquo;WARNING&amp;rdquo;/&amp;ldquo;ERROR&amp;rdquo;/&amp;ldquo;CRITICAL&amp;rdquo; prefixes → respective level,
+else INFO).&lt;/li&gt;
+&lt;li&gt;Multi-part &lt;code&gt;Serial.print&lt;/code&gt; chains: combine into a single &lt;code&gt;LOG_*&lt;/code&gt; call where
+mechanical; remaining special cases (e.g. &lt;code&gt;Update.printError(Serial)&lt;/code&gt;,
+library-internal prints) handled manually.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Invariant:&lt;/strong&gt; serial output stays byte-identical after migration. Verify by
+comparing serial output before/after on representative paths.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;3. REST API (&lt;code&gt;WebPortal.cpp&lt;/code&gt;)&lt;span class="hx:absolute hx:-mt-20" id="3-rest-api-webportalcpp"&gt;&lt;/span&gt;
+&lt;a href="#3-rest-api-webportalcpp" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;GET /api/logs?level=INFO&amp;amp;count=200&amp;amp;since=&amp;lt;seq&amp;gt;&lt;/code&gt; — &lt;strong&gt;no auth&lt;/strong&gt; (read-only).
+&lt;ul&gt;
+&lt;li&gt;Response: &lt;code&gt;{&amp;quot;entries&amp;quot;: [{&amp;quot;seq&amp;quot;: 42, &amp;quot;level&amp;quot;: &amp;quot;INFO&amp;quot;, &amp;quot;uptime&amp;quot;: 3610, &amp;quot;msg&amp;quot;: &amp;quot;...&amp;quot;}], &amp;quot;next_seq&amp;quot;: 43}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;level&lt;/code&gt; ∈ {DEBUG, INFO, WARN, ERROR} (server-side filter; WARN includes
+Warning+Critical+Error, ERROR includes Error).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;count&lt;/code&gt; default 200, max 500.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;POST /api/logs/clear&lt;/code&gt; — &lt;strong&gt;auth required&lt;/strong&gt; (clears ring buffer; for debugging).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;4. MQTT export (&lt;code&gt;MqttPublisher&lt;/code&gt;)&lt;span class="hx:absolute hx:-mt-20" id="4-mqtt-export-mqttpublisher"&gt;&lt;/span&gt;
+&lt;a href="#4-mqtt-export-mqttpublisher" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Follow existing HA Discovery patterns (&lt;code&gt;publishTextDiscovery&lt;/code&gt;, &lt;code&gt;getBaseTopic&lt;/code&gt;).
+Research-backed format (official &lt;code&gt;event.mqtt&lt;/code&gt; docs + HA Core sources): the HA
+&lt;strong&gt;MQTT event entity&lt;/strong&gt; is the idiomatic representation for discrete device
+events; a text/sensor entity would only show a &amp;ldquo;last line&amp;rdquo; without history.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Raw topic&lt;/strong&gt; &lt;code&gt;pool/log&lt;/code&gt; (JSON lines, QoS 0, non-retained) — for external
+tools. Payload: &lt;code&gt;{&amp;quot;level&amp;quot;:&amp;quot;WARN&amp;quot;,&amp;quot;uptime&amp;quot;:3610,&amp;quot;msg&amp;quot;:&amp;quot;...&amp;quot;}&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;HA event entity &amp;ldquo;Pool Controller Event&amp;rdquo;&lt;/strong&gt; via MQTT Discovery
+(&lt;code&gt;platform: event&lt;/code&gt;) on topic &lt;code&gt;pool/event&lt;/code&gt;:
+&lt;ul&gt;
+&lt;li&gt;Discovery topic &lt;code&gt;homeassistant/event/&amp;lt;node_id&amp;gt;/pool_controller_event/config&lt;/code&gt;
+(retained), payload &lt;code&gt;{&amp;quot;platform&amp;quot;:&amp;quot;event&amp;quot;,&amp;quot;name&amp;quot;:&amp;quot;Pool Controller Event&amp;quot;, &amp;quot;unique_id&amp;quot;:&amp;quot;pool_controller_event&amp;quot;,&amp;quot;state_topic&amp;quot;:&amp;quot;pool/event&amp;quot;, &amp;quot;event_types&amp;quot;:[&amp;quot;mode_changed&amp;quot;,&amp;quot;pump_on&amp;quot;,&amp;quot;pump_off&amp;quot;,&amp;quot;wifi_connected&amp;quot;, &amp;quot;wifi_disconnected&amp;quot;,&amp;quot;mqtt_connected&amp;quot;,&amp;quot;mqtt_disconnected&amp;quot;,&amp;quot;ota_started&amp;quot;, &amp;quot;ota_success&amp;quot;,&amp;quot;ota_failed&amp;quot;,&amp;quot;factory_reset&amp;quot;,&amp;quot;warning&amp;quot;,&amp;quot;error&amp;quot;], &amp;quot;entity_category&amp;quot;:&amp;quot;diagnostic&amp;quot;,&amp;quot;device&amp;quot;:{...same block as sensors...}}&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;State payload (JSON, &lt;strong&gt;must&lt;/strong&gt; contain &lt;code&gt;event_type&lt;/code&gt; ∈ &lt;code&gt;event_types&lt;/code&gt;):
+&lt;code&gt;{&amp;quot;event_type&amp;quot;:&amp;quot;pump_on&amp;quot;,&amp;quot;message&amp;quot;:&amp;quot;Pump turned on&amp;quot;,&amp;quot;level&amp;quot;:&amp;quot;INFO&amp;quot;,&amp;quot;uptime&amp;quot;:3610}&lt;/code&gt;
+— extra keys (&lt;code&gt;message&lt;/code&gt;, &lt;code&gt;level&lt;/code&gt;, &lt;code&gt;uptime&lt;/code&gt;) become entity attributes.
+Events are stateless; replayed retained messages are discarded by HA.&lt;/li&gt;
+&lt;li&gt;Separate &lt;code&gt;pool/event&lt;/code&gt; topic (instead of reusing &lt;code&gt;pool/log&lt;/code&gt;) keeps the
+event_type always present without a fragile &lt;code&gt;value_template&lt;/code&gt; on the raw log
+stream. The &lt;code&gt;value_template&lt;/code&gt; is intentionally omitted.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Volume control:&lt;/strong&gt; only WARN/ERROR + curated events (mode changes, pump
+toggles, WiFi/MQTT connect/disconnect, OTA, factory reset) are published to
+MQTT — not every INFO line.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Logbook (documented, not firmware):&lt;/strong&gt; event entities do &lt;em&gt;not&lt;/em&gt; create
+message-bearing logbook entries (&lt;code&gt;event_type: LOGBOOK_ENTRY&lt;/code&gt; is a known
+misconception). Users who want pool events in the HA logbook get a documented
+automation blueprint: MQTT trigger on &lt;code&gt;pool/event&lt;/code&gt; → &lt;code&gt;logbook.log&lt;/code&gt; service
+with &lt;code&gt;name&lt;/code&gt;, &lt;code&gt;message: &amp;quot;{{ trigger.payload_json.event_type }}: {{ ... }}&amp;quot;&lt;/code&gt;
+and &lt;code&gt;entity_id&lt;/code&gt;. This stays in docs, never in firmware.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ESPHome precedent (documented):&lt;/strong&gt; ESPHome forwards device logs into the HA
+core log (default level WARNING, no MQTT equivalent of log_stream); our event
+entity is the MQTT-only analog.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;5. Web UI (&lt;code&gt;data/web/index.html&lt;/code&gt;, &lt;code&gt;data/web/app.js&lt;/code&gt;, &lt;code&gt;data/web/style.css&lt;/code&gt;)&lt;span class="hx:absolute hx:-mt-20" id="5-web-ui-datawebindexhtml-datawebappjs-datawebstylecss"&gt;&lt;/span&gt;
+&lt;a href="#5-web-ui-datawebindexhtml-datawebappjs-datawebstylecss" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;More menu&lt;/strong&gt;: new entry &lt;code&gt;📜 Logs&lt;/code&gt; → &lt;code&gt;switchTab('logs')&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Tab&lt;/strong&gt; &lt;code&gt;#tab-logs&lt;/code&gt;:
+&lt;ul&gt;
+&lt;li&gt;Console view: monospace, level colors (Info blue, Warn yellow, Error red),
+auto-scroll, pause on manual scroll-up.&lt;/li&gt;
+&lt;li&gt;Filter chips: All / Info / Warn / Error (frontend filter on loaded entries).&lt;/li&gt;
+&lt;li&gt;Auto-polling every 2 s via &lt;code&gt;/api/logs&lt;/code&gt; with &lt;code&gt;since&lt;/code&gt; while tab visible; stop
+when hidden (same pattern as &lt;code&gt;loadTelemetry&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;Timestamps: relative (&lt;code&gt;+1h 02m 33s&lt;/code&gt; since boot); absolute time when NTP synced
+(compare with &lt;code&gt;/api/status&lt;/code&gt; &lt;code&gt;local_time&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;Clear&amp;rdquo; button — only visible when authenticated.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LittleFS only&lt;/strong&gt;: web assets are served from LittleFS exclusively —
+&lt;code&gt;WebPortal.cpp:58&lt;/code&gt; documents &amp;ldquo;PROGMEM fallbacks removed&amp;rdquo;. No PROGMEM mirror
+for the new view (previous plan draft&amp;rsquo;s fallback is obsolete by decision).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Error handling&lt;span class="hx:absolute hx:-mt-20" id="error-handling"&gt;&lt;/span&gt;
+&lt;a href="#error-handling" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Ring buffer overflow: oldest entries overwritten (ring semantics); API always
+returns entries + &lt;code&gt;next_seq&lt;/code&gt; so the client can resume.&lt;/li&gt;
+&lt;li&gt;Reboot: logs lost (RAM-only by design); MQTT export compensates partially.&lt;/li&gt;
+&lt;li&gt;WebServer task vs loop task: single critical section guards append.&lt;/li&gt;
+&lt;li&gt;JSON serialization: use existing &lt;code&gt;JsonDocument&lt;/code&gt; pattern; cap response size.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Testing&lt;span class="hx:absolute hx:-mt-20" id="testing"&gt;&lt;/span&gt;
+&lt;a href="#testing" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Unit tests for ring buffer: wrap-around, &lt;code&gt;since&lt;/code&gt; pagination, level filter
+(existing test setup, native build).&lt;/li&gt;
+&lt;li&gt;Migration verification: firmware builds; serial output on representative paths
+(boot, mode change, MQTT connect) is byte-identical before/after.&lt;/li&gt;
+&lt;li&gt;Manual: &lt;code&gt;pio run --target uploadfs&lt;/code&gt; + browser; verify tab in LittleFS mode
+(the only mode — no PROGMEM fallback exists).&lt;/li&gt;
+&lt;li&gt;MQTT: mosquitto subscribe &lt;code&gt;pool/log&lt;/code&gt;, HA sensor appears via discovery.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Out of scope&lt;span class="hx:absolute hx:-mt-20" id="out-of-scope"&gt;&lt;/span&gt;
+&lt;a href="#out-of-scope" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Persistent flash logging (rejected: flash wear on 24/7 device).&lt;/li&gt;
+&lt;li&gt;Real-time streaming (SSE/WebSocket) — 2 s polling is sufficient.&lt;/li&gt;
+&lt;li&gt;Log download/export to file in UI.&lt;/li&gt;
+&lt;li&gt;Per-module log level configuration at runtime.&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/tasmota-ota-review/</link><pubDate>Sun, 02 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/tasmota-ota-review/</guid><description>
 &lt;h1&gt;Tasmota OTA Update Verification Review&lt;/h1&gt;&lt;p&gt;This document provides a comprehensive analysis of Tasmota&amp;rsquo;s OTA (Over-The-Air) update verification approach and
 evaluates which aspects could be beneficial to adapt for the Pool Controller project.&lt;/p&gt;
 &lt;h2&gt;Executive Summary&lt;span class="hx:absolute hx:-mt-20" id="executive-summary"&gt;&lt;/span&gt;
@@ -11653,6 +12332,63 @@ data-copied-label="Copied!"
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;h3&gt;Events (Log stream)&lt;span class="hx:absolute hx:-mt-20" id="events-log-stream"&gt;&lt;/span&gt;
+&lt;a href="#events-log-stream" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The controller publishes &lt;strong&gt;curated log events&lt;/strong&gt; as an HA &lt;code&gt;event&lt;/code&gt; entity (for
+automations and notifications) plus a &lt;strong&gt;raw log stream&lt;/strong&gt; for external tools:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Function&lt;/th&gt;
+&lt;th&gt;HA component/object-id&lt;/th&gt;
+&lt;th&gt;Entity Category&lt;/th&gt;
+&lt;th&gt;Topic&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Curated log events&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;event/logs&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;diagnostic&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;homeassistant/event/pool-controller/logs/state&lt;/code&gt; (discovery &lt;code&gt;.../config&lt;/code&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Discovery topic&lt;/strong&gt;: &lt;code&gt;homeassistant/event/pool-controller/logs/config&lt;/code&gt;
+(&lt;code&gt;&amp;quot;platform&amp;quot;: &amp;quot;event&amp;quot;&lt;/code&gt;) with &lt;code&gt;event_types&lt;/code&gt;:
+&lt;code&gt;LOG_WARN&lt;/code&gt;, &lt;code&gt;LOG_ERROR&lt;/code&gt;, &lt;code&gt;MODE_CHANGED&lt;/code&gt;, &lt;code&gt;PUMP_ON&lt;/code&gt;, &lt;code&gt;PUMP_OFF&lt;/code&gt;,
+&lt;code&gt;WIFI_CONNECTED&lt;/code&gt;, &lt;code&gt;WIFI_DISCONNECTED&lt;/code&gt;, &lt;code&gt;MQTT_CONNECTED&lt;/code&gt;, &lt;code&gt;MQTT_DISCONNECTED&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;State payload&lt;/strong&gt; (published on change only, deduplicated by log sequence):
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-json" data-lang="json"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nt"&gt;&amp;#34;event_type&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;MODE_CHANGED&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;&amp;#34;message&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;Mode switched to auto&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Raw stream&lt;/strong&gt; &lt;code&gt;pool-controller/log&lt;/code&gt; (JSON Lines, WARN/ERROR only):
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-json" data-lang="json"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nt"&gt;&amp;#34;seq&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;42&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;&amp;#34;t&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;123456&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;&amp;#34;level&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;warning&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;&amp;#34;msg&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;...&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3&gt;Entity Category Reference&lt;span class="hx:absolute hx:-mt-20" id="entity-category-reference"&gt;&lt;/span&gt;
 &lt;a href="#entity-category-reference" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
 &lt;thead&gt;
@@ -12573,6 +13309,16 @@ management dashboard. It runs in two modes:&lt;/p&gt;
 &lt;td&gt;Yes&lt;/td&gt;
 &lt;td&gt;OTA firmware update (signed .bin upload)&lt;/td&gt;
 &lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;GET /api/logs&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;❌ No&lt;/td&gt;
+&lt;td&gt;Ring-buffered log entries (&lt;code&gt;since&lt;/code&gt;/&lt;code&gt;count&lt;/code&gt;/&lt;code&gt;level&lt;/code&gt; filters)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;POST /api/logs/clear&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Yes&lt;/td&gt;
+&lt;td&gt;Clear the log ring buffer&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h3&gt;Using the REST API Directly&lt;span class="hx:absolute hx:-mt-20" id="using-the-rest-api-directly"&gt;&lt;/span&gt;
@@ -12603,6 +13349,72 @@ data-copied-label="Copied!"
 &lt;/button&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+&lt;h4&gt;Log View API&lt;span class="hx:absolute hx:-mt-20" id="log-view-api"&gt;&lt;/span&gt;
+&lt;a href="#log-view-api" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;The controller keeps a ring buffer of recent log entries and exposes them over REST:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Read log entries (no authentication needed)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;curl &lt;span class="s2"&gt;&amp;#34;http://&amp;lt;controller-ip&amp;gt;/api/logs?since=0&amp;amp;count=200&amp;amp;level=info&amp;#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;since&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;0&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Only entries with &lt;code&gt;seq&lt;/code&gt; greater than this value&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;count&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;200&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Maximum number of entries (1–500)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;level&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;info&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Minimum log level: &lt;code&gt;debug&lt;/code&gt;, &lt;code&gt;info&lt;/code&gt;, &lt;code&gt;warning&lt;/code&gt;, &lt;code&gt;error&lt;/code&gt;, &lt;code&gt;critical&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Response:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-json" data-lang="json"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;#34;next&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;43&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;#34;entries&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nt"&gt;&amp;#34;seq&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;42&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;&amp;#34;t&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;123456&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;&amp;#34;level&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;warning&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;&amp;#34;msg&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;SAFE MODE — ignoring relay ON request&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;next&lt;/code&gt; is the next sequence number to pass as &lt;code&gt;since&lt;/code&gt; for incremental polling&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;t&lt;/code&gt; is the entry uptime in milliseconds&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;POST /api/logs/clear&lt;/code&gt; (authenticated) empties the buffer and returns &lt;code&gt;{&amp;quot;ok&amp;quot;: true}&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3&gt;Authentication&lt;span class="hx:absolute hx:-mt-20" id="authentication"&gt;&lt;/span&gt;
 &lt;a href="#authentication" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;In &lt;strong&gt;AP mode&lt;/strong&gt; the web interface is unprotected (intentional for initial setup)&lt;/li&gt;
