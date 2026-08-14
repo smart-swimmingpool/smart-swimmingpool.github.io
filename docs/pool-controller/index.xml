@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Pool Controller</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/</link><description>Recent content in Pool Controller on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><atom:link href="https://smart-swimmingpool.github.io/docs/pool-controller/index.xml" rel="self" type="application/rss+xml"/><item><title>Quick Start Guide</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/quick-start/</link><pubDate>Tue, 11 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/quick-start/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Pool Controller</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/</link><description>Recent content in Pool Controller on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><atom:link href="https://smart-swimmingpool.github.io/docs/pool-controller/index.xml" rel="self" type="application/rss+xml"/><item><title>Quick Start Guide</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/quick-start/</link><pubDate>Thu, 13 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/quick-start/</guid><description>
 &lt;p&gt;&lt;strong&gt;Target audience:&lt;/strong&gt; DIY enthusiasts with &lt;strong&gt;basic electronics knowledge&lt;/strong&gt; (soldering, GPIO, MQTT).
 &lt;strong&gt;Time required:&lt;/strong&gt; ~4\u20136 hours (including parts sourcing).
 &lt;strong&gt;Cost:&lt;/strong&gt; ~45\u201375\u20ac (excluding pumps and pool infrastructure).&lt;/p&gt;
@@ -961,7 +961,7 @@ href="https://www.reddit.com/r/homeassistant/"target="_blank" rel="noopener"&gt;
 &lt;hr&gt;
 &lt;p align="center"&gt;
 ✅ Congratulations! You now have a smart swimming pool! ✅\n \n Made with ❤️ by the Smart Swimming Pool community
-&lt;/p&gt;</description></item><item><title>Frequently Asked Questions (FAQ)</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/faq/</link><pubDate>Tue, 11 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/faq/</guid><description>
+&lt;/p&gt;</description></item><item><title>Frequently Asked Questions (FAQ)</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/faq/</link><pubDate>Thu, 13 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/faq/</guid><description>
 &lt;p&gt;This FAQ covers &lt;strong&gt;common issues&lt;/strong&gt; and their solutions for the &lt;strong&gt;Smart Swimming Pool Controller&lt;/strong&gt;.
 If your problem isn&amp;rsquo;t listed here, check the
 &lt;a
@@ -1233,7 +1233,7 @@ href="https://github.com/smart-swimmingpool/pool-controller/issues/new"target="_
 &lt;/ol&gt;
 &lt;hr&gt;
 &lt;h2&gt;📄 License&lt;span class="hx:absolute hx:-mt-20" id="-license"&gt;&lt;/span&gt;
-&lt;a href="#-license" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This FAQ is part of the &lt;strong&gt;Smart Swimming Pool&lt;/strong&gt; project, licensed under the &lt;strong&gt;MIT License&lt;/strong&gt;.&lt;/p&gt;</description></item><item><title>Temperature-Based Circulation Time</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/temperature-based-circulation/</link><pubDate>Tue, 11 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/temperature-based-circulation/</guid><description>
+&lt;a href="#-license" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This FAQ is part of the &lt;strong&gt;Smart Swimming Pool&lt;/strong&gt; project, licensed under the &lt;strong&gt;MIT License&lt;/strong&gt;.&lt;/p&gt;</description></item><item><title>Temperature-Based Circulation Time</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/temperature-based-circulation/</link><pubDate>Thu, 13 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/temperature-based-circulation/</guid><description>
 &lt;h1&gt;Temperature-Based Circulation Time&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;Optimize pool circulation for better water quality with minimal power consumption.&lt;/strong&gt;&lt;/p&gt;
 &lt;h2&gt;1. Motivation&lt;span class="hx:absolute hx:-mt-20" id="1-motivation"&gt;&lt;/span&gt;
 &lt;a href="#1-motivation" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The pool pump is the largest power consumer in a swimming pool. At the same time, it determines water quality. The required circulation volume strongly depends on water temperature:&lt;/p&gt;
@@ -1793,7 +1793,7 @@ data-copied-label="Copied!"
 &lt;li&gt;&lt;strong&gt;Cold reduction&lt;/strong&gt;: Optional &lt;code&gt;tempCircMinRuntime&lt;/code&gt; below a lower threshold&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Trend-based&lt;/strong&gt;: Factor in whether temperature is rising or falling&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Seasonal calendar&lt;/strong&gt;: Automatically adjust base parameters for summer/winter&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/olimex-esp32-c6-evb/</link><pubDate>Tue, 11 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/olimex-esp32-c6-evb/</guid><description>
+&lt;/ul&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/olimex-esp32-c6-evb/</link><pubDate>Thu, 13 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/olimex-esp32-c6-evb/</guid><description>
 &lt;h1&gt;Olimex ESP32-C6-EVB Variant&lt;/h1&gt;&lt;h2&gt;Hardware&lt;span class="hx:absolute hx:-mt-20" id="hardware"&gt;&lt;/span&gt;
 &lt;a href="#hardware" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Board: Olimex ESP32-C6-EVB&lt;/li&gt;
@@ -1932,7 +1932,7 @@ href="https://github.com/OLIMEX/ESP32-C6-EVB/blob/main/SOFTWARE/ARDUINO/esp32-c6
 &lt;li&gt;Verify long press returns to overview.&lt;/li&gt;
 &lt;li&gt;Open QR page and scan &lt;code&gt;http://pool-controller.local&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Only after UI validation, connect real relay loads and opto inputs.&lt;/li&gt;
-&lt;/ol&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/security-fixes-v3.2.1/</link><pubDate>Tue, 11 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/security-fixes-v3.2.1/</guid><description>
+&lt;/ol&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/security-fixes-v3.2.1/</link><pubDate>Thu, 13 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/security-fixes-v3.2.1/</guid><description>
 &lt;h1&gt;Security Fixes v3.2.1&lt;/h1&gt;&lt;p&gt;This document provides comprehensive documentation of all security vulnerabilities and memory leaks identified and
 fixed in Pool Controller v3.2.1. All changes have been validated through CI/CD pipeline and address critical, high, and
 medium priority issues.&lt;/p&gt;
@@ -2847,7 +2847,7 @@ Discussions&lt;/a&gt;&lt;/li&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;⚠️ DISCLAIMER&lt;/strong&gt;: While these fixes address identified vulnerabilities, no system can be 100% secure. Users are
 responsible for their own security configurations and should follow best practices for IoT device security.&lt;/p&gt;
-&lt;/blockquote&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/security-references/</link><pubDate>Tue, 11 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/security-references/</guid><description>
+&lt;/blockquote&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/security-references/</link><pubDate>Thu, 13 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/security-references/</guid><description>
 &lt;h1&gt;Security References &amp;amp; Best Practices&lt;/h1&gt;&lt;p&gt;This document contains security references, best practices, and implementation
 guidelines for the Pool Controller project. These references were compiled during the
 comprehensive IoT security analysis performed on 2025-01-15.&lt;/p&gt;
@@ -3228,7 +3228,7 @@ href="../.opencode/skills/cpp-code-quality/SKILL.md"&gt;C++ Code Quality Skill&l
 &lt;strong&gt;🔍 Analysis Performed By&lt;/strong&gt;: Vibe Code - IoT Security Expert Mode
 &lt;strong&gt;📝 Related PR&lt;/strong&gt;:
 &lt;a
-href="https://github.com/smart-swimmingpool/pool-controller/pull/112"target="_blank" rel="noopener"&gt;#112 - IoT Security &amp;amp; Memory Optimization Analysis&lt;/a&gt;&lt;/p&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/superpowers/plans/2026-07-31-logging-view/</link><pubDate>Tue, 11 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/superpowers/plans/2026-07-31-logging-view/</guid><description>
+href="https://github.com/smart-swimmingpool/pool-controller/pull/112"target="_blank" rel="noopener"&gt;#112 - IoT Security &amp;amp; Memory Optimization Analysis&lt;/a&gt;&lt;/p&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/superpowers/plans/2026-07-31-logging-view/</link><pubDate>Thu, 13 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/superpowers/plans/2026-07-31-logging-view/</guid><description>
 &lt;h1&gt;Implementierungsplan: Logging View (Web-Log-Konsole)&lt;/h1&gt;&lt;p&gt;Datum: 2026-07-31
 Basis: &lt;code&gt;docs/superpowers/specs/2026-07-31-logging-view-design.md&lt;/code&gt; (approved, Ansatz A)
 Branch: &lt;code&gt;fix/relay-r4-solar-pump&lt;/code&gt;
@@ -3738,7 +3738,7 @@ data-copied-label="Copied!"
 &lt;li&gt;&lt;strong&gt;&lt;code&gt;Update.printError(Serial)&lt;/code&gt;&lt;/strong&gt; bleibt serial-gebunden (library-intern) — Web/MQTT sehen OTA-Fehler nur über den kuratierten &lt;code&gt;OTA_FAILED&lt;/code&gt;-Event (Task 3, Sonderfälle).&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Event-Dedup über Reconnect&lt;/strong&gt;: &lt;code&gt;s_lastExportedSeq&lt;/code&gt; ist RAM-only — nach Reboot werden ältere seqs nicht re-exportiert (gewollt; MQTT-retained nur Discovery, nicht Events).&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;XSS&lt;/strong&gt;: Log-Console rendert nur via &lt;code&gt;textContent&lt;/code&gt;/&lt;code&gt;escapeHtml&lt;/code&gt; — Fremdtexte (Mode-Namen, WLAN-SSIDs) sind potenzielle Payloads.&lt;/li&gt;
-&lt;/ol&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/superpowers/plans/2026-08-10-olimex-c6-local-ui-implementation/</link><pubDate>Tue, 11 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/superpowers/plans/2026-08-10-olimex-c6-local-ui-implementation/</guid><description>
+&lt;/ol&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/superpowers/plans/2026-08-10-olimex-c6-local-ui-implementation/</link><pubDate>Thu, 13 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/superpowers/plans/2026-08-10-olimex-c6-local-ui-implementation/</guid><description>
 &lt;h1&gt;Olimex C6 Local UI Implementation Plan&lt;/h1&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;For agentic workers:&lt;/strong&gt; REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (&lt;code&gt;- [ ]&lt;/code&gt;) syntax for tracking.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -5522,7 +5522,7 @@ data-copied-label="Copied!"
 &lt;/button&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;Expected: existing PR updates cleanly.&lt;/p&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/superpowers/specs/2026-07-31-logging-view-design/</link><pubDate>Tue, 11 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/superpowers/specs/2026-07-31-logging-view-design/</guid><description>
+&lt;p&gt;Expected: existing PR updates cleanly.&lt;/p&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/superpowers/specs/2026-07-31-logging-view-design/</link><pubDate>Thu, 13 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/superpowers/specs/2026-07-31-logging-view-design/</guid><description>
 &lt;h1&gt;Design: Logging View for Pool Controller&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;Date:&lt;/strong&gt; 2026-07-31
 &lt;strong&gt;Status:&lt;/strong&gt; Approved (brainstorming)
 &lt;strong&gt;Scope:&lt;/strong&gt; New &amp;ldquo;Logs&amp;rdquo; view in the web UI with RAM ring buffer log capture, REST endpoint, MQTT export, and UI console.&lt;/p&gt;
@@ -5691,7 +5691,7 @@ returns entries + &lt;code&gt;next_seq&lt;/code&gt; so the client can resume.&lt
 &lt;li&gt;Real-time streaming (SSE/WebSocket) — 2 s polling is sufficient.&lt;/li&gt;
 &lt;li&gt;Log download/export to file in UI.&lt;/li&gt;
 &lt;li&gt;Per-module log level configuration at runtime.&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/superpowers/specs/2026-08-09-olimex-c6-local-ui-design/</link><pubDate>Tue, 11 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/superpowers/specs/2026-08-09-olimex-c6-local-ui-design/</guid><description>
+&lt;/ul&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/superpowers/specs/2026-08-09-olimex-c6-local-ui-design/</link><pubDate>Thu, 13 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/superpowers/specs/2026-08-09-olimex-c6-local-ui-design/</guid><description>
 &lt;h1&gt;Design: Olimex ESP32-C6-EVB Local Settings Variant&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;Date:&lt;/strong&gt; 2026-08-09&lt;br&gt;
 &lt;strong&gt;Status:&lt;/strong&gt; Draft for user review&lt;br&gt;
 &lt;strong&gt;Scope:&lt;/strong&gt; Add a hardware concept for an Olimex ESP32-C6-EVB based pool-controller variant with a configurable 320x240 SPI TFT and KY-040 rotary encoder for local settings navigation.&lt;/p&gt;
@@ -6165,7 +6165,7 @@ estimate, with the inductor saturation current used as the conservative limit.&l
 for level shifters, onboard regulator, backlight polarity, and current limit.&lt;/li&gt;
 &lt;li&gt;KY-040 module documentation: encoder outputs follow the module VCC pull-up,
 therefore use 3.3 V VCC for ESP32-safe levels.&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/tasmota-ota-review/</link><pubDate>Tue, 11 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/tasmota-ota-review/</guid><description>
+&lt;/ul&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/tasmota-ota-review/</link><pubDate>Thu, 13 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/tasmota-ota-review/</guid><description>
 &lt;h1&gt;Tasmota OTA Update Verification Review&lt;/h1&gt;&lt;p&gt;This document provides a comprehensive analysis of Tasmota&amp;rsquo;s OTA (Over-The-Air) update verification approach and
 evaluates which aspects could be beneficial to adapt for the Pool Controller project.&lt;/p&gt;
 &lt;h2&gt;Executive Summary&lt;span class="hx:absolute hx:-mt-20" id="executive-summary"&gt;&lt;/span&gt;
@@ -7097,6 +7097,19 @@ href="https://github.com/openspec/specs/blob/main/openspec/specs/github-ca-chain
 &lt;p&gt;&lt;strong&gt;📝 Note&lt;/strong&gt;: This review was conducted on 2026-06-19 based on Tasmota v15.3.0 documentation and Pool Controller v3.2.1
 codebase.&lt;/p&gt;
 &lt;/blockquote&gt;</description></item><item><title>Contactor Wiring Guide</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/contactor-guide/</link><pubDate>Mon, 13 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/contactor-guide/</guid><description>
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;⚠️ Note:&lt;/strong&gt; ECM pumps (electronically commutated motors &amp;lt;100W) have
+large input capacitors that cause a brief high charging peak (10–20A
+for microseconds) each time the relay closes. Over many cycles this
+capacitive inrush can micro-weld relay contacts. An &lt;strong&gt;RC snubber&lt;/strong&gt;
+(100nF + 100Ω, &lt;strong&gt;X2-rated capacitor&lt;/strong&gt;) across the relay contact
+suppresses turn-off transients/arcs, but it does &lt;strong&gt;not&lt;/strong&gt; limit the
+closing inrush — it cannot prevent contact welding on capacitive
+loads. For ECM pumps use the &lt;strong&gt;contactor&lt;/strong&gt; wiring below, or an
+inrush limiter (NTC) / a relay rated for capacitive loads.&lt;/p&gt;
+&lt;p&gt;The contactor solution below is intended for larger pumps (&amp;gt;300W) or
+inductive loads where running current exceeds 2A.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2&gt;Overview&lt;span class="hx:absolute hx:-mt-20" id="overview"&gt;&lt;/span&gt;
 &lt;a href="#overview" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This document explains why the built-in relays of the NORVI AE01-R (and other
 standard relay modules) can fail when switching motor loads (pumps), and how to
@@ -7147,12 +7160,13 @@ after a few hundred switching cycles. The relay coil still clicks audibly,
 but the NO contact stays closed — the pump runs &lt;strong&gt;continuously&lt;/strong&gt; even with
 the controller showing OFF.&lt;/p&gt;
 &lt;h3&gt;Field Report&lt;span class="hx:absolute hx:-mt-20" id="field-report"&gt;&lt;/span&gt;
-&lt;a href="#field-report" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;In one field installation this failure occurred sequentially on two different
-relay outputs (R1, then R5) of the same NORVI unit, both switching the same
-solar pump (300–600W). The common factor was &lt;strong&gt;the pump load&lt;/strong&gt;, not the relay
-or driver circuit. The identical R0 channel (pool pump) showed no failure —
-likely because the pool pump is a different type (capacitor-start with soft
-start, switched less frequently, or lower power).&lt;/p&gt;
+&lt;a href="#field-report" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;In one field installation this failure occurred on two different relay outputs
+(R1, then R5) of the same NORVI AE01-R, both switching the same solar pump.
+The pump turned out to be a &lt;strong&gt;6–28W ECM type&lt;/strong&gt; (Lowara Artiga ECO AUTO+) —
+well within the relay rating, yet contacts welded. The cause is capacitive
+inrush from the ECM&amp;rsquo;s input capacitors (~10–20A peak for microseconds each
+switch-on). The identical R0 channel (pool pump, Speck BADU Magic II/6 450W
+asynchronous motor) showed no failure.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2&gt;Solution: External DIN-Rail Contactor&lt;span class="hx:absolute hx:-mt-20" id="solution-external-din-rail-contactor"&gt;&lt;/span&gt;
 &lt;a href="#solution-external-din-rail-contactor" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;A &lt;strong&gt;contactor&lt;/strong&gt; is a heavy-duty relay built for motor loads. The NORVI relay
@@ -7167,8 +7181,10 @@ main contacts handle the 230V AC load.&lt;/p&gt;
 │ NO ─────┼──────┐ │ │ │ │
 └──────────┘ │ │ 1 (L-input) ───────┤─── 2 │ │
 │ └────────────────────┘ │ L-N │
-230V L ───────────┘ └────────┘
-230V N ─────────────────────────────────────────────┘&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+24V DC (&amp;#43;) ───────┘ └────────┘
+230V L (via contactor) ─────────────────────────────┘
+230V N ─────────────────────────────────────────────────┘
+GND ────────────────────────────────────────────────────┘&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
 &lt;button
 class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
 title="Copy code"
@@ -7305,9 +7321,9 @@ up to 600W.&lt;/p&gt;
 &lt;h2&gt;Wiring Diagram&lt;span class="hx:absolute hx:-mt-20" id="wiring-diagram"&gt;&lt;/span&gt;
 &lt;a href="#wiring-diagram" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;24V Control Circuit&lt;span class="hx:absolute hx:-mt-20" id="24v-control-circuit"&gt;&lt;/span&gt;
 &lt;a href="#24v-control-circuit" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
-&lt;div&gt;&lt;pre&gt;&lt;code&gt;24V DC (&amp;#43;) ──┬── NORVI R0 COM ── NO ──┬── Contactor Pool A1 ── A2 ──┬── GND
+&lt;div&gt;&lt;pre&gt;&lt;code&gt; 24V DC (&amp;#43;) ──┬── NORVI R0 COM ── NO ──┬── Contactor Pool A1 ── A2 ──┬── GND
 │ │ │
-├── NORVI R5 COM ── NO ──┤── Contactor Solar A1 ── A2 ──┤
+├── NORVI R2 COM ── NO ──┤── Contactor Solar A1 ── A2 ──┤
 │ │ │
 └───── NORVI 24V IN ─────┘ │
 │
@@ -7409,9 +7425,9 @@ Plan space next to the NORVI.&lt;/li&gt;
 &lt;a href="#2-wiring" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Step 1: 24V Control Circuit&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;24V DC (+) to NORVI relay COM&lt;/strong&gt; — bridge from NORVI 24V terminal to
-COM-R0 and COM-R5&lt;/li&gt;
+COM-R0 and COM-R2&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;NORVI relay NO to contactor A1&lt;/strong&gt; — R0-NO → Pool contactor A1,
-R5-NO → Solar contactor A1&lt;/li&gt;
+R2-NO → Solar contactor A1&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Contactor A2 to GND&lt;/strong&gt; — both A2 to GND bus&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Flyback diode&lt;/strong&gt; — 1N4007 across A1/A2 of each contactor
 (cathode to A1, anode to A2)&lt;/li&gt;
@@ -11736,9 +11752,9 @@ pin mapping that avoids the occupied and input-only pins:&lt;/p&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;PIN_RELAY_SOLAR&lt;/code&gt;&lt;/td&gt;
-&lt;td style="text-align: center"&gt;&lt;strong&gt;GPIO33&lt;/strong&gt; (R5)&lt;/td&gt;
-&lt;td&gt;Relay — Solar heating pump&lt;/td&gt;
-&lt;td style="text-align: center"&gt;Relay Output 5&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;GPIO13&lt;/strong&gt; (R2)&lt;/td&gt;
+&lt;td&gt;Relay — Solar heating pump (moved: R1→R5→R2)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Relay Output 2&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;PIN_LED_STATUS&lt;/code&gt;&lt;/td&gt;
@@ -11954,27 +11970,32 @@ One 4.7kΩ resistor between DATA (Pin 1) and 3.3V (Pin 7) is enough.
 Dupont cables: 3× Female-Female (red/yellow/black).
 ─── RELAY OUTPUTS (built-in) ─────────────────────────────────────────
 ╔══════════════════════════════════════════════════════════════════════╗
-║ ⚠ IMPORTANT — Motor Load Limitation ║
+║ ⚠ IMPORTANT — Motor Load Consideration ║
 ║ ║
-║ The NORVI built-in relays are rated for **5A resistive load** ║
-║ (light bulbs, heaters, signal loads). A **pump is an inductive ║
-║ motor load** with 5–10× higher inrush current that can weld the ║
-║ relay contacts after a few hundred switching cycles. ║
+║ The NORVI built-in relays are rated for **5A resistive load**. ║
+║ A pump is a motor load with inrush current that can weld relay ║
+║ contacts after repeated switching. ║
 ║ ║
-║ **Standard configuration:** Use the NORVI relays exclusively as ║
-║ **control relays for external DIN-rail contactors.** The contactor ║
-║ switches the 230V pump load; the NORVI relay switches only the ║
-║ contactor&amp;#39;s 24V DC coil (~20mA). This is zero-wear on the NORVI ║
-║ relays and fully reliable for the life of the installation. ║
+║ **Standard configuration:** Use the NORVI relays as **control ║
+║ relays for external DIN-rail contactors** (see Contactor Wiring ║
+║ Guide below). This is zero-wear on the NORVI relays. ║
+║ ║
+║ **For low-power pumps (&amp;lt;100W, e.g. ECM solar pumps):** direct ║
+║ wiring with an **RC snubber** (100nF &amp;#43; 100Ω, X2-rated) suppresses ║
+║ turn-off arcs but does **not** limit the closing inrush — use the ║
+║ **contactor** solution (or an inrush limiter) to avoid welding. ║
 ║ ║
 ║ See → **[Contactor Wiring Guide](contactor-guide.md)** ║
 ╚══════════════════════════════════════════════════════════════════════╝
-NORVI Relay Output 0 (GPIO14): Control signal → Pool contactor coil
-NORVI Relay Output 5 (GPIO33): Control signal → Solar contactor coil
+NORVI Relay Output 0 (GPIO14): Control → Pool pump (via contactor or direct &amp;lt;100W)
+NORVI Relay Output 2 (GPIO13): Control → Solar pump (via contactor or direct with inrush limiter)
+L (mains) ─── RCD ─── MCB ──┬── Relay COM0 ── NO0 ── Pump L
+└── Relay COM2 ── NO2 ── Pump L
+N (neutral) ───────────────────────── Neutral bar ── Pump N
 ── Standard wiring (contactors) ─────────────────────────────────────
 24V DC (&amp;#43;) ──┬── NORVI R0 COM ── NO ──┬── Ext. Contactor Pool A1 ── A2 ──┬── GND
 │ │ │
-├── NORVI R5 COM ── NO ──┤── Ext. Contactor Solar A1 ── A2 ──┤
+├── NORVI R2 COM ── NO ──┤── Ext. Contactor Solar A1 ── A2 ──┤
 │ │ │
 └───── NORVI 24V IN ─────┘ │
 │
@@ -11984,28 +12005,26 @@ Each contactor requires a 1N4007 flyback diode across its coil
 L (mains) ─── RCD ─── MCB ──┬── Contactor Solar 1-2 ── Solar Pump L
 └── Contactor Pool 1-2 ─── Pool Pump L
 N (neutral) ───────────────────────── Neutral bar ── Both Pumps N
-── Alternative: direct wiring (resistive loads only) ─────────────────
-If you are switching **non-motor loads** (heating elements, LED
-lighting, valves, signal lamps), the NORVI relays can be wired
-directly. They are Normally Open (SPST), rated 5A/250V AC.
-L (mains) ─── RCD ─── MCB ──┬── NORVI COM0 ── NO0 ── Resistive Load
-└── NORVI COM5 ── NO5 ── Resistive Load
+── Alternative: direct wiring (resistive/low-power loads) ───────────
+For **non-motor loads** (heating elements, valves, signal lamps) or
+**low-power pumps with low inrush** (e.g. 6–28W ECM with an inrush
+limiter), the NORVI relays can be wired directly. They are Normally
+Open (SPST), rated 5A/250V AC.
+L (mains) ─── RCD ─── MCB ──┬── NORVI COM0 ── NO0 ── Load
+└── NORVI COM2 ── NO2 ── Load
 N (neutral) ───────────────────────── Neutral bar ── Load N
-&amp;gt; **Do not wire pumps or any inductive motor load directly to the
-&amp;gt; NORVI relays.** The contacts will fail (weld closed) under the
-&amp;gt; inrush current. Use external contactors as shown above.
+&amp;gt; **For pumps (motor loads):** Use external contactors as shown above.
+&amp;gt; Direct wiring of motor loads will eventually weld the relay
+&amp;gt; contacts; an RC snubber does not prevent this.
 ── Field report ─────────────────────────────────────────────────────
-In one field installation, a solar pump (300–600W) was first connected
-to Relay Output 1 (GPIO12, R1). After a few hundred switching cycles,
-R1 developed a welded contact — the relay clicked audibly but the NO
-contact never opened. The pump was then rewired to Relay Output 5
-(GPIO33, R5), which had the same failure weeks later. Relay Output 0
-(GPIO14, pool pump) continued working throughout because the pool
-pump has a different motor characteristic (lower inrush, capacitor
-start, or soft-start).
-**Common factor: the solar pump motor load, not the relay hardware.**
-See the [Contactor Wiring Guide](contactor-guide.md) for the
-permanently reliable solution.
+In one field installation, a solar pump was connected to Relay Output 1
+(GPIO12, R1). After a few hundred switching cycles, R1 developed a
+welded contact — the relay clicked audibly but the NO contact never
+opened. Subsequent rewiring to R5 (GPIO33) failed identically. R0
+(GPIO14, pool pump) continued working (different motor characteristic).
+The pump is now configured for R2 (GPIO13). A contactor (or inrush
+limiter) is recommended for this load — an RC snubber across the
+relay contacts does not prevent capacitive-inrush welding.
 ⚡ Relay polarity: Unlike standard external relay modules (which are
 typically active-LOW: LOW = ON, HIGH = OFF), the NORVI AE01-R built-in
 relays are **active-HIGH**: writing `HIGH` to the GPIO pin energizes
@@ -12173,7 +12192,7 @@ from the single 24V DC input.&lt;/p&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;strong&gt;Relay pins&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;GPIO25, GPIO26&lt;/td&gt;
-&lt;td&gt;GPIO14 (R0), GPIO33 (R5)&lt;/td&gt;
+&lt;td&gt;GPIO14 (R0), GPIO13 (R2)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;strong&gt;Status LED&lt;/strong&gt;&lt;/td&gt;
@@ -12275,8 +12294,8 @@ use the OLED display for debug output when RS-485 is active.&lt;/p&gt;
 &lt;td style="text-align: center"&gt;❌&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style="text-align: center"&gt;2&lt;/td&gt;
-&lt;td&gt;Relay Output 4 / Built-in LED&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;2&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Relay Output 4 / Built-in LED&lt;/strong&gt;&lt;/td&gt;
 &lt;td style="text-align: center"&gt;❌&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -12296,13 +12315,13 @@ use the OLED display for debug output when RS-485 is active.&lt;/p&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style="text-align: center"&gt;12&lt;/td&gt;
-&lt;td&gt;Relay Output 1 (avoid — see note above)&lt;/td&gt;
+&lt;td&gt;Relay Output 1 (welded — use R2 instead)&lt;/td&gt;
 &lt;td style="text-align: center"&gt;❌&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style="text-align: center"&gt;13&lt;/td&gt;
-&lt;td&gt;Relay Output 2&lt;/td&gt;
-&lt;td style="text-align: center"&gt;❌&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;13&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Relay Output 2&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;✅ &lt;strong&gt;Solar pump (R2)&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style="text-align: center"&gt;14&lt;/td&gt;
@@ -12375,9 +12394,9 @@ use the OLED display for debug output when RS-485 is active.&lt;/p&gt;
 &lt;td style="text-align: center"&gt;✅ 3 front-panel buttons&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style="text-align: center"&gt;&lt;strong&gt;33&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;&lt;strong&gt;Relay Output 5&lt;/strong&gt;&lt;/td&gt;
-&lt;td style="text-align: center"&gt;✅ Solar pump&lt;/td&gt;
+&lt;td style="text-align: center"&gt;33&lt;/td&gt;
+&lt;td&gt;Relay Output 5&lt;/td&gt;
+&lt;td style="text-align: center"&gt;❌&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style="text-align: center"&gt;34&lt;/td&gt;
