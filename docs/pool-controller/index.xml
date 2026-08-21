@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Pool Controller</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/</link><description>Recent content in Pool Controller on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><atom:link href="https://smart-swimmingpool.github.io/docs/pool-controller/index.xml" rel="self" type="application/rss+xml"/><item><title>Quick Start Guide</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/quick-start/</link><pubDate>Thu, 20 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/quick-start/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Pool Controller</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/</link><description>Recent content in Pool Controller on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><atom:link href="https://smart-swimmingpool.github.io/docs/pool-controller/index.xml" rel="self" type="application/rss+xml"/><item><title>Quick Start Guide</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/quick-start/</link><pubDate>Fri, 21 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/quick-start/</guid><description>
 &lt;p&gt;&lt;strong&gt;Target audience:&lt;/strong&gt; DIY enthusiasts with &lt;strong&gt;basic electronics knowledge&lt;/strong&gt; (soldering, GPIO, MQTT).
 &lt;strong&gt;Time required:&lt;/strong&gt; ~4\u20136 hours (including parts sourcing).
 &lt;strong&gt;Cost:&lt;/strong&gt; ~45\u201375\u20ac (excluding pumps and pool infrastructure).&lt;/p&gt;
@@ -961,7 +961,7 @@ href="https://www.reddit.com/r/homeassistant/"target="_blank" rel="noopener"&gt;
 &lt;hr&gt;
 &lt;p align="center"&gt;
 ✅ Congratulations! You now have a smart swimming pool! ✅\n \n Made with ❤️ by the Smart Swimming Pool community
-&lt;/p&gt;</description></item><item><title>Frequently Asked Questions (FAQ)</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/faq/</link><pubDate>Thu, 20 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/faq/</guid><description>
+&lt;/p&gt;</description></item><item><title>Frequently Asked Questions (FAQ)</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/faq/</link><pubDate>Fri, 21 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/faq/</guid><description>
 &lt;p&gt;This FAQ covers &lt;strong&gt;common issues&lt;/strong&gt; and their solutions for the &lt;strong&gt;Smart Swimming Pool Controller&lt;/strong&gt;.
 If your problem isn&amp;rsquo;t listed here, check the
 &lt;a
@@ -1233,7 +1233,7 @@ href="https://github.com/smart-swimmingpool/pool-controller/issues/new"target="_
 &lt;/ol&gt;
 &lt;hr&gt;
 &lt;h2&gt;📄 License&lt;span class="hx:absolute hx:-mt-20" id="-license"&gt;&lt;/span&gt;
-&lt;a href="#-license" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This FAQ is part of the &lt;strong&gt;Smart Swimming Pool&lt;/strong&gt; project, licensed under the &lt;strong&gt;MIT License&lt;/strong&gt;.&lt;/p&gt;</description></item><item><title>Temperature-Based Circulation Time</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/temperature-based-circulation/</link><pubDate>Thu, 20 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/temperature-based-circulation/</guid><description>
+&lt;a href="#-license" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This FAQ is part of the &lt;strong&gt;Smart Swimming Pool&lt;/strong&gt; project, licensed under the &lt;strong&gt;MIT License&lt;/strong&gt;.&lt;/p&gt;</description></item><item><title>Temperature-Based Circulation Time</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/temperature-based-circulation/</link><pubDate>Fri, 21 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/temperature-based-circulation/</guid><description>
 &lt;h1&gt;Temperature-Based Circulation Time&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;Optimize pool circulation for better water quality with minimal power consumption.&lt;/strong&gt;&lt;/p&gt;
 &lt;h2&gt;1. Motivation&lt;span class="hx:absolute hx:-mt-20" id="1-motivation"&gt;&lt;/span&gt;
 &lt;a href="#1-motivation" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The pool pump is the largest power consumer in a swimming pool. At the same time, it determines water quality. The required circulation volume strongly depends on water temperature:&lt;/p&gt;
@@ -1793,7 +1793,7 @@ data-copied-label="Copied!"
 &lt;li&gt;&lt;strong&gt;Cold reduction&lt;/strong&gt;: Optional &lt;code&gt;tempCircMinRuntime&lt;/code&gt; below a lower threshold&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Trend-based&lt;/strong&gt;: Factor in whether temperature is rising or falling&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Seasonal calendar&lt;/strong&gt;: Automatically adjust base parameters for summer/winter&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/olimex-esp32-c6-evb/</link><pubDate>Thu, 20 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/olimex-esp32-c6-evb/</guid><description>
+&lt;/ul&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/olimex-esp32-c6-evb/</link><pubDate>Fri, 21 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/olimex-esp32-c6-evb/</guid><description>
 &lt;h1&gt;Olimex ESP32-C6-EVB Variant&lt;/h1&gt;&lt;h2&gt;Hardware&lt;span class="hx:absolute hx:-mt-20" id="hardware"&gt;&lt;/span&gt;
 &lt;a href="#hardware" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Board: Olimex ESP32-C6-EVB&lt;/li&gt;
@@ -1932,7 +1932,7 @@ href="https://github.com/OLIMEX/ESP32-C6-EVB/blob/main/SOFTWARE/ARDUINO/esp32-c6
 &lt;li&gt;Verify long press returns to overview.&lt;/li&gt;
 &lt;li&gt;Open QR page and scan &lt;code&gt;http://pool-controller.local&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Only after UI validation, connect real relay loads and opto inputs.&lt;/li&gt;
-&lt;/ol&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/security-fixes-v3.2.1/</link><pubDate>Thu, 20 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/security-fixes-v3.2.1/</guid><description>
+&lt;/ol&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/security-fixes-v3.2.1/</link><pubDate>Fri, 21 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/security-fixes-v3.2.1/</guid><description>
 &lt;h1&gt;Security Fixes v3.2.1&lt;/h1&gt;&lt;p&gt;This document provides comprehensive documentation of all security vulnerabilities and memory leaks identified and
 fixed in Pool Controller v3.2.1. All changes have been validated through CI/CD pipeline and address critical, high, and
 medium priority issues.&lt;/p&gt;
@@ -2847,7 +2847,7 @@ Discussions&lt;/a&gt;&lt;/li&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;⚠️ DISCLAIMER&lt;/strong&gt;: While these fixes address identified vulnerabilities, no system can be 100% secure. Users are
 responsible for their own security configurations and should follow best practices for IoT device security.&lt;/p&gt;
-&lt;/blockquote&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/security-references/</link><pubDate>Thu, 20 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/security-references/</guid><description>
+&lt;/blockquote&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/security-references/</link><pubDate>Fri, 21 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/security-references/</guid><description>
 &lt;h1&gt;Security References &amp;amp; Best Practices&lt;/h1&gt;&lt;p&gt;This document contains security references, best practices, and implementation
 guidelines for the Pool Controller project. These references were compiled during the
 comprehensive IoT security analysis performed on 2025-01-15.&lt;/p&gt;
@@ -3228,7 +3228,7 @@ href="../.opencode/skills/cpp-code-quality/SKILL.md"&gt;C++ Code Quality Skill&l
 &lt;strong&gt;🔍 Analysis Performed By&lt;/strong&gt;: Vibe Code - IoT Security Expert Mode
 &lt;strong&gt;📝 Related PR&lt;/strong&gt;:
 &lt;a
-href="https://github.com/smart-swimmingpool/pool-controller/pull/112"target="_blank" rel="noopener"&gt;#112 - IoT Security &amp;amp; Memory Optimization Analysis&lt;/a&gt;&lt;/p&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/superpowers/plans/2026-07-31-logging-view/</link><pubDate>Thu, 20 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/superpowers/plans/2026-07-31-logging-view/</guid><description>
+href="https://github.com/smart-swimmingpool/pool-controller/pull/112"target="_blank" rel="noopener"&gt;#112 - IoT Security &amp;amp; Memory Optimization Analysis&lt;/a&gt;&lt;/p&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/superpowers/plans/2026-07-31-logging-view/</link><pubDate>Fri, 21 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/superpowers/plans/2026-07-31-logging-view/</guid><description>
 &lt;h1&gt;Implementierungsplan: Logging View (Web-Log-Konsole)&lt;/h1&gt;&lt;p&gt;Datum: 2026-07-31
 Basis: &lt;code&gt;docs/superpowers/specs/2026-07-31-logging-view-design.md&lt;/code&gt; (approved, Ansatz A)
 Branch: &lt;code&gt;fix/relay-r4-solar-pump&lt;/code&gt;
@@ -3738,7 +3738,7 @@ data-copied-label="Copied!"
 &lt;li&gt;&lt;strong&gt;&lt;code&gt;Update.printError(Serial)&lt;/code&gt;&lt;/strong&gt; bleibt serial-gebunden (library-intern) — Web/MQTT sehen OTA-Fehler nur über den kuratierten &lt;code&gt;OTA_FAILED&lt;/code&gt;-Event (Task 3, Sonderfälle).&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Event-Dedup über Reconnect&lt;/strong&gt;: &lt;code&gt;s_lastExportedSeq&lt;/code&gt; ist RAM-only — nach Reboot werden ältere seqs nicht re-exportiert (gewollt; MQTT-retained nur Discovery, nicht Events).&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;XSS&lt;/strong&gt;: Log-Console rendert nur via &lt;code&gt;textContent&lt;/code&gt;/&lt;code&gt;escapeHtml&lt;/code&gt; — Fremdtexte (Mode-Namen, WLAN-SSIDs) sind potenzielle Payloads.&lt;/li&gt;
-&lt;/ol&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/superpowers/plans/2026-08-10-olimex-c6-local-ui-implementation/</link><pubDate>Thu, 20 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/superpowers/plans/2026-08-10-olimex-c6-local-ui-implementation/</guid><description>
+&lt;/ol&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/superpowers/plans/2026-08-10-olimex-c6-local-ui-implementation/</link><pubDate>Fri, 21 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/superpowers/plans/2026-08-10-olimex-c6-local-ui-implementation/</guid><description>
 &lt;h1&gt;Olimex C6 Local UI Implementation Plan&lt;/h1&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;For agentic workers:&lt;/strong&gt; REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (&lt;code&gt;- [ ]&lt;/code&gt;) syntax for tracking.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -5522,7 +5522,7 @@ data-copied-label="Copied!"
 &lt;/button&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;Expected: existing PR updates cleanly.&lt;/p&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/superpowers/plans/2026-08-16-norvi-button-calibration/</link><pubDate>Thu, 20 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/superpowers/plans/2026-08-16-norvi-button-calibration/</guid><description>
+&lt;p&gt;Expected: existing PR updates cleanly.&lt;/p&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/superpowers/plans/2026-08-16-norvi-button-calibration/</link><pubDate>Fri, 21 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/superpowers/plans/2026-08-16-norvi-button-calibration/</guid><description>
 &lt;h1&gt;NORVI Button Calibration Implementation Plan&lt;/h1&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;For agentic workers:&lt;/strong&gt; REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (&lt;code&gt;- [ ]&lt;/code&gt;) syntax for tracking.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -6806,7 +6806,7 @@ Expected: no output (all formatted). If errors, run &lt;code&gt;clang-format -i&
 &lt;ul&gt;
 &lt;li&gt;&lt;input disabled="" type="checkbox"&gt; &lt;strong&gt;Step 5: Report&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Summarize: files changed, test results, build results, and any manual verification performed.&lt;/p&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/superpowers/specs/2026-07-31-logging-view-design/</link><pubDate>Thu, 20 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/superpowers/specs/2026-07-31-logging-view-design/</guid><description>
+&lt;p&gt;Summarize: files changed, test results, build results, and any manual verification performed.&lt;/p&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/superpowers/specs/2026-07-31-logging-view-design/</link><pubDate>Fri, 21 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/superpowers/specs/2026-07-31-logging-view-design/</guid><description>
 &lt;h1&gt;Design: Logging View for Pool Controller&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;Date:&lt;/strong&gt; 2026-07-31
 &lt;strong&gt;Status:&lt;/strong&gt; Approved (brainstorming)
 &lt;strong&gt;Scope:&lt;/strong&gt; New &amp;ldquo;Logs&amp;rdquo; view in the web UI with RAM ring buffer log capture, REST endpoint, MQTT export, and UI console.&lt;/p&gt;
@@ -6975,7 +6975,7 @@ returns entries + &lt;code&gt;next_seq&lt;/code&gt; so the client can resume.&lt
 &lt;li&gt;Real-time streaming (SSE/WebSocket) — 2 s polling is sufficient.&lt;/li&gt;
 &lt;li&gt;Log download/export to file in UI.&lt;/li&gt;
 &lt;li&gt;Per-module log level configuration at runtime.&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/superpowers/specs/2026-08-09-olimex-c6-local-ui-design/</link><pubDate>Thu, 20 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/superpowers/specs/2026-08-09-olimex-c6-local-ui-design/</guid><description>
+&lt;/ul&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/superpowers/specs/2026-08-09-olimex-c6-local-ui-design/</link><pubDate>Fri, 21 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/superpowers/specs/2026-08-09-olimex-c6-local-ui-design/</guid><description>
 &lt;h1&gt;Design: Olimex ESP32-C6-EVB Local Settings Variant&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;Date:&lt;/strong&gt; 2026-08-09&lt;br&gt;
 &lt;strong&gt;Status:&lt;/strong&gt; Draft for user review&lt;br&gt;
 &lt;strong&gt;Scope:&lt;/strong&gt; Add a hardware concept for an Olimex ESP32-C6-EVB based pool-controller variant with a configurable 320x240 SPI TFT and KY-040 rotary encoder for local settings navigation.&lt;/p&gt;
@@ -7449,7 +7449,7 @@ estimate, with the inductor saturation current used as the conservative limit.&l
 for level shifters, onboard regulator, backlight polarity, and current limit.&lt;/li&gt;
 &lt;li&gt;KY-040 module documentation: encoder outputs follow the module VCC pull-up,
 therefore use 3.3 V VCC for ESP32-safe levels.&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/superpowers/specs/2026-08-16-norvi-button-calibration-design/</link><pubDate>Thu, 20 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/superpowers/specs/2026-08-16-norvi-button-calibration-design/</guid><description>
+&lt;/ul&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/superpowers/specs/2026-08-16-norvi-button-calibration-design/</link><pubDate>Fri, 21 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/superpowers/specs/2026-08-16-norvi-button-calibration-design/</guid><description>
 &lt;h1&gt;Design: Automatic NORVI Button Threshold Calibration&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;Date:&lt;/strong&gt; 2026-08-16
 &lt;strong&gt;Status:&lt;/strong&gt; Draft for user review
 &lt;strong&gt;Scope:&lt;/strong&gt; Add a guided calibration wizard to the web UI that measures the NORVI AE01-R front-panel button ADC levels and derives the button thresholds automatically, replacing manual calibration.&lt;/p&gt;
@@ -7639,7 +7639,7 @@ message.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;data/web/index.html&lt;/code&gt; — start button + modal markup.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;data/web/app.js&lt;/code&gt; — wizard logic, polling, modal handling.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;test/native/CMakeLists.txt&lt;/code&gt; — add test source.&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/tasmota-ota-review/</link><pubDate>Thu, 20 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/tasmota-ota-review/</guid><description>
+&lt;/ul&gt;</description></item><item><title/><link>https://smart-swimmingpool.github.io/docs/pool-controller/tasmota-ota-review/</link><pubDate>Fri, 21 Aug 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/tasmota-ota-review/</guid><description>
 &lt;h1&gt;Tasmota OTA Update Verification Review&lt;/h1&gt;&lt;p&gt;This document provides a comprehensive analysis of Tasmota&amp;rsquo;s OTA (Over-The-Air) update verification approach and
 evaluates which aspects could be beneficial to adapt for the Pool Controller project.&lt;/p&gt;
 &lt;h2&gt;Executive Summary&lt;span class="hx:absolute hx:-mt-20" id="executive-summary"&gt;&lt;/span&gt;
