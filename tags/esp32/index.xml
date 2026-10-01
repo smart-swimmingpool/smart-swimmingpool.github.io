@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Esp32</title><link>https://smart-swimmingpool.github.io/tags/esp32/</link><description>Recent content in Esp32 on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Sun, 14 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/tags/esp32/index.xml" rel="self" type="application/rss+xml"/><item><title>Hardware Guide of Pool Monitor</title><link>https://smart-swimmingpool.github.io/docs/pool-monitor/hardware-guide/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-monitor/hardware-guide/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Esp32</title><link>https://smart-swimmingpool.com/tags/esp32/</link><description>Recent content in Esp32 on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Sun, 14 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.com/tags/esp32/index.xml" rel="self" type="application/rss+xml"/><item><title>Hardware Guide of Pool Monitor</title><link>https://smart-swimmingpool.com/docs/pool-monitor/hardware-guide/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/pool-monitor/hardware-guide/</guid><description>
 &lt;h2&gt;Overview&lt;span class="hx:absolute hx:-mt-20" id="overview"&gt;&lt;/span&gt;
 &lt;a href="#overview" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The Pool Monitor is a &lt;strong&gt;ready-to-use display device&lt;/strong&gt; built around the
 LILYGO TTGO T5 e-paper ESP32 board family. Unlike the
@@ -152,7 +152,7 @@ data-copied-label="Copied!"
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;Then rebuild the firmware (see &lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-monitor/software-guide/"&gt;Software Guide&lt;/a&gt;).&lt;/p&gt;
+href="https://smart-swimmingpool.com/docs/pool-monitor/software-guide/"&gt;Software Guide&lt;/a&gt;).&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2&gt;Pin Assignment&lt;span class="hx:absolute hx:-mt-20" id="pin-assignment"&gt;&lt;/span&gt;
 &lt;a href="#pin-assignment" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The pin configuration is defined in &lt;code&gt;src/board_def.h&lt;/code&gt; and varies by board
@@ -246,7 +246,7 @@ control signals to prevent boot issues.&lt;/li&gt;
 &lt;a href="#buttons-on-supported-variants" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Some TTGO T5 variants include hardware buttons. The firmware currently does
 &lt;strong&gt;not&lt;/strong&gt; use them — all configuration is done via the captive portal (see
 &lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-monitor/users-guide/"&gt;Users Guide&lt;/a&gt;).&lt;/p&gt;
+href="https://smart-swimmingpool.com/docs/pool-monitor/users-guide/"&gt;Users Guide&lt;/a&gt;).&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -728,7 +728,7 @@ prevent force on the connectors.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;With stock firmware&lt;/strong&gt;: a test pattern or blank screen.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;With Pool Monitor firmware&lt;/strong&gt;: the splash screen — see
 &lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-monitor/users-guide/#setup"&gt;Users Guide&lt;/a&gt; for first-time configuration.&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/pool-monitor/users-guide/#setup"&gt;Users Guide&lt;/a&gt; for first-time configuration.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
@@ -743,7 +743,7 @@ no password).&lt;/li&gt;
 &lt;li&gt;Click &lt;strong&gt;Save&lt;/strong&gt; — the device reboots and connects to your network.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Details in the &lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-monitor/users-guide/"&gt;Users Guide&lt;/a&gt;.&lt;/p&gt;
+href="https://smart-swimmingpool.com/docs/pool-monitor/users-guide/"&gt;Users Guide&lt;/a&gt;.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2&gt;Troubleshooting&lt;span class="hx:absolute hx:-mt-20" id="troubleshooting"&gt;&lt;/span&gt;
 &lt;a href="#troubleshooting" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
@@ -759,7 +759,7 @@ href="https://smart-swimmingpool.github.io/docs/pool-monitor/users-guide/"&gt;Us
 &lt;td&gt;Display stays white&lt;/td&gt;
 &lt;td&gt;No firmware or corrupted flash&lt;/td&gt;
 &lt;td&gt;Flash firmware via PlatformIO (see &lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-monitor/software-guide/"&gt;Software Guide&lt;/a&gt;)&lt;/td&gt;
+href="https://smart-swimmingpool.com/docs/pool-monitor/software-guide/"&gt;Software Guide&lt;/a&gt;)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&amp;ldquo;MQTT Error&amp;rdquo; on display, portal opens&lt;/td&gt;
@@ -806,7 +806,7 @@ href="https://www.espressif.com/en/products/socs/esp32"target="_blank" rel="noop
 href="https://github.com/smart-swimmingpool/pool-controller/blob/main/docs/hardware-guide.md"target="_blank" rel="noopener"&gt;Pool Controller Hardware Guide&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a
 href="https://github.com/smart-swimmingpool/monitor/blob/main/src/board_def.h"target="_blank" rel="noopener"&gt;Board definition source&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>ESP32 Complete Wiring Schematic</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/esp32-complete-wiring-schematic/</link><pubDate>Thu, 11 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/esp32-complete-wiring-schematic/</guid><description>
+&lt;/ul&gt;</description></item><item><title>ESP32 Complete Wiring Schematic</title><link>https://smart-swimmingpool.com/docs/pool-controller/esp32-complete-wiring-schematic/</link><pubDate>Thu, 11 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/pool-controller/esp32-complete-wiring-schematic/</guid><description>
 &lt;p&gt;This document provides an additional, complete wiring diagram for the
 ESP32 setup with sensors, relays, resistors, and clock module (RTC).&lt;/p&gt;
 &lt;p&gt;The standard pins used in the firmware are:&lt;/p&gt;
@@ -964,14 +964,14 @@ hardware clock for extensions/offline scenarios.&lt;/li&gt;
 &lt;a href="#5-references" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Detailed assembly guide (also for beginners):
 &lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-controller/hardware-guide/"&gt;Hardware Guide&lt;/a&gt; — step-by-step,
+href="https://smart-swimmingpool.com/docs/pool-controller/hardware-guide/"&gt;Hardware Guide&lt;/a&gt; — step-by-step,
 manufacturing tips, troubleshooting&lt;/li&gt;
 &lt;li&gt;Pin background and optimization:
 &lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-controller/esp32-schematic-optimization/"&gt;ESP32 Schematic Optimization&lt;/a&gt;&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/esp32-schematic-optimization/"&gt;ESP32 Schematic Optimization&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="kicad/esp32-dev-board/esp32-dev-board-schematic.pdf"&gt;KiCad Schematic: ESP32 Dev Board&lt;/a&gt; — KiCad 9.0 schematic PDF export&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>ESP32 Schematic Optimization</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/esp32-schematic-optimization/</link><pubDate>Thu, 11 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/esp32-schematic-optimization/</guid><description>
+href="https://github.com/smart-swimmingpool/pool-controller/blob/main/docs/kicad/esp32-dev-board/esp32-dev-board-schematic.pdf"target="_blank" rel="noopener"&gt;KiCad Schematic: ESP32 Dev Board&lt;/a&gt; — KiCad 9.0 schematic PDF export&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>ESP32 Schematic Optimization</title><link>https://smart-swimmingpool.com/docs/pool-controller/esp32-schematic-optimization/</link><pubDate>Thu, 11 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/pool-controller/esp32-schematic-optimization/</guid><description>
 &lt;p&gt;This document analyzes the existing setup (Fritzing source + existing hardware
 documentation) and describes an optimized ESP32 proposal for sensors and relays.&lt;/p&gt;
 &lt;h2&gt;1) Current Analysis (Relevant Signals)&lt;span class="hx:absolute hx:-mt-20" id="1-current-analysis-relevant-signals"&gt;&lt;/span&gt;
@@ -1143,11 +1143,11 @@ the project&amp;rsquo;s security and reliability documentation.&lt;/p&gt;
 &lt;a href="#7-see-also" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Detailed assembly guide with step-by-step instructions and
 manufacturing tips: &lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-controller/hardware-guide/"&gt;Hardware Guide&lt;/a&gt;&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/hardware-guide/"&gt;Hardware Guide&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Complete wiring diagram with RTC module:
 &lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-controller/esp32-complete-wiring-schematic/"&gt;ESP32 Complete Wiring Schematic&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>OTA Updates</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/ota-updates/</link><pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/ota-updates/</guid><description>
+href="https://smart-swimmingpool.com/docs/pool-controller/esp32-complete-wiring-schematic/"&gt;ESP32 Complete Wiring Schematic&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>OTA Updates</title><link>https://smart-swimmingpool.com/docs/pool-controller/ota-updates/</link><pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/pool-controller/ota-updates/</guid><description>
 &lt;h1&gt;Over-The-Air (OTA) Updates&lt;/h1&gt;&lt;h2&gt;Overview&lt;span class="hx:absolute hx:-mt-20" id="overview"&gt;&lt;/span&gt;
 &lt;a href="#overview" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The Pool Controller supports Over-The-Air (OTA) firmware updates, allowing
 you to update the device remotely without physical access to the hardware.&lt;/p&gt;

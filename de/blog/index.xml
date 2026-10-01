@@ -1,6 +1,6 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Blog</title><link>https://smart-swimmingpool.github.io/de/blog/</link><description>Recent content in Blog on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><atom:link href="https://smart-swimmingpool.github.io/de/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Der smarte Pool (4/4)</title><link>https://smart-swimmingpool.github.io/de/blog/der-smarte-pool-4-4/</link><pubDate>Wed, 24 Oct 2018 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/blog/der-smarte-pool-4-4/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Blog</title><link>https://smart-swimmingpool.com/de/blog/</link><description>Recent content in Blog on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><atom:link href="https://smart-swimmingpool.com/de/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Der smarte Pool (4/4)</title><link>https://smart-swimmingpool.com/de/blog/der-smarte-pool-4-4/</link><pubDate>Wed, 24 Oct 2018 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/de/blog/der-smarte-pool-4-4/</guid><description>
 &lt;p&gt;In den &lt;a
-href="https://smart-swimmingpool.github.io/de/blog/swimmingpool-openhab-3-4/"&gt;vorangegangenen Artikeln&lt;/a&gt; haben wir den Pool-Controller mit openHAB verbunden. Über die Oberfläche der Sitemap in openHAB können in der Sektion Einstellungen die Parameter für die Temperaturen einfach eingestellt werden. Die Regeln reagieren auf diese Änderungen.&lt;/p&gt;
+href="https://smart-swimmingpool.com/de/blog/swimmingpool-openhab-3-4/"&gt;vorangegangenen Artikeln&lt;/a&gt; haben wir den Pool-Controller mit openHAB verbunden. Über die Oberfläche der Sitemap in openHAB können in der Sektion Einstellungen die Parameter für die Temperaturen einfach eingestellt werden. Die Regeln reagieren auf diese Änderungen.&lt;/p&gt;
 &lt;p&gt;Nun geht es darum, die Steuerung auch wirklich smart zu machen: die Regelung verläuft automatisch und kann über WLAN bzw. Internet angepasst werden.&lt;/p&gt;
 &lt;h2&gt;Regelsteuerung des Pools&lt;span class="hx:absolute hx:-mt-20" id="regelsteuerung-des-pools"&gt;&lt;/span&gt;
 &lt;a href="#regelsteuerung-des-pools" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Für die Erwärmung des Pools haben wir drei Modi implementiert:&lt;/p&gt;
@@ -46,9 +46,9 @@ href="https://de.m.wikipedia.org/wiki/Woman_acceptance_factor"target="_blank" re
 &lt;li&gt;Messung der Wasserqualität (pH, Chlor) durch zusätzliche Sensoren&lt;/li&gt;
 &lt;li&gt;Einbeziehen der Wettervorhersage, um den Pufferspeicher noch optimaler einzuteilen&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Wir freuen uns über Nachbauten, inspirierte Projekte und Vorschläge für weitere Verbesserungen. Gerne auch als Pull-Requests auf GitHub.&lt;/p&gt;</description></item><item><title>Swimmingpool und OpenHAB (3/4)</title><link>https://smart-swimmingpool.github.io/de/blog/swimmingpool-openhab-3-4/</link><pubDate>Tue, 23 Oct 2018 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/blog/swimmingpool-openhab-3-4/</guid><description>
+&lt;p&gt;Wir freuen uns über Nachbauten, inspirierte Projekte und Vorschläge für weitere Verbesserungen. Gerne auch als Pull-Requests auf GitHub.&lt;/p&gt;</description></item><item><title>Swimmingpool und OpenHAB (3/4)</title><link>https://smart-swimmingpool.com/de/blog/swimmingpool-openhab-3-4/</link><pubDate>Tue, 23 Oct 2018 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/de/blog/swimmingpool-openhab-3-4/</guid><description>
 &lt;p&gt;Nachdem wir im &lt;a
-href="https://smart-swimmingpool.github.io/de/blog/pool-controller-2-4/"&gt;vorangegangenen Blogartikel&lt;/a&gt; den Controller für die Poolsteuerung erstellt haben, werden wir diesen nun über das WLAN mit OpenHAB verbinden und dort die Regeln für die smarte Steuerung implementieren.&lt;/p&gt;
+href="https://smart-swimmingpool.com/de/blog/pool-controller-2-4/"&gt;vorangegangenen Blogartikel&lt;/a&gt; den Controller für die Poolsteuerung erstellt haben, werden wir diesen nun über das WLAN mit OpenHAB verbinden und dort die Regeln für die smarte Steuerung implementieren.&lt;/p&gt;
 &lt;h2&gt;Installation von OpenHAB&lt;span class="hx:absolute hx:-mt-20" id="installation-von-openhab"&gt;&lt;/span&gt;
 &lt;a href="#installation-von-openhab" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;OpenHAB ist ein &amp;ldquo;Home Automation Broker&amp;rdquo;, also eine Smart Home Server Software. Diese kann auf einem Raspberry Pi installiert werden. Wir gehen hier davon aus, dass schon eine Grundinstallation von OpenHAB besteht.&lt;/p&gt;
 &lt;p&gt;Wir müssen nun unter Umständen noch einige Addons der Installation hinzufügen. Dies ist über die Oberfläche &amp;ldquo;&lt;a
@@ -95,10 +95,10 @@ data-copied-label="Kopiert!"
 &lt;p&gt;Im abschließenden vierten Artikel werden wir auf die Regeln für die automatisierte Steuerung des Pools eingehen.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/de/blog/der-smarte-pool-4-4/"&gt;Weiter zu Teil 4: Der smarte Pool (4/4)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>Der Pool-Controller (2/4)</title><link>https://smart-swimmingpool.github.io/de/blog/pool-controller-2-4/</link><pubDate>Mon, 22 Oct 2018 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/blog/pool-controller-2-4/</guid><description>
+href="https://smart-swimmingpool.com/de/blog/der-smarte-pool-4-4/"&gt;Weiter zu Teil 4: Der smarte Pool (4/4)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Der Pool-Controller (2/4)</title><link>https://smart-swimmingpool.com/de/blog/pool-controller-2-4/</link><pubDate>Mon, 22 Oct 2018 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/de/blog/pool-controller-2-4/</guid><description>
 &lt;p&gt;Im &lt;a
-href="https://smart-swimmingpool.github.io/de/blog/smarte-steuerung-1-4/"&gt;vorangegangenen Artikel&lt;/a&gt; haben wir einen Überblick über das Projekt des smart gesteuerten Pools gegeben. In diesem zweiten Teil werden wir auf das Herzstück, den Controller, eingehen. Dieser basiert auf einem ESP32, könnte aber mit wenigen Modifikationen auch mit einem ESP8266 umgesetzt werden.&lt;/p&gt;
+href="https://smart-swimmingpool.com/de/blog/smarte-steuerung-1-4/"&gt;vorangegangenen Artikel&lt;/a&gt; haben wir einen Überblick über das Projekt des smart gesteuerten Pools gegeben. In diesem zweiten Teil werden wir auf das Herzstück, den Controller, eingehen. Dieser basiert auf einem ESP32, könnte aber mit wenigen Modifikationen auch mit einem ESP8266 umgesetzt werden.&lt;/p&gt;
 &lt;h2&gt;Aufgabe des Pool-Controllers&lt;span class="hx:absolute hx:-mt-20" id="aufgabe-des-pool-controllers"&gt;&lt;/span&gt;
 &lt;a href="#aufgabe-des-pool-controllers" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der Controller wird die zentrale Steuerung übernehmen. Er misst zyklisch die Temperaturen des Poolwassers und des Wärmespeichers der Solaranlage. Zudem wird er die Pumpen (Filter und Heizung) schalten. Der ESP ist also sowohl Sensor als auch Aktor. Der Datenaustausch erfolgt über WLAN mittels MQTT.&lt;/p&gt;
 &lt;h3&gt;Temperaturen messen&lt;span class="hx:absolute hx:-mt-20" id="temperaturen-messen"&gt;&lt;/span&gt;
@@ -177,8 +177,8 @@ data-copied-label="Kopiert!"
 &lt;p&gt;Im folgenden Artikel verbinden wir den Pool-Controller mit der Smart Home Lösung openHAB und machen den Pool durch Regeln richtig smart.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/de/blog/swimmingpool-openhab-3-4/"&gt;Weiter zu Teil 3: Swimmingpool und OpenHAB (3/4)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>Smarte Steuerung für den Swimmingpool (1/4)</title><link>https://smart-swimmingpool.github.io/de/blog/smarte-steuerung-1-4/</link><pubDate>Fri, 19 Oct 2018 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/blog/smarte-steuerung-1-4/</guid><description>
+href="https://smart-swimmingpool.com/de/blog/swimmingpool-openhab-3-4/"&gt;Weiter zu Teil 3: Swimmingpool und OpenHAB (3/4)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Smarte Steuerung für den Swimmingpool (1/4)</title><link>https://smart-swimmingpool.com/de/blog/smarte-steuerung-1-4/</link><pubDate>Fri, 19 Oct 2018 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/de/blog/smarte-steuerung-1-4/</guid><description>
 &lt;p&gt;In der folgenden vierteiligen Artikelserie werden wir Schritt für Schritt beschreiben, wie man einen Swimmingpool mittels selbstgebauten IoT-Modulen steuern kann. Die Kosten der benötigten elektronischen Bauteile liegen dabei unter 100 Euro.&lt;/p&gt;
 &lt;h2&gt;Ziel&lt;span class="hx:absolute hx:-mt-20" id="ziel"&gt;&lt;/span&gt;
 &lt;a href="#ziel" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
@@ -285,8 +285,8 @@ data-copied-label="Kopiert!"
 &lt;a href="#wie-geht-es-weiter" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Nun sind die ersten Voraussetzungen geschaffen. Im folgenden Artikel werden wir den Pool-Controller auf Basis des ESP32 vorstellen, der seine Daten über den eingerichteten MQTT-Broker bereitstellt.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/de/blog/pool-controller-2-4/"&gt;Weiter zu Teil 2: Der Pool-Controller (2/4)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>Projekt Smart Swimmingpool — Einleitung</title><link>https://smart-swimmingpool.github.io/de/blog/projekt-smart-swimmingpool-einleitung/</link><pubDate>Wed, 17 Oct 2018 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/blog/projekt-smart-swimmingpool-einleitung/</guid><description>
+href="https://smart-swimmingpool.com/de/blog/pool-controller-2-4/"&gt;Weiter zu Teil 2: Der Pool-Controller (2/4)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Projekt Smart Swimmingpool — Einleitung</title><link>https://smart-swimmingpool.com/de/blog/projekt-smart-swimmingpool-einleitung/</link><pubDate>Wed, 17 Oct 2018 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/de/blog/projekt-smart-swimmingpool-einleitung/</guid><description>
 &lt;p&gt;In den folgenden vier Blogposts werde ich Schritt für Schritt beschreiben, wie man einen Swimmingpool mittels selbstgebauten IoT-Modulen steuern kann. Die Kosten der benötigten elektronischen Bauteile liegen dabei unter 100 Euro.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Eingangsartikel&lt;/strong&gt;: Smart Swimming Pool mit der Problemstellung und den Anforderungen, notwendige Hardware sowie das Ziel der Serie&lt;/li&gt;
@@ -304,11 +304,11 @@ href="https://github.com/stritti"target="_blank" rel="noopener"&gt;https://githu
 &lt;h3&gt;Weiter zur Artikelserie&lt;span class="hx:absolute hx:-mt-20" id="weiter-zur-artikelserie"&gt;&lt;/span&gt;
 &lt;a href="#weiter-zur-artikelserie" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/de/blog/smarte-steuerung-1-4/"&gt;Smarte Steuerung für den Swimmingpool (1/4)&lt;/a&gt;&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/blog/smarte-steuerung-1-4/"&gt;Smarte Steuerung für den Swimmingpool (1/4)&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/de/blog/pool-controller-2-4/"&gt;Der Pool-Controller (2/4)&lt;/a&gt;&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/blog/pool-controller-2-4/"&gt;Der Pool-Controller (2/4)&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/de/blog/swimmingpool-openhab-3-4/"&gt;Swimmingpool und OpenHAB (3/4)&lt;/a&gt;&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/blog/swimmingpool-openhab-3-4/"&gt;Swimmingpool und OpenHAB (3/4)&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/de/blog/der-smarte-pool-4-4/"&gt;Der smarte Pool (4/4)&lt;/a&gt;&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/blog/der-smarte-pool-4-4/"&gt;Der smarte Pool (4/4)&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description></item></channel></rss>

@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Verdrahtung</title><link>https://smart-swimmingpool.github.io/de/tags/verdrahtung/</link><description>Recent content in Verdrahtung on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><lastBuildDate>Fri, 15 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/de/tags/verdrahtung/index.xml" rel="self" type="application/rss+xml"/><item><title>ESP32 Komplett-Schaltplan</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/esp32-complete-wiring-schematic/</link><pubDate>Fri, 15 May 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/esp32-complete-wiring-schematic/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Verdrahtung</title><link>https://smart-swimmingpool.com/de/tags/verdrahtung/</link><description>Recent content in Verdrahtung on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><lastBuildDate>Fri, 15 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.com/de/tags/verdrahtung/index.xml" rel="self" type="application/rss+xml"/><item><title>ESP32 Komplett-Schaltplan</title><link>https://smart-swimmingpool.com/de/docs/pool-controller/esp32-complete-wiring-schematic/</link><pubDate>Fri, 15 May 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/de/docs/pool-controller/esp32-complete-wiring-schematic/</guid><description>
 &lt;p&gt;Dieses Dokument zeigt einen zusätzlichen, vollständigen Verdrahtungsplan für
 den ESP32-Aufbau mit Sensoren, Relais, Widerständen und Uhr-Modul (RTC).&lt;/p&gt;
 &lt;p&gt;Die verwendeten Standard-Pins in der Firmware sind:&lt;/p&gt;
@@ -156,11 +156,11 @@ Hardware-Uhr für Erweiterungen/Offline-Szenarien vorgesehen.&lt;/li&gt;
 &lt;a href="#5-bezug-zu-bestehender-doku" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Ausführliche Aufbauanleitung (auch für Einsteiger):
 &lt;a
-href="hardware-guide.de.md"&gt;Hardware-Anleitung&lt;/a&gt; — Schritt-für-Schritt,
+href="https://smart-swimmingpool.com/de/docs/pool-controller/hardware-guide/"&gt;Hardware-Anleitung&lt;/a&gt; — Schritt-für-Schritt,
 Fertigungstipps, Fehlersuche&lt;/li&gt;
 &lt;li&gt;Pin-Hintergrund und Optimierung:
 &lt;a
-href="esp32-schematic-optimization.de.md"&gt;ESP32 Schaltplananalyse und Optimierung&lt;/a&gt;&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/pool-controller/esp32-schematic-optimization/"&gt;ESP32 Schaltplananalyse und Optimierung&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="kicad/esp32-dev-board/esp32-dev-board-schematic.pdf"&gt;KiCad-Schaltplan: ESP32 Dev Board&lt;/a&gt; — KiCad-9.0-Schaltplan als PDF-Export&lt;/li&gt;
+href="https://github.com/smart-swimmingpool/pool-controller/blob/main/docs/kicad/esp32-dev-board/esp32-dev-board-schematic.pdf"target="_blank" rel="noopener"&gt;KiCad-Schaltplan: ESP32 Dev Board&lt;/a&gt; — KiCad-9.0-Schaltplan als PDF-Export&lt;/li&gt;
 &lt;/ul&gt;</description></item></channel></rss>

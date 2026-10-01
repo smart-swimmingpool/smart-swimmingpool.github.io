@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Controller</title><link>https://smart-swimmingpool.github.io/tags/controller/</link><description>Recent content in Controller on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Thu, 28 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/tags/controller/index.xml" rel="self" type="application/rss+xml"/><item><title>Software Guide</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/software-guide/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/software-guide/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Controller</title><link>https://smart-swimmingpool.com/tags/controller/</link><description>Recent content in Controller on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Thu, 28 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.com/tags/controller/index.xml" rel="self" type="application/rss+xml"/><item><title>Software Guide</title><link>https://smart-swimmingpool.com/docs/pool-controller/software-guide/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/pool-controller/software-guide/</guid><description>
 &lt;h2&gt;Development Environment&lt;span class="hx:absolute hx:-mt-20" id="development-environment"&gt;&lt;/span&gt;
 &lt;a href="#development-environment" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Required Libraries&lt;span class="hx:absolute hx:-mt-20" id="required-libraries"&gt;&lt;/span&gt;
 &lt;a href="#required-libraries" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
@@ -389,7 +389,7 @@ data-copied-label="Copied!"
 &lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; When settings are changed via the Web UI, Home Assistant is updated
 on the next measurement cycle (every &lt;code&gt;loopInterval&lt;/code&gt; seconds, default 10s).
 Changes made via MQTT are confirmed immediately.&lt;/p&gt;
-&lt;/blockquote&gt;</description></item><item><title>User Guide</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/users-guide/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/users-guide/</guid><description>
+&lt;/blockquote&gt;</description></item><item><title>User Guide</title><link>https://smart-swimmingpool.com/docs/pool-controller/users-guide/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/pool-controller/users-guide/</guid><description>
 &lt;h2&gt;Setup&lt;span class="hx:absolute hx:-mt-20" id="setup"&gt;&lt;/span&gt;
 &lt;a href="#setup" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Initial WiFi setup via Web Interface (AP Mode)&lt;span class="hx:absolute hx:-mt-20" id="initial-wifi-setup-via-web-interface-ap-mode"&gt;&lt;/span&gt;
 &lt;a href="#initial-wifi-setup-via-web-interface-ap-mode" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;When the controller has no WiFi configured, it starts in &lt;strong&gt;Access Point mode&lt;/strong&gt;:&lt;/p&gt;
@@ -483,7 +483,7 @@ directly to page 2 at startup so you can see the setup instructions immediately.
 extra app needed.&lt;/p&gt;
 &lt;p&gt;The display updates every 2 seconds. Navigate pages using the front-panel
 buttons (see the &lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-controller/norvi-ae01-r/"&gt;NORVI AE01-R documentation&lt;/a&gt; for details).&lt;/p&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/norvi-ae01-r/"&gt;NORVI AE01-R documentation&lt;/a&gt; for details).&lt;/p&gt;
 &lt;h2&gt;LED Status Codes (Homie Convention)&lt;span class="hx:absolute hx:-mt-20" id="led-status-codes-homie-convention"&gt;&lt;/span&gt;
 &lt;a href="#led-status-codes-homie-convention" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The controller uses its &lt;strong&gt;built-in LED&lt;/strong&gt; to signal the current system state,
 following the &lt;a
@@ -499,12 +499,12 @@ standard for IoT device status indication.&lt;/p&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;img src="../led_wifi.gif" alt="WiFi connecting" data-zoomable loading="lazy" /&gt; &lt;strong&gt;Slow blink&lt;/strong&gt; (1x/sec)&lt;/td&gt;
+&lt;td&gt;&lt;img src="https://raw.githubusercontent.com/smart-swimmingpool/pool-controller/main/docs/led_wifi.gif" alt="WiFi connecting" data-zoomable loading="lazy" /&gt; &lt;strong&gt;Slow blink&lt;/strong&gt; (1x/sec)&lt;/td&gt;
 &lt;td&gt;&lt;strong&gt;WiFi connecting&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;The controller is trying to join your home WiFi network. This should take 5–20 seconds.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;img src="../led_mqtt.gif" alt="MQTT connecting" data-zoomable loading="lazy" /&gt; &lt;strong&gt;Mostly on, brief blip off every 2s&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src="https://raw.githubusercontent.com/smart-swimmingpool/pool-controller/main/docs/led_mqtt.gif" alt="MQTT connecting" data-zoomable loading="lazy" /&gt; &lt;strong&gt;Mostly on, brief blip off every 2s&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;&lt;strong&gt;WiFi OK, MQTT connecting/disconnected&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;Network is up, but the MQTT broker is not yet connected. Check broker address or network.&lt;/td&gt;
 &lt;/tr&gt;
@@ -582,7 +582,7 @@ has no WiFi credentials or cannot find your network. Connect to the
 &lt;/ol&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Tip:&lt;/strong&gt; You can also change settings programmatically via the REST API — see the &lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-controller/software-guide/#web-interface--direct-access"&gt;Software Guide&lt;/a&gt;.&lt;/p&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/software-guide/#web-interface--direct-access"&gt;Software Guide&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2&gt;Settings&lt;span class="hx:absolute hx:-mt-20" id="settings"&gt;&lt;/span&gt;
 &lt;a href="#settings" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;There are some specific settings for the controller:&lt;/p&gt;

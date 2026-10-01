@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Migration</title><link>https://smart-swimmingpool.github.io/de/tags/migration/</link><description>Recent content in Migration on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><atom:link href="https://smart-swimmingpool.github.io/de/tags/migration/index.xml" rel="self" type="application/rss+xml"/><item><title>Upgrade &amp; Migration</title><link>https://smart-swimmingpool.github.io/de/docs/migration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/migration/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Migration</title><link>https://smart-swimmingpool.com/de/tags/migration/</link><description>Recent content in Migration on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><atom:link href="https://smart-swimmingpool.com/de/tags/migration/index.xml" rel="self" type="application/rss+xml"/><item><title>Upgrade &amp; Migration</title><link>https://smart-swimmingpool.com/de/docs/migration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/de/docs/migration/</guid><description>
 &lt;p&gt;&lt;strong&gt;🏊 Smart Swimming Pool: Wie Sie die Firmware des Pool-Controllers zwischen Hauptversionen aktualisieren.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Diese Seite dokumentiert Breaking Changes, neue Parameter und Migrationsschritte zwischen Releases. Lesen Sie den entsprechenden Abschnitt &lt;strong&gt;vor&lt;/strong&gt; dem Update.&lt;/p&gt;
 &lt;hr&gt;
@@ -291,12 +291,12 @@ data-copied-label="Kopiert!"
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;Vollständiges Changelog auf &lt;a
-href="https://github.com/smart-swimmingpool/pool-controller/releases"target="_blank" rel="noopener"&gt;GitHub Releases&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>Firmware-Migration (v2.x → v3.x)</title><link>https://smart-swimmingpool.github.io/de/docs/firmware-migration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/firmware-migration/</guid><description>
+href="https://github.com/smart-swimmingpool/pool-controller/releases"target="_blank" rel="noopener"&gt;GitHub Releases&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>Firmware-Migration (v2.x → v3.x)</title><link>https://smart-swimmingpool.com/de/docs/firmware-migration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/de/docs/firmware-migration/</guid><description>
 &lt;p&gt;&lt;strong&gt;🏊 Smart Swimming Pool: Migration vom alten Homie 3.0-Format zum neuen MQTT-Discovery-Format&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Wenn Sie den &lt;strong&gt;Pool Controller v2.x&lt;/strong&gt; (oder älter) betreiben und auf &lt;strong&gt;v3.x&lt;/strong&gt; upgraden möchten, erklärt dieser Leitfaden, was sich ändert und wie Sie Ihre Smart-Home-Integration aktualisieren müssen.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;💡 &lt;strong&gt;Neuling?&lt;/strong&gt; Wenn Sie den Pool Controller zum ersten Mal installieren, folgen Sie stattdessen der &lt;a
-href="https://smart-swimmingpool.github.io/de/docs/getting-started/"&gt;Erste Schritte&lt;/a&gt;-Anleitung. Diese Anleitung ist nur relevant, wenn Sie bereits ein Homie 3.0-Setup haben.&lt;/p&gt;
+href="https://smart-swimmingpool.com/de/docs/getting-started/"&gt;Erste Schritte&lt;/a&gt;-Anleitung. Diese Anleitung ist nur relevant, wenn Sie bereits ein Homie 3.0-Setup haben.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;hr&gt;
 &lt;h2&gt;Übersicht&lt;span class="hx:absolute hx:-mt-20" id="übersicht"&gt;&lt;/span&gt;
@@ -349,7 +349,7 @@ href="https://www.home-assistant.io/integrations/mqtt/#mqtt-discovery"target="_b
 &lt;h2&gt;Firmware-Upgrade&lt;span class="hx:absolute hx:-mt-20" id="firmware-upgrade"&gt;&lt;/span&gt;
 &lt;a href="#firmware-upgrade" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Schritt 1: v3.x flashen&lt;span class="hx:absolute hx:-mt-20" id="schritt-1-v3x-flashen"&gt;&lt;/span&gt;
 &lt;a href="#schritt-1-v3x-flashen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Folgen Sie der Standard-Flash-Prozedur in der &lt;a
-href="https://smart-swimmingpool.github.io/de/docs/getting-started/#firmware-installation"&gt;Erste Schritte&lt;/a&gt;-Anleitung:&lt;/p&gt;
+href="https://smart-swimmingpool.com/de/docs/getting-started/#firmware-installation"&gt;Erste Schritte&lt;/a&gt;-Anleitung:&lt;/p&gt;
 &lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
 &lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# In VS Code mit PlatformIO:&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 1. Firmware hochladen&lt;/span&gt;
@@ -391,14 +391,14 @@ data-copied-label="Kopiert!"
 &lt;li&gt;Gehen Sie zu &lt;strong&gt;Einstellungen → Geräte &amp;amp; Dienste&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;Das Gerät &lt;strong&gt;Pool Controller&lt;/strong&gt; sollte automatisch erscheinen&lt;/li&gt;
 &lt;li&gt;Siehe &lt;a
-href="https://smart-swimmingpool.github.io/de/docs/home-assistant-integration/"&gt;Home Assistant Integrations-Guide&lt;/a&gt; für die vollständige Entity-Referenz&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/home-assistant-integration/"&gt;Home Assistant Integrations-Guide&lt;/a&gt; für die vollständige Entity-Referenz&lt;/li&gt;
 &lt;/ol&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Hinweis&lt;/strong&gt;: Wenn Sie manuell MQTT-Sensoren in Home Assistant für die Homie-Topics konfiguriert hatten, werden diese nach dem Upgrade als &lt;strong&gt;nicht verfügbar&lt;/strong&gt; angezeigt. Entfernen Sie sie manuell — die automatisch erkannten Entitäten ersetzen sie.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3&gt;openHAB-Nutzer&lt;span class="hx:absolute hx:-mt-20" id="openhab-nutzer"&gt;&lt;/span&gt;
 &lt;a href="#openhab-nutzer" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;openHAB erfordert &lt;strong&gt;manuelle MQTT-Konfiguration&lt;/strong&gt;. Der &lt;a
-href="https://smart-swimmingpool.github.io/de/docs/openhab-integration/"&gt;openHAB Integrations-Guide&lt;/a&gt; zeigt die vollständige Einrichtung.&lt;/p&gt;
+href="https://smart-swimmingpool.com/de/docs/openhab-integration/"&gt;openHAB Integrations-Guide&lt;/a&gt; zeigt die vollständige Einrichtung.&lt;/p&gt;
 &lt;h4&gt;Was sich ändern muss&lt;span class="hx:absolute hx:-mt-20" id="was-sich-ändern-muss"&gt;&lt;/span&gt;
 &lt;a href="#was-sich-%c3%a4ndern-muss" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;table&gt;
 &lt;thead&gt;

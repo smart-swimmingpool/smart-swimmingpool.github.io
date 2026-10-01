@@ -1,7 +1,7 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Hardware</title><link>https://smart-swimmingpool.github.io/tags/hardware/</link><description>Recent content in Hardware on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Sun, 14 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/tags/hardware/index.xml" rel="self" type="application/rss+xml"/><item><title>Pool Controller</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/</guid><description>
-&lt;h1&gt;\ud83c\udf9b Pool Controller&lt;/h1&gt;&lt;p&gt;The &lt;strong&gt;Pool Controller&lt;/strong&gt; is the heart of the Smart Swimming Pool system. It&amp;rsquo;s an ESP32-based device that provides central control logic for your pool automation.&lt;/p&gt;
-&lt;h2&gt;\ud83d\udca1 Overview&lt;span class="hx:absolute hx:-mt-20" id="ud83dudca1-overview"&gt;&lt;/span&gt;
-&lt;a href="#ud83dudca1-overview" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The Pool Controller handles:&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Hardware</title><link>https://smart-swimmingpool.com/tags/hardware/</link><description>Recent content in Hardware on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Sun, 14 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.com/tags/hardware/index.xml" rel="self" type="application/rss+xml"/><item><title>Pool Controller</title><link>https://smart-swimmingpool.com/docs/pool-controller/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/pool-controller/</guid><description>
+&lt;h1&gt;🎛️ Pool Controller&lt;/h1&gt;&lt;p&gt;The &lt;strong&gt;Pool Controller&lt;/strong&gt; is the heart of the Smart Swimming Pool system. It&amp;rsquo;s an ESP32-based device that provides central control logic for your pool automation.&lt;/p&gt;
+&lt;h2&gt;💡 Overview&lt;span class="hx:absolute hx:-mt-20" id="-overview"&gt;&lt;/span&gt;
+&lt;a href="#-overview" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The Pool Controller handles:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Temperature Monitoring&lt;/strong&gt;: Reads data from DS18B20 temperature sensors (pool water and solar collector)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Pump Control&lt;/strong&gt;: Controls circulation and heating pumps via relay modules&lt;/li&gt;
@@ -11,57 +11,65 @@
 &lt;li&gt;&lt;strong&gt;Web Interface&lt;/strong&gt;: Built-in configuration UI for easy setup&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Autonomous Operation&lt;/strong&gt;: Works independently without a smart home server&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;\ud83d\udcc Key Features&lt;span class="hx:absolute hx:-mt-20" id="ud83dudcc-key-features"&gt;&lt;/span&gt;
-&lt;a href="#ud83dudcc-key-features" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;\u2705 &lt;strong&gt;ESP32-based&lt;/strong&gt;: Powerful microcontroller with WiFi connectivity&lt;/li&gt;
-&lt;li&gt;\u2705 &lt;strong&gt;MQTT Discovery&lt;/strong&gt;: Automatic integration with Home Assistant&lt;/li&gt;
-&lt;li&gt;\u2705 &lt;strong&gt;Web UI&lt;/strong&gt;: Easy configuration via browser&lt;/li&gt;
-&lt;li&gt;\u2705 &lt;strong&gt;Active-Low Relays&lt;/strong&gt;: Safe default state (relays OFF during boot)&lt;/li&gt;
-&lt;li&gt;\u2705 &lt;strong&gt;Separate GPIO per Sensor&lt;/strong&gt;: Independent fault detection&lt;/li&gt;
-&lt;li&gt;\u2705 &lt;strong&gt;Offline Operation&lt;/strong&gt;: Continues working without WiFi&lt;/li&gt;
-&lt;li&gt;\u2705 &lt;strong&gt;Open Source&lt;/strong&gt;: MIT License, free to use and modify&lt;/li&gt;
+&lt;h2&gt;✨ Key Features&lt;span class="hx:absolute hx:-mt-20" id="-key-features"&gt;&lt;/span&gt;
+&lt;a href="#-key-features" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;✅ &lt;strong&gt;ESP32-based&lt;/strong&gt;: Powerful microcontroller with WiFi connectivity&lt;/li&gt;
+&lt;li&gt;✅ &lt;strong&gt;MQTT Discovery&lt;/strong&gt;: Automatic integration with Home Assistant&lt;/li&gt;
+&lt;li&gt;✅ &lt;strong&gt;Web UI&lt;/strong&gt;: Easy configuration via browser&lt;/li&gt;
+&lt;li&gt;✅ &lt;strong&gt;Active-Low Relays&lt;/strong&gt;: Safe default state (relays OFF during boot)&lt;/li&gt;
+&lt;li&gt;✅ &lt;strong&gt;Separate GPIO per Sensor&lt;/strong&gt;: Independent fault detection&lt;/li&gt;
+&lt;li&gt;✅ &lt;strong&gt;Offline Operation&lt;/strong&gt;: Continues working without WiFi&lt;/li&gt;
+&lt;li&gt;✅ &lt;strong&gt;Open Source&lt;/strong&gt;: MIT License, free to use and modify&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;\ud83d\ud87 Quick Links&lt;span class="hx:absolute hx:-mt-20" id="ud83dud87-quick-links"&gt;&lt;/span&gt;
-&lt;a href="#ud83dud87-quick-links" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Getting Started&lt;span class="hx:absolute hx:-mt-20" id="getting-started"&gt;&lt;/span&gt;
+&lt;h2&gt;🧭 Quick Links&lt;span class="hx:absolute hx:-mt-20" id="-quick-links"&gt;&lt;/span&gt;
+&lt;a href="#-quick-links" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Getting Started&lt;span class="hx:absolute hx:-mt-20" id="getting-started"&gt;&lt;/span&gt;
 &lt;a href="#getting-started" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://github.com/smart-swimmingpool/pool-controller/blob/main/docs/build-from-zero.md"target="_blank" rel="noopener"&gt;Build from Zero&lt;/a&gt;&lt;/strong&gt; - Complete build guide&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/build-from-zero/"&gt;Build from Zero&lt;/a&gt;&lt;/strong&gt; - Complete build guide&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://github.com/smart-swimmingpool/pool-controller/blob/main/docs/electrical-safety.md"target="_blank" rel="noopener"&gt;Electrical Safety&lt;/a&gt;&lt;/strong&gt; - Important safety information&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/electrical-safety/"&gt;Electrical Safety&lt;/a&gt;&lt;/strong&gt; - Important safety information&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://github.com/smart-swimmingpool/pool-controller/blob/main/docs/production-checklist.md"target="_blank" rel="noopener"&gt;Production Checklist&lt;/a&gt;&lt;/strong&gt; - Pre-deployment verification&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/production-checklist/"&gt;Production Checklist&lt;/a&gt;&lt;/strong&gt; - Pre-deployment verification&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://github.com/smart-swimmingpool/pool-controller/blob/main/docs/security-checklist.md"target="_blank" rel="noopener"&gt;Security Checklist&lt;/a&gt;&lt;/strong&gt; - Security best practices&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/security-checklist/"&gt;Security Checklist&lt;/a&gt;&lt;/strong&gt; - Security best practices&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Hardware&lt;span class="hx:absolute hx:-mt-20" id="hardware"&gt;&lt;/span&gt;
 &lt;a href="#hardware" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://github.com/smart-swimmingpool/pool-controller#hardware"target="_blank" rel="noopener"&gt;Hardware Overview&lt;/a&gt;&lt;/strong&gt; - Component descriptions&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/hardware-guide/"&gt;Hardware Guide&lt;/a&gt;&lt;/strong&gt; - Components, wiring and status LED&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://github.com/smart-swimmingpool/pool-controller#wiring"target="_blank" rel="noopener"&gt;Wiring Diagram&lt;/a&gt;&lt;/strong&gt; - Connection guide&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/esp32-complete-wiring-schematic/"&gt;ESP32 Wiring Schematic&lt;/a&gt;&lt;/strong&gt; - Complete connection guide&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/bom/"&gt;Bill of Materials&lt;/a&gt;&lt;/strong&gt; - Complete parts list&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/norvi-ae01-r/"&gt;NORVI AE01-R&lt;/a&gt;&lt;/strong&gt; - Industrial DIN-rail variant&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.com/docs/pool-controller/olimex-esp32-c6-evb/"&gt;Olimex ESP32-C6-EVB&lt;/a&gt;&lt;/strong&gt; - Variant with TFT display and rotary encoder&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.com/docs/pool-controller/contactor-guide/"&gt;Contactor Guide&lt;/a&gt;&lt;/strong&gt; - Switching pumps safely&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.com/docs/bom/"&gt;Bill of Materials&lt;/a&gt;&lt;/strong&gt; - Complete parts list&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Firmware&lt;span class="hx:absolute hx:-mt-20" id="firmware"&gt;&lt;/span&gt;
 &lt;a href="#firmware" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://github.com/smart-swimmingpool/pool-controller#firmware"target="_blank" rel="noopener"&gt;Firmware Installation&lt;/a&gt;&lt;/strong&gt; - Flashing guide&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/software-guide/"&gt;Software Guide&lt;/a&gt;&lt;/strong&gt; - Building and flashing the firmware&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://github.com/smart-swimmingpool/pool-controller#configuration"target="_blank" rel="noopener"&gt;Configuration&lt;/a&gt;&lt;/strong&gt; - Web interface setup&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/users-guide/"&gt;User&amp;rsquo;s Guide&lt;/a&gt;&lt;/strong&gt; - Configuration via web interface&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://github.com/smart-swimmingpool/pool-controller#mqtt-configuration"target="_blank" rel="noopener"&gt;MQTT Configuration&lt;/a&gt;&lt;/strong&gt; - Broker setup&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/mqtt-configuration/"&gt;MQTT Configuration&lt;/a&gt;&lt;/strong&gt; - Broker setup and topics&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.com/docs/pool-controller/ota-updates/"&gt;OTA Updates&lt;/a&gt;&lt;/strong&gt; - Firmware updates over the air&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Advanced&lt;span class="hx:absolute hx:-mt-20" id="advanced"&gt;&lt;/span&gt;
 &lt;a href="#advanced" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://github.com/smart-swimmingpool/pool-controller/blob/main/docs/safety-model.md"target="_blank" rel="noopener"&gt;Safety Model&lt;/a&gt;&lt;/strong&gt; - Safety architecture&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/safety-model/"&gt;Safety Model&lt;/a&gt;&lt;/strong&gt; - Safety architecture&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://github.com/smart-swimmingpool/pool-controller/blob/main/docs/troubleshooting.md"target="_blank" rel="noopener"&gt;Troubleshooting&lt;/a&gt;&lt;/strong&gt; - Common issues and solutions&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/temperature-based-circulation/"&gt;Temperature-Based Circulation&lt;/a&gt;&lt;/strong&gt; - Adaptive filter runtime&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://github.com/smart-swimmingpool/pool-controller#api"target="_blank" rel="noopener"&gt;API Reference&lt;/a&gt;&lt;/strong&gt; - MQTT topics and commands&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/troubleshooting-matrix/"&gt;Troubleshooting Matrix&lt;/a&gt;&lt;/strong&gt; - Common issues and solutions&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;\ud83c\udf9b Hardware Requirements&lt;span class="hx:absolute hx:-mt-20" id="ud83cudf9b-hardware-requirements"&gt;&lt;/span&gt;
-&lt;a href="#ud83cudf9b-hardware-requirements" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Minimum Setup&lt;span class="hx:absolute hx:-mt-20" id="minimum-setup"&gt;&lt;/span&gt;
+&lt;h2&gt;🔧 Hardware Requirements&lt;span class="hx:absolute hx:-mt-20" id="-hardware-requirements"&gt;&lt;/span&gt;
+&lt;a href="#-hardware-requirements" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Minimum Setup&lt;span class="hx:absolute hx:-mt-20" id="minimum-setup"&gt;&lt;/span&gt;
 &lt;a href="#minimum-setup" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -74,32 +82,32 @@ href="https://github.com/smart-swimmingpool/pool-controller#api"target="_blank" 
 &lt;tr&gt;
 &lt;td&gt;ESP32 DevKit V1&lt;/td&gt;
 &lt;td&gt;Main controller&lt;/td&gt;
-&lt;td&gt;8-12 \u20ac&lt;/td&gt;
+&lt;td&gt;8-12 €&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;2-Channel Relay Module&lt;/td&gt;
 &lt;td&gt;Pump control&lt;/td&gt;
-&lt;td&gt;4-6 \u20ac&lt;/td&gt;
+&lt;td&gt;4-6 €&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;2\u00d7 DS18B20 Sensors&lt;/td&gt;
+&lt;td&gt;2× DS18B20 Sensors&lt;/td&gt;
 &lt;td&gt;Temperature measurement&lt;/td&gt;
-&lt;td&gt;6-10 \u20ac&lt;/td&gt;
+&lt;td&gt;6-10 €&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;4.7k\u03a9 Resistors (2x)&lt;/td&gt;
+&lt;td&gt;4.7kΩ Resistors (2x)&lt;/td&gt;
 &lt;td&gt;Pull-up resistors&lt;/td&gt;
-&lt;td&gt;&amp;lt; 1 \u20ac&lt;/td&gt;
+&lt;td&gt;&amp;lt; 1 €&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Breadboard + Wires&lt;/td&gt;
 &lt;td&gt;Prototyping&lt;/td&gt;
-&lt;td&gt;3-8 \u20ac&lt;/td&gt;
+&lt;td&gt;3-8 €&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;strong&gt;Total&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;strong&gt;~30 \u20ac&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;~30 €&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -116,27 +124,29 @@ href="https://github.com/smart-swimmingpool/pool-controller#api"target="_blank" 
 &lt;tr&gt;
 &lt;td&gt;NORVI AE01-R&lt;/td&gt;
 &lt;td&gt;Industrial ESP32&lt;/td&gt;
-&lt;td&gt;25-30 \u20ac&lt;/td&gt;
+&lt;td&gt;25-30 €&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;IP65 Enclosure&lt;/td&gt;
 &lt;td&gt;Weather protection&lt;/td&gt;
-&lt;td&gt;10-15 \u20ac&lt;/td&gt;
+&lt;td&gt;10-15 €&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;DIN Rail Components&lt;/td&gt;
 &lt;td&gt;Professional mounting&lt;/td&gt;
-&lt;td&gt;15-20 \u20ac&lt;/td&gt;
+&lt;td&gt;15-20 €&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;strong&gt;Total&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;strong&gt;~75 \u20ac&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;~75 €&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h2&gt;\ud83d\udda5 Pin Configuration&lt;span class="hx:absolute hx:-mt-20" id="ud83dudda5-pin-configuration"&gt;&lt;/span&gt;
-&lt;a href="#ud83dudda5-pin-configuration" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;h2&gt;📌 Pin Configuration&lt;span class="hx:absolute hx:-mt-20" id="-pin-configuration"&gt;&lt;/span&gt;
+&lt;a href="#-pin-configuration" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Default pins of the &lt;strong&gt;ESP32 DevKit&lt;/strong&gt; build (&lt;code&gt;esp32dev&lt;/code&gt;). The NORVI AE01-R and Olimex ESP32-C6-EVB
+builds use their own pin maps, see &lt;code&gt;src/Config.hpp&lt;/code&gt; and the board pages linked above.&lt;/p&gt;
+&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
 &lt;th&gt;Function&lt;/th&gt;
@@ -188,28 +198,28 @@ href="https://github.com/smart-swimmingpool/pool-controller#api"target="_blank" 
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;blockquote&gt;
-&lt;p&gt;\u26a0\ufe0f &lt;strong&gt;Important&lt;/strong&gt;: Each DS18B20 data line requires a &lt;strong&gt;4.7k\u03a9 pull-up resistor&lt;/strong&gt; to 3.3V.&lt;/p&gt;
+&lt;p&gt;⚠️ &lt;strong&gt;Important&lt;/strong&gt;: Each DS18B20 data line requires a &lt;strong&gt;4.7kΩ pull-up resistor&lt;/strong&gt; to 3.3V.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2&gt;\ud83d\udc82 Next Steps&lt;span class="hx:absolute hx:-mt-20" id="ud83dudc82-next-steps"&gt;&lt;/span&gt;
-&lt;a href="#ud83dudc82-next-steps" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;h2&gt;🚀 Next Steps&lt;span class="hx:absolute hx:-mt-20" id="-next-steps"&gt;&lt;/span&gt;
+&lt;a href="#-next-steps" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/start-here/"&gt;Start Here&lt;/a&gt;&lt;/strong&gt; - Choose your path based on your goals&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/start-here/"&gt;Start Here&lt;/a&gt;&lt;/strong&gt; - Choose your path based on your goals&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/quickstart/"&gt;Quick Start&lt;/a&gt;&lt;/strong&gt; - Fastest way to get running (60 minutes)&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/quickstart/"&gt;Quick Start&lt;/a&gt;&lt;/strong&gt; - Fastest way to get running (60 minutes)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/getting-started/"&gt;Getting Started&lt;/a&gt;&lt;/strong&gt; - Comprehensive build guide&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/getting-started/"&gt;Getting Started&lt;/a&gt;&lt;/strong&gt; - Comprehensive build guide&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/home-assistant-integration/"&gt;Home Assistant Integration&lt;/a&gt;&lt;/strong&gt; - Smart home integration&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/home-assistant-integration/"&gt;Home Assistant Integration&lt;/a&gt;&lt;/strong&gt; - Smart home integration&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2&gt;\ud83d\udcdd Need Help?&lt;span class="hx:absolute hx:-mt-20" id="ud83dudcdd-need-help"&gt;&lt;/span&gt;
-&lt;a href="#ud83dudcdd-need-help" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;h2&gt;💬 Need Help?&lt;span class="hx:absolute hx:-mt-20" id="-need-help"&gt;&lt;/span&gt;
+&lt;a href="#-need-help" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Check the &lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/troubleshooting/"&gt;FAQ &amp;amp; Troubleshooting&lt;/a&gt;&lt;/strong&gt; page&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/troubleshooting/"&gt;FAQ &amp;amp; Troubleshooting&lt;/a&gt;&lt;/strong&gt; page&lt;/li&gt;
 &lt;li&gt;Visit the &lt;strong&gt;&lt;a
 href="https://github.com/smart-swimmingpool/pool-controller"target="_blank" rel="noopener"&gt;Pool Controller Repository&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;Open an &lt;strong&gt;&lt;a
 href="https://github.com/smart-swimmingpool/pool-controller/issues"target="_blank" rel="noopener"&gt;Issue&lt;/a&gt;&lt;/strong&gt; for bugs or feature requests&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>Bill of Materials</title><link>https://smart-swimmingpool.github.io/docs/bom/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/bom/</guid><description>
+&lt;/ul&gt;</description></item><item><title>Bill of Materials</title><link>https://smart-swimmingpool.com/docs/bom/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/bom/</guid><description>
 &lt;p&gt;&lt;strong&gt;🏊 Smart Swimming Pool: Complete shopping list with part numbers, prices, and sourcing tips.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;This BOM covers all components needed to build the pool controller including the electronics, electrical installation, sensors, and enclosure. Prices are estimates as of 2026.&lt;/p&gt;
 &lt;hr&gt;
@@ -709,7 +719,7 @@ href="https://github.com/smart-swimmingpool/pool-controller/issues"target="_blan
 &lt;/table&gt;
 &lt;blockquote&gt;
 &lt;p&gt;💡 The existing &amp;ldquo;Getting Started&amp;rdquo; BOM estimates &lt;strong&gt;45–75 €&lt;/strong&gt; for the &lt;strong&gt;controller electronics + enclosure&lt;/strong&gt; (categories 1+2). The expanded BOM above adds the &lt;strong&gt;electrical installation (230V)&lt;/strong&gt; and &lt;strong&gt;sensor mounting&lt;/strong&gt; materials which are necessary for a real pool installation.&lt;/p&gt;
-&lt;/blockquote&gt;</description></item><item><title>Build from Zero</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/build-from-zero/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/build-from-zero/</guid><description>
+&lt;/blockquote&gt;</description></item><item><title>Build from Zero</title><link>https://smart-swimmingpool.com/docs/pool-controller/build-from-zero/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/pool-controller/build-from-zero/</guid><description>
 &lt;blockquote&gt;
 &lt;p&gt;⚠️ &lt;strong&gt;WARNING: This guide involves 230V AC mains voltage.&lt;/strong&gt;
 Improper wiring poses risk of electric shock, fire, or equipment damage.&lt;/p&gt;
@@ -764,7 +774,7 @@ desk to a fully operational pool controller integrated with Home Assistant.&lt;/
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;This guide focuses on the &lt;strong&gt;Basic&lt;/strong&gt; variant. See the &lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-controller/hardware-guide/"&gt;Hardware Guide&lt;/a&gt; for
+href="https://smart-swimmingpool.com/docs/pool-controller/hardware-guide/"&gt;Hardware Guide&lt;/a&gt; for
 NORVI and custom configurations.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2&gt;Bill of Materials (BOM)&lt;span class="hx:absolute hx:-mt-20" id="bill-of-materials-bom"&gt;&lt;/span&gt;
@@ -1196,7 +1206,7 @@ operation with a multimeter or a 5V LED + resistor.&lt;/p&gt;
 &lt;h3&gt;Lovelace Dashboard&lt;span class="hx:absolute hx:-mt-20" id="lovelace-dashboard"&gt;&lt;/span&gt;
 &lt;a href="#lovelace-dashboard" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;A pre-built dashboard is available in &lt;code&gt;docs/home-assistant/dashboard.yaml&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;See &lt;a
-href="https://smart-swimmingpool.github.io/docs/home-assistant-integration/"&gt;Home Assistant Integration&lt;/a&gt; for detailed setup.&lt;/p&gt;
+href="https://smart-swimmingpool.com/docs/home-assistant-integration/"&gt;Home Assistant Integration&lt;/a&gt; for detailed setup.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2&gt;Step 9: Electrical Commissioning&lt;span class="hx:absolute hx:-mt-20" id="step-9-electrical-commissioning"&gt;&lt;/span&gt;
 &lt;a href="#step-9-electrical-commissioning" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Safety Checklist&lt;span class="hx:absolute hx:-mt-20" id="safety-checklist"&gt;&lt;/span&gt;
@@ -1254,7 +1264,7 @@ of operation. Monitor temperatures and relay states.&lt;/p&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Final Verification&lt;span class="hx:absolute hx:-mt-20" id="final-verification"&gt;&lt;/span&gt;
 &lt;a href="#final-verification" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;See the &lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-controller/production-checklist/"&gt;Production Checklist&lt;/a&gt; for a complete
+href="https://smart-swimmingpool.com/docs/pool-controller/production-checklist/"&gt;Production Checklist&lt;/a&gt; for a complete
 commissioning checklist.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2&gt;Maintenance&lt;span class="hx:absolute hx:-mt-20" id="maintenance"&gt;&lt;/span&gt;
@@ -1286,7 +1296,7 @@ data-copied-label="Copied!"
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;See &lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-controller/ota-updates/"&gt;OTA Updates&lt;/a&gt; for detailed instructions.&lt;/p&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/ota-updates/"&gt;OTA Updates&lt;/a&gt; for detailed instructions.&lt;/p&gt;
 &lt;h3&gt;Sensor Replacement&lt;span class="hx:absolute hx:-mt-20" id="sensor-replacement"&gt;&lt;/span&gt;
 &lt;a href="#sensor-replacement" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;If a DS18B20 fails:&lt;/p&gt;
 &lt;ol&gt;
@@ -1297,27 +1307,27 @@ href="https://smart-swimmingpool.github.io/docs/pool-controller/ota-updates/"&gt
 &lt;/ol&gt;
 &lt;h3&gt;When Things Go Wrong&lt;span class="hx:absolute hx:-mt-20" id="when-things-go-wrong"&gt;&lt;/span&gt;
 &lt;a href="#when-things-go-wrong" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;See &lt;a
-href="https://smart-swimmingpool.github.io/docs/troubleshooting/"&gt;Troubleshooting&lt;/a&gt; for common issues and solutions.&lt;/p&gt;
+href="https://smart-swimmingpool.com/docs/troubleshooting/"&gt;Troubleshooting&lt;/a&gt; for common issues and solutions.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2&gt;Related Documents&lt;span class="hx:absolute hx:-mt-20" id="related-documents"&gt;&lt;/span&gt;
 &lt;a href="#related-documents" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-controller/hardware-guide/"&gt;Hardware Guide&lt;/a&gt; — Detailed hardware assembly&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/hardware-guide/"&gt;Hardware Guide&lt;/a&gt; — Detailed hardware assembly&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-controller/software-guide/"&gt;Software Guide&lt;/a&gt; — Development environment + API&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/software-guide/"&gt;Software Guide&lt;/a&gt; — Development environment + API&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-controller/mqtt-configuration/"&gt;MQTT Configuration&lt;/a&gt; — MQTT setup details&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/mqtt-configuration/"&gt;MQTT Configuration&lt;/a&gt; — MQTT setup details&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-controller/electrical-safety/"&gt;Electrical Safety&lt;/a&gt; — Electrical safety information&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/electrical-safety/"&gt;Electrical Safety&lt;/a&gt; — Electrical safety information&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-controller/safety-model/"&gt;Safety Model&lt;/a&gt; — System safety architecture&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/safety-model/"&gt;Safety Model&lt;/a&gt; — System safety architecture&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-controller/production-checklist/"&gt;Production Checklist&lt;/a&gt; — Pre-deployment checklist&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/production-checklist/"&gt;Production Checklist&lt;/a&gt; — Pre-deployment checklist&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-controller/security-checklist/"&gt;Security Checklist&lt;/a&gt; — Security hardening&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/security-checklist/"&gt;Security Checklist&lt;/a&gt; — Security hardening&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/troubleshooting/"&gt;Troubleshooting&lt;/a&gt; — Common issues and fixes&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>Electrical Safety</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/electrical-safety/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/electrical-safety/</guid><description>
+href="https://smart-swimmingpool.com/docs/troubleshooting/"&gt;Troubleshooting&lt;/a&gt; — Common issues and fixes&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Electrical Safety</title><link>https://smart-swimmingpool.com/docs/pool-controller/electrical-safety/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/pool-controller/electrical-safety/</guid><description>
 &lt;blockquote&gt;
 &lt;p&gt;⚠️ &lt;strong&gt;WARNING: This document describes 230V AC mains voltage installation.&lt;/strong&gt;
 Improper wiring poses risk of electric shock, fire, or equipment damage.&lt;/p&gt;
@@ -1513,7 +1523,7 @@ data-copied-label="Copied!"
 &lt;a href="#commissioning" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Before Connecting Mains&lt;span class="hx:absolute hx:-mt-20" id="before-connecting-mains"&gt;&lt;/span&gt;
 &lt;a href="#before-connecting-mains" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;Complete the &lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-controller/build-from-zero/"&gt;Build from Zero&lt;/a&gt; breadboard test&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/build-from-zero/"&gt;Build from Zero&lt;/a&gt; breadboard test&lt;/li&gt;
 &lt;li&gt;Verify sensors return plausible readings&lt;/li&gt;
 &lt;li&gt;Test relay operation with a multimeter (no-load)&lt;/li&gt;
 &lt;li&gt;Confirm the enclosure is properly sealed&lt;/li&gt;
@@ -1554,16 +1564,16 @@ href="https://smart-swimmingpool.github.io/docs/pool-controller/build-from-zero/
 &lt;h2&gt;Related Documents&lt;span class="hx:absolute hx:-mt-20" id="related-documents"&gt;&lt;/span&gt;
 &lt;a href="#related-documents" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-controller/build-from-zero/"&gt;Build from Zero&lt;/a&gt; — Complete build guide&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/build-from-zero/"&gt;Build from Zero&lt;/a&gt; — Complete build guide&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-controller/hardware-guide/"&gt;Hardware Guide&lt;/a&gt; — Hardware assembly details&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/hardware-guide/"&gt;Hardware Guide&lt;/a&gt; — Hardware assembly details&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-controller/safety-model/"&gt;Safety Model&lt;/a&gt; — System safety architecture&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/safety-model/"&gt;Safety Model&lt;/a&gt; — System safety architecture&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-controller/production-checklist/"&gt;Production Checklist&lt;/a&gt; — Pre-deployment checks&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/production-checklist/"&gt;Production Checklist&lt;/a&gt; — Pre-deployment checks&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-controller/security-checklist/"&gt;Security Checklist&lt;/a&gt; — Security hardening&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>Hardware Guide of Pool Monitor</title><link>https://smart-swimmingpool.github.io/docs/pool-monitor/hardware-guide/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-monitor/hardware-guide/</guid><description>
+href="https://smart-swimmingpool.com/docs/pool-controller/security-checklist/"&gt;Security Checklist&lt;/a&gt; — Security hardening&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Hardware Guide of Pool Monitor</title><link>https://smart-swimmingpool.com/docs/pool-monitor/hardware-guide/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/pool-monitor/hardware-guide/</guid><description>
 &lt;h2&gt;Overview&lt;span class="hx:absolute hx:-mt-20" id="overview"&gt;&lt;/span&gt;
 &lt;a href="#overview" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The Pool Monitor is a &lt;strong&gt;ready-to-use display device&lt;/strong&gt; built around the
 LILYGO TTGO T5 e-paper ESP32 board family. Unlike the
@@ -1717,7 +1727,7 @@ data-copied-label="Copied!"
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;Then rebuild the firmware (see &lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-monitor/software-guide/"&gt;Software Guide&lt;/a&gt;).&lt;/p&gt;
+href="https://smart-swimmingpool.com/docs/pool-monitor/software-guide/"&gt;Software Guide&lt;/a&gt;).&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2&gt;Pin Assignment&lt;span class="hx:absolute hx:-mt-20" id="pin-assignment"&gt;&lt;/span&gt;
 &lt;a href="#pin-assignment" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The pin configuration is defined in &lt;code&gt;src/board_def.h&lt;/code&gt; and varies by board
@@ -1811,7 +1821,7 @@ control signals to prevent boot issues.&lt;/li&gt;
 &lt;a href="#buttons-on-supported-variants" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Some TTGO T5 variants include hardware buttons. The firmware currently does
 &lt;strong&gt;not&lt;/strong&gt; use them — all configuration is done via the captive portal (see
 &lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-monitor/users-guide/"&gt;Users Guide&lt;/a&gt;).&lt;/p&gt;
+href="https://smart-swimmingpool.com/docs/pool-monitor/users-guide/"&gt;Users Guide&lt;/a&gt;).&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -2293,7 +2303,7 @@ prevent force on the connectors.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;With stock firmware&lt;/strong&gt;: a test pattern or blank screen.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;With Pool Monitor firmware&lt;/strong&gt;: the splash screen — see
 &lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-monitor/users-guide/#setup"&gt;Users Guide&lt;/a&gt; for first-time configuration.&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/pool-monitor/users-guide/#setup"&gt;Users Guide&lt;/a&gt; for first-time configuration.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
@@ -2308,7 +2318,7 @@ no password).&lt;/li&gt;
 &lt;li&gt;Click &lt;strong&gt;Save&lt;/strong&gt; — the device reboots and connects to your network.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Details in the &lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-monitor/users-guide/"&gt;Users Guide&lt;/a&gt;.&lt;/p&gt;
+href="https://smart-swimmingpool.com/docs/pool-monitor/users-guide/"&gt;Users Guide&lt;/a&gt;.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2&gt;Troubleshooting&lt;span class="hx:absolute hx:-mt-20" id="troubleshooting"&gt;&lt;/span&gt;
 &lt;a href="#troubleshooting" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
@@ -2324,7 +2334,7 @@ href="https://smart-swimmingpool.github.io/docs/pool-monitor/users-guide/"&gt;Us
 &lt;td&gt;Display stays white&lt;/td&gt;
 &lt;td&gt;No firmware or corrupted flash&lt;/td&gt;
 &lt;td&gt;Flash firmware via PlatformIO (see &lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-monitor/software-guide/"&gt;Software Guide&lt;/a&gt;)&lt;/td&gt;
+href="https://smart-swimmingpool.com/docs/pool-monitor/software-guide/"&gt;Software Guide&lt;/a&gt;)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&amp;ldquo;MQTT Error&amp;rdquo; on display, portal opens&lt;/td&gt;
@@ -2371,7 +2381,7 @@ href="https://www.espressif.com/en/products/socs/esp32"target="_blank" rel="noop
 href="https://github.com/smart-swimmingpool/pool-controller/blob/main/docs/hardware-guide.md"target="_blank" rel="noopener"&gt;Pool Controller Hardware Guide&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a
 href="https://github.com/smart-swimmingpool/monitor/blob/main/src/board_def.h"target="_blank" rel="noopener"&gt;Board definition source&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>ESP32 Complete Wiring Schematic</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/esp32-complete-wiring-schematic/</link><pubDate>Thu, 11 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/esp32-complete-wiring-schematic/</guid><description>
+&lt;/ul&gt;</description></item><item><title>ESP32 Complete Wiring Schematic</title><link>https://smart-swimmingpool.com/docs/pool-controller/esp32-complete-wiring-schematic/</link><pubDate>Thu, 11 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/pool-controller/esp32-complete-wiring-schematic/</guid><description>
 &lt;p&gt;This document provides an additional, complete wiring diagram for the
 ESP32 setup with sensors, relays, resistors, and clock module (RTC).&lt;/p&gt;
 &lt;p&gt;The standard pins used in the firmware are:&lt;/p&gt;
@@ -2529,14 +2539,14 @@ hardware clock for extensions/offline scenarios.&lt;/li&gt;
 &lt;a href="#5-references" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Detailed assembly guide (also for beginners):
 &lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-controller/hardware-guide/"&gt;Hardware Guide&lt;/a&gt; — step-by-step,
+href="https://smart-swimmingpool.com/docs/pool-controller/hardware-guide/"&gt;Hardware Guide&lt;/a&gt; — step-by-step,
 manufacturing tips, troubleshooting&lt;/li&gt;
 &lt;li&gt;Pin background and optimization:
 &lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-controller/esp32-schematic-optimization/"&gt;ESP32 Schematic Optimization&lt;/a&gt;&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/esp32-schematic-optimization/"&gt;ESP32 Schematic Optimization&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="kicad/esp32-dev-board/esp32-dev-board-schematic.pdf"&gt;KiCad Schematic: ESP32 Dev Board&lt;/a&gt; — KiCad 9.0 schematic PDF export&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>ESP32 Schematic Optimization</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/esp32-schematic-optimization/</link><pubDate>Thu, 11 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/esp32-schematic-optimization/</guid><description>
+href="https://github.com/smart-swimmingpool/pool-controller/blob/main/docs/kicad/esp32-dev-board/esp32-dev-board-schematic.pdf"target="_blank" rel="noopener"&gt;KiCad Schematic: ESP32 Dev Board&lt;/a&gt; — KiCad 9.0 schematic PDF export&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>ESP32 Schematic Optimization</title><link>https://smart-swimmingpool.com/docs/pool-controller/esp32-schematic-optimization/</link><pubDate>Thu, 11 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/pool-controller/esp32-schematic-optimization/</guid><description>
 &lt;p&gt;This document analyzes the existing setup (Fritzing source + existing hardware
 documentation) and describes an optimized ESP32 proposal for sensors and relays.&lt;/p&gt;
 &lt;h2&gt;1) Current Analysis (Relevant Signals)&lt;span class="hx:absolute hx:-mt-20" id="1-current-analysis-relevant-signals"&gt;&lt;/span&gt;
@@ -2708,11 +2718,11 @@ the project&amp;rsquo;s security and reliability documentation.&lt;/p&gt;
 &lt;a href="#7-see-also" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Detailed assembly guide with step-by-step instructions and
 manufacturing tips: &lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-controller/hardware-guide/"&gt;Hardware Guide&lt;/a&gt;&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/hardware-guide/"&gt;Hardware Guide&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Complete wiring diagram with RTC module:
 &lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-controller/esp32-complete-wiring-schematic/"&gt;ESP32 Complete Wiring Schematic&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>Hardware Guide</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/hardware-guide/</link><pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/hardware-guide/</guid><description>
+href="https://smart-swimmingpool.com/docs/pool-controller/esp32-complete-wiring-schematic/"&gt;ESP32 Complete Wiring Schematic&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Hardware Guide</title><link>https://smart-swimmingpool.com/docs/pool-controller/hardware-guide/</link><pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/pool-controller/hardware-guide/</guid><description>
 &lt;h2&gt;Overview&lt;span class="hx:absolute hx:-mt-20" id="overview"&gt;&lt;/span&gt;
 &lt;a href="#overview" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This guide walks you through building the Pool Controller hardware — from
 selecting parts to final assembly. Even if you&amp;rsquo;ve never soldered before, the
@@ -3073,7 +3083,7 @@ data-copied-label="Copied!"
 ║ control interface (no contact wear) ║
 ║ ║
 ║ See → &lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-controller/contactor-guide/"&gt;Contactor Wiring Guide&lt;/a&gt;&lt;/strong&gt; ║
+href="https://smart-swimmingpool.com/docs/pool-controller/contactor-guide/"&gt;Contactor Wiring Guide&lt;/a&gt;&lt;/strong&gt; ║
 ╚══════════════════════════════════════════════════════════════════════╝&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -3133,7 +3143,7 @@ additional 3.3V components, consider an external 3.3V regulator.&lt;/p&gt;
 &lt;li&gt;&lt;strong&gt;Verify&lt;/strong&gt;: See &lt;a
 href="#first-power-on-and-testing"&gt;First Power-On&lt;/a&gt; below&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure&gt;&lt;img src="pool-controller_breadboard.png"&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src="https://raw.githubusercontent.com/smart-swimmingpool/pool-controller/main/docs/pool-controller_breadboard.png"&gt;&lt;figcaption&gt;
 &lt;h4&gt;Breadboard prototype with ESP32, DS18B20 sensors, 4.7kΩ pull-up resistors, and 2-channel relay module&lt;/h4&gt;
 &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -3245,12 +3255,12 @@ clean, reliable, and can power both the ESP32 and the relay module without
 issue.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Alternative — Industrial controller:&lt;/strong&gt; The &lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-controller/norvi-ae01-r/"&gt;NORVI IIOT-AE01-R&lt;/a&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/norvi-ae01-r/"&gt;NORVI IIOT-AE01-R&lt;/a&gt;
 is an ESP32-based industrial controller with &lt;strong&gt;built-in relays, 24V DC supply,
 DIN-rail mount, and CE certification&lt;/strong&gt;. If you already have a 230V AC → 24V DC
 power supply, no additional 5V PSU is needed. See the
 &lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-controller/norvi-ae01-r/"&gt;NORVI AE01-R Configuration Guide&lt;/a&gt; for details.&lt;/p&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/norvi-ae01-r/"&gt;NORVI AE01-R Configuration Guide&lt;/a&gt; for details.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;hr&gt;
 &lt;h2&gt;First Power-On and Testing&lt;span class="hx:absolute hx:-mt-20" id="first-power-on-and-testing"&gt;&lt;/span&gt;
@@ -3355,7 +3365,7 @@ contactors&lt;/strong&gt; between the relay and the pump. The relay then switche
 the contactor&amp;rsquo;s 24V coil (a few mA) — the contactor&amp;rsquo;s main contacts handle
 the 230V load. See the dedicated guide:&lt;/p&gt;
 &lt;p&gt;👉 &lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-controller/contactor-guide/"&gt;Contactor Wiring Guide&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/contactor-guide/"&gt;Contactor Wiring Guide&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;h2&gt;Troubleshooting&lt;span class="hx:absolute hx:-mt-20" id="troubleshooting"&gt;&lt;/span&gt;
 &lt;a href="#troubleshooting" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
 &lt;thead&gt;
@@ -3395,7 +3405,7 @@ href="https://smart-swimmingpool.github.io/docs/pool-controller/contactor-guide/
 &lt;td&gt;&lt;strong&gt;Pump runs despite OFF display&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;&lt;strong&gt;Welded relay contact (motor load)&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;&lt;strong&gt;Use external contactor&lt;/strong&gt; (see &lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-controller/contactor-guide/"&gt;Contactor Guide&lt;/a&gt;)&lt;/td&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/contactor-guide/"&gt;Contactor Guide&lt;/a&gt;)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;ESP32 won&amp;rsquo;t boot (brownout)&lt;/td&gt;
@@ -3476,7 +3486,7 @@ data-copied-label="Copied!"
 &lt;/table&gt;
 &lt;p&gt;The optimization is analyzed in detail in the
 &lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-controller/esp32-schematic-optimization/"&gt;ESP32 Schematic Optimization&lt;/a&gt; document
+href="https://smart-swimmingpool.com/docs/pool-controller/esp32-schematic-optimization/"&gt;ESP32 Schematic Optimization&lt;/a&gt; document
 (German).&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2&gt;LED Status Codes (Homie Convention)&lt;span class="hx:absolute hx:-mt-20" id="led-status-codes-homie-convention"&gt;&lt;/span&gt;
@@ -3501,12 +3511,12 @@ IoT device status indication. The LED is updated once per control loop cycle.&lt
 &lt;tr&gt;
 &lt;td&gt;&lt;strong&gt;Slow blink&lt;/strong&gt; (500ms on/off = 1 Hz)&lt;/td&gt;
 &lt;td&gt;&lt;strong&gt;Connecting&lt;/strong&gt; — WiFi connection in progress&lt;/td&gt;
-&lt;td&gt;&lt;img src="../led_wifi.gif" alt="WiFi connecting" data-zoomable loading="lazy" /&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src="https://raw.githubusercontent.com/smart-swimmingpool/pool-controller/main/docs/led_wifi.gif" alt="WiFi connecting" data-zoomable loading="lazy" /&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;strong&gt;Mostly on, brief blink every 2s&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;&lt;strong&gt;WiFi OK, MQTT disconnected&lt;/strong&gt; — network up, broker not reachable&lt;/td&gt;
-&lt;td&gt;&lt;img src="../led_mqtt.gif" alt="MQTT disconnected" data-zoomable loading="lazy" /&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src="https://raw.githubusercontent.com/smart-swimmingpool/pool-controller/main/docs/led_mqtt.gif" alt="MQTT disconnected" data-zoomable loading="lazy" /&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;strong&gt;Solid on&lt;/strong&gt;&lt;/td&gt;
@@ -3540,21 +3550,21 @@ IoT device status indication. The LED is updated once per control loop cycle.&lt
 &lt;h2&gt;References&lt;span class="hx:absolute hx:-mt-20" id="references"&gt;&lt;/span&gt;
 &lt;a href="#references" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Fritzing source file: &lt;a
-href="pool-controller.fzz"&gt;pool-controller.fzz&lt;/a&gt;&lt;/li&gt;
+href="https://github.com/smart-swimmingpool/pool-controller/blob/main/docs/pool-controller.fzz"target="_blank" rel="noopener"&gt;pool-controller.fzz&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="kicad/esp32-dev-board/esp32-dev-board-schematic.pdf"&gt;KiCad Schematic: ESP32 Dev Board&lt;/a&gt; — KiCad 9.0 PDF export&lt;/li&gt;
+href="https://github.com/smart-swimmingpool/pool-controller/blob/main/docs/kicad/esp32-dev-board/esp32-dev-board-schematic.pdf"target="_blank" rel="noopener"&gt;KiCad Schematic: ESP32 Dev Board&lt;/a&gt; — KiCad 9.0 PDF export&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="kicad/norvi-ae01-r/norvi-ae01-r-schematic.pdf"&gt;KiCad Schematic: NORVI AE01-R&lt;/a&gt; — KiCad 9.0 PDF export&lt;/li&gt;
+href="https://github.com/smart-swimmingpool/pool-controller/blob/main/docs/kicad/norvi-ae01-r/norvi-ae01-r-schematic.pdf"target="_blank" rel="noopener"&gt;KiCad Schematic: NORVI AE01-R&lt;/a&gt; — KiCad 9.0 PDF export&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-controller/norvi-ae01-r/"&gt;NORVI AE01-R Configuration Guide&lt;/a&gt; — industrial ESP32 controller pin mapping &amp;amp; wiring&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/norvi-ae01-r/"&gt;NORVI AE01-R Configuration Guide&lt;/a&gt; — industrial ESP32 controller pin mapping &amp;amp; wiring&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-controller/esp32-schematic-optimization/"&gt;ESP32 Schematic Optimization (DE)&lt;/a&gt;&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/esp32-schematic-optimization/"&gt;ESP32 Schematic Optimization (DE)&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-controller/esp32-complete-wiring-schematic/"&gt;ESP32 Complete Wiring Schematic (DE)&lt;/a&gt;&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/esp32-complete-wiring-schematic/"&gt;ESP32 Complete Wiring Schematic (DE)&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-controller/contactor-guide/"&gt;Contactor Wiring Guide&lt;/a&gt; — External contactors for reliable pump switching&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/contactor-guide/"&gt;Contactor Wiring Guide&lt;/a&gt; — External contactors for reliable pump switching&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="wiring-contactor.svg"&gt;SVG Wiring Diagram: Contactor Circuit&lt;/a&gt;&lt;/li&gt;
+href="https://raw.githubusercontent.com/smart-swimmingpool/pool-controller/main/docs/wiring-contactor.svg"target="_blank" rel="noopener"&gt;SVG Wiring Diagram: Contactor Circuit&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a
 href="https://www.analog.com/media/en/technical-documentation/data-sheets/DS18B20.pdf"target="_blank" rel="noopener"&gt;DS18B20 Datasheet&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a

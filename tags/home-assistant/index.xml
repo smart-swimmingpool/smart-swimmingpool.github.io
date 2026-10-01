@@ -1,11 +1,11 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Home-Assistant</title><link>https://smart-swimmingpool.github.io/tags/home-assistant/</link><description>Recent content in Home-Assistant on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Sun, 07 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/tags/home-assistant/index.xml" rel="self" type="application/rss+xml"/><item><title>Home Assistant Integration</title><link>https://smart-swimmingpool.github.io/docs/home-assistant-integration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/home-assistant-integration/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Home-Assistant</title><link>https://smart-swimmingpool.com/tags/home-assistant/</link><description>Recent content in Home-Assistant on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Sun, 07 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.com/tags/home-assistant/index.xml" rel="self" type="application/rss+xml"/><item><title>Home Assistant Integration</title><link>https://smart-swimmingpool.com/docs/home-assistant-integration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/home-assistant-integration/</guid><description>
 &lt;p&gt;&lt;strong&gt;🏊 Smart Swimming Pool: Integrate the Pool Controller with Home Assistant&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;The Pool Controller v3.x integrates with Home Assistant through &lt;strong&gt;native &lt;a
 href="https://www.home-assistant.io/integrations/mqtt/#mqtt-discovery"target="_blank" rel="noopener"&gt;MQTT Discovery&lt;/a&gt;&lt;/strong&gt;. When connected to your MQTT broker, the controller automatically registers all its sensors, controls, and configuration parameters as Home Assistant entities — no manual configuration required.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;💡 &lt;strong&gt;First time setting up the pool controller?&lt;/strong&gt;&lt;br&gt;
 Follow the &lt;a
-href="https://smart-swimmingpool.github.io/docs/getting-started/"&gt;Getting Started&lt;/a&gt; guide first, which covers flashing the firmware, WiFi configuration, and MQTT setup.&lt;/p&gt;
+href="https://smart-swimmingpool.com/docs/getting-started/"&gt;Getting Started&lt;/a&gt; guide first, which covers flashing the firmware, WiFi configuration, and MQTT setup.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;hr&gt;
 &lt;h2&gt;Prerequisites&lt;span class="hx:absolute hx:-mt-20" id="prerequisites"&gt;&lt;/span&gt;
@@ -550,7 +550,7 @@ data-copied-label="Copied!"
 &lt;li&gt;On startup (after WiFi connects)&lt;/li&gt;
 &lt;li&gt;When you press &lt;strong&gt;Rescan&lt;/strong&gt; from the web interface&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;If no DS18B20 sensors are connected, these entities will only show the &lt;code&gt;— Not configured —&lt;/code&gt; option.&lt;/p&gt;</description></item><item><title>MQTT Configuration</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/mqtt-configuration/</link><pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/mqtt-configuration/</guid><description>
+&lt;p&gt;If no DS18B20 sensors are connected, these entities will only show the &lt;code&gt;— Not configured —&lt;/code&gt; option.&lt;/p&gt;</description></item><item><title>MQTT Configuration</title><link>https://smart-swimmingpool.com/docs/pool-controller/mqtt-configuration/</link><pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/pool-controller/mqtt-configuration/</guid><description>
 &lt;h1&gt;MQTT Configuration (Home Assistant Discovery)&lt;/h1&gt;&lt;p&gt;The Pool Controller uses &lt;a
 href="https://www.home-assistant.io/integrations/mqtt/#mqtt-discovery"target="_blank" rel="noopener"&gt;Home Assistant MQTT Discovery&lt;/a&gt;
 for automatic device registration. All devices appear automatically in Home Assistant

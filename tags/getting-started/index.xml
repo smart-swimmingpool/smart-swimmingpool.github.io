@@ -1,9 +1,9 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Getting-Started</title><link>https://smart-swimmingpool.github.io/tags/getting-started/</link><description>Recent content in Getting-Started on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><atom:link href="https://smart-swimmingpool.github.io/tags/getting-started/index.xml" rel="self" type="application/rss+xml"/><item><title>Quick Start</title><link>https://smart-swimmingpool.github.io/docs/quickstart/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/quickstart/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Getting-Started</title><link>https://smart-swimmingpool.com/tags/getting-started/</link><description>Recent content in Getting-Started on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><atom:link href="https://smart-swimmingpool.com/tags/getting-started/index.xml" rel="self" type="application/rss+xml"/><item><title>Quick Start</title><link>https://smart-swimmingpool.com/docs/quickstart/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/quickstart/</guid><description>
 &lt;p&gt;&lt;strong&gt;🏊 Smart Swimming Pool: From box to a working pool in 60 minutes.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;This is the express path — minimal theory, maximum action. Follow each step exactly, and you will have a working pool controller within an hour.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;📖 For detailed explanations and background, see the &lt;a
-href="https://smart-swimmingpool.github.io/docs/getting-started/"&gt;Getting Started guide&lt;/a&gt;.&lt;/p&gt;
+href="https://smart-swimmingpool.com/docs/getting-started/"&gt;Getting Started guide&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;hr&gt;
 &lt;h2&gt;What You Need&lt;span class="hx:absolute hx:-mt-20" id="what-you-need"&gt;&lt;/span&gt;
@@ -18,7 +18,7 @@ href="https://smart-swimmingpool.github.io/docs/getting-started/"&gt;Getting Sta
 &lt;li&gt;MQTT broker running on your network (optional for first test)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;All parts: ~45–75 €&lt;/strong&gt; — see &lt;a
-href="https://smart-swimmingpool.github.io/docs/bom/"&gt;Bill of Materials&lt;/a&gt; for details.&lt;/p&gt;
+href="https://smart-swimmingpool.com/docs/bom/"&gt;Bill of Materials&lt;/a&gt; for details.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2&gt;Step 1: Wire It Up (5 minutes)&lt;span class="hx:absolute hx:-mt-20" id="step-1-wire-it-up-5-minutes"&gt;&lt;/span&gt;
 &lt;a href="#step-1-wire-it-up-5-minutes" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Breadboard Layout&lt;span class="hx:absolute hx:-mt-20" id="breadboard-layout"&gt;&lt;/span&gt;
@@ -267,19 +267,19 @@ href="https://mosquitto.org/download/"target="_blank" rel="noopener"&gt;Mosquitt
 &lt;li&gt;Add entities to your Lovelace dashboard&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;See the &lt;a
-href="https://smart-swimmingpool.github.io/docs/home-assistant-integration/"&gt;Home Assistant Integration Guide&lt;/a&gt; for the complete dashboard setup and automation examples.&lt;/p&gt;
+href="https://smart-swimmingpool.com/docs/home-assistant-integration/"&gt;Home Assistant Integration Guide&lt;/a&gt; for the complete dashboard setup and automation examples.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2&gt;You&amp;rsquo;re Done! 🎉&lt;span class="hx:absolute hx:-mt-20" id="youre-done-"&gt;&lt;/span&gt;
 &lt;a href="#youre-done-" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Your pool controller is now fully operational. Next steps:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Set up the &lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/grafana-dashboard/"&gt;Grafana Dashboard&lt;/a&gt;&lt;/strong&gt; for temperature history&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/grafana-dashboard/"&gt;Grafana Dashboard&lt;/a&gt;&lt;/strong&gt; for temperature history&lt;/li&gt;
 &lt;li&gt;Add the &lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-monitor/"&gt;Pool Monitor&lt;/a&gt;&lt;/strong&gt; for a wireless display&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/pool-monitor/"&gt;Pool Monitor&lt;/a&gt;&lt;/strong&gt; for a wireless display&lt;/li&gt;
 &lt;li&gt;Follow the &lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/checklist/"&gt;Commissioning Checklist&lt;/a&gt;&lt;/strong&gt; for a more thorough verification&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/checklist/"&gt;Commissioning Checklist&lt;/a&gt;&lt;/strong&gt; for a more thorough verification&lt;/li&gt;
 &lt;li&gt;Read the &lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/troubleshooting/"&gt;FAQ &amp;amp; Troubleshooting&lt;/a&gt;&lt;/strong&gt; if something isn&amp;rsquo;t working&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/troubleshooting/"&gt;FAQ &amp;amp; Troubleshooting&lt;/a&gt;&lt;/strong&gt; if something isn&amp;rsquo;t working&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2&gt;Quick Reference: Pin Map&lt;span class="hx:absolute hx:-mt-20" id="quick-reference-pin-map"&gt;&lt;/span&gt;
@@ -328,7 +328,7 @@ href="https://smart-swimmingpool.github.io/docs/troubleshooting/"&gt;FAQ &amp;am
 &lt;td&gt;GND&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
-&lt;/table&gt;</description></item><item><title>Getting Started</title><link>https://smart-swimmingpool.github.io/docs/getting-started/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/getting-started/</guid><description>
+&lt;/table&gt;</description></item><item><title>Getting Started</title><link>https://smart-swimmingpool.com/docs/getting-started/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/getting-started/</guid><description>
 &lt;p&gt;&lt;strong&gt;🏊 Smart Swimming Pool: Home automation for smarter control of your swimming pool&lt;/strong&gt;&lt;/p&gt;
 &lt;div class="hx:rounded-lg hx:border-2 hx:border-red-300 hx:bg-red-50 hx:dark:border-red-700 hx:dark:bg-red-900/20 hx:p-4 hx:my-6"&gt;
 &lt;div class="hx:flex hx:items-start hx:gap-3"&gt;
@@ -342,7 +342,7 @@ Always use an &lt;strong&gt;RCD (residual-current device)&lt;/strong&gt;. This p
 &lt;/div&gt;
 &lt;h2&gt;Example Environment&lt;span class="hx:absolute hx:-mt-20" id="example-environment"&gt;&lt;/span&gt;
 &lt;a href="#example-environment" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;In a typical setup, a thermal solar system heats water and supports the home heating system. The heated water is stored in a buffer tank, which has a third circulation loop for the pool. A pump attached to this loop circulates pool water through a heat exchanger:&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://smart-swimmingpool.github.io/docs/getting-started/schema-environment-smart-pool.png" alt="Example Environment" data-zoomable loading="lazy" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://smart-swimmingpool.com/docs/getting-started/schema-environment-smart-pool.png" alt="Example Environment" data-zoomable loading="lazy" /&gt;&lt;/p&gt;
 &lt;h2&gt;Basic Requirements&lt;span class="hx:absolute hx:-mt-20" id="basic-requirements"&gt;&lt;/span&gt;
 &lt;a href="#basic-requirements" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Swimming pool with sand filter system&lt;/li&gt;
@@ -403,11 +403,11 @@ Always use an &lt;strong&gt;RCD (residual-current device)&lt;/strong&gt;. This p
 &lt;/table&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;⚠️ Relay module note:&lt;/strong&gt; The firmware drives relays &lt;strong&gt;active-low&lt;/strong&gt; (GPIO &lt;strong&gt;LOW&lt;/strong&gt; = relay ON, GPIO &lt;strong&gt;HIGH&lt;/strong&gt; = relay OFF). This matches the vast majority of cheap 2-channel 5V relay modules. During ESP32 boot, GPIOs are briefly in high-impedance state — the firmware sets them HIGH (relay OFF) as soon as possible after startup. If your module behaves differently (active-high), see the &lt;a
-href="https://smart-swimmingpool.github.io/docs/troubleshooting/"&gt;FAQ&lt;/a&gt; for configuration options.&lt;/p&gt;
+href="https://smart-swimmingpool.com/docs/troubleshooting/"&gt;FAQ&lt;/a&gt; for configuration options.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2&gt;Hardware Assembly&lt;span class="hx:absolute hx:-mt-20" id="hardware-assembly"&gt;&lt;/span&gt;
 &lt;a href="#hardware-assembly" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Breadboard Layout&lt;span class="hx:absolute hx:-mt-20" id="breadboard-layout"&gt;&lt;/span&gt;
-&lt;a href="#breadboard-layout" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;img src="https://smart-swimmingpool.github.io/img/pool-controller_breadboard.png" alt="Pool Controller Breadboard" data-zoomable loading="lazy" /&gt;&lt;/p&gt;
+&lt;a href="#breadboard-layout" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;img src="https://smart-swimmingpool.com/img/pool-controller_breadboard.png" alt="Pool Controller Breadboard" data-zoomable loading="lazy" /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;The ESP32 and relay module on a breadboard — the simplest way to get started.&lt;/em&gt;&lt;/p&gt;
 &lt;h3&gt;Step 1: Prepare the ESP32&lt;span class="hx:absolute hx:-mt-20" id="step-1-prepare-the-esp32"&gt;&lt;/span&gt;
 &lt;a href="#step-1-prepare-the-esp32" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
@@ -481,7 +481,7 @@ href="https://www.wch.cn/download/CH341SER_EXE.html"target="_blank" rel="noopene
 &lt;/blockquote&gt;
 &lt;h3&gt;Step 4: Final Checks&lt;span class="hx:absolute hx:-mt-20" id="step-4-final-checks"&gt;&lt;/span&gt;
 &lt;a href="#step-4-final-checks" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Before connecting any pump or mains voltage, follow the &lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/checklist/"&gt;Commissioning Checklist&lt;/a&gt;&lt;/strong&gt; — a complete step-by-step guide covering hardware check, firmware test, sensor verification, relay test, and automation check.&lt;/p&gt;
+href="https://smart-swimmingpool.com/docs/checklist/"&gt;Commissioning Checklist&lt;/a&gt;&lt;/strong&gt; — a complete step-by-step guide covering hardware check, firmware test, sensor verification, relay test, and automation check.&lt;/p&gt;
 &lt;p&gt;Key points before proceeding:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Double-check all connections against the schematic.&lt;/li&gt;
@@ -601,7 +601,7 @@ href="https://mosquitto.org/download/"target="_blank" rel="noopener"&gt;Mosquitt
 &lt;/ol&gt;
 &lt;blockquote&gt;
 &lt;p&gt;▶️ &lt;strong&gt;Detailed guide&lt;/strong&gt;: See the &lt;a
-href="https://smart-swimmingpool.github.io/docs/home-assistant-integration/"&gt;Home Assistant Integration Guide&lt;/a&gt; for the complete entity reference, dashboard setup, automation examples, and troubleshooting.&lt;/p&gt;
+href="https://smart-swimmingpool.com/docs/home-assistant-integration/"&gt;Home Assistant Integration Guide&lt;/a&gt; for the complete entity reference, dashboard setup, automation examples, and troubleshooting.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3&gt;Step 5: Connect the Pumps&lt;span class="hx:absolute hx:-mt-20" id="step-5-connect-the-pumps"&gt;&lt;/span&gt;
 &lt;a href="#step-5-connect-the-pumps" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Only now — after verifying everything works:&lt;/p&gt;
@@ -669,17 +669,17 @@ Always use an &lt;strong&gt;RCD (residual-current device)&lt;/strong&gt;. This p
 &lt;a href="#whats-next" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Once your Pool Controller is running:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Explore the &lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/home-assistant-integration/"&gt;Home Assistant Integration Guide&lt;/a&gt;&lt;/strong&gt; for the complete entity reference, dashboard setup, and automation examples&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/home-assistant-integration/"&gt;Home Assistant Integration Guide&lt;/a&gt;&lt;/strong&gt; for the complete entity reference, dashboard setup, and automation examples&lt;/li&gt;
 &lt;li&gt;Set up the &lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/grafana-dashboard/"&gt;Grafana Dashboard&lt;/a&gt;&lt;/strong&gt; to visualize temperature trends&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/grafana-dashboard/"&gt;Grafana Dashboard&lt;/a&gt;&lt;/strong&gt; to visualize temperature trends&lt;/li&gt;
 &lt;li&gt;Add the &lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-monitor/"&gt;Pool Monitor&lt;/a&gt;&lt;/strong&gt; for a dedicated display&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/pool-monitor/"&gt;Pool Monitor&lt;/a&gt;&lt;/strong&gt; for a dedicated display&lt;/li&gt;
 &lt;li&gt;Check the &lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/troubleshooting/"&gt;FAQ&lt;/a&gt;&lt;/strong&gt; if you run into issues&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/troubleshooting/"&gt;FAQ&lt;/a&gt;&lt;/strong&gt; if you run into issues&lt;/li&gt;
 &lt;li&gt;Follow the &lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/openhab-integration/"&gt;openHAB Integration Guide&lt;/a&gt;&lt;/strong&gt; to set up openHAB step by step&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/openhab-integration/"&gt;openHAB Integration Guide&lt;/a&gt;&lt;/strong&gt; to set up openHAB step by step&lt;/li&gt;
 &lt;li&gt;Reference the &lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/openhab-configuration/"&gt;openHAB Configuration&lt;/a&gt;&lt;/strong&gt; for the complete openHAB config files&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/openhab-configuration/"&gt;openHAB Configuration&lt;/a&gt;&lt;/strong&gt; for the complete openHAB config files&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;Preparations&lt;span class="hx:absolute hx:-mt-20" id="preparations"&gt;&lt;/span&gt;
 &lt;a href="#preparations" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;If a heating circuit with a heat exchanger is in place, you can start implementing the smart pool control.&lt;/p&gt;
@@ -695,11 +695,11 @@ href="https://github.com/smart-swimmingpool/pool-controller"target="_blank" rel=
 href="https://www.home-assistant.io/integrations/mqtt/#mqtt-discovery"target="_blank" rel="noopener"&gt;Home Assistant MQTT discovery&lt;/a&gt; for seamless smart home integration. With the configuration presented here, the pool controller can be quickly set up and controlled from any Home Assistant-compatible app.&lt;/p&gt;
 &lt;h3&gt;Home Assistant Dashboard&lt;span class="hx:absolute hx:-mt-20" id="home-assistant-dashboard"&gt;&lt;/span&gt;
 &lt;a href="#home-assistant-dashboard" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The pool controller automatically registers all sensors and controls in Home Assistant via MQTT discovery. Below is an example of the dashboard and the corresponding configuration entries:&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://smart-swimmingpool.github.io/img/ha-pool-dashboard.jpg" alt="Home Assistant Dashboard" data-zoomable loading="lazy" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://smart-swimmingpool.com/img/ha-pool-dashboard.jpg" alt="Home Assistant Dashboard" data-zoomable loading="lazy" /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Pool Controller entities shown in the Home Assistant dashboard&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://smart-swimmingpool.github.io/img/ha-pool-device.jpg" alt="Home Assistant Device Entry" data-zoomable loading="lazy" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://smart-swimmingpool.com/img/ha-pool-device.jpg" alt="Home Assistant Device Entry" data-zoomable loading="lazy" /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;MQTT discovery device entry with all sensors and controls&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://smart-swimmingpool.github.io/img/ha-pool-config.jpg" alt="Home Assistant Configuration" data-zoomable loading="lazy" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://smart-swimmingpool.com/img/ha-pool-config.jpg" alt="Home Assistant Configuration" data-zoomable loading="lazy" /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Configuration entries for the pool controller in Home Assistant&lt;/em&gt;&lt;/p&gt;
 &lt;h2&gt;History&lt;span class="hx:absolute hx:-mt-20" id="history"&gt;&lt;/span&gt;
 &lt;a href="#history" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;🏊 Smart Swimming Pool originated from an &lt;a

@@ -1,0 +1,66 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Water-Quality</title><link>https://smart-swimmingpool.com/de/tags/water-quality/</link><description>Recent content in Water-Quality on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><atom:link href="https://smart-swimmingpool.com/de/tags/water-quality/index.xml" rel="self" type="application/rss+xml"/><item><title>Water Quality Monitor</title><link>https://smart-swimmingpool.com/de/docs/water-quality-monitor/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/de/docs/water-quality-monitor/</guid><description>
+&lt;h1&gt;🧪 Water Quality Monitor&lt;/h1&gt;&lt;p&gt;Der &lt;strong&gt;Water Quality Monitor&lt;/strong&gt; ist ein geplantes Modul, das die chemische Wasserqualität deines
+Pools misst — &lt;strong&gt;pH-Wert&lt;/strong&gt;, &lt;strong&gt;Chlor&lt;/strong&gt; und &lt;strong&gt;Wassertemperatur&lt;/strong&gt; — und die Werte per MQTT an dein
+Smarthome-System sendet.&lt;/p&gt;
+&lt;div
+data-alert="warning" class="hextra-alert"
+&gt;
+&lt;p class="hextra-alert-title"&gt;&lt;svg height=16px class="hextra-alert-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"&gt;&lt;path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/&gt;&lt;/svg&gt;&lt;span class="hextra-alert-title-text"&gt;Warning&lt;/span&gt;
+&lt;/p&gt;
+&lt;div class="hextra-alert-content"&gt;&lt;p&gt;&lt;strong&gt;Status: in Entwicklung.&lt;/strong&gt; Das Modul befindet sich in der Planungs- und frühen Prototyp-Phase.
+Eine fertige Firmware gibt es noch nicht. Beiträge sind herzlich willkommen!&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;💡 Geplante Messgrößen&lt;span class="hx:absolute hx:-mt-20" id="-geplante-messgrößen"&gt;&lt;/span&gt;
+&lt;a href="#-geplante-messgr%c3%b6%c3%9fen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;Bereich&lt;/th&gt;
+&lt;th&gt;Bedeutung&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;pH-Wert&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;0–14&lt;/td&gt;
+&lt;td&gt;Beeinflusst die Wirksamkeit von Chlor und den Badekomfort&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Chlor&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;0–10 ppm&lt;/td&gt;
+&lt;td&gt;Wichtigstes Desinfektionsmittel gegen Bakterien und Algen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Temperatur&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;0–60 °C&lt;/td&gt;
+&lt;td&gt;Beeinflusst chemische Reaktionen und Komfort&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;🧩 Einbindung ins Smart-Swimming-Pool-System&lt;span class="hx:absolute hx:-mt-20" id="-einbindung-ins-smart-swimming-pool-system"&gt;&lt;/span&gt;
+&lt;a href="#-einbindung-ins-smart-swimming-pool-system" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Veröffentlicht Messwerte per &lt;strong&gt;MQTT&lt;/strong&gt;, wie der &lt;a
+href="https://smart-swimmingpool.com/de/docs/pool-controller/"&gt;Pool Controller&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Werte lassen sich speichern und visualisieren, z. B. mit dem &lt;a
+href="https://smart-swimmingpool.com/de/docs/grafana-dashboard/"&gt;Grafana Dashboard&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Nutzbar in &lt;a
+href="https://smart-swimmingpool.com/de/docs/home-assistant-integration/"&gt;Home Assistant&lt;/a&gt; und &lt;a
+href="https://smart-swimmingpool.com/de/docs/openhab-integration/"&gt;openHAB&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🧭 Dokumentation&lt;span class="hx:absolute hx:-mt-20" id="-dokumentation"&gt;&lt;/span&gt;
+&lt;a href="#-dokumentation" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.com/docs/water-quality-monitor/hardware-guide/"&gt;Hardware-Anleitung&lt;/a&gt;&lt;/strong&gt; - Sensoroptionen, Schaltungsideen und Stückliste (englisch)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/water-quality-monitor"target="_blank" rel="noopener"&gt;Repository&lt;/a&gt;&lt;/strong&gt; - Quellcode und aktueller Stand&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🤝 Mitmachen&lt;span class="hx:absolute hx:-mt-20" id="-mitmachen"&gt;&lt;/span&gt;
+&lt;a href="#-mitmachen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;pH- und Chlorsensoren mit ESP8266/ESP32-Boards testen&lt;/li&gt;
+&lt;li&gt;Schaltung, Platine oder ein wasserdichtes Gehäuse entwerfen&lt;/li&gt;
+&lt;li&gt;Sensorauslesung, Kalibrierung und MQTT-Versand implementieren&lt;/li&gt;
+&lt;li&gt;Praxistests durchführen und mit Teststreifen/Testkits vergleichen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Öffne ein &lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/water-quality-monitor/issues"target="_blank" rel="noopener"&gt;Issue&lt;/a&gt;&lt;/strong&gt;, um Ideen
+zu diskutieren oder deinen Beitrag abzustimmen.&lt;/p&gt;</description></item></channel></rss>

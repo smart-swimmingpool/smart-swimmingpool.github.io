@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Controller</title><link>https://smart-swimmingpool.github.io/de/tags/controller/</link><description>Recent content in Controller on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><lastBuildDate>Thu, 28 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/de/tags/controller/index.xml" rel="self" type="application/rss+xml"/><item><title>Benutzerhandbuch</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/users-guide/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/users-guide/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Controller</title><link>https://smart-swimmingpool.com/de/tags/controller/</link><description>Recent content in Controller on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><lastBuildDate>Thu, 28 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.com/de/tags/controller/index.xml" rel="self" type="application/rss+xml"/><item><title>Benutzerhandbuch</title><link>https://smart-swimmingpool.com/de/docs/pool-controller/users-guide/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/de/docs/pool-controller/users-guide/</guid><description>
 &lt;h2&gt;Einrichtung&lt;span class="hx:absolute hx:-mt-20" id="einrichtung"&gt;&lt;/span&gt;
 &lt;a href="#einrichtung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Erste WLAN-Einrichtung über die Weboberfläche (AP-Modus)&lt;span class="hx:absolute hx:-mt-20" id="erste-wlan-einrichtung-über-die-weboberfläche-ap-modus"&gt;&lt;/span&gt;
 &lt;a href="#erste-wlan-einrichtung-%c3%bcber-die-weboberfl%c3%a4che-ap-modus" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Wenn der Controller kein WLAN konfiguriert hat, startet er im &lt;strong&gt;Access-Point-Modus&lt;/strong&gt;:&lt;/p&gt;
@@ -94,7 +94,7 @@ scannen — die meisten modernen Telefone erkennen die URL und bieten an, sie im
 Browser zu öffnen. Keine zusätzliche App erforderlich.&lt;/p&gt;
 &lt;p&gt;Das Display aktualisiert sich alle 2 Sekunden. Die Seiten werden mit den
 Fronttasten umgeschaltet (siehe &lt;a
-href="norvi-ae01-r.de.md"&gt;NORVI AE01-R Dokumentation&lt;/a&gt;
+href="https://smart-swimmingpool.com/de/docs/pool-controller/norvi-ae01-r/"&gt;NORVI AE01-R Dokumentation&lt;/a&gt;
 für Details).&lt;/p&gt;
 &lt;h2&gt;LED-Statuscodes (Homie-Konvention)&lt;span class="hx:absolute hx:-mt-20" id="led-statuscodes-homie-konvention"&gt;&lt;/span&gt;
 &lt;a href="#led-statuscodes-homie-konvention" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der Controller verwendet die &lt;strong&gt;eingebaute LED&lt;/strong&gt; zur Signalisierung des aktuellen
@@ -197,7 +197,7 @@ mit den folgenden Tabs:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Tipp:&lt;/strong&gt; Sie können Einstellungen auch programmatisch über die REST-API ändern —
 siehe &lt;a
-href="software-guide.de.md#weboberfl%c3%a4che--direktzugriff"&gt;Software-Entwicklung&lt;/a&gt;.&lt;/p&gt;
+href="https://smart-swimmingpool.com/de/docs/pool-controller/software-guide/#weboberfl%c3%a4che--direktzugriff"&gt;Software-Entwicklung&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2&gt;Einstellungen&lt;span class="hx:absolute hx:-mt-20" id="einstellungen"&gt;&lt;/span&gt;
 &lt;a href="#einstellungen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Es gibt einige spezifische Einstellungen für den Controller:&lt;/p&gt;
@@ -299,7 +299,7 @@ href="../mqtt-configuration"&gt;MQTT-Konfiguration&lt;/a&gt;.&lt;/p&gt;
 href="https://github.com/smart-swimmingpool/openhab-config"target="_blank" rel="noopener"&gt;openHAB Configuration Guide&lt;/a&gt;.&lt;/p&gt;
 &lt;h3&gt;Gerät&lt;span class="hx:absolute hx:-mt-20" id="gerät"&gt;&lt;/span&gt;
 &lt;a href="#ger%c3%a4t" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h3&gt;Eigenschaften&lt;span class="hx:absolute hx:-mt-20" id="eigenschaften"&gt;&lt;/span&gt;
-&lt;a href="#eigenschaften" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;</description></item><item><title>Software-Entwicklung</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/software-guide/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/software-guide/</guid><description>
+&lt;a href="#eigenschaften" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;</description></item><item><title>Software-Entwicklung</title><link>https://smart-swimmingpool.com/de/docs/pool-controller/software-guide/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/de/docs/pool-controller/software-guide/</guid><description>
 &lt;h2&gt;Entwicklungsumgebung&lt;span class="hx:absolute hx:-mt-20" id="entwicklungsumgebung"&gt;&lt;/span&gt;
 &lt;a href="#entwicklungsumgebung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h2&gt;Benötigte Bibliotheken&lt;span class="hx:absolute hx:-mt-20" id="benötigte-bibliotheken"&gt;&lt;/span&gt;
 &lt;a href="#ben%c3%b6tigte-bibliotheken" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;

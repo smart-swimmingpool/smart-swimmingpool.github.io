@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Relays</title><link>https://smart-swimmingpool.github.io/tags/relays/</link><description>Recent content in Relays on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Thu, 11 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/tags/relays/index.xml" rel="self" type="application/rss+xml"/><item><title>ESP32 Schematic Optimization</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/esp32-schematic-optimization/</link><pubDate>Thu, 11 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/esp32-schematic-optimization/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Relays</title><link>https://smart-swimmingpool.com/tags/relays/</link><description>Recent content in Relays on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Thu, 11 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.com/tags/relays/index.xml" rel="self" type="application/rss+xml"/><item><title>ESP32 Schematic Optimization</title><link>https://smart-swimmingpool.com/docs/pool-controller/esp32-schematic-optimization/</link><pubDate>Thu, 11 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/pool-controller/esp32-schematic-optimization/</guid><description>
 &lt;p&gt;This document analyzes the existing setup (Fritzing source + existing hardware
 documentation) and describes an optimized ESP32 proposal for sensors and relays.&lt;/p&gt;
 &lt;h2&gt;1) Current Analysis (Relevant Signals)&lt;span class="hx:absolute hx:-mt-20" id="1-current-analysis-relevant-signals"&gt;&lt;/span&gt;
@@ -170,8 +170,8 @@ the project&amp;rsquo;s security and reliability documentation.&lt;/p&gt;
 &lt;a href="#7-see-also" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Detailed assembly guide with step-by-step instructions and
 manufacturing tips: &lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-controller/hardware-guide/"&gt;Hardware Guide&lt;/a&gt;&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/hardware-guide/"&gt;Hardware Guide&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Complete wiring diagram with RTC module:
 &lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-controller/esp32-complete-wiring-schematic/"&gt;ESP32 Complete Wiring Schematic&lt;/a&gt;&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/esp32-complete-wiring-schematic/"&gt;ESP32 Complete Wiring Schematic&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description></item></channel></rss>

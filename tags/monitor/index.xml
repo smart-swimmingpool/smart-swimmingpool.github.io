@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Monitor</title><link>https://smart-swimmingpool.github.io/tags/monitor/</link><description>Recent content in Monitor on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Sun, 14 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/tags/monitor/index.xml" rel="self" type="application/rss+xml"/><item><title>Software Guide of Pool Monitor</title><link>https://smart-swimmingpool.github.io/docs/pool-monitor/software-guide/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-monitor/software-guide/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Monitor</title><link>https://smart-swimmingpool.com/tags/monitor/</link><description>Recent content in Monitor on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Sun, 14 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.com/tags/monitor/index.xml" rel="self" type="application/rss+xml"/><item><title>Software Guide of Pool Monitor</title><link>https://smart-swimmingpool.com/docs/pool-monitor/software-guide/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/pool-monitor/software-guide/</guid><description>
 &lt;h2&gt;Development Environment&lt;span class="hx:absolute hx:-mt-20" id="development-environment"&gt;&lt;/span&gt;
 &lt;a href="#development-environment" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The Pool Monitor firmware is built with &lt;strong&gt;PlatformIO&lt;/strong&gt;, a cross-platform
 build system for embedded development.&lt;/p&gt;
@@ -133,7 +133,7 @@ with version pins and resolved automatically by PlatformIO:&lt;/p&gt;
 &lt;td&gt;&lt;code&gt;LILYGO_T5_V231&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;1&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;Board variant (see &lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-monitor/hardware-guide/#compatible-board-variants"&gt;Hardware Guide&lt;/a&gt;)&lt;/td&gt;
+href="https://smart-swimmingpool.com/docs/pool-monitor/hardware-guide/#compatible-board-variants"&gt;Hardware Guide&lt;/a&gt;)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -177,7 +177,7 @@ href="https://smart-swimmingpool.github.io/docs/pool-monitor/hardware-guide/#com
 configuration. For the &lt;strong&gt;end-user setup process&lt;/strong&gt; (connecting to the AP,
 entering credentials, QR code portal on error), see the
 &lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-monitor/users-guide/"&gt;Users Guide&lt;/a&gt;.&lt;/p&gt;
+href="https://smart-swimmingpool.com/docs/pool-monitor/users-guide/"&gt;Users Guide&lt;/a&gt;.&lt;/p&gt;
 &lt;h3&gt;MQTT Topics&lt;span class="hx:absolute hx:-mt-20" id="mqtt-topics"&gt;&lt;/span&gt;
 &lt;a href="#mqtt-topics" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The Pool Monitor subscribes to &lt;strong&gt;Home Assistant state topics&lt;/strong&gt; published by the
 &lt;a
@@ -303,7 +303,7 @@ elapsed uptime.&lt;/li&gt;
 &lt;li&gt;The display shows &lt;strong&gt;local time&lt;/strong&gt; with automatic daylight saving time
 handling (CET/CEST, configured in &lt;code&gt;src/PoolMonitor/TimeClientHelper.hpp&lt;/code&gt;).&lt;/li&gt;
 &lt;li&gt;The E-Ink display updates &lt;strong&gt;only when data changes&lt;/strong&gt; (received via MQTT).&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>Users Guide of Pool Monitor</title><link>https://smart-swimmingpool.github.io/docs/pool-monitor/users-guide/</link><pubDate>Sat, 11 Jun 2022 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-monitor/users-guide/</guid><description>
+&lt;/ul&gt;</description></item><item><title>Users Guide of Pool Monitor</title><link>https://smart-swimmingpool.com/docs/pool-monitor/users-guide/</link><pubDate>Sat, 11 Jun 2022 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/pool-monitor/users-guide/</guid><description>
 &lt;h2&gt;Setup&lt;span class="hx:absolute hx:-mt-20" id="setup"&gt;&lt;/span&gt;
 &lt;a href="#setup" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;When the device is powered on for the first time (or after a factory reset),
 it starts a &lt;strong&gt;WiFi hotspot&lt;/strong&gt; named &lt;code&gt;pool-monitor&lt;/code&gt;.&lt;/p&gt;
@@ -438,7 +438,7 @@ This typically resolves on the next wake cycle (within 3 minutes).&lt;/p&gt;
 &lt;td&gt;Display stays white&lt;/td&gt;
 &lt;td&gt;No firmware or corrupted flash&lt;/td&gt;
 &lt;td&gt;Flash firmware via PlatformIO (see &lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-monitor/software-guide/"&gt;Software Guide&lt;/a&gt;)&lt;/td&gt;
+href="https://smart-swimmingpool.com/docs/pool-monitor/software-guide/"&gt;Software Guide&lt;/a&gt;)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&amp;ldquo;MQTT Error&amp;rdquo; on display, portal opens&lt;/td&gt;
@@ -476,9 +476,9 @@ href="https://smart-swimmingpool.github.io/docs/pool-monitor/software-guide/"&gt
 &lt;h2&gt;References&lt;span class="hx:absolute hx:-mt-20" id="references"&gt;&lt;/span&gt;
 &lt;a href="#references" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-monitor/hardware-guide/"&gt;Hardware Guide&lt;/a&gt; — Board assembly, pinout, solar powering&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/pool-monitor/hardware-guide/"&gt;Hardware Guide&lt;/a&gt; — Board assembly, pinout, solar powering&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-monitor/software-guide/"&gt;Software Guide&lt;/a&gt; — Development setup, build, MQTT topics&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/pool-monitor/software-guide/"&gt;Software Guide&lt;/a&gt; — Development setup, build, MQTT topics&lt;/li&gt;
 &lt;li&gt;&lt;a
 href="https://github.com/smart-swimmingpool/pool-controller"target="_blank" rel="noopener"&gt;Pool Controller&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a

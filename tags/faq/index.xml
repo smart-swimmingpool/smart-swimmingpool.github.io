@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Faq</title><link>https://smart-swimmingpool.github.io/tags/faq/</link><description>Recent content in Faq on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><atom:link href="https://smart-swimmingpool.github.io/tags/faq/index.xml" rel="self" type="application/rss+xml"/><item><title>Frequently Asked Questions</title><link>https://smart-swimmingpool.github.io/docs/faq/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/faq/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Faq</title><link>https://smart-swimmingpool.com/tags/faq/</link><description>Recent content in Faq on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><atom:link href="https://smart-swimmingpool.com/tags/faq/index.xml" rel="self" type="application/rss+xml"/><item><title>Frequently Asked Questions</title><link>https://smart-swimmingpool.com/docs/faq/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/faq/</guid><description>
 &lt;p&gt;&lt;strong&gt;🏊 Smart Swimming Pool: Quick answers to common questions.&lt;/strong&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2&gt;Project&lt;span class="hx:absolute hx:-mt-20" id="project"&gt;&lt;/span&gt;
@@ -10,9 +10,9 @@ href="https://github.com/smart-swimmingpool"target="_blank" rel="noopener"&gt;Gi
 &lt;h3&gt;Does it work without a smart home server?&lt;span class="hx:absolute hx:-mt-20" id="does-it-work-without-a-smart-home-server"&gt;&lt;/span&gt;
 &lt;a href="#does-it-work-without-a-smart-home-server" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Yes.&lt;/strong&gt; The ESP32 runs the control logic locally. MQTT, Home Assistant, and openHAB are &lt;strong&gt;optional&lt;/strong&gt; — they add remote control, visualization, and automation, but the controller operates perfectly without any server.&lt;/p&gt;
 &lt;h3&gt;Is there a community?&lt;span class="hx:absolute hx:-mt-20" id="is-there-a-community"&gt;&lt;/span&gt;
-&lt;a href="#is-there-a-community" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Yes. The project has a &lt;a
-href="https://github.com/smart-swimmingpool/smart-swimmingpool"target="_blank" rel="noopener"&gt;GitHub community&lt;/a&gt; for issues and discussions. You can also check the &lt;a
-href="https://github.com/smart-swimmingpool/smart-swimmingpool/wiki"target="_blank" rel="noopener"&gt;Wiki&lt;/a&gt; for community-contributed content.&lt;/p&gt;
+&lt;a href="#is-there-a-community" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Yes. All modules are developed openly in the &lt;a
+href="https://github.com/smart-swimmingpool"target="_blank" rel="noopener"&gt;Smart Swimming Pool GitHub organization&lt;/a&gt;. Questions, bug reports and ideas are welcome as &lt;a
+href="https://github.com/smart-swimmingpool/pool-controller/issues"target="_blank" rel="noopener"&gt;issues&lt;/a&gt; in the Pool Controller repository.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2&gt;Features&lt;span class="hx:absolute hx:-mt-20" id="features"&gt;&lt;/span&gt;
 &lt;a href="#features" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;What can the pool controller do?&lt;span class="hx:absolute hx:-mt-20" id="what-can-the-pool-controller-do"&gt;&lt;/span&gt;
@@ -41,7 +41,7 @@ href="https://www.home-assistant.io/integrations/alexa/"target="_blank" rel="noo
 &lt;li&gt;&lt;strong&gt;2× 4.7kΩ resistors + breadboard + jumper wires&lt;/strong&gt; (~5€)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;Total: ~35–55 €&lt;/strong&gt; for the controller electronics. See the &lt;a
-href="https://smart-swimmingpool.github.io/docs/bom/"&gt;Bill of Materials&lt;/a&gt; for the full list including enclosure, 230V wiring, and tools.&lt;/p&gt;
+href="https://smart-swimmingpool.com/docs/bom/"&gt;Bill of Materials&lt;/a&gt; for the full list including enclosure, 230V wiring, and tools.&lt;/p&gt;
 &lt;h3&gt;Can I use this without solar heating?&lt;span class="hx:absolute hx:-mt-20" id="can-i-use-this-without-solar-heating"&gt;&lt;/span&gt;
 &lt;a href="#can-i-use-this-without-solar-heating" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Yes.&lt;/strong&gt; The heating logic switches a pump based on temperature. This works with any heat source:&lt;/p&gt;
 &lt;ul&gt;
@@ -65,17 +65,17 @@ href="https://smart-swimmingpool.github.io/docs/bom/"&gt;Bill of Materials&lt;/a
 &lt;h2&gt;Smart Home Integration&lt;span class="hx:absolute hx:-mt-20" id="smart-home-integration"&gt;&lt;/span&gt;
 &lt;a href="#smart-home-integration" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Does it work with Home Assistant?&lt;span class="hx:absolute hx:-mt-20" id="does-it-work-with-home-assistant"&gt;&lt;/span&gt;
 &lt;a href="#does-it-work-with-home-assistant" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Yes, seamlessly.&lt;/strong&gt; The controller uses &lt;strong&gt;Home Assistant MQTT Discovery&lt;/strong&gt; — it automatically registers all sensors, controls, and configuration parameters as entities. No YAML configuration is needed. See the &lt;a
-href="https://smart-swimmingpool.github.io/docs/home-assistant-integration/"&gt;Home Assistant Integration&lt;/a&gt; guide.&lt;/p&gt;
+href="https://smart-swimmingpool.com/docs/home-assistant-integration/"&gt;Home Assistant Integration&lt;/a&gt; guide.&lt;/p&gt;
 &lt;h3&gt;Does it work with openHAB?&lt;span class="hx:absolute hx:-mt-20" id="does-it-work-with-openhab"&gt;&lt;/span&gt;
 &lt;a href="#does-it-work-with-openhab" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Yes.&lt;/strong&gt; The controller publishes all data via MQTT using the Homie convention (v2.x) or HA Discovery format (v3.x). openHAB can subscribe to these topics via its MQTT binding. See the &lt;a
-href="https://smart-swimmingpool.github.io/docs/openhab-configuration/"&gt;openHAB Configuration&lt;/a&gt; page.&lt;/p&gt;
+href="https://smart-swimmingpool.com/docs/openhab-configuration/"&gt;openHAB Configuration&lt;/a&gt; page.&lt;/p&gt;
 &lt;h3&gt;Does it work with Alexa, Google Home, or Apple HomeKit?&lt;span class="hx:absolute hx:-mt-20" id="does-it-work-with-alexa-google-home-or-apple-homekit"&gt;&lt;/span&gt;
 &lt;a href="#does-it-work-with-alexa-google-home-or-apple-homekit" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Not directly.&lt;/strong&gt; The controller does not speak these protocols natively. However, if you use Home Assistant as a bridge, you can expose pool entities to Alexa, Google Home, or Apple HomeKit via the respective Home Assistant integrations.&lt;/p&gt;
 &lt;h3&gt;Can I use Grafana with this?&lt;span class="hx:absolute hx:-mt-20" id="can-i-use-grafana-with-this"&gt;&lt;/span&gt;
 &lt;a href="#can-i-use-grafana-with-this" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Yes.&lt;/strong&gt; The pool controller publishes all data to MQTT. You can use &lt;a
 href="https://www.influxdata.com/time-series-platform/telegraf/"target="_blank" rel="noopener"&gt;Telegraf&lt;/a&gt; to ingest MQTT data into &lt;a
 href="https://www.influxdata.com/"target="_blank" rel="noopener"&gt;InfluxDB&lt;/a&gt; and visualize it with &lt;a
-href="https://smart-swimmingpool.github.io/docs/grafana-dashboard/"&gt;Grafana&lt;/a&gt;.&lt;/p&gt;
+href="https://smart-swimmingpool.com/docs/grafana-dashboard/"&gt;Grafana&lt;/a&gt;.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2&gt;Configuration &amp;amp; Operation&lt;span class="hx:absolute hx:-mt-20" id="configuration--operation"&gt;&lt;/span&gt;
 &lt;a href="#configuration--operation" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;How do I set the target pool temperature?&lt;span class="hx:absolute hx:-mt-20" id="how-do-i-set-the-target-pool-temperature"&gt;&lt;/span&gt;
@@ -109,30 +109,30 @@ href="https://smart-swimmingpool.github.io/docs/grafana-dashboard/"&gt;Grafana&l
 &lt;tr&gt;
 &lt;td&gt;Sensor shows -127°C&lt;/td&gt;
 &lt;td&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/troubleshooting/#ds18b20-sensor-not-detected--reads--127c-or-85c"&gt;DS18B20 Troubleshooting&lt;/a&gt;&lt;/td&gt;
+href="https://smart-swimmingpool.com/docs/troubleshooting/#ds18b20-sensor-not-detected--reads--127c-or-85c"&gt;DS18B20 Troubleshooting&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Pump does not start&lt;/td&gt;
 &lt;td&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/troubleshooting/#heating--circulation-issues"&gt;Heating &amp;amp; Circulation Issues&lt;/a&gt;&lt;/td&gt;
+href="https://smart-swimmingpool.com/docs/troubleshooting/#heating--circulation-issues"&gt;Heating &amp;amp; Circulation Issues&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;WiFi not connecting&lt;/td&gt;
 &lt;td&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/troubleshooting/#wifi--network-issues"&gt;WiFi &amp;amp; Network Issues&lt;/a&gt;&lt;/td&gt;
+href="https://smart-swimmingpool.com/docs/troubleshooting/#wifi--network-issues"&gt;WiFi &amp;amp; Network Issues&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;MQTT not working&lt;/td&gt;
 &lt;td&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/troubleshooting/#mqtt-issues"&gt;MQTT Issues&lt;/a&gt;&lt;/td&gt;
+href="https://smart-swimmingpool.com/docs/troubleshooting/#mqtt-issues"&gt;MQTT Issues&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Controller won&amp;rsquo;t boot&lt;/td&gt;
 &lt;td&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/troubleshooting/#esp32--firmware-issues"&gt;ESP32 &amp;amp; Firmware Issues&lt;/a&gt;&lt;/td&gt;
+href="https://smart-swimmingpool.com/docs/troubleshooting/#esp32--firmware-issues"&gt;ESP32 &amp;amp; Firmware Issues&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
-&lt;/table&gt;</description></item><item><title>FAQ &amp; Troubleshooting</title><link>https://smart-swimmingpool.github.io/docs/troubleshooting/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/troubleshooting/</guid><description>
+&lt;/table&gt;</description></item><item><title>FAQ &amp; Troubleshooting</title><link>https://smart-swimmingpool.com/docs/troubleshooting/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/troubleshooting/</guid><description>
 &lt;p&gt;&lt;strong&gt;🏊 Frequently asked questions and solutions for common problems.&lt;/strong&gt;&lt;/p&gt;
 &lt;div class="hx:rounded-lg hx:border-2 hx:border-red-300 hx:bg-red-50 hx:dark:border-red-700 hx:dark:bg-red-900/20 hx:p-4 hx:my-6"&gt;
 &lt;div class="hx:flex hx:items-start hx:gap-3"&gt;

@@ -1,9 +1,9 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Zuverlässigkeit</title><link>https://smart-swimmingpool.github.io/de/tags/zuverlassigkeit/</link><description>Recent content in Zuverlässigkeit on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><lastBuildDate>Sun, 14 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/de/tags/zuverlassigkeit/index.xml" rel="self" type="application/rss+xml"/><item><title>Sicherheitsmodell</title><link>https://smart-swimmingpool.github.io/de/docs/pool-controller/safety-model/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-controller/safety-model/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Zuverlässigkeit</title><link>https://smart-swimmingpool.com/de/tags/zuverlassigkeit/</link><description>Recent content in Zuverlässigkeit on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><lastBuildDate>Sun, 14 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.com/de/tags/zuverlassigkeit/index.xml" rel="self" type="application/rss+xml"/><item><title>Sicherheitsmodell</title><link>https://smart-swimmingpool.com/de/docs/pool-controller/safety-model/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/de/docs/pool-controller/safety-model/</guid><description>
 &lt;blockquote&gt;
 &lt;p&gt;⚠️ &lt;strong&gt;HINWEIS&lt;/strong&gt;: Dieses Dokument beschreibt die Sicherheitsarchitektur des
 Pool-Controllers. Praktische Anleitungen zur elektrischen Sicherheit beim
 Bau des Controllers finden sich in &lt;a
-href="electrical-safety.de.md"&gt;Elektrische Sicherheit&lt;/a&gt;.&lt;/p&gt;
+href="https://smart-swimmingpool.com/de/docs/pool-controller/electrical-safety/"&gt;Elektrische Sicherheit&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2&gt;Überblick&lt;span class="hx:absolute hx:-mt-20" id="überblick"&gt;&lt;/span&gt;
 &lt;a href="#%c3%bcberblick" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der Pool-Controller ist nach dem &lt;strong&gt;Defense-in-Depth&lt;/strong&gt;-Prinzip (mehrschichtige
@@ -48,7 +48,7 @@ Qualitätsmodulen&lt;/li&gt;
 &lt;a href="#%c3%bcberstromschutz" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;Ein &lt;strong&gt;Leitungsschutzschalter&lt;/strong&gt; muss auf dem Außenleiter installiert werden&lt;/li&gt;
 &lt;li&gt;Ausgelegt für die Pumpenlast (siehe &lt;a
-href="https://smart-swimmingpool.github.io/de/docs/pool-controller/electrical-safety/"&gt;Elektrische Sicherheit&lt;/a&gt;)&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/pool-controller/electrical-safety/"&gt;Elektrische Sicherheit&lt;/a&gt;)&lt;/li&gt;
 &lt;li&gt;Schützt vor Kurzschluss und Überlast&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Gehäuse&lt;span class="hx:absolute hx:-mt-20" id="gehäuse"&gt;&lt;/span&gt;
@@ -173,7 +173,7 @@ und das System kann Korrekturmaßnahmen ergreifen.&lt;/p&gt;
 &lt;a href="#ebene-4-betriebssicherheit" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Inbetriebnahmeverfahren&lt;span class="hx:absolute hx:-mt-20" id="inbetriebnahmeverfahren"&gt;&lt;/span&gt;
 &lt;a href="#inbetriebnahmeverfahren" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Steckbrett-Test&lt;/strong&gt; vor Netzanschluss (siehe &lt;a
-href="https://smart-swimmingpool.github.io/de/docs/pool-controller/build-from-zero/"&gt;Von Null aufgebaut&lt;/a&gt;)&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/pool-controller/build-from-zero/"&gt;Von Null aufgebaut&lt;/a&gt;)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Relais-Leerlauftest&lt;/strong&gt; vor Pumpenanschluss&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Erster Netz-Einschalt&lt;/strong&gt;: 30-minütiger überwachter Betrieb&lt;/li&gt;
 &lt;/ul&gt;
@@ -185,9 +185,9 @@ href="https://smart-swimmingpool.github.io/de/docs/pool-controller/build-from-ze
 &lt;h3&gt;Checklisten&lt;span class="hx:absolute hx:-mt-20" id="checklisten"&gt;&lt;/span&gt;
 &lt;a href="#checklisten" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/de/docs/pool-controller/production-checklist/"&gt;Produktions-Checkliste&lt;/a&gt; — vor Inbetriebnahme&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/pool-controller/production-checklist/"&gt;Produktions-Checkliste&lt;/a&gt; — vor Inbetriebnahme&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/de/docs/pool-controller/security-checklist/"&gt;Sicherheits-Checkliste&lt;/a&gt; — Sicherheitshärtung&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/pool-controller/security-checklist/"&gt;Sicherheits-Checkliste&lt;/a&gt; — Sicherheitshärtung&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2&gt;Fehlerfall-Analyse&lt;span class="hx:absolute hx:-mt-20" id="fehlerfall-analyse"&gt;&lt;/span&gt;
@@ -255,11 +255,11 @@ href="https://smart-swimmingpool.github.io/de/docs/pool-controller/security-chec
 &lt;h2&gt;Verwandte Dokumente&lt;span class="hx:absolute hx:-mt-20" id="verwandte-dokumente"&gt;&lt;/span&gt;
 &lt;a href="#verwandte-dokumente" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/de/docs/pool-controller/electrical-safety/"&gt;Elektrische Sicherheit&lt;/a&gt; — Sicherheitsinformationen&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/pool-controller/electrical-safety/"&gt;Elektrische Sicherheit&lt;/a&gt; — Sicherheitsinformationen&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/de/docs/pool-controller/production-checklist/"&gt;Produktions-Checkliste&lt;/a&gt; — Prüfungen vor Inbetriebnahme&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/pool-controller/production-checklist/"&gt;Produktions-Checkliste&lt;/a&gt; — Prüfungen vor Inbetriebnahme&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/de/docs/pool-controller/security-checklist/"&gt;Sicherheits-Checkliste&lt;/a&gt; — Sicherheitshärtung&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/pool-controller/security-checklist/"&gt;Sicherheits-Checkliste&lt;/a&gt; — Sicherheitshärtung&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/de/docs/pool-controller/build-from-zero/"&gt;Von Null aufgebaut&lt;/a&gt; — Komplette Bauanleitung&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/pool-controller/build-from-zero/"&gt;Von Null aufgebaut&lt;/a&gt; — Komplette Bauanleitung&lt;/li&gt;
 &lt;/ul&gt;</description></item></channel></rss>

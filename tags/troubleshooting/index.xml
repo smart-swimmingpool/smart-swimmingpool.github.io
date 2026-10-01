@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Troubleshooting</title><link>https://smart-swimmingpool.github.io/tags/troubleshooting/</link><description>Recent content in Troubleshooting on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Sun, 14 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/tags/troubleshooting/index.xml" rel="self" type="application/rss+xml"/><item><title>FAQ &amp; Troubleshooting</title><link>https://smart-swimmingpool.github.io/docs/troubleshooting/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/troubleshooting/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Troubleshooting</title><link>https://smart-swimmingpool.com/tags/troubleshooting/</link><description>Recent content in Troubleshooting on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Sun, 14 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.com/tags/troubleshooting/index.xml" rel="self" type="application/rss+xml"/><item><title>FAQ &amp; Troubleshooting</title><link>https://smart-swimmingpool.com/docs/troubleshooting/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/troubleshooting/</guid><description>
 &lt;p&gt;&lt;strong&gt;🏊 Frequently asked questions and solutions for common problems.&lt;/strong&gt;&lt;/p&gt;
 &lt;div class="hx:rounded-lg hx:border-2 hx:border-red-300 hx:bg-red-50 hx:dark:border-red-700 hx:dark:bg-red-900/20 hx:p-4 hx:my-6"&gt;
 &lt;div class="hx:flex hx:items-start hx:gap-3"&gt;
@@ -377,7 +377,7 @@ data-copied-label="Copied!"
 Always use an &lt;strong&gt;RCD (residual-current device)&lt;/strong&gt;. This project is &lt;strong&gt;not CE/UL certified&lt;/strong&gt; and not intended for commercial use.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>Troubleshooting</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/troubleshooting/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/troubleshooting/</guid><description>
+&lt;/div&gt;</description></item><item><title>Troubleshooting</title><link>https://smart-swimmingpool.com/docs/pool-controller/troubleshooting/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/pool-controller/troubleshooting/</guid><description>
 &lt;blockquote&gt;
 &lt;p&gt;⚠️ &lt;strong&gt;WARNING&lt;/strong&gt;: The troubleshooting steps below may involve working with
 &lt;strong&gt;230V AC mains voltage&lt;/strong&gt; (relay testing, pump wiring). &lt;strong&gt;Always disconnect
@@ -651,14 +651,14 @@ href="https://github.com/smart-swimmingpool/smart-swimmingpool.github.io/discuss
 &lt;h2&gt;Related Documents&lt;span class="hx:absolute hx:-mt-20" id="related-documents"&gt;&lt;/span&gt;
 &lt;a href="#related-documents" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-controller/build-from-zero/"&gt;Build from Zero&lt;/a&gt; — Complete build guide&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/build-from-zero/"&gt;Build from Zero&lt;/a&gt; — Complete build guide&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-controller/mqtt-configuration/"&gt;MQTT Configuration&lt;/a&gt; — MQTT setup details&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/mqtt-configuration/"&gt;MQTT Configuration&lt;/a&gt; — MQTT setup details&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-controller/electrical-safety/"&gt;Electrical Safety&lt;/a&gt; — Safety information&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/electrical-safety/"&gt;Electrical Safety&lt;/a&gt; — Safety information&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/home-assistant-integration/"&gt;Home Assistant Integration&lt;/a&gt; — HA setup guide&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>Troubleshooting Matrix</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/troubleshooting-matrix/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/troubleshooting-matrix/</guid><description>
+href="https://smart-swimmingpool.com/docs/home-assistant-integration/"&gt;Home Assistant Integration&lt;/a&gt; — HA setup guide&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Troubleshooting Matrix</title><link>https://smart-swimmingpool.com/docs/pool-controller/troubleshooting-matrix/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/pool-controller/troubleshooting-matrix/</guid><description>
 &lt;blockquote&gt;
 &lt;p&gt;⚠️ &lt;strong&gt;WARNING&lt;/strong&gt;: Some troubleshooting steps involve working with
 &lt;strong&gt;230V AC mains voltage&lt;/strong&gt; (relay testing, pump wiring). &lt;strong&gt;Always disconnect
@@ -1049,9 +1049,9 @@ power&lt;/strong&gt; before working on the circuit. If unsure, hire a qualified 
 &lt;h2&gt;See Also&lt;span class="hx:absolute hx:-mt-20" id="see-also"&gt;&lt;/span&gt;
 &lt;a href="#see-also" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-controller/hardware-guide/"&gt;Hardware Guide&lt;/a&gt; — Build and wiring instructions&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/hardware-guide/"&gt;Hardware Guide&lt;/a&gt; — Build and wiring instructions&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-controller/software-guide/"&gt;Software Guide&lt;/a&gt; — First-time setup and configuration&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/software-guide/"&gt;Software Guide&lt;/a&gt; — First-time setup and configuration&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-controller/security-checklist/"&gt;Security Checklist&lt;/a&gt; — Security hardening&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/pool-controller/security-checklist/"&gt;Security Checklist&lt;/a&gt; — Security hardening&lt;/li&gt;
 &lt;/ul&gt;</description></item></channel></rss>

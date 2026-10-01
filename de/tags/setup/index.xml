@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Setup</title><link>https://smart-swimmingpool.github.io/de/tags/setup/</link><description>Recent content in Setup on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><lastBuildDate>Sat, 11 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/de/tags/setup/index.xml" rel="self" type="application/rss+xml"/><item><title>Users Guide des Pool Monitors</title><link>https://smart-swimmingpool.github.io/de/docs/pool-monitor/users-guide/</link><pubDate>Sat, 11 Jun 2022 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/de/docs/pool-monitor/users-guide/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Setup</title><link>https://smart-swimmingpool.com/de/tags/setup/</link><description>Recent content in Setup on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><lastBuildDate>Sat, 11 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.com/de/tags/setup/index.xml" rel="self" type="application/rss+xml"/><item><title>Users Guide des Pool Monitors</title><link>https://smart-swimmingpool.com/de/docs/pool-monitor/users-guide/</link><pubDate>Sat, 11 Jun 2022 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/de/docs/pool-monitor/users-guide/</guid><description>
 &lt;h2&gt;Einrichtung&lt;span class="hx:absolute hx:-mt-20" id="einrichtung"&gt;&lt;/span&gt;
 &lt;a href="#einrichtung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Beim ersten Einschalten (oder nach einem Factory-Reset) startet das Gerät einen
 &lt;strong&gt;WLAN-Hotspot&lt;/strong&gt; namens &lt;code&gt;pool-monitor&lt;/code&gt;.&lt;/p&gt;
@@ -138,7 +138,7 @@ nicht erfolgreich. Dies klärt sich in der Regel beim nächsten Aufwachen
 &lt;td&gt;Display bleibt weiß&lt;/td&gt;
 &lt;td&gt;Keine oder korrupte Firmware&lt;/td&gt;
 &lt;td&gt;Firmware per PlatformIO flashen (siehe &lt;a
-href="software-guide.de.md"&gt;Software Guide&lt;/a&gt;)&lt;/td&gt;
+href="https://smart-swimmingpool.com/de/docs/pool-monitor/software-guide/"&gt;Software Guide&lt;/a&gt;)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&amp;ldquo;MQTT Error&amp;rdquo; auf Display, Portal startet&lt;/td&gt;
@@ -176,9 +176,9 @@ href="software-guide.de.md"&gt;Software Guide&lt;/a&gt;)&lt;/td&gt;
 &lt;h2&gt;Referenzen&lt;span class="hx:absolute hx:-mt-20" id="referenzen"&gt;&lt;/span&gt;
 &lt;a href="#referenzen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a
-href="hardware-guide.de.md"&gt;Hardware Guide&lt;/a&gt; — Board-Aufbau, Pinbelegung, Solarbetrieb&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/pool-monitor/hardware-guide/"&gt;Hardware Guide&lt;/a&gt; — Board-Aufbau, Pinbelegung, Solarbetrieb&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="software-guide.de.md"&gt;Software Guide&lt;/a&gt; — Entwicklungseinrichtung, Build, MQTT-Topics&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/pool-monitor/software-guide/"&gt;Software Guide&lt;/a&gt; — Entwicklungseinrichtung, Build, MQTT-Topics&lt;/li&gt;
 &lt;li&gt;&lt;a
 href="https://github.com/smart-swimmingpool/pool-controller"target="_blank" rel="noopener"&gt;Pool Controller&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a

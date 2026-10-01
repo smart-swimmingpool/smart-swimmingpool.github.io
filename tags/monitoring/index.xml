@@ -1,126 +1,129 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Monitoring</title><link>https://smart-swimmingpool.github.io/tags/monitoring/</link><description>Recent content in Monitoring on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Sun, 07 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.github.io/tags/monitoring/index.xml" rel="self" type="application/rss+xml"/><item><title>Grafana Dashboard</title><link>https://smart-swimmingpool.github.io/docs/grafana-dashboard/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/grafana-dashboard/</guid><description>
-&lt;h1&gt;\ud83d\udcc Grafana Dashboard&lt;/h1&gt;&lt;p&gt;The &lt;strong&gt;Grafana Dashboard&lt;/strong&gt; provides beautiful visualization of your pool data, allowing you to track temperature trends, system status, and historical data over time.&lt;/p&gt;
-&lt;h2&gt;\ud83d\udca1 Overview&lt;span class="hx:absolute hx:-mt-20" id="ud83dudca1-overview"&gt;&lt;/span&gt;
-&lt;a href="#ud83dudca1-overview" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The Grafana Dashboard offers:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Temperature Visualization&lt;/strong&gt;: Track pool and solar temperatures over time&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Historical Data&lt;/strong&gt;: View trends and patterns in your pool data&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;System Monitoring&lt;/strong&gt;: Monitor pump status, uptime, and other metrics&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Customizable&lt;/strong&gt;: Adapt the dashboard to your specific needs&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Real-Time Updates&lt;/strong&gt;: Live data from your pool controller via MQTT&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Alerting&lt;/strong&gt;: Set up notifications for specific conditions&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;\ud83d\udcc Key Features&lt;span class="hx:absolute hx:-mt-20" id="ud83dudcc-key-features"&gt;&lt;/span&gt;
-&lt;a href="#ud83dudcc-key-features" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;\u2705 &lt;strong&gt;Temperature Charts&lt;/strong&gt;: Beautiful graphs showing temperature trends&lt;/li&gt;
-&lt;li&gt;\u2705 &lt;strong&gt;Pump Status&lt;/strong&gt;: Visual indication of pump operation times&lt;/li&gt;
-&lt;li&gt;\u2705 &lt;strong&gt;System Health&lt;/strong&gt;: Monitor controller uptime and connectivity&lt;/li&gt;
-&lt;li&gt;\u2705 &lt;strong&gt;Custom Panels&lt;/strong&gt;: Add or modify panels to suit your needs&lt;/li&gt;
-&lt;li&gt;\u2705 &lt;strong&gt;Time Range Selection&lt;/strong&gt;: View data from hours to months&lt;/li&gt;
-&lt;li&gt;\u2705 &lt;strong&gt;Export/Import&lt;/strong&gt;: Share your dashboard configuration with others&lt;/li&gt;
-&lt;li&gt;\u2705 &lt;strong&gt;Open Source&lt;/strong&gt;: MIT License, free to use and modify&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;\ud83d\ud87 Quick Links&lt;span class="hx:absolute hx:-mt-20" id="ud83dud87-quick-links"&gt;&lt;/span&gt;
-&lt;a href="#ud83dud87-quick-links" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Getting Started&lt;span class="hx:absolute hx:-mt-20" id="getting-started"&gt;&lt;/span&gt;
-&lt;a href="#getting-started" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a
-href="https://github.com/smart-swimmingpool/grafana-dashboard"target="_blank" rel="noopener"&gt;Grafana Dashboard Repository&lt;/a&gt;&lt;/strong&gt; - Main repository with dashboard JSON&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a
-href="https://github.com/smart-swimmingpool/grafana-dashboard#installation"target="_blank" rel="noopener"&gt;Installation Guide&lt;/a&gt;&lt;/strong&gt; - Step-by-step setup instructions&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a
-href="https://github.com/smart-swimmingpool/grafana-dashboard#configuration"target="_blank" rel="noopener"&gt;Configuration&lt;/a&gt;&lt;/strong&gt; - Dashboard setup and customization&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Prerequisites&lt;span class="hx:absolute hx:-mt-20" id="prerequisites"&gt;&lt;/span&gt;
-&lt;a href="#prerequisites" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a
-href="https://grafana.com/docs/grafana/latest/setup-grafana/installation/"target="_blank" rel="noopener"&gt;Grafana Installation&lt;/a&gt;&lt;/strong&gt; - Install Grafana on your system&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a
-href="https://www.influxdata.com/time-series-platform/influxdb/"target="_blank" rel="noopener"&gt;InfluxDB Setup&lt;/a&gt;&lt;/strong&gt; - Time series database for storing pool data&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a
-href="https://github.com/smart-swimmingpool/grafana-dashboard#mqtt-to-influxdb"target="_blank" rel="noopener"&gt;MQTT to InfluxDB&lt;/a&gt;&lt;/strong&gt; - Bridge MQTT data to InfluxDB&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Dashboard Setup&lt;span class="hx:absolute hx:-mt-20" id="dashboard-setup"&gt;&lt;/span&gt;
-&lt;a href="#dashboard-setup" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a
-href="https://github.com/smart-swimmingpool/grafana-dashboard#import-dashboard"target="_blank" rel="noopener"&gt;Import Dashboard&lt;/a&gt;&lt;/strong&gt; - Import the pre-configured dashboard&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a
-href="https://github.com/smart-swimmingpool/grafana-dashboard#data-sources"target="_blank" rel="noopener"&gt;Data Sources&lt;/a&gt;&lt;/strong&gt; - Configure data sources in Grafana&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a
-href="https://github.com/smart-swimmingpool/grafana-dashboard#customization"target="_blank" rel="noopener"&gt;Customization&lt;/a&gt;&lt;/strong&gt; - Adapt the dashboard to your needs&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;\ud83c\udf9b Screenshot&lt;span class="hx:absolute hx:-mt-20" id="ud83cudf9b-screenshot"&gt;&lt;/span&gt;
-&lt;a href="#ud83cudf9b-screenshot" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;img src="https://smart-swimmingpool.github.io/img/grafana-dashboard.png" alt="Grafana Dashboard" data-zoomable loading="lazy" /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;The Smart Swimming Pool Grafana Dashboard showing temperature trends and system status&lt;/em&gt;&lt;/p&gt;
-&lt;h2&gt;\ud83d\udda5 Dashboard Panels&lt;span class="hx:absolute hx:-mt-20" id="ud83dudda5-dashboard-panels"&gt;&lt;/span&gt;
-&lt;a href="#ud83dudda5-dashboard-panels" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The default dashboard includes:&lt;/p&gt;
-&lt;table&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Monitoring</title><link>https://smart-swimmingpool.com/tags/monitoring/</link><description>Recent content in Monitoring on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Sun, 07 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.com/tags/monitoring/index.xml" rel="self" type="application/rss+xml"/><item><title>Grafana Dashboard</title><link>https://smart-swimmingpool.com/docs/grafana-dashboard/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/grafana-dashboard/</guid><description>
+&lt;h1&gt;📊 Grafana Dashboard&lt;/h1&gt;&lt;p&gt;The &lt;strong&gt;Grafana Dashboard&lt;/strong&gt; visualizes your Smart Swimming Pool over time: pool and solar
+temperatures, pump switching times, the operation mode and controller diagnostics. It is
+made for the &lt;a
+href="https://smart-swimmingpool.com/docs/pool-controller/"&gt;Pool Controller&lt;/a&gt; &lt;strong&gt;v5.x&lt;/strong&gt; and reads the data that
+&lt;strong&gt;Home Assistant&lt;/strong&gt; stores in &lt;strong&gt;InfluxDB&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://raw.githubusercontent.com/smart-swimmingpool/grafana-dashboard/master/docs/dashboard-screenshot.png" alt="Grafana Dashboard with example data" data-zoomable loading="lazy" /&gt;&lt;/p&gt;
+&lt;h2&gt;💡 How It Works&lt;span class="hx:absolute hx:-mt-20" id="-how-it-works"&gt;&lt;/span&gt;
+&lt;a href="#-how-it-works" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Pool Controller ──MQTT discovery──▶ Home Assistant ──InfluxDB integration──▶ InfluxDB ──▶ Grafana&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ol&gt;
+&lt;li&gt;The Pool Controller publishes its entities via Home Assistant MQTT discovery
+(see &lt;a
+href="https://smart-swimmingpool.com/docs/home-assistant-integration/"&gt;Home Assistant Integration&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;The &lt;a
+href="https://www.home-assistant.io/integrations/influxdb/"target="_blank" rel="noopener"&gt;InfluxDB integration&lt;/a&gt; of
+Home Assistant stores the entity states in InfluxDB.&lt;/li&gt;
+&lt;li&gt;Grafana queries this database and renders the dashboard.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;✨ Dashboard Panels&lt;span class="hx:absolute hx:-mt-20" id="-dashboard-panels"&gt;&lt;/span&gt;
+&lt;a href="#-dashboard-panels" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th&gt;Panel&lt;/th&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;th&gt;Data Source&lt;/th&gt;
+&lt;th&gt;Section&lt;/th&gt;
+&lt;th&gt;Panels&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;Pool Temperature&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;Current and historical pool water temperature&lt;/td&gt;
-&lt;td&gt;MQTT/InfluxDB&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Temperatures&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Pool and solar gauges, history of pool, solar and controller temperature&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;Solar Temperature&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;Current and historical solar collector temperature&lt;/td&gt;
-&lt;td&gt;MQTT/InfluxDB&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Pumps &amp;amp; Operation&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Pump state timeline, current pump state, effective runtime, circulation extension, operation mode (auto, manual, boost, timer)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;Temperature Difference&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;Difference between solar and pool temperature&lt;/td&gt;
-&lt;td&gt;Calculated&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;Pump Status&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;Current state and operation times of both pumps&lt;/td&gt;
-&lt;td&gt;MQTT/InfluxDB&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;System Uptime&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;Controller uptime and connectivity status&lt;/td&gt;
-&lt;td&gt;MQTT/InfluxDB&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;Heating Efficiency&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;Heating performance metrics&lt;/td&gt;
-&lt;td&gt;Calculated&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;Daily Statistics&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;Daily temperature ranges and pump operation&lt;/td&gt;
-&lt;td&gt;MQTT/InfluxDB&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Diagnostics&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;WiFi signal, uptime, free heap, controller temperature with history&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h2&gt;\ud83d\udc82 Next Steps&lt;span class="hx:absolute hx:-mt-20" id="ud83dudc82-next-steps"&gt;&lt;/span&gt;
-&lt;a href="#ud83dudc82-next-steps" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/start-here/"&gt;Start Here&lt;/a&gt;&lt;/strong&gt; - Choose your path based on your goals&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a
-href="https://github.com/smart-swimmingpool/grafana-dashboard"target="_blank" rel="noopener"&gt;Visit Repository&lt;/a&gt;&lt;/strong&gt; - Access dashboard JSON and documentation&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/pool-controller/"&gt;Pool Controller Setup&lt;/a&gt;&lt;/strong&gt; - Ensure your controller is running&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/home-assistant-integration/"&gt;Home Assistant Integration&lt;/a&gt;&lt;/strong&gt; - Alternative visualization option&lt;/li&gt;
+&lt;h2&gt;🔧 Installation&lt;span class="hx:absolute hx:-mt-20" id="-installation"&gt;&lt;/span&gt;
+&lt;a href="#-installation" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Prerequisites&lt;span class="hx:absolute hx:-mt-20" id="prerequisites"&gt;&lt;/span&gt;
+&lt;a href="#prerequisites" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.com/docs/pool-controller/"&gt;Pool Controller&lt;/a&gt; v5.x connected to Home Assistant&lt;/li&gt;
+&lt;li&gt;Home Assistant &lt;a
+href="https://www.home-assistant.io/integrations/influxdb/"target="_blank" rel="noopener"&gt;InfluxDB integration&lt;/a&gt;
+with default measurement settings&lt;/li&gt;
+&lt;li&gt;InfluxDB 1.x (or 2.x with InfluxQL) and Grafana 10 or newer&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Store the pool data in InfluxDB&lt;span class="hx:absolute hx:-mt-20" id="store-the-pool-data-in-influxdb"&gt;&lt;/span&gt;
+&lt;a href="#store-the-pool-data-in-influxdb" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Example for Home Assistant&amp;rsquo;s &lt;code&gt;configuration.yaml&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-yaml" data-lang="yaml"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;influxdb&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;host&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;influxdb.local&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;database&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;home_assistant&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;include&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;entity_globs&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="l"&gt;sensor.pool_controller_*&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="l"&gt;switch.pool_controller_*&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="l"&gt;select.pool_controller_*&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Copy code"
+aria-label="Copy code"
+data-copied-label="Copied!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3&gt;Import the dashboard&lt;span class="hx:absolute hx:-mt-20" id="import-the-dashboard"&gt;&lt;/span&gt;
+&lt;a href="#import-the-dashboard" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Add an &lt;strong&gt;InfluxDB&lt;/strong&gt; data source (query language &lt;strong&gt;InfluxQL&lt;/strong&gt;) in Grafana.&lt;/li&gt;
+&lt;li&gt;Download
+&lt;a
+href="https://github.com/smart-swimmingpool/grafana-dashboard/blob/master/dashboard-smart-swimming-pool.json"target="_blank" rel="noopener"&gt;&lt;code&gt;dashboard-smart-swimming-pool.json&lt;/code&gt;&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Open &lt;strong&gt;Dashboards → New → Import&lt;/strong&gt;, upload the file and select your InfluxDB data source.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2&gt;\ud83d\udcdd Need Help?&lt;span class="hx:absolute hx:-mt-20" id="ud83dudcdd-need-help"&gt;&lt;/span&gt;
-&lt;a href="#ud83dudcdd-need-help" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;p&gt;If you renamed the Pool Controller entities in Home Assistant, adjust the dashboard
+variables under &lt;strong&gt;Dashboard settings → Variables&lt;/strong&gt;.&lt;/p&gt;
+&lt;div
+data-alert="note" class="hextra-alert"
+&gt;
+&lt;p class="hextra-alert-title"&gt;&lt;svg height=16px class="hextra-alert-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"&gt;&lt;path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/&gt;&lt;/svg&gt;&lt;span class="hextra-alert-title-text"&gt;Note&lt;/span&gt;
+&lt;/p&gt;
+&lt;div class="hextra-alert-content"&gt;&lt;p&gt;Using openHAB with Pool Controller v1/v2? The original dashboard is still available as
+&lt;a
+href="https://github.com/smart-swimmingpool/grafana-dashboard/blob/master/dashboard-smart-swimming-pool-openhab-legacy.json"target="_blank" rel="noopener"&gt;&lt;code&gt;dashboard-smart-swimming-pool-openhab-legacy.json&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;🚀 Next Steps&lt;span class="hx:absolute hx:-mt-20" id="-next-steps"&gt;&lt;/span&gt;
+&lt;a href="#-next-steps" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.com/docs/start-here/"&gt;Start Here&lt;/a&gt;&lt;/strong&gt; - Choose your path based on your goals&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/grafana-dashboard"target="_blank" rel="noopener"&gt;Visit Repository&lt;/a&gt;&lt;/strong&gt; - Dashboard JSON and documentation&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.com/docs/pool-controller/"&gt;Pool Controller Setup&lt;/a&gt;&lt;/strong&gt; - Ensure your controller is running&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.com/docs/home-assistant-integration/"&gt;Home Assistant Integration&lt;/a&gt;&lt;/strong&gt; - Connect the controller to Home Assistant&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;💬 Need Help?&lt;span class="hx:absolute hx:-mt-20" id="-need-help"&gt;&lt;/span&gt;
+&lt;a href="#-need-help" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Check the &lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.github.io/docs/troubleshooting/"&gt;FAQ &amp;amp; Troubleshooting&lt;/a&gt;&lt;/strong&gt; page&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/troubleshooting/"&gt;FAQ &amp;amp; Troubleshooting&lt;/a&gt;&lt;/strong&gt; page&lt;/li&gt;
 &lt;li&gt;Visit the &lt;strong&gt;&lt;a
 href="https://github.com/smart-swimmingpool/grafana-dashboard"target="_blank" rel="noopener"&gt;Grafana Dashboard Repository&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;Open an &lt;strong&gt;&lt;a
 href="https://github.com/smart-swimmingpool/grafana-dashboard/issues"target="_blank" rel="noopener"&gt;Issue&lt;/a&gt;&lt;/strong&gt; for bugs or feature requests&lt;/li&gt;
 &lt;li&gt;Consult the &lt;strong&gt;&lt;a
 href="https://grafana.com/docs/"target="_blank" rel="noopener"&gt;Grafana Documentation&lt;/a&gt;&lt;/strong&gt; for Grafana-specific questions&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>State Persistence and System Monitoring</title><link>https://smart-swimmingpool.github.io/docs/pool-controller/state-persistence/</link><pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.github.io/docs/pool-controller/state-persistence/</guid><description>
+&lt;/ul&gt;</description></item><item><title>State Persistence and System Monitoring</title><link>https://smart-swimmingpool.com/docs/pool-controller/state-persistence/</link><pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/pool-controller/state-persistence/</guid><description>
 &lt;h1&gt;State Persistence and System Monitoring&lt;/h1&gt;&lt;h2&gt;Overview&lt;span class="hx:absolute hx:-mt-20" id="overview"&gt;&lt;/span&gt;
 &lt;a href="#overview" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The Pool Controller includes comprehensive state persistence and system
 health monitoring to ensure reliable 24/7 operation.&lt;/p&gt;
