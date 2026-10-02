@@ -1,7 +1,7 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Pool Controller</title><link>https://smart-swimmingpool.com/docs/pool-controller/</link><description>Recent content in Pool Controller on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><atom:link href="https://smart-swimmingpool.com/docs/pool-controller/index.xml" rel="self" type="application/rss+xml"/><item><title>Quick Start Guide</title><link>https://smart-swimmingpool.com/docs/pool-controller/quick-start/</link><pubDate>Tue, 29 Sep 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/pool-controller/quick-start/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Pool Controller</title><link>https://smart-swimmingpool.com/docs/pool-controller/</link><description>Recent content in Pool Controller on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><atom:link href="https://smart-swimmingpool.com/docs/pool-controller/index.xml" rel="self" type="application/rss+xml"/><item><title>Quick Start Guide</title><link>https://smart-swimmingpool.com/docs/pool-controller/quick-start/</link><pubDate>Fri, 02 Oct 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/pool-controller/quick-start/</guid><description>
 &lt;p&gt;&lt;strong&gt;Target audience:&lt;/strong&gt; DIY enthusiasts with &lt;strong&gt;basic electronics knowledge&lt;/strong&gt; (soldering, GPIO, MQTT).
-&lt;strong&gt;Time required:&lt;/strong&gt; ~4\u20136 hours (including parts sourcing).
-&lt;strong&gt;Cost:&lt;/strong&gt; ~45\u201375\u20ac (excluding pumps and pool infrastructure).&lt;/p&gt;
+&lt;strong&gt;Time required:&lt;/strong&gt; ~4–6 hours (including parts sourcing).
+&lt;strong&gt;Cost:&lt;/strong&gt; ~45–75€ (excluding pumps and pool infrastructure).&lt;/p&gt;
 &lt;p&gt;This guide walks you through &lt;strong&gt;every step&lt;/strong&gt; to get your Pool Controller up and running, from ordering parts to integrating with your smart home.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2&gt;⚠️ Safety First&lt;span class="hx:absolute hx:-mt-20" id="-safety-first"&gt;&lt;/span&gt;
@@ -26,9 +26,9 @@ href="https://smart-swimmingpool.com/docs/pool-controller/safety-model/"&gt;Safe
 href="https://smart-swimmingpool.com/docs/pool-controller/security-checklist/"&gt;Security Checklist&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;h2&gt;\ud83d\udce6 Step 1: Order Parts&lt;span class="hx:absolute hx:-mt-20" id="ud83dudce6-step-1-order-parts"&gt;&lt;/span&gt;
-&lt;a href="#ud83dudce6-step-1-order-parts" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;\ud83d\uded2 Shopping List (BOM)&lt;span class="hx:absolute hx:-mt-20" id="ud83duded2-shopping-list-bom"&gt;&lt;/span&gt;
-&lt;a href="#ud83duded2-shopping-list-bom" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Use the following table to order all required components.&lt;/p&gt;
+&lt;h2&gt;📦 Step 1: Order Parts&lt;span class="hx:absolute hx:-mt-20" id="-step-1-order-parts"&gt;&lt;/span&gt;
+&lt;a href="#-step-1-order-parts" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;🛒 Shopping List (BOM)&lt;span class="hx:absolute hx:-mt-20" id="-shopping-list-bom"&gt;&lt;/span&gt;
+&lt;a href="#-shopping-list-bom" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Use the following table to order all required components.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Recommended shops:&lt;/strong&gt; Amazon, AliExpress, Reichelt, Pollin, Conrad (DE/AT/CH).&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -46,7 +46,7 @@ href="https://smart-swimmingpool.com/docs/pool-controller/security-checklist/"&g
 &lt;td&gt;1&lt;/td&gt;
 &lt;td&gt;ESP32 Development Board (e.g., ESP32 DevKit V1, NodeMCU-32S)&lt;/td&gt;
 &lt;td style="text-align: center"&gt;1&lt;/td&gt;
-&lt;td style="text-align: center"&gt;10\u201315\u20ac&lt;/td&gt;
+&lt;td style="text-align: center"&gt;10–15€&lt;/td&gt;
 &lt;td&gt;&lt;strong&gt;Must have 4MB+ flash&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;&lt;a
 href="https://www.amazon.de/s?k=ESP32&amp;#43;DevKit&amp;#43;V1"target="_blank" rel="noopener"&gt;Amazon DE&lt;/a&gt;, &lt;a
@@ -56,7 +56,7 @@ href="https://www.reichelt.de/"target="_blank" rel="noopener"&gt;Reichelt&lt;/a&
 &lt;td&gt;2&lt;/td&gt;
 &lt;td&gt;DS18B20 Temperature Sensor (waterproof, stainless steel, 1m cable)&lt;/td&gt;
 &lt;td style="text-align: center"&gt;2&lt;/td&gt;
-&lt;td style="text-align: center"&gt;8\u201312\u20ac&lt;/td&gt;
+&lt;td style="text-align: center"&gt;8–12€&lt;/td&gt;
 &lt;td&gt;One for pool, one for solar collector&lt;/td&gt;
 &lt;td&gt;&lt;a
 href="https://www.amazon.de/s?k=DS18B20&amp;#43;wasserfest"target="_blank" rel="noopener"&gt;Amazon DE&lt;/a&gt;, &lt;a
@@ -66,7 +66,7 @@ href="https://www.aliexpress.com/"target="_blank" rel="noopener"&gt;AliExpress&l
 &lt;td&gt;3&lt;/td&gt;
 &lt;td&gt;2-Channel 5V Relay Module (with optocoupler isolation)&lt;/td&gt;
 &lt;td style="text-align: center"&gt;1&lt;/td&gt;
-&lt;td style="text-align: center"&gt;5\u20138\u20ac&lt;/td&gt;
+&lt;td style="text-align: center"&gt;5–8€&lt;/td&gt;
 &lt;td&gt;&lt;strong&gt;Must be active-high trigger!&lt;/strong&gt; (relay activates when GPIO signal is HIGH)&lt;/td&gt;
 &lt;td&gt;&lt;a
 href="https://www.amazon.de/s?k=2&amp;#43;Channel&amp;#43;5V&amp;#43;Relay&amp;#43;Module"target="_blank" rel="noopener"&gt;Amazon DE&lt;/a&gt;, &lt;a
@@ -74,9 +74,9 @@ href="https://www.reichelt.de/"target="_blank" rel="noopener"&gt;Reichelt&lt;/a&
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;4&lt;/td&gt;
-&lt;td&gt;Resistor 4.7k\u03a9 (\u00bcW, metal film)&lt;/td&gt;
+&lt;td&gt;Resistor 4.7kΩ (¼W, metal film)&lt;/td&gt;
 &lt;td style="text-align: center"&gt;2&lt;/td&gt;
-&lt;td style="text-align: center"&gt;&amp;lt; 1\u20ac&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&amp;lt; 1€&lt;/td&gt;
 &lt;td&gt;Pull-up for OneWire data lines&lt;/td&gt;
 &lt;td&gt;&lt;a
 href="https://www.reichelt.de/"target="_blank" rel="noopener"&gt;Reichelt&lt;/a&gt;, &lt;a
@@ -86,7 +86,7 @@ href="https://www.conrad.de/"target="_blank" rel="noopener"&gt;Conrad&lt;/a&gt;&
 &lt;td&gt;5&lt;/td&gt;
 &lt;td&gt;Breadboard + jumper wires (for prototyping) &lt;strong&gt;OR&lt;/strong&gt; Perfboard + pin headers (for permanent build)&lt;/td&gt;
 &lt;td style="text-align: center"&gt;1&lt;/td&gt;
-&lt;td style="text-align: center"&gt;3\u20138\u20ac&lt;/td&gt;
+&lt;td style="text-align: center"&gt;3–8€&lt;/td&gt;
 &lt;td&gt;Breadboard for testing, perfboard for final build&lt;/td&gt;
 &lt;td&gt;&lt;a
 href="https://www.amazon.de/s?k=breadboard"target="_blank" rel="noopener"&gt;Amazon DE&lt;/a&gt;, &lt;a
@@ -94,17 +94,17 @@ href="https://www.reichelt.de/"target="_blank" rel="noopener"&gt;Reichelt&lt;/a&
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;6&lt;/td&gt;
-&lt;td&gt;USB Power Supply 5V/\u22651A (e.g., phone charger)&lt;/td&gt;
+&lt;td&gt;USB Power Supply 5V/≥1A (e.g., phone charger)&lt;/td&gt;
 &lt;td style="text-align: center"&gt;1&lt;/td&gt;
-&lt;td style="text-align: center"&gt;5\u201310\u20ac&lt;/td&gt;
+&lt;td style="text-align: center"&gt;5–10€&lt;/td&gt;
 &lt;td&gt;Powers ESP32 + relay module&lt;/td&gt;
 &lt;td&gt;Any USB charger&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;7&lt;/td&gt;
-&lt;td&gt;Hookup wire (0.14\u20130.5mm², various colors)&lt;/td&gt;
+&lt;td&gt;Hookup wire (0.14–0.5mm², various colors)&lt;/td&gt;
 &lt;td style="text-align: center"&gt;—&lt;/td&gt;
-&lt;td style="text-align: center"&gt;3\u20135\u20ac&lt;/td&gt;
+&lt;td style="text-align: center"&gt;3–5€&lt;/td&gt;
 &lt;td&gt;For permanent wiring&lt;/td&gt;
 &lt;td&gt;&lt;a
 href="https://www.reichelt.de/"target="_blank" rel="noopener"&gt;Reichelt&lt;/a&gt;&lt;/td&gt;
@@ -113,17 +113,17 @@ href="https://www.reichelt.de/"target="_blank" rel="noopener"&gt;Reichelt&lt;/a&
 &lt;td&gt;8&lt;/td&gt;
 &lt;td&gt;Enclosure (IP54+ for outdoor use)&lt;/td&gt;
 &lt;td style="text-align: center"&gt;1&lt;/td&gt;
-&lt;td style="text-align: center"&gt;5\u201310\u20ac&lt;/td&gt;
+&lt;td style="text-align: center"&gt;5–10€&lt;/td&gt;
 &lt;td&gt;Optional but recommended&lt;/td&gt;
 &lt;td&gt;&lt;a
-href="https://www.amazon.de/s?k=IP54&amp;#43;Geh%5cu00e4use"target="_blank" rel="noopener"&gt;Amazon DE&lt;/a&gt;, &lt;a
+href="https://www.amazon.de/s?k=IP54&amp;#43;Geh%c3%a4use"target="_blank" rel="noopener"&gt;Amazon DE&lt;/a&gt;, &lt;a
 href="https://www.reichelt.de/"target="_blank" rel="noopener"&gt;Reichelt&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;9&lt;/td&gt;
 &lt;td&gt;Screw terminals (2-pin, 5mm pitch)&lt;/td&gt;
-&lt;td style="text-align: center"&gt;4\u20136&lt;/td&gt;
-&lt;td style="text-align: center"&gt;2\u20133\u20ac&lt;/td&gt;
+&lt;td style="text-align: center"&gt;4–6&lt;/td&gt;
+&lt;td style="text-align: center"&gt;2–3€&lt;/td&gt;
 &lt;td&gt;For removable connections&lt;/td&gt;
 &lt;td&gt;&lt;a
 href="https://www.reichelt.de/"target="_blank" rel="noopener"&gt;Reichelt&lt;/a&gt;&lt;/td&gt;
@@ -132,7 +132,7 @@ href="https://www.reichelt.de/"target="_blank" rel="noopener"&gt;Reichelt&lt;/a&
 &lt;td&gt;&lt;strong&gt;Total&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td style="text-align: center"&gt;&lt;/td&gt;
-&lt;td style="text-align: center"&gt;&lt;strong&gt;~45\u201375\u20ac&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;strong&gt;~45–75€&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;Without pumps/pool infrastructure&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
@@ -141,8 +141,8 @@ href="https://www.reichelt.de/"target="_blank" rel="noopener"&gt;Reichelt&lt;/a&
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;ℹ Note:&lt;/strong&gt; The relay module &lt;strong&gt;must&lt;/strong&gt; be &lt;strong&gt;active-high&lt;/strong&gt; (relay ON when GPIO = HIGH). Many cheap modules are active-low by default but have a jumper to switch the logic. Verify this before permanent installation!&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h3&gt;\ud83d\udd0c ESP32 Board Selection&lt;span class="hx:absolute hx:-mt-20" id="ud83dudd0c-esp32-board-selection"&gt;&lt;/span&gt;
-&lt;a href="#ud83dudd0c-esp32-board-selection" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Recommended boards:&lt;/strong&gt;&lt;/p&gt;
+&lt;h3&gt;🔌 ESP32 Board Selection&lt;span class="hx:absolute hx:-mt-20" id="-esp32-board-selection"&gt;&lt;/span&gt;
+&lt;a href="#-esp32-board-selection" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Recommended boards:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ESP32 DevKit V1&lt;/strong&gt; — Most common, widely available&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;NodeMCU-32S&lt;/strong&gt; — Similar to DevKit, good compatibility&lt;/li&gt;
@@ -154,8 +154,8 @@ href="https://www.reichelt.de/"target="_blank" rel="noopener"&gt;Reichelt&lt;/a&
 &lt;li&gt;Boards with &amp;lt; 4MB flash — Insufficient for firmware&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;Verification:&lt;/strong&gt; Check that your board has the &lt;strong&gt;ESP32-WROOM-32&lt;/strong&gt; module and &lt;strong&gt;4MB+ flash memory&lt;/strong&gt;.&lt;/p&gt;
-&lt;h3&gt;\ud83c\udf10 Relay Module Selection&lt;span class="hx:absolute hx:-mt-20" id="ud83cudf10-relay-module-selection"&gt;&lt;/span&gt;
-&lt;a href="#ud83cudf10-relay-module-selection" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Critical:&lt;/strong&gt; The relay module &lt;strong&gt;must&lt;/strong&gt; have &lt;strong&gt;optocoupler isolation&lt;/strong&gt; for safety and &lt;strong&gt;active-high logic&lt;/strong&gt; for compatibility with the firmware.&lt;/p&gt;
+&lt;h3&gt;🌐 Relay Module Selection&lt;span class="hx:absolute hx:-mt-20" id="-relay-module-selection"&gt;&lt;/span&gt;
+&lt;a href="#-relay-module-selection" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Critical:&lt;/strong&gt; The relay module &lt;strong&gt;must&lt;/strong&gt; have &lt;strong&gt;optocoupler isolation&lt;/strong&gt; for safety and &lt;strong&gt;active-high logic&lt;/strong&gt; for compatibility with the firmware.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;How to verify active-high logic:&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Connect relay VCC to 5V and GND to GND&lt;/li&gt;
@@ -175,9 +175,9 @@ href="https://www.reichelt.de/"target="_blank" rel="noopener"&gt;Reichelt&lt;/a&
 &lt;/ol&gt;
 &lt;/blockquote&gt;
 &lt;hr&gt;
-&lt;h2&gt;\ud83d\udd0c Step 2: Assemble Hardware&lt;span class="hx:absolute hx:-mt-20" id="ud83dudd0c-step-2-assemble-hardware"&gt;&lt;/span&gt;
-&lt;a href="#ud83dudd0c-step-2-assemble-hardware" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;\ud83d\udccc Required Tools&lt;span class="hx:absolute hx:-mt-20" id="ud83dudccc-required-tools"&gt;&lt;/span&gt;
-&lt;a href="#ud83dudccc-required-tools" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;h2&gt;🔌 Step 2: Assemble Hardware&lt;span class="hx:absolute hx:-mt-20" id="-step-2-assemble-hardware"&gt;&lt;/span&gt;
+&lt;a href="#-step-2-assemble-hardware" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;📌 Required Tools&lt;span class="hx:absolute hx:-mt-20" id="-required-tools"&gt;&lt;/span&gt;
+&lt;a href="#-required-tools" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
 &lt;th&gt;Tool&lt;/th&gt;
@@ -189,7 +189,7 @@ href="https://www.reichelt.de/"target="_blank" rel="noopener"&gt;Reichelt&lt;/a&
 &lt;tr&gt;
 &lt;td&gt;Soldering iron&lt;/td&gt;
 &lt;td&gt;Soldering components&lt;/td&gt;
-&lt;td&gt;320\u2013350\u00b0C for leaded solder&lt;/td&gt;
+&lt;td&gt;320–350°C for leaded solder&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Solder&lt;/td&gt;
@@ -264,7 +264,7 @@ data-copied-label="Copied!"
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Add pull-up resistors&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Insert 4.7k\u0019 resistors between 3.3V rail and GPIO32, GPIO33&lt;/li&gt;
+&lt;li&gt;Insert 4.7kΩ resistors between 3.3V rail and GPIO32, GPIO33&lt;/li&gt;
 &lt;li&gt;These are required for DS18B20 sensor communication&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -335,9 +335,9 @@ data-copied-label="Copied!"
 &lt;p&gt;&lt;strong&gt;ℹ Tip:&lt;/strong&gt; Use &lt;strong&gt;sleeve or heatshrink tubing&lt;/strong&gt; on wire connections for insulation and strain relief.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;hr&gt;
-&lt;h2&gt;\u26a1 Step 3: Connect to Pumps and Sensors&lt;span class="hx:absolute hx:-mt-20" id="u26a1-step-3-connect-to-pumps-and-sensors"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-step-3-connect-to-pumps-and-sensors" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;\u26a1 Relay Wiring (230V AC)&lt;span class="hx:absolute hx:-mt-20" id="u26a1-relay-wiring-230v-ac"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-relay-wiring-230v-ac" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;blockquote&gt;
+&lt;h2&gt;⚡ Step 3: Connect to Pumps and Sensors&lt;span class="hx:absolute hx:-mt-20" id="-step-3-connect-to-pumps-and-sensors"&gt;&lt;/span&gt;
+&lt;a href="#-step-3-connect-to-pumps-and-sensors" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;⚡ Relay Wiring (230V AC)&lt;span class="hx:absolute hx:-mt-20" id="-relay-wiring-230v-ac"&gt;&lt;/span&gt;
+&lt;a href="#-relay-wiring-230v-ac" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;⚠️ WARNING: Mains voltage! Disconnect power before wiring!&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Relay terminals:&lt;/strong&gt;&lt;/p&gt;
@@ -370,8 +370,8 @@ data-copied-label="Copied!"
 &lt;li&gt;Keep &lt;strong&gt;low-voltage wiring (ESP32, sensors) physically separate&lt;/strong&gt; from mains wiring&lt;/li&gt;
 &lt;li&gt;Use &lt;strong&gt;cable glands&lt;/strong&gt; for outdoor installations&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;\ud83c\udf21️ DS18B20 Sensor Installation&lt;span class="hx:absolute hx:-mt-20" id="ud83cudf21-ds18b20-sensor-installation"&gt;&lt;/span&gt;
-&lt;a href="#ud83cudf21-ds18b20-sensor-installation" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Pool Sensor:&lt;/strong&gt;&lt;/p&gt;
+&lt;h3&gt;🌡️ DS18B20 Sensor Installation&lt;span class="hx:absolute hx:-mt-20" id="-ds18b20-sensor-installation"&gt;&lt;/span&gt;
+&lt;a href="#-ds18b20-sensor-installation" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Pool Sensor:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Place sensor in pool water, &lt;strong&gt;away from direct sunlight&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;Use &lt;strong&gt;waterproof cable gland&lt;/strong&gt; for entry into enclosure&lt;/li&gt;
@@ -431,8 +431,8 @@ data-copied-label="Copied!"
 &lt;/div&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3&gt;\u26a1 Connect ESP32 to Computer&lt;span class="hx:absolute hx:-mt-20" id="u26a1-connect-esp32-to-computer"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-connect-esp32-to-computer" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;h3&gt;⚡ Connect ESP32 to Computer&lt;span class="hx:absolute hx:-mt-20" id="-connect-esp32-to-computer"&gt;&lt;/span&gt;
+&lt;a href="#-connect-esp32-to-computer" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Connect ESP32 to computer via &lt;strong&gt;USB cable&lt;/strong&gt; (data-capable, not charge-only)&lt;/p&gt;
 &lt;/li&gt;
@@ -448,8 +448,8 @@ data-copied-label="Copied!"
 &lt;p&gt;&lt;strong&gt;Note the serial port&lt;/strong&gt; for the next step&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3&gt;\u26a1 Build and Flash&lt;span class="hx:absolute hx:-mt-20" id="u26a1-build-and-flash"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-build-and-flash" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;Using PlatformIO CLI&lt;span class="hx:absolute hx:-mt-20" id="using-platformio-cli"&gt;&lt;/span&gt;
+&lt;h3&gt;⚡ Build and Flash&lt;span class="hx:absolute hx:-mt-20" id="-build-and-flash"&gt;&lt;/span&gt;
+&lt;a href="#-build-and-flash" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;Using PlatformIO CLI&lt;span class="hx:absolute hx:-mt-20" id="using-platformio-cli"&gt;&lt;/span&gt;
 &lt;a href="#using-platformio-cli" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
 &lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Navigate to project directory&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; pool-controller
@@ -747,9 +747,9 @@ for ready-to-use &lt;code&gt;.things&lt;/code&gt; and &lt;code&gt;.items&lt;/cod
 href="https://smart-swimmingpool.com/docs/pool-controller/faq/"&gt;FAQ&lt;/a&gt; and &lt;a
 href="https://smart-swimmingpool.com/docs/pool-controller/troubleshooting/"&gt;Troubleshooting Guide&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2&gt;\ud83c\udf00 Step 8: Final Installation&lt;span class="hx:absolute hx:-mt-20" id="ud83cudf00-step-8-final-installation"&gt;&lt;/span&gt;
-&lt;a href="#ud83cudf00-step-8-final-installation" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;\ud83c\udf00 Enclosure&lt;span class="hx:absolute hx:-mt-20" id="ud83cudf00-enclosure"&gt;&lt;/span&gt;
-&lt;a href="#ud83cudf00-enclosure" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;h2&gt;🌀 Step 8: Final Installation&lt;span class="hx:absolute hx:-mt-20" id="-step-8-final-installation"&gt;&lt;/span&gt;
+&lt;a href="#-step-8-final-installation" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;🌀 Enclosure&lt;span class="hx:absolute hx:-mt-20" id="-enclosure"&gt;&lt;/span&gt;
+&lt;a href="#-enclosure" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Choose enclosure&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -774,12 +774,12 @@ href="https://smart-swimmingpool.com/docs/pool-controller/troubleshooting/"&gt;T
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3&gt;\ud83c\udf00 Power Supply&lt;span class="hx:absolute hx:-mt-20" id="ud83cudf00-power-supply"&gt;&lt;/span&gt;
-&lt;a href="#ud83cudf00-power-supply" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;h3&gt;🌀 Power Supply&lt;span class="hx:absolute hx:-mt-20" id="-power-supply"&gt;&lt;/span&gt;
+&lt;a href="#-power-supply" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Choose power supply&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;USB phone charger&lt;/strong&gt; (5V/\u22651A) for indoor use&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;USB phone charger&lt;/strong&gt; (5V/≥1A) for indoor use&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Outdoor-rated power supply&lt;/strong&gt; for external installation&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;USB power bank&lt;/strong&gt; for temporary setup&lt;/li&gt;
 &lt;/ul&gt;
@@ -792,8 +792,8 @@ href="https://smart-swimmingpool.com/docs/pool-controller/troubleshooting/"&gt;T
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3&gt;\ud83c\udf00 Location&lt;span class="hx:absolute hx:-mt-20" id="ud83cudf00-location"&gt;&lt;/span&gt;
-&lt;a href="#ud83cudf00-location" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;h3&gt;🌀 Location&lt;span class="hx:absolute hx:-mt-20" id="-location"&gt;&lt;/span&gt;
+&lt;a href="#-location" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Indoor installation&lt;/strong&gt; (recommended)&lt;/p&gt;
 &lt;ul&gt;
@@ -813,10 +813,10 @@ href="https://smart-swimmingpool.com/docs/pool-controller/troubleshooting/"&gt;T
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;hr&gt;
-&lt;h2&gt;\ud83d\udc89 Next Steps&lt;span class="hx:absolute hx:-mt-20" id="ud83dudc89-next-steps"&gt;&lt;/span&gt;
-&lt;a href="#ud83dudc89-next-steps" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Now that your Pool Controller is up and running, explore these advanced features:&lt;/p&gt;
-&lt;h3&gt;\u26a1 Automation&lt;span class="hx:absolute hx:-mt-20" id="u26a1-automation"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-automation" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;h2&gt;💉 Next Steps&lt;span class="hx:absolute hx:-mt-20" id="-next-steps"&gt;&lt;/span&gt;
+&lt;a href="#-next-steps" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Now that your Pool Controller is up and running, explore these advanced features:&lt;/p&gt;
+&lt;h3&gt;⚡ Automation&lt;span class="hx:absolute hx:-mt-20" id="-automation"&gt;&lt;/span&gt;
+&lt;a href="#-automation" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Set up automation rules&lt;/strong&gt; in Home Assistant/openHAB&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Temperature-based control:&lt;/strong&gt; Turn on solar heating when pool is cold&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Time-based control:&lt;/strong&gt; Run circulation pump during off-peak hours&lt;/li&gt;
@@ -851,16 +851,16 @@ data-copied-label="Copied!"
 &lt;/button&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;h3&gt;\u26a1 Monitoring&lt;span class="hx:absolute hx:-mt-20" id="u26a1-monitoring"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-monitoring" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;h3&gt;⚡ Monitoring&lt;span class="hx:absolute hx:-mt-20" id="-monitoring"&gt;&lt;/span&gt;
+&lt;a href="#-monitoring" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Set up Grafana dashboard&lt;/strong&gt; for historical data&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Configure alerts&lt;/strong&gt; for abnormal conditions&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Monitor energy usage&lt;/strong&gt; of pumps&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;Grafana Dashboard:&lt;/strong&gt; &lt;a
 href="https://github.com/smart-swimmingpool/grafana-dashboard"target="_blank" rel="noopener"&gt;smart-swimmingpool/grafana-dashboard&lt;/a&gt;&lt;/p&gt;
-&lt;h3&gt;\u26a1 Advanced Configuration&lt;span class="hx:absolute hx:-mt-20" id="u26a1-advanced-configuration"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-advanced-configuration" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;h3&gt;⚡ Advanced Configuration&lt;span class="hx:absolute hx:-mt-20" id="-advanced-configuration"&gt;&lt;/span&gt;
+&lt;a href="#-advanced-configuration" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Adjust temperature thresholds&lt;/strong&gt; for your climate&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Configure circulation schedules&lt;/strong&gt; based on pool usage&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Set up multiple operation modes&lt;/strong&gt; (Auto, Manual, Boost, Timer)&lt;/li&gt;
@@ -869,9 +869,9 @@ href="https://github.com/smart-swimmingpool/grafana-dashboard"target="_blank" re
 &lt;p&gt;&lt;strong&gt;Complete Configuration Guide:&lt;/strong&gt; &lt;a
 href="https://smart-swimmingpool.com/docs/pool-controller/users-guide/"&gt;Users Guide&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2&gt;\ud83d\ude4f Tips for Success&lt;span class="hx:absolute hx:-mt-20" id="ud83dude4f-tips-for-success"&gt;&lt;/span&gt;
-&lt;a href="#ud83dude4f-tips-for-success" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;\u26a1 Best Practices&lt;span class="hx:absolute hx:-mt-20" id="u26a1-best-practices"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-best-practices" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;h2&gt;🙏 Tips for Success&lt;span class="hx:absolute hx:-mt-20" id="-tips-for-success"&gt;&lt;/span&gt;
+&lt;a href="#-tips-for-success" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;⚡ Best Practices&lt;span class="hx:absolute hx:-mt-20" id="-best-practices"&gt;&lt;/span&gt;
+&lt;a href="#-best-practices" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;Start with breadboard prototyping&lt;/strong&gt; before permanent installation&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Test each component individually&lt;/strong&gt; before connecting everything&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Use multimeter&lt;/strong&gt; to verify all connections before powering on&lt;/li&gt;
@@ -880,17 +880,17 @@ href="https://smart-swimmingpool.com/docs/pool-controller/users-guide/"&gt;Users
 &lt;li&gt;&lt;strong&gt;Test in AP mode first&lt;/strong&gt; before configuring WiFi/MQTT&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Monitor serial output&lt;/strong&gt; during initial setup&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3&gt;\u26a1 Common Pitfalls&lt;span class="hx:absolute hx:-mt-20" id="u26a1-common-pitfalls"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-common-pitfalls" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;h3&gt;⚡ Common Pitfalls&lt;span class="hx:absolute hx:-mt-20" id="-common-pitfalls"&gt;&lt;/span&gt;
+&lt;a href="#-common-pitfalls" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;Active-low vs active-high relays&lt;/strong&gt; — Verify your relay logic!&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Missing pull-up resistors&lt;/strong&gt; — DS18B20 sensors won&amp;rsquo;t work without them&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Insufficient power supply&lt;/strong&gt; — Use 5V/\u22651A for ESP32 + relay&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Insufficient power supply&lt;/strong&gt; — Use 5V/≥1A for ESP32 + relay&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;WiFi range issues&lt;/strong&gt; — Ensure good signal at installation location&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;MQTT broker not running&lt;/strong&gt; — Verify broker is accessible from ESP32&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Mains wiring errors&lt;/strong&gt; — Always use RCD and verify with electrician&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3&gt;\u26a1 Maintenance&lt;span class="hx:absolute hx:-mt-20" id="u26a1-maintenance"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-maintenance" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;h3&gt;⚡ Maintenance&lt;span class="hx:absolute hx:-mt-20" id="-maintenance"&gt;&lt;/span&gt;
+&lt;a href="#-maintenance" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;Regularly check connections&lt;/strong&gt; for corrosion or loose wires&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Clean DS18B20 sensors&lt;/strong&gt; periodically (especially pool sensor)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Update firmware&lt;/strong&gt; when new versions are released&lt;/li&gt;
@@ -898,8 +898,8 @@ href="https://smart-swimmingpool.com/docs/pool-controller/users-guide/"&gt;Users
 &lt;li&gt;&lt;strong&gt;Backup configuration&lt;/strong&gt; before making changes&lt;/li&gt;
 &lt;/ol&gt;
 &lt;hr&gt;
-&lt;h2&gt;\ud83d\udce2 Need Help?&lt;span class="hx:absolute hx:-mt-20" id="ud83dudce2-need-help"&gt;&lt;/span&gt;
-&lt;a href="#ud83dudce2-need-help" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;If you encounter issues:&lt;/p&gt;
+&lt;h2&gt;📢 Need Help?&lt;span class="hx:absolute hx:-mt-20" id="-need-help"&gt;&lt;/span&gt;
+&lt;a href="#-need-help" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;If you encounter issues:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;Check this guide again&lt;/strong&gt; — Most issues are covered above&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Read the &lt;a
@@ -918,9 +918,9 @@ href="https://github.com/smart-swimmingpool/pool-controller/issues/new"target="_
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;hr&gt;
-&lt;h2&gt;\ud83d\udcbb Additional Resources&lt;span class="hx:absolute hx:-mt-20" id="ud83dudcbb-additional-resources"&gt;&lt;/span&gt;
-&lt;a href="#ud83dudcbb-additional-resources" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;\u26a1 Documentation&lt;span class="hx:absolute hx:-mt-20" id="u26a1-documentation"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-documentation" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;h2&gt;💻 Additional Resources&lt;span class="hx:absolute hx:-mt-20" id="-additional-resources"&gt;&lt;/span&gt;
+&lt;a href="#-additional-resources" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;⚡ Documentation&lt;span class="hx:absolute hx:-mt-20" id="-documentation"&gt;&lt;/span&gt;
+&lt;a href="#-documentation" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a
 href="https://smart-swimmingpool.com/docs/pool-controller/hardware-guide/"&gt;Hardware Guide&lt;/a&gt; — Detailed assembly instructions&lt;/li&gt;
 &lt;li&gt;&lt;a
@@ -934,8 +934,8 @@ href="https://smart-swimmingpool.com/docs/pool-controller/ota-updates/"&gt;OTA U
 &lt;li&gt;&lt;a
 href="https://smart-swimmingpool.com/docs/pool-controller/software-guide/"&gt;Software Guide&lt;/a&gt; — Development and build process&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;\u26a1 External Resources&lt;span class="hx:absolute hx:-mt-20" id="u26a1-external-resources"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-external-resources" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;h3&gt;⚡ External Resources&lt;span class="hx:absolute hx:-mt-20" id="-external-resources"&gt;&lt;/span&gt;
+&lt;a href="#-external-resources" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a
 href="https://docs.platformio.org/"target="_blank" rel="noopener"&gt;PlatformIO Documentation&lt;/a&gt; — Build system&lt;/li&gt;
 &lt;li&gt;&lt;a
@@ -949,8 +949,8 @@ href="https://www.home-assistant.io/integrations/mqtt/#mqtt-discovery"target="_b
 &lt;li&gt;&lt;a
 href="https://www.electricalsafetyfirst.org.uk/"target="_blank" rel="noopener"&gt;Electrical Safety&lt;/a&gt; — General safety guidelines&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;\u26a1 Community&lt;span class="hx:absolute hx:-mt-20" id="u26a1-community"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-community" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;h3&gt;⚡ Community&lt;span class="hx:absolute hx:-mt-20" id="-community"&gt;&lt;/span&gt;
+&lt;a href="#-community" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a
 href="https://github.com/smart-swimmingpool/smart-swimmingpool.github.io/discussions"target="_blank" rel="noopener"&gt;GitHub Discussions&lt;/a&gt; — Ask questions, share ideas&lt;/li&gt;
 &lt;li&gt;&lt;a
@@ -961,7 +961,7 @@ href="https://www.reddit.com/r/homeassistant/"target="_blank" rel="noopener"&gt;
 &lt;hr&gt;
 &lt;p align="center"&gt;
 ✅ Congratulations! You now have a smart swimming pool! ✅\n \n Made with ❤️ by the Smart Swimming Pool community
-&lt;/p&gt;</description></item><item><title>Frequently Asked Questions (FAQ)</title><link>https://smart-swimmingpool.com/docs/pool-controller/faq/</link><pubDate>Tue, 29 Sep 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/pool-controller/faq/</guid><description>
+&lt;/p&gt;</description></item><item><title>Frequently Asked Questions (FAQ)</title><link>https://smart-swimmingpool.com/docs/pool-controller/faq/</link><pubDate>Fri, 02 Oct 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/pool-controller/faq/</guid><description>
 &lt;p&gt;This FAQ covers &lt;strong&gt;common issues&lt;/strong&gt; and their solutions for the &lt;strong&gt;Smart Swimming Pool Controller&lt;/strong&gt;.
 If your problem isn&amp;rsquo;t listed here, check the
 &lt;a
@@ -1233,7 +1233,7 @@ href="https://github.com/smart-swimmingpool/pool-controller/issues/new"target="_
 &lt;/ol&gt;
 &lt;hr&gt;
 &lt;h2&gt;📄 License&lt;span class="hx:absolute hx:-mt-20" id="-license"&gt;&lt;/span&gt;
-&lt;a href="#-license" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This FAQ is part of the &lt;strong&gt;Smart Swimming Pool&lt;/strong&gt; project, licensed under the &lt;strong&gt;MIT License&lt;/strong&gt;.&lt;/p&gt;</description></item><item><title>Temperature-Based Circulation Time</title><link>https://smart-swimmingpool.com/docs/pool-controller/temperature-based-circulation/</link><pubDate>Tue, 29 Sep 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/pool-controller/temperature-based-circulation/</guid><description>
+&lt;a href="#-license" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This FAQ is part of the &lt;strong&gt;Smart Swimming Pool&lt;/strong&gt; project, licensed under the &lt;strong&gt;MIT License&lt;/strong&gt;.&lt;/p&gt;</description></item><item><title>Temperature-Based Circulation Time</title><link>https://smart-swimmingpool.com/docs/pool-controller/temperature-based-circulation/</link><pubDate>Fri, 02 Oct 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/pool-controller/temperature-based-circulation/</guid><description>
 &lt;h1&gt;Temperature-Based Circulation Time&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;Optimize pool circulation for better water quality with minimal power consumption.&lt;/strong&gt;&lt;/p&gt;
 &lt;h2&gt;1. Motivation&lt;span class="hx:absolute hx:-mt-20" id="1-motivation"&gt;&lt;/span&gt;
 &lt;a href="#1-motivation" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The pool pump is the largest power consumer in a swimming pool. At the same time, it determines water quality. The required circulation volume strongly depends on water temperature:&lt;/p&gt;
@@ -1793,7 +1793,7 @@ data-copied-label="Copied!"
 &lt;li&gt;&lt;strong&gt;Cold reduction&lt;/strong&gt;: Optional &lt;code&gt;tempCircMinRuntime&lt;/code&gt; below a lower threshold&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Trend-based&lt;/strong&gt;: Factor in whether temperature is rising or falling&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Seasonal calendar&lt;/strong&gt;: Automatically adjust base parameters for summer/winter&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title/><link>https://smart-swimmingpool.com/docs/pool-controller/olimex-esp32-c6-evb/</link><pubDate>Tue, 29 Sep 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/pool-controller/olimex-esp32-c6-evb/</guid><description>
+&lt;/ul&gt;</description></item><item><title/><link>https://smart-swimmingpool.com/docs/pool-controller/olimex-esp32-c6-evb/</link><pubDate>Fri, 02 Oct 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/pool-controller/olimex-esp32-c6-evb/</guid><description>
 &lt;h1&gt;Olimex ESP32-C6-EVB Variant&lt;/h1&gt;&lt;h2&gt;Hardware&lt;span class="hx:absolute hx:-mt-20" id="hardware"&gt;&lt;/span&gt;
 &lt;a href="#hardware" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Board: Olimex ESP32-C6-EVB&lt;/li&gt;
@@ -1932,7 +1932,7 @@ href="https://github.com/OLIMEX/ESP32-C6-EVB/blob/main/SOFTWARE/ARDUINO/esp32-c6
 &lt;li&gt;Verify long press returns to overview.&lt;/li&gt;
 &lt;li&gt;Open QR page and scan &lt;code&gt;http://pool-controller.local&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Only after UI validation, connect real relay loads and opto inputs.&lt;/li&gt;
-&lt;/ol&gt;</description></item><item><title/><link>https://smart-swimmingpool.com/docs/pool-controller/security-fixes-v3.2.1/</link><pubDate>Tue, 29 Sep 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/pool-controller/security-fixes-v3.2.1/</guid><description>
+&lt;/ol&gt;</description></item><item><title/><link>https://smart-swimmingpool.com/docs/pool-controller/security-fixes-v3.2.1/</link><pubDate>Fri, 02 Oct 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/pool-controller/security-fixes-v3.2.1/</guid><description>
 &lt;h1&gt;Security Fixes v3.2.1&lt;/h1&gt;&lt;p&gt;This document provides comprehensive documentation of all security vulnerabilities and memory leaks identified and
 fixed in Pool Controller v3.2.1. All changes have been validated through CI/CD pipeline and address critical, high, and
 medium priority issues.&lt;/p&gt;
@@ -2839,15 +2839,12 @@ href="https://github.com/smart-swimmingpool/pool-controller/security"target="_bl
 Security&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;General Issues&lt;/strong&gt;: Open an issue at &lt;a
 href="https://github.com/smart-swimmingpool/pool-controller/issues"target="_blank" rel="noopener"&gt;GitHub Issues&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Discussions&lt;/strong&gt;: Join the discussion at &lt;a
-href="https://github.com/smart-swimmingpool/smart-swimmingpool.github.io/discussions"target="_blank" rel="noopener"&gt;GitHub
-Discussions&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;⚠️ DISCLAIMER&lt;/strong&gt;: While these fixes address identified vulnerabilities, no system can be 100% secure. Users are
 responsible for their own security configurations and should follow best practices for IoT device security.&lt;/p&gt;
-&lt;/blockquote&gt;</description></item><item><title/><link>https://smart-swimmingpool.com/docs/pool-controller/security-references/</link><pubDate>Tue, 29 Sep 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/pool-controller/security-references/</guid><description>
+&lt;/blockquote&gt;</description></item><item><title/><link>https://smart-swimmingpool.com/docs/pool-controller/security-references/</link><pubDate>Fri, 02 Oct 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/pool-controller/security-references/</guid><description>
 &lt;h1&gt;Security References &amp;amp; Best Practices&lt;/h1&gt;&lt;p&gt;This document contains security references, best practices, and implementation
 guidelines for the Pool Controller project. These references were compiled during the
 comprehensive IoT security analysis performed on 2025-01-15.&lt;/p&gt;
@@ -3228,7 +3225,7 @@ href="https://github.com/smart-swimmingpool/pool-controller/blob/main/.opencode/
 &lt;strong&gt;🔍 Analysis Performed By&lt;/strong&gt;: Vibe Code - IoT Security Expert Mode
 &lt;strong&gt;📝 Related PR&lt;/strong&gt;:
 &lt;a
-href="https://github.com/smart-swimmingpool/pool-controller/pull/112"target="_blank" rel="noopener"&gt;#112 - IoT Security &amp;amp; Memory Optimization Analysis&lt;/a&gt;&lt;/p&gt;</description></item><item><title/><link>https://smart-swimmingpool.com/docs/pool-controller/tasmota-ota-review/</link><pubDate>Tue, 29 Sep 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/pool-controller/tasmota-ota-review/</guid><description>
+href="https://github.com/smart-swimmingpool/pool-controller/pull/112"target="_blank" rel="noopener"&gt;#112 - IoT Security &amp;amp; Memory Optimization Analysis&lt;/a&gt;&lt;/p&gt;</description></item><item><title/><link>https://smart-swimmingpool.com/docs/pool-controller/tasmota-ota-review/</link><pubDate>Fri, 02 Oct 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/pool-controller/tasmota-ota-review/</guid><description>
 &lt;h1&gt;Tasmota OTA Update Verification Review&lt;/h1&gt;&lt;p&gt;This document provides a comprehensive analysis of Tasmota&amp;rsquo;s OTA (Over-The-Air) update verification approach and
 evaluates which aspects could be beneficial to adapt for the Pool Controller project.&lt;/p&gt;
 &lt;h2&gt;Executive Summary&lt;span class="hx:absolute hx:-mt-20" id="executive-summary"&gt;&lt;/span&gt;
@@ -5906,7 +5903,7 @@ href="https://www.home-assistant.io/"target="_blank" rel="noopener"&gt;Home Assi
 &lt;li&gt;&lt;strong&gt;Beispiel-Dashboard:&lt;/strong&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a
-href="https://github.com/smart-swimmingpool/pool-controller/blob/main/docs/home-assistant-dashboard-pool.yaml"target="_blank" rel="noopener"&gt;Lovelace Dashboard für Pool Controller&lt;/a&gt;&lt;/li&gt;
+href="https://github.com/smart-swimmingpool/pool-controller/blob/main/docs/home-assistant-integration/dashboard.yaml"target="_blank" rel="noopener"&gt;Lovelace Dashboard für Pool Controller&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -10777,7 +10774,7 @@ data-copied-label="Copied!"
 &lt;p&gt;is available in:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a
-href="home-assistant-dashboard-pool.yaml"&gt;&lt;code&gt;docs/home-assistant-dashboard-pool.yaml&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+href="https://github.com/smart-swimmingpool/pool-controller/blob/main/docs/home-assistant/dashboard.yaml"target="_blank" rel="noopener"&gt;&lt;code&gt;docs/home-assistant/dashboard.yaml&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;Migration from Homie (Pre-v3.3.0)&lt;span class="hx:absolute hx:-mt-20" id="migration-from-homie-pre-v330"&gt;&lt;/span&gt;
 &lt;a href="#migration-from-homie-pre-v330" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;If you&amp;rsquo;re upgrading from an older firmware that used the Homie protocol:&lt;/p&gt;

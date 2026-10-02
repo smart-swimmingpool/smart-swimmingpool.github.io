@@ -1,11 +1,11 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Water Quality Monitor</title><link>https://smart-swimmingpool.com/docs/water-quality-monitor/</link><description>Recent content in Water Quality Monitor on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><atom:link href="https://smart-swimmingpool.com/docs/water-quality-monitor/index.xml" rel="self" type="application/rss+xml"/><item><title>Hardware Guide</title><link>https://smart-swimmingpool.com/docs/water-quality-monitor/hardware-guide/</link><pubDate>Sat, 04 Jul 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/water-quality-monitor/hardware-guide/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Water Quality Monitor</title><link>https://smart-swimmingpool.com/docs/water-quality-monitor/</link><description>Recent content in Water Quality Monitor on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><atom:link href="https://smart-swimmingpool.com/docs/water-quality-monitor/index.xml" rel="self" type="application/rss+xml"/><item><title>Hardware Guide</title><link>https://smart-swimmingpool.com/docs/water-quality-monitor/hardware-guide/</link><pubDate>Thu, 01 Oct 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/water-quality-monitor/hardware-guide/</guid><description>
 &lt;h1&gt;Hardware Guide | Water Quality Monitor&lt;/h1&gt;&lt;p&gt;This guide provides comprehensive information for building the Water Quality Monitor hardware, from selecting parts to assembling the complete device.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;\u26a0\ufe0f Status: Under Development&lt;/strong&gt; \u2014 This module is in the planning phase. Hardware specifications may change as development progresses.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;⚠️ Status: Under Development&lt;/strong&gt; — This module is in the planning phase. Hardware specifications may change as development progresses.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;hr&gt;
-&lt;h2&gt;\u2728 Overview&lt;span class="hx:absolute hx:-mt-20" id="u2728-overview"&gt;&lt;/span&gt;
-&lt;a href="#u2728-overview" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The Water Quality Monitor is designed to be a &lt;strong&gt;modular, extensible&lt;/strong&gt; device for monitoring swimming pool water chemistry. The current design focuses on &lt;strong&gt;pH and chlorine&lt;/strong&gt; monitoring, with the ability to add additional sensors in the future.&lt;/p&gt;
+&lt;h2&gt;✨ Overview&lt;span class="hx:absolute hx:-mt-20" id="-overview"&gt;&lt;/span&gt;
+&lt;a href="#-overview" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The Water Quality Monitor is designed to be a &lt;strong&gt;modular, extensible&lt;/strong&gt; device for monitoring swimming pool water chemistry. The current design focuses on &lt;strong&gt;pH and chlorine&lt;/strong&gt; monitoring, with the ability to add additional sensors in the future.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Design Goals:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Accuracy:&lt;/strong&gt; Reliable measurements comparable to commercial test kits&lt;/li&gt;
@@ -15,9 +15,9 @@
 &lt;li&gt;&lt;strong&gt;Integration:&lt;/strong&gt; Seamless integration with Smart Swimming Pool ecosystem&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;h2&gt;\u26a1 Parts List (BOM)&lt;span class="hx:absolute hx:-mt-20" id="u26a1-parts-list-bom"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-parts-list-bom" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;\u26a1 Core Components&lt;span class="hx:absolute hx:-mt-20" id="u26a1-core-components"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-core-components" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;h2&gt;⚡ Parts List (BOM)&lt;span class="hx:absolute hx:-mt-20" id="-parts-list-bom"&gt;&lt;/span&gt;
+&lt;a href="#-parts-list-bom" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;⚡ Core Components&lt;span class="hx:absolute hx:-mt-20" id="-core-components"&gt;&lt;/span&gt;
+&lt;a href="#-core-components" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
 &lt;th&gt;#&lt;/th&gt;
@@ -33,7 +33,7 @@
 &lt;td&gt;1&lt;/td&gt;
 &lt;td&gt;ESP8266 Development Board&lt;/td&gt;
 &lt;td style="text-align: center"&gt;1&lt;/td&gt;
-&lt;td style="text-align: center"&gt;5\u201310\u20ac&lt;/td&gt;
+&lt;td style="text-align: center"&gt;5–10€&lt;/td&gt;
 &lt;td&gt;WeMos D1 Mini or NodeMCU&lt;/td&gt;
 &lt;td&gt;&lt;a
 href="https://amzn.to/2DPf0LJ"target="_blank" rel="noopener"&gt;Amazon&lt;/a&gt;, &lt;a
@@ -43,7 +43,7 @@ href="https://www.aliexpress.com/"target="_blank" rel="noopener"&gt;AliExpress&l
 &lt;td&gt;2&lt;/td&gt;
 &lt;td&gt;pH Sensor with BNC Probe&lt;/td&gt;
 &lt;td style="text-align: center"&gt;1&lt;/td&gt;
-&lt;td style="text-align: center"&gt;20\u201350\u20ac&lt;/td&gt;
+&lt;td style="text-align: center"&gt;20–50€&lt;/td&gt;
 &lt;td&gt;0-14 pH range, BNC connector&lt;/td&gt;
 &lt;td&gt;&lt;a
 href="https://14core.com/"target="_blank" rel="noopener"&gt;14core&lt;/a&gt;, &lt;a
@@ -53,7 +53,7 @@ href="https://www.aliexpress.com/"target="_blank" rel="noopener"&gt;AliExpress&l
 &lt;td&gt;3&lt;/td&gt;
 &lt;td&gt;pH Electrode Storage Solution&lt;/td&gt;
 &lt;td style="text-align: center"&gt;1&lt;/td&gt;
-&lt;td style="text-align: center"&gt;5\u201310\u20ac&lt;/td&gt;
+&lt;td style="text-align: center"&gt;5–10€&lt;/td&gt;
 &lt;td&gt;For electrode storage&lt;/td&gt;
 &lt;td&gt;&lt;a
 href="https://www.amazon.de/s?k=pH&amp;#43;storage&amp;#43;solution"target="_blank" rel="noopener"&gt;Amazon&lt;/a&gt;&lt;/td&gt;
@@ -62,15 +62,15 @@ href="https://www.amazon.de/s?k=pH&amp;#43;storage&amp;#43;solution"target="_bla
 &lt;td&gt;4&lt;/td&gt;
 &lt;td&gt;pH Calibration Solutions&lt;/td&gt;
 &lt;td style="text-align: center"&gt;2&lt;/td&gt;
-&lt;td style="text-align: center"&gt;10\u201320\u20ac&lt;/td&gt;
+&lt;td style="text-align: center"&gt;10–20€&lt;/td&gt;
 &lt;td&gt;pH 4.0 and pH 7.0&lt;/td&gt;
 &lt;td&gt;&lt;a
 href="https://www.amazon.de/s?k=pH&amp;#43;calibration&amp;#43;solution"target="_blank" rel="noopener"&gt;Amazon&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3&gt;\u26a1 Optional Components&lt;span class="hx:absolute hx:-mt-20" id="u26a1-optional-components"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-optional-components" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;h3&gt;⚡ Optional Components&lt;span class="hx:absolute hx:-mt-20" id="-optional-components"&gt;&lt;/span&gt;
+&lt;a href="#-optional-components" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
 &lt;th&gt;#&lt;/th&gt;
@@ -86,7 +86,7 @@ href="https://www.amazon.de/s?k=pH&amp;#43;calibration&amp;#43;solution"target="
 &lt;td&gt;5&lt;/td&gt;
 &lt;td&gt;Chlorine Sensor&lt;/td&gt;
 &lt;td style="text-align: center"&gt;1&lt;/td&gt;
-&lt;td style="text-align: center"&gt;30\u201380\u20ac&lt;/td&gt;
+&lt;td style="text-align: center"&gt;30–80€&lt;/td&gt;
 &lt;td&gt;For chlorine monitoring&lt;/td&gt;
 &lt;td&gt;Various suppliers&lt;/td&gt;
 &lt;/tr&gt;
@@ -94,7 +94,7 @@ href="https://www.amazon.de/s?k=pH&amp;#43;calibration&amp;#43;solution"target="
 &lt;td&gt;6&lt;/td&gt;
 &lt;td&gt;Temperature Sensor&lt;/td&gt;
 &lt;td style="text-align: center"&gt;1&lt;/td&gt;
-&lt;td style="text-align: center"&gt;5\u201310\u20ac&lt;/td&gt;
+&lt;td style="text-align: center"&gt;5–10€&lt;/td&gt;
 &lt;td&gt;DS18B20 waterproof&lt;/td&gt;
 &lt;td&gt;&lt;a
 href="https://www.amazon.de/s?k=DS18B20&amp;#43;wasserfest"target="_blank" rel="noopener"&gt;Amazon&lt;/a&gt;&lt;/td&gt;
@@ -103,7 +103,7 @@ href="https://www.amazon.de/s?k=DS18B20&amp;#43;wasserfest"target="_blank" rel="
 &lt;td&gt;7&lt;/td&gt;
 &lt;td&gt;External ADC Module&lt;/td&gt;
 &lt;td style="text-align: center"&gt;1&lt;/td&gt;
-&lt;td style="text-align: center"&gt;2\u20135\u20ac&lt;/td&gt;
+&lt;td style="text-align: center"&gt;2–5€&lt;/td&gt;
 &lt;td&gt;ADS1115 for better precision&lt;/td&gt;
 &lt;td&gt;&lt;a
 href="https://www.aliexpress.com/"target="_blank" rel="noopener"&gt;AliExpress&lt;/a&gt;&lt;/td&gt;
@@ -112,7 +112,7 @@ href="https://www.aliexpress.com/"target="_blank" rel="noopener"&gt;AliExpress&l
 &lt;td&gt;8&lt;/td&gt;
 &lt;td&gt;OLED Display&lt;/td&gt;
 &lt;td style="text-align: center"&gt;1&lt;/td&gt;
-&lt;td style="text-align: center"&gt;5\u201310\u20ac&lt;/td&gt;
+&lt;td style="text-align: center"&gt;5–10€&lt;/td&gt;
 &lt;td&gt;SSD1306 or SH1106&lt;/td&gt;
 &lt;td&gt;&lt;a
 href="https://www.aliexpress.com/"target="_blank" rel="noopener"&gt;AliExpress&lt;/a&gt;&lt;/td&gt;
@@ -121,15 +121,15 @@ href="https://www.aliexpress.com/"target="_blank" rel="noopener"&gt;AliExpress&l
 &lt;td&gt;9&lt;/td&gt;
 &lt;td&gt;I2C Multiplexer&lt;/td&gt;
 &lt;td style="text-align: center"&gt;1&lt;/td&gt;
-&lt;td style="text-align: center"&gt;2\u20135\u20ac&lt;/td&gt;
+&lt;td style="text-align: center"&gt;2–5€&lt;/td&gt;
 &lt;td&gt;For multiple I2C sensors&lt;/td&gt;
 &lt;td&gt;&lt;a
 href="https://www.aliexpress.com/"target="_blank" rel="noopener"&gt;AliExpress&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3&gt;\u26a1 Enclosure &amp;amp; Installation&lt;span class="hx:absolute hx:-mt-20" id="u26a1-enclosure--installation"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-enclosure--installation" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;h3&gt;⚡ Enclosure &amp;amp; Installation&lt;span class="hx:absolute hx:-mt-20" id="-enclosure--installation"&gt;&lt;/span&gt;
+&lt;a href="#-enclosure--installation" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
 &lt;th&gt;#&lt;/th&gt;
@@ -145,16 +145,16 @@ href="https://www.aliexpress.com/"target="_blank" rel="noopener"&gt;AliExpress&l
 &lt;td&gt;10&lt;/td&gt;
 &lt;td&gt;Waterproof Enclosure&lt;/td&gt;
 &lt;td style="text-align: center"&gt;1&lt;/td&gt;
-&lt;td style="text-align: center"&gt;10\u201320\u20ac&lt;/td&gt;
+&lt;td style="text-align: center"&gt;10–20€&lt;/td&gt;
 &lt;td&gt;IP65+ rating&lt;/td&gt;
 &lt;td&gt;&lt;a
-href="https://www.amazon.de/s?k=IP65&amp;#43;Geh%5cu00e4use"target="_blank" rel="noopener"&gt;Amazon&lt;/a&gt;&lt;/td&gt;
+href="https://www.amazon.de/s?k=IP65&amp;#43;Geh%c3%a4use"target="_blank" rel="noopener"&gt;Amazon&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;11&lt;/td&gt;
 &lt;td&gt;Cable Glands&lt;/td&gt;
-&lt;td style="text-align: center"&gt;2\u20134&lt;/td&gt;
-&lt;td style="text-align: center"&gt;2\u20135\u20ac&lt;/td&gt;
+&lt;td style="text-align: center"&gt;2–4&lt;/td&gt;
+&lt;td style="text-align: center"&gt;2–5€&lt;/td&gt;
 &lt;td&gt;For waterproof cable entry&lt;/td&gt;
 &lt;td&gt;&lt;a
 href="https://www.reichelt.de/"target="_blank" rel="noopener"&gt;Reichelt&lt;/a&gt;&lt;/td&gt;
@@ -163,7 +163,7 @@ href="https://www.reichelt.de/"target="_blank" rel="noopener"&gt;Reichelt&lt;/a&
 &lt;td&gt;12&lt;/td&gt;
 &lt;td&gt;Sensor Mount&lt;/td&gt;
 &lt;td style="text-align: center"&gt;1&lt;/td&gt;
-&lt;td style="text-align: center"&gt;5\u201310\u20ac&lt;/td&gt;
+&lt;td style="text-align: center"&gt;5–10€&lt;/td&gt;
 &lt;td&gt;For pH/chlorine probe mounting&lt;/td&gt;
 &lt;td&gt;&lt;a
 href="https://www.amazon.de/"target="_blank" rel="noopener"&gt;Amazon&lt;/a&gt;&lt;/td&gt;
@@ -172,15 +172,15 @@ href="https://www.amazon.de/"target="_blank" rel="noopener"&gt;Amazon&lt;/a&gt;&
 &lt;td&gt;13&lt;/td&gt;
 &lt;td&gt;Desiccant Packs&lt;/td&gt;
 &lt;td style="text-align: center"&gt;2&lt;/td&gt;
-&lt;td style="text-align: center"&gt;2\u20135\u20ac&lt;/td&gt;
+&lt;td style="text-align: center"&gt;2–5€&lt;/td&gt;
 &lt;td&gt;Prevent condensation&lt;/td&gt;
 &lt;td&gt;&lt;a
 href="https://www.amazon.de/"target="_blank" rel="noopener"&gt;Amazon&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3&gt;\u26a1 Tools Required&lt;span class="hx:absolute hx:-mt-20" id="u26a1-tools-required"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-tools-required" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;h3&gt;⚡ Tools Required&lt;span class="hx:absolute hx:-mt-20" id="-tools-required"&gt;&lt;/span&gt;
+&lt;a href="#-tools-required" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
 &lt;th&gt;Tool&lt;/th&gt;
@@ -192,7 +192,7 @@ href="https://www.amazon.de/"target="_blank" rel="noopener"&gt;Amazon&lt;/a&gt;&
 &lt;tr&gt;
 &lt;td&gt;Soldering iron&lt;/td&gt;
 &lt;td&gt;Soldering components&lt;/td&gt;
-&lt;td&gt;320\u2013350\u00b0C recommended&lt;/td&gt;
+&lt;td&gt;320–350°C recommended&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Solder&lt;/td&gt;
@@ -231,8 +231,8 @@ href="https://www.amazon.de/"target="_blank" rel="noopener"&gt;Amazon&lt;/a&gt;&
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3&gt;\u26a1 Total Cost Estimate&lt;span class="hx:absolute hx:-mt-20" id="u26a1-total-cost-estimate"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-total-cost-estimate" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;h3&gt;⚡ Total Cost Estimate&lt;span class="hx:absolute hx:-mt-20" id="-total-cost-estimate"&gt;&lt;/span&gt;
+&lt;a href="#-total-cost-estimate" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
 &lt;th&gt;Configuration&lt;/th&gt;
@@ -243,38 +243,38 @@ href="https://www.amazon.de/"target="_blank" rel="noopener"&gt;Amazon&lt;/a&gt;&
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;strong&gt;Basic (pH only)&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;40\u201380\u20ac&lt;/td&gt;
+&lt;td&gt;40–80€&lt;/td&gt;
 &lt;td&gt;ESP8266 + pH sensor + enclosure&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;strong&gt;Standard (pH + temp)&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;50\u2013100\u20ac&lt;/td&gt;
+&lt;td&gt;50–100€&lt;/td&gt;
 &lt;td&gt;Adds temperature sensor&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;strong&gt;Advanced (pH + chlorine + temp)&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;100\u2013200\u20ac&lt;/td&gt;
+&lt;td&gt;100–200€&lt;/td&gt;
 &lt;td&gt;Adds chlorine sensor and ADC&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;strong&gt;Complete (all sensors + display)&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;120\u2013250\u20ac&lt;/td&gt;
+&lt;td&gt;120–250€&lt;/td&gt;
 &lt;td&gt;All sensors, display, premium enclosure&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;hr&gt;
-&lt;h2&gt;\u26a1 Sensor Selection Guide&lt;span class="hx:absolute hx:-mt-20" id="u26a1-sensor-selection-guide"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-sensor-selection-guide" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;\u26a1 pH Sensors&lt;span class="hx:absolute hx:-mt-20" id="u26a1-ph-sensors"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-ph-sensors" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;We recommend the following pH sensors based on testing and community feedback:&lt;/p&gt;
-&lt;h4&gt;\u2705 Recommended: 14core pH Sensor with BNC Probe&lt;span class="hx:absolute hx:-mt-20" id="u2705-recommended-14core-ph-sensor-with-bnc-probe"&gt;&lt;/span&gt;
-&lt;a href="#u2705-recommended-14core-ph-sensor-with-bnc-probe" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;Specifications:&lt;/strong&gt;&lt;/p&gt;
+&lt;h2&gt;⚡ Sensor Selection Guide&lt;span class="hx:absolute hx:-mt-20" id="-sensor-selection-guide"&gt;&lt;/span&gt;
+&lt;a href="#-sensor-selection-guide" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;⚡ pH Sensors&lt;span class="hx:absolute hx:-mt-20" id="-ph-sensors"&gt;&lt;/span&gt;
+&lt;a href="#-ph-sensors" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;We recommend the following pH sensors based on testing and community feedback:&lt;/p&gt;
+&lt;h4&gt;✅ Recommended: 14core pH Sensor with BNC Probe&lt;span class="hx:absolute hx:-mt-20" id="-recommended-14core-ph-sensor-with-bnc-probe"&gt;&lt;/span&gt;
+&lt;a href="#-recommended-14core-ph-sensor-with-bnc-probe" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;Specifications:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Range:&lt;/strong&gt; 0-14 pH&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Resolution:&lt;/strong&gt; 0.01 pH&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Accuracy:&lt;/strong&gt; \u00b10.1 pH&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Accuracy:&lt;/strong&gt; ±0.1 pH&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Response Time:&lt;/strong&gt; &amp;lt; 1 minute&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Temperature Range:&lt;/strong&gt; 0-60\u00b0C&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Temperature Range:&lt;/strong&gt; 0-60°C&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Output:&lt;/strong&gt; Analog voltage (0-3.3V or 0-5V)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Connector:&lt;/strong&gt; BNC&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Probe Type:&lt;/strong&gt; Glass electrode with reference&lt;/li&gt;
@@ -301,12 +301,12 @@ href="https://github.com/smart-swimmingpool/water-quality-monitor/blob/master/do
 &lt;li&gt;&lt;a
 href="https://14core.com/wiring-the-ph-power-of-hydrogen-ion-concentration-sensor-with-bnc-electrode-probe/"target="_blank" rel="noopener"&gt;Wiring Guide&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4&gt;\u26a1 Alternative: Atlas Scientific pH Sensor&lt;span class="hx:absolute hx:-mt-20" id="u26a1-alternative-atlas-scientific-ph-sensor"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-alternative-atlas-scientific-ph-sensor" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;Specifications:&lt;/strong&gt;&lt;/p&gt;
+&lt;h4&gt;⚡ Alternative: Atlas Scientific pH Sensor&lt;span class="hx:absolute hx:-mt-20" id="-alternative-atlas-scientific-ph-sensor"&gt;&lt;/span&gt;
+&lt;a href="#-alternative-atlas-scientific-ph-sensor" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;Specifications:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Range:&lt;/strong&gt; 0-14 pH&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Resolution:&lt;/strong&gt; 0.001 pH&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Accuracy:&lt;/strong&gt; \u00b10.01 pH&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Accuracy:&lt;/strong&gt; ±0.01 pH&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Interface:&lt;/strong&gt; I2C or UART&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Probe Type:&lt;/strong&gt; Industrial glass electrode&lt;/li&gt;
 &lt;/ul&gt;
@@ -329,12 +329,12 @@ href="https://www.atlas-scientific.com/product_pages/sensors/ph.html"target="_bl
 &lt;li&gt;&lt;a
 href="https://www.atlas-scientific.com/product_pages/circuits/ezopmp.html"target="_blank" rel="noopener"&gt;I2C pH Circuit&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4&gt;\u26a1 Alternative: DFRobot pH Sensor&lt;span class="hx:absolute hx:-mt-20" id="u26a1-alternative-dfrobot-ph-sensor"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-alternative-dfrobot-ph-sensor" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;Specifications:&lt;/strong&gt;&lt;/p&gt;
+&lt;h4&gt;⚡ Alternative: DFRobot pH Sensor&lt;span class="hx:absolute hx:-mt-20" id="-alternative-dfrobot-ph-sensor"&gt;&lt;/span&gt;
+&lt;a href="#-alternative-dfrobot-ph-sensor" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;Specifications:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Range:&lt;/strong&gt; 0-14 pH&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Resolution:&lt;/strong&gt; 0.1 pH&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Accuracy:&lt;/strong&gt; \u00b10.1 pH&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Accuracy:&lt;/strong&gt; ±0.1 pH&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Output:&lt;/strong&gt; Analog voltage&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Interface:&lt;/strong&gt; Gravity 3-pin connector&lt;/li&gt;
 &lt;/ul&gt;
@@ -356,14 +356,14 @@ href="https://www.dfrobot.com/product-1025.html"target="_blank" rel="noopener"&g
 &lt;li&gt;&lt;a
 href="https://wiki.dfrobot.com/SKU_SEN0161_Analog_pH_Meter_Pro_SKU_SEN0161"target="_blank" rel="noopener"&gt;Wiki&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;\u26a1 Chlorine Sensors&lt;span class="hx:absolute hx:-mt-20" id="u26a1-chlorine-sensors"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-chlorine-sensors" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Chlorine sensor selection depends on your requirements and budget:&lt;/p&gt;
-&lt;h4&gt;\u26a1 Option 1: Electrochemical Chlorine Sensor&lt;span class="hx:absolute hx:-mt-20" id="u26a1-option-1-electrochemical-chlorine-sensor"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-option-1-electrochemical-chlorine-sensor" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;Specifications:&lt;/strong&gt;&lt;/p&gt;
+&lt;h3&gt;⚡ Chlorine Sensors&lt;span class="hx:absolute hx:-mt-20" id="-chlorine-sensors"&gt;&lt;/span&gt;
+&lt;a href="#-chlorine-sensors" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Chlorine sensor selection depends on your requirements and budget:&lt;/p&gt;
+&lt;h4&gt;⚡ Option 1: Electrochemical Chlorine Sensor&lt;span class="hx:absolute hx:-mt-20" id="-option-1-electrochemical-chlorine-sensor"&gt;&lt;/span&gt;
+&lt;a href="#-option-1-electrochemical-chlorine-sensor" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;Specifications:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Range:&lt;/strong&gt; 0-10 ppm (free chlorine)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Resolution:&lt;/strong&gt; 0.1 ppm&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Accuracy:&lt;/strong&gt; \u00b10.5 ppm&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Accuracy:&lt;/strong&gt; ±0.5 ppm&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Response Time:&lt;/strong&gt; &amp;lt; 2 minutes&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Interface:&lt;/strong&gt; Analog voltage&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Lifespan:&lt;/strong&gt; 1-2 years&lt;/li&gt;
@@ -381,12 +381,12 @@ href="https://wiki.dfrobot.com/SKU_SEN0161_Analog_pH_Meter_Pro_SKU_SEN0161"targe
 &lt;li&gt;Sensitive to temperature and pH&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Many electrochemical chlorine sensors require specific calibration procedures and may have cross-sensitivity to other chemicals.&lt;/p&gt;
-&lt;h4&gt;\u26a1 Option 2: Optical Chlorine Sensor&lt;span class="hx:absolute hx:-mt-20" id="u26a1-option-2-optical-chlorine-sensor"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-option-2-optical-chlorine-sensor" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;Specifications:&lt;/strong&gt;&lt;/p&gt;
+&lt;h4&gt;⚡ Option 2: Optical Chlorine Sensor&lt;span class="hx:absolute hx:-mt-20" id="-option-2-optical-chlorine-sensor"&gt;&lt;/span&gt;
+&lt;a href="#-option-2-optical-chlorine-sensor" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;Specifications:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Range:&lt;/strong&gt; 0-10 ppm&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Resolution:&lt;/strong&gt; 0.1 ppm&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Accuracy:&lt;/strong&gt; \u00b10.2 ppm&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Accuracy:&lt;/strong&gt; ±0.2 ppm&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Interface:&lt;/strong&gt; I2C or UART&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Lifespan:&lt;/strong&gt; 2-5 years&lt;/li&gt;
 &lt;/ul&gt;
@@ -402,12 +402,12 @@ href="https://wiki.dfrobot.com/SKU_SEN0161_Analog_pH_Meter_Pro_SKU_SEN0161"targe
 &lt;li&gt;Complex optical design&lt;/li&gt;
 &lt;li&gt;May require specific light sources&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4&gt;\u26a1 Option 3: DPD Colorimetric Method&lt;span class="hx:absolute hx:-mt-20" id="u26a1-option-3-dpd-colorimetric-method"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-option-3-dpd-colorimetric-method" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;Specifications:&lt;/strong&gt;&lt;/p&gt;
+&lt;h4&gt;⚡ Option 3: DPD Colorimetric Method&lt;span class="hx:absolute hx:-mt-20" id="-option-3-dpd-colorimetric-method"&gt;&lt;/span&gt;
+&lt;a href="#-option-3-dpd-colorimetric-method" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;Specifications:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Range:&lt;/strong&gt; 0-10 ppm&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Resolution:&lt;/strong&gt; 0.1 ppm&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Accuracy:&lt;/strong&gt; \u00b10.2 ppm&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Accuracy:&lt;/strong&gt; ±0.2 ppm&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Interface:&lt;/strong&gt; Analog (color intensity)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Method:&lt;/strong&gt; Chemical reaction with DPD reagent&lt;/li&gt;
 &lt;/ul&gt;
@@ -424,12 +424,12 @@ href="https://wiki.dfrobot.com/SKU_SEN0161_Analog_pH_Meter_Pro_SKU_SEN0161"targe
 &lt;li&gt;Reagents have limited shelf life&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; DPD method can be automated with a peristaltic pump and colorimeter, but this adds significant complexity.&lt;/p&gt;
-&lt;h3&gt;\u26a1 Temperature Sensor (Optional)&lt;span class="hx:absolute hx:-mt-20" id="u26a1-temperature-sensor-optional"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-temperature-sensor-optional" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Recommended: DS18B20 Waterproof Temperature Sensor&lt;/strong&gt;&lt;/p&gt;
+&lt;h3&gt;⚡ Temperature Sensor (Optional)&lt;span class="hx:absolute hx:-mt-20" id="-temperature-sensor-optional"&gt;&lt;/span&gt;
+&lt;a href="#-temperature-sensor-optional" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Recommended: DS18B20 Waterproof Temperature Sensor&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Specifications:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Range:&lt;/strong&gt; -55\u00b0C to +125\u00b0C&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Accuracy:&lt;/strong&gt; \u00b10.5\u00b0C&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Range:&lt;/strong&gt; -55°C to +125°C&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Accuracy:&lt;/strong&gt; ±0.5°C&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Resolution:&lt;/strong&gt; 9-12 bits (configurable)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Interface:&lt;/strong&gt; OneWire&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Waterproof:&lt;/strong&gt; Yes (stainless steel probe)&lt;/li&gt;
@@ -455,9 +455,9 @@ href="https://datasheets.maximintegrated.com/en/ds/DS18B20.pdf"target="_blank" r
 href="https://www.amazon.de/s?k=DS18B20&amp;#43;wasserfest"target="_blank" rel="noopener"&gt;Waterproof DS18B20&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;h2&gt;\u26a1 Circuit Design&lt;span class="hx:absolute hx:-mt-20" id="u26a1-circuit-design"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-circuit-design" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;\u26a1 Basic Circuit (pH Only)&lt;span class="hx:absolute hx:-mt-20" id="u26a1-basic-circuit-ph-only"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-basic-circuit-ph-only" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;This is the simplest configuration for pH monitoring only.&lt;/p&gt;
+&lt;h2&gt;⚡ Circuit Design&lt;span class="hx:absolute hx:-mt-20" id="-circuit-design"&gt;&lt;/span&gt;
+&lt;a href="#-circuit-design" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;⚡ Basic Circuit (pH Only)&lt;span class="hx:absolute hx:-mt-20" id="-basic-circuit-ph-only"&gt;&lt;/span&gt;
+&lt;a href="#-basic-circuit-ph-only" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;This is the simplest configuration for pH monitoring only.&lt;/p&gt;
 &lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
 &lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ESP8266 Development Board (WeMos D1 Mini)
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
@@ -517,13 +517,13 @@ data-copied-label="Copied!"
 &lt;li&gt;Use &lt;strong&gt;shielded cable&lt;/strong&gt; for the analog signal if possible&lt;/li&gt;
 &lt;li&gt;Avoid running sensor cables parallel to power cables&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;\u26a1 Advanced Circuit (pH + Temperature)&lt;span class="hx:absolute hx:-mt-20" id="u26a1-advanced-circuit-ph--temperature"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-advanced-circuit-ph--temperature" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;This configuration adds temperature monitoring for pH compensation.&lt;/p&gt;
+&lt;h3&gt;⚡ Advanced Circuit (pH + Temperature)&lt;span class="hx:absolute hx:-mt-20" id="-advanced-circuit-ph--temperature"&gt;&lt;/span&gt;
+&lt;a href="#-advanced-circuit-ph--temperature" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;This configuration adds temperature monitoring for pH compensation.&lt;/p&gt;
 &lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
 &lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ESP8266 Development Board (WeMos D1 Mini)
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; 3.3V [ pH Sensor VCC ]
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; 3.3V [ DS18B20 VCC ] (via 4.7k\u2126 pull-up)
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; 3.3V [ DS18B20 VCC ] (via 4.7kΩ pull-up)
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; GND [ pH Sensor GND ]
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; GND [ DS18B20 GND ]
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; A0 [ pH Sensor Output ]
@@ -590,25 +590,25 @@ data-copied-label="Copied!"
 &lt;td&gt;D4&lt;/td&gt;
 &lt;td&gt;D2&lt;/td&gt;
 &lt;td&gt;DS18B20 DATA&lt;/td&gt;
-&lt;td&gt;OneWire data (with 4.7k\u2126 pull-up to 3.3V)&lt;/td&gt;
+&lt;td&gt;OneWire data (with 4.7kΩ pull-up to 3.3V)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;&lt;strong&gt;DS18B20 Pull-up Resistor:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Value:&lt;/strong&gt; 4.7k\u2126&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Value:&lt;/strong&gt; 4.7kΩ&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Connection:&lt;/strong&gt; Between DS18B20 DATA line and 3.3V&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Important:&lt;/strong&gt; Required for OneWire communication&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;\u26a1 Complete Circuit (pH + Chlorine + Temperature + ADC)&lt;span class="hx:absolute hx:-mt-20" id="u26a1-complete-circuit-ph--chlorine--temperature--adc"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-complete-circuit-ph--chlorine--temperature--adc" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;This configuration adds chlorine monitoring and uses an external ADC for better precision.&lt;/p&gt;
+&lt;h3&gt;⚡ Complete Circuit (pH + Chlorine + Temperature + ADC)&lt;span class="hx:absolute hx:-mt-20" id="-complete-circuit-ph--chlorine--temperature--adc"&gt;&lt;/span&gt;
+&lt;a href="#-complete-circuit-ph--chlorine--temperature--adc" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;This configuration adds chlorine monitoring and uses an external ADC for better precision.&lt;/p&gt;
 &lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
 &lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ESP8266 Development Board (WeMos D1 Mini)
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; 3.3V [ pH Sensor VCC ]
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; 3.3V [ Chlorine Sensor VCC ]
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; 3.3V [ ADS1115 VCC ]
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; 3.3V [ DS18B20 VCC ] (via 4.7k\u2126 pull-up)
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; 3.3V [ DS18B20 VCC ] (via 4.7kΩ pull-up)
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; GND [ pH Sensor GND ]
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; GND [ Chlorine Sensor GND ]
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; GND [ ADS1115 GND ]
@@ -684,9 +684,9 @@ data-copied-label="Copied!"
 &lt;/table&gt;
 &lt;p&gt;&lt;strong&gt;ADS1115 Connections:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;A0&lt;/strong&gt; \u2192 pH Sensor Output&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;A1&lt;/strong&gt; \u2192 Chlorine Sensor Output&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;A2, A3&lt;/strong&gt; \u2192 Available for future sensors&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;A0&lt;/strong&gt; → pH Sensor Output&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;A1&lt;/strong&gt; → Chlorine Sensor Output&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;A2, A3&lt;/strong&gt; → Available for future sensors&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;Benefits of External ADC:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -695,8 +695,8 @@ data-copied-label="Copied!"
 &lt;li&gt;&lt;strong&gt;Differential inputs&lt;/strong&gt; for better noise rejection&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Multiple channels&lt;/strong&gt; for multiple sensors&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;\u26a1 Pin Assignment (WeMos D1 Mini)&lt;span class="hx:absolute hx:-mt-20" id="u26a1-pin-assignment-wemos-d1-mini"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-pin-assignment-wemos-d1-mini" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;h3&gt;⚡ Pin Assignment (WeMos D1 Mini)&lt;span class="hx:absolute hx:-mt-20" id="-pin-assignment-wemos-d1-mini"&gt;&lt;/span&gt;
+&lt;a href="#-pin-assignment-wemos-d1-mini" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
 &lt;th&gt;Function&lt;/th&gt;
@@ -787,22 +787,22 @@ data-copied-label="Copied!"
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; I2C is a &lt;strong&gt;shared bus&lt;/strong&gt;, so multiple I2C devices (ADS1115, OLED, Atlas Scientific sensors) can share the same SDA/SCL pins.&lt;/p&gt;
-&lt;h3&gt;\u26a1 Pinout Diagrams&lt;span class="hx:absolute hx:-mt-20" id="u26a1-pinout-diagrams"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-pinout-diagrams" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;WeMos D1 Mini:&lt;/strong&gt;&lt;/p&gt;
+&lt;h3&gt;⚡ Pinout Diagrams&lt;span class="hx:absolute hx:-mt-20" id="-pinout-diagrams"&gt;&lt;/span&gt;
+&lt;a href="#-pinout-diagrams" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;WeMos D1 Mini:&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src="https://raw.githubusercontent.com/smart-swimmingpool/water-quality-monitor/master/docs/ESP8266-WeMos-D1-Mini-pinout-gpio-pin.png" alt="WeMos D1 Mini Pinout" data-zoomable loading="lazy" /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;ESP-12E/12F:&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src="https://raw.githubusercontent.com/smart-swimmingpool/water-quality-monitor/master/docs/ESP8266-ESP-12E-chip-pinout-gpio-pin.png" alt="ESP-12E Pinout" data-zoomable loading="lazy" /&gt;&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2&gt;\u26a1 Assembly Instructions&lt;span class="hx:absolute hx:-mt-20" id="u26a1-assembly-instructions"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-assembly-instructions" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;\u26a1 Step 1: Prepare Components&lt;span class="hx:absolute hx:-mt-20" id="u26a1-step-1-prepare-components"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-step-1-prepare-components" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;h2&gt;⚡ Assembly Instructions&lt;span class="hx:absolute hx:-mt-20" id="-assembly-instructions"&gt;&lt;/span&gt;
+&lt;a href="#-assembly-instructions" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;⚡ Step 1: Prepare Components&lt;span class="hx:absolute hx:-mt-20" id="-step-1-prepare-components"&gt;&lt;/span&gt;
+&lt;a href="#-step-1-prepare-components" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;Gather all parts&lt;/strong&gt; from the BOM&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Inspect sensors&lt;/strong&gt; for damage&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Test pH electrode&lt;/strong&gt; (if new, it may be dry; soak in storage solution for 24 hours)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Prepare tools&lt;/strong&gt; and workspace&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3&gt;\u26a1 Step 2: Breadboard Prototyping (Recommended)&lt;span class="hx:absolute hx:-mt-20" id="u26a1-step-2-breadboard-prototyping-recommended"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-step-2-breadboard-prototyping-recommended" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Best for:&lt;/strong&gt; Testing before permanent installation, learning the circuit.&lt;/p&gt;
+&lt;h3&gt;⚡ Step 2: Breadboard Prototyping (Recommended)&lt;span class="hx:absolute hx:-mt-20" id="-step-2-breadboard-prototyping-recommended"&gt;&lt;/span&gt;
+&lt;a href="#-step-2-breadboard-prototyping-recommended" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Best for:&lt;/strong&gt; Testing before permanent installation, learning the circuit.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Place ESP8266 on breadboard&lt;/strong&gt;&lt;/p&gt;
@@ -822,7 +822,7 @@ data-copied-label="Copied!"
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Add DS18B20 (optional)&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Connect VCC to 3.3V rail (via 4.7k\u2126 pull-up resistor)&lt;/li&gt;
+&lt;li&gt;Connect VCC to 3.3V rail (via 4.7kΩ pull-up resistor)&lt;/li&gt;
 &lt;li&gt;Connect GND to GND rail&lt;/li&gt;
 &lt;li&gt;Connect DATA to D4 (WeMos D1 Mini)&lt;/li&gt;
 &lt;/ul&gt;
@@ -847,8 +847,8 @@ data-copied-label="Copied!"
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3&gt;\u26a1 Step 3: Test Sensors&lt;span class="hx:absolute hx:-mt-20" id="u26a1-step-3-test-sensors"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-step-3-test-sensors" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;h3&gt;⚡ Step 3: Test Sensors&lt;span class="hx:absolute hx:-mt-20" id="-step-3-test-sensors"&gt;&lt;/span&gt;
+&lt;a href="#-step-3-test-sensors" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Test pH sensor:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -874,8 +874,8 @@ data-copied-label="Copied!"
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3&gt;\u26a1 Step 4: Permanent Assembly&lt;span class="hx:absolute hx:-mt-20" id="u26a1-step-4-permanent-assembly"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-step-4-permanent-assembly" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Best for:&lt;/strong&gt; Final installation, outdoor use, long-term operation.&lt;/p&gt;
+&lt;h3&gt;⚡ Step 4: Permanent Assembly&lt;span class="hx:absolute hx:-mt-20" id="-step-4-permanent-assembly"&gt;&lt;/span&gt;
+&lt;a href="#-step-4-permanent-assembly" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Best for:&lt;/strong&gt; Final installation, outdoor use, long-term operation.&lt;/p&gt;
 &lt;h4&gt;Option A: Perfboard&lt;span class="hx:absolute hx:-mt-20" id="option-a-perfboard"&gt;&lt;/span&gt;
 &lt;a href="#option-a-perfboard" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;Plan component layout&lt;/strong&gt; on perfboard&lt;/li&gt;
@@ -899,8 +899,8 @@ data-copied-label="Copied!"
 &lt;li&gt;&lt;strong&gt;Solder components&lt;/strong&gt; to PCB&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Test thoroughly&lt;/strong&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3&gt;\u26a1 Step 5: Enclosure Assembly&lt;span class="hx:absolute hx:-mt-20" id="u26a1-step-5-enclosure-assembly"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-step-5-enclosure-assembly" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;h3&gt;⚡ Step 5: Enclosure Assembly&lt;span class="hx:absolute hx:-mt-20" id="-step-5-enclosure-assembly"&gt;&lt;/span&gt;
+&lt;a href="#-step-5-enclosure-assembly" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Prepare enclosure:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -940,9 +940,9 @@ data-copied-label="Copied!"
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;hr&gt;
-&lt;h2&gt;\u26a1 Sensor Installation&lt;span class="hx:absolute hx:-mt-20" id="u26a1-sensor-installation"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-sensor-installation" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;\u26a1 pH Sensor Installation&lt;span class="hx:absolute hx:-mt-20" id="u26a1-ph-sensor-installation"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-ph-sensor-installation" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Location:&lt;/strong&gt;&lt;/p&gt;
+&lt;h2&gt;⚡ Sensor Installation&lt;span class="hx:absolute hx:-mt-20" id="-sensor-installation"&gt;&lt;/span&gt;
+&lt;a href="#-sensor-installation" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;⚡ pH Sensor Installation&lt;span class="hx:absolute hx:-mt-20" id="-ph-sensor-installation"&gt;&lt;/span&gt;
+&lt;a href="#-ph-sensor-installation" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Location:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Place sensor in pool water, &lt;strong&gt;away from returns and skimmers&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Depth:&lt;/strong&gt; 30-50 cm below surface&lt;/li&gt;
@@ -984,8 +984,8 @@ data-copied-label="Copied!"
 &lt;li&gt;Avoid &lt;strong&gt;sharp bends&lt;/strong&gt; or &lt;strong&gt;pinching&lt;/strong&gt; cables&lt;/li&gt;
 &lt;li&gt;Route cables &lt;strong&gt;away from pool edges&lt;/strong&gt; to prevent damage&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;\u26a1 Chlorine Sensor Installation (if applicable)&lt;span class="hx:absolute hx:-mt-20" id="u26a1-chlorine-sensor-installation-if-applicable"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-chlorine-sensor-installation-if-applicable" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Location:&lt;/strong&gt; Similar to pH sensor&lt;/p&gt;
+&lt;h3&gt;⚡ Chlorine Sensor Installation (if applicable)&lt;span class="hx:absolute hx:-mt-20" id="-chlorine-sensor-installation-if-applicable"&gt;&lt;/span&gt;
+&lt;a href="#-chlorine-sensor-installation-if-applicable" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Location:&lt;/strong&gt; Similar to pH sensor&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Considerations:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;May need &lt;strong&gt;separate enclosure&lt;/strong&gt; if using DPD method&lt;/li&gt;
@@ -993,8 +993,8 @@ data-copied-label="Copied!"
 &lt;li&gt;Ensure &lt;strong&gt;good water flow&lt;/strong&gt; around sensor&lt;/li&gt;
 &lt;li&gt;Avoid &lt;strong&gt;chemical feed points&lt;/strong&gt; (can cause false readings)&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;\u26a1 Temperature Sensor Installation (if applicable)&lt;span class="hx:absolute hx:-mt-20" id="u26a1-temperature-sensor-installation-if-applicable"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-temperature-sensor-installation-if-applicable" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Location:&lt;/strong&gt;&lt;/p&gt;
+&lt;h3&gt;⚡ Temperature Sensor Installation (if applicable)&lt;span class="hx:absolute hx:-mt-20" id="-temperature-sensor-installation-if-applicable"&gt;&lt;/span&gt;
+&lt;a href="#-temperature-sensor-installation-if-applicable" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Location:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Same location as pH sensor (for temperature compensation)&lt;/li&gt;
 &lt;li&gt;Or in &lt;strong&gt;return line&lt;/strong&gt; for average pool temperature&lt;/li&gt;
@@ -1006,9 +1006,9 @@ data-copied-label="Copied!"
 &lt;li&gt;Protect from &lt;strong&gt;direct sunlight&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;h2&gt;\u26a1 Power Supply&lt;span class="hx:absolute hx:-mt-20" id="u26a1-power-supply"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-power-supply" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;\u26a1 Power Requirements&lt;span class="hx:absolute hx:-mt-20" id="u26a1-power-requirements"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-power-requirements" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;h2&gt;⚡ Power Supply&lt;span class="hx:absolute hx:-mt-20" id="-power-supply"&gt;&lt;/span&gt;
+&lt;a href="#-power-supply" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;⚡ Power Requirements&lt;span class="hx:absolute hx:-mt-20" id="-power-requirements"&gt;&lt;/span&gt;
+&lt;a href="#-power-requirements" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
 &lt;th&gt;Component&lt;/th&gt;
@@ -1068,8 +1068,8 @@ data-copied-label="Copied!"
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3&gt;\u26a1 Power Options&lt;span class="hx:absolute hx:-mt-20" id="u26a1-power-options"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-power-options" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;h3&gt;⚡ Power Options&lt;span class="hx:absolute hx:-mt-20" id="-power-options"&gt;&lt;/span&gt;
+&lt;a href="#-power-options" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
 &lt;th&gt;Option&lt;/th&gt;
@@ -1083,36 +1083,36 @@ data-copied-label="Copied!"
 &lt;td&gt;&lt;strong&gt;USB Power&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;Simple, widely available&lt;/td&gt;
 &lt;td&gt;Requires outlet nearby&lt;/td&gt;
-&lt;td&gt;\u2705 For indoor/testing&lt;/td&gt;
+&lt;td&gt;✅ For indoor/testing&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;strong&gt;USB Power Bank&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;Portable, no wiring&lt;/td&gt;
 &lt;td&gt;Limited runtime&lt;/td&gt;
-&lt;td&gt;\u2705 For temporary setup&lt;/td&gt;
+&lt;td&gt;✅ For temporary setup&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;strong&gt;5V Power Supply&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;Stable, continuous&lt;/td&gt;
 &lt;td&gt;Requires wiring&lt;/td&gt;
-&lt;td&gt;\u2705 For permanent install&lt;/td&gt;
+&lt;td&gt;✅ For permanent install&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;strong&gt;Solar Power&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;Autonomous, no wiring&lt;/td&gt;
 &lt;td&gt;Complex, weather dependent&lt;/td&gt;
-&lt;td&gt;\u26a1 For advanced users&lt;/td&gt;
+&lt;td&gt;⚡ For advanced users&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;strong&gt;Battery + Solar&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;Best of both worlds&lt;/td&gt;
 &lt;td&gt;Most complex&lt;/td&gt;
-&lt;td&gt;\u26a1 For remote locations&lt;/td&gt;
+&lt;td&gt;⚡ For remote locations&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3&gt;\u26a1 Solar Power Option&lt;span class="hx:absolute hx:-mt-20" id="u26a1-solar-power-option"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-solar-power-option" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;For &lt;strong&gt;autonomous operation&lt;/strong&gt;, consider solar power:&lt;/p&gt;
+&lt;h3&gt;⚡ Solar Power Option&lt;span class="hx:absolute hx:-mt-20" id="-solar-power-option"&gt;&lt;/span&gt;
+&lt;a href="#-solar-power-option" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;For &lt;strong&gt;autonomous operation&lt;/strong&gt;, consider solar power:&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Components:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Solar Panel:&lt;/strong&gt; 5V/2W (for continuous operation)&lt;/li&gt;
@@ -1148,9 +1148,9 @@ data-copied-label="Copied!"
 &lt;li&gt;&lt;strong&gt;Enclosure:&lt;/strong&gt; Ensure panel and battery are protected&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;h2&gt;\u26a1 Maintenance&lt;span class="hx:absolute hx:-mt-20" id="u26a1-maintenance"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-maintenance" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;\u26a1 Regular Maintenance Schedule&lt;span class="hx:absolute hx:-mt-20" id="u26a1-regular-maintenance-schedule"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-regular-maintenance-schedule" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;h2&gt;⚡ Maintenance&lt;span class="hx:absolute hx:-mt-20" id="-maintenance"&gt;&lt;/span&gt;
+&lt;a href="#-maintenance" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;⚡ Regular Maintenance Schedule&lt;span class="hx:absolute hx:-mt-20" id="-regular-maintenance-schedule"&gt;&lt;/span&gt;
+&lt;a href="#-regular-maintenance-schedule" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
 &lt;th&gt;Task&lt;/th&gt;
@@ -1206,8 +1206,8 @@ data-copied-label="Copied!"
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3&gt;\u26a1 pH Sensor Maintenance&lt;span class="hx:absolute hx:-mt-20" id="u26a1-ph-sensor-maintenance"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-ph-sensor-maintenance" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Cleaning:&lt;/strong&gt;&lt;/p&gt;
+&lt;h3&gt;⚡ pH Sensor Maintenance&lt;span class="hx:absolute hx:-mt-20" id="-ph-sensor-maintenance"&gt;&lt;/span&gt;
+&lt;a href="#-ph-sensor-maintenance" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Cleaning:&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Remove sensor from pool&lt;/li&gt;
 &lt;li&gt;Rinse with &lt;strong&gt;distilled water&lt;/strong&gt;&lt;/li&gt;
@@ -1228,8 +1228,8 @@ data-copied-label="Copied!"
 &lt;li&gt;&lt;strong&gt;Readings drift:&lt;/strong&gt; Replace electrode (typically lasts 1-2 years)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;No response:&lt;/strong&gt; Check connections, verify power&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;\u26a1 Chlorine Sensor Maintenance&lt;span class="hx:absolute hx:-mt-20" id="u26a1-chlorine-sensor-maintenance"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-chlorine-sensor-maintenance" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Maintenance depends on sensor type:&lt;/strong&gt;&lt;/p&gt;
+&lt;h3&gt;⚡ Chlorine Sensor Maintenance&lt;span class="hx:absolute hx:-mt-20" id="-chlorine-sensor-maintenance"&gt;&lt;/span&gt;
+&lt;a href="#-chlorine-sensor-maintenance" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Maintenance depends on sensor type:&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Electrochemical:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Calibrate &lt;strong&gt;monthly&lt;/strong&gt; or as needed&lt;/li&gt;
@@ -1249,9 +1249,9 @@ data-copied-label="Copied!"
 &lt;li&gt;Calibrate with &lt;strong&gt;known standards&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;h2&gt;\u26a1 Troubleshooting&lt;span class="hx:absolute hx:-mt-20" id="u26a1-troubleshooting"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-troubleshooting" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;\u26a1 Common Issues&lt;span class="hx:absolute hx:-mt-20" id="u26a1-common-issues"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-common-issues" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;h2&gt;⚡ Troubleshooting&lt;span class="hx:absolute hx:-mt-20" id="-troubleshooting"&gt;&lt;/span&gt;
+&lt;a href="#-troubleshooting" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;⚡ Common Issues&lt;span class="hx:absolute hx:-mt-20" id="-common-issues"&gt;&lt;/span&gt;
+&lt;a href="#-common-issues" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
 &lt;th&gt;Issue&lt;/th&gt;
@@ -1307,8 +1307,8 @@ data-copied-label="Copied!"
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3&gt;\u26a1 Debugging Steps&lt;span class="hx:absolute hx:-mt-20" id="u26a1-debugging-steps"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-debugging-steps" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;h3&gt;⚡ Debugging Steps&lt;span class="hx:absolute hx:-mt-20" id="-debugging-steps"&gt;&lt;/span&gt;
+&lt;a href="#-debugging-steps" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Check power:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -1351,38 +1351,38 @@ data-copied-label="Copied!"
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;hr&gt;
-&lt;h2&gt;\u26a1 Safety Considerations&lt;span class="hx:absolute hx:-mt-20" id="u26a1-safety-considerations"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-safety-considerations" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;\u26a0\ufe0f Electrical Safety&lt;span class="hx:absolute hx:-mt-20" id="u26a0ufe0f-electrical-safety"&gt;&lt;/span&gt;
-&lt;a href="#u26a0ufe0f-electrical-safety" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;h2&gt;⚡ Safety Considerations&lt;span class="hx:absolute hx:-mt-20" id="-safety-considerations"&gt;&lt;/span&gt;
+&lt;a href="#-safety-considerations" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;⚠️ Electrical Safety&lt;span class="hx:absolute hx:-mt-20" id="-electrical-safety"&gt;&lt;/span&gt;
+&lt;a href="#-electrical-safety" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Use low voltage (3.3V/5V)&lt;/strong&gt; for all electronics&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Keep electronics dry&lt;/strong&gt; \u2014 Use waterproof enclosures&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Keep electronics dry&lt;/strong&gt; — Use waterproof enclosures&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Use waterproof connectors&lt;/strong&gt; for all outdoor connections&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Ground all metal parts&lt;/strong&gt; if possible&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Use RCD/FI protection&lt;/strong&gt; for any mains-powered components&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Avoid working on circuit&lt;/strong&gt; when connected to power&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;\u26a0\ufe0f Chemical Safety&lt;span class="hx:absolute hx:-mt-20" id="u26a0ufe0f-chemical-safety"&gt;&lt;/span&gt;
-&lt;a href="#u26a0ufe0f-chemical-safety" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Handle calibration solutions with care&lt;/strong&gt; \u2014 Some may be corrosive&lt;/li&gt;
+&lt;h3&gt;⚠️ Chemical Safety&lt;span class="hx:absolute hx:-mt-20" id="-chemical-safety"&gt;&lt;/span&gt;
+&lt;a href="#-chemical-safety" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Handle calibration solutions with care&lt;/strong&gt; — Some may be corrosive&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Wear gloves&lt;/strong&gt; when handling sensors and solutions&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Avoid skin contact&lt;/strong&gt; with calibration solutions&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Rinse with water&lt;/strong&gt; if solution contacts skin&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Dispose of old solutions properly&lt;/strong&gt; \u2014 Follow local regulations&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Store chemicals properly&lt;/strong&gt; \u2014 In original containers, labeled&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Dispose of old solutions properly&lt;/strong&gt; — Follow local regulations&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Store chemicals properly&lt;/strong&gt; — In original containers, labeled&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;\u26a0\ufe0f Pool Safety&lt;span class="hx:absolute hx:-mt-20" id="u26a0ufe0f-pool-safety"&gt;&lt;/span&gt;
-&lt;a href="#u26a0ufe0f-pool-safety" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;h3&gt;⚠️ Pool Safety&lt;span class="hx:absolute hx:-mt-20" id="-pool-safety"&gt;&lt;/span&gt;
+&lt;a href="#-pool-safety" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Do not rely solely on this monitor&lt;/strong&gt; for pool safety&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Regularly test water manually&lt;/strong&gt; with test strips or kits&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Follow local health department guidelines&lt;/strong&gt; for pool water quality&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Keep pool chemicals properly stored&lt;/strong&gt; and labeled&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Never mix chemicals&lt;/strong&gt; \u2014 Can cause dangerous reactions&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Never mix chemicals&lt;/strong&gt; — Can cause dangerous reactions&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Ensure proper ventilation&lt;/strong&gt; when handling chemicals&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;h2&gt;\u26a1 Additional Resources&lt;span class="hx:absolute hx:-mt-20" id="u26a1-additional-resources"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-additional-resources" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;\u26a1 Datasheets&lt;span class="hx:absolute hx:-mt-20" id="u26a1-datasheets"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-datasheets" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;h2&gt;⚡ Additional Resources&lt;span class="hx:absolute hx:-mt-20" id="-additional-resources"&gt;&lt;/span&gt;
+&lt;a href="#-additional-resources" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;⚡ Datasheets&lt;span class="hx:absolute hx:-mt-20" id="-datasheets"&gt;&lt;/span&gt;
+&lt;a href="#-datasheets" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a
 href="https://github.com/smart-swimmingpool/water-quality-monitor/blob/master/docs/14core.com-Wiring%20The%20pH%20Power%20of%20Hydrogen%20Ion%20Concentration%20Sensor%20with%20BNC%20Electrode%20Probe.pdf"target="_blank" rel="noopener"&gt;14core pH Sensor&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a
@@ -1392,15 +1392,15 @@ href="https://www.ti.com/lit/ds/symlink/ads1115.pdf"target="_blank" rel="noopene
 &lt;li&gt;&lt;a
 href="https://www.espressif.com/sites/default/files/documentation/0a-esp8266ex_datasheet_en.pdf"target="_blank" rel="noopener"&gt;ESP8266 Datasheet&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;\u26a1 Pinout References&lt;span class="hx:absolute hx:-mt-20" id="u26a1-pinout-references"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-pinout-references" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;h3&gt;⚡ Pinout References&lt;span class="hx:absolute hx:-mt-20" id="-pinout-references"&gt;&lt;/span&gt;
+&lt;a href="#-pinout-references" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a
 href="https://raw.githubusercontent.com/smart-swimmingpool/water-quality-monitor/master/docs/ESP8266-WeMos-D1-Mini-pinout-gpio-pin.png"target="_blank" rel="noopener"&gt;WeMos D1 Mini Pinout&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a
 href="https://raw.githubusercontent.com/smart-swimmingpool/water-quality-monitor/master/docs/ESP8266-ESP-12E-chip-pinout-gpio-pin.png"target="_blank" rel="noopener"&gt;ESP-12E Pinout&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;\u26a1 External Resources&lt;span class="hx:absolute hx:-mt-20" id="u26a1-external-resources"&gt;&lt;/span&gt;
-&lt;a href="#u26a1-external-resources" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;h3&gt;⚡ External Resources&lt;span class="hx:absolute hx:-mt-20" id="-external-resources"&gt;&lt;/span&gt;
+&lt;a href="#-external-resources" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a
 href="https://14core.com/wiring-the-ph-power-of-hydrogen-ion-concentration-sensor-with-bnc-electrode-probe/"target="_blank" rel="noopener"&gt;14core pH Sensor Guide&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a
@@ -1412,5 +1412,5 @@ href="https://www.sparkfun.com/products/10992"target="_blank" rel="noopener"&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;p align="center"&gt;
-Happy building! \u2705\n \n Made with \u2764\ufe0f by the Smart Swimming Pool community
+Happy building! ✅\n \n Made with ❤️ by the Smart Swimming Pool community
 &lt;/p&gt;</description></item></channel></rss>

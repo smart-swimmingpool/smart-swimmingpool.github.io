@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Dokumentation</title><link>https://smart-swimmingpool.com/de/docs/</link><description>Recent content in Dokumentation on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><atom:link href="https://smart-swimmingpool.com/de/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Temperaturabhängige Filterlaufzeit</title><link>https://smart-swimmingpool.com/de/docs/pool-controller/temperature-based-circulation/</link><pubDate>Tue, 29 Sep 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/de/docs/pool-controller/temperature-based-circulation/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Dokumentation</title><link>https://smart-swimmingpool.com/de/docs/</link><description>Recent content in Dokumentation on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><atom:link href="https://smart-swimmingpool.com/de/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Temperaturabhängige Filterlaufzeit</title><link>https://smart-swimmingpool.com/de/docs/pool-controller/temperature-based-circulation/</link><pubDate>Fri, 02 Oct 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/de/docs/pool-controller/temperature-based-circulation/</guid><description>
 &lt;h1&gt;Temperaturabhängige Filterlaufzeit&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;Optimierung der Pool-Umwälzung für bessere Wasserqualität bei minimalem Stromverbrauch.&lt;/strong&gt;&lt;/p&gt;
 &lt;h2&gt;1. Motivation&lt;span class="hx:absolute hx:-mt-20" id="1-motivation"&gt;&lt;/span&gt;
 &lt;a href="#1-motivation" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die Poolpumpe ist der größte Stromverbraucher im Schwimmbad. Gleichzeitig bestimmt sie maßgeblich die Wasserqualität. Die aktuell nötige Umwälzmenge hängt stark von der Wassertemperatur ab:&lt;/p&gt;
@@ -604,7 +604,7 @@ href="https://medium.com/diy-my-smart-home/project-smart-swimmingpool-4c40eb6741
 &lt;p&gt;📄 &lt;a
 href="https://smart-swimmingpool.com/blog/smart-swimming-pool-project/"&gt;Hier auf der Seite lesen&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title/><link>https://smart-swimmingpool.com/de/docs/pool-controller/norvi-display-navigation-concept/</link><pubDate>Tue, 29 Sep 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/de/docs/pool-controller/norvi-display-navigation-concept/</guid><description>
+&lt;/ul&gt;</description></item><item><title/><link>https://smart-swimmingpool.com/de/docs/pool-controller/norvi-display-navigation-concept/</link><pubDate>Fri, 02 Oct 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/de/docs/pool-controller/norvi-display-navigation-concept/</guid><description>
 &lt;h1&gt;Bedien- und Navigationskonzept — NORVI IIOT-AE01-R OLED + 3 Tasten&lt;/h1&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Status:&lt;/strong&gt; Konzept / RFC
 &lt;strong&gt;Ziel:&lt;/strong&gt; Verbesserung der UX des 128×64 OLED-Displays mit den drei Fronttasten (S1/S2/S3)
@@ -1464,7 +1464,7 @@ data-copied-label="Kopiert!"
 &lt;li&gt;S3-Aktionsmenü einbauen (mittleres Risiko, neue State-Machine)&lt;/li&gt;
 &lt;li&gt;Wizard-Cancel + Long-Press-Modell (mittleres Risiko)&lt;/li&gt;
 &lt;/ol&gt;
-&lt;/blockquote&gt;</description></item><item><title/><link>https://smart-swimmingpool.com/de/docs/pool-controller/security-references/</link><pubDate>Tue, 29 Sep 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/de/docs/pool-controller/security-references/</guid><description>
+&lt;/blockquote&gt;</description></item><item><title/><link>https://smart-swimmingpool.com/de/docs/pool-controller/security-references/</link><pubDate>Fri, 02 Oct 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/de/docs/pool-controller/security-references/</guid><description>
 &lt;h1&gt;Sicherheitsreferenzen &amp;amp; Best Practices&lt;/h1&gt;&lt;p&gt;Dieses Dokument enthält Sicherheitsreferenzen, Best Practices und
 Implementierungsrichtlinien für das Pool Controller Projekt. Diese Referenzen
 wurden während der umfassenden IoT-Sicherheitsanalyse am 2025-01-15 zusammengestellt.&lt;/p&gt;
@@ -3287,7 +3287,7 @@ verhindert Spannungseinbrüche während des WiFi-Betriebs.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2&gt;Kompatible Board-Varianten&lt;span class="hx:absolute hx:-mt-20" id="kompatible-board-varianten"&gt;&lt;/span&gt;
-&lt;a href="#kompatible-board-varianten" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die TTGO T5 Serie gibt es in mehreren Revisionen. Die Firmware unterstützt:&lt;/p&gt;
+&lt;a href="#kompatible-board-varianten" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die TTGO T5 Serie gibt es in mehreren Revisionen. Die Firmware unterstützt derzeit eine Variante:&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -3304,61 +3304,16 @@ verhindert Spannungseinbrüche während des WiFi-Betriebs.&lt;/li&gt;
 &lt;td&gt;✅ &lt;strong&gt;Standard&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;&lt;strong&gt;Empfohlen&lt;/strong&gt; — aktuellste Revision, aktiv getestet&lt;/td&gt;
 &lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;T5 V1.2 / V2.4&lt;/td&gt;
-&lt;td&gt;2.13&amp;quot; GxGDE0213B1 (s/w)&lt;/td&gt;
-&lt;td&gt;✅ Unterstützt&lt;/td&gt;
-&lt;td&gt;Älteres Panel, anderer Treiber&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;T5 V2.0 / V2.3&lt;/td&gt;
-&lt;td&gt;2.13&amp;quot; GxGDE0213B1 (s/w)&lt;/td&gt;
-&lt;td&gt;✅ Unterstützt&lt;/td&gt;
-&lt;td&gt;Ohne SD-Kartenslot&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;T5 V2.1&lt;/td&gt;
-&lt;td&gt;2.9&amp;quot; GxGDEH029A1 (s/w)&lt;/td&gt;
-&lt;td&gt;✅ Unterstützt&lt;/td&gt;
-&lt;td&gt;Größeres 2.9&amp;quot; Display&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;T5 V2.2&lt;/td&gt;
-&lt;td&gt;2.9&amp;quot; GxGDEH029A1 (s/w)&lt;/td&gt;
-&lt;td&gt;✅ Unterstützt&lt;/td&gt;
-&lt;td&gt;Andere Display-Pinbelegung&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;T5 V2.8&lt;/td&gt;
-&lt;td&gt;2.7&amp;quot; GxGDEW027W3 (s/w)&lt;/td&gt;
-&lt;td&gt;✅ Unterstützt&lt;/td&gt;
-&lt;td&gt;Mit Audio-DAC&lt;/td&gt;
-&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;Um eine andere Variante auszuwählen, &lt;code&gt;src/board_def.h&lt;/code&gt; editieren und den
-entsprechenden Define setzen:&lt;/p&gt;
-&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
-&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cpp" data-lang="cpp"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt;#define LILYGO_T5_V231 1 &lt;/span&gt;&lt;span class="c1"&gt;// Standard — für andere Varianten auskommentieren
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// #define TTGO_T5_2_1 1 // Beispiel: für 2.9&amp;#34;-Variante aktivieren
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
-&lt;button
-class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
-title="Code kopieren"
-aria-label="Code kopieren"
-data-copied-label="Kopiert!"
-&gt;
-&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
-&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
-&lt;/button&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;Dann die Firmware neu bauen (siehe &lt;a
-href="https://smart-swimmingpool.com/de/docs/pool-monitor/software-guide/"&gt;Software Guide&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;Andere T5-Revisionen (V1.2, V2.0–V2.4, V2.8, 2,7&amp;quot;/2,9&amp;quot;-Panels) nutzen andere
+Display-Treiber oder Pinbelegungen und werden von der aktuellen Firmware &lt;strong&gt;nicht
+unterstützt&lt;/strong&gt;. Für eine weitere Variante sind ein eigenes PlatformIO-Environment,
+der passende GxEPD-Display-Treiber und angepasste Pins in
+&lt;code&gt;src/PoolMonitor/Config.hpp&lt;/code&gt; nötig — Beiträge sind willkommen.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2&gt;Pinbelegung&lt;span class="hx:absolute hx:-mt-20" id="pinbelegung"&gt;&lt;/span&gt;
-&lt;a href="#pinbelegung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die Pin-Konfiguration ist in &lt;code&gt;src/board_def.h&lt;/code&gt; definiert und variiert je nach
-Board-Variante. Für das Standard-Board &lt;strong&gt;V2.3.1 (V231)&lt;/strong&gt;:&lt;/p&gt;
+&lt;a href="#pinbelegung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die Pin-Konfiguration ist in &lt;code&gt;src/PoolMonitor/Config.hpp&lt;/code&gt; definiert. Für das &lt;strong&gt;V2.3.1 (V231)&lt;/strong&gt;:&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -4003,7 +3958,7 @@ href="https://www.espressif.com/en/products/socs/esp32"target="_blank" rel="noop
 &lt;li&gt;&lt;a
 href="https://github.com/smart-swimmingpool/pool-controller/blob/main/docs/hardware-guide.md"target="_blank" rel="noopener"&gt;Pool Controller Hardware Guide&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="https://github.com/smart-swimmingpool/monitor/blob/main/src/board_def.h"target="_blank" rel="noopener"&gt;Board-Definitionen (Quelle)&lt;/a&gt;&lt;/li&gt;
+href="https://github.com/smart-swimmingpool/monitor/blob/main/src/PoolMonitor/Config.hpp"target="_blank" rel="noopener"&gt;Pin-Konfiguration (Quelle)&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description></item><item><title>Produktions-Checkliste</title><link>https://smart-swimmingpool.com/de/docs/pool-controller/production-checklist/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/de/docs/pool-controller/production-checklist/</guid><description>
 &lt;blockquote&gt;
 &lt;p&gt;⚠️ &lt;strong&gt;WARNUNG: Diese Checkliste betrifft die Prüfung von 230V AC-Netzspannung.&lt;/strong&gt;
@@ -6055,7 +6010,7 @@ data-copied-label="Kopiert!"
 &lt;p&gt;ist verfügbar in:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a
-href="home-assistant-dashboard-pool.yaml"&gt;&lt;code&gt;docs/home-assistant-dashboard-pool.yaml&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+href="https://github.com/smart-swimmingpool/pool-controller/blob/main/docs/home-assistant/dashboard.yaml"target="_blank" rel="noopener"&gt;&lt;code&gt;docs/home-assistant/dashboard.yaml&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;Migration von Homie (Vor v3.3.0)&lt;span class="hx:absolute hx:-mt-20" id="migration-von-homie-vor-v330"&gt;&lt;/span&gt;
 &lt;a href="#migration-von-homie-vor-v330" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Wenn Sie von einer älteren Firmware aktualisieren, die das Homie-Protokoll verwendet hat:&lt;/p&gt;

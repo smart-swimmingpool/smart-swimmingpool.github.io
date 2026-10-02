@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Esp32</title><link>https://smart-swimmingpool.com/de/tags/esp32/</link><description>Recent content in Esp32 on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><lastBuildDate>Sun, 14 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.com/de/tags/esp32/index.xml" rel="self" type="application/rss+xml"/><item><title>Hardware Guide des Pool Monitors</title><link>https://smart-swimmingpool.com/de/docs/pool-monitor/hardware-guide/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/de/docs/pool-monitor/hardware-guide/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – ESP32</title><link>https://smart-swimmingpool.com/de/tags/esp32/</link><description>Recent content in ESP32 on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><lastBuildDate>Sun, 14 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.com/de/tags/esp32/index.xml" rel="self" type="application/rss+xml"/><item><title>Hardware Guide des Pool Monitors</title><link>https://smart-swimmingpool.com/de/docs/pool-monitor/hardware-guide/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/de/docs/pool-monitor/hardware-guide/</guid><description>
 &lt;h2&gt;Übersicht&lt;span class="hx:absolute hx:-mt-20" id="übersicht"&gt;&lt;/span&gt;
 &lt;a href="#%c3%bcbersicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der Pool Monitor ist ein &lt;strong&gt;fertig aufgebautes Anzeigegerät&lt;/strong&gt; auf Basis der
 LILYGO TTGO T5 E-Paper-ESP32-Board-Familie. Anders als der
@@ -84,7 +84,7 @@ verhindert Spannungseinbrüche während des WiFi-Betriebs.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2&gt;Kompatible Board-Varianten&lt;span class="hx:absolute hx:-mt-20" id="kompatible-board-varianten"&gt;&lt;/span&gt;
-&lt;a href="#kompatible-board-varianten" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die TTGO T5 Serie gibt es in mehreren Revisionen. Die Firmware unterstützt:&lt;/p&gt;
+&lt;a href="#kompatible-board-varianten" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die TTGO T5 Serie gibt es in mehreren Revisionen. Die Firmware unterstützt derzeit eine Variante:&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -101,61 +101,16 @@ verhindert Spannungseinbrüche während des WiFi-Betriebs.&lt;/li&gt;
 &lt;td&gt;✅ &lt;strong&gt;Standard&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;&lt;strong&gt;Empfohlen&lt;/strong&gt; — aktuellste Revision, aktiv getestet&lt;/td&gt;
 &lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;T5 V1.2 / V2.4&lt;/td&gt;
-&lt;td&gt;2.13&amp;quot; GxGDE0213B1 (s/w)&lt;/td&gt;
-&lt;td&gt;✅ Unterstützt&lt;/td&gt;
-&lt;td&gt;Älteres Panel, anderer Treiber&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;T5 V2.0 / V2.3&lt;/td&gt;
-&lt;td&gt;2.13&amp;quot; GxGDE0213B1 (s/w)&lt;/td&gt;
-&lt;td&gt;✅ Unterstützt&lt;/td&gt;
-&lt;td&gt;Ohne SD-Kartenslot&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;T5 V2.1&lt;/td&gt;
-&lt;td&gt;2.9&amp;quot; GxGDEH029A1 (s/w)&lt;/td&gt;
-&lt;td&gt;✅ Unterstützt&lt;/td&gt;
-&lt;td&gt;Größeres 2.9&amp;quot; Display&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;T5 V2.2&lt;/td&gt;
-&lt;td&gt;2.9&amp;quot; GxGDEH029A1 (s/w)&lt;/td&gt;
-&lt;td&gt;✅ Unterstützt&lt;/td&gt;
-&lt;td&gt;Andere Display-Pinbelegung&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;T5 V2.8&lt;/td&gt;
-&lt;td&gt;2.7&amp;quot; GxGDEW027W3 (s/w)&lt;/td&gt;
-&lt;td&gt;✅ Unterstützt&lt;/td&gt;
-&lt;td&gt;Mit Audio-DAC&lt;/td&gt;
-&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;Um eine andere Variante auszuwählen, &lt;code&gt;src/board_def.h&lt;/code&gt; editieren und den
-entsprechenden Define setzen:&lt;/p&gt;
-&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
-&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cpp" data-lang="cpp"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt;#define LILYGO_T5_V231 1 &lt;/span&gt;&lt;span class="c1"&gt;// Standard — für andere Varianten auskommentieren
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// #define TTGO_T5_2_1 1 // Beispiel: für 2.9&amp;#34;-Variante aktivieren
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
-&lt;button
-class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
-title="Code kopieren"
-aria-label="Code kopieren"
-data-copied-label="Kopiert!"
-&gt;
-&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
-&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
-&lt;/button&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;Dann die Firmware neu bauen (siehe &lt;a
-href="https://smart-swimmingpool.com/de/docs/pool-monitor/software-guide/"&gt;Software Guide&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;Andere T5-Revisionen (V1.2, V2.0–V2.4, V2.8, 2,7&amp;quot;/2,9&amp;quot;-Panels) nutzen andere
+Display-Treiber oder Pinbelegungen und werden von der aktuellen Firmware &lt;strong&gt;nicht
+unterstützt&lt;/strong&gt;. Für eine weitere Variante sind ein eigenes PlatformIO-Environment,
+der passende GxEPD-Display-Treiber und angepasste Pins in
+&lt;code&gt;src/PoolMonitor/Config.hpp&lt;/code&gt; nötig — Beiträge sind willkommen.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2&gt;Pinbelegung&lt;span class="hx:absolute hx:-mt-20" id="pinbelegung"&gt;&lt;/span&gt;
-&lt;a href="#pinbelegung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die Pin-Konfiguration ist in &lt;code&gt;src/board_def.h&lt;/code&gt; definiert und variiert je nach
-Board-Variante. Für das Standard-Board &lt;strong&gt;V2.3.1 (V231)&lt;/strong&gt;:&lt;/p&gt;
+&lt;a href="#pinbelegung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Die Pin-Konfiguration ist in &lt;code&gt;src/PoolMonitor/Config.hpp&lt;/code&gt; definiert. Für das &lt;strong&gt;V2.3.1 (V231)&lt;/strong&gt;:&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -800,7 +755,7 @@ href="https://www.espressif.com/en/products/socs/esp32"target="_blank" rel="noop
 &lt;li&gt;&lt;a
 href="https://github.com/smart-swimmingpool/pool-controller/blob/main/docs/hardware-guide.md"target="_blank" rel="noopener"&gt;Pool Controller Hardware Guide&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="https://github.com/smart-swimmingpool/monitor/blob/main/src/board_def.h"target="_blank" rel="noopener"&gt;Board-Definitionen (Quelle)&lt;/a&gt;&lt;/li&gt;
+href="https://github.com/smart-swimmingpool/monitor/blob/main/src/PoolMonitor/Config.hpp"target="_blank" rel="noopener"&gt;Pin-Konfiguration (Quelle)&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description></item><item><title>OTA-Updates</title><link>https://smart-swimmingpool.com/de/docs/pool-controller/ota-updates/</link><pubDate>Thu, 11 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/de/docs/pool-controller/ota-updates/</guid><description>
 &lt;h1&gt;Over-The-Air (OTA) Updates&lt;/h1&gt;&lt;h2&gt;Übersicht&lt;span class="hx:absolute hx:-mt-20" id="übersicht"&gt;&lt;/span&gt;
 &lt;a href="#%c3%bcbersicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der Pool Controller unterstützt Over-The-Air (OTA) Firmware-Updates, sodass
