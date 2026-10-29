@@ -124,13 +124,13 @@ MQTT --&amp;gt; PM
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;Relay IN1 (Ch. 1)&lt;/td&gt;
-&lt;td&gt;GPIO26&lt;/td&gt;
-&lt;td&gt;Heating circuit pump&lt;/td&gt;
+&lt;td&gt;GPIO25&lt;/td&gt;
+&lt;td&gt;Filter/circulation pump&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Relay IN2 (Ch. 2)&lt;/td&gt;
-&lt;td&gt;GPIO25&lt;/td&gt;
-&lt;td&gt;Filter/circulation pump&lt;/td&gt;
+&lt;td&gt;GPIO26&lt;/td&gt;
+&lt;td&gt;Heating circuit pump&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;

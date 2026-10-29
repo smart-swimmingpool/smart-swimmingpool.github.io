@@ -815,13 +815,13 @@ MQTT --&amp;gt; PM
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;Relais IN1 (Kanal 1)&lt;/td&gt;
-&lt;td&gt;GPIO26&lt;/td&gt;
-&lt;td&gt;Heizkreispumpe&lt;/td&gt;
+&lt;td&gt;GPIO25&lt;/td&gt;
+&lt;td&gt;Filter-/Umwälzpumpe&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Relais IN2 (Kanal 2)&lt;/td&gt;
-&lt;td&gt;GPIO25&lt;/td&gt;
-&lt;td&gt;Filter-/Umwälzpumpe&lt;/td&gt;
+&lt;td&gt;GPIO26&lt;/td&gt;
+&lt;td&gt;Heizkreispumpe&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -954,30 +954,113 @@ href="https://smart-swimmingpool.com/de/docs/bom/"&gt;Stückliste (BOM)&lt;/a&gt
 &lt;hr&gt;
 &lt;h2&gt;Schritt 1: Verkabeln (5 Minuten)&lt;span class="hx:absolute hx:-mt-20" id="schritt-1-verkabeln-5-minuten"&gt;&lt;/span&gt;
 &lt;a href="#schritt-1-verkabeln-5-minuten" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Breadboard-Aufbau&lt;span class="hx:absolute hx:-mt-20" id="breadboard-aufbau"&gt;&lt;/span&gt;
-&lt;a href="#breadboard-aufbau" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
-&lt;div&gt;&lt;pre&gt;&lt;code&gt;┌─────────────────────────────────────────┐
-│ ESP32 DevKit │
-│ ┌──────────────────────────────────────┤
-│ │ USB GND 5V GPIO32 GPIO33 ... │
-│ └──────────────────────────────────────┤
-│ │ │ │ │ │
-│ │ │ ├──4,7kΩ─┤ 3,3V │
-│ │ │ │ │ │
-│ ─────────┤ │ │ │ │
-│ DS18B20 #1 │ │ DS18B20 #2 │
-│ (Solar) │ │ (Pool) │
-└─────────────────────────────────────────┘&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
-&lt;button
-class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
-title="Code kopieren"
-aria-label="Code kopieren"
-data-copied-label="Kopiert!"
-&gt;
-&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
-&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
-&lt;/button&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+&lt;a href="#breadboard-aufbau" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;figure class="svgbob-diagram hx:mt-6" role="img" aria-label="Diagramm"&gt;
+&lt;svg xmlns="http://www.w3.org/2000/svg" width="480" height="224" class="svgbob"&gt;
+&lt;defs&gt;
+&lt;marker id="arrow" viewBox="-2 -2 8 8" refX="4" refY="2" markerWidth="7" markerHeight="7" orient="auto-start-reverse"&gt;
+&lt;polygon points="0,0 0,4 4,2 0,0"&gt;&lt;/polygon&gt;
+&lt;/marker&gt;
+&lt;marker id="diamond" viewBox="-2 -2 8 8" refX="4" refY="2" markerWidth="7" markerHeight="7" orient="auto-start-reverse"&gt;
+&lt;polygon points="0,2 2,0 4,2 2,4 0,2"&gt;&lt;/polygon&gt;
+&lt;/marker&gt;
+&lt;marker id="circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"&gt;
+&lt;circle cx="4" cy="4" r="2" class="filled"&gt;&lt;/circle&gt;
+&lt;/marker&gt;
+&lt;marker id="open_circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"&gt;
+&lt;circle cx="4" cy="4" r="2" class="bg_filled"&gt;&lt;/circle&gt;
+&lt;/marker&gt;
+&lt;marker id="big_open_circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"&gt;
+&lt;circle cx="4" cy="4" r="3" class="bg_filled"&gt;&lt;/circle&gt;
+&lt;/marker&gt;
+&lt;/defs&gt;
+&lt;rect class="backdrop" x="0" y="0" width="480" height="224"&gt;&lt;/rect&gt;
+&lt;rect x="12" y="8" width="176" height="192" class="solid nofill" rx="4"&gt;&lt;/rect&gt;
+&lt;text x="82" y="28" &gt;ESP32&lt;/text&gt;
+&lt;line x1="176" y1="56" x2="164" y2="56" class="solid end_marked_open_circle"&gt;&lt;/line&gt;
+&lt;line x1="176" y1="152" x2="164" y2="152" class="solid end_marked_open_circle"&gt;&lt;/line&gt;
+&lt;text x="130" y="188" &gt;GND&lt;/text&gt;
+&lt;line x1="176" y1="184" x2="164" y2="184" class="solid end_marked_open_circle"&gt;&lt;/line&gt;
+&lt;text x="106" y="60" &gt;GPIO32&lt;/text&gt;
+&lt;text x="130" y="156" &gt;3V3&lt;/text&gt;
+&lt;rect x="300" y="8" width="168" height="192" class="solid nofill" rx="4"&gt;&lt;/rect&gt;
+&lt;text x="330" y="28" &gt;DS18B20&lt;/text&gt;
+&lt;text x="394" y="28" &gt;Solar&lt;/text&gt;
+&lt;text x="338" y="188" &gt;GND&lt;/text&gt;
+&lt;text x="338" y="60" &gt;DATA&lt;/text&gt;
+&lt;text x="338" y="156" &gt;VDD&lt;/text&gt;
+&lt;line x1="176" y1="56" x2="228" y2="56" class="solid end_marked_circle"&gt;&lt;/line&gt;
+&lt;line x1="224" y1="56" x2="324" y2="56" class="solid end_marked_open_circle"&gt;&lt;/line&gt;
+&lt;text x="210" y="108" &gt;4.7k&lt;/text&gt;
+&lt;line x1="176" y1="152" x2="228" y2="152" class="solid end_marked_circle"&gt;&lt;/line&gt;
+&lt;line x1="224" y1="152" x2="324" y2="152" class="solid end_marked_open_circle"&gt;&lt;/line&gt;
+&lt;line x1="176" y1="184" x2="324" y2="184" class="solid end_marked_open_circle"&gt;&lt;/line&gt;
+&lt;g&gt;
+&lt;line x1="228" y1="60" x2="228" y2="88" class="solid"&gt;&lt;/line&gt;
+&lt;path d="M 208,88 A 4,4 0,0,0 204,92" class="nofill"&gt;&lt;/path&gt;
+&lt;line x1="204" y1="92" x2="204" y2="116" class="solid"&gt;&lt;/line&gt;
+&lt;line x1="208" y1="88" x2="248" y2="88" class="solid"&gt;&lt;/line&gt;
+&lt;path d="M 248,88 A 4,4 0,0,1 252,92" class="nofill"&gt;&lt;/path&gt;
+&lt;line x1="252" y1="92" x2="252" y2="116" class="solid"&gt;&lt;/line&gt;
+&lt;path d="M 204,116 A 4,4 0,0,0 208,120" class="nofill"&gt;&lt;/path&gt;
+&lt;line x1="208" y1="120" x2="248" y2="120" class="solid"&gt;&lt;/line&gt;
+&lt;line x1="228" y1="120" x2="228" y2="148" class="solid"&gt;&lt;/line&gt;
+&lt;path d="M 252,116 A 4,4 0,0,1 248,120" class="nofill"&gt;&lt;/path&gt;
+&lt;/g&gt;
+&lt;/svg&gt;
+&lt;/figure&gt;&lt;figure class="svgbob-diagram hx:mt-6" role="img" aria-label="Diagramm"&gt;
+&lt;svg xmlns="http://www.w3.org/2000/svg" width="480" height="224" class="svgbob"&gt;
+&lt;defs&gt;
+&lt;marker id="arrow" viewBox="-2 -2 8 8" refX="4" refY="2" markerWidth="7" markerHeight="7" orient="auto-start-reverse"&gt;
+&lt;polygon points="0,0 0,4 4,2 0,0"&gt;&lt;/polygon&gt;
+&lt;/marker&gt;
+&lt;marker id="diamond" viewBox="-2 -2 8 8" refX="4" refY="2" markerWidth="7" markerHeight="7" orient="auto-start-reverse"&gt;
+&lt;polygon points="0,2 2,0 4,2 2,4 0,2"&gt;&lt;/polygon&gt;
+&lt;/marker&gt;
+&lt;marker id="circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"&gt;
+&lt;circle cx="4" cy="4" r="2" class="filled"&gt;&lt;/circle&gt;
+&lt;/marker&gt;
+&lt;marker id="open_circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"&gt;
+&lt;circle cx="4" cy="4" r="2" class="bg_filled"&gt;&lt;/circle&gt;
+&lt;/marker&gt;
+&lt;marker id="big_open_circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"&gt;
+&lt;circle cx="4" cy="4" r="3" class="bg_filled"&gt;&lt;/circle&gt;
+&lt;/marker&gt;
+&lt;/defs&gt;
+&lt;rect class="backdrop" x="0" y="0" width="480" height="224"&gt;&lt;/rect&gt;
+&lt;rect x="12" y="8" width="176" height="192" class="solid nofill" rx="4"&gt;&lt;/rect&gt;
+&lt;text x="82" y="28" &gt;ESP32&lt;/text&gt;
+&lt;line x1="176" y1="56" x2="164" y2="56" class="solid end_marked_open_circle"&gt;&lt;/line&gt;
+&lt;line x1="176" y1="152" x2="164" y2="152" class="solid end_marked_open_circle"&gt;&lt;/line&gt;
+&lt;text x="130" y="188" &gt;GND&lt;/text&gt;
+&lt;line x1="176" y1="184" x2="164" y2="184" class="solid end_marked_open_circle"&gt;&lt;/line&gt;
+&lt;text x="106" y="60" &gt;GPIO33&lt;/text&gt;
+&lt;text x="130" y="156" &gt;3V3&lt;/text&gt;
+&lt;rect x="300" y="8" width="168" height="192" class="solid nofill" rx="4"&gt;&lt;/rect&gt;
+&lt;text x="338" y="28" &gt;DS18B20&lt;/text&gt;
+&lt;text x="402" y="28" &gt;Pool&lt;/text&gt;
+&lt;text x="338" y="188" &gt;GND&lt;/text&gt;
+&lt;text x="338" y="60" &gt;DATA&lt;/text&gt;
+&lt;text x="338" y="156" &gt;VDD&lt;/text&gt;
+&lt;line x1="176" y1="56" x2="228" y2="56" class="solid end_marked_circle"&gt;&lt;/line&gt;
+&lt;line x1="224" y1="56" x2="324" y2="56" class="solid end_marked_open_circle"&gt;&lt;/line&gt;
+&lt;text x="210" y="108" &gt;4.7k&lt;/text&gt;
+&lt;line x1="176" y1="152" x2="228" y2="152" class="solid end_marked_circle"&gt;&lt;/line&gt;
+&lt;line x1="224" y1="152" x2="324" y2="152" class="solid end_marked_open_circle"&gt;&lt;/line&gt;
+&lt;line x1="176" y1="184" x2="324" y2="184" class="solid end_marked_open_circle"&gt;&lt;/line&gt;
+&lt;g&gt;
+&lt;line x1="228" y1="60" x2="228" y2="88" class="solid"&gt;&lt;/line&gt;
+&lt;path d="M 208,88 A 4,4 0,0,0 204,92" class="nofill"&gt;&lt;/path&gt;
+&lt;line x1="204" y1="92" x2="204" y2="116" class="solid"&gt;&lt;/line&gt;
+&lt;line x1="208" y1="88" x2="248" y2="88" class="solid"&gt;&lt;/line&gt;
+&lt;path d="M 248,88 A 4,4 0,0,1 252,92" class="nofill"&gt;&lt;/path&gt;
+&lt;line x1="252" y1="92" x2="252" y2="116" class="solid"&gt;&lt;/line&gt;
+&lt;path d="M 204,116 A 4,4 0,0,0 208,120" class="nofill"&gt;&lt;/path&gt;
+&lt;line x1="208" y1="120" x2="248" y2="120" class="solid"&gt;&lt;/line&gt;
+&lt;line x1="228" y1="120" x2="228" y2="148" class="solid"&gt;&lt;/line&gt;
+&lt;path d="M 252,116 A 4,4 0,0,1 248,120" class="nofill"&gt;&lt;/path&gt;
+&lt;/g&gt;
+&lt;/svg&gt;
+&lt;/figure&gt;&lt;p&gt;Der 4,7kΩ-Widerstand ist die einzige Verbindung zwischen DATA und 3,3V. Der Pool-Sensor wird genauso an GPIO33 angeschlossen.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Verbindungen:&lt;/strong&gt;&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -1040,12 +1123,12 @@ data-copied-label="Kopiert!"
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;ESP32 GPIO26&lt;/td&gt;
-&lt;td&gt;Relais IN1 (Heizpumpe)&lt;/td&gt;
+&lt;td&gt;Relais IN2 (Heizpumpe)&lt;/td&gt;
 &lt;td&gt;Blau&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;ESP32 GPIO25&lt;/td&gt;
-&lt;td&gt;Relais IN2 (Filterpumpe)&lt;/td&gt;
+&lt;td&gt;Relais IN1 (Filterpumpe)&lt;/td&gt;
 &lt;td&gt;Grün&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -1155,7 +1238,7 @@ href="https://mosquitto.org/download/"target="_blank" rel="noopener"&gt;Mosquitt
 &lt;li&gt;Multimeter auf Gleichspannung einstellen&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Heating Pump&lt;/strong&gt; EIN schalten:
 &lt;ul&gt;
-&lt;li&gt;GPIO26 (Relais IN1) sollte &lt;strong&gt;~0V (LOW)&lt;/strong&gt; anzeigen&lt;/li&gt;
+&lt;li&gt;GPIO26 (Relais IN2) sollte &lt;strong&gt;~0V (LOW)&lt;/strong&gt; anzeigen&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;EIN → AUS:
@@ -1237,11 +1320,11 @@ href="https://smart-swimmingpool.com/de/docs/troubleshooting/"&gt;FAQ &amp;amp; 
 &lt;td&gt;DATA → 3,3V&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;Relais IN1 (Heizpumpe)&lt;/td&gt;
+&lt;td&gt;Relais IN2 (Heizpumpe)&lt;/td&gt;
 &lt;td&gt;GPIO26&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;Relais IN2 (Filterpumpe)&lt;/td&gt;
+&lt;td&gt;Relais IN1 (Filterpumpe)&lt;/td&gt;
 &lt;td&gt;GPIO25&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -1889,12 +1972,12 @@ href="https://www.wch.cn/download/CH341SER_EXE.html"target="_blank" rel="noopene
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;GPIO26&lt;/td&gt;
-&lt;td&gt;IN1&lt;/td&gt;
+&lt;td&gt;IN2&lt;/td&gt;
 &lt;td&gt;Heizkreispumpe&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;GPIO25&lt;/td&gt;
-&lt;td&gt;IN2&lt;/td&gt;
+&lt;td&gt;IN1&lt;/td&gt;
 &lt;td&gt;Umwälzpumpe / Filter&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -2163,8 +2246,8 @@ Verwende immer einen &lt;strong&gt;RCD (FI-Schutzschalter)&lt;/strong&gt;. Das P
 &lt;a href="#11-controller-elektronik" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;input disabled="" type="checkbox"&gt; ESP32 fest auf Breadboard oder Lochrasterplatine&lt;/li&gt;
 &lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Relais-Modul angeschlossen: &lt;strong&gt;VCC → 5V&lt;/strong&gt; (nicht 3,3V!), &lt;strong&gt;GND → GND&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Relais IN1 (GPIO26) vorbereitet für &lt;strong&gt;Heizkreispumpe&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Relais IN2 (GPIO25) vorbereitet für &lt;strong&gt;Filter-/Umwälzpumpe&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Relais IN2 (GPIO26) vorbereitet für &lt;strong&gt;Heizkreispumpe&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Relais IN1 (GPIO25) vorbereitet für &lt;strong&gt;Filter-/Umwälzpumpe&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;&lt;input disabled="" type="checkbox"&gt; DS18B20 Solar-Sensor: &lt;strong&gt;DATA → GPIO32&lt;/strong&gt;, &lt;strong&gt;VDD → 3,3V&lt;/strong&gt;, &lt;strong&gt;GND → GND&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;&lt;input disabled="" type="checkbox"&gt; DS18B20 Pool-Sensor: &lt;strong&gt;DATA → GPIO33&lt;/strong&gt;, &lt;strong&gt;VDD → 3,3V&lt;/strong&gt;, &lt;strong&gt;GND → GND&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;&lt;input disabled="" type="checkbox"&gt; &lt;strong&gt;4,7kΩ Pull-Up-Widerstand&lt;/strong&gt; zwischen jeder DATA-Leitung und 3,3V (insgesamt 2 Widerstände)&lt;/li&gt;
@@ -2388,13 +2471,13 @@ data-copied-label="Kopiert!"
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;GPIO26 (IN1)&lt;/td&gt;
+&lt;td&gt;GPIO26 (IN2)&lt;/td&gt;
 &lt;td&gt;~3,3V (HIGH)&lt;/td&gt;
 &lt;td&gt;~0V (LOW)&lt;/td&gt;
 &lt;td&gt;Heizpumpe (noch nicht angeschlossen)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;GPIO25 (IN2)&lt;/td&gt;
+&lt;td&gt;GPIO25 (IN1)&lt;/td&gt;
 &lt;td&gt;~3,3V (HIGH)&lt;/td&gt;
 &lt;td&gt;~0V (LOW)&lt;/td&gt;
 &lt;td&gt;Filterpumpe (noch nicht angeschlossen)&lt;/td&gt;
@@ -2458,8 +2541,8 @@ data-copied-label="Kopiert!"
 &lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
 &lt;div&gt;&lt;pre&gt;&lt;code&gt;☐ ESP32: 5V USB-Strom, Datenkabel
 ☐ Relais VCC → 5V, GND → GND
-☐ Relais IN1 → GPIO26 (Heizung)
-☐ Relais IN2 → GPIO25 (Filter)
+☐ Relais IN2 → GPIO26 (Heizung)
+☐ Relais IN1 → GPIO25 (Filter)
 ☐ DS18B20 #1: GPIO32 &amp;#43; 4,7kΩ Pull-Up
 ☐ DS18B20 #2: GPIO33 &amp;#43; 4,7kΩ Pull-Up
 ☐ FI-Schutzschalter auf 230V-Seite

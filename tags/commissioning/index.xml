@@ -17,8 +17,8 @@ Always use an &lt;strong&gt;RCD (residual-current device)&lt;/strong&gt;. This p
 &lt;a href="#11-controller-electronics" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;input disabled="" type="checkbox"&gt; ESP32 firmly seated on breadboard or perfboard&lt;/li&gt;
 &lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Relay module connected: &lt;strong&gt;VCC → 5V&lt;/strong&gt; (not 3.3V!), &lt;strong&gt;GND → GND&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Relay IN1 (GPIO26) prepared for &lt;strong&gt;heating circuit pump&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Relay IN2 (GPIO25) prepared for &lt;strong&gt;filter/circulation pump&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Relay IN2 (GPIO26) prepared for &lt;strong&gt;heating circuit pump&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Relay IN1 (GPIO25) prepared for &lt;strong&gt;filter/circulation pump&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;&lt;input disabled="" type="checkbox"&gt; DS18B20 solar sensor: &lt;strong&gt;DATA → GPIO32&lt;/strong&gt;, &lt;strong&gt;VDD → 3.3V&lt;/strong&gt;, &lt;strong&gt;GND → GND&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;&lt;input disabled="" type="checkbox"&gt; DS18B20 pool sensor: &lt;strong&gt;DATA → GPIO33&lt;/strong&gt;, &lt;strong&gt;VDD → 3.3V&lt;/strong&gt;, &lt;strong&gt;GND → GND&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;&lt;input disabled="" type="checkbox"&gt; &lt;strong&gt;4.7kΩ pull-up resistor&lt;/strong&gt; between each DATA pin and 3.3V (2 resistors total)&lt;/li&gt;
@@ -242,13 +242,13 @@ data-copied-label="Copied!"
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;GPIO26 (IN1)&lt;/td&gt;
+&lt;td&gt;GPIO26 (IN2)&lt;/td&gt;
 &lt;td&gt;~3.3V (HIGH)&lt;/td&gt;
 &lt;td&gt;~0V (LOW)&lt;/td&gt;
 &lt;td&gt;Heating pump (not yet connected)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;GPIO25 (IN2)&lt;/td&gt;
+&lt;td&gt;GPIO25 (IN1)&lt;/td&gt;
 &lt;td&gt;~3.3V (HIGH)&lt;/td&gt;
 &lt;td&gt;~0V (LOW)&lt;/td&gt;
 &lt;td&gt;Filter pump (not yet connected)&lt;/td&gt;
@@ -312,8 +312,8 @@ data-copied-label="Copied!"
 &lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
 &lt;div&gt;&lt;pre&gt;&lt;code&gt;☐ ESP32: 5V USB power, data cable
 ☐ Relay VCC → 5V, GND → GND
-☐ Relay IN1 → GPIO26 (heating)
-☐ Relay IN2 → GPIO25 (filter)
+☐ Relay IN2 → GPIO26 (heating)
+☐ Relay IN1 → GPIO25 (filter)
 ☐ DS18B20 #1: GPIO32 &amp;#43; 4.7kΩ pull-up
 ☐ DS18B20 #2: GPIO33 &amp;#43; 4.7kΩ pull-up
 ☐ RCD / FI installed on 230V side

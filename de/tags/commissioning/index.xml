@@ -17,8 +17,8 @@ Verwende immer einen &lt;strong&gt;RCD (FI-Schutzschalter)&lt;/strong&gt;. Das P
 &lt;a href="#11-controller-elektronik" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;input disabled="" type="checkbox"&gt; ESP32 fest auf Breadboard oder Lochrasterplatine&lt;/li&gt;
 &lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Relais-Modul angeschlossen: &lt;strong&gt;VCC → 5V&lt;/strong&gt; (nicht 3,3V!), &lt;strong&gt;GND → GND&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Relais IN1 (GPIO26) vorbereitet für &lt;strong&gt;Heizkreispumpe&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Relais IN2 (GPIO25) vorbereitet für &lt;strong&gt;Filter-/Umwälzpumpe&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Relais IN2 (GPIO26) vorbereitet für &lt;strong&gt;Heizkreispumpe&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Relais IN1 (GPIO25) vorbereitet für &lt;strong&gt;Filter-/Umwälzpumpe&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;&lt;input disabled="" type="checkbox"&gt; DS18B20 Solar-Sensor: &lt;strong&gt;DATA → GPIO32&lt;/strong&gt;, &lt;strong&gt;VDD → 3,3V&lt;/strong&gt;, &lt;strong&gt;GND → GND&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;&lt;input disabled="" type="checkbox"&gt; DS18B20 Pool-Sensor: &lt;strong&gt;DATA → GPIO33&lt;/strong&gt;, &lt;strong&gt;VDD → 3,3V&lt;/strong&gt;, &lt;strong&gt;GND → GND&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;&lt;input disabled="" type="checkbox"&gt; &lt;strong&gt;4,7kΩ Pull-Up-Widerstand&lt;/strong&gt; zwischen jeder DATA-Leitung und 3,3V (insgesamt 2 Widerstände)&lt;/li&gt;
@@ -242,13 +242,13 @@ data-copied-label="Kopiert!"
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;GPIO26 (IN1)&lt;/td&gt;
+&lt;td&gt;GPIO26 (IN2)&lt;/td&gt;
 &lt;td&gt;~3,3V (HIGH)&lt;/td&gt;
 &lt;td&gt;~0V (LOW)&lt;/td&gt;
 &lt;td&gt;Heizpumpe (noch nicht angeschlossen)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;GPIO25 (IN2)&lt;/td&gt;
+&lt;td&gt;GPIO25 (IN1)&lt;/td&gt;
 &lt;td&gt;~3,3V (HIGH)&lt;/td&gt;
 &lt;td&gt;~0V (LOW)&lt;/td&gt;
 &lt;td&gt;Filterpumpe (noch nicht angeschlossen)&lt;/td&gt;
@@ -312,8 +312,8 @@ data-copied-label="Kopiert!"
 &lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
 &lt;div&gt;&lt;pre&gt;&lt;code&gt;☐ ESP32: 5V USB-Strom, Datenkabel
 ☐ Relais VCC → 5V, GND → GND
-☐ Relais IN1 → GPIO26 (Heizung)
-☐ Relais IN2 → GPIO25 (Filter)
+☐ Relais IN2 → GPIO26 (Heizung)
+☐ Relais IN1 → GPIO25 (Filter)
 ☐ DS18B20 #1: GPIO32 &amp;#43; 4,7kΩ Pull-Up
 ☐ DS18B20 #2: GPIO33 &amp;#43; 4,7kΩ Pull-Up
 ☐ FI-Schutzschalter auf 230V-Seite
