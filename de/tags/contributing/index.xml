@@ -1,0 +1,121 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Contributing</title><link>https://smart-swimmingpool.com/de/tags/contributing/</link><description>Recent content in Contributing on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><atom:link href="https://smart-swimmingpool.com/de/tags/contributing/index.xml" rel="self" type="application/rss+xml"/><item><title>Diagramme mit Svgbob</title><link>https://smart-swimmingpool.com/de/docs/diagrams/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/de/docs/diagrams/</guid><description>
+&lt;p&gt;Schaltpläne und andere technische Zeichnungen werden als ASCII-Art in einem
+Codeblock mit der Sprache &lt;code&gt;svgbob&lt;/code&gt; geschrieben. Beim Build erzeugt die Website
+daraus über &lt;a
+href="https://kroki.io/"target="_blank" rel="noopener"&gt;Kroki&lt;/a&gt; mit
+&lt;a
+href="https://github.com/ivanceras/svgbob"target="_blank" rel="noopener"&gt;Svgbob&lt;/a&gt; ein SVG. Die Diagramme folgen dem
+hellen und dunklen Theme, und der Quelltext bleibt auf GitHub als Text lesbar.&lt;/p&gt;
+&lt;h2&gt;Beispiel: Verdrahtung von Sensor und Relais&lt;span class="hx:absolute hx:-mt-20" id="beispiel-verdrahtung-von-sensor-und-relais"&gt;&lt;/span&gt;
+&lt;a href="#beispiel-verdrahtung-von-sensor-und-relais" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;figure class="svgbob-diagram hx:mt-6" role="img" aria-label="Diagramm"&gt;
+&lt;svg xmlns="http://www.w3.org/2000/svg" width="480" height="352" class="svgbob"&gt;
+&lt;defs&gt;
+&lt;marker id="arrow" viewBox="-2 -2 8 8" refX="4" refY="2" markerWidth="7" markerHeight="7" orient="auto-start-reverse"&gt;
+&lt;polygon points="0,0 0,4 4,2 0,0"&gt;&lt;/polygon&gt;
+&lt;/marker&gt;
+&lt;marker id="diamond" viewBox="-2 -2 8 8" refX="4" refY="2" markerWidth="7" markerHeight="7" orient="auto-start-reverse"&gt;
+&lt;polygon points="0,2 2,0 4,2 2,4 0,2"&gt;&lt;/polygon&gt;
+&lt;/marker&gt;
+&lt;marker id="circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"&gt;
+&lt;circle cx="4" cy="4" r="2" class="filled"&gt;&lt;/circle&gt;
+&lt;/marker&gt;
+&lt;marker id="open_circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"&gt;
+&lt;circle cx="4" cy="4" r="2" class="bg_filled"&gt;&lt;/circle&gt;
+&lt;/marker&gt;
+&lt;marker id="big_open_circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"&gt;
+&lt;circle cx="4" cy="4" r="3" class="bg_filled"&gt;&lt;/circle&gt;
+&lt;/marker&gt;
+&lt;/defs&gt;
+&lt;rect class="backdrop" x="0" y="0" width="480" height="352"&gt;&lt;/rect&gt;
+&lt;rect x="12" y="8" width="176" height="320" class="solid nofill" rx="4"&gt;&lt;/rect&gt;
+&lt;text x="82" y="28" &gt;ESP32&lt;/text&gt;
+&lt;line x1="176" y1="56" x2="164" y2="56" class="solid end_marked_open_circle"&gt;&lt;/line&gt;
+&lt;line x1="188" y1="56" x2="188" y2="104" class="solid"&gt;&lt;/line&gt;
+&lt;line x1="176" y1="72" x2="164" y2="72" class="solid end_marked_open_circle"&gt;&lt;/line&gt;
+&lt;line x1="176" y1="88" x2="164" y2="88" class="solid end_marked_open_circle"&gt;&lt;/line&gt;
+&lt;line x1="176" y1="104" x2="164" y2="104" class="solid end_marked_open_circle"&gt;&lt;/line&gt;
+&lt;line x1="176" y1="184" x2="164" y2="184" class="solid end_marked_open_circle"&gt;&lt;/line&gt;
+&lt;line x1="176" y1="280" x2="164" y2="280" class="solid end_marked_open_circle"&gt;&lt;/line&gt;
+&lt;text x="130" y="316" &gt;GND&lt;/text&gt;
+&lt;line x1="176" y1="312" x2="164" y2="312" class="solid end_marked_open_circle"&gt;&lt;/line&gt;
+&lt;text x="106" y="60" &gt;GPIO25&lt;/text&gt;
+&lt;text x="106" y="76" &gt;GPIO26&lt;/text&gt;
+&lt;text x="138" y="92" &gt;5V&lt;/text&gt;
+&lt;text x="130" y="108" &gt;GND&lt;/text&gt;
+&lt;text x="106" y="188" &gt;GPIO32&lt;/text&gt;
+&lt;text x="130" y="284" &gt;3V3&lt;/text&gt;
+&lt;rect x="260" y="8" width="168" height="112" class="solid nofill" rx="4"&gt;&lt;/rect&gt;
+&lt;text x="306" y="28" &gt;Relaismodul&lt;/text&gt;
+&lt;text x="298" y="44" &gt;2&lt;/text&gt;
+&lt;text x="314" y="44" &gt;Kanal,&lt;/text&gt;
+&lt;text x="370" y="44" &gt;5V&lt;/text&gt;
+&lt;text x="298" y="60" &gt;IN1&lt;/text&gt;
+&lt;text x="298" y="76" &gt;IN2&lt;/text&gt;
+&lt;text x="298" y="92" &gt;VCC&lt;/text&gt;
+&lt;text x="298" y="108" &gt;GND&lt;/text&gt;
+&lt;line x1="260" y1="56" x2="260" y2="104" class="solid"&gt;&lt;/line&gt;
+&lt;rect x="300" y="152" width="168" height="176" class="solid nofill" rx="4"&gt;&lt;/rect&gt;
+&lt;text x="330" y="172" &gt;DS18B20&lt;/text&gt;
+&lt;text x="338" y="188" &gt;DATA&lt;/text&gt;
+&lt;text x="394" y="172" &gt;Solar&lt;/text&gt;
+&lt;text x="338" y="316" &gt;GND&lt;/text&gt;
+&lt;text x="338" y="284" &gt;VDD&lt;/text&gt;
+&lt;line x1="176" y1="56" x2="284" y2="56" class="solid end_marked_open_circle"&gt;&lt;/line&gt;
+&lt;line x1="176" y1="72" x2="284" y2="72" class="solid end_marked_open_circle"&gt;&lt;/line&gt;
+&lt;line x1="176" y1="88" x2="284" y2="88" class="solid end_marked_open_circle"&gt;&lt;/line&gt;
+&lt;line x1="176" y1="104" x2="284" y2="104" class="solid end_marked_open_circle"&gt;&lt;/line&gt;
+&lt;line x1="176" y1="184" x2="228" y2="184" class="solid end_marked_circle"&gt;&lt;/line&gt;
+&lt;line x1="224" y1="184" x2="324" y2="184" class="solid end_marked_open_circle"&gt;&lt;/line&gt;
+&lt;text x="210" y="236" &gt;4.7k&lt;/text&gt;
+&lt;line x1="176" y1="280" x2="228" y2="280" class="solid end_marked_circle"&gt;&lt;/line&gt;
+&lt;line x1="224" y1="280" x2="324" y2="280" class="solid end_marked_open_circle"&gt;&lt;/line&gt;
+&lt;line x1="176" y1="312" x2="324" y2="312" class="solid end_marked_open_circle"&gt;&lt;/line&gt;
+&lt;g&gt;
+&lt;line x1="228" y1="188" x2="228" y2="216" class="solid"&gt;&lt;/line&gt;
+&lt;path d="M 208,216 A 4,4 0,0,0 204,220" class="nofill"&gt;&lt;/path&gt;
+&lt;line x1="204" y1="220" x2="204" y2="244" class="solid"&gt;&lt;/line&gt;
+&lt;line x1="208" y1="216" x2="248" y2="216" class="solid"&gt;&lt;/line&gt;
+&lt;path d="M 248,216 A 4,4 0,0,1 252,220" class="nofill"&gt;&lt;/path&gt;
+&lt;line x1="252" y1="220" x2="252" y2="244" class="solid"&gt;&lt;/line&gt;
+&lt;path d="M 204,244 A 4,4 0,0,0 208,248" class="nofill"&gt;&lt;/path&gt;
+&lt;line x1="208" y1="248" x2="248" y2="248" class="solid"&gt;&lt;/line&gt;
+&lt;line x1="228" y1="248" x2="228" y2="276" class="solid"&gt;&lt;/line&gt;
+&lt;path d="M 252,244 A 4,4 0,0,1 248,248" class="nofill"&gt;&lt;/path&gt;
+&lt;/g&gt;
+&lt;/svg&gt;
+&lt;/figure&gt;&lt;h2&gt;Diagramme schreiben&lt;span class="hx:absolute hx:-mt-20" id="diagramme-schreiben"&gt;&lt;/span&gt;
+&lt;a href="#diagramme-schreiben" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;.&lt;/code&gt; und &lt;code&gt;'&lt;/code&gt; für runde Ecken, &lt;code&gt;-&lt;/code&gt; und &lt;code&gt;|&lt;/code&gt; für Linien, &lt;code&gt;*&lt;/code&gt; für Verbindungspunkte
+und &lt;code&gt;o&lt;/code&gt; für Anschlüsse. Alle Formen stehen in der
+&lt;a
+href="https://ivanceras.github.io/svgbob-editor/"target="_blank" rel="noopener"&gt;Svgbob-Referenz&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Nur Leerzeichen, keine Tabs, und Zeilen unter 100 Zeichen.&lt;/li&gt;
+&lt;li&gt;Mit &lt;code&gt;title&lt;/code&gt; für Screenreader: &lt;code&gt;```svgbob {title=&amp;quot;Relais-Verdrahtung&amp;quot;}&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Regeln für Schaltpläne&lt;span class="hx:absolute hx:-mt-20" id="regeln-für-schaltpläne"&gt;&lt;/span&gt;
+&lt;a href="#regeln-f%c3%bcr-schaltpl%c3%a4ne" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Pro Gerät ein Kasten mit einem &lt;code&gt;o&lt;/code&gt;-Anschluss je Pin, beschriftet wie am Gerät
+(&lt;code&gt;GPIO25&lt;/code&gt;, &lt;code&gt;VDD&lt;/code&gt;, &lt;code&gt;SDA&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;Bauteile wie Widerstände als kleiner Kasten auf der Leitung, mittig betreten:
+&lt;code&gt;.--+--.&lt;/code&gt; / &lt;code&gt;|4.7k |&lt;/code&gt; / &lt;code&gt;'--+--'&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Jedes Gerät bekommt eigene Leitungen für DATA, VDD und GND. Ein &lt;code&gt;*&lt;/code&gt; verbindet
+nur Leitungen desselben Netzes. Der Pull-up eines DS18B20 ist die einzige
+Verbindung zwischen DATA und 3V3.&lt;/li&gt;
+&lt;li&gt;Die 230V-Seite gehört nicht in Niederspannungszeichnungen, stattdessen auf die
+&lt;a
+href="https://smart-swimmingpool.com/docs/electrical-safety/"&gt;Anleitung Elektrische Sicherheit&lt;/a&gt; verweisen.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;(&lt;/code&gt;, &lt;code&gt;)&lt;/code&gt;, &lt;code&gt;/&lt;/code&gt;, &lt;code&gt;\&lt;/code&gt;, &lt;code&gt;&amp;lt;&lt;/code&gt;, &lt;code&gt;&amp;gt;&lt;/code&gt; und ein einzelnes &lt;code&gt;-&lt;/code&gt; in Beschriftungen
+vermeiden, Svgbob macht daraus Bögen, Diagonalen oder Pfeile. &lt;code&gt;2 Kanal&lt;/code&gt;
+statt &lt;code&gt;2-Kanal&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Ein Diagramm pro Teilsystem statt einer großen Zeichnung.&lt;/li&gt;
+&lt;li&gt;Alle Zeilen eines Kastens auf gleiche Länge auffüllen, damit der rechte Rand
+fluchtet.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Hosting&lt;span class="hx:absolute hx:-mt-20" id="hosting"&gt;&lt;/span&gt;
+&lt;a href="#hosting" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der Hugo-Build sendet jedes Diagramm einmal an die in &lt;code&gt;hugo.yaml&lt;/code&gt;
+(&lt;code&gt;params.kroki.url&lt;/code&gt;, Standard &lt;code&gt;https://kroki.io&lt;/code&gt;) eingestellte Kroki-Instanz und
+cacht das Ergebnis. Besucher kontaktieren Kroki nie. Wer die Diagrammquellen
+nicht nach außen geben will, betreibt eine eigene Instanz
+(&lt;code&gt;docker run -p 8000:8000 yuzutech/kroki&lt;/code&gt;) und trägt sie bei &lt;code&gt;kroki.url&lt;/code&gt; ein.
+Ist Kroki nicht erreichbar, wird der Block als Text angezeigt und der Build gibt
+eine Warnung aus.&lt;/p&gt;</description></item></channel></rss>
