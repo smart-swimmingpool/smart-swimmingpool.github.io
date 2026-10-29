@@ -167,11 +167,12 @@ data-copied-label="Copied!"
 &lt;h2&gt;5. WiFi &amp;amp; Network&lt;span class="hx:absolute hx:-mt-20" id="5-wifi--network"&gt;&lt;/span&gt;
 &lt;a href="#5-wifi--network" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Connected to &lt;code&gt;Pool-Controller-Setup&lt;/code&gt; WiFi network&lt;/li&gt;
-&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Web interface reachable at &lt;strong&gt;http://192.168.4.1&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Web interface reachable at &lt;strong&gt;&lt;a
+href="http://192.168.4.1"target="_blank" rel="noopener"&gt;http://192.168.4.1&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Home WiFi configured in web interface → &lt;strong&gt;Connection&lt;/strong&gt; section&lt;/li&gt;
 &lt;li&gt;&lt;input disabled="" type="checkbox"&gt; ESP32 rebooted and connected to home network&lt;/li&gt;
 &lt;li&gt;&lt;input disabled="" type="checkbox"&gt; New IP address noted (from router DHCP or serial monitor)&lt;/li&gt;
-&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Web interface reachable at &lt;strong&gt;http://&lt;new-ip&gt;/&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; Web interface reachable at &lt;strong&gt;&lt;code&gt;http://&amp;lt;new-ip&amp;gt;/&lt;/code&gt;&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;&lt;input disabled="" type="checkbox"&gt; ESP32 pingable from your computer: &lt;code&gt;ping &amp;lt;new-ip&amp;gt;&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;

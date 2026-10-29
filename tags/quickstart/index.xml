@@ -168,7 +168,8 @@ data-copied-label="Copied!"
 &lt;h2&gt;Step 3: Configure WiFi (3 minutes)&lt;span class="hx:absolute hx:-mt-20" id="step-3-configure-wifi-3-minutes"&gt;&lt;/span&gt;
 &lt;a href="#step-3-configure-wifi-3-minutes" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;Connect your phone/laptop to the WiFi network &lt;strong&gt;&lt;code&gt;Pool-Controller-Setup&lt;/code&gt;&lt;/strong&gt; (open, no password)&lt;/li&gt;
-&lt;li&gt;Open browser → &lt;strong&gt;http://192.168.4.1&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Open browser → &lt;strong&gt;&lt;a
+href="http://192.168.4.1"target="_blank" rel="noopener"&gt;http://192.168.4.1&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;Enter your home WiFi SSID and password&lt;/li&gt;
 &lt;li&gt;Click &lt;strong&gt;Save&lt;/strong&gt; — the ESP32 reboots and connects to your network&lt;/li&gt;
 &lt;/ol&gt;
@@ -176,7 +177,7 @@ data-copied-label="Copied!"
 &lt;h2&gt;Step 4: Connect to MQTT (3 minutes)&lt;span class="hx:absolute hx:-mt-20" id="step-4-connect-to-mqtt-3-minutes"&gt;&lt;/span&gt;
 &lt;a href="#step-4-connect-to-mqtt-3-minutes" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;Find the ESP32&amp;rsquo;s IP address on your router (or from the serial monitor)&lt;/li&gt;
-&lt;li&gt;Open &lt;strong&gt;http://&lt;esp32-ip&gt;/&lt;/strong&gt; in your browser&lt;/li&gt;
+&lt;li&gt;Open &lt;strong&gt;&lt;code&gt;http://&amp;lt;esp32-ip&amp;gt;/&lt;/code&gt;&lt;/strong&gt; in your browser&lt;/li&gt;
 &lt;li&gt;Go to &lt;strong&gt;Configuration → MQTT&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;Enter your MQTT broker address (e.g., &lt;code&gt;192.168.1.100&lt;/code&gt; or &lt;code&gt;core-mosquitto&lt;/code&gt;)&lt;/li&gt;
 &lt;li&gt;If using authentication, enter username/password&lt;/li&gt;
