@@ -827,7 +827,7 @@ MQTT --&amp;gt; PM
 &lt;/table&gt;
 &lt;p&gt;Das Relais-Modul sorgt für &lt;strong&gt;galvanische Trennung&lt;/strong&gt; zwischen ESP32 (Niederspannung) und den Pumpen (230V). Pumpen immer über einen &lt;strong&gt;FI-Schutzschalter&lt;/strong&gt; anschließen.&lt;/p&gt;
 &lt;h3&gt;Netzspannungsseite (230V)&lt;span class="hx:absolute hx:-mt-20" id="netzspannungsseite-230v"&gt;&lt;/span&gt;
-&lt;a href="#netzspannungsseite-230v" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="hx:rounded-lg hx:border-2 hx:border-red-300 hx:bg-red-50 hx:dark:border-red-700 hx:dark:bg-red-900/20 hx:p-4 hx:my-6"&gt;
+&lt;a href="#netzspannungsseite-230v" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class="safety-notice hx:rounded-lg hx:border-2 hx:border-red-300 hx:bg-red-50 hx:dark:border-red-700 hx:dark:bg-red-900/20 hx:p-4 hx:my-6"&gt;
 &lt;div class="hx:flex hx:items-start hx:gap-3"&gt;
 &lt;span class="hx:text-2xl hx:flex-shrink-0"&gt;⚠️&lt;/span&gt;
 &lt;div&gt;
@@ -1762,7 +1762,7 @@ href="https://smart-swimmingpool.com/de/docs/troubleshooting/"&gt;FAQ &amp;amp; 
 &lt;p&gt;💡 Die bestehende &amp;ldquo;Erste Schritte&amp;rdquo;-BOM schätzt &lt;strong&gt;45–75 €&lt;/strong&gt; für die &lt;strong&gt;Controller-Elektronik + Gehäuse&lt;/strong&gt; (Kategorien 1+2). Die erweiterte BOM oben ergänzt die &lt;strong&gt;Elektroinstallation (230V)&lt;/strong&gt; und das &lt;strong&gt;Sensor-Montagematerial&lt;/strong&gt;, die für eine reale Pool-Installation notwendig sind.&lt;/p&gt;
 &lt;/blockquote&gt;</description></item><item><title>Erste Schritte</title><link>https://smart-swimmingpool.com/de/docs/getting-started/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/de/docs/getting-started/</guid><description>
 &lt;p&gt;&lt;strong&gt;🏊 Smart Swimming Pool: Heimautomatisierung für eine intelligentere Steuerung Ihres Schwimmbads&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="hx:rounded-lg hx:border-2 hx:border-red-300 hx:bg-red-50 hx:dark:border-red-700 hx:dark:bg-red-900/20 hx:p-4 hx:my-6"&gt;
+&lt;div class="safety-notice hx:rounded-lg hx:border-2 hx:border-red-300 hx:bg-red-50 hx:dark:border-red-700 hx:dark:bg-red-900/20 hx:p-4 hx:my-6"&gt;
 &lt;div class="hx:flex hx:items-start hx:gap-3"&gt;
 &lt;span class="hx:text-2xl hx:flex-shrink-0"&gt;⚠️&lt;/span&gt;
 &lt;div&gt;
@@ -2044,7 +2044,7 @@ href="https://smart-swimmingpool.com/de/docs/home-assistant-integration/"&gt;Hom
 &lt;li&gt;Schließen Sie die Netzspannung über einen &lt;strong&gt;RCD (FI-Schutzschalter)&lt;/strong&gt; an.&lt;/li&gt;
 &lt;li&gt;Versorgen Sie den ESP32 wieder über sein USB-Netzteil (elektrisch getrennt von 230V).&lt;/li&gt;
 &lt;/ol&gt;
-&lt;div class="hx:rounded-lg hx:border-2 hx:border-red-300 hx:bg-red-50 hx:dark:border-red-700 hx:dark:bg-red-900/20 hx:p-4 hx:my-6"&gt;
+&lt;div class="safety-notice hx:rounded-lg hx:border-2 hx:border-red-300 hx:bg-red-50 hx:dark:border-red-700 hx:dark:bg-red-900/20 hx:p-4 hx:my-6"&gt;
 &lt;div class="hx:flex hx:items-start hx:gap-3"&gt;
 &lt;span class="hx:text-2xl hx:flex-shrink-0"&gt;⚠️&lt;/span&gt;
 &lt;div&gt;
@@ -2145,7 +2145,7 @@ href="https://github.com/stritti/smart-swimming-pool"target="_blank" rel="noopen
 &lt;p&gt;Aus diesen Erfahrungen entstand die überarbeitete Version des 🏊 Smart Swimming Pools: modular, widerstandsfähig und auf Standards basierend.&lt;/p&gt;</description></item><item><title>Inbetriebnahme-Checkliste</title><link>https://smart-swimmingpool.com/de/docs/checklist/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/de/docs/checklist/</guid><description>
 &lt;p&gt;&lt;strong&gt;🏊 Smart Swimming Pool: Schritt-für-Schritt-Checkliste für die erste Inbetriebnahme.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Verwenden Sie diese Checkliste &lt;strong&gt;bevor&lt;/strong&gt; Sie Pumpen an die Netzspannung anschließen. Haken Sie jeden Punkt ab, um einen sicheren und erfolgreichen ersten Start zu gewährleisten.&lt;/p&gt;
-&lt;div class="hx:rounded-lg hx:border-2 hx:border-red-300 hx:bg-red-50 hx:dark:border-red-700 hx:dark:bg-red-900/20 hx:p-4 hx:my-6"&gt;
+&lt;div class="safety-notice hx:rounded-lg hx:border-2 hx:border-red-300 hx:bg-red-50 hx:dark:border-red-700 hx:dark:bg-red-900/20 hx:p-4 hx:my-6"&gt;
 &lt;div class="hx:flex hx:items-start hx:gap-3"&gt;
 &lt;span class="hx:text-2xl hx:flex-shrink-0"&gt;⚠️&lt;/span&gt;
 &lt;div&gt;
@@ -3855,7 +3855,7 @@ href="https://smart-swimmingpool.com/de/docs/troubleshooting/#esp32--firmware-pr
 &lt;/tbody&gt;
 &lt;/table&gt;</description></item><item><title>FAQ &amp; Fehlerbehebung</title><link>https://smart-swimmingpool.com/de/docs/troubleshooting/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/de/docs/troubleshooting/</guid><description>
 &lt;p&gt;&lt;strong&gt;🏊 Häufig gestellte Fragen und Lösungen für typische Probleme.&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="hx:rounded-lg hx:border-2 hx:border-red-300 hx:bg-red-50 hx:dark:border-red-700 hx:dark:bg-red-900/20 hx:p-4 hx:my-6"&gt;
+&lt;div class="safety-notice hx:rounded-lg hx:border-2 hx:border-red-300 hx:bg-red-50 hx:dark:border-red-700 hx:dark:bg-red-900/20 hx:p-4 hx:my-6"&gt;
 &lt;div class="hx:flex hx:items-start hx:gap-3"&gt;
 &lt;span class="hx:text-2xl hx:flex-shrink-0"&gt;⚠️&lt;/span&gt;
 &lt;div&gt;
@@ -4222,7 +4222,7 @@ data-copied-label="Kopiert!"
 &lt;a href="#welche-pumpen-k%c3%b6nnen-gesteuert-werden" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Das Relais-Modul schaltet 230V/10A max (ohmsche Last). Bei induktiven Lasten (Motoren, Pumpen) mit ~5A. Verwenden Sie für größere Pumpen das Relais zur Ansteuerung eines Schützes.&lt;/p&gt;
 &lt;h3&gt;Ist dieses Projekt CE-/UL-zertifiziert?&lt;span class="hx:absolute hx:-mt-20" id="ist-dieses-projekt-ce-ul-zertifiziert"&gt;&lt;/span&gt;
 &lt;a href="#ist-dieses-projekt-ce-ul-zertifiziert" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Nein.&lt;/strong&gt; Dies ist ein Hobby-DIY-Projekt. Es wurde von keiner Aufsichtsbehörde geprüft oder zertifiziert. Sie bauen und betreiben es auf eigene Gefahr. Verwenden Sie immer einen &lt;strong&gt;RCD (FI-Schutzschalter)&lt;/strong&gt; beim Anschluss an die Netzspannung.&lt;/p&gt;
-&lt;div class="hx:rounded-lg hx:border-2 hx:border-red-300 hx:bg-red-50 hx:dark:border-red-700 hx:dark:bg-red-900/20 hx:p-4 hx:my-6"&gt;
+&lt;div class="safety-notice hx:rounded-lg hx:border-2 hx:border-red-300 hx:bg-red-50 hx:dark:border-red-700 hx:dark:bg-red-900/20 hx:p-4 hx:my-6"&gt;
 &lt;div class="hx:flex hx:items-start hx:gap-3"&gt;
 &lt;span class="hx:text-2xl hx:flex-shrink-0"&gt;⚠️&lt;/span&gt;
 &lt;div&gt;

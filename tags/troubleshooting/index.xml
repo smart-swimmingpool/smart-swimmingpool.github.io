@@ -1,6 +1,6 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Troubleshooting</title><link>https://smart-swimmingpool.com/tags/troubleshooting/</link><description>Recent content in Troubleshooting on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Sun, 14 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.com/tags/troubleshooting/index.xml" rel="self" type="application/rss+xml"/><item><title>FAQ &amp; Troubleshooting</title><link>https://smart-swimmingpool.com/docs/troubleshooting/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/troubleshooting/</guid><description>
 &lt;p&gt;&lt;strong&gt;🏊 Frequently asked questions and solutions for common problems.&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="hx:rounded-lg hx:border-2 hx:border-red-300 hx:bg-red-50 hx:dark:border-red-700 hx:dark:bg-red-900/20 hx:p-4 hx:my-6"&gt;
+&lt;div class="safety-notice hx:rounded-lg hx:border-2 hx:border-red-300 hx:bg-red-50 hx:dark:border-red-700 hx:dark:bg-red-900/20 hx:p-4 hx:my-6"&gt;
 &lt;div class="hx:flex hx:items-start hx:gap-3"&gt;
 &lt;span class="hx:text-2xl hx:flex-shrink-0"&gt;⚠️&lt;/span&gt;
 &lt;div&gt;
@@ -368,7 +368,7 @@ data-copied-label="Copied!"
 &lt;a href="#which-pumps-can-be-controlled" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The relay module switches 230V/10A max (resistive load). For inductive loads (motors, pumps), derate to ~5A. For larger pumps, use the relay to switch a contactor that handles the pump current.&lt;/p&gt;
 &lt;h3&gt;Is this project CE / UL certified?&lt;span class="hx:absolute hx:-mt-20" id="is-this-project-ce--ul-certified"&gt;&lt;/span&gt;
 &lt;a href="#is-this-project-ce--ul-certified" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;No.&lt;/strong&gt; This is a hobbyist DIY project. It is not tested or certified by any regulatory body. You build and operate it at your own risk. Always use an RCD (residual-current device / FI-Schutzschalter) when connecting to mains power.&lt;/p&gt;
-&lt;div class="hx:rounded-lg hx:border-2 hx:border-red-300 hx:bg-red-50 hx:dark:border-red-700 hx:dark:bg-red-900/20 hx:p-4 hx:my-6"&gt;
+&lt;div class="safety-notice hx:rounded-lg hx:border-2 hx:border-red-300 hx:bg-red-50 hx:dark:border-red-700 hx:dark:bg-red-900/20 hx:p-4 hx:my-6"&gt;
 &lt;div class="hx:flex hx:items-start hx:gap-3"&gt;
 &lt;span class="hx:text-2xl hx:flex-shrink-0"&gt;⚠️&lt;/span&gt;
 &lt;div&gt;

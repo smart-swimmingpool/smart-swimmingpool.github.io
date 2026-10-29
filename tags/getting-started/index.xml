@@ -330,7 +330,7 @@ href="https://smart-swimmingpool.com/docs/troubleshooting/"&gt;FAQ &amp;amp; Tro
 &lt;/tbody&gt;
 &lt;/table&gt;</description></item><item><title>Getting Started</title><link>https://smart-swimmingpool.com/docs/getting-started/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/getting-started/</guid><description>
 &lt;p&gt;&lt;strong&gt;🏊 Smart Swimming Pool: Home automation for smarter control of your swimming pool&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="hx:rounded-lg hx:border-2 hx:border-red-300 hx:bg-red-50 hx:dark:border-red-700 hx:dark:bg-red-900/20 hx:p-4 hx:my-6"&gt;
+&lt;div class="safety-notice hx:rounded-lg hx:border-2 hx:border-red-300 hx:bg-red-50 hx:dark:border-red-700 hx:dark:bg-red-900/20 hx:p-4 hx:my-6"&gt;
 &lt;div class="hx:flex hx:items-start hx:gap-3"&gt;
 &lt;span class="hx:text-2xl hx:flex-shrink-0"&gt;⚠️&lt;/span&gt;
 &lt;div&gt;
@@ -612,7 +612,7 @@ href="https://smart-swimmingpool.com/docs/home-assistant-integration/"&gt;Home A
 &lt;li&gt;Connect mains power through an &lt;strong&gt;RCD (FI-Schutzschalter)&lt;/strong&gt;.&lt;/li&gt;
 &lt;li&gt;Power the ESP32 via its USB supply (keep it isolated from mains).&lt;/li&gt;
 &lt;/ol&gt;
-&lt;div class="hx:rounded-lg hx:border-2 hx:border-red-300 hx:bg-red-50 hx:dark:border-red-700 hx:dark:bg-red-900/20 hx:p-4 hx:my-6"&gt;
+&lt;div class="safety-notice hx:rounded-lg hx:border-2 hx:border-red-300 hx:bg-red-50 hx:dark:border-red-700 hx:dark:bg-red-900/20 hx:p-4 hx:my-6"&gt;
 &lt;div class="hx:flex hx:items-start hx:gap-3"&gt;
 &lt;span class="hx:text-2xl hx:flex-shrink-0"&gt;⚠️&lt;/span&gt;
 &lt;div&gt;
