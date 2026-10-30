@@ -248,25 +248,25 @@ href="https://github.com/smart-swimmingpool/pool-controller/issues"target="_blan
 &lt;li&gt;&lt;strong&gt;&lt;a
 href="https://github.com/smart-swimmingpool/monitor"target="_blank" rel="noopener"&gt;Pool Monitor Repository&lt;/a&gt;&lt;/strong&gt; - Main repository with all documentation&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://github.com/smart-swimmingpool/monitor#build-guide"target="_blank" rel="noopener"&gt;Build Guide&lt;/a&gt;&lt;/strong&gt; - Step-by-step construction instructions&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/components/pool-monitor/hardware-guide/"&gt;Build Guide&lt;/a&gt;&lt;/strong&gt; - Step-by-step construction instructions&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://github.com/smart-swimmingpool/monitor#hardware"target="_blank" rel="noopener"&gt;Hardware Overview&lt;/a&gt;&lt;/strong&gt; - Component descriptions&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/components/pool-monitor/hardware-guide/#overview"&gt;Hardware Overview&lt;/a&gt;&lt;/strong&gt; - Component descriptions&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Hardware&lt;span class="hx:absolute hx:-mt-20" id="hardware"&gt;&lt;/span&gt;
 &lt;a href="#hardware" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://github.com/smart-swimmingpool/monitor#wiring"target="_blank" rel="noopener"&gt;Wiring Diagram&lt;/a&gt;&lt;/strong&gt; - Connection guide&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/components/pool-monitor/hardware-guide/#wiring"&gt;Wiring Diagram&lt;/a&gt;&lt;/strong&gt; - Connection guide&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://github.com/smart-swimmingpool/monitor#bill-of-materials"target="_blank" rel="noopener"&gt;Bill of Materials&lt;/a&gt;&lt;/strong&gt; - Complete parts list&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/components/pool-monitor/hardware-guide/#required-parts-bom"&gt;Bill of Materials&lt;/a&gt;&lt;/strong&gt; - Complete parts list&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Firmware&lt;span class="hx:absolute hx:-mt-20" id="firmware"&gt;&lt;/span&gt;
 &lt;a href="#firmware" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://github.com/smart-swimmingpool/monitor#firmware"target="_blank" rel="noopener"&gt;Firmware Installation&lt;/a&gt;&lt;/strong&gt; - Flashing guide&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/components/pool-monitor/software-guide/#build--flash"&gt;Firmware Installation&lt;/a&gt;&lt;/strong&gt; - Flashing guide&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://github.com/smart-swimmingpool/monitor#configuration"target="_blank" rel="noopener"&gt;Configuration&lt;/a&gt;&lt;/strong&gt; - Setup instructions&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/components/pool-monitor/software-guide/#configuration"&gt;Configuration&lt;/a&gt;&lt;/strong&gt; - Setup instructions&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://github.com/smart-swimmingpool/monitor#mqtt-configuration"target="_blank" rel="noopener"&gt;MQTT Configuration&lt;/a&gt;&lt;/strong&gt; - Broker setup&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/components/pool-monitor/software-guide/#wifi--mqtt-setup"&gt;MQTT Configuration&lt;/a&gt;&lt;/strong&gt; - Broker setup&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;🔧 Hardware Requirements&lt;span class="hx:absolute hx:-mt-20" id="-hardware-requirements"&gt;&lt;/span&gt;
 &lt;a href="#-hardware-requirements" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;

@@ -1209,25 +1209,25 @@ href="https://smart-swimmingpool.com/docs/migration/v2-to-v3/"&gt;v2.x → v3.x 
 &lt;li&gt;&lt;strong&gt;&lt;a
 href="https://github.com/smart-swimmingpool/monitor"target="_blank" rel="noopener"&gt;Pool Monitor Repository&lt;/a&gt;&lt;/strong&gt; - Main repository with all documentation&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://github.com/smart-swimmingpool/monitor#build-guide"target="_blank" rel="noopener"&gt;Build Guide&lt;/a&gt;&lt;/strong&gt; - Step-by-step construction instructions&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/components/pool-monitor/hardware-guide/"&gt;Build Guide&lt;/a&gt;&lt;/strong&gt; - Step-by-step construction instructions&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://github.com/smart-swimmingpool/monitor#hardware"target="_blank" rel="noopener"&gt;Hardware Overview&lt;/a&gt;&lt;/strong&gt; - Component descriptions&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/components/pool-monitor/hardware-guide/#overview"&gt;Hardware Overview&lt;/a&gt;&lt;/strong&gt; - Component descriptions&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Hardware&lt;span class="hx:absolute hx:-mt-20" id="hardware"&gt;&lt;/span&gt;
 &lt;a href="#hardware" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://github.com/smart-swimmingpool/monitor#wiring"target="_blank" rel="noopener"&gt;Wiring Diagram&lt;/a&gt;&lt;/strong&gt; - Connection guide&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/components/pool-monitor/hardware-guide/#wiring"&gt;Wiring Diagram&lt;/a&gt;&lt;/strong&gt; - Connection guide&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://github.com/smart-swimmingpool/monitor#bill-of-materials"target="_blank" rel="noopener"&gt;Bill of Materials&lt;/a&gt;&lt;/strong&gt; - Complete parts list&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/components/pool-monitor/hardware-guide/#required-parts-bom"&gt;Bill of Materials&lt;/a&gt;&lt;/strong&gt; - Complete parts list&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Firmware&lt;span class="hx:absolute hx:-mt-20" id="firmware"&gt;&lt;/span&gt;
 &lt;a href="#firmware" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://github.com/smart-swimmingpool/monitor#firmware"target="_blank" rel="noopener"&gt;Firmware Installation&lt;/a&gt;&lt;/strong&gt; - Flashing guide&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/components/pool-monitor/software-guide/#build--flash"&gt;Firmware Installation&lt;/a&gt;&lt;/strong&gt; - Flashing guide&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://github.com/smart-swimmingpool/monitor#configuration"target="_blank" rel="noopener"&gt;Configuration&lt;/a&gt;&lt;/strong&gt; - Setup instructions&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/components/pool-monitor/software-guide/#configuration"&gt;Configuration&lt;/a&gt;&lt;/strong&gt; - Setup instructions&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://github.com/smart-swimmingpool/monitor#mqtt-configuration"target="_blank" rel="noopener"&gt;MQTT Configuration&lt;/a&gt;&lt;/strong&gt; - Broker setup&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/components/pool-monitor/software-guide/#wifi--mqtt-setup"&gt;MQTT Configuration&lt;/a&gt;&lt;/strong&gt; - Broker setup&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;🔧 Hardware Requirements&lt;span class="hx:absolute hx:-mt-20" id="-hardware-requirements"&gt;&lt;/span&gt;
 &lt;a href="#-hardware-requirements" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
@@ -4630,7 +4630,7 @@ wires of the same net. The pull-up of a DS18B20 is the only link between DATA
 and 3V3.&lt;/li&gt;
 &lt;li&gt;Keep the 230V side out of low-voltage drawings and link to the
 &lt;a
-href="https://smart-swimmingpool.com/docs/electrical-safety/"&gt;electrical safety guide&lt;/a&gt; instead.&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/components/pool-controller/electrical-safety/"&gt;electrical safety guide&lt;/a&gt; instead.&lt;/li&gt;
 &lt;li&gt;Avoid &lt;code&gt;(&lt;/code&gt;, &lt;code&gt;)&lt;/code&gt;, &lt;code&gt;/&lt;/code&gt;, &lt;code&gt;\&lt;/code&gt;, &lt;code&gt;&amp;lt;&lt;/code&gt;, &lt;code&gt;&amp;gt;&lt;/code&gt; and a single &lt;code&gt;-&lt;/code&gt; inside labels, because
 Svgbob turns them into arcs, diagonals or arrows. Write &lt;code&gt;2 channels&lt;/code&gt;, not
 &lt;code&gt;2-channel&lt;/code&gt;.&lt;/li&gt;
@@ -7845,7 +7845,7 @@ href="https://github.com/ZinggJM/GxEPD"target="_blank" rel="noopener"&gt;GxEPD L
 &lt;li&gt;&lt;a
 href="https://www.espressif.com/en/products/socs/esp32"target="_blank" rel="noopener"&gt;ESP32 Datasheet&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="https://github.com/smart-swimmingpool/pool-controller/blob/main/docs/hardware-guide.md"target="_blank" rel="noopener"&gt;Pool Controller Hardware Guide&lt;/a&gt;&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/components/pool-controller/hardware-guide/"&gt;Pool Controller Hardware Guide&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a
 href="https://github.com/smart-swimmingpool/monitor/blob/main/src/PoolMonitor/Config.hpp"target="_blank" rel="noopener"&gt;Pin configuration source&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description></item><item><title>Production Checklist</title><link>https://smart-swimmingpool.com/docs/components/pool-controller/production-checklist/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/components/pool-controller/production-checklist/</guid><description>

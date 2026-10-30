@@ -104,7 +104,7 @@ wires of the same net. The pull-up of a DS18B20 is the only link between DATA
 and 3V3.&lt;/li&gt;
 &lt;li&gt;Keep the 230V side out of low-voltage drawings and link to the
 &lt;a
-href="https://smart-swimmingpool.com/docs/electrical-safety/"&gt;electrical safety guide&lt;/a&gt; instead.&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/components/pool-controller/electrical-safety/"&gt;electrical safety guide&lt;/a&gt; instead.&lt;/li&gt;
 &lt;li&gt;Avoid &lt;code&gt;(&lt;/code&gt;, &lt;code&gt;)&lt;/code&gt;, &lt;code&gt;/&lt;/code&gt;, &lt;code&gt;\&lt;/code&gt;, &lt;code&gt;&amp;lt;&lt;/code&gt;, &lt;code&gt;&amp;gt;&lt;/code&gt; and a single &lt;code&gt;-&lt;/code&gt; inside labels, because
 Svgbob turns them into arcs, diagonals or arrows. Write &lt;code&gt;2 channels&lt;/code&gt;, not
 &lt;code&gt;2-channel&lt;/code&gt;.&lt;/li&gt;

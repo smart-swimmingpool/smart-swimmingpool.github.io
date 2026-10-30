@@ -103,7 +103,7 @@ nur Leitungen desselben Netzes. Der Pull-up eines DS18B20 ist die einzige
 Verbindung zwischen DATA und 3V3.&lt;/li&gt;
 &lt;li&gt;Die 230V-Seite gehört nicht in Niederspannungszeichnungen, stattdessen auf die
 &lt;a
-href="https://smart-swimmingpool.com/docs/electrical-safety/"&gt;Anleitung Elektrische Sicherheit&lt;/a&gt; verweisen.&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/components/pool-controller/electrical-safety/"&gt;Anleitung Elektrische Sicherheit&lt;/a&gt; verweisen.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;(&lt;/code&gt;, &lt;code&gt;)&lt;/code&gt;, &lt;code&gt;/&lt;/code&gt;, &lt;code&gt;\&lt;/code&gt;, &lt;code&gt;&amp;lt;&lt;/code&gt;, &lt;code&gt;&amp;gt;&lt;/code&gt; und ein einzelnes &lt;code&gt;-&lt;/code&gt; in Beschriftungen
 vermeiden, Svgbob macht daraus Bögen, Diagonalen oder Pfeile. &lt;code&gt;2 Kanal&lt;/code&gt;
 statt &lt;code&gt;2-Kanal&lt;/code&gt;.&lt;/li&gt;
