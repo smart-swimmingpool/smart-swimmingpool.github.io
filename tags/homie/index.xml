@@ -1,9 +1,9 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Homie</title><link>https://smart-swimmingpool.com/tags/homie/</link><description>Recent content in Homie on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><atom:link href="https://smart-swimmingpool.com/tags/homie/index.xml" rel="self" type="application/rss+xml"/><item><title>Firmware Migration (v2.x → v3.x)</title><link>https://smart-swimmingpool.com/docs/firmware-migration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/firmware-migration/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Homie</title><link>https://smart-swimmingpool.com/tags/homie/</link><description>Recent content in Homie on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><atom:link href="https://smart-swimmingpool.com/tags/homie/index.xml" rel="self" type="application/rss+xml"/><item><title>v2.x → v3.x Migration Guide</title><link>https://smart-swimmingpool.com/docs/migration/v2-to-v3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/migration/v2-to-v3/</guid><description>
 &lt;p&gt;&lt;strong&gt;🏊 Smart Swimming Pool: Migrate from the old Homie 3.0 format to the new MQTT Discovery format&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;If you are running the &lt;strong&gt;Pool Controller v2.x&lt;/strong&gt; (or earlier) and plan to upgrade to &lt;strong&gt;v3.x&lt;/strong&gt;, this guide explains what changes and how to update your smart home integration.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;💡 &lt;strong&gt;New user?&lt;/strong&gt; If you are installing the pool controller for the first time, follow the &lt;a
-href="https://smart-swimmingpool.com/docs/getting-started/"&gt;Getting Started&lt;/a&gt; guide instead. This guide is only relevant if you have an existing Homie 3.0 setup.&lt;/p&gt;
+href="https://smart-swimmingpool.com/docs/getting-started/"&gt;Build Guide&lt;/a&gt; guide instead. This guide is only relevant if you have an existing Homie 3.0 setup.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;hr&gt;
 &lt;h2&gt;Overview&lt;span class="hx:absolute hx:-mt-20" id="overview"&gt;&lt;/span&gt;
@@ -24,7 +24,7 @@ href="https://smart-swimmingpool.com/docs/getting-started/"&gt;Getting Started&l
 &lt;tr&gt;
 &lt;td&gt;&lt;strong&gt;Device identifier&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;MAC address (e.g., &lt;code&gt;5ccf7fb97572&lt;/code&gt;)&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;pool-controller&lt;/code&gt; (configurable)&lt;/td&gt;
+&lt;td&gt;Fixed topic segment &lt;code&gt;pool-controller&lt;/code&gt;; Home Assistant device ID &lt;code&gt;pool_controller_&amp;lt;last 3 MAC bytes&amp;gt;&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;strong&gt;Availability&lt;/strong&gt;&lt;/td&gt;
@@ -56,7 +56,7 @@ href="https://www.home-assistant.io/integrations/mqtt/#mqtt-discovery"target="_b
 &lt;h2&gt;Firmware Upgrade&lt;span class="hx:absolute hx:-mt-20" id="firmware-upgrade"&gt;&lt;/span&gt;
 &lt;a href="#firmware-upgrade" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Step 1: Flash v3.x&lt;span class="hx:absolute hx:-mt-20" id="step-1-flash-v3x"&gt;&lt;/span&gt;
 &lt;a href="#step-1-flash-v3x" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Follow the standard flashing procedure in the &lt;a
-href="https://smart-swimmingpool.com/docs/getting-started/#firmware-installation"&gt;Getting Started&lt;/a&gt; guide:&lt;/p&gt;
+href="https://smart-swimmingpool.com/docs/getting-started/#firmware-installation"&gt;Build Guide&lt;/a&gt; guide:&lt;/p&gt;
 &lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
 &lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# In VS Code with PlatformIO:&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 1. Upload the firmware&lt;/span&gt;
@@ -98,14 +98,14 @@ data-copied-label="Copied!"
 &lt;li&gt;Go to &lt;strong&gt;Settings → Devices &amp;amp; Services&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;The &lt;strong&gt;Pool Controller&lt;/strong&gt; device should appear automatically&lt;/li&gt;
 &lt;li&gt;See the &lt;a
-href="https://smart-swimmingpool.com/docs/home-assistant-integration/"&gt;Home Assistant Integration Guide&lt;/a&gt; for the complete entity reference&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/integrations/home-assistant/"&gt;Home Assistant Integration Guide&lt;/a&gt; for the complete entity reference&lt;/li&gt;
 &lt;/ol&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: If you had manually configured MQTT sensors in Home Assistant for the Homie topics, those will show as &lt;strong&gt;unavailable&lt;/strong&gt; after the upgrade. Remove them manually — the auto-discovered entities replace them.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3&gt;openHAB Users&lt;span class="hx:absolute hx:-mt-20" id="openhab-users"&gt;&lt;/span&gt;
 &lt;a href="#openhab-users" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;openHAB requires &lt;strong&gt;manual MQTT configuration&lt;/strong&gt;. The &lt;a
-href="https://smart-swimmingpool.com/docs/openhab-integration/"&gt;openHAB Integration Guide&lt;/a&gt; shows the complete setup.&lt;/p&gt;
+href="https://smart-swimmingpool.com/docs/integrations/openhab/"&gt;openHAB Integration Guide&lt;/a&gt; shows the complete setup.&lt;/p&gt;
 &lt;h4&gt;What needs to change&lt;span class="hx:absolute hx:-mt-20" id="what-needs-to-change"&gt;&lt;/span&gt;
 &lt;a href="#what-needs-to-change" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;table&gt;
 &lt;thead&gt;
@@ -275,9 +275,9 @@ data-copied-label="Copied!"
 &lt;li&gt;&lt;code&gt;temp-circ-max-runtime&lt;/code&gt; — maximum circulation runtime&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;These did not exist in v2.x and have no Homie equivalent.&lt;/p&gt;
-&lt;h3&gt;4. Device identifier is now configurable&lt;span class="hx:absolute hx:-mt-20" id="4-device-identifier-is-now-configurable"&gt;&lt;/span&gt;
-&lt;a href="#4-device-identifier-is-now-configurable" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;In v2.x, the device ID was &lt;strong&gt;always&lt;/strong&gt; the MAC address (&lt;code&gt;5ccf7fb97572&lt;/code&gt;). In v3.x, the default device ID is &lt;code&gt;pool-controller&lt;/code&gt;, but you can &lt;strong&gt;change it&lt;/strong&gt; in &lt;strong&gt;Configuration → MQTT → Device ID&lt;/strong&gt; in the web interface.&lt;/p&gt;
-&lt;p&gt;If you change it, update all topic paths accordingly.&lt;/p&gt;
+&lt;h3&gt;4. Device identifier is no longer the MAC address&lt;span class="hx:absolute hx:-mt-20" id="4-device-identifier-is-no-longer-the-mac-address"&gt;&lt;/span&gt;
+&lt;a href="#4-device-identifier-is-no-longer-the-mac-address" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;In v2.x, the device ID was the MAC address (&lt;code&gt;5ccf7fb97572&lt;/code&gt;) and appeared in every topic. In v3.x, all topics use the fixed segment &lt;code&gt;pool-controller&lt;/code&gt; (&lt;code&gt;homeassistant/&amp;lt;component&amp;gt;/pool-controller/&amp;lt;object-id&amp;gt;/…&lt;/code&gt;). Home Assistant identifies the device as &lt;code&gt;pool_controller_&amp;lt;last 3 MAC bytes in hex&amp;gt;&lt;/code&gt;. Neither can be changed in the web interface.&lt;/p&gt;
+&lt;p&gt;Adjust any topic paths that still contain the MAC address.&lt;/p&gt;
 &lt;h3&gt;5. No Homie-compatibility mode&lt;span class="hx:absolute hx:-mt-20" id="5-no-homie-compatibility-mode"&gt;&lt;/span&gt;
 &lt;a href="#5-no-homie-compatibility-mode" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The v3.x firmware &lt;strong&gt;only&lt;/strong&gt; supports Home Assistant MQTT Discovery. There is no Homie 3.0 backward-compatibility mode. If you need Homie for custom integrations, stay on v2.x.&lt;/p&gt;
 &lt;hr&gt;

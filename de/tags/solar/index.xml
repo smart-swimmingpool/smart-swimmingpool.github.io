@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Solar</title><link>https://smart-swimmingpool.com/de/tags/solar/</link><description>Recent content in Solar on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><atom:link href="https://smart-swimmingpool.com/de/tags/solar/index.xml" rel="self" type="application/rss+xml"/><item><title>Pool Monitor</title><link>https://smart-swimmingpool.com/de/docs/pool-monitor/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/de/docs/pool-monitor/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Solar</title><link>https://smart-swimmingpool.com/de/tags/solar/</link><description>Recent content in Solar on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><atom:link href="https://smart-swimmingpool.com/de/tags/solar/index.xml" rel="self" type="application/rss+xml"/><item><title>Pool Monitor</title><link>https://smart-swimmingpool.com/de/docs/components/pool-monitor/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/de/docs/components/pool-monitor/</guid><description>
 &lt;h1&gt;🌡️ Pool Monitor&lt;/h1&gt;&lt;p&gt;Der &lt;strong&gt;Pool Monitor&lt;/strong&gt; ist ein solarbetriebenes, kabelloses Display, das die aktuelle Pooltemperatur anzeigt. Es ist so konzipiert, dass es energieeffizient ist und vollständig unabhängig von Ihrem Haupt-Pool-Controller funktioniert.&lt;/p&gt;
 &lt;h2&gt;💡 Übersicht&lt;span class="hx:absolute hx:-mt-20" id="-übersicht"&gt;&lt;/span&gt;
 &lt;a href="#-%c3%bcbersicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der Pool Monitor bietet:&lt;/p&gt;
@@ -152,14 +152,14 @@ href="https://smart-swimmingpool.com/de/docs/start-here/"&gt;Hier beginnen&lt;/a
 &lt;li&gt;&lt;strong&gt;&lt;a
 href="https://github.com/smart-swimmingpool/monitor"target="_blank" rel="noopener"&gt;Repository besuchen&lt;/a&gt;&lt;/strong&gt; - Zugriff auf alle Dokumentationen und Quellcode&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.com/de/docs/home-assistant-integration/"&gt;Home Assistant Integration&lt;/a&gt;&lt;/strong&gt; - Smarthome-Integration&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/integrations/home-assistant/"&gt;Home Assistant Integration&lt;/a&gt;&lt;/strong&gt; - Smarthome-Integration&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.com/de/docs/grafana-dashboard/"&gt;Grafana Dashboard&lt;/a&gt;&lt;/strong&gt; - Datenvisualisierung&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/components/grafana-dashboard/"&gt;Grafana Dashboard&lt;/a&gt;&lt;/strong&gt; - Datenvisualisierung&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2&gt;💬 Brauchen Sie Hilfe?&lt;span class="hx:absolute hx:-mt-20" id="-brauchen-sie-hilfe"&gt;&lt;/span&gt;
 &lt;a href="#-brauchen-sie-hilfe" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Prüfen Sie die &lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.com/de/docs/troubleshooting/"&gt;FAQ &amp;amp; Fehlerbehebung&lt;/a&gt;&lt;/strong&gt; Seite&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/troubleshooting/"&gt;Fehlerbehebung&lt;/a&gt;&lt;/strong&gt; Seite&lt;/li&gt;
 &lt;li&gt;Besuchen Sie das &lt;strong&gt;&lt;a
 href="https://github.com/smart-swimmingpool/monitor"target="_blank" rel="noopener"&gt;Pool Monitor Repository&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;Öffnen Sie ein &lt;strong&gt;&lt;a

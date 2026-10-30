@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Smarthome</title><link>https://smart-swimmingpool.com/de/tags/smarthome/</link><description>Recent content in Smarthome on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><atom:link href="https://smart-swimmingpool.com/de/tags/smarthome/index.xml" rel="self" type="application/rss+xml"/><item><title>openHAB Konfiguration</title><link>https://smart-swimmingpool.com/de/docs/openhab-configuration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/de/docs/openhab-configuration/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Smarthome</title><link>https://smart-swimmingpool.com/de/tags/smarthome/</link><description>Recent content in Smarthome on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><atom:link href="https://smart-swimmingpool.com/de/tags/smarthome/index.xml" rel="self" type="application/rss+xml"/><item><title>openHAB Konfiguration</title><link>https://smart-swimmingpool.com/de/docs/integrations/openhab-configuration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/de/docs/integrations/openhab-configuration/</guid><description>
 &lt;h1&gt;🏠 openHAB Konfiguration&lt;/h1&gt;&lt;p&gt;Die &lt;strong&gt;openHAB Konfiguration&lt;/strong&gt; bietet vollständige Konfigurationsdateien für die Integration Ihres Smart Swimming Pools mit dem openHAB Smarthome-Server.&lt;/p&gt;
 &lt;h2&gt;💡 Übersicht&lt;span class="hx:absolute hx:-mt-20" id="-übersicht"&gt;&lt;/span&gt;
 &lt;a href="#-%c3%bcbersicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Dieses Modul enthält:&lt;/p&gt;
@@ -24,7 +24,7 @@
 &lt;li&gt;&lt;strong&gt;&lt;a
 href="https://github.com/smart-swimmingpool/openhab-config"target="_blank" rel="noopener"&gt;openHAB Konfiguration Repository&lt;/a&gt;&lt;/strong&gt; - Haupt-Repository mit allen Konfigurationsdateien&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.com/de/docs/openhab-integration/"&gt;openHAB Integrationsanleitung&lt;/a&gt;&lt;/strong&gt; - Schritt-für-Schritt-Integrationsanleitung&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/integrations/openhab/"&gt;openHAB Integrationsanleitung&lt;/a&gt;&lt;/strong&gt; - Schritt-für-Schritt-Integrationsanleitung&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
 href="https://github.com/smart-swimmingpool/openhab-config#installation"target="_blank" rel="noopener"&gt;Installation&lt;/a&gt;&lt;/strong&gt; - Setup-Anleitung&lt;/li&gt;
 &lt;/ul&gt;
@@ -95,16 +95,16 @@ href="https://github.com/smart-swimmingpool/openhab-config/blob/master/persisten
 &lt;li&gt;&lt;strong&gt;&lt;a
 href="https://smart-swimmingpool.com/de/docs/start-here/"&gt;Hier beginnen&lt;/a&gt;&lt;/strong&gt; - Wählen Sie Ihren Weg basierend auf Ihren Zielen&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.com/de/docs/openhab-integration/"&gt;openHAB Integrationsanleitung&lt;/a&gt;&lt;/strong&gt; - Schritt-für-Schritt-Integrationsanleitung&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/integrations/openhab/"&gt;openHAB Integrationsanleitung&lt;/a&gt;&lt;/strong&gt; - Schritt-für-Schritt-Integrationsanleitung&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
 href="https://github.com/smart-swimmingpool/openhab-config"target="_blank" rel="noopener"&gt;Repository besuchen&lt;/a&gt;&lt;/strong&gt; - Zugriff auf alle Konfigurationsdateien&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.com/de/docs/pool-controller/"&gt;Pool Controller Setup&lt;/a&gt;&lt;/strong&gt; - Stellen Sie sicher, dass Ihr Controller läuft&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/components/pool-controller/"&gt;Pool Controller Setup&lt;/a&gt;&lt;/strong&gt; - Stellen Sie sicher, dass Ihr Controller läuft&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2&gt;💬 Brauchen Sie Hilfe?&lt;span class="hx:absolute hx:-mt-20" id="-brauchen-sie-hilfe"&gt;&lt;/span&gt;
 &lt;a href="#-brauchen-sie-hilfe" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Prüfen Sie die &lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.com/de/docs/troubleshooting/"&gt;FAQ &amp;amp; Fehlerbehebung&lt;/a&gt;&lt;/strong&gt; Seite&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/troubleshooting/"&gt;Fehlerbehebung&lt;/a&gt;&lt;/strong&gt; Seite&lt;/li&gt;
 &lt;li&gt;Besuchen Sie das &lt;strong&gt;&lt;a
 href="https://github.com/smart-swimmingpool/openhab-config"target="_blank" rel="noopener"&gt;openHAB Konfiguration Repository&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;Öffnen Sie ein &lt;strong&gt;&lt;a

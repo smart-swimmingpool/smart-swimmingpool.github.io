@@ -1,8 +1,8 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Visualization</title><link>https://smart-swimmingpool.com/de/tags/visualization/</link><description>Recent content in Visualization on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><atom:link href="https://smart-swimmingpool.com/de/tags/visualization/index.xml" rel="self" type="application/rss+xml"/><item><title>Grafana Dashboard</title><link>https://smart-swimmingpool.com/de/docs/grafana-dashboard/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/de/docs/grafana-dashboard/</guid><description>
-&lt;h1&gt;📊 Grafana Dashboard&lt;/h1&gt;&lt;p&gt;Das &lt;strong&gt;Grafana Dashboard&lt;/strong&gt; zeigt deinen Smart Swimming Pool im zeitlichen Verlauf: Pool- und
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Visualization</title><link>https://smart-swimmingpool.com/de/tags/visualization/</link><description>Recent content in Visualization on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><atom:link href="https://smart-swimmingpool.com/de/tags/visualization/index.xml" rel="self" type="application/rss+xml"/><item><title>Grafana Dashboard</title><link>https://smart-swimmingpool.com/de/docs/components/grafana-dashboard/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/de/docs/components/grafana-dashboard/</guid><description>
+&lt;h1&gt;📊 Grafana Dashboard&lt;/h1&gt;&lt;p&gt;Das &lt;strong&gt;Grafana Dashboard&lt;/strong&gt; zeigt Ihren Smart Swimming Pool im zeitlichen Verlauf: Pool- und
 Solartemperatur, Pumpen-Schaltzeiten, Betriebsmodus und Diagnosewerte des Controllers. Es ist
 für den &lt;a
-href="https://smart-swimmingpool.com/de/docs/pool-controller/"&gt;Pool Controller&lt;/a&gt; &lt;strong&gt;v5.x&lt;/strong&gt; gemacht und liest die Daten, die
+href="https://smart-swimmingpool.com/de/docs/components/pool-controller/"&gt;Pool Controller&lt;/a&gt; &lt;strong&gt;v5.x&lt;/strong&gt; gemacht und liest die Daten, die
 &lt;strong&gt;Home Assistant&lt;/strong&gt; in &lt;strong&gt;InfluxDB&lt;/strong&gt; speichert.&lt;/p&gt;
 &lt;p&gt;&lt;img src="https://raw.githubusercontent.com/smart-swimmingpool/grafana-dashboard/master/docs/dashboard-screenshot.png" alt="Grafana Dashboard mit Beispieldaten" data-zoomable loading="lazy" /&gt;&lt;/p&gt;
 &lt;h2&gt;💡 Funktionsweise&lt;span class="hx:absolute hx:-mt-20" id="-funktionsweise"&gt;&lt;/span&gt;
@@ -22,7 +22,7 @@ data-copied-label="Kopiert!"
 &lt;ol&gt;
 &lt;li&gt;Der Pool Controller meldet seine Entitäten per Home-Assistant-MQTT-Discovery an
 (siehe &lt;a
-href="https://smart-swimmingpool.com/de/docs/home-assistant-integration/"&gt;Home Assistant Integration&lt;/a&gt;).&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/integrations/home-assistant/"&gt;Home Assistant Integration&lt;/a&gt;).&lt;/li&gt;
 &lt;li&gt;Die &lt;a
 href="https://www.home-assistant.io/integrations/influxdb/"target="_blank" rel="noopener"&gt;InfluxDB-Integration&lt;/a&gt; von
 Home Assistant speichert die Zustände in InfluxDB.&lt;/li&gt;
@@ -55,7 +55,7 @@ Home Assistant speichert die Zustände in InfluxDB.&lt;/li&gt;
 &lt;a href="#-installation" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Voraussetzungen&lt;span class="hx:absolute hx:-mt-20" id="voraussetzungen"&gt;&lt;/span&gt;
 &lt;a href="#voraussetzungen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.com/de/docs/pool-controller/"&gt;Pool Controller&lt;/a&gt; v5.x, verbunden mit Home Assistant&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/components/pool-controller/"&gt;Pool Controller&lt;/a&gt; v5.x, verbunden mit Home Assistant&lt;/li&gt;
 &lt;li&gt;&lt;a
 href="https://www.home-assistant.io/integrations/influxdb/"target="_blank" rel="noopener"&gt;InfluxDB-Integration&lt;/a&gt; von Home Assistant
 mit Standard-Einstellungen für Measurements&lt;/li&gt;
@@ -90,9 +90,9 @@ data-copied-label="Kopiert!"
 &lt;a
 href="https://github.com/smart-swimmingpool/grafana-dashboard/blob/master/dashboard-smart-swimming-pool.json"target="_blank" rel="noopener"&gt;&lt;code&gt;dashboard-smart-swimming-pool.json&lt;/code&gt;&lt;/a&gt;
 herunter.&lt;/li&gt;
-&lt;li&gt;Öffne &lt;strong&gt;Dashboards → New → Import&lt;/strong&gt;, lade die Datei hoch und wähle deine InfluxDB-Datenquelle.&lt;/li&gt;
+&lt;li&gt;Öffnen Sie &lt;strong&gt;Dashboards → New → Import&lt;/strong&gt;, laden Sie die Datei hoch und wählen Sie Ihre InfluxDB-Datenquelle.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;Hast du die Pool-Controller-Entitäten in Home Assistant umbenannt, passe die Dashboard-Variablen
+&lt;p&gt;Haben Sie die Pool-Controller-Entitäten in Home Assistant umbenannt, passen Sie die Dashboard-Variablen
 unter &lt;strong&gt;Dashboard settings → Variables&lt;/strong&gt; an.&lt;/p&gt;
 &lt;div
 data-alert="note" class="hextra-alert"
@@ -106,22 +106,22 @@ href="https://github.com/smart-swimmingpool/grafana-dashboard/blob/master/dashbo
 &lt;h2&gt;🚀 Nächste Schritte&lt;span class="hx:absolute hx:-mt-20" id="-nächste-schritte"&gt;&lt;/span&gt;
 &lt;a href="#-n%c3%a4chste-schritte" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.com/de/docs/start-here/"&gt;Hier beginnen&lt;/a&gt;&lt;/strong&gt; - Wähle deinen Weg passend zu deinen Zielen&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/start-here/"&gt;Hier beginnen&lt;/a&gt;&lt;/strong&gt; - Wählen Sie Ihren Weg passend zu Ihren Zielen&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
 href="https://github.com/smart-swimmingpool/grafana-dashboard"target="_blank" rel="noopener"&gt;Repository besuchen&lt;/a&gt;&lt;/strong&gt; - Dashboard-JSON und Dokumentation&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.com/de/docs/pool-controller/"&gt;Pool Controller Setup&lt;/a&gt;&lt;/strong&gt; - Stelle sicher, dass dein Controller läuft&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/components/pool-controller/"&gt;Pool Controller Setup&lt;/a&gt;&lt;/strong&gt; - Stellen Sie sicher, dass Ihr Controller läuft&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.com/de/docs/home-assistant-integration/"&gt;Home Assistant Integration&lt;/a&gt;&lt;/strong&gt; - Controller mit Home Assistant verbinden&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/integrations/home-assistant/"&gt;Home Assistant Integration&lt;/a&gt;&lt;/strong&gt; - Controller mit Home Assistant verbinden&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2&gt;💬 Hilfe benötigt?&lt;span class="hx:absolute hx:-mt-20" id="-hilfe-benötigt"&gt;&lt;/span&gt;
 &lt;a href="#-hilfe-ben%c3%b6tigt" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Sieh auf der Seite &lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.com/de/docs/troubleshooting/"&gt;FAQ &amp;amp; Fehlerbehebung&lt;/a&gt;&lt;/strong&gt; nach&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/troubleshooting/"&gt;Fehlerbehebung&lt;/a&gt;&lt;/strong&gt; nach&lt;/li&gt;
 &lt;li&gt;Besuche das &lt;strong&gt;&lt;a
 href="https://github.com/smart-swimmingpool/grafana-dashboard"target="_blank" rel="noopener"&gt;Grafana Dashboard Repository&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;Öffne ein &lt;strong&gt;&lt;a
 href="https://github.com/smart-swimmingpool/grafana-dashboard/issues"target="_blank" rel="noopener"&gt;Issue&lt;/a&gt;&lt;/strong&gt; für Fehler oder Wünsche&lt;/li&gt;
-&lt;li&gt;Lies die &lt;strong&gt;&lt;a
+&lt;li&gt;Lesen Sie die &lt;strong&gt;&lt;a
 href="https://grafana.com/docs/"target="_blank" rel="noopener"&gt;Grafana-Dokumentation&lt;/a&gt;&lt;/strong&gt; für Grafana-spezifische Fragen&lt;/li&gt;
 &lt;/ul&gt;</description></item></channel></rss>

@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Faq</title><link>https://smart-swimmingpool.com/tags/faq/</link><description>Recent content in Faq on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><atom:link href="https://smart-swimmingpool.com/tags/faq/index.xml" rel="self" type="application/rss+xml"/><item><title>Frequently Asked Questions</title><link>https://smart-swimmingpool.com/docs/faq/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/faq/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Faq</title><link>https://smart-swimmingpool.com/tags/faq/</link><description>Recent content in Faq on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><atom:link href="https://smart-swimmingpool.com/tags/faq/index.xml" rel="self" type="application/rss+xml"/><item><title>FAQ</title><link>https://smart-swimmingpool.com/docs/faq/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/faq/</guid><description>
 &lt;p&gt;&lt;strong&gt;🏊 Smart Swimming Pool: Quick answers to common questions.&lt;/strong&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2&gt;Project&lt;span class="hx:absolute hx:-mt-20" id="project"&gt;&lt;/span&gt;
@@ -61,21 +61,30 @@ href="https://smart-swimmingpool.com/docs/bom/"&gt;Bill of Materials&lt;/a&gt; f
 &lt;a href="#is-the-system-weatherproof" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The &lt;strong&gt;ESP32 and relay module are NOT weatherproof&lt;/strong&gt; out of the box. For outdoor or pool house installation, use an &lt;strong&gt;IP54+ enclosure&lt;/strong&gt; with cable glands. The DS18B20 sensors are IP68 (stainless steel probe), but the cable entry must be sealed.&lt;/p&gt;
 &lt;h3&gt;Is the pool controller CE / UL certified?&lt;span class="hx:absolute hx:-mt-20" id="is-the-pool-controller-ce--ul-certified"&gt;&lt;/span&gt;
 &lt;a href="#is-the-pool-controller-ce--ul-certified" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;No.&lt;/strong&gt; This is a hobbyist DIY project. It has not been tested or certified by any regulatory body. You build and operate it at your own risk. Always use an &lt;strong&gt;RCD / FI circuit breaker&lt;/strong&gt; when connecting to mains power.&lt;/p&gt;
+&lt;h3&gt;The system cost more than 100€ — is that normal?&lt;span class="hx:absolute hx:-mt-20" id="the-system-cost-more-than-100--is-that-normal"&gt;&lt;/span&gt;
+&lt;a href="#the-system-cost-more-than-100--is-that-normal" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The &lt;strong&gt;~35–55€&lt;/strong&gt; estimate covers the &lt;strong&gt;controller electronics only&lt;/strong&gt; (ESP32, sensors, relay, breadboard, power supply); with enclosure and mechanics plan &lt;strong&gt;~60–100€&lt;/strong&gt;. It does &lt;strong&gt;not&lt;/strong&gt; include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Pool pump and filter system&lt;/li&gt;
+&lt;li&gt;Heating circuit pump&lt;/li&gt;
+&lt;li&gt;Heat exchanger installation&lt;/li&gt;
+&lt;li&gt;Wiring materials (cables, connectors, circuit breakers)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you need to add these, the total project cost can be significantly higher.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2&gt;Smart Home Integration&lt;span class="hx:absolute hx:-mt-20" id="smart-home-integration"&gt;&lt;/span&gt;
 &lt;a href="#smart-home-integration" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Does it work with Home Assistant?&lt;span class="hx:absolute hx:-mt-20" id="does-it-work-with-home-assistant"&gt;&lt;/span&gt;
 &lt;a href="#does-it-work-with-home-assistant" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Yes, seamlessly.&lt;/strong&gt; The controller uses &lt;strong&gt;Home Assistant MQTT Discovery&lt;/strong&gt; — it automatically registers all sensors, controls, and configuration parameters as entities. No YAML configuration is needed. See the &lt;a
-href="https://smart-swimmingpool.com/docs/home-assistant-integration/"&gt;Home Assistant Integration&lt;/a&gt; guide.&lt;/p&gt;
+href="https://smart-swimmingpool.com/docs/integrations/home-assistant/"&gt;Home Assistant Integration&lt;/a&gt; guide.&lt;/p&gt;
 &lt;h3&gt;Does it work with openHAB?&lt;span class="hx:absolute hx:-mt-20" id="does-it-work-with-openhab"&gt;&lt;/span&gt;
 &lt;a href="#does-it-work-with-openhab" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Yes.&lt;/strong&gt; The controller publishes all data via MQTT using the Homie convention (v2.x) or HA Discovery format (v3.x). openHAB can subscribe to these topics via its MQTT binding. See the &lt;a
-href="https://smart-swimmingpool.com/docs/openhab-configuration/"&gt;openHAB Configuration&lt;/a&gt; page.&lt;/p&gt;
+href="https://smart-swimmingpool.com/docs/integrations/openhab-configuration/"&gt;openHAB Configuration&lt;/a&gt; page.&lt;/p&gt;
 &lt;h3&gt;Does it work with Alexa, Google Home, or Apple HomeKit?&lt;span class="hx:absolute hx:-mt-20" id="does-it-work-with-alexa-google-home-or-apple-homekit"&gt;&lt;/span&gt;
 &lt;a href="#does-it-work-with-alexa-google-home-or-apple-homekit" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Not directly.&lt;/strong&gt; The controller does not speak these protocols natively. However, if you use Home Assistant as a bridge, you can expose pool entities to Alexa, Google Home, or Apple HomeKit via the respective Home Assistant integrations.&lt;/p&gt;
 &lt;h3&gt;Can I use Grafana with this?&lt;span class="hx:absolute hx:-mt-20" id="can-i-use-grafana-with-this"&gt;&lt;/span&gt;
 &lt;a href="#can-i-use-grafana-with-this" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Yes.&lt;/strong&gt; The pool controller publishes all data to MQTT. You can use &lt;a
 href="https://www.influxdata.com/time-series-platform/telegraf/"target="_blank" rel="noopener"&gt;Telegraf&lt;/a&gt; to ingest MQTT data into &lt;a
 href="https://www.influxdata.com/"target="_blank" rel="noopener"&gt;InfluxDB&lt;/a&gt; and visualize it with &lt;a
-href="https://smart-swimmingpool.com/docs/grafana-dashboard/"&gt;Grafana&lt;/a&gt;.&lt;/p&gt;
+href="https://smart-swimmingpool.com/docs/components/grafana-dashboard/"&gt;Grafana&lt;/a&gt;.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2&gt;Configuration &amp;amp; Operation&lt;span class="hx:absolute hx:-mt-20" id="configuration--operation"&gt;&lt;/span&gt;
 &lt;a href="#configuration--operation" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;How do I set the target pool temperature?&lt;span class="hx:absolute hx:-mt-20" id="how-do-i-set-the-target-pool-temperature"&gt;&lt;/span&gt;
@@ -132,8 +141,9 @@ href="https://smart-swimmingpool.com/docs/troubleshooting/#mqtt-issues"&gt;MQTT 
 href="https://smart-swimmingpool.com/docs/troubleshooting/#esp32--firmware-issues"&gt;ESP32 &amp;amp; Firmware Issues&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
-&lt;/table&gt;</description></item><item><title>FAQ &amp; Troubleshooting</title><link>https://smart-swimmingpool.com/docs/troubleshooting/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/troubleshooting/</guid><description>
-&lt;p&gt;&lt;strong&gt;🏊 Frequently asked questions and solutions for common problems.&lt;/strong&gt;&lt;/p&gt;
+&lt;/table&gt;</description></item><item><title>Troubleshooting</title><link>https://smart-swimmingpool.com/docs/troubleshooting/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/troubleshooting/</guid><description>
+&lt;p&gt;&lt;strong&gt;🏊 Diagnose and fix common problems — sorted by symptom. For general questions see the &lt;a
+href="https://smart-swimmingpool.com/docs/faq/"&gt;FAQ&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
 &lt;div class="safety-notice hx:rounded-lg hx:border-2 hx:border-red-300 hx:bg-red-50 hx:dark:border-red-700 hx:dark:bg-red-900/20 hx:p-4 hx:my-6"&gt;
 &lt;div class="hx:flex hx:items-start hx:gap-3"&gt;
 &lt;span class="hx:text-2xl hx:flex-shrink-0"&gt;⚠️&lt;/span&gt;
@@ -445,63 +455,9 @@ data-copied-label="Copied!"
 &lt;li&gt;&lt;strong&gt;Preventive measure:&lt;/strong&gt; Before updating via OTA, ensure the ESP32 is within WiFi range of your router and has a stable power supply. Do not interrupt the update process.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;hr&gt;
-&lt;h2&gt;General &amp;amp; Hardware&lt;span class="hx:absolute hx:-mt-20" id="general--hardware"&gt;&lt;/span&gt;
-&lt;a href="#general--hardware" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;The system cost more than 100€ — is that normal?&lt;span class="hx:absolute hx:-mt-20" id="the-system-cost-more-than-100--is-that-normal"&gt;&lt;/span&gt;
-&lt;a href="#the-system-cost-more-than-100--is-that-normal" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The &lt;strong&gt;~45–75€&lt;/strong&gt; estimate covers the &lt;strong&gt;controller electronics only&lt;/strong&gt; (ESP32, sensors, relay, breadboard, enclosure). It does &lt;strong&gt;not&lt;/strong&gt; include:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Pool pump and filter system&lt;/li&gt;
-&lt;li&gt;Heating circuit pump&lt;/li&gt;
-&lt;li&gt;Heat exchanger installation&lt;/li&gt;
-&lt;li&gt;Wiring materials (cables, connectors, circuit breakers)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;If you need to add these, the total project cost can be significantly higher.&lt;/p&gt;
-&lt;h3&gt;Can I use this without a smart home server?&lt;span class="hx:absolute hx:-mt-20" id="can-i-use-this-without-a-smart-home-server"&gt;&lt;/span&gt;
-&lt;a href="#can-i-use-this-without-a-smart-home-server" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Yes.&lt;/strong&gt; The pool controller is fully autonomous:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;It handles circulation scheduling and heating control &lt;strong&gt;without&lt;/strong&gt; any server.&lt;/li&gt;
-&lt;li&gt;The web interface allows basic configuration and manual control.&lt;/li&gt;
-&lt;li&gt;MQTT integration and Home Assistant are optional — they add remote control, automation, and visualization.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;How weatherproof is the system?&lt;span class="hx:absolute hx:-mt-20" id="how-weatherproof-is-the-system"&gt;&lt;/span&gt;
-&lt;a href="#how-weatherproof-is-the-system" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The pool controller itself is &lt;strong&gt;not weatherproof&lt;/strong&gt; out of the box. You need:&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Location&lt;/th&gt;
-&lt;th&gt;Protection&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Indoor installation (preferred)&lt;/td&gt;
-&lt;td&gt;No special protection needed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Outdoor / pool house&lt;/td&gt;
-&lt;td&gt;&lt;strong&gt;IP54+&lt;/strong&gt; enclosure, cable glands for all entries&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Sensors (DS18B20)&lt;/td&gt;
-&lt;td&gt;Stainless steel probe is IP68 — cable entry must be sealed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Power supply&lt;/td&gt;
-&lt;td&gt;Must be in a dry location or in an IP-rated enclosure&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3&gt;Can I use this with a heat pump instead of solar heating?&lt;span class="hx:absolute hx:-mt-20" id="can-i-use-this-with-a-heat-pump-instead-of-solar-heating"&gt;&lt;/span&gt;
-&lt;a href="#can-i-use-this-with-a-heat-pump-instead-of-solar-heating" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Yes. The pool controller&amp;rsquo;s heating logic switches a pump when heating is needed. This works with any heat source:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Solar thermal system&lt;/li&gt;
-&lt;li&gt;Heat pump&lt;/li&gt;
-&lt;li&gt;Gas/oil heater with heat exchanger&lt;/li&gt;
-&lt;li&gt;Electric heating element (via relay / contactor)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Which pumps can be controlled?&lt;span class="hx:absolute hx:-mt-20" id="which-pumps-can-be-controlled"&gt;&lt;/span&gt;
-&lt;a href="#which-pumps-can-be-controlled" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The relay module switches 230V/10A max (resistive load). For inductive loads (motors, pumps), derate to ~5A. For larger pumps, use the relay to switch a contactor that handles the pump current.&lt;/p&gt;
-&lt;h3&gt;Is this project CE / UL certified?&lt;span class="hx:absolute hx:-mt-20" id="is-this-project-ce--ul-certified"&gt;&lt;/span&gt;
-&lt;a href="#is-this-project-ce--ul-certified" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;No.&lt;/strong&gt; This is a hobbyist DIY project. It is not tested or certified by any regulatory body. You build and operate it at your own risk. Always use an RCD (residual-current device / FI-Schutzschalter) when connecting to mains power.&lt;/p&gt;
+&lt;h2&gt;More questions?&lt;span class="hx:absolute hx:-mt-20" id="more-questions"&gt;&lt;/span&gt;
+&lt;a href="#more-questions" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;General questions about cost, weatherproofing, heat pumps, pumps and certification are answered in the &lt;a
+href="https://smart-swimmingpool.com/docs/faq/"&gt;FAQ&lt;/a&gt;.&lt;/p&gt;
 &lt;div class="safety-notice hx:rounded-lg hx:border-2 hx:border-red-300 hx:bg-red-50 hx:dark:border-red-700 hx:dark:bg-red-900/20 hx:p-4 hx:my-6"&gt;
 &lt;div class="hx:flex hx:items-start hx:gap-3"&gt;
 &lt;span class="hx:text-2xl hx:flex-shrink-0"&gt;⚠️&lt;/span&gt;

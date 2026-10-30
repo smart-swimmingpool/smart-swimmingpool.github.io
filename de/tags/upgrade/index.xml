@@ -75,15 +75,8 @@
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h3&gt;Migrationsschritte&lt;span class="hx:absolute hx:-mt-20" id="migrationsschritte"&gt;&lt;/span&gt;
-&lt;a href="#migrationsschritte" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Einstellungen sichern&lt;/strong&gt; — Screenshots der v2.x-Konfiguration machen (MQTT-Broker, Temperaturgrenzen, Timer)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Neue Firmware flashen&lt;/strong&gt; via USB (PlatformIO, Umgebung &lt;code&gt;esp32dev&lt;/code&gt;)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Dateisystem-Image hochladen&lt;/strong&gt; (&lt;code&gt;pio run -e esp32dev -t uploadfs&lt;/code&gt;)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Alles neu konfigurieren&lt;/strong&gt; via Weboberfläche (WLAN, MQTT, Temperaturgrenzen)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Home Assistant neu konfigurieren:&lt;/strong&gt; Neuer Controller erscheint als neues Gerät. Entities zum Dashboard hinzufügen. Altes v2.x-Gerät in HA löschen&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Automationen anpassen:&lt;/strong&gt; MQTT-Topics haben sich geändert — alle Homie-basierten Automatisierungen aktualisieren&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Überprüfen:&lt;/strong&gt; Alle Sensoren melden korrekte Werte, Pumpen reagieren&lt;/li&gt;
-&lt;/ol&gt;
+&lt;a href="#migrationsschritte" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Die Schritt-für-Schritt-Anleitung — Flashen, Neukonfiguration, Topic-Mapping für Home Assistant und openHAB sowie Rollback — steht auf einer eigenen Seite: &lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.com/de/docs/migration/v2-to-v3/"&gt;Migrationsanleitung v2.x → v3.x&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
 &lt;h3&gt;Was sich verbessert hat&lt;span class="hx:absolute hx:-mt-20" id="was-sich-verbessert-hat"&gt;&lt;/span&gt;
 &lt;a href="#was-sich-verbessert-hat" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
 &lt;thead&gt;

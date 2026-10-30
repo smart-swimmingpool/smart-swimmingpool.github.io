@@ -1,0 +1,580 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – 3 · Komponenten</title><link>https://smart-swimmingpool.com/de/docs/components/</link><description>Recent content in 3 · Komponenten on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><atom:link href="https://smart-swimmingpool.com/de/docs/components/index.xml" rel="self" type="application/rss+xml"/><item><title>Pool Controller</title><link>https://smart-swimmingpool.com/de/docs/components/pool-controller/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/de/docs/components/pool-controller/</guid><description>
+&lt;h1&gt;🎛️ Pool Controller&lt;/h1&gt;&lt;p&gt;Der &lt;strong&gt;Pool Controller&lt;/strong&gt; ist das Herz des Smart Swimming Pool Systems. Es handelt sich um ein ESP32-basiertes Gerät, das die zentrale Steuerlogik für Ihre Pool-Automatisierung bereitstellt.&lt;/p&gt;
+&lt;h2&gt;💡 Übersicht&lt;span class="hx:absolute hx:-mt-20" id="-übersicht"&gt;&lt;/span&gt;
+&lt;a href="#-%c3%bcbersicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der Pool Controller übernimmt:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Temperaturüberwachung&lt;/strong&gt;: Liest Daten von DS18B20-Temperatursensoren (Poolwasser und Solarkollektor)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Pumpensteuerung&lt;/strong&gt;: Steuert Zirkulations- und Heizungspumpen über Relaismodule&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Automatisierungslogik&lt;/strong&gt;: Implementiert Heizlogik mit Hysterese und Temperaturgrenzwerten&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Zirkulationsplanung&lt;/strong&gt;: Automatische Zeitschaltung für Sandfilterreinigung&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MQTT-Integration&lt;/strong&gt;: Veröffentlicht alle Daten im Home Assistant MQTT Discovery Format&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Web-Interface&lt;/strong&gt;: Integrierte Konfigurationsoberfläche für einfache Einrichtung&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Autonomer Betrieb&lt;/strong&gt;: Funktioniert unabhängig ohne Smarthome-Server&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;✨ Hauptmerkmale&lt;span class="hx:absolute hx:-mt-20" id="-hauptmerkmale"&gt;&lt;/span&gt;
+&lt;a href="#-hauptmerkmale" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;✅ &lt;strong&gt;ESP32-basiert&lt;/strong&gt;: Leistungsstarker Mikrocontroller mit WLAN-Anbindung&lt;/li&gt;
+&lt;li&gt;✅ &lt;strong&gt;MQTT Discovery&lt;/strong&gt;: Automatische Integration mit Home Assistant&lt;/li&gt;
+&lt;li&gt;✅ &lt;strong&gt;Web-UI&lt;/strong&gt;: Einfache Konfiguration über Browser&lt;/li&gt;
+&lt;li&gt;✅ &lt;strong&gt;Active-Low-Relais&lt;/strong&gt;: Sichere Standardzustände (Relais AUS während des Boots)&lt;/li&gt;
+&lt;li&gt;✅ &lt;strong&gt;Separate GPIO pro Sensor&lt;/strong&gt;: Unabhängige Fehlererkennung&lt;/li&gt;
+&lt;li&gt;✅ &lt;strong&gt;Offline-Betrieb&lt;/strong&gt;: Funktioniert auch ohne WLAN weiter&lt;/li&gt;
+&lt;li&gt;✅ &lt;strong&gt;Open Source&lt;/strong&gt;: MIT-Lizenz, frei zu verwenden und zu modifizieren&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🧭 Schnelle Links&lt;span class="hx:absolute hx:-mt-20" id="-schnelle-links"&gt;&lt;/span&gt;
+&lt;a href="#-schnelle-links" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Erste Schritte&lt;span class="hx:absolute hx:-mt-20" id="erste-schritte"&gt;&lt;/span&gt;
+&lt;a href="#erste-schritte" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.com/de/docs/components/pool-controller/build-from-zero/"&gt;Aufbau von Grund auf&lt;/a&gt;&lt;/strong&gt; - Vollständige Aufbauanleitung&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.com/de/docs/components/pool-controller/electrical-safety/"&gt;Elektrische Sicherheit&lt;/a&gt;&lt;/strong&gt; - Wichtige Sicherheitsinformationen&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.com/de/docs/components/pool-controller/production-checklist/"&gt;Produktions-Checkliste&lt;/a&gt;&lt;/strong&gt; - Prüfung vor der Inbetriebnahme&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.com/de/docs/components/pool-controller/security-checklist/"&gt;Sicherheits-Checkliste&lt;/a&gt;&lt;/strong&gt; - Empfehlungen zur IT-Sicherheit&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Hardware&lt;span class="hx:absolute hx:-mt-20" id="hardware"&gt;&lt;/span&gt;
+&lt;a href="#hardware" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.com/de/docs/components/pool-controller/hardware-guide/"&gt;Hardware-Anleitung&lt;/a&gt;&lt;/strong&gt; - Komponenten, Verdrahtung und Status-LED&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.com/de/docs/components/pool-controller/esp32-complete-wiring-schematic/"&gt;ESP32-Verdrahtungsplan&lt;/a&gt;&lt;/strong&gt; - Vollständige Anschlussanleitung&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.com/de/docs/components/pool-controller/norvi-ae01-r/"&gt;NORVI AE01-R&lt;/a&gt;&lt;/strong&gt; - Industrielle Hutschienen-Variante&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.com/docs/components/pool-controller/olimex-esp32-c6-evb/"&gt;Olimex ESP32-C6-EVB&lt;/a&gt;&lt;/strong&gt; - Variante mit TFT-Display und Drehgeber (englisch)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.com/de/docs/components/pool-controller/contactor-guide/"&gt;Schütz-Anleitung&lt;/a&gt;&lt;/strong&gt; - Pumpen sicher schalten&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.com/de/docs/bom/"&gt;Stückliste (BOM)&lt;/a&gt;&lt;/strong&gt; - Vollständige Teileliste&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Firmware&lt;span class="hx:absolute hx:-mt-20" id="firmware"&gt;&lt;/span&gt;
+&lt;a href="#firmware" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.com/de/docs/components/pool-controller/software-guide/"&gt;Software-Anleitung&lt;/a&gt;&lt;/strong&gt; - Firmware bauen und flashen&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.com/de/docs/components/pool-controller/users-guide/"&gt;Benutzerhandbuch&lt;/a&gt;&lt;/strong&gt; - Konfiguration über das Web-Interface&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.com/de/docs/components/pool-controller/mqtt-configuration/"&gt;MQTT-Konfiguration&lt;/a&gt;&lt;/strong&gt; - Broker-Einrichtung und Topics&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.com/de/docs/components/pool-controller/ota-updates/"&gt;OTA-Updates&lt;/a&gt;&lt;/strong&gt; - Firmware-Updates über WLAN&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Fortgeschritten&lt;span class="hx:absolute hx:-mt-20" id="fortgeschritten"&gt;&lt;/span&gt;
+&lt;a href="#fortgeschritten" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.com/de/docs/components/pool-controller/safety-model/"&gt;Sicherheitsmodell&lt;/a&gt;&lt;/strong&gt; - Sicherheitsarchitektur&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.com/de/docs/components/pool-controller/temperature-based-circulation/"&gt;Temperaturbasierte Umwälzung&lt;/a&gt;&lt;/strong&gt; - Adaptive Filterlaufzeit&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.com/de/docs/components/pool-controller/troubleshooting-matrix/"&gt;Fehlerbehebungs-Matrix&lt;/a&gt;&lt;/strong&gt; - Häufige Probleme und Lösungen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🔧 Hardware-Anforderungen&lt;span class="hx:absolute hx:-mt-20" id="-hardware-anforderungen"&gt;&lt;/span&gt;
+&lt;a href="#-hardware-anforderungen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Minimale Einrichtung&lt;span class="hx:absolute hx:-mt-20" id="minimale-einrichtung"&gt;&lt;/span&gt;
+&lt;a href="#minimale-einrichtung" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Komponente&lt;/th&gt;
+&lt;th&gt;Zweck&lt;/th&gt;
+&lt;th&gt;Ca. Preis&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ESP32 DevKit V1&lt;/td&gt;
+&lt;td&gt;Hauptcontroller&lt;/td&gt;
+&lt;td&gt;8-12 €&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2-Kanal-Relaismodul&lt;/td&gt;
+&lt;td&gt;Pumpensteuerung&lt;/td&gt;
+&lt;td&gt;4-6 €&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2× DS18B20 Sensoren&lt;/td&gt;
+&lt;td&gt;Temperaturmessung&lt;/td&gt;
+&lt;td&gt;6-10 €&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4,7kΩ Widerstände (2x)&lt;/td&gt;
+&lt;td&gt;Pull-up-Widerstände&lt;/td&gt;
+&lt;td&gt;&amp;lt; 1 €&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Steckbrett + Kabel&lt;/td&gt;
+&lt;td&gt;Prototyping&lt;/td&gt;
+&lt;td&gt;3-8 €&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Gesamt&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;~35–55 €&lt;/strong&gt; (siehe &lt;a
+href="https://smart-swimmingpool.com/de/docs/bom/"&gt;Stückliste&lt;/a&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;Produktionsaufbau&lt;span class="hx:absolute hx:-mt-20" id="produktionsaufbau"&gt;&lt;/span&gt;
+&lt;a href="#produktionsaufbau" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Komponente&lt;/th&gt;
+&lt;th&gt;Zweck&lt;/th&gt;
+&lt;th&gt;Ca. Preis&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;NORVI AE01-R&lt;/td&gt;
+&lt;td&gt;Industrieller ESP32&lt;/td&gt;
+&lt;td&gt;25-30 €&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;IP65-Gehäuse&lt;/td&gt;
+&lt;td&gt;Wetterschutz&lt;/td&gt;
+&lt;td&gt;10-15 €&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DIN-Schiene Komponenten&lt;/td&gt;
+&lt;td&gt;Professionelle Montage&lt;/td&gt;
+&lt;td&gt;15-20 €&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Gesamt&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;~75 €&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;📌 Pin-Konfiguration&lt;span class="hx:absolute hx:-mt-20" id="-pin-konfiguration"&gt;&lt;/span&gt;
+&lt;a href="#-pin-konfiguration" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Standard-Pins des &lt;strong&gt;ESP32-DevKit&lt;/strong&gt;-Builds (&lt;code&gt;esp32dev&lt;/code&gt;). Die Builds für NORVI AE01-R und Olimex ESP32-C6-EVB
+nutzen eigene Pinbelegungen, siehe &lt;code&gt;src/Config.hpp&lt;/code&gt; und die oben verlinkten Board-Seiten.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Funktion&lt;/th&gt;
+&lt;th&gt;ESP32 Pin&lt;/th&gt;
+&lt;th&gt;Hinweise&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Solar-Sensor (DS18B20)&lt;/td&gt;
+&lt;td&gt;GPIO32&lt;/td&gt;
+&lt;td&gt;OneWire-Daten&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Pool-Sensor (DS18B20)&lt;/td&gt;
+&lt;td&gt;GPIO33&lt;/td&gt;
+&lt;td&gt;OneWire-Daten&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Heizungspumpen-Relais&lt;/td&gt;
+&lt;td&gt;GPIO26&lt;/td&gt;
+&lt;td&gt;Active-Low&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Filterpumpen-Relais&lt;/td&gt;
+&lt;td&gt;GPIO25&lt;/td&gt;
+&lt;td&gt;Active-Low&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relaismodul VCC&lt;/td&gt;
+&lt;td&gt;5V (VIN)&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;NICHT 3,3V!&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Relaismodul GND&lt;/td&gt;
+&lt;td&gt;GND&lt;/td&gt;
+&lt;td&gt;Gemeinsame Masse&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Sensor VDD&lt;/td&gt;
+&lt;td&gt;3,3V&lt;/td&gt;
+&lt;td&gt;Spannung für Sensoren&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Sensor GND&lt;/td&gt;
+&lt;td&gt;GND&lt;/td&gt;
+&lt;td&gt;Masse für Sensoren&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;⚠️ &lt;strong&gt;Wichtig&lt;/strong&gt;: Jede DS18B20-Datenleitung benötigt einen &lt;strong&gt;4,7kΩ Pull-up-Widerstand&lt;/strong&gt; zu 3,3V.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;🚀 Nächste Schritte&lt;span class="hx:absolute hx:-mt-20" id="-nächste-schritte"&gt;&lt;/span&gt;
+&lt;a href="#-n%c3%a4chste-schritte" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.com/de/docs/start-here/"&gt;Hier beginnen&lt;/a&gt;&lt;/strong&gt; - Wählen Sie Ihren Weg basierend auf Ihren Zielen&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.com/de/docs/quickstart/"&gt;Schnellstart&lt;/a&gt;&lt;/strong&gt; - Schnellster Weg zum Laufen (60 Minuten)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.com/de/docs/getting-started/"&gt;Bauanleitung&lt;/a&gt;&lt;/strong&gt; - Umfassliche Aufbauanleitung&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.com/de/docs/integrations/home-assistant/"&gt;Home Assistant Integration&lt;/a&gt;&lt;/strong&gt; - Smarthome-Integration&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;💬 Brauchen Sie Hilfe?&lt;span class="hx:absolute hx:-mt-20" id="-brauchen-sie-hilfe"&gt;&lt;/span&gt;
+&lt;a href="#-brauchen-sie-hilfe" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Prüfen Sie die &lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.com/de/docs/troubleshooting/"&gt;Fehlerbehebung&lt;/a&gt;&lt;/strong&gt; Seite&lt;/li&gt;
+&lt;li&gt;Besuchen Sie das &lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller"target="_blank" rel="noopener"&gt;Pool Controller Repository&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Öffnen Sie ein &lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/pool-controller/issues"target="_blank" rel="noopener"&gt;Issue&lt;/a&gt;&lt;/strong&gt; für Bugs oder Feature-Anfragen&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Pool Monitor</title><link>https://smart-swimmingpool.com/de/docs/components/pool-monitor/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/de/docs/components/pool-monitor/</guid><description>
+&lt;h1&gt;🌡️ Pool Monitor&lt;/h1&gt;&lt;p&gt;Der &lt;strong&gt;Pool Monitor&lt;/strong&gt; ist ein solarbetriebenes, kabelloses Display, das die aktuelle Pooltemperatur anzeigt. Es ist so konzipiert, dass es energieeffizient ist und vollständig unabhängig von Ihrem Haupt-Pool-Controller funktioniert.&lt;/p&gt;
+&lt;h2&gt;💡 Übersicht&lt;span class="hx:absolute hx:-mt-20" id="-übersicht"&gt;&lt;/span&gt;
+&lt;a href="#-%c3%bcbersicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der Pool Monitor bietet:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Kabellose Temperaturanzeige&lt;/strong&gt;: Zeigt die aktuelle Poolwassertemperatur an&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Solarbetrieben&lt;/strong&gt;: Energieeffizientes Design für kontinuierlichen Betrieb&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ESP8266-basiert&lt;/strong&gt;: Mikrocontroller mit niedrigem Stromverbrauch und WLAN-Anbindung&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;E-Ink-Display&lt;/strong&gt;: Geringer Stromverbrauch, bei Sonneneinstrahlung gut lesbar&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MQTT-Integration&lt;/strong&gt;: Empfängt Daten vom Pool-Controller über MQTT&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Standalone-Betrieb&lt;/strong&gt;: Funktioniert unabhängig vom Hauptcontroller&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;✨ Hauptmerkmale&lt;span class="hx:absolute hx:-mt-20" id="-hauptmerkmale"&gt;&lt;/span&gt;
+&lt;a href="#-hauptmerkmale" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;✅ &lt;strong&gt;Solarbetrieben&lt;/strong&gt;: Kann kontinuierlich mit Solarstrom betrieben werden&lt;/li&gt;
+&lt;li&gt;✅ &lt;strong&gt;Kabellos&lt;/strong&gt;: Keine Kabel benötigt, kommuniziert über WLAN&lt;/li&gt;
+&lt;li&gt;✅ &lt;strong&gt;E-Ink-Display&lt;/strong&gt;: Klare Sichtbarkeit bei direktem Sonnenlicht&lt;/li&gt;
+&lt;li&gt;✅ &lt;strong&gt;Niedriger Stromverbrauch&lt;/strong&gt;: Für minimalen Energieverbrauch ausgelegt&lt;/li&gt;
+&lt;li&gt;✅ &lt;strong&gt;MQTT-Abonnent&lt;/strong&gt;: Empfängt Daten von Ihrem Pool-Controller&lt;/li&gt;
+&lt;li&gt;✅ &lt;strong&gt;Standalone&lt;/strong&gt;: Unabhängig vom Hauptcontroller-Betrieb&lt;/li&gt;
+&lt;li&gt;✅ &lt;strong&gt;Open Source&lt;/strong&gt;: MIT-Lizenz, frei zu verwenden und zu modifizieren&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🧭 Schnelle Links&lt;span class="hx:absolute hx:-mt-20" id="-schnelle-links"&gt;&lt;/span&gt;
+&lt;a href="#-schnelle-links" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Erste Schritte&lt;span class="hx:absolute hx:-mt-20" id="erste-schritte"&gt;&lt;/span&gt;
+&lt;a href="#erste-schritte" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/monitor"target="_blank" rel="noopener"&gt;Pool Monitor Repository&lt;/a&gt;&lt;/strong&gt; - Haupt-Repository mit aller Dokumentation&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/monitor#build-guide"target="_blank" rel="noopener"&gt;Aufbauanleitung&lt;/a&gt;&lt;/strong&gt; - Schritt-für-Schritt-Bauanleitung&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/monitor#hardware"target="_blank" rel="noopener"&gt;Hardware Übersicht&lt;/a&gt;&lt;/strong&gt; - Komponentenbeschreibungen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Hardware&lt;span class="hx:absolute hx:-mt-20" id="hardware"&gt;&lt;/span&gt;
+&lt;a href="#hardware" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/monitor#wiring"target="_blank" rel="noopener"&gt;Verdrahtungsdiagramm&lt;/a&gt;&lt;/strong&gt; - Anschlussanleitung&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/monitor#bill-of-materials"target="_blank" rel="noopener"&gt;Stückliste&lt;/a&gt;&lt;/strong&gt; - Vollständige Teileliste&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Firmware&lt;span class="hx:absolute hx:-mt-20" id="firmware"&gt;&lt;/span&gt;
+&lt;a href="#firmware" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/monitor#firmware"target="_blank" rel="noopener"&gt;Firmware-Installation&lt;/a&gt;&lt;/strong&gt; - Flash-Anleitung&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/monitor#configuration"target="_blank" rel="noopener"&gt;Konfiguration&lt;/a&gt;&lt;/strong&gt; - Einrichtungshinweise&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/monitor#mqtt-configuration"target="_blank" rel="noopener"&gt;MQTT-Konfiguration&lt;/a&gt;&lt;/strong&gt; - Broker-Einrichtung&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🔧 Hardware-Anforderungen&lt;span class="hx:absolute hx:-mt-20" id="-hardware-anforderungen"&gt;&lt;/span&gt;
+&lt;a href="#-hardware-anforderungen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Komponente&lt;/th&gt;
+&lt;th&gt;Zweck&lt;/th&gt;
+&lt;th&gt;Ca. Preis&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ESP8266 (Wemos D1 Mini)&lt;/td&gt;
+&lt;td&gt;Hauptcontroller&lt;/td&gt;
+&lt;td&gt;5-8 €&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E-Ink-Display (2,13&amp;quot;)&lt;/td&gt;
+&lt;td&gt;Temperaturanzeige&lt;/td&gt;
+&lt;td&gt;15-20 €&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Solarmodul (6V)&lt;/td&gt;
+&lt;td&gt;Stromquelle&lt;/td&gt;
+&lt;td&gt;10-15 €&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;LiPo-Akku (18650)&lt;/td&gt;
+&lt;td&gt;Energiespeicher&lt;/td&gt;
+&lt;td&gt;5-10 €&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Ladeschaltung&lt;/td&gt;
+&lt;td&gt;Akku-Management&lt;/td&gt;
+&lt;td&gt;3-5 €&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Gehäuse&lt;/td&gt;
+&lt;td&gt;Wetterschutz&lt;/td&gt;
+&lt;td&gt;5-10 €&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Gesamt&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;~45-70 €&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;📌 Pin-Konfiguration&lt;span class="hx:absolute hx:-mt-20" id="-pin-konfiguration"&gt;&lt;/span&gt;
+&lt;a href="#-pin-konfiguration" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Funktion&lt;/th&gt;
+&lt;th&gt;ESP8266 Pin&lt;/th&gt;
+&lt;th&gt;Hinweise&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Display SDA&lt;/td&gt;
+&lt;td&gt;D2 (GPIO4)&lt;/td&gt;
+&lt;td&gt;I2C-Daten&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Display SCL&lt;/td&gt;
+&lt;td&gt;D1 (GPIO5)&lt;/td&gt;
+&lt;td&gt;I2C-Takt&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Display BUSY&lt;/td&gt;
+&lt;td&gt;D5 (GPIO14)&lt;/td&gt;
+&lt;td&gt;Beschäftigt-Signal&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Display DC&lt;/td&gt;
+&lt;td&gt;D6 (GPIO12)&lt;/td&gt;
+&lt;td&gt;Daten/Befehl&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Display RST&lt;/td&gt;
+&lt;td&gt;D7 (GPIO13)&lt;/td&gt;
+&lt;td&gt;Reset&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Display CS&lt;/td&gt;
+&lt;td&gt;D8 (GPIO15)&lt;/td&gt;
+&lt;td&gt;Chip-Auswahl&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Solarmodul&lt;/td&gt;
+&lt;td&gt;5V&lt;/td&gt;
+&lt;td&gt;Stromeingang&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Akku&lt;/td&gt;
+&lt;td&gt;3,3V&lt;/td&gt;
+&lt;td&gt;Stromausgang&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;🚀 Nächste Schritte&lt;span class="hx:absolute hx:-mt-20" id="-nächste-schritte"&gt;&lt;/span&gt;
+&lt;a href="#-n%c3%a4chste-schritte" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.com/de/docs/start-here/"&gt;Hier beginnen&lt;/a&gt;&lt;/strong&gt; - Wählen Sie Ihren Weg basierend auf Ihren Zielen&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/monitor"target="_blank" rel="noopener"&gt;Repository besuchen&lt;/a&gt;&lt;/strong&gt; - Zugriff auf alle Dokumentationen und Quellcode&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.com/de/docs/integrations/home-assistant/"&gt;Home Assistant Integration&lt;/a&gt;&lt;/strong&gt; - Smarthome-Integration&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.com/de/docs/components/grafana-dashboard/"&gt;Grafana Dashboard&lt;/a&gt;&lt;/strong&gt; - Datenvisualisierung&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;💬 Brauchen Sie Hilfe?&lt;span class="hx:absolute hx:-mt-20" id="-brauchen-sie-hilfe"&gt;&lt;/span&gt;
+&lt;a href="#-brauchen-sie-hilfe" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Prüfen Sie die &lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.com/de/docs/troubleshooting/"&gt;Fehlerbehebung&lt;/a&gt;&lt;/strong&gt; Seite&lt;/li&gt;
+&lt;li&gt;Besuchen Sie das &lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/monitor"target="_blank" rel="noopener"&gt;Pool Monitor Repository&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Öffnen Sie ein &lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/monitor/issues"target="_blank" rel="noopener"&gt;Issue&lt;/a&gt;&lt;/strong&gt; für Bugs oder Feature-Anfragen&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Grafana Dashboard</title><link>https://smart-swimmingpool.com/de/docs/components/grafana-dashboard/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/de/docs/components/grafana-dashboard/</guid><description>
+&lt;h1&gt;📊 Grafana Dashboard&lt;/h1&gt;&lt;p&gt;Das &lt;strong&gt;Grafana Dashboard&lt;/strong&gt; zeigt Ihren Smart Swimming Pool im zeitlichen Verlauf: Pool- und
+Solartemperatur, Pumpen-Schaltzeiten, Betriebsmodus und Diagnosewerte des Controllers. Es ist
+für den &lt;a
+href="https://smart-swimmingpool.com/de/docs/components/pool-controller/"&gt;Pool Controller&lt;/a&gt; &lt;strong&gt;v5.x&lt;/strong&gt; gemacht und liest die Daten, die
+&lt;strong&gt;Home Assistant&lt;/strong&gt; in &lt;strong&gt;InfluxDB&lt;/strong&gt; speichert.&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://raw.githubusercontent.com/smart-swimmingpool/grafana-dashboard/master/docs/dashboard-screenshot.png" alt="Grafana Dashboard mit Beispieldaten" data-zoomable loading="lazy" /&gt;&lt;/p&gt;
+&lt;h2&gt;💡 Funktionsweise&lt;span class="hx:absolute hx:-mt-20" id="-funktionsweise"&gt;&lt;/span&gt;
+&lt;a href="#-funktionsweise" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Pool Controller ──MQTT Discovery──▶ Home Assistant ──InfluxDB-Integration──▶ InfluxDB ──▶ Grafana&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ol&gt;
+&lt;li&gt;Der Pool Controller meldet seine Entitäten per Home-Assistant-MQTT-Discovery an
+(siehe &lt;a
+href="https://smart-swimmingpool.com/de/docs/integrations/home-assistant/"&gt;Home Assistant Integration&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;Die &lt;a
+href="https://www.home-assistant.io/integrations/influxdb/"target="_blank" rel="noopener"&gt;InfluxDB-Integration&lt;/a&gt; von
+Home Assistant speichert die Zustände in InfluxDB.&lt;/li&gt;
+&lt;li&gt;Grafana fragt diese Datenbank ab und stellt das Dashboard dar.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;✨ Dashboard-Panels&lt;span class="hx:absolute hx:-mt-20" id="-dashboard-panels"&gt;&lt;/span&gt;
+&lt;a href="#-dashboard-panels" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Bereich&lt;/th&gt;
+&lt;th&gt;Panels&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Temperaturen&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Anzeigen für Pool und Solar, Verlauf von Pool-, Solar- und Controller-Temperatur&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Pumpen &amp;amp; Betrieb&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Zeitleiste der Pumpen, aktueller Pumpenstatus, effektive Laufzeit, Umwälzungs-Verlängerung, Betriebsmodus (Auto, Manuell, Boost, Timer)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Diagnose&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;WLAN-Signal, Uptime, freier Speicher, Controller-Temperatur mit Verlauf&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;🔧 Installation&lt;span class="hx:absolute hx:-mt-20" id="-installation"&gt;&lt;/span&gt;
+&lt;a href="#-installation" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Voraussetzungen&lt;span class="hx:absolute hx:-mt-20" id="voraussetzungen"&gt;&lt;/span&gt;
+&lt;a href="#voraussetzungen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a
+href="https://smart-swimmingpool.com/de/docs/components/pool-controller/"&gt;Pool Controller&lt;/a&gt; v5.x, verbunden mit Home Assistant&lt;/li&gt;
+&lt;li&gt;&lt;a
+href="https://www.home-assistant.io/integrations/influxdb/"target="_blank" rel="noopener"&gt;InfluxDB-Integration&lt;/a&gt; von Home Assistant
+mit Standard-Einstellungen für Measurements&lt;/li&gt;
+&lt;li&gt;InfluxDB 1.x (oder 2.x mit InfluxQL) und Grafana 10 oder neuer&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Pool-Daten in InfluxDB speichern&lt;span class="hx:absolute hx:-mt-20" id="pool-daten-in-influxdb-speichern"&gt;&lt;/span&gt;
+&lt;a href="#pool-daten-in-influxdb-speichern" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Beispiel für die &lt;code&gt;configuration.yaml&lt;/code&gt; von Home Assistant:&lt;/p&gt;
+&lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
+&lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-yaml" data-lang="yaml"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;influxdb&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;host&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;influxdb.local&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;database&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;home_assistant&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;include&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;entity_globs&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="l"&gt;sensor.pool_controller_*&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="l"&gt;switch.pool_controller_*&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="l"&gt;select.pool_controller_*&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0"&gt;
+&lt;button
+class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
+title="Code kopieren"
+aria-label="Code kopieren"
+data-copied-label="Kopiert!"
+&gt;
+&lt;div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"&gt;&lt;/div&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3&gt;Dashboard importieren&lt;span class="hx:absolute hx:-mt-20" id="dashboard-importieren"&gt;&lt;/span&gt;
+&lt;a href="#dashboard-importieren" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Lege in Grafana eine &lt;strong&gt;InfluxDB&lt;/strong&gt;-Datenquelle (Abfragesprache &lt;strong&gt;InfluxQL&lt;/strong&gt;) an.&lt;/li&gt;
+&lt;li&gt;Lade
+&lt;a
+href="https://github.com/smart-swimmingpool/grafana-dashboard/blob/master/dashboard-smart-swimming-pool.json"target="_blank" rel="noopener"&gt;&lt;code&gt;dashboard-smart-swimming-pool.json&lt;/code&gt;&lt;/a&gt;
+herunter.&lt;/li&gt;
+&lt;li&gt;Öffnen Sie &lt;strong&gt;Dashboards → New → Import&lt;/strong&gt;, laden Sie die Datei hoch und wählen Sie Ihre InfluxDB-Datenquelle.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Haben Sie die Pool-Controller-Entitäten in Home Assistant umbenannt, passen Sie die Dashboard-Variablen
+unter &lt;strong&gt;Dashboard settings → Variables&lt;/strong&gt; an.&lt;/p&gt;
+&lt;div
+data-alert="note" class="hextra-alert"
+&gt;
+&lt;p class="hextra-alert-title"&gt;&lt;svg height=16px class="hextra-alert-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"&gt;&lt;path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/&gt;&lt;/svg&gt;&lt;span class="hextra-alert-title-text"&gt;Note&lt;/span&gt;
+&lt;/p&gt;
+&lt;div class="hextra-alert-content"&gt;&lt;p&gt;Du nutzt openHAB mit Pool Controller v1/v2? Das ursprüngliche Dashboard gibt es weiterhin als
+&lt;a
+href="https://github.com/smart-swimmingpool/grafana-dashboard/blob/master/dashboard-smart-swimming-pool-openhab-legacy.json"target="_blank" rel="noopener"&gt;&lt;code&gt;dashboard-smart-swimming-pool-openhab-legacy.json&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;🚀 Nächste Schritte&lt;span class="hx:absolute hx:-mt-20" id="-nächste-schritte"&gt;&lt;/span&gt;
+&lt;a href="#-n%c3%a4chste-schritte" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.com/de/docs/start-here/"&gt;Hier beginnen&lt;/a&gt;&lt;/strong&gt; - Wählen Sie Ihren Weg passend zu Ihren Zielen&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/grafana-dashboard"target="_blank" rel="noopener"&gt;Repository besuchen&lt;/a&gt;&lt;/strong&gt; - Dashboard-JSON und Dokumentation&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.com/de/docs/components/pool-controller/"&gt;Pool Controller Setup&lt;/a&gt;&lt;/strong&gt; - Stellen Sie sicher, dass Ihr Controller läuft&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.com/de/docs/integrations/home-assistant/"&gt;Home Assistant Integration&lt;/a&gt;&lt;/strong&gt; - Controller mit Home Assistant verbinden&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;💬 Hilfe benötigt?&lt;span class="hx:absolute hx:-mt-20" id="-hilfe-benötigt"&gt;&lt;/span&gt;
+&lt;a href="#-hilfe-ben%c3%b6tigt" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Sieh auf der Seite &lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.com/de/docs/troubleshooting/"&gt;Fehlerbehebung&lt;/a&gt;&lt;/strong&gt; nach&lt;/li&gt;
+&lt;li&gt;Besuche das &lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/grafana-dashboard"target="_blank" rel="noopener"&gt;Grafana Dashboard Repository&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Öffne ein &lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/grafana-dashboard/issues"target="_blank" rel="noopener"&gt;Issue&lt;/a&gt;&lt;/strong&gt; für Fehler oder Wünsche&lt;/li&gt;
+&lt;li&gt;Lesen Sie die &lt;strong&gt;&lt;a
+href="https://grafana.com/docs/"target="_blank" rel="noopener"&gt;Grafana-Dokumentation&lt;/a&gt;&lt;/strong&gt; für Grafana-spezifische Fragen&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Water Quality Monitor</title><link>https://smart-swimmingpool.com/de/docs/components/water-quality-monitor/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/de/docs/components/water-quality-monitor/</guid><description>
+&lt;h1&gt;🧪 Water Quality Monitor&lt;/h1&gt;&lt;p&gt;Der &lt;strong&gt;Water Quality Monitor&lt;/strong&gt; ist ein geplantes Modul, das die chemische Wasserqualität Ihres
+Pools misst — &lt;strong&gt;pH-Wert&lt;/strong&gt;, &lt;strong&gt;Chlor&lt;/strong&gt; und &lt;strong&gt;Wassertemperatur&lt;/strong&gt; — und die Werte per MQTT an Ihr
+Smarthome-System sendet.&lt;/p&gt;
+&lt;div
+data-alert="warning" class="hextra-alert"
+&gt;
+&lt;p class="hextra-alert-title"&gt;&lt;svg height=16px class="hextra-alert-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"&gt;&lt;path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/&gt;&lt;/svg&gt;&lt;span class="hextra-alert-title-text"&gt;Warning&lt;/span&gt;
+&lt;/p&gt;
+&lt;div class="hextra-alert-content"&gt;&lt;p&gt;&lt;strong&gt;Status: in Entwicklung.&lt;/strong&gt; Das Modul befindet sich in der Planungs- und frühen Prototyp-Phase.
+Eine fertige Firmware gibt es noch nicht. Beiträge sind herzlich willkommen!&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;💡 Geplante Messgrößen&lt;span class="hx:absolute hx:-mt-20" id="-geplante-messgrößen"&gt;&lt;/span&gt;
+&lt;a href="#-geplante-messgr%c3%b6%c3%9fen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;Bereich&lt;/th&gt;
+&lt;th&gt;Bedeutung&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;pH-Wert&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;0–14&lt;/td&gt;
+&lt;td&gt;Beeinflusst die Wirksamkeit von Chlor und den Badekomfort&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Chlor&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;0–10 ppm&lt;/td&gt;
+&lt;td&gt;Wichtigstes Desinfektionsmittel gegen Bakterien und Algen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Temperatur&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;0–60 °C&lt;/td&gt;
+&lt;td&gt;Beeinflusst chemische Reaktionen und Komfort&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;🧩 Einbindung ins Smart-Swimming-Pool-System&lt;span class="hx:absolute hx:-mt-20" id="-einbindung-ins-smart-swimming-pool-system"&gt;&lt;/span&gt;
+&lt;a href="#-einbindung-ins-smart-swimming-pool-system" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Veröffentlicht Messwerte per &lt;strong&gt;MQTT&lt;/strong&gt;, wie der &lt;a
+href="https://smart-swimmingpool.com/de/docs/components/pool-controller/"&gt;Pool Controller&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Werte lassen sich speichern und visualisieren, z. B. mit dem &lt;a
+href="https://smart-swimmingpool.com/de/docs/components/grafana-dashboard/"&gt;Grafana Dashboard&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Nutzbar in &lt;a
+href="https://smart-swimmingpool.com/de/docs/integrations/home-assistant/"&gt;Home Assistant&lt;/a&gt; und &lt;a
+href="https://smart-swimmingpool.com/de/docs/integrations/openhab/"&gt;openHAB&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🧭 Dokumentation&lt;span class="hx:absolute hx:-mt-20" id="-dokumentation"&gt;&lt;/span&gt;
+&lt;a href="#-dokumentation" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.com/docs/components/water-quality-monitor/hardware-guide/"&gt;Hardware-Anleitung&lt;/a&gt;&lt;/strong&gt; - Sensoroptionen, Schaltungsideen und Stückliste (englisch)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/water-quality-monitor"target="_blank" rel="noopener"&gt;Repository&lt;/a&gt;&lt;/strong&gt; - Quellcode und aktueller Stand&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🤝 Mitmachen&lt;span class="hx:absolute hx:-mt-20" id="-mitmachen"&gt;&lt;/span&gt;
+&lt;a href="#-mitmachen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;pH- und Chlorsensoren mit ESP8266/ESP32-Boards testen&lt;/li&gt;
+&lt;li&gt;Schaltung, Platine oder ein wasserdichtes Gehäuse entwerfen&lt;/li&gt;
+&lt;li&gt;Sensorauslesung, Kalibrierung und MQTT-Versand implementieren&lt;/li&gt;
+&lt;li&gt;Praxistests durchführen und mit Teststreifen/Testkits vergleichen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Öffne ein &lt;strong&gt;&lt;a
+href="https://github.com/smart-swimmingpool/water-quality-monitor/issues"target="_blank" rel="noopener"&gt;Issue&lt;/a&gt;&lt;/strong&gt;, um Ideen
+zu diskutieren oder Ihren Beitrag abzustimmen.&lt;/p&gt;</description></item></channel></rss>

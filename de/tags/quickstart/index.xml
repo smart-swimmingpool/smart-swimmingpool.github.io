@@ -2,8 +2,8 @@
 &lt;p&gt;&lt;strong&gt;🏊 Smart Swimming Pool: Vom Karton bis zum laufenden Pool in 60 Minuten.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Dies ist der Express-Pfad — minimale Theorie, maximale Aktion. Führen Sie jeden Schritt genau aus, und Sie haben innerhalb einer Stunde einen funktionierenden Pool-Controller.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;📖 Ausführliche Erklärungen im &lt;a
-href="https://smart-swimmingpool.com/de/docs/getting-started/"&gt;Erste Schritte&lt;/a&gt;-Handbuch.&lt;/p&gt;
+&lt;p&gt;📖 Ausführliche Erklärungen in der &lt;a
+href="https://smart-swimmingpool.com/de/docs/getting-started/"&gt;Bauanleitung&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;hr&gt;
 &lt;h2&gt;Was Sie brauchen&lt;span class="hx:absolute hx:-mt-20" id="was-sie-brauchen"&gt;&lt;/span&gt;
@@ -17,7 +17,7 @@ href="https://smart-swimmingpool.com/de/docs/getting-started/"&gt;Erste Schritte
 &lt;li&gt;Computer mit VS Code + PlatformIO&lt;/li&gt;
 &lt;li&gt;MQTT-Broker im Netzwerk (optional für ersten Test)&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;Alle Teile: ~45–75 €&lt;/strong&gt; — siehe &lt;a
+&lt;p&gt;&lt;strong&gt;Alle Teile: ~35–55 €&lt;/strong&gt; — siehe &lt;a
 href="https://smart-swimmingpool.com/de/docs/bom/"&gt;Stückliste (BOM)&lt;/a&gt;.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2&gt;Schritt 1: Verkabeln (5 Minuten)&lt;span class="hx:absolute hx:-mt-20" id="schritt-1-verkabeln-5-minuten"&gt;&lt;/span&gt;
@@ -351,19 +351,19 @@ href="https://mosquitto.org/download/"target="_blank" rel="noopener"&gt;Mosquitt
 &lt;li&gt;Entities zum Lovelace-Dashboard hinzufügen&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Siehe &lt;a
-href="https://smart-swimmingpool.com/de/docs/home-assistant-integration/"&gt;Home Assistant Integration&lt;/a&gt; für Dashboard-Einrichtung und Automationsbeispiele.&lt;/p&gt;
+href="https://smart-swimmingpool.com/de/docs/integrations/home-assistant/"&gt;Home Assistant Integration&lt;/a&gt; für Dashboard-Einrichtung und Automationsbeispiele.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2&gt;Fertig! 🎉&lt;span class="hx:absolute hx:-mt-20" id="fertig-"&gt;&lt;/span&gt;
 &lt;a href="#fertig-" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Ihr Pool-Controller ist betriebsbereit. Nächste Schritte:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.com/de/docs/grafana-dashboard/"&gt;Grafana Dashboard&lt;/a&gt;&lt;/strong&gt; für Temperaturverlauf einrichten&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/components/grafana-dashboard/"&gt;Grafana Dashboard&lt;/a&gt;&lt;/strong&gt; für Temperaturverlauf einrichten&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.com/de/docs/pool-monitor/"&gt;Pool Monitor&lt;/a&gt;&lt;/strong&gt; für kabelloses Display hinzufügen&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/components/pool-monitor/"&gt;Pool Monitor&lt;/a&gt;&lt;/strong&gt; für kabelloses Display hinzufügen&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
 href="https://smart-swimmingpool.com/de/docs/checklist/"&gt;Inbetriebnahme-Checkliste&lt;/a&gt;&lt;/strong&gt; für ausführlichere Prüfung durchgehen&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.com/de/docs/troubleshooting/"&gt;FAQ &amp;amp; Fehlerbehebung&lt;/a&gt;&lt;/strong&gt; bei Problemen&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/troubleshooting/"&gt;Fehlerbehebung&lt;/a&gt;&lt;/strong&gt; bei Problemen&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2&gt;Kurzreferenz: Pin-Belegung&lt;span class="hx:absolute hx:-mt-20" id="kurzreferenz-pin-belegung"&gt;&lt;/span&gt;

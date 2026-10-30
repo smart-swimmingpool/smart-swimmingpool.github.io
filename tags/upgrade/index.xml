@@ -75,15 +75,8 @@
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h3&gt;Migration Steps&lt;span class="hx:absolute hx:-mt-20" id="migration-steps"&gt;&lt;/span&gt;
-&lt;a href="#migration-steps" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Back up your settings&lt;/strong&gt; — Take screenshots of your v2.x configuration (MQTT broker, temperature limits, timer settings)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Flash the new firmware&lt;/strong&gt; via USB (PlatformIO, &lt;code&gt;esp32dev&lt;/code&gt; environment)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Upload the filesystem image&lt;/strong&gt; (&lt;code&gt;pio run -e esp32dev -t uploadfs&lt;/code&gt;)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Reconfigure everything&lt;/strong&gt; via the new web interface (WiFi, MQTT, temperature limits)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Reconfigure Home Assistant:&lt;/strong&gt; The new controller appears as a new device (&lt;code&gt;Pool Controller&lt;/code&gt;). Add entities to your dashboard. Delete the old v2.x device from HA&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Reconfigure automation:&lt;/strong&gt; MQTT topics have changed — update any custom automations that referenced Homie topics&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Verify&lt;/strong&gt; that all sensors report correct values and pumps respond&lt;/li&gt;
-&lt;/ol&gt;
+&lt;a href="#migration-steps" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The step-by-step guide — flashing, reconfiguring, topic mapping for Home Assistant and openHAB, and rollback — lives on its own page: &lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.com/docs/migration/v2-to-v3/"&gt;v2.x → v3.x Migration Guide&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
 &lt;h3&gt;What Changed for the Better&lt;span class="hx:absolute hx:-mt-20" id="what-changed-for-the-better"&gt;&lt;/span&gt;
 &lt;a href="#what-changed-for-the-better" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
 &lt;thead&gt;

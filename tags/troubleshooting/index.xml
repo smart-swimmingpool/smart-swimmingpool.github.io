@@ -1,5 +1,6 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Troubleshooting</title><link>https://smart-swimmingpool.com/tags/troubleshooting/</link><description>Recent content in Troubleshooting on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Sun, 14 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.com/tags/troubleshooting/index.xml" rel="self" type="application/rss+xml"/><item><title>FAQ &amp; Troubleshooting</title><link>https://smart-swimmingpool.com/docs/troubleshooting/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/troubleshooting/</guid><description>
-&lt;p&gt;&lt;strong&gt;🏊 Frequently asked questions and solutions for common problems.&lt;/strong&gt;&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Troubleshooting</title><link>https://smart-swimmingpool.com/tags/troubleshooting/</link><description>Recent content in Troubleshooting on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Sun, 14 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.com/tags/troubleshooting/index.xml" rel="self" type="application/rss+xml"/><item><title>Troubleshooting</title><link>https://smart-swimmingpool.com/docs/troubleshooting/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/troubleshooting/</guid><description>
+&lt;p&gt;&lt;strong&gt;🏊 Diagnose and fix common problems — sorted by symptom. For general questions see the &lt;a
+href="https://smart-swimmingpool.com/docs/faq/"&gt;FAQ&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
 &lt;div class="safety-notice hx:rounded-lg hx:border-2 hx:border-red-300 hx:bg-red-50 hx:dark:border-red-700 hx:dark:bg-red-900/20 hx:p-4 hx:my-6"&gt;
 &lt;div class="hx:flex hx:items-start hx:gap-3"&gt;
 &lt;span class="hx:text-2xl hx:flex-shrink-0"&gt;⚠️&lt;/span&gt;
@@ -311,63 +312,9 @@ data-copied-label="Copied!"
 &lt;li&gt;&lt;strong&gt;Preventive measure:&lt;/strong&gt; Before updating via OTA, ensure the ESP32 is within WiFi range of your router and has a stable power supply. Do not interrupt the update process.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;hr&gt;
-&lt;h2&gt;General &amp;amp; Hardware&lt;span class="hx:absolute hx:-mt-20" id="general--hardware"&gt;&lt;/span&gt;
-&lt;a href="#general--hardware" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;The system cost more than 100€ — is that normal?&lt;span class="hx:absolute hx:-mt-20" id="the-system-cost-more-than-100--is-that-normal"&gt;&lt;/span&gt;
-&lt;a href="#the-system-cost-more-than-100--is-that-normal" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The &lt;strong&gt;~45–75€&lt;/strong&gt; estimate covers the &lt;strong&gt;controller electronics only&lt;/strong&gt; (ESP32, sensors, relay, breadboard, enclosure). It does &lt;strong&gt;not&lt;/strong&gt; include:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Pool pump and filter system&lt;/li&gt;
-&lt;li&gt;Heating circuit pump&lt;/li&gt;
-&lt;li&gt;Heat exchanger installation&lt;/li&gt;
-&lt;li&gt;Wiring materials (cables, connectors, circuit breakers)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;If you need to add these, the total project cost can be significantly higher.&lt;/p&gt;
-&lt;h3&gt;Can I use this without a smart home server?&lt;span class="hx:absolute hx:-mt-20" id="can-i-use-this-without-a-smart-home-server"&gt;&lt;/span&gt;
-&lt;a href="#can-i-use-this-without-a-smart-home-server" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Yes.&lt;/strong&gt; The pool controller is fully autonomous:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;It handles circulation scheduling and heating control &lt;strong&gt;without&lt;/strong&gt; any server.&lt;/li&gt;
-&lt;li&gt;The web interface allows basic configuration and manual control.&lt;/li&gt;
-&lt;li&gt;MQTT integration and Home Assistant are optional — they add remote control, automation, and visualization.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;How weatherproof is the system?&lt;span class="hx:absolute hx:-mt-20" id="how-weatherproof-is-the-system"&gt;&lt;/span&gt;
-&lt;a href="#how-weatherproof-is-the-system" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The pool controller itself is &lt;strong&gt;not weatherproof&lt;/strong&gt; out of the box. You need:&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Location&lt;/th&gt;
-&lt;th&gt;Protection&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Indoor installation (preferred)&lt;/td&gt;
-&lt;td&gt;No special protection needed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Outdoor / pool house&lt;/td&gt;
-&lt;td&gt;&lt;strong&gt;IP54+&lt;/strong&gt; enclosure, cable glands for all entries&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Sensors (DS18B20)&lt;/td&gt;
-&lt;td&gt;Stainless steel probe is IP68 — cable entry must be sealed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Power supply&lt;/td&gt;
-&lt;td&gt;Must be in a dry location or in an IP-rated enclosure&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3&gt;Can I use this with a heat pump instead of solar heating?&lt;span class="hx:absolute hx:-mt-20" id="can-i-use-this-with-a-heat-pump-instead-of-solar-heating"&gt;&lt;/span&gt;
-&lt;a href="#can-i-use-this-with-a-heat-pump-instead-of-solar-heating" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Yes. The pool controller&amp;rsquo;s heating logic switches a pump when heating is needed. This works with any heat source:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Solar thermal system&lt;/li&gt;
-&lt;li&gt;Heat pump&lt;/li&gt;
-&lt;li&gt;Gas/oil heater with heat exchanger&lt;/li&gt;
-&lt;li&gt;Electric heating element (via relay / contactor)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Which pumps can be controlled?&lt;span class="hx:absolute hx:-mt-20" id="which-pumps-can-be-controlled"&gt;&lt;/span&gt;
-&lt;a href="#which-pumps-can-be-controlled" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The relay module switches 230V/10A max (resistive load). For inductive loads (motors, pumps), derate to ~5A. For larger pumps, use the relay to switch a contactor that handles the pump current.&lt;/p&gt;
-&lt;h3&gt;Is this project CE / UL certified?&lt;span class="hx:absolute hx:-mt-20" id="is-this-project-ce--ul-certified"&gt;&lt;/span&gt;
-&lt;a href="#is-this-project-ce--ul-certified" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;No.&lt;/strong&gt; This is a hobbyist DIY project. It is not tested or certified by any regulatory body. You build and operate it at your own risk. Always use an RCD (residual-current device / FI-Schutzschalter) when connecting to mains power.&lt;/p&gt;
+&lt;h2&gt;More questions?&lt;span class="hx:absolute hx:-mt-20" id="more-questions"&gt;&lt;/span&gt;
+&lt;a href="#more-questions" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;General questions about cost, weatherproofing, heat pumps, pumps and certification are answered in the &lt;a
+href="https://smart-swimmingpool.com/docs/faq/"&gt;FAQ&lt;/a&gt;.&lt;/p&gt;
 &lt;div class="safety-notice hx:rounded-lg hx:border-2 hx:border-red-300 hx:bg-red-50 hx:dark:border-red-700 hx:dark:bg-red-900/20 hx:p-4 hx:my-6"&gt;
 &lt;div class="hx:flex hx:items-start hx:gap-3"&gt;
 &lt;span class="hx:text-2xl hx:flex-shrink-0"&gt;⚠️&lt;/span&gt;
@@ -377,7 +324,7 @@ data-copied-label="Copied!"
 Always use an &lt;strong&gt;RCD (residual-current device)&lt;/strong&gt;. This project is &lt;strong&gt;not CE/UL certified&lt;/strong&gt; and not intended for commercial use.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>Troubleshooting</title><link>https://smart-swimmingpool.com/docs/pool-controller/troubleshooting/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/pool-controller/troubleshooting/</guid><description>
+&lt;/div&gt;</description></item><item><title>Troubleshooting</title><link>https://smart-swimmingpool.com/docs/components/pool-controller/troubleshooting/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/components/pool-controller/troubleshooting/</guid><description>
 &lt;blockquote&gt;
 &lt;p&gt;⚠️ &lt;strong&gt;WARNING&lt;/strong&gt;: The troubleshooting steps below may involve working with
 &lt;strong&gt;230V AC mains voltage&lt;/strong&gt; (relay testing, pump wiring). &lt;strong&gt;Always disconnect
@@ -651,14 +598,14 @@ href="https://github.com/smart-swimmingpool/smart-swimmingpool.github.io/discuss
 &lt;h2&gt;Related Documents&lt;span class="hx:absolute hx:-mt-20" id="related-documents"&gt;&lt;/span&gt;
 &lt;a href="#related-documents" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.com/docs/pool-controller/build-from-zero/"&gt;Build from Zero&lt;/a&gt; — Complete build guide&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/components/pool-controller/build-from-zero/"&gt;Build from Zero&lt;/a&gt; — Complete build guide&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.com/docs/pool-controller/mqtt-configuration/"&gt;MQTT Configuration&lt;/a&gt; — MQTT setup details&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/components/pool-controller/mqtt-configuration/"&gt;MQTT Configuration&lt;/a&gt; — MQTT setup details&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.com/docs/pool-controller/electrical-safety/"&gt;Electrical Safety&lt;/a&gt; — Safety information&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/components/pool-controller/electrical-safety/"&gt;Electrical Safety&lt;/a&gt; — Safety information&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.com/docs/home-assistant-integration/"&gt;Home Assistant Integration&lt;/a&gt; — HA setup guide&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>Troubleshooting Matrix</title><link>https://smart-swimmingpool.com/docs/pool-controller/troubleshooting-matrix/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/pool-controller/troubleshooting-matrix/</guid><description>
+href="https://smart-swimmingpool.com/docs/integrations/home-assistant/"&gt;Home Assistant Integration&lt;/a&gt; — HA setup guide&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Troubleshooting Matrix</title><link>https://smart-swimmingpool.com/docs/components/pool-controller/troubleshooting-matrix/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/components/pool-controller/troubleshooting-matrix/</guid><description>
 &lt;blockquote&gt;
 &lt;p&gt;⚠️ &lt;strong&gt;WARNING&lt;/strong&gt;: Some troubleshooting steps involve working with
 &lt;strong&gt;230V AC mains voltage&lt;/strong&gt; (relay testing, pump wiring). &lt;strong&gt;Always disconnect
@@ -1049,9 +996,9 @@ power&lt;/strong&gt; before working on the circuit. If unsure, hire a qualified 
 &lt;h2&gt;See Also&lt;span class="hx:absolute hx:-mt-20" id="see-also"&gt;&lt;/span&gt;
 &lt;a href="#see-also" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.com/docs/pool-controller/hardware-guide/"&gt;Hardware Guide&lt;/a&gt; — Build and wiring instructions&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/components/pool-controller/hardware-guide/"&gt;Hardware Guide&lt;/a&gt; — Build and wiring instructions&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.com/docs/pool-controller/software-guide/"&gt;Software Guide&lt;/a&gt; — First-time setup and configuration&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/components/pool-controller/software-guide/"&gt;Software Guide&lt;/a&gt; — First-time setup and configuration&lt;/li&gt;
 &lt;li&gt;&lt;a
-href="https://smart-swimmingpool.com/docs/pool-controller/security-checklist/"&gt;Security Checklist&lt;/a&gt; — Security hardening&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/components/pool-controller/security-checklist/"&gt;Security Checklist&lt;/a&gt; — Security hardening&lt;/li&gt;
 &lt;/ul&gt;</description></item></channel></rss>

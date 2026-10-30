@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Firmware</title><link>https://smart-swimmingpool.com/de/tags/firmware/</link><description>Recent content in Firmware on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><lastBuildDate>Thu, 11 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.com/de/tags/firmware/index.xml" rel="self" type="application/rss+xml"/><item><title>Pool Controller</title><link>https://smart-swimmingpool.com/de/docs/pool-controller/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/de/docs/pool-controller/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smart Swimming Pool – Firmware</title><link>https://smart-swimmingpool.com/de/tags/firmware/</link><description>Recent content in Firmware on Smart Swimming Pool</description><generator>Hugo -- gohugo.io</generator><language>de-DE</language><lastBuildDate>Thu, 11 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smart-swimmingpool.com/de/tags/firmware/index.xml" rel="self" type="application/rss+xml"/><item><title>Pool Controller</title><link>https://smart-swimmingpool.com/de/docs/components/pool-controller/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/de/docs/components/pool-controller/</guid><description>
 &lt;h1&gt;🎛️ Pool Controller&lt;/h1&gt;&lt;p&gt;Der &lt;strong&gt;Pool Controller&lt;/strong&gt; ist das Herz des Smart Swimming Pool Systems. Es handelt sich um ein ESP32-basiertes Gerät, das die zentrale Steuerlogik für Ihre Pool-Automatisierung bereitstellt.&lt;/p&gt;
 &lt;h2&gt;💡 Übersicht&lt;span class="hx:absolute hx:-mt-20" id="-übersicht"&gt;&lt;/span&gt;
 &lt;a href="#-%c3%bcbersicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der Pool Controller übernimmt:&lt;/p&gt;
@@ -25,48 +25,48 @@
 &lt;a href="#-schnelle-links" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Erste Schritte&lt;span class="hx:absolute hx:-mt-20" id="erste-schritte"&gt;&lt;/span&gt;
 &lt;a href="#erste-schritte" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.com/de/docs/pool-controller/build-from-zero/"&gt;Aufbau von Grund auf&lt;/a&gt;&lt;/strong&gt; - Vollständige Aufbauanleitung&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/components/pool-controller/build-from-zero/"&gt;Aufbau von Grund auf&lt;/a&gt;&lt;/strong&gt; - Vollständige Aufbauanleitung&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.com/de/docs/pool-controller/electrical-safety/"&gt;Elektrische Sicherheit&lt;/a&gt;&lt;/strong&gt; - Wichtige Sicherheitsinformationen&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/components/pool-controller/electrical-safety/"&gt;Elektrische Sicherheit&lt;/a&gt;&lt;/strong&gt; - Wichtige Sicherheitsinformationen&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.com/de/docs/pool-controller/production-checklist/"&gt;Produktions-Checkliste&lt;/a&gt;&lt;/strong&gt; - Prüfung vor der Inbetriebnahme&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/components/pool-controller/production-checklist/"&gt;Produktions-Checkliste&lt;/a&gt;&lt;/strong&gt; - Prüfung vor der Inbetriebnahme&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.com/de/docs/pool-controller/security-checklist/"&gt;Sicherheits-Checkliste&lt;/a&gt;&lt;/strong&gt; - Empfehlungen zur IT-Sicherheit&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/components/pool-controller/security-checklist/"&gt;Sicherheits-Checkliste&lt;/a&gt;&lt;/strong&gt; - Empfehlungen zur IT-Sicherheit&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Hardware&lt;span class="hx:absolute hx:-mt-20" id="hardware"&gt;&lt;/span&gt;
 &lt;a href="#hardware" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.com/de/docs/pool-controller/hardware-guide/"&gt;Hardware-Anleitung&lt;/a&gt;&lt;/strong&gt; - Komponenten, Verdrahtung und Status-LED&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/components/pool-controller/hardware-guide/"&gt;Hardware-Anleitung&lt;/a&gt;&lt;/strong&gt; - Komponenten, Verdrahtung und Status-LED&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.com/de/docs/pool-controller/esp32-complete-wiring-schematic/"&gt;ESP32-Verdrahtungsplan&lt;/a&gt;&lt;/strong&gt; - Vollständige Anschlussanleitung&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/components/pool-controller/esp32-complete-wiring-schematic/"&gt;ESP32-Verdrahtungsplan&lt;/a&gt;&lt;/strong&gt; - Vollständige Anschlussanleitung&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.com/de/docs/pool-controller/norvi-ae01-r/"&gt;NORVI AE01-R&lt;/a&gt;&lt;/strong&gt; - Industrielle Hutschienen-Variante&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/components/pool-controller/norvi-ae01-r/"&gt;NORVI AE01-R&lt;/a&gt;&lt;/strong&gt; - Industrielle Hutschienen-Variante&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.com/docs/pool-controller/olimex-esp32-c6-evb/"&gt;Olimex ESP32-C6-EVB&lt;/a&gt;&lt;/strong&gt; - Variante mit TFT-Display und Drehgeber (englisch)&lt;/li&gt;
+href="https://smart-swimmingpool.com/docs/components/pool-controller/olimex-esp32-c6-evb/"&gt;Olimex ESP32-C6-EVB&lt;/a&gt;&lt;/strong&gt; - Variante mit TFT-Display und Drehgeber (englisch)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.com/de/docs/pool-controller/contactor-guide/"&gt;Schütz-Anleitung&lt;/a&gt;&lt;/strong&gt; - Pumpen sicher schalten&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/components/pool-controller/contactor-guide/"&gt;Schütz-Anleitung&lt;/a&gt;&lt;/strong&gt; - Pumpen sicher schalten&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
 href="https://smart-swimmingpool.com/de/docs/bom/"&gt;Stückliste (BOM)&lt;/a&gt;&lt;/strong&gt; - Vollständige Teileliste&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Firmware&lt;span class="hx:absolute hx:-mt-20" id="firmware"&gt;&lt;/span&gt;
 &lt;a href="#firmware" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.com/de/docs/pool-controller/software-guide/"&gt;Software-Anleitung&lt;/a&gt;&lt;/strong&gt; - Firmware bauen und flashen&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/components/pool-controller/software-guide/"&gt;Software-Anleitung&lt;/a&gt;&lt;/strong&gt; - Firmware bauen und flashen&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.com/de/docs/pool-controller/users-guide/"&gt;Benutzerhandbuch&lt;/a&gt;&lt;/strong&gt; - Konfiguration über das Web-Interface&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/components/pool-controller/users-guide/"&gt;Benutzerhandbuch&lt;/a&gt;&lt;/strong&gt; - Konfiguration über das Web-Interface&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.com/de/docs/pool-controller/mqtt-configuration/"&gt;MQTT-Konfiguration&lt;/a&gt;&lt;/strong&gt; - Broker-Einrichtung und Topics&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/components/pool-controller/mqtt-configuration/"&gt;MQTT-Konfiguration&lt;/a&gt;&lt;/strong&gt; - Broker-Einrichtung und Topics&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.com/de/docs/pool-controller/ota-updates/"&gt;OTA-Updates&lt;/a&gt;&lt;/strong&gt; - Firmware-Updates über WLAN&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/components/pool-controller/ota-updates/"&gt;OTA-Updates&lt;/a&gt;&lt;/strong&gt; - Firmware-Updates über WLAN&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Fortgeschritten&lt;span class="hx:absolute hx:-mt-20" id="fortgeschritten"&gt;&lt;/span&gt;
 &lt;a href="#fortgeschritten" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.com/de/docs/pool-controller/safety-model/"&gt;Sicherheitsmodell&lt;/a&gt;&lt;/strong&gt; - Sicherheitsarchitektur&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/components/pool-controller/safety-model/"&gt;Sicherheitsmodell&lt;/a&gt;&lt;/strong&gt; - Sicherheitsarchitektur&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.com/de/docs/pool-controller/temperature-based-circulation/"&gt;Temperaturbasierte Umwälzung&lt;/a&gt;&lt;/strong&gt; - Adaptive Filterlaufzeit&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/components/pool-controller/temperature-based-circulation/"&gt;Temperaturbasierte Umwälzung&lt;/a&gt;&lt;/strong&gt; - Adaptive Filterlaufzeit&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.com/de/docs/pool-controller/troubleshooting-matrix/"&gt;Fehlerbehebungs-Matrix&lt;/a&gt;&lt;/strong&gt; - Häufige Probleme und Lösungen&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/components/pool-controller/troubleshooting-matrix/"&gt;Fehlerbehebungs-Matrix&lt;/a&gt;&lt;/strong&gt; - Häufige Probleme und Lösungen&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;🔧 Hardware-Anforderungen&lt;span class="hx:absolute hx:-mt-20" id="-hardware-anforderungen"&gt;&lt;/span&gt;
 &lt;a href="#-hardware-anforderungen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Minimale Einrichtung&lt;span class="hx:absolute hx:-mt-20" id="minimale-einrichtung"&gt;&lt;/span&gt;
@@ -107,7 +107,8 @@ href="https://smart-swimmingpool.com/de/docs/pool-controller/troubleshooting-mat
 &lt;tr&gt;
 &lt;td&gt;&lt;strong&gt;Gesamt&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;strong&gt;~30 €&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;~35–55 €&lt;/strong&gt; (siehe &lt;a
+href="https://smart-swimmingpool.com/de/docs/bom/"&gt;Stückliste&lt;/a&gt;)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -207,24 +208,24 @@ href="https://smart-swimmingpool.com/de/docs/start-here/"&gt;Hier beginnen&lt;/a
 &lt;li&gt;&lt;strong&gt;&lt;a
 href="https://smart-swimmingpool.com/de/docs/quickstart/"&gt;Schnellstart&lt;/a&gt;&lt;/strong&gt; - Schnellster Weg zum Laufen (60 Minuten)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.com/de/docs/getting-started/"&gt;Erste Schritte&lt;/a&gt;&lt;/strong&gt; - Umfassliche Aufbauanleitung&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/getting-started/"&gt;Bauanleitung&lt;/a&gt;&lt;/strong&gt; - Umfassliche Aufbauanleitung&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.com/de/docs/home-assistant-integration/"&gt;Home Assistant Integration&lt;/a&gt;&lt;/strong&gt; - Smarthome-Integration&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/integrations/home-assistant/"&gt;Home Assistant Integration&lt;/a&gt;&lt;/strong&gt; - Smarthome-Integration&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2&gt;💬 Brauchen Sie Hilfe?&lt;span class="hx:absolute hx:-mt-20" id="-brauchen-sie-hilfe"&gt;&lt;/span&gt;
 &lt;a href="#-brauchen-sie-hilfe" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Prüfen Sie die &lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.com/de/docs/troubleshooting/"&gt;FAQ &amp;amp; Fehlerbehebung&lt;/a&gt;&lt;/strong&gt; Seite&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/troubleshooting/"&gt;Fehlerbehebung&lt;/a&gt;&lt;/strong&gt; Seite&lt;/li&gt;
 &lt;li&gt;Besuchen Sie das &lt;strong&gt;&lt;a
 href="https://github.com/smart-swimmingpool/pool-controller"target="_blank" rel="noopener"&gt;Pool Controller Repository&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;Öffnen Sie ein &lt;strong&gt;&lt;a
 href="https://github.com/smart-swimmingpool/pool-controller/issues"target="_blank" rel="noopener"&gt;Issue&lt;/a&gt;&lt;/strong&gt; für Bugs oder Feature-Anfragen&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>Firmware-Migration (v2.x → v3.x)</title><link>https://smart-swimmingpool.com/de/docs/firmware-migration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/de/docs/firmware-migration/</guid><description>
+&lt;/ul&gt;</description></item><item><title>Migrationsanleitung v2.x → v3.x</title><link>https://smart-swimmingpool.com/de/docs/migration/v2-to-v3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/de/docs/migration/v2-to-v3/</guid><description>
 &lt;p&gt;&lt;strong&gt;🏊 Smart Swimming Pool: Migration vom alten Homie 3.0-Format zum neuen MQTT-Discovery-Format&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Wenn Sie den &lt;strong&gt;Pool Controller v2.x&lt;/strong&gt; (oder älter) betreiben und auf &lt;strong&gt;v3.x&lt;/strong&gt; upgraden möchten, erklärt dieser Leitfaden, was sich ändert und wie Sie Ihre Smart-Home-Integration aktualisieren müssen.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;💡 &lt;strong&gt;Neuling?&lt;/strong&gt; Wenn Sie den Pool Controller zum ersten Mal installieren, folgen Sie stattdessen der &lt;a
-href="https://smart-swimmingpool.com/de/docs/getting-started/"&gt;Erste Schritte&lt;/a&gt;-Anleitung. Diese Anleitung ist nur relevant, wenn Sie bereits ein Homie 3.0-Setup haben.&lt;/p&gt;
+href="https://smart-swimmingpool.com/de/docs/getting-started/"&gt;Bauanleitung&lt;/a&gt;-Anleitung. Diese Anleitung ist nur relevant, wenn Sie bereits ein Homie 3.0-Setup haben.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;hr&gt;
 &lt;h2&gt;Übersicht&lt;span class="hx:absolute hx:-mt-20" id="übersicht"&gt;&lt;/span&gt;
@@ -245,7 +246,7 @@ href="https://smart-swimmingpool.com/de/docs/getting-started/"&gt;Erste Schritte
 &lt;tr&gt;
 &lt;td&gt;&lt;strong&gt;Geräte-ID&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;MAC-Adresse (z.B. &lt;code&gt;5ccf7fb97572&lt;/code&gt;)&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;pool-controller&lt;/code&gt; (konfigurierbar)&lt;/td&gt;
+&lt;td&gt;Fester Topic-Abschnitt &lt;code&gt;pool-controller&lt;/code&gt;; Home-Assistant-Geräte-ID &lt;code&gt;pool_controller_&amp;lt;letzte 3 MAC-Bytes&amp;gt;&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;strong&gt;Verfügbarkeit&lt;/strong&gt;&lt;/td&gt;
@@ -277,7 +278,7 @@ href="https://www.home-assistant.io/integrations/mqtt/#mqtt-discovery"target="_b
 &lt;h2&gt;Firmware-Upgrade&lt;span class="hx:absolute hx:-mt-20" id="firmware-upgrade"&gt;&lt;/span&gt;
 &lt;a href="#firmware-upgrade" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Schritt 1: v3.x flashen&lt;span class="hx:absolute hx:-mt-20" id="schritt-1-v3x-flashen"&gt;&lt;/span&gt;
 &lt;a href="#schritt-1-v3x-flashen" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Folgen Sie der Standard-Flash-Prozedur in der &lt;a
-href="https://smart-swimmingpool.com/de/docs/getting-started/#firmware-installation"&gt;Erste Schritte&lt;/a&gt;-Anleitung:&lt;/p&gt;
+href="https://smart-swimmingpool.com/de/docs/getting-started/#firmware-installation"&gt;Bauanleitung&lt;/a&gt;-Anleitung:&lt;/p&gt;
 &lt;div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code"&gt;
 &lt;div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# In VS Code mit PlatformIO:&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 1. Firmware hochladen&lt;/span&gt;
@@ -319,14 +320,14 @@ data-copied-label="Kopiert!"
 &lt;li&gt;Gehen Sie zu &lt;strong&gt;Einstellungen → Geräte &amp;amp; Dienste&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;Das Gerät &lt;strong&gt;Pool Controller&lt;/strong&gt; sollte automatisch erscheinen&lt;/li&gt;
 &lt;li&gt;Siehe &lt;a
-href="https://smart-swimmingpool.com/de/docs/home-assistant-integration/"&gt;Home Assistant Integrations-Guide&lt;/a&gt; für die vollständige Entity-Referenz&lt;/li&gt;
+href="https://smart-swimmingpool.com/de/docs/integrations/home-assistant/"&gt;Home Assistant Integrations-Guide&lt;/a&gt; für die vollständige Entity-Referenz&lt;/li&gt;
 &lt;/ol&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Hinweis&lt;/strong&gt;: Wenn Sie manuell MQTT-Sensoren in Home Assistant für die Homie-Topics konfiguriert hatten, werden diese nach dem Upgrade als &lt;strong&gt;nicht verfügbar&lt;/strong&gt; angezeigt. Entfernen Sie sie manuell — die automatisch erkannten Entitäten ersetzen sie.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3&gt;openHAB-Nutzer&lt;span class="hx:absolute hx:-mt-20" id="openhab-nutzer"&gt;&lt;/span&gt;
 &lt;a href="#openhab-nutzer" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;openHAB erfordert &lt;strong&gt;manuelle MQTT-Konfiguration&lt;/strong&gt;. Der &lt;a
-href="https://smart-swimmingpool.com/de/docs/openhab-integration/"&gt;openHAB Integrations-Guide&lt;/a&gt; zeigt die vollständige Einrichtung.&lt;/p&gt;
+href="https://smart-swimmingpool.com/de/docs/integrations/openhab/"&gt;openHAB Integrations-Guide&lt;/a&gt; zeigt die vollständige Einrichtung.&lt;/p&gt;
 &lt;h4&gt;Was sich ändern muss&lt;span class="hx:absolute hx:-mt-20" id="was-sich-ändern-muss"&gt;&lt;/span&gt;
 &lt;a href="#was-sich-%c3%a4ndern-muss" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h4&gt;&lt;table&gt;
 &lt;thead&gt;
@@ -496,9 +497,9 @@ data-copied-label="Kopiert!"
 &lt;li&gt;&lt;code&gt;temp-circ-max-runtime&lt;/code&gt; — maximale Zirkulationslaufzeit&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Diese gab es in v2.x nicht und haben kein Homie-Äquivalent.&lt;/p&gt;
-&lt;h3&gt;4. Geräte-ID ist jetzt konfigurierbar&lt;span class="hx:absolute hx:-mt-20" id="4-geräte-id-ist-jetzt-konfigurierbar"&gt;&lt;/span&gt;
-&lt;a href="#4-ger%c3%a4te-id-ist-jetzt-konfigurierbar" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;In v2.x war die Geräte-ID &lt;strong&gt;immer&lt;/strong&gt; die MAC-Adresse (&lt;code&gt;5ccf7fb97572&lt;/code&gt;). In v3.x ist die Standard-ID &lt;code&gt;pool-controller&lt;/code&gt;, aber Sie können sie im Webinterface unter &lt;strong&gt;Konfiguration → MQTT → Geräte-ID&lt;/strong&gt; &lt;strong&gt;ändern&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;Wenn Sie sie ändern, aktualisieren Sie alle Topic-Pfade entsprechend.&lt;/p&gt;
+&lt;h3&gt;4. Geräte-ID ist nicht mehr die MAC-Adresse&lt;span class="hx:absolute hx:-mt-20" id="4-geräte-id-ist-nicht-mehr-die-mac-adresse"&gt;&lt;/span&gt;
+&lt;a href="#4-ger%c3%a4te-id-ist-nicht-mehr-die-mac-adresse" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;In v2.x war die Geräte-ID die MAC-Adresse (&lt;code&gt;5ccf7fb97572&lt;/code&gt;) und kam in jedem Topic vor. In v3.x verwenden alle Topics den festen Abschnitt &lt;code&gt;pool-controller&lt;/code&gt; (&lt;code&gt;homeassistant/&amp;lt;Komponente&amp;gt;/pool-controller/&amp;lt;Objekt-ID&amp;gt;/…&lt;/code&gt;). Home Assistant erkennt das Gerät als &lt;code&gt;pool_controller_&amp;lt;letzte 3 MAC-Bytes in Hex&amp;gt;&lt;/code&gt;. Beides lässt sich im Webinterface nicht ändern.&lt;/p&gt;
+&lt;p&gt;Passen Sie Topic-Pfade an, die noch die MAC-Adresse enthalten.&lt;/p&gt;
 &lt;h3&gt;5. Kein Homie-Kompatibilitätsmodus&lt;span class="hx:absolute hx:-mt-20" id="5-kein-homie-kompatibilitätsmodus"&gt;&lt;/span&gt;
 &lt;a href="#5-kein-homie-kompatibilit%c3%a4tsmodus" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Die v3.x-Firmware &lt;strong&gt;unterstützt nur&lt;/strong&gt; Home Assistant MQTT Discovery. Es gibt keinen Rückwärtskompatibilitätsmodus für Homie 3.0. Wenn Sie Homie für benutzerdefinierte Integrationen benötigen, bleiben Sie bei v2.x.&lt;/p&gt;
 &lt;hr&gt;
@@ -540,7 +541,7 @@ data-copied-label="Kopiert!"
 &lt;td&gt;Aktuell — für alle Nutzer empfohlen&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
-&lt;/table&gt;</description></item><item><title>OTA-Updates</title><link>https://smart-swimmingpool.com/de/docs/pool-controller/ota-updates/</link><pubDate>Thu, 11 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/de/docs/pool-controller/ota-updates/</guid><description>
+&lt;/table&gt;</description></item><item><title>OTA-Updates</title><link>https://smart-swimmingpool.com/de/docs/components/pool-controller/ota-updates/</link><pubDate>Thu, 11 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/de/docs/components/pool-controller/ota-updates/</guid><description>
 &lt;h1&gt;Over-The-Air (OTA) Updates&lt;/h1&gt;&lt;h2&gt;Übersicht&lt;span class="hx:absolute hx:-mt-20" id="übersicht"&gt;&lt;/span&gt;
 &lt;a href="#%c3%bcbersicht" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Der Pool Controller unterstützt Over-The-Air (OTA) Firmware-Updates, sodass
 Sie das Gerät remote ohne physischen Zugriff aktualisieren können.&lt;/p&gt;
