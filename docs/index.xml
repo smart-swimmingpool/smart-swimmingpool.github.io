@@ -3234,7 +3234,17 @@ href="https://smart-swimmingpool.com/de/blog/swimmingpool-openhab-3-4/"&gt;Swimm
 href="https://smart-swimmingpool.com/de/blog/der-smarte-pool-4-4/"&gt;Der smarte Pool (4/4)&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title/><link>https://smart-swimmingpool.com/docs/components/pool-controller/olimex-esp32-c6-evb/</link><pubDate>Fri, 02 Oct 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/components/pool-controller/olimex-esp32-c6-evb/</guid><description>
+&lt;/ul&gt;
+&lt;h2&gt;Project History&lt;span class="hx:absolute hx:-mt-20" id="project-history"&gt;&lt;/span&gt;
+&lt;a href="#project-history" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;🏊 Smart Swimming Pool originated from an &lt;a
+href="https://github.com/stritti/smart-swimming-pool"target="_blank" rel="noopener"&gt;earlier project&lt;/a&gt; that was not yet modular and had all control logic implemented as openHAB rules.&lt;/p&gt;
+&lt;p&gt;The first version ran in &lt;strong&gt;Summer 2018&lt;/strong&gt; and revealed several weaknesses:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Controlling pumps via 433 MHz socket switches was unreliable — no feedback meant the actual state was unknown&lt;/li&gt;
+&lt;li&gt;Switching logic lived in openHAB rules, causing problems when WiFi was unreliable&lt;/li&gt;
+&lt;li&gt;MQTT messages used a proprietary format&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Based on these lessons, the revised 🏊 Smart Swimming Pool was built: modular, resilient, and standards-based.&lt;/p&gt;</description></item><item><title/><link>https://smart-swimmingpool.com/docs/components/pool-controller/olimex-esp32-c6-evb/</link><pubDate>Fri, 02 Oct 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/docs/components/pool-controller/olimex-esp32-c6-evb/</guid><description>
 &lt;h1&gt;Olimex ESP32-C6-EVB Variant&lt;/h1&gt;&lt;h2&gt;Hardware&lt;span class="hx:absolute hx:-mt-20" id="hardware"&gt;&lt;/span&gt;
 &lt;a href="#hardware" class="subheading-anchor" aria-label="Permalink for this section"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Board: Olimex ESP32-C6-EVB&lt;/li&gt;

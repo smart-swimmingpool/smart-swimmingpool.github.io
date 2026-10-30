@@ -604,7 +604,17 @@ href="https://medium.com/diy-my-smart-home/project-smart-swimmingpool-4c40eb6741
 &lt;p&gt;📄 &lt;a
 href="https://smart-swimmingpool.com/blog/smart-swimming-pool-project/"&gt;Hier auf der Seite lesen&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title/><link>https://smart-swimmingpool.com/de/docs/components/pool-controller/norvi-display-navigation-concept/</link><pubDate>Fri, 02 Oct 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/de/docs/components/pool-controller/norvi-display-navigation-concept/</guid><description>
+&lt;/ul&gt;
+&lt;h2&gt;Projektgeschichte&lt;span class="hx:absolute hx:-mt-20" id="projektgeschichte"&gt;&lt;/span&gt;
+&lt;a href="#projektgeschichte" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;🏊 Smart Swimming Pool basiert auf einem &lt;a
+href="https://github.com/stritti/smart-swimming-pool"target="_blank" rel="noopener"&gt;früheren Projekt&lt;/a&gt;, das noch nicht modular aufgebaut war und die gesamte Steuerlogik als openHAB-Regeln implementierte.&lt;/p&gt;
+&lt;p&gt;Die erste Version war im &lt;strong&gt;Sommer 2018&lt;/strong&gt; im Einsatz und zeigte einige Schwächen:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Die Steuerung der Pumpen über 433-MHz-Steckdosenschalter war unzuverlässig — ohne Rückmeldung war der tatsächliche Status unbekannt&lt;/li&gt;
+&lt;li&gt;Die Schaltlogik lebte in openHAB-Regeln, was bei unzuverlässigem WLAN zu Problemen führte&lt;/li&gt;
+&lt;li&gt;MQTT-Nachrichten verwendeten ein proprietäres Format&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Aus diesen Erfahrungen entstand die überarbeitete Version des 🏊 Smart Swimming Pools: modular, widerstandsfähig und auf Standards basierend.&lt;/p&gt;</description></item><item><title/><link>https://smart-swimmingpool.com/de/docs/components/pool-controller/norvi-display-navigation-concept/</link><pubDate>Fri, 02 Oct 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/de/docs/components/pool-controller/norvi-display-navigation-concept/</guid><description>
 &lt;h1&gt;Bedien- und Navigationskonzept — NORVI IIOT-AE01-R OLED + 3 Tasten&lt;/h1&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Status:&lt;/strong&gt; Konzept / RFC
 &lt;strong&gt;Ziel:&lt;/strong&gt; Verbesserung der UX des 128×64 OLED-Displays mit den drei Fronttasten (S1/S2/S3)

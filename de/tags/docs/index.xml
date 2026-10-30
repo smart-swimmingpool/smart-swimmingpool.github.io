@@ -572,20 +572,23 @@ data-copied-label="Kopiert!"
 &lt;li&gt;&lt;strong&gt;MQTT-Integration&lt;/strong&gt;: Veröffentlicht alle Daten im Home Assistant MQTT Discovery Format&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Web-Interface&lt;/strong&gt;: Integrierte Konfigurationsoberfläche für einfache Einrichtung&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Autonomer Betrieb&lt;/strong&gt;: Funktioniert unabhängig ohne Smarthome-Server&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;✨ Hauptmerkmale&lt;span class="hx:absolute hx:-mt-20" id="-hauptmerkmale"&gt;&lt;/span&gt;
-&lt;a href="#-hauptmerkmale" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;✅ &lt;strong&gt;ESP32-basiert&lt;/strong&gt;: Leistungsstarker Mikrocontroller mit WLAN-Anbindung&lt;/li&gt;
-&lt;li&gt;✅ &lt;strong&gt;MQTT Discovery&lt;/strong&gt;: Automatische Integration mit Home Assistant&lt;/li&gt;
-&lt;li&gt;✅ &lt;strong&gt;Web-UI&lt;/strong&gt;: Einfache Konfiguration über Browser&lt;/li&gt;
-&lt;li&gt;✅ &lt;strong&gt;Active-Low-Relais&lt;/strong&gt;: Sichere Standardzustände (Relais AUS während des Boots)&lt;/li&gt;
-&lt;li&gt;✅ &lt;strong&gt;Separate GPIO pro Sensor&lt;/strong&gt;: Unabhängige Fehlererkennung&lt;/li&gt;
-&lt;li&gt;✅ &lt;strong&gt;Offline-Betrieb&lt;/strong&gt;: Funktioniert auch ohne WLAN weiter&lt;/li&gt;
-&lt;li&gt;✅ &lt;strong&gt;Open Source&lt;/strong&gt;: MIT-Lizenz, frei zu verwenden und zu modifizieren&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ESP32-basiert&lt;/strong&gt;: Leistungsstarker Mikrocontroller mit WLAN-Anbindung&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Active-Low-Relais&lt;/strong&gt;: Sichere Standardzustände (Relais AUS während des Boots)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Separate GPIO pro Sensor&lt;/strong&gt;: Unabhängige Fehlererkennung&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Offline-Betrieb&lt;/strong&gt;: Funktioniert auch ohne WLAN weiter&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Open Source&lt;/strong&gt;: MIT-Lizenz, frei zu verwenden und zu modifizieren&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;🧭 Schnelle Links&lt;span class="hx:absolute hx:-mt-20" id="-schnelle-links"&gt;&lt;/span&gt;
 &lt;a href="#-schnelle-links" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Erste Schritte&lt;span class="hx:absolute hx:-mt-20" id="erste-schritte"&gt;&lt;/span&gt;
 &lt;a href="#erste-schritte" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.com/de/docs/start-here/"&gt;Hier beginnen&lt;/a&gt;&lt;/strong&gt; - Wählen Sie Ihren Weg basierend auf Ihren Zielen&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.com/de/docs/quickstart/"&gt;Schnellstart&lt;/a&gt;&lt;/strong&gt; - Schnellster Weg zum Laufen (60 Minuten)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.com/de/docs/getting-started/"&gt;Bauanleitung&lt;/a&gt;&lt;/strong&gt; - Umfassende Aufbauanleitung&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a
+href="https://smart-swimmingpool.com/de/docs/integrations/home-assistant/"&gt;Home Assistant Integration&lt;/a&gt;&lt;/strong&gt; - Smarthome-Integration&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
 href="https://smart-swimmingpool.com/de/docs/components/pool-controller/build-from-zero/"&gt;Aufbau von Grund auf&lt;/a&gt;&lt;/strong&gt; - Vollständige Aufbauanleitung&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a
@@ -763,17 +766,6 @@ nutzen eigene Pinbelegungen, siehe &lt;code&gt;src/Config.hpp&lt;/code&gt; und d
 &lt;blockquote&gt;
 &lt;p&gt;⚠️ &lt;strong&gt;Wichtig&lt;/strong&gt;: Jede DS18B20-Datenleitung benötigt einen &lt;strong&gt;4,7kΩ Pull-up-Widerstand&lt;/strong&gt; zu 3,3V.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2&gt;🚀 Nächste Schritte&lt;span class="hx:absolute hx:-mt-20" id="-nächste-schritte"&gt;&lt;/span&gt;
-&lt;a href="#-n%c3%a4chste-schritte" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.com/de/docs/start-here/"&gt;Hier beginnen&lt;/a&gt;&lt;/strong&gt; - Wählen Sie Ihren Weg basierend auf Ihren Zielen&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.com/de/docs/quickstart/"&gt;Schnellstart&lt;/a&gt;&lt;/strong&gt; - Schnellster Weg zum Laufen (60 Minuten)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.com/de/docs/getting-started/"&gt;Bauanleitung&lt;/a&gt;&lt;/strong&gt; - Umfassliche Aufbauanleitung&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a
-href="https://smart-swimmingpool.com/de/docs/integrations/home-assistant/"&gt;Home Assistant Integration&lt;/a&gt;&lt;/strong&gt; - Smarthome-Integration&lt;/li&gt;
-&lt;/ol&gt;
 &lt;h2&gt;💬 Brauchen Sie Hilfe?&lt;span class="hx:absolute hx:-mt-20" id="-brauchen-sie-hilfe"&gt;&lt;/span&gt;
 &lt;a href="#-brauchen-sie-hilfe" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Prüfen Sie die &lt;strong&gt;&lt;a
@@ -2413,53 +2405,42 @@ Verwende immer einen &lt;strong&gt;RCD (FI-Schutzschalter)&lt;/strong&gt;. Das P
 &lt;thead&gt;
 &lt;tr&gt;
 &lt;th&gt;Komponente&lt;/th&gt;
-&lt;th&gt;Preis (ca.)&lt;/th&gt;
 &lt;th&gt;Hinweise&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;ESP32 DevKit V1&lt;/td&gt;
-&lt;td&gt;10–15 €&lt;/td&gt;
 &lt;td&gt;Mind. 4MB Flash, USB-Kabel inklusive&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;DS18B20 Temperatursensor (2x, wasserdicht)&lt;/td&gt;
-&lt;td&gt;8–12 €&lt;/td&gt;
 &lt;td&gt;Edelstahlsonde, 1m Kabel&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;2-Kanal-Relais-Modul&lt;/td&gt;
-&lt;td&gt;5–8 €&lt;/td&gt;
 &lt;td&gt;Standard &lt;strong&gt;Aktiv-Low&lt;/strong&gt;-Modul — siehe Hinweise&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;4,7kΩ Widerstände (2x)&lt;/td&gt;
-&lt;td&gt;&amp;lt; 1 €&lt;/td&gt;
 &lt;td&gt;Pull-Up-Widerstände für OneWire-Bus&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Breadboard + Jumper-Kabel&lt;/td&gt;
-&lt;td&gt;3–8 €&lt;/td&gt;
 &lt;td&gt;Für Prototyp; für Dauerbetrieb Lochrasterplatine&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;USB-Netzteil (5V / 1A+)&lt;/td&gt;
-&lt;td&gt;5–10 €&lt;/td&gt;
 &lt;td&gt;Für ESP32 + Relaismodul&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Gehäuse (IP54+)&lt;/td&gt;
-&lt;td&gt;5–10 €&lt;/td&gt;
 &lt;td&gt;Optional, aber empfohlen für Außeneinsatz&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;Gesamt&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;&lt;strong&gt;~35–65 €&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;&lt;strong&gt;Ohne Pumpen / Wärmetauscher-Infrastruktur&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;p&gt;Preise und vollständige Teileliste: siehe &lt;a
+href="https://smart-swimmingpool.com/de/docs/bom/"&gt;Stückliste&lt;/a&gt; (Controller-Elektronik ~35–55 €, ohne Pumpen und Wärmetauscher-Infrastruktur).&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;⚠️ Relais-Modul Hinweis:&lt;/strong&gt; Die Firmware steuert die Relais &lt;strong&gt;Aktiv-Low&lt;/strong&gt; (GPIO &lt;strong&gt;LOW&lt;/strong&gt; = Relais EIN, GPIO &lt;strong&gt;HIGH&lt;/strong&gt; = Relais AUS). Dies entspricht der überwiegenden Mehrheit günstiger 2-Kanal-5V-Relais-Module. Während des ESP32-Starts sind die GPIOs kurz im hochohmigen Zustand — die Firmware setzt sie sofort nach dem Start auf HIGH (Relais AUS). Falls Ihr Modul andersherum arbeitet (Aktiv-High), finden Sie Konfigurationsmöglichkeiten im &lt;a
 href="https://smart-swimmingpool.com/de/docs/troubleshooting/"&gt;Fehlerbehebung&lt;/a&gt;.&lt;/p&gt;
@@ -4672,7 +4653,17 @@ href="https://medium.com/diy-my-smart-home/project-smart-swimmingpool-4c40eb6741
 &lt;p&gt;📄 &lt;a
 href="https://smart-swimmingpool.com/blog/smart-swimming-pool-project/"&gt;Hier auf der Seite lesen&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>Elektrische Sicherheit</title><link>https://smart-swimmingpool.com/de/docs/components/pool-controller/electrical-safety/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/de/docs/components/pool-controller/electrical-safety/</guid><description>
+&lt;/ul&gt;
+&lt;h2&gt;Projektgeschichte&lt;span class="hx:absolute hx:-mt-20" id="projektgeschichte"&gt;&lt;/span&gt;
+&lt;a href="#projektgeschichte" class="subheading-anchor" aria-label="Permalink für diesen Abschnitt"&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;🏊 Smart Swimming Pool basiert auf einem &lt;a
+href="https://github.com/stritti/smart-swimming-pool"target="_blank" rel="noopener"&gt;früheren Projekt&lt;/a&gt;, das noch nicht modular aufgebaut war und die gesamte Steuerlogik als openHAB-Regeln implementierte.&lt;/p&gt;
+&lt;p&gt;Die erste Version war im &lt;strong&gt;Sommer 2018&lt;/strong&gt; im Einsatz und zeigte einige Schwächen:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Die Steuerung der Pumpen über 433-MHz-Steckdosenschalter war unzuverlässig — ohne Rückmeldung war der tatsächliche Status unbekannt&lt;/li&gt;
+&lt;li&gt;Die Schaltlogik lebte in openHAB-Regeln, was bei unzuverlässigem WLAN zu Problemen führte&lt;/li&gt;
+&lt;li&gt;MQTT-Nachrichten verwendeten ein proprietäres Format&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Aus diesen Erfahrungen entstand die überarbeitete Version des 🏊 Smart Swimming Pools: modular, widerstandsfähig und auf Standards basierend.&lt;/p&gt;</description></item><item><title>Elektrische Sicherheit</title><link>https://smart-swimmingpool.com/de/docs/components/pool-controller/electrical-safety/</link><pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate><guid>https://smart-swimmingpool.com/de/docs/components/pool-controller/electrical-safety/</guid><description>
 &lt;blockquote&gt;
 &lt;p&gt;⚠️ &lt;strong&gt;WARNUNG: Dieses Dokument beschreibt die Installation von 230V AC-Netzspannung.&lt;/strong&gt;
 Fehlerhafte Verdrahtung kann zu Stromschlag, Brand oder Geräteschäden führen.&lt;/p&gt;
